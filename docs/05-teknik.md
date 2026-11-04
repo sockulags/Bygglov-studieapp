@@ -93,6 +93,7 @@ arende_steg     (id, arende_id, steg_id, svar_json, poang, klar_tidpunkt)
 arende_handelse (id, arende_id, handelse_id, utlost_tidpunkt, sim_datum)
 beslut          (id, arende_id, beslut_json, inlamnad, export_tidpunkt)
 handledar_svar  (id, beslut_id, text, betyg, tidpunkt)          -- fylls manuellt eller via portal
+case_state      (case_id PK, state_json, notes, reflection)     -- motorns hela tillstånd (migration 2)
 
 -- Övrigt
 installning     (nyckel PK, varde)
@@ -118,6 +119,12 @@ function bedomBeslut(arende, beslut): Bedomning                 // strukturerade
 
 Händelser är deklarativa i YAML (utlösare + effekt) och motorn är den enda som tolkar dem.
 Nya typer av utlösare läggs till i motorn, inte i varje ärende.
+
+Så blev det (fas 2): motorn ligger i `apps/desktop/src/engine/cases/` med `startCase`,
+`submitStep`, `skipStep`, `submitDecision`, `evaluateTriggers` och `assessDecision`.
+Tillståndet (`CaseState`) är JSON och sparas helt i `case_state`; stegen, händelserna och
+besluten skrivs också som egna rader så att de kan listas och exporteras. Vad motorn tolkar
+och hur står i [03-arendesimulator.md](03-arendesimulator.md#så-fungerar-det-i-appen-fas-2-v02).
 
 ## Repetitionsalgoritm
 

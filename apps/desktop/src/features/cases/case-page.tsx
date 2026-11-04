@@ -46,6 +46,7 @@ import {
 import {
   flushCaseWrites,
   markCaseDocumentSeen,
+  markCaseReviewed,
   openCase,
   saveStepDraft,
   selfAssessCaseStep,
@@ -195,6 +196,7 @@ const DEADLINE_TONE = {
   warning: 'border-plan-yellow bg-plan-yellow-soft text-ink',
   overdue: 'border-brick/50 bg-brick-soft text-brick',
   paused: 'border-line-strong bg-bg text-muted',
+  done: 'border-success/40 bg-success-soft text-success',
 } as const;
 
 function useDiaryNumber(caseFile: CaseFile): string | undefined {
@@ -502,6 +504,8 @@ function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: Activ
             reflection={active.reflection}
             onReflectionChange={(text) => setCaseReflection(caseFile, text)}
             onSelfAssess={(checked) => selfAssessCaseStep(caseFile, latestDecision.stepId, checked)}
+            decisionId={active.decisionIds.at(-1) ?? null}
+            onReviewed={() => void markCaseReviewed(caseFile)}
           />
         </FullScreen>
       )}

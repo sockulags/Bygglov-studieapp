@@ -203,6 +203,7 @@ function CaseCard({
                 to="/cases/$caseId"
                 params={{ caseId: caseFile.id }}
                 className={buttonVariants()}
+                aria-label={`${summary.status === 'pagar' ? 'Fortsätt' : 'Öppna'} ${caseFile.id}, ${caseFile.titel}`}
               >
                 {summary.status === 'pagar' ? 'Fortsätt' : 'Öppna'}
                 <ArrowRight aria-hidden="true" />
@@ -213,7 +214,7 @@ function CaseCard({
               </Button>
             </>
           ) : (
-            <Button onClick={onStart}>
+            <Button onClick={onStart} aria-label={`Starta ${caseFile.id}, ${caseFile.titel}`}>
               <Play aria-hidden="true" />
               Starta
             </Button>

@@ -5,9 +5,9 @@ datum: 2026-09-07
 diarienummer: TRV 2026/91342
 ---
 
-Bygg- och miljönämnden
-Åkerslunda kommun
-Box 100
+Bygg- och miljönämnden\
+Åkerslunda kommun\
+Box 100\
 999 99 Åkerslunda
 
 Er beteckning: BN 2026-000655
@@ -50,8 +50,8 @@ förordningen (2015:216) om trafikbuller vid bostadsbyggnader.
 Trafikverket har ingen erinran mot bygglovet under förutsättning att utfarten flyttas till
 fastighetens mittdel enligt ovan.
 
-Kristina Mårtensson
-Samhällsplanerare, Trafikverket
+Kristina Mårtensson\
+Samhällsplanerare, Trafikverket\
 070-174 06 77
 
 ---

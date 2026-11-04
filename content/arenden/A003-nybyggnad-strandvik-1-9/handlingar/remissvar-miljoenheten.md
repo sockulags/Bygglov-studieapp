@@ -43,7 +43,7 @@ skickas separat.
 Miljöenheten har ingen erinran mot bygglovet. Vatten- och avloppsfrågan är löst genom
 tillståndet.
 
-Johan Lindgren
+Johan Lindgren\
 Miljöinspektör, Åkerslunda kommun
 
 ---

@@ -112,7 +112,7 @@ Beslutet kungörs inte, eftersom det inte är ett beslut om att ge lov (9 kap. 1
 
 Beslutet har fattats med stöd av delegation från bygg- och miljönämnden.
 
-Karin Sjöholm
+Karin Sjöholm\
 Bygglovshandläggare, Åkerslunda kommun
 
 *Fiktiv handling för utbildning. Alla namn, nummer och fastigheter är fiktiva.*

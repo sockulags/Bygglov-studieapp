@@ -126,6 +126,24 @@ describe('case model helpers', () => {
     expect(deadlineSummary(after).tone).toBe('paused');
     const late = { ...state, simDate: '2026-05-20' };
     expect(deadlineSummary(late)).toMatchObject({ label: '9 dagar över fristen', tone: 'overdue' });
+    // After the decision the header shows whether it was made in time, not the running days.
+    const decision = {
+      stepId: 'S3',
+      date: '2026-04-20',
+      draft: emptyDecisionDraft(),
+      assessment: null as never,
+      checkedCriteria: null,
+    };
+    const decidedInTime = { ...late, decisions: [decision] };
+    expect(deadlineSummary(decidedInTime)).toMatchObject({
+      label: 'Beslut inom fristen',
+      tone: 'done',
+    });
+    const decidedLate = { ...late, decisions: [{ ...decision, date: '2026-05-13' }] };
+    expect(deadlineSummary(decidedLate)).toMatchObject({
+      label: 'Beslut 2 dagar för sent',
+      tone: 'overdue',
+    });
     expect(caseProgress(c, state)).toEqual({
       done: 0,
       total: 3,

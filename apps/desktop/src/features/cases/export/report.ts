@@ -86,7 +86,11 @@ export interface ReportDecision {
   /** Her fee in SEK, null when not filled in. */
   fee: number | null;
   feeLabel: string;
-  /** The fee the engine expected (sum of the fee lines), null without an assessment. */
+  /**
+   * The fee the engine expected. The taxa lines are alternatives (e.g. lov or avskrivning),
+   * so this is the line her fee matches, the only line, or null when it is ambiguous; the
+   * fee check then names the alternatives.
+   */
   expectedFee: number | null;
   appealNotice: boolean | null;
   recipients: ReportRecipient[];
@@ -208,9 +212,10 @@ function buildDecision(
   const outcome = isOutcome(draft.utfall) ? draft.utfall : null;
   const fee =
     typeof draft.avgift === 'number' && Number.isFinite(draft.avgift) ? draft.avgift : null;
-  const expectedFee = assessment
-    ? assessment.fee.lines.reduce((sum, line) => sum + line.expectedAmount, 0)
-    : null;
+  const lines = assessment?.fee.lines ?? [];
+  const expectedFee =
+    lines.find((line) => fee !== null && Math.abs(line.expectedAmount - fee) <= 1)
+      ?.expectedAmount ?? (lines.length === 1 ? (lines[0]?.expectedAmount ?? null) : null);
   return {
     outcome,
     outcomeLabel: outcome ? DECISION_OUTCOME_LABELS[outcome] : 'Inget utfall valt',

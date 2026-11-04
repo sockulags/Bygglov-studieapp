@@ -5,9 +5,9 @@ datum: 2026-11-16
 diarienummer: LST 403-28817-2026
 ---
 
-Bygg- och miljönämnden
-Åkerslunda kommun
-Box 100
+Bygg- och miljönämnden\
+Åkerslunda kommun\
+Box 100\
 999 99 Åkerslunda
 
 Er beteckning: BN 2026-000655
@@ -31,7 +31,7 @@ Om yttrande inte kommer in kan länsstyrelsen avgöra ärendet ändå.
 Yttrandet skickas till Länsstyrelsen, rättsenheten, med angivande av diarienummer
 403-28817-2026.
 
-Malin Ståhl
+Malin Ståhl\
 Förvaltningsjurist
 
 ---

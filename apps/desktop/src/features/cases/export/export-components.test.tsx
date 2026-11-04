@@ -94,7 +94,7 @@ describe('ExportDecisionButton', () => {
     );
     await user.click(screen.getByRole('button', { name: 'Exportera till handledare' }));
     const dialog = await screen.findByRole('dialog');
-    const notes = within(dialog).getByLabelText(/Anteckningar och reflektioner/);
+    const notes = within(dialog).getByLabelText(/Egna reflektioner/);
     await waitFor(() => expect(notes).toBeEnabled());
     await user.type(notes, 'Osäker på avgiften.');
     await user.click(within(dialog).getByRole('button', { name: 'Kopiera som text' }));
@@ -105,9 +105,8 @@ describe('ExportDecisionButton', () => {
     expect(text).toContain('> Osäker på avgiften.');
     expect(within(dialog).getByText(/Rapporten är kopierad/)).toBeInTheDocument();
     expect((await store.cases.getDecision(decision.id))?.exportedAt).not.toBeNull();
-    expect(await store.settings.get('beslutsrapport.anteckningar.' + decision.id)).toBe(
-      'Osäker på avgiften.',
-    );
+    // The text is her reflection on the case, shared with the comparison view.
+    expect((await store.cases.getCaseStatus('A099'))?.reflection).toBe('Osäker på avgiften.');
   });
 
   it('prints the HTML report from a hidden frame', async () => {

@@ -62,6 +62,11 @@ function assertWellFormed(svg: string) {
   expect(stack).toEqual([]);
 }
 
+function issues(kind: DrawingKind, input: unknown): string[] {
+  const result = parseDrawing(kind, input);
+  return result.success ? [] : result.issues.map((i) => `${i.path}: ${i.message}`);
+}
+
 function render(kind: DrawingKind, params: unknown, ctx: DrawingContext = context): string {
   return generateDrawing(kind, params, ctx);
 }
@@ -142,12 +147,69 @@ describe('drawing generator', () => {
   });
 });
 
-describe('parameter validation', () => {
-  const issues = (kind: DrawingKind, input: unknown) => {
-    const result = parseDrawing(kind, input);
-    return result.success ? [] : result.issues.map((i) => `${i.path}: ${i.message}`);
+describe('situationsplan for a new house by a lake', () => {
+  const lakePlot = {
+    skala: 1000,
+    tomt_bredd: 60,
+    tomt_djup: 70,
+    nybyggnad: [22, 30, 16, 10],
+    anlaggningar: [
+      { rektangel: [26, 40, 8, 4], namn: 'Altan' },
+      { rektangel: [46, 16, 8, 8], namn: 'Markbädd' },
+    ],
+    punkter: [{ punkt: [10, 28], namn: 'Borrad brunn' }],
+    utfart: { sida: 'norr', lage: 30, bredd: 5 },
+    strandlinje: { sida: 'soder', avstand: 65, namn: 'Långsjön' },
+    strandskydd: { avstand: 100 },
+    gata: { sida: 'norr', namn: 'Väg 612', bredd: 7 },
+    grannar: { oster: 'Strandvik 1:12' },
   };
 
+  it('draws the new house, features, driveway, shoreline and protection line', () => {
+    const svg = render('situationsplan', lakePlot);
+    assertWellFormed(svg);
+    for (const text of [
+      'Nytt</text>',
+      'bostadshus</text>',
+      'Altan</text>',
+      'Markbädd</text>',
+      'Borrad brunn</text>',
+      'Utfart</text>',
+      'LÅNGSJÖN</text>',
+      'Strandskyddsgräns</text>',
+      'Strandskyddsgräns, 100 m från strandlinjen</text>',
+      'Vatten och strandlinje</text>',
+      '>30,0</text>',
+    ]) {
+      expect(svg).toContain(text);
+    }
+    // No existing building on the plot, so the legend does not offer one.
+    expect(svg).not.toContain('Befintlig byggnad</text>');
+    expect(svg).not.toContain('Befintligt</text>');
+  });
+
+  it('validates the new keys', () => {
+    const { nybyggnad: _house, ...withoutHouse } = lakePlot;
+    expect(issues('situationsplan', withoutHouse)).toEqual([
+      'hus: Ange hus (befintlig byggnad) eller nybyggnad (ny byggnad).',
+    ]);
+    expect(
+      issues('situationsplan', { ...lakePlot, utfart: { sida: 'norr', lage: 58, bredd: 5 } }),
+    ).toEqual(['utfart.lage: Utfarten går utanför tomtgränsen (60 m).']);
+    const { strandlinje: _shore, ...withoutShore } = lakePlot;
+    expect(issues('situationsplan', withoutShore)).toEqual([
+      'strandskydd: strandskydd kräver strandlinje (gränsen mäts från strandlinjen).',
+    ]);
+    expect(
+      issues('situationsplan', {
+        ...lakePlot,
+        anlaggningar: [{ rektangel: [58, 0, 5, 5], namn: 'Bod' }],
+      }),
+    ).toEqual(['anlaggningar[1].rektangel: Anläggningen ligger utanför tomten (0–60 × 0–70 m).']);
+  });
+});
+
+describe('parameter validation', () => {
   it('accepts all A002 parameters', () => {
     for (const kind of DRAWING_KINDS) expect(issues(kind, a002Params(kind))).toEqual([]);
   });

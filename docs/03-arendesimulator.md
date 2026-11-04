@@ -16,25 +16,26 @@ Precis som i verkligheten är den första ansökan sällan den sista versionen.
  Inkommen ansökan
       │
       ▼
- 1. Fullständighetsgranskning ──── brister? ──► Föreläggande om komplettering (9:22)
+ 1. Fullständighetsgranskning ──── brister? ──► Föreläggande om komplettering (9:91)
       │ komplett                                   │
       ▼                                            ▼ (händelse) komplettering inkommer
- 2. Lovplikt & prövningsgrund                     / eller inte → avvisning
+ 2. Lovplikt & prövningsgrund                     / eller inte → avvisning eller
+      │                                             prövning i befintligt skick
       │
       ▼
- 3. Planenlighet / lämplighet (9:30–31e / 2 kap)
+ 3. Planenlighet / lämplighet (9:56–64 / 9:57 och 2 kap)
       │
       ▼
  4. Krav på byggnadsverk (8 kap), ev. remisser
       │
       ▼
- 5. Grannehörande & kommunicering (9:25, FL 25 §)
+ 5. Underrättelse & kommunicering (9:94–98)
       │                                           ◄── (händelse) grannyttrande inkommer
       ▼
  6. Beslut: bevilja / bevilja med villkor / avslå / avvisa / avskriva
       │
       ▼
- 7. Expediering, kungörelse, laga kraft (9:41–42a)
+ 7. Expediering, kungörelse, laga kraft (9:108–110, 114)
       │                                           ◄── (händelse) överklagande
       ▼
  8. Tekniskt samråd, startbesked, slutbesked (10 kap)   [valfri del, svårare ärenden]
@@ -43,8 +44,8 @@ Precis som i verkligheten är den första ansökan sällan den sista versionen.
  9. Tillsyn (11 kap)   [valfri del, "det byggdes större än lovet"]
 ```
 
-Alla ärenden behöver inte gå igenom alla steg. Ett enkelt Attefall-ärende kan sluta vid
-startbesked. Ett avancerat kan börja i steg 9 med en anmälan om olovligt byggande.
+Alla ärenden behöver inte gå igenom alla steg. Ett enkelt ärende om en komplementbyggnad kan
+sluta med att ansökan återkallas och ärendet skrivs av. Ett avancerat kan börja i steg 9 med en anmälan om olovligt byggande.
 
 ## Skärmen
 
@@ -57,14 +58,15 @@ Tre paneler, som ett ärendehanteringssystem fast snyggare:
 | **Arbetsyta** (höger) | Aktuellt steg med uppgift, checklista, anteckningar, och formuläret för beslut när det är dags. Flik för planbestämmelser och uppslag. |
 
 Ovanför: ärendets rubrik, fastighetsbeteckning, dagens datum i simuleringen, dagar sedan
-komplett ansökan (räknar mot 10-veckorsgränsen), och hennes "att göra".
+ansökningsdagen (räknar mot tioveckorsgränsen i 9 kap. 99 §; efter ett föreläggande inom tre
+veckor i stället från kompletteringen), och hennes "att göra".
 
 ## Simulerad tid
 
 Varje ärende har en intern kalender. När hon slutför ett steg eller väntar på svar går tiden
 framåt. Grannehörande tar två veckor. Komplettering tar den tid sökanden behöver. Det gör
-handläggningstid och avgiftsreduktion (9 kap 27 a–b §§) till något hon känner av, inte bara
-läser om.
+handläggningstid (9 kap. 99 §) och avgiftsreduktion (12 kap. 8 a §) till något hon känner av,
+inte bara läser om.
 
 ## Steg och uppgifter
 
@@ -87,7 +89,7 @@ Formuläret följer hur ett riktigt beslut ser ut, så att hon tränar rätt for
 2. **Lagstöd för beslutet** (välj lagrum ur lista + fritext)
 3. **Beslutsmotivering** (fritext; appen visar vilka bedömningspunkter som förväntas täckas,
    men inte svaret)
-4. **Villkor och upplysningar** (startbesked krävs, giltighetstid 9:43, kungörelse, KA m.m.)
+4. **Villkor och upplysningar** (startbesked krävs, giltighetstid 9 kap. 115 §, kungörelse, KA m.m.)
 5. **Avgift** (räknas enligt en förenklad fiktiv taxa som ingår i ärendet)
 6. **Hur man överklagar** (måste finnas; appen kontrollerar att den är med)
 7. **Expediering** (vem ska få beslutet, vem ska delges, vem ska bara meddelas)
@@ -99,9 +101,9 @@ Händelser är det som gör simulatorn levande. De definieras i ärendet med en 
 
 Utlösare kan vara:
 
-- `efter_steg: 3` (tiden går, något inkommer)
+- `efter_steg: S3` (tiden går, något inkommer)
 - `vid_beslut: bevilja` / `vid_beslut: avsla`
-- `om_missat: grannehorande` (hon beviljade utan att höra grannar → överklagande)
+- `om_missat: S5` (hon beviljade utan att höra grannar → överklagande)
 - `om_forelagt: komplettering` (hon begärde komplettering → handlingar inkommer, delvis)
 - `slump: 0.3` (ibland händer saker utan anledning, precis som i verkligheten)
 
@@ -129,7 +131,7 @@ Varje ärende har ett **facit** och en **bedömningsmall**:
 - För automatiska steg: det rätta svaret med förklaring och lagrum.
 - För skrivelser och beslut: en lista med bedömningspunkter, t.ex.
   - "Identifierar att åtgärden strider mot planbestämmelse om byggnadshöjd"
-  - "Prövar om avvikelsen är liten enligt 9 kap 31 b §"
+  - "Prövar om avvikelsen är liten enligt 9 kap. 60 §"
   - "Motiverar varför avvikelsen inte är förenlig med planens syfte"
   - "Överklagandehänvisning finns"
   - "Anger lagrum korrekt"
@@ -146,8 +148,8 @@ muntligt eller via handledarvyn (fas 3).
 
 | Nivå | Exempel | Vad som tränas |
 | --- | --- | --- |
-| 1 Grund | Attefallsgarage, anmälan. Komplett ansökan. En händelse. | Processen, lovplikt, startbesked |
-| 2 Normal | Tillbyggnad inom plan med liten avvikelse, grannar ska höras, komplettering krävs | Planenlighet, 9:31b, kommunicering, beslutsskrivning |
+| 1 Grund | Komplementbyggnad nära gräns, grannmedgivande. Komplett ansökan. En händelse. | Processen, lovplikt (9 kap. 4, 34–35 §§), avskrivning |
+| 2 Normal | Tillbyggnad inom plan med liten avvikelse, grannar ska höras, komplettering krävs | Planenlighet, 9 kap. 60 §, kommunicering, beslutsskrivning |
 | 3 Avancerad | Nybyggnad utanför plan nära strand, remisser, överklagande | Lokaliseringsprövning, strandskydd, överklagandeprocess, yttrande |
 | 4 Tillsyn | Anmälan om olovligt byggande, redan utfört, preskriptionsfråga | 11 kap, sanktionsavgift, rättelseföreläggande |
 
@@ -156,3 +158,50 @@ muntligt eller via handledarvyn (fas 3).
 - Fri textdialog med "sökanden" (kan bli AI-drivet i fas 3).
 - Redigerbara ritningar.
 - Flera samtidiga ärenden med gemensam kalender ("ärendebalans"). Rolig idé för senare.
+
+## Så fungerar det i appen (fas 2, v0.2)
+
+Planen ovan är byggd. Det här är hur den faktiskt fungerar och var den avviker.
+
+- **Ärendemotorn** (`apps/desktop/src/engine/cases/`) är ren TypeScript. Tillståndet är JSON
+  och sparas i sin helhet i databasen (tabellen `case_state`), så att ett ärende kan stängas
+  och fortsätta nästa dag. Varje åtgärd ger ett nytt tillstånd; motorn är den enda som tolkar
+  händelserna.
+- **Utlösare** är villkor som alla ska gälla, och varje händelse inträffar högst en gång. De
+  prövas efter varje åtgärd (steg klart eller hoppat, beslut fattat), aldrig av att tiden
+  bara går. `slump` dras en gång per ärendestart (fast seed), så samma start ger samma väg.
+  `om_forelagt` utlöses av ett skrivelsesteg vars rubrik eller instruktion innehåller
+  "förelägg", eftersom schemat saknar ett eget fält för det. `om_missat` gäller hoppade steg,
+  fel svar och steg som aldrig gjordes före beslutet. Ett `urval`-steg räknas som underrättelse
+  av grannar.
+- **Simulerad tid och frist**: tioveckorsfristen i 9 kap. 99 § räknas från ansökningsdagen.
+  Förelägger hon om komplettering inom tre veckor räknas den i stället från den dag
+  kompletteringen kommer in; fram till dess står fristen still. Avgiften reduceras med en
+  femtedel per påbörjad vecka (12 kap. 8 a §). När beslutet är fattat visar rubrikraden om det
+  kom i tid. Motorn kan förlänga fristen en gång (99 § andra stycket), men ärendevyn har ingen
+  knapp för det än. Vilande enligt 102 § finns inte i motorn: A003 frågar om det i ett steg,
+  och tidslinjen är lagd så att beslutet ändå fattas inom fristen.
+- **Beslutsmallen** har de sju delarna ovan med levande A4-förhandsvisning. Bedömningspunkterna
+  visas först efter inlämning, eftersom de i praktiken avslöjar svaret; formuläret ger bara
+  allmänna ledtrådar (lagrum, taxa, reduktionsregeln). Saknas överklagandehänvisning eller
+  annat säger formuläret till, men hon kan lämna in ändå och få det underkänt.
+- **Kontrollerna** efter inlämning: utfall, lagstöd (med varning för gammal numrering),
+  motivering, överklagandehänvisning, underrättelse, avgift och expediering (delgivning av
+  sökanden, fastighetsägaren och grannar som yttrat sig, meddelande till övriga), med lagrum.
+  Upplysningar enligt 105 § (startbesked, giltighetstid, kontrollansvarig) ges som tips.
+  Utfallskontrollen godtar bara `forvantat_beslut`; godtagbara alternativ (som frivilligt lov
+  i A001) står bland bedömningspunkterna.
+- **Jämförelsevyn** visar hennes beslut, modellbeslutet och kontrollerna sida vid sida, med
+  bedömningspunkter att bocka av, vanliga fel och "Egna reflektioner".
+- **Export och handledare**: "Exportera till handledare" ger beslutsrapporten som PDF (via
+  utskrift), HTML-fil eller text att klistra in i sms eller mejl. Hennes reflektioner följer
+  med. Pappas bedömning (Godkänt, Komplettera eller Gör om, med kommentar) skrivs in i appen
+  under "Handledarens bedömning", i jämförelsevyn eller under Mina resultat. Då blir ärendet
+  "Bedömt". Handledarportalen är fortfarande fas 3.
+- **Handlingar** är Markdown (visas som A4-papper med INKOM-stämpel) och SVG-ritningar som
+  genereras från parametrar (situationsplan, fasader, planritning med sektion, plankarta).
+  PDF-handlingar visas utan pdf.js och mätverktyget kommer i fas 4.
+- **Ärendena** i v0.2: A001 komplementbyggnad nära gräns (nivå 1, slutar med avskrivning),
+  A002 tillbyggnad med liten avvikelse (nivå 2) och A003 nybyggnad utanför plan vid strand
+  (nivå 3, med remisser, ändrad ansökan, rättidsprövning av ett överklagande och nämndens
+  yttrande). Alla har status `utkast` tills handledaren granskat dem.

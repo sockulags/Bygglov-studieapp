@@ -20,6 +20,8 @@ export interface SupervisorFeedbackPanelProps {
   /** Id of the `beslut` row (Decision.id). */
   decisionId: number;
   className?: string;
+  /** Called after an assessment has been saved, e.g. to mark the case as reviewed. */
+  onAdded?: () => void;
 }
 
 const GRADE_TONE: Record<SupervisorGrade, string> = {
@@ -66,7 +68,11 @@ function FeedbackItem({ feedback }: { feedback: SupervisorFeedback }) {
  * Supervisor feedback on one decision: what has been registered and the dialog "Registrera
  * handledarens bedömning" where she writes down what the supervisor said.
  */
-export function SupervisorFeedbackPanel({ decisionId, className }: SupervisorFeedbackPanelProps) {
+export function SupervisorFeedbackPanel({
+  decisionId,
+  className,
+  onAdded,
+}: SupervisorFeedbackPanelProps) {
   const feedback = useSupervisorFeedback(decisionId);
   const addFeedback = useAddSupervisorFeedback(decisionId);
   const [open, setOpen] = useState(false);
@@ -92,6 +98,7 @@ export function SupervisorFeedbackPanel({ decisionId, className }: SupervisorFee
       await addFeedback.mutateAsync({ grade, text: text.trim() });
       setOpen(false);
       reset();
+      onAdded?.();
     } catch (cause: unknown) {
       console.error(cause);
       setError('Bedömningen kunde inte sparas. Försök igen.');

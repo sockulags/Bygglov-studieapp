@@ -11,6 +11,7 @@ import {
 } from '@/engine';
 import { cn } from '@/lib/cn';
 import { ModelDocument } from '../documents/document-viewer';
+import { SupervisorFeedbackPanel } from '../export';
 import { CaseReviewNote, SelfAssessment } from '../steps/step-feedback';
 import { useMediaQuery, WIDE_QUERY } from '../use-media-query';
 import { DecisionPreview } from './decision-preview';
@@ -23,6 +24,10 @@ export interface DecisionComparisonProps {
   reflection: string;
   onReflectionChange: (text: string) => void;
   onSelfAssess: (checked: number[]) => void;
+  /** The stored decision row, for the supervisor's assessment; null until it is saved. */
+  decisionId?: number | null;
+  /** Called when the supervisor's assessment has been registered. */
+  onReviewed?: () => void;
 }
 
 function CheckItem({ check }: { check: DecisionCheck }) {
@@ -85,6 +90,8 @@ function Assessment({
   reflection,
   onReflectionChange,
   onSelfAssess,
+  decisionId,
+  onReviewed,
 }: Omit<DecisionComparisonProps, 'state' | 'diaryNumber'>) {
   const id = useId();
   const { assessment } = decision;
@@ -164,6 +171,10 @@ function Assessment({
           className="mt-2 w-full rounded-md border border-line-strong bg-paper p-3 text-[0.9375rem] leading-relaxed focus-visible:border-accent"
         />
       </section>
+
+      {decisionId != null && (
+        <SupervisorFeedbackPanel decisionId={decisionId} onAdded={onReviewed} />
+      )}
 
       <CaseReviewNote caseFile={caseFile} />
     </div>

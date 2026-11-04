@@ -13,6 +13,8 @@ import {
   submitDecision,
   submitStep,
   markDocumentSeen,
+  markReviewed,
+  toCaseStatusPatch,
   toNewCaseStatus,
   type CaseState,
   type DecisionDraft,
@@ -400,6 +402,31 @@ export function markCaseDocumentSeen(caseFile: CaseFile, documentId: string): vo
     return;
   }
   apply(caseFile, (state) => ({ state: markDocumentSeen(state, documentId) }));
+}
+
+/**
+ * After the supervisor's assessment is registered: the case becomes "Bedömt". Works for the
+ * open case and for a case that is only listed (Mina resultat), by updating the stored state.
+ */
+export async function markCaseReviewed(caseFile: CaseFile): Promise<void> {
+  const active = requireActive(caseFile);
+  if (active) {
+    if (active.state.status !== 'bedomt')
+      apply(caseFile, (state) => ({ state: markReviewed(state) }));
+    await flushCaseWrites();
+    return;
+  }
+  const store = await getDataStore();
+  const row = await store.cases.getCaseStatus(caseFile.id);
+  if (!row) return;
+  const restored = restoreCaseState(caseFile, row.state);
+  if (restored.ok) {
+    const next = markReviewed(restored.state);
+    await store.cases.updateCaseStatus(caseFile.id, { ...toCaseStatusPatch(next), state: next });
+  } else {
+    await store.cases.updateCaseStatus(caseFile.id, { status: 'reviewed' });
+  }
+  await queryClient.invalidateQueries({ queryKey: dataKeys.all });
 }
 
 /** "Nästa steg": hides the feedback of the last action. */

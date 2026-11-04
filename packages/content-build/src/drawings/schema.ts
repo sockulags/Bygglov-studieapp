@@ -86,8 +86,10 @@ export const SituationsplanSchema = z
     tomt_djup: length,
     /** Label inside the plot. Defaults to the first part of the case's `fastighet`. */
     fastighet: text.optional(),
-    /** Existing main building. */
-    hus: rectangle,
+    /** Existing main building. Either `hus` or `nybyggnad` is required. */
+    hus: rectangle.optional(),
+    /** New main building on the plot, e.g. a new house on an empty plot. */
+    nybyggnad: rectangle.optional(),
     /** New extension. */
     tillbyggnad: rectangle.optional(),
     /** New outbuilding. */
@@ -103,6 +105,38 @@ export const SituationsplanSchema = z
         error: fieldError('prickmark ska vara en lista, t.ex. [{ sida: soder, djup: 6 }].'),
       })
       .default([]),
+    /** Other features on the plot (terrace, septic system …), drawn thin and dashed. */
+    anlaggningar: z
+      .array(z.strictObject({ rektangel: rectangle, namn: text.optional() }), {
+        error: fieldError('anlaggningar ska vara en lista med { rektangel, namn }.'),
+      })
+      .default([]),
+    /** Point features with a name, e.g. a drilled well. */
+    punkter: z
+      .array(z.strictObject({ punkt: point, namn: text }), {
+        error: fieldError('punkter ska vara en lista med { punkt, namn }.'),
+      })
+      .default([]),
+    /** Driveway from the boundary on `sida`, `lage` metres from the western or northern corner. */
+    utfart: z
+      .strictObject({
+        sida: side,
+        lage: nonNegative,
+        bredd: length,
+        /** How far the driveway is drawn into the plot. */
+        langd: length.default(6),
+      })
+      .optional(),
+    /** Shoreline outside the plot, `avstand` metres beyond the boundary on `sida`. */
+    strandlinje: z
+      .strictObject({
+        sida: side,
+        avstand: nonNegative,
+        namn: text.optional(),
+      })
+      .optional(),
+    /** Shoreline protection boundary, `avstand` metres from the shoreline. */
+    strandskydd: z.strictObject({ avstand: length }).optional(),
     gata: z
       .strictObject({
         sida: side,
@@ -143,7 +177,36 @@ export const SituationsplanSchema = z
         });
       }
     };
+    if (!p.hus && !p.nybyggnad) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['hus'],
+        message: 'Ange hus (befintlig byggnad) eller nybyggnad (ny byggnad).',
+      });
+    }
     check(p.hus, ['hus'], 'Huset');
+    check(p.nybyggnad, ['nybyggnad'], 'Nybyggnaden');
+    p.anlaggningar.forEach((b, i) =>
+      check(b.rektangel, ['anlaggningar', i, 'rektangel'], 'Anläggningen'),
+    );
+    if (p.utfart) {
+      const u = p.utfart;
+      const sideLength = u.sida === 'norr' || u.sida === 'soder' ? p.tomt_bredd : p.tomt_djup;
+      if (u.lage + u.bredd > sideLength) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['utfart', 'lage'],
+          message: `Utfarten går utanför tomtgränsen (${sideLength} m).`,
+        });
+      }
+    }
+    if (p.strandskydd && !p.strandlinje) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['strandskydd'],
+        message: 'strandskydd kräver strandlinje (gränsen mäts från strandlinjen).',
+      });
+    }
     check(p.tillbyggnad, ['tillbyggnad'], 'Tillbyggnaden');
     check(p.komplementbyggnad, ['komplementbyggnad'], 'Komplementbyggnaden');
     p.ovriga_byggnader.forEach((b, i) =>

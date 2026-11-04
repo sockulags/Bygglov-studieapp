@@ -1,10 +1,19 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowRight, FilePlus2, Flame, PlayCircle, RotateCcw, type LucideIcon } from 'lucide-react';
+import {
+  ArrowRight,
+  FilePlus2,
+  FolderOpen,
+  Flame,
+  PlayCircle,
+  RotateCcw,
+  type LucideIcon,
+} from 'lucide-react';
 import type { ReactNode } from 'react';
 import { PageHeader, SectionTitle } from '@/components/layout/page-header';
 import { buttonVariants } from '@/components/ui/button-variants';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
+import { useOngoingCase, type CaseSummary } from '@/features/cases';
 import { usePassHistory, useStudyOverview } from '@/features/progress/hooks';
 import { studyModeLabel } from '@/features/study/modes';
 import { useStudyStore, type StartRequest } from '@/features/study/study-store';
@@ -57,6 +66,27 @@ function ActionCard({
   );
 }
 
+function CaseLink({ summary, label }: { summary: CaseSummary; label: string }) {
+  return (
+    <Link
+      to="/cases/$caseId"
+      params={{ caseId: summary.caseId }}
+      className={buttonVariants({ variant: 'secondary' })}
+    >
+      {label}
+      <ArrowRight aria-hidden="true" />
+    </Link>
+  );
+}
+
+/** "Nästa steg: Underrättelse (3 av 6 steg klara)." */
+function caseProgressText(summary: CaseSummary): string {
+  const done = `${summary.stepsDone} av ${summary.stepsTotal} steg klara`;
+  return summary.currentStepTitle
+    ? `Nästa steg: ${summary.currentStepTitle} (${done}).`
+    : `Alla steg är gjorda (${done}).`;
+}
+
 /** Default first step: module 3 is the foundation (docs/07). */
 const FIRST_MODULE = '03-lovplikt';
 
@@ -65,6 +95,7 @@ export function HomePage() {
   const { overview } = useStudyOverview();
   const { history } = usePassHistory();
   const { start, pending, message } = useStartRun();
+  const { ongoing, nextCase } = useOngoingCase();
   const now = new Date();
 
   const activeRun = run && run.session.status !== 'finished' ? run : null;
@@ -86,6 +117,18 @@ export function HomePage() {
     continueAction = (
       <Link to="/study/session" className={buttonVariants()}>
         Fortsätt passet
+        <ArrowRight aria-hidden="true" />
+      </Link>
+    );
+  } else if (ongoing) {
+    continueBody = (
+      <>
+        Ärendet {ongoing.title}. {caseProgressText(ongoing)}
+      </>
+    );
+    continueAction = (
+      <Link to="/cases/$caseId" params={{ caseId: ongoing.caseId }} className={buttonVariants()}>
+        Fortsätt ärendet
         <ArrowRight aria-hidden="true" />
       </Link>
     );
@@ -135,7 +178,39 @@ export function HomePage() {
       ? `Dagens förslag: ${pluralQuestions(due)} väntar på repetition. Ta dem först, det är då minnet gör mest nytta.`
       : activeRun
         ? 'Dagens förslag: gör klart passet du påbörjade.'
-        : 'Dagens förslag: ett snabbquiz. Tio frågor, med förklaring och lagrum efter varje svar.';
+        : ongoing
+          ? `Dagens förslag: fortsätt ärendet ${ongoing.title}.`
+          : 'Dagens förslag: ett snabbquiz. Tio frågor, med förklaring och lagrum efter varje svar.';
+
+  // Third card: the case that is not shown in the first card, or the next case to start.
+  let caseCard: { icon: LucideIcon; title: string; body: ReactNode; action: ReactNode };
+  if (ongoing && activeRun) {
+    caseCard = {
+      icon: FolderOpen,
+      title: 'Pågående ärende',
+      body: `${ongoing.title}. ${caseProgressText(ongoing)}`,
+      action: <CaseLink summary={ongoing} label="Fortsätt ärendet" />,
+    };
+  } else if (nextCase) {
+    caseCard = {
+      icon: FilePlus2,
+      title: 'Nytt ärende',
+      body: `Nivå ${nextCase.niva}: ${nextCase.title}. Ta emot ansökan, granska handlingarna och skriv beslutet, som på kontoret.`,
+      action: <CaseLink summary={nextCase} label="Öppna ärendet" />,
+    };
+  } else {
+    caseCard = {
+      icon: FolderOpen,
+      title: 'Ärenden',
+      body: 'Du har påbörjat alla ärenden i den här versionen. Se hur det gick, exportera beslut eller börja om ett ärende.',
+      action: (
+        <Link to="/cases" className={buttonVariants({ variant: 'ghost' })}>
+          Se ärendena
+          <ArrowRight aria-hidden="true" />
+        </Link>
+      ),
+    };
+  }
 
   return (
     <>
@@ -196,16 +271,11 @@ export function HomePage() {
             }
           />
           <ActionCard
-            icon={FilePlus2}
+            icon={caseCard.icon}
             tone="brick"
-            title="Nytt ärende"
-            body="Ta emot en ansökan, granska handlingarna och skriv ett beslut, som på kontoret. Ärendena kommer i nästa version."
-            action={
-              <Link to="/cases" className={buttonVariants({ variant: 'ghost' })}>
-                Se ärendena
-                <ArrowRight aria-hidden="true" />
-              </Link>
-            }
+            title={caseCard.title}
+            body={caseCard.body}
+            action={caseCard.action}
           />
         </div>
         {message && (

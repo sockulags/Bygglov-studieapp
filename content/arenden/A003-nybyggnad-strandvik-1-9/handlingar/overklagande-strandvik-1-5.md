@@ -5,7 +5,7 @@ datum: 2026-10-30
 diarienummer: BN 2026-000655
 ---
 
-Till Länsstyrelsen
+Till Länsstyrelsen\
 genom Bygg- och miljönämnden i Åkerslunda kommun
 
 # Överklagande av beslut om bygglov för nytt bostadshus på Strandvik 1:9

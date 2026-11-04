@@ -85,7 +85,7 @@ veckor från den dag klaganden fick del av beslutet.
 
 Beslutet har fattats med stöd av delegation från bygg- och miljönämnden.
 
-Johan Lindgren
+Johan Lindgren\
 Miljöinspektör, Åkerslunda kommun
 
 *Bilaga 1, karta med tomtplatsavgränsning, finns i akten. Fiktiv handling för utbildning.*

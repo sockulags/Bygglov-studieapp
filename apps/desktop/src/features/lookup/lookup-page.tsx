@@ -6,7 +6,7 @@ import { LawRefChip } from '@/components/ui/law-ref-chip';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { loadContent } from '@/content';
 import { pluralQuestions } from '@/lib/format';
-import { buildLawRegister, matchesQuery } from './law-register';
+import { buildLawRegister, matchesQuery, type LawRefEntry } from './law-register';
 
 function ModulesTab() {
   const content = loadContent();
@@ -58,11 +58,28 @@ function RegisterTab() {
   const content = loadContent();
   const groups = useMemo(() => buildLawRegister(content), [content]);
   const moduleTitles = new Map(content.modules.map((m) => [m.id, m.titel]));
+  const usage = (entry: LawRefEntry) => {
+    const parts: string[] = [];
+    if (entry.questionCount > 0) {
+      parts.push(
+        `${pluralQuestions(entry.questionCount)} (${entry.moduleIds.map((id) => moduleTitles.get(id) ?? id).join(', ')})`,
+      );
+    }
+    if (entry.caseIds.length > 0) {
+      parts.push(
+        `${entry.caseIds.length === 1 ? 'ärende' : 'ärenden'} ${entry.caseIds.join(', ')}`,
+      );
+    }
+    return parts.join(' · ');
+  };
+  const [caseOnly, setCaseOnly] = useState(false);
   const [query, setQuery] = useState('');
   const filtered = groups
     .map((group) => ({
       ...group,
-      entries: group.entries.filter((e) => matchesQuery(e.reference, query)),
+      entries: group.entries.filter(
+        (e) => matchesQuery(e.reference, query) && (!caseOnly || e.caseIds.length > 0),
+      ),
     }))
     .filter((group) => group.entries.length > 0);
 
@@ -70,9 +87,18 @@ function RegisterTab() {
     <div className="flex flex-col gap-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <p className="max-w-2xl text-[0.9375rem] text-muted">
-          Alla paragrafer som frågorna hänvisar till, med antal frågor. Lagtexten finns på
-          riksdagen.se och i <em>Lagtextens byggregler</em>.
+          Alla paragrafer som frågorna och ärendena hänvisar till. Lagtexten finns på riksdagen.se
+          och i <em>Lagtextens byggregler</em>.
         </p>
+        <label className="inline-flex items-center gap-2 text-sm">
+          <input
+            type="checkbox"
+            checked={caseOnly}
+            onChange={(event) => setCaseOnly(event.target.checked)}
+            className="size-4 accent-[var(--accent)]"
+          />
+          Bara lagrum i ärendena
+        </label>
         <label className="relative w-full max-w-xs">
           <span className="sr-only">Sök lagrum</span>
           <Search
@@ -115,10 +141,7 @@ function RegisterTab() {
                     uncertain={entry.uncertain}
                     className="self-start"
                   />
-                  <span className="text-xs text-muted">
-                    {pluralQuestions(entry.questionCount)} ·{' '}
-                    {entry.moduleIds.map((id) => moduleTitles.get(id) ?? id).join(', ')}
-                  </span>
+                  <span className="text-xs text-muted">{usage(entry)}</span>
                 </li>
               ))}
             </ul>

@@ -37,6 +37,9 @@ const write = (relativePath: string, text: string) => {
   writeFileSync(join(content, relativePath), text, 'utf8');
 };
 
+const byId = (tree: ReturnType<typeof loadContentTree>, id: string) =>
+  tree.cases.find((c) => c.data.id === id);
+
 const question = (id: string) => `
   - id: ${id}
     typ: sant_falskt
@@ -54,7 +57,7 @@ describe('check', () => {
     expect(tree.questionFiles.map((f) => f.file)).toEqual(
       expect.arrayContaining(['fragor/03-lovplikt.yaml', 'fragor/06-handlaggning.yaml']),
     );
-    expect(tree.cases.map((c) => c.data.id)).toEqual(['A002']);
+    expect(tree.cases.map((c) => c.data.id)).toEqual(['A001', 'A002', 'A003']);
   });
 
   it('reports duplicate ids across files, unknown modules and wrong file names', () => {
@@ -123,7 +126,7 @@ describe('drawings', () => {
   };
 
   it('renders the generated drawings of A002 when loading', () => {
-    const [a002] = loadContentTree(content).cases;
+    const a002 = byId(loadContentTree(content), 'A002');
     expect(a002?.drawings.map((d) => `${d.handling} ${d.kind} ${d.fil}`)).toEqual([
       'H2 situationsplan handlingar/situationsplan.svg',
       'H3 fasadritning handlingar/fasader.svg',
@@ -161,7 +164,7 @@ describe('drawings', () => {
     const tree = loadContentTree(content);
     expect(tree.warnings).toEqual([]);
     expect(readFileSync(join(dir, 'situationsplan.svg'), 'utf8')).toBe(
-      tree.cases[0]?.drawings[0]?.svg,
+      byId(tree, 'A002')?.drawings[0]?.svg,
     );
     expect(writeDrawings(tree)).toEqual({
       written: [],
@@ -221,7 +224,10 @@ describe('build', () => {
     expect(total).toBeGreaterThan(4);
     expect(index.data.fragor.totalt).toBe(total);
     expect(index.data.fragor.status.utkast + index.data.fragor.status.granskad).toBe(total);
-    expect(index.data.arenden[0]).toMatchObject({ id: 'A002', niva: 2, antal_steg: 6 });
+    expect(index.data.arenden.find((a) => a.id === 'A002')).toMatchObject({
+      niva: 2,
+      antal_steg: 6,
+    });
 
     const copied = join(publicDir, 'arenden/A002/handlingar');
     expect(existsSync(join(copied, 'ansokan.pdf'))).toBe(true);
@@ -231,7 +237,7 @@ describe('build', () => {
     // Generated drawings are written from the parameters, not copied.
     expect(result.drawings).toContain('arenden/A002/handlingar/situationsplan.svg');
     expect(readFileSync(join(copied, 'situationsplan.svg'), 'utf8')).toBe(
-      tree.cases[0]?.drawings[0]?.svg,
+      byId(tree, 'A002')?.drawings[0]?.svg,
     );
   });
 

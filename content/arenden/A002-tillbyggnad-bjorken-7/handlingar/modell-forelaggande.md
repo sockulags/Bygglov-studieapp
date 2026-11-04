@@ -9,8 +9,8 @@ diarienummer: BN 2026-000214
 
 # Föreläggande om komplettering av ansökan om bygglov
 
-**Fastighet:** Björken 7
-**Åtgärd:** Tillbyggnad av enbostadshus
+**Fastighet:** Björken 7\
+**Åtgärd:** Tillbyggnad av enbostadshus\
 **Ansökan kom in:** 2026-03-02
 
 Tack för er ansökan. Vi har gått igenom den och den behöver kompletteras innan vi kan pröva
@@ -59,8 +59,8 @@ Box 100, 999 99 Åkerslunda. Ange diarienummer BN 2026-000214.
 
 Med vänlig hälsning
 
-Karin Sjöholm
-Bygglovshandläggare, Åkerslunda kommun
+Karin Sjöholm\
+Bygglovshandläggare, Åkerslunda kommun\
 Telefon 070-174 06 10 · karin.sjoholm@akerslunda.example
 
 ---

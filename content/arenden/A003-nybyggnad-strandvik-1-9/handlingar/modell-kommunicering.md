@@ -5,8 +5,8 @@ datum: 2026-10-01
 diarienummer: BN 2026-000655
 ---
 
-Sara Holm och Daniel Ek
-Kvarngatan 3
+Sara Holm och Daniel Ek\
+Kvarngatan 3\
 999 99 Åkerslunda
 
 # Ni får yttra er innan nämnden beslutar om bygglov för Strandvik 1:9
@@ -53,8 +53,8 @@ Ring mig gärna om något är oklart.
 
 Vänliga hälsningar
 
-Karin Sjöholm
-Bygglovshandläggare, Åkerslunda kommun
+Karin Sjöholm\
+Bygglovshandläggare, Åkerslunda kommun\
 070-174 06 60 · bygglov@akerslunda.example
 
 Bilagor: handlingarna 1–6 ovan

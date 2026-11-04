@@ -9,6 +9,7 @@ import {
   dismissCaseOutcome,
   flushCaseWrites,
   markCaseDocumentSeen,
+  markCaseReviewed,
   openCase,
   saveStepDraft,
   selfAssessCaseStep,
@@ -195,6 +196,23 @@ describe('case store', () => {
     const s6 = (await store.cases.listSteps('A002')).find((s) => s.stepId === 'S6');
     expect(s6?.completedAt).not.toBeNull();
     expect(s6?.answer).toEqual({ type: 'beslut', draft: decision });
+  });
+
+  it('marks the case reviewed after the supervisor, open or only listed', async () => {
+    startNewCase(a002, { seed: SEED, startedAt: STARTED });
+    playUntilDecision();
+    submitCaseDecision(a002, decision);
+    await markCaseReviewed(a002);
+    expect(active().state.status).toBe('bedomt');
+    expect((await store.cases.getCaseStatus('A002'))?.status).toBe('reviewed');
+
+    // A case that is not open (Mina resultat) is updated through its stored state.
+    closeCase();
+    await store.cases.updateCaseStatus('A002', { status: 'submitted' });
+    await markCaseReviewed(a002);
+    const row = await store.cases.getCaseStatus('A002');
+    expect(row?.status).toBe('reviewed');
+    expect((row?.state as { status?: string } | null)?.status).toBe('bedomt');
   });
 
   it('skips a step and plays "bevilja utan grannehörande" into the appeal', async () => {

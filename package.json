@@ -13,6 +13,7 @@
   "scripts": {
     "dev": "pnpm --filter desktop dev",
     "build": "pnpm --filter desktop build",
+    "content:drawings": "pnpm --filter @bygglov/content-build drawings",
     "test": "pnpm -r --if-present test",
     "typecheck": "pnpm -r --if-present typecheck",
     "lint": "eslint . --max-warnings 0",

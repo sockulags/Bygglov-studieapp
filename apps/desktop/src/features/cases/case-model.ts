@@ -79,11 +79,30 @@ export interface DeadlineSummary {
   label: string;
   /** Longer explanation for a tooltip or screen readers. */
   detail: string;
-  tone: 'normal' | 'warning' | 'overdue' | 'paused';
+  tone: 'normal' | 'warning' | 'overdue' | 'paused' | 'done';
 }
 
 /** The 9 kap. 99 § deadline as shown in the case header. */
 export function deadlineSummary(state: CaseState): DeadlineSummary {
+  // Once the decision is made the deadline is settled: it was met or it was not.
+  const decided = state.decisions[0];
+  if (decided) {
+    const atDecision = deadlineStatus(state, decided.date);
+    if (atDecision.deadlineDate !== null && atDecision.daysLeft !== null) {
+      const late = -atDecision.daysLeft;
+      return late > 0
+        ? {
+            label: `Beslut ${late} ${late === 1 ? 'dag' : 'dagar'} för sent`,
+            detail: `Beslutet fattades ${decided.date}, efter tidsfristen som löpte ut ${atDecision.deadlineDate} (9 kap. 99 §). Avgiften ska reduceras (12 kap. 8 a §).`,
+            tone: 'overdue',
+          }
+        : {
+            label: 'Beslut inom fristen',
+            detail: `Beslutet fattades ${decided.date}, inom tidsfristen som löpte ut ${atDecision.deadlineDate} (9 kap. 99 §).`,
+            tone: 'done',
+          };
+    }
+  }
   const status = deadlineStatus(state);
   if (status.deadlineDate === null || status.daysLeft === null) {
     return {
@@ -97,7 +116,7 @@ export function deadlineSummary(state: CaseState): DeadlineSummary {
     status.daysElapsed === null
       ? ''
       : ` ${status.daysElapsed} ${status.daysElapsed === 1 ? 'dag' : 'dagar'} sedan ${
-          status.basis === 'komplettering' ? 'komplett ansökan' : 'ansökningsdagen'
+          status.basis === 'komplettering' ? 'kompletteringen' : 'ansökningsdagen'
         }.`;
   if (days < 0) {
     return {

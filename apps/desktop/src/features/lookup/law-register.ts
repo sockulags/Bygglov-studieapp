@@ -1,8 +1,9 @@
+import { allCaseSteps } from '@bygglov/content-schema';
 import type { StudyContent } from '@/content';
 
 /**
- * Law register for Uppslag, built from the references used in the bundled questions and
- * modules. Grouped by statute (the first word of the reference, e.g. "PBL").
+ * Law register for Uppslag, built from the references used in the bundled questions and in
+ * the steps of the cases. Grouped by statute (the first word of the reference, e.g. "PBL").
  */
 
 export interface LawRefEntry {
@@ -10,6 +11,8 @@ export interface LawRefEntry {
   /** Number of questions that cite the reference. */
   questionCount: number;
   moduleIds: string[];
+  /** Cases with a step that cites the reference, e.g. ["A002"]. */
+  caseIds: string[];
   uncertain: boolean;
 }
 
@@ -27,9 +30,11 @@ export const LAW_NAMES: Readonly<Record<string, string>> = {
   OSL: 'Offentlighets- och sekretesslagen (2009:400)',
   MB: 'Miljöbalken (1998:808)',
   TF: 'Tryckfrihetsförordningen',
+  VägL: 'Väglagen (1971:948)',
+  FMH: 'Förordningen (1998:899) om miljöfarlig verksamhet och hälsoskydd',
 };
 
-const ORDER = ['PBL', 'PBF', 'FL', 'KL', 'OSL', 'MB', 'TF'];
+const ORDER = ['PBL', 'PBF', 'FL', 'KL', 'OSL', 'MB', 'VägL', 'FMH', 'TF'];
 
 /** Numeric parts of a reference ("9 kap. 4 a §" → [9, 4]) for natural sorting. */
 function sortKey(reference: string): number[] {
@@ -46,21 +51,36 @@ function compareRefs(a: string, b: string): number {
   return a.localeCompare(b, 'sv');
 }
 
-export function buildLawRegister(content: StudyContent): LawGroup[] {
+export function buildLawRegister(
+  content: Pick<StudyContent, 'questionsByModule' | 'cases'>,
+): LawGroup[] {
   const entries = new Map<string, LawRefEntry>();
+  const entryFor = (reference: string): LawRefEntry => {
+    const entry = entries.get(reference) ?? {
+      reference,
+      questionCount: 0,
+      moduleIds: [],
+      caseIds: [],
+      uncertain: false,
+    };
+    entries.set(reference, entry);
+    return entry;
+  };
   for (const [moduleId, questions] of content.questionsByModule) {
     for (const q of questions) {
       for (const reference of q.lagrum) {
-        const entry = entries.get(reference) ?? {
-          reference,
-          questionCount: 0,
-          moduleIds: [],
-          uncertain: false,
-        };
+        const entry = entryFor(reference);
         entry.questionCount += 1;
         if (!entry.moduleIds.includes(moduleId)) entry.moduleIds.push(moduleId);
         if (q.lagrum_osaker) entry.uncertain = true;
-        entries.set(reference, entry);
+      }
+    }
+  }
+  for (const caseFile of content.cases) {
+    for (const step of allCaseSteps(caseFile)) {
+      for (const reference of step.lagrum ?? []) {
+        const entry = entryFor(reference);
+        if (!entry.caseIds.includes(caseFile.id)) entry.caseIds.push(caseFile.id);
       }
     }
   }

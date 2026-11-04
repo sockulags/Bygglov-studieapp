@@ -29,7 +29,9 @@ Förvaltningslagen (2017:900) och kommunallagen är oförändrade i de delar som
   ett nytt 6 kap. PBF (9 kap. 55 § PBL hänvisar dit).
 - **Handläggningstiden** (9 kap. 99 §) är tio veckor **från ansökningsdagen**, inte från komplett
   ansökan. Bara om nämnden förelägger om komplettering **inom tre veckor** räknas fristen från den
-  dag bristen avhjälpts. Förlängning en gång med högst tio veckor. Solceller: förlängning högst
+  dag bristen avhjälpts. Kommer sökanden **på eget initiativ** in med ytterligare underlag eller
+  en ändring av ansökan räknas fristen från den dagen (99 § första stycket 2), och sökanden ska
+  skriftligen informeras om det (100 § 2). Förlängning en gång med högst tio veckor. Solceller: förlängning högst
   två veckor. Värmepump: fyra veckor utan förlängning (99 a §). Avgiftsreduktion i 12 kap. 8 a §.
 - **Föreläggande om komplettering** (9 kap. 91 §): nämnden får avvisa **eller avgöra ärendet i
   befintligt skick** om föreläggandet inte följs. Föreläggandet ska upplysa om detta.

@@ -2,7 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import type { CaseFile } from '@bygglov/content-schema';
 import { loadContent } from '@/content';
-import { dataKeys, getDataStore, type CaseStatus } from '@/data';
+import {
+  dataKeys,
+  getDataStore,
+  type CaseStatus,
+  type Decision,
+  type SupervisorFeedback,
+} from '@/data';
 import {
   caseProgress,
   listStatusOf,
@@ -14,6 +20,7 @@ import {
 /** Query keys under `dataKeys.all`, so every data write refreshes them. */
 export const caseKeys = {
   statuses: () => [...dataKeys.all, 'cases', 'statuses'] as const,
+  decisions: () => [...dataKeys.all, 'cases', 'decisions'] as const,
 };
 
 /** Every started case's status row (with the stored engine state). */
@@ -97,4 +104,42 @@ export function useOngoingCase(cases: readonly CaseFile[] = loadContent().cases)
       isLoading: statuses.isLoading,
     };
   }, [cases, statuses.data, statuses.isLoading]);
+}
+
+export interface DecisionWithFeedback {
+  caseFile: CaseFile;
+  decision: Decision;
+  /** Registered supervisor feedback, oldest first. */
+  feedback: SupervisorFeedback[];
+}
+
+/** Every submitted decision in every bundled case, newest first, with supervisor feedback. */
+export function useSubmittedDecisions(cases: readonly CaseFile[] = loadContent().cases) {
+  return useQuery({
+    queryKey: [...caseKeys.decisions(), cases.map((c) => c.id).join(',')],
+    queryFn: async (): Promise<DecisionWithFeedback[]> => {
+      const store = await getDataStore();
+      const perCase = await Promise.all(
+        cases.map(async (caseFile) => {
+          const decisions = await store.cases.listDecisions(caseFile.id);
+          return Promise.all(
+            decisions.map(async (decision) => ({
+              caseFile,
+              decision,
+              feedback: await store.cases.listSupervisorFeedback(decision.id),
+            })),
+          );
+        }),
+      );
+      return perCase
+        .flat()
+        .sort((a, b) =>
+          a.decision.submittedAt < b.decision.submittedAt
+            ? 1
+            : a.decision.submittedAt > b.decision.submittedAt
+              ? -1
+              : b.decision.id - a.decision.id,
+        );
+    },
+  });
 }

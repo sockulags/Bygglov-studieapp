@@ -64,12 +64,13 @@ läser YAML den som ett objekt.
 
 ## Så skriver du ett ärende
 
-Skapa mappen `arenden/A003-kort-namn/` med `arende.yaml` och `handlingar/`. Mappnamnet ska
+Skapa mappen `arenden/A004-kort-namn/` med `arende.yaml` och `handlingar/`. Mappnamnet ska
 börja med ärendets id (`A` + tre siffror). Utgå från `A002-tillbyggnad-bjorken-7` och se
 `docs/03-arendesimulator.md` för idén.
 
 - **Huvudfält**: `id`, `titel`, `niva` (1–4), `status`, `rattslage`, `fastighet`,
-  `sammanfattning`, `startdatum` (ÅÅÅÅ-MM-DD), `larandemal`, `taxa` (post: belopp), valfritt
+  `sammanfattning`, `startdatum` (ÅÅÅÅ-MM-DD), `larandemal`, `taxa` (post: belopp; postens namn
+  visas i appen, så skriv det med å, ä och ö), valfritt
   `moduler` och `facit`.
 - **`handlingar`**: `id`, `typ` (t.ex. `situationsplan`), `titel`, `fil` (ska ligga under
   `handlingar/`), valfritt `inkom`, `parametrar`, `fakta` och `dold_tills: <händelse-id>`.
@@ -83,6 +84,22 @@ börja med ärendets id (`A` + tre siffror). Utgå från `A002-tillbyggnad-bjork
   gälla): `efter_steg`, `vid_beslut`, `om_missat`, `om_forelagt`, `slump` (0–1). Effekter:
   `visa_handlingar`, `tid_framat_dagar`, `meddelande`, `satt_komplett_datum`, `andrade_fakta`,
   `nytt_steg` (ett helt steg som skjuts in).
+
+Så tolkar ärendemotorn ärendet (bra att veta när du skriver):
+
+- Ett `skrivelse`-steg vars `rubrik` eller `instruktion` innehåller "förelägg" räknas som ett
+  föreläggande. Ordet efter "om" blir dess slag, så "Skriv föreläggande om komplettering"
+  utlöser `om_forelagt: komplettering` och styr när tioveckorsfristen (9 kap. 99 §) börjar.
+- Ett `urval`-steg räknas som underrättelse av grannar (9 kap. 94 §). Använd en
+  `fraga`/`flersvar` för andra urval, t.ex. remissinstanser.
+- `om_missat: S3` gäller om steget hoppades över eller besvarades fel, eller om beslutet
+  fattades utan att steget gjorts. Självbedömda steg räknas aldrig som missade.
+- `vid_beslut: bevilja` gäller även `bevilja_med_villkor`. Beslutskontrollen godtar bara
+  `forvantat_beslut`; beskriv godtagbara alternativ i `bedomningspunkter`.
+- Taxans poster är alternativ (t.ex. lov eller avskrivning); avgiften är rätt om den stämmer
+  med någon av dem, efter reduktion enligt 12 kap. 8 a §.
+- Vilande enligt 9 kap. 102 § finns inte i motorn. Lägg tidslinjen så att beslutet fattas inom
+  fristen, som i A003.
 
 Kontrollen säger till om ett steg, en handling eller en händelse som refereras inte finns,
 om ett id används två gånger och om `dold_tills` pekar på en händelse som saknas. Filer som
@@ -105,6 +122,10 @@ Skriv i den stil myndigheter och sökande faktiskt använder: blanketter med rub
 rubrikerna Beslut, Avgift, Skäl för beslutet, Upplysningar, Hur man överklagar och
 Expediering. GitHub-tabeller och kryssrutor (`- [x] Bygglov`, `- [ ] Rivningslov`) fungerar.
 Lämna tomma fält tomma om något saknas i ansökan; det är en del av övningen.
+
+En enkel radbrytning blir ett mellanslag i Markdown. Där raden ska brytas, som i adresser,
+underskrifter och rader som `**Fastighet:** Björken 7`, avslutar du raden med `\`
+(omvänt snedstreck).
 
 Överst får dokumentet ha **front matter** som appen visar i stämpeln och dokumenthuvudet:
 
@@ -164,18 +185,25 @@ Gemensamt för alla ritningstyper:
 | Parameter | Innehåll |
 | --- | --- |
 | `tomt_bredd`, `tomt_djup` | Tomtens mått (öst–väst, nord–syd) |
-| `hus` | Befintlig huvudbyggnad, rektangel |
+| `hus` | Befintlig huvudbyggnad, rektangel. Ange `hus`, `nybyggnad` eller båda. |
+| `nybyggnad` | Ny huvudbyggnad, t.ex. ett nytt bostadshus på en obebyggd tomt (skrafferas) |
 | `tillbyggnad`, `komplementbyggnad` | Ny byggnadsdel, rektangel (skrafferas) |
 | `ovriga_byggnader` | Befintliga byggnader, lista med `{ rektangel, namn }` |
 | `prickmark` | Lista med `{ sida, djup }`, t.ex. `[{ sida: soder, djup: 6 }]` |
+| `anlaggningar` | Annat på tomten (altan, markbädd …), lista med `{ rektangel, namn }`, ritas tunt streckat |
+| `punkter` | Punkter med namn, t.ex. `[{ punkt: [10, 28], namn: Borrad brunn }]` |
+| `utfart` | `{ sida, lage, bredd, langd (6) }`; `lage` räknas från tomtens västra eller norra hörn |
+| `strandlinje` | `{ sida, avstand, namn }`: strandlinjen `avstand` meter utanför tomtgränsen, med vatten bortom |
+| `strandskydd` | `{ avstand }`: strandskyddsgränsen, `avstand` meter från strandlinjen (kräver `strandlinje`) |
 | `gata` | `{ sida, namn, bredd (8), fastighet }` |
 | `grannar` | Fastighetsbeteckningar per sida: `{ norr, oster, soder, vaster }` |
 | `grannhus` | Grannarnas hus, rektanglar i samma koordinater (får ligga utanför tomten) |
 | `norr_vinkel` | Norrpilens vridning i grader (0 = norr uppåt) |
 | `visa_areor` | `true` skriver ut tomtarea och byggnadsareor (av som standard, hon ska mäta själv) |
 
-Måttkedjor ritas automatiskt: tomtens mått, husets och de nya delarnas läge mot gränserna
-och prickmarkens djup.
+Måttkedjor ritas automatiskt: tomtens mått, husets och de nya delarnas läge mot gränserna,
+utfartens läge och prickmarkens djup. Generatorn flyttar måttkedjor och fastighetsnamnet så
+att de inte skriver över varandra eller anläggningarna, men titta alltid på resultatet.
 
 **`fasadritning`** (standardskala 1:100). En eller två fasader i `fasader`, var och en med
 `rubrik` och `delar`. Delarna ritas i ordning, så lista den som ligger längst bort först.

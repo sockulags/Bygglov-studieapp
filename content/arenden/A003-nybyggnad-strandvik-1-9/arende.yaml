@@ -31,18 +31,13 @@ larandemal:
 taxa:
   # Förenklad fiktiv taxa. Posten omfattar lovprövning utanför plan med underrättelse,
   # remisser och kungörelse.
-  bygglov_nybyggnad_enbostadshus_utanfor_plan: 31800
+  bygglov_nybyggnad_enbostadshus_utanför_plan: 31800
   reduktion_per_vecka: 0.2
 
 handlingar:
   # Textdokument är Markdown (front matter: rubrik, avsandare, datum, diarienummer).
-  # Fasader och planritning genereras från parametrar med `pnpm content:drawings`.
-  #
-  # Situationsplanerna H2 och H9 har ännu inga parametrar: generatorn kan i dag bara rita ett
-  # befintligt bostadshus (`hus` är obligatoriskt och märks "Befintligt bostadshus") och saknar
-  # strandlinje, strandskyddsgräns, utfart och anläggningar. Föreslagna parametrar står som
-  # kommentarer under respektive handling och ska aktiveras när generatorn stöder nycklarna.
-  # Samma mått finns i `fakta`, så att texterna och bedömningen redan nu bygger på dem.
+  # Situationsplaner, fasader och planritning genereras från parametrar med
+  # `pnpm content:drawings`. Samma mått finns i `fakta`, så att texterna bygger på dem.
   - id: H1
     typ: ansokan
     titel: Ansökan om bygglov
@@ -78,23 +73,22 @@ handlingar:
       avstand_hus_vagomrade_m: 30
       markbadd: [46, 16, 8, 8]
       borrad_brunn: [10, 28]
-    # Föreslagna parametrar (kräver nya nycklar i generatorn, se kommentaren ovan):
-    # parametrar:
-    #   skala: 1000
-    #   tomt_bredd: 60
-    #   tomt_djup: 70
-    #   nybyggnad: [22, 30, 16, 10]          # NY: nytt bostadshus, skrafferas; `hus` valfritt
-    #   anlaggningar:                        # NY: rektanglar med namn, ritas tunt streckade
-    #     - { rektangel: [26, 40, 8, 4], namn: Altan }
-    #     - { rektangel: [46, 16, 8, 8], namn: Markbädd }
-    #   punkter: [{ punkt: [10, 28], namn: Borrad brunn }]   # NY: punktsymbol med text
-    #   utfart: { sida: norr, lage: 3, bredd: 5 }            # NY: lage = avstånd från V/N hörn
-    #   strandlinje: { sida: soder, avstand: 65, namn: Långsjön }   # NY: utanför tomten
-    #   strandskydd: { avstand: 100 }        # NY: streckad gräns 100 m från strandlinjen
-    #   gata: { sida: norr, namn: Väg 612, bredd: 7 }
-    #   grannar: { norr: Strandvik 1:3, oster: Strandvik 1:12, soder: Strandvik 1:1, vaster: Strandvik 1:5 }
-    #   grannhus: [[-52, 20, 12, 9], [84, 16, 14, 9], [20, -40, 12, 9]]
-    #   ritningshuvud: { datum: 2026-08-10, ritad_av: Ek & Holm Arkitektur, ritningsnummer: A-01 }
+    parametrar:
+      skala: 1000
+      tomt_bredd: 60
+      tomt_djup: 70
+      nybyggnad: [22, 30, 16, 10]
+      anlaggningar:
+        - { rektangel: [26, 40, 8, 4], namn: Altan }
+        - { rektangel: [46, 16, 8, 8], namn: Markbädd }
+      punkter: [{ punkt: [10, 28], namn: Borrad brunn }]
+      utfart: { sida: norr, lage: 3, bredd: 5 }
+      strandlinje: { sida: soder, avstand: 65, namn: Långsjön }
+      strandskydd: { avstand: 100 }
+      gata: { sida: norr, namn: Väg 612, bredd: 7 }
+      grannar: { norr: Strandvik 1:3, oster: Strandvik 1:12, soder: Strandvik 1:1, vaster: Strandvik 1:5 }
+      grannhus: [[-52, 20, 12, 9], [84, 16, 14, 9], [20, -40, 12, 9]]
+      ritningshuvud: { datum: 2026-08-10, ritad_av: Ek & Holm Arkitektur, ritningsnummer: A-01 }
   - id: H3
     typ: fasadritning
     titel: Fasader mot söder och öster 1:100
@@ -214,9 +208,23 @@ handlingar:
     fakta:
       utfart: "5 m bred, 30–35 m från västra gränsen, god sikt i båda riktningar"
       andrat_mot_H2: utfartens läge och infartsvägen
-    # Föreslagna parametrar: som H2 men med
-    #   utfart: { sida: norr, lage: 30, bredd: 5 }
-    #   ritningshuvud: { datum: 2026-09-09, ritad_av: Ek & Holm Arkitektur, ritningsnummer: A-01 rev A }
+    # Som H2 men med flyttad utfart.
+    parametrar:
+      skala: 1000
+      tomt_bredd: 60
+      tomt_djup: 70
+      nybyggnad: [22, 30, 16, 10]
+      anlaggningar:
+        - { rektangel: [26, 40, 8, 4], namn: Altan }
+        - { rektangel: [46, 16, 8, 8], namn: Markbädd }
+      punkter: [{ punkt: [10, 28], namn: Borrad brunn }]
+      utfart: { sida: norr, lage: 30, bredd: 5 }
+      strandlinje: { sida: soder, avstand: 65, namn: Långsjön }
+      strandskydd: { avstand: 100 }
+      gata: { sida: norr, namn: Väg 612, bredd: 7 }
+      grannar: { norr: Strandvik 1:3, oster: Strandvik 1:12, soder: Strandvik 1:1, vaster: Strandvik 1:5 }
+      grannhus: [[-52, 20, 12, 9], [84, 16, 14, 9], [20, -40, 12, 9]]
+      ritningshuvud: { datum: 2026-09-09, ritad_av: Ek & Holm Arkitektur, ritningsnummer: A-01 rev A }
   - id: H10
     typ: remissvar
     titel: Yttrande från miljöenheten om vatten och avlopp

@@ -7,7 +7,7 @@ diarienummer: BN 2026-000214
 
 # Anmälan om kontrollansvarig
 
-**Till:** Bygg- och miljönämnden, Åkerslunda kommun
+**Till:** Bygg- och miljönämnden, Åkerslunda kommun\
 **Ärende:** Tillbyggnad av enbostadshus, Björken 7, dnr BN 2026-000214
 
 ## Byggherre

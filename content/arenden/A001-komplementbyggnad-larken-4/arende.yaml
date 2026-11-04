@@ -24,7 +24,7 @@ larandemal:
 
 taxa:
   # Förenklad fiktiv taxa. Varje post är ett möjligt avgiftsbelopp i beslutet.
-  avskrivning_efter_aterkallelse: 1300      # en timmes handläggning (12 kap. 8 § 9 PBL)
+  avskrivning_efter_återkallelse: 1300      # en timmes handläggning (12 kap. 8 § 9 PBL)
   lov_komplementbyggnad_16_30kvm: 6500      # om ansökan prövas, även som frivilligt lov
   reduktion_per_vecka: 0.2
 

@@ -5,8 +5,8 @@ datum: 2026-04-08
 diarienummer: BN 2026-000318
 ---
 
-Elin och Patrik Sandberg
-Lärkvägen 4
+Elin och Patrik Sandberg\
+Lärkvägen 4\
 999 99 Åkerslunda
 
 # Ert förråd på Lärken 4 kan bli bygglovsbefriat
@@ -66,8 +66,8 @@ Ring eller mejla mig om ni har frågor.
 
 Vänliga hälsningar
 
-Karin Sjöholm
-Bygglovshandläggare, Åkerslunda kommun
+Karin Sjöholm\
+Bygglovshandläggare, Åkerslunda kommun\
 070-174 06 60 · bygglov@akerslunda.example
 
 ---

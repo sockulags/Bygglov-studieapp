@@ -8,10 +8,13 @@ import { Card, CardContent } from '@/components/ui/card';
 import { MasteryRing, Progress } from '@/components/ui/progress';
 import { loadContent } from '@/content';
 import { useAnswerHistory } from '@/data';
+import { useSubmittedDecisions } from '@/features/cases';
+import { ExportDecisionButton } from '@/features/cases/export';
 import { usePassHistory, useStudyOverview } from '@/features/progress/hooks';
 import { overallMastery, questionIndex, tagLabel, weakTags } from '@/features/progress/progress';
 import { studyModeLabel } from '@/features/study/modes';
 import { formatDuration, formatWhen } from '@/lib/format';
+import { CaseResults } from './case-results';
 
 export function ResultsPage() {
   const { overview } = useStudyOverview();
@@ -22,6 +25,8 @@ export function ResultsPage() {
   const modules = overview.modules.filter((m) => m.questionCount > 0);
   const finished = history.passes.filter((p) => p.session.finishedAt !== null && p.result);
   const totalAnswers = answers.data?.length ?? 0;
+  const decisions = useSubmittedDecisions();
+  const latestDecision = decisions.data?.[0] ?? null;
   const now = new Date();
 
   const stats = [
@@ -42,16 +47,24 @@ export function ResultsPage() {
     <>
       <PageHeader
         title="Mina resultat"
-        description="Hur det går över tid: behärskning per modul, det du oftast missar och dina senaste pass."
+        description="Hur det går över tid: behärskning per modul, det du oftast missar, dina ärenden och dina senaste pass."
         actions={
-          <Button
-            variant="secondary"
-            disabled
-            title="Aktiveras när du lämnat in ett beslut i ett ärende"
-          >
-            <Download aria-hidden="true" />
-            Exportera till handledare
-          </Button>
+          latestDecision ? (
+            <ExportDecisionButton
+              caseId={latestDecision.caseFile.id}
+              decisionId={latestDecision.decision.id}
+              label="Exportera senaste beslutet"
+            />
+          ) : (
+            <Button
+              variant="secondary"
+              disabled
+              title="Aktiveras när du lämnat in ett beslut i ett ärende"
+            >
+              <Download aria-hidden="true" />
+              Exportera till handledare
+            </Button>
+          )
         }
       />
 
@@ -140,6 +153,8 @@ export function ResultsPage() {
           </Card>
         </section>
       </div>
+
+      <CaseResults />
 
       <section aria-labelledby="results-history">
         <SectionTitle>

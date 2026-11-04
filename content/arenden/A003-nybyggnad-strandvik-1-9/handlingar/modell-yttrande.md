@@ -5,7 +5,7 @@ datum: 2026-11-17
 diarienummer: BN 2026-000655
 ---
 
-Länsstyrelsen
+Länsstyrelsen\
 Rättsenheten
 
 Er beteckning: 403-28817-2026
@@ -76,7 +76,7 @@ Nämnden har inget ytterligare att anföra. Frågan om de klagandes rätt att ö
 
 Åkerslunda den 17 november 2026
 
-Karin Sjöholm
+Karin Sjöholm\
 Bygglovshandläggare, på delegation från bygg- och miljönämnden
 
 ---

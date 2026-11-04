@@ -9,10 +9,11 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { loadContent } from '@/content';
+import { getCase, loadContent } from '@/content';
 import { dataKeys, getDataStore } from '@/data';
 import { formatWhen } from '@/lib/format';
 import { isTauri } from '@/lib/tauri';
+import { flushCaseWrites, setCaseReflection, useCaseStore } from '../case-store';
 import { copyText, printHtml, saveHtmlFile } from './export-actions';
 import { exportKeys, useDecisionRow } from './hooks';
 import { loadDecisionReport, ReportLoadError, ReportNotesSchema, reportNotesKey } from './load';
@@ -72,9 +73,21 @@ export function ExportDecisionButton({
     setOpen(true);
     void (async () => {
       try {
-        const stored = await (await getDataStore()).settings.get(reportNotesKey(decisionId));
-        const parsed = ReportNotesSchema.safeParse(stored);
-        setNotes(parsed.success ? parsed.data : '');
+        const store = await getDataStore();
+        const active = useCaseStore.getState().active;
+        const reflection =
+          active?.caseId === caseId
+            ? active.reflection
+            : ((await store.cases.getCaseStatus(caseId))?.reflection ?? '');
+        if (reflection.trim().length > 0) {
+          setNotes(reflection);
+        } else {
+          // Earlier versions kept the text per decision in settings.
+          const parsed = ReportNotesSchema.safeParse(
+            await store.settings.get(reportNotesKey(decisionId)),
+          );
+          setNotes(parsed.success ? parsed.data : '');
+        }
       } catch (error: unknown) {
         console.error(error);
       } finally {
@@ -83,10 +96,19 @@ export function ExportDecisionButton({
     })();
   };
 
+  // The text is her reflection on the case, the same as "Egna reflektioner" in the
+  // comparison view, so it is saved on the case.
   const saveNotes = async (value: string) => {
-    const store = await getDataStore();
-    if (value.trim().length === 0) await store.settings.delete(reportNotesKey(decisionId));
-    else await store.settings.set(reportNotesKey(decisionId), value);
+    const caseFile = getCase(loadContent(), caseId);
+    if (caseFile && useCaseStore.getState().active?.caseId === caseId) {
+      setCaseReflection(caseFile, value);
+      await flushCaseWrites();
+    } else {
+      const store = await getDataStore();
+      if (await store.cases.getCaseStatus(caseId)) {
+        await store.cases.updateCaseStatus(caseId, { reflection: value });
+      }
+    }
   };
 
   const run = async (method: ExportMethod) => {
@@ -158,7 +180,7 @@ export function ExportDecisionButton({
 
           <div className="flex flex-col gap-2">
             <label htmlFor={notesId} className="text-sm font-medium">
-              Anteckningar och reflektioner (valfritt)
+              Egna reflektioner (valfritt)
             </label>
             <textarea
               id={notesId}

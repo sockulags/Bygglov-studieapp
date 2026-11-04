@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import type { CaseFile } from '@bygglov/content-schema';
 import { loadA002 } from './a002.fixture';
 import {
+  advanceDays,
   currentStep,
   diary,
   markDocumentSeen,
@@ -96,6 +97,7 @@ describe('A002: rätt väg (förelägg → komplettering → grannehörande → 
       'H2',
       'H3',
       'H4',
+      'H9',
     ]);
 
     let r = answer(state, 'S1');
@@ -242,6 +244,12 @@ describe('A002: slumpvägen (byggstart före startbesked)', () => {
     expect(currentStep(a002, tillsyn.state)).toBeNull();
     // Fired at most once: nothing fires again.
     expect(evaluateTriggers(a002, tillsyn.state)).toEqual([]);
+
+    // Time after the decision does not make the (met) 99 § deadline run out in the diary.
+    const later = advanceDays(tillsyn.state, 60);
+    expect(later.diary.filter((e) => e.kind === 'frist' && e.text.includes('löpte ut'))).toEqual(
+      [],
+    );
   });
 
   it('inserts follow-up steps in file order when E3 and E4 fire together', () => {
@@ -328,6 +336,7 @@ describe('state handling', () => {
       'H2',
       'H3',
       'H4',
+      'H9',
       'H5',
       'H6',
       'H7',

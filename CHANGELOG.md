@@ -11,7 +11,31 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
-Inget ännu.
+### Nytt
+
+- Ärenden: nu kan du handlägga riktiga (fiktiva) bygglovsärenden från ansökan till beslut.
+  Tre ärenden finns, ett per nivå: ett förråd nära tomtgränsen på Lärken 4, en tillbyggnad
+  med liten avvikelse på Björken 7 och ett nytt hus vid Långsjön utanför detaljplan.
+- Ärendevyn ser ut som på kontoret: diariet till vänster, handlingen i mitten och ditt arbete
+  till höger. Handlingarna ser ut som handlingar, med INKOM-stämpel, och ritningarna går att
+  zooma och flytta.
+- Ärendet lever: kompletteringar kommer in, grannar hör av sig, Trafikverket svarar och någon
+  överklagar. Vad som händer beror på vad du gör, till exempel om du förelägger om
+  komplettering eller hoppar över grannarna.
+- Tiden går i ärendet. Rubrikraden visar dagens datum och hur många dagar som är kvar av
+  tioveckorsfristen. Beslutar du för sent ska avgiften sättas ned.
+- Sex sorters uppgifter: checklistor, frågor, beräkningar på ritningarna, vilka grannar som ska
+  underrättas, skrivelser du jämför med en modelltext och själva beslutet.
+- Beslutet skriver du i en beslutsmall med förhandsvisning som ett riktigt beslut. Efteråt ser
+  du ditt beslut bredvid modellbeslutet, vad appen kontrollerat med lagrum, bedömningspunkter
+  att bocka av och en ruta för egna reflektioner.
+- Exportera till handledare: skicka beslutsrapporten till pappa som PDF, som fil eller som
+  text att klistra in i ett sms eller mejl. Hans bedömning skriver du in i appen, och då blir
+  ärendet "Bedömt".
+- Hem föreslår ärendet du håller på med eller nästa ärende att ta dig an.
+- Mina resultat visar dina ärenden per status, dina inlämnade beslut och handledarens
+  bedömningar.
+- Uppslag tar med lagrummen från ärendena, och du kan visa bara dem.
 
 ## [0.1.0] - 2026-11-04
 

@@ -12,6 +12,7 @@
   "scripts": {
     "check": "tsx src/index.ts check",
     "build": "tsx src/index.ts build",
+    "drawings": "tsx src/index.ts drawings",
     "typecheck": "tsc -p tsconfig.json",
     "test": "vitest run --passWithNoTests"
   },

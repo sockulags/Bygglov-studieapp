@@ -335,6 +335,14 @@ describe('loadDecisionReport', () => {
     expect(report.notes).toBe('Mina reflektioner');
     expect(report.decisionDate).toBe(state.decisions[0]?.date);
     expect(report.appendix.markdown).toContain('beviljar bygglov');
+
+    // The reflection written in the comparison view takes precedence.
+    await memory.cases.updateCaseStatus('A002', { reflection: 'Från jämförelsevyn' });
+    const again = await loadDecisionReport(store, content, 'A002', row.id, {
+      fetcher,
+      generatedAt: GENERATED,
+    });
+    expect(again.report.notes).toBe('Från jämförelsevyn');
   });
 
   it('still builds a report from the draft alone', async () => {

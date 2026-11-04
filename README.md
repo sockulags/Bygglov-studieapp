@@ -25,21 +25,28 @@ pluggar aldrig behöver göra något mer tekniskt än att trycka "Uppdatera".
 
 ## Status
 
-Fas 1 (v0.1) är byggd och väntar på första taggade releasen. Det som finns:
+Fas 1 (v0.1) är släppt. Fas 2, ärendesimulatorn, är byggd och kommer i nästa version.
+Det som finns:
 
 - **Plugga**: snabbquiz, modulgenomgång, repetition (FSRS), instudering och tentaläge med alla
   nio frågetyper, förklaring och lagrum efter varje svar, tangentbordsstyrning och avslutsvy med
   "öva på felen". Varje svar sparas och styr repetitionsschemat.
-- **Hem** och **Mina resultat**: fortsätt där du var, frågor som väntar på repetition, streak,
-  behärskning per modul, senaste pass och svaga taggar.
-- **Innehåll**: 98 frågor i modul 3 (Lovplikt) och modul 6 (Handläggningsprocessen) enligt
-  rättsläget från 2025-12-01, alla med status `utkast` tills handledaren granskat dem. Ett ärende
-  (A002) finns som innehåll; ärendemotorn och ärendevyn är fas 2.
-- **Uppslag**: modulernas lagrum och ett lagrumsregister byggt från frågorna.
+- **Ärenden**: tre bygglovsärenden, ett per nivå (A001 komplementbyggnad nära gräns, A002
+  tillbyggnad med liten avvikelse, A003 nybyggnad utanför plan vid strand). Ärendevyn har
+  diarium, handlingsvisare med genererade ritningar, arbetsyta med sex stegtyper, simulerad tid
+  med tioveckorsfristen (9 kap. 99 § PBL), händelser som förgrenar ärendet, beslutsmall med
+  automatiska kontroller, jämförelse med modellbeslutet och export av beslutsrapporten till
+  handledaren. Se [docs/03-arendesimulator.md](docs/03-arendesimulator.md).
+- **Hem** och **Mina resultat**: fortsätt där du var (pass eller ärende), frågor som väntar på
+  repetition, streak, behärskning per modul, ärenden per status, inlämnade beslut med
+  handledarens bedömning, senaste pass och svaga taggar.
+- **Innehåll**: 98 frågor i modul 3 (Lovplikt) och modul 6 (Handläggningsprocessen) och tre
+  ärenden, allt enligt rättsläget från 2025-12-01 och med status `utkast` tills handledaren
+  granskat det.
+- **Uppslag**: modulernas lagrum och ett lagrumsregister byggt från frågorna och ärendena.
 - **Inställningar**: tema, textstorlek, uppdateringar, export/import/återställning av studiedata.
 - **Leveranskedja**: SQLite med migrationer, auto-uppdatering med "Vad är nytt", `ci.yml` och
-  `release.yml` (Windows/NSIS). Före första releasen behövs signeringsnyckeln, se
-  [docs/release-checklista.md](docs/release-checklista.md).
+  `release.yml` (Windows/NSIS), se [docs/release-checklista.md](docs/release-checklista.md).
 
 Se [docs/07-roadmap.md](docs/07-roadmap.md) för vad som återstår.
 
@@ -50,8 +57,9 @@ Kräver Node 22 och pnpm 10. För skrivbordsappen även Rust och Tauris systembe
 
 ```sh
 pnpm install
-pnpm content:build  # YAML i content/ → JSON som appen bundlar
-pnpm dev            # appen i webbläsaren på http://localhost:1420
+pnpm content:build     # YAML i content/ → JSON som appen bundlar
+pnpm content:drawings  # ritningarna i content/ på nytt efter ändrade parametrar
+pnpm dev               # appen i webbläsaren på http://localhost:1420
 pnpm --filter desktop tauri dev   # som skrivbordsapp
 ```
 
@@ -61,7 +69,7 @@ ligger den i SQLite.
 ## Kontroller
 
 ```sh
-pnpm lint && pnpm typecheck && pnpm test
+pnpm lint && pnpm format:check && pnpm typecheck && pnpm test
 pnpm content:check   # validerar allt innehåll, måste vara grönt före release
 pnpm --filter desktop build
 ```

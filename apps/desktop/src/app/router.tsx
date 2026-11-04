@@ -12,7 +12,6 @@ import { StudySessionPage } from '@/features/study/session-page';
 import { isPracticeMode, type PracticeMode } from '@/features/study/modes';
 import { CasesPage } from '@/features/cases/cases-page';
 import { LookupPage } from '@/features/lookup/lookup-page';
-import { ResultsPage } from '@/features/results/results-page';
 import { SettingsPage } from '@/features/settings/settings-page';
 
 /*
@@ -76,7 +75,8 @@ export const lookupRoute = createRoute({
 export const resultsRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/results',
-  component: ResultsPage,
+  // Lazy: the results page carries the decision export (Markdown rendering for the report).
+  component: lazyRouteComponent(() => import('@/features/results/results-page'), 'ResultsPage'),
 });
 
 export const settingsRoute = createRoute({

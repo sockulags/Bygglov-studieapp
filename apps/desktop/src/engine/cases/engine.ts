@@ -467,7 +467,8 @@ function moveTime(state: CaseState, days: number): void {
   const from = state.simDate;
   const to = addDays(from, days);
   const deadline = state.deadlineDate;
-  if (deadline !== null && from <= deadline && to > deadline) {
+  // After the decision the deadline no longer matters (it was met or not when deciding).
+  if (deadline !== null && state.decisions.length === 0 && from <= deadline && to > deadline) {
     log(state, {
       date: addDays(deadline, 1),
       kind: 'frist',

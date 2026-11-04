@@ -40,15 +40,34 @@ Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men
 
 ## Fas 2 · Ärendesimulatorn (v0.2–v0.4)
 
-- Ärendemotor med steg, händelser, utlösare, simulerad tid
-- Ärendevyn med diarium, handlingsvisare (PDF/PNG/SVG), arbetsyta
-- Stegtyper: checklista, fråga, beräkning, urval, skrivelse, beslut
-- Beslutsmallen med strukturerade kontroller
-- Jämförelsevy mot modellbeslut och bedömningspunkter
-- Export av beslutsrapport (PDF) till handledaren
-- Tre ärenden: ett per nivå 1–3, skrivna tillsammans med pappa
-- SVG-ritningsgenerator för enkla situationsplaner och fasader
-- Repetition (FSRS) och läget Instudering med öppna frågor
+- [x] Ärendemotor med steg, händelser, utlösare, simulerad tid och tidsfristen i 9 kap. 99 §
+  med avgiftsreduktion (ren TypeScript, `engine/cases`, med tester för alla vägar i A002)
+- [x] Ärendevyn med diarium, handlingsvisare (Markdown som A4-papper, SVG/PNG med zoom),
+  arbetsyta, anteckningar och staplade flikar i smalt fönster
+- [x] Stegtyper: checklista, fråga, beräkning, urval, skrivelse, beslut
+- [x] Beslutsmallen med strukturerade kontroller och levande förhandsvisning
+- [x] Jämförelsevy mot modellbeslut och bedömningspunkter, med egna reflektioner
+- [x] Export av beslutsrapport till handledaren (PDF via utskrift, HTML-fil, text) och
+  registrering av handledarens bedömning (ärendet blir "Bedömt")
+- [x] Tre ärenden, ett per nivå 1–3: A001 komplementbyggnad nära gräns, A002 tillbyggnad med
+  liten avvikelse, A003 nybyggnad utanför plan vid strand (status utkast)
+- [ ] Ärendena granskade tillsammans med pappa (status `granskad`)
+- [x] SVG-ritningsgenerator: situationsplan (även nybyggnad, utfart, strandlinje och
+  strandskyddsgräns), fasader, planritning med sektion och plankarta
+- [x] Hem föreslår ärendet att fortsätta eller nästa ärende, Mina resultat visar ärenden per
+  status, inlämnade beslut och handledarens bedömningar, Uppslag tar med ärendenas lagrum
+- [x] Repetition (FSRS) och läget Instudering med öppna frågor (kom redan i fas 1)
+
+Kvar i fas 2:
+
+- [ ] Knapp för att förlänga tidsfristen (motorn kan, 9 kap. 99 § andra stycket)
+- [ ] Vilande enligt 9 kap. 102 § i motorn (A003 frågar om det men tiden räknas ändå)
+- [ ] Ett fält för godtagbara alternativa beslut (t.ex. frivilligt lov i A001), i dag bara
+  som bedömningspunkt
+- [ ] Ett eget fält för föreläggande på skrivelsesteg i stället för att motorn letar efter
+  ordet "förelägg"
+- [ ] PDF-handlingar med pdf.js (i dag visas en PDF med webbläsarens visare)
+- [ ] Fler ärenden per nivå
 
 **Klart när**: pappa bedömt hennes första exporterade beslut och sagt att case-flödet känns rimligt.
 

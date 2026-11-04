@@ -32,7 +32,7 @@ inte går in på prickmarken.
 Åkerslunda i april 2026
 
 *Gunilla Ahlgren*  *Bertil Ahlgren*
-Björkvägen 8, 999 99 Åkerslunda
+Björkvägen 8, 999 99 Åkerslunda\
 Telefon 070-174 06 31
 
 ---

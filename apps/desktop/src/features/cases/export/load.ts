@@ -193,7 +193,14 @@ export async function loadReportSources(
       checkedCriteria: submitted?.checkedCriteria ?? parsed.checkedCriteria,
     },
     assessment,
-    notes: notesValue.success ? notesValue.data : parsed.notes,
+    // Her reflection is kept on the case (Egna reflektioner in the comparison view); older
+    // exports kept it per decision in settings.
+    notes:
+      status && status.reflection.trim().length > 0
+        ? status.reflection
+        : notesValue.success
+          ? notesValue.data
+          : parsed.notes,
     modelDecisionPath:
       assessment?.modelDecisionPath ??
       (step?.typ === 'beslut' ? step.modellbeslut : undefined) ??

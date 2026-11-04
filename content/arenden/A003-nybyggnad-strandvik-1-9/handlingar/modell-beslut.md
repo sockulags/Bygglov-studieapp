@@ -209,7 +209,7 @@ och underteckna skrivelsen.
 
 Beslutet har fattats med stöd av delegation från bygg- och miljönämnden.
 
-Karin Sjöholm
+Karin Sjöholm\
 Bygglovshandläggare, Åkerslunda kommun
 
 *Fiktiv handling för utbildning. Alla namn, nummer och fastigheter är fiktiva.*
