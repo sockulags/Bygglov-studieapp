@@ -11,6 +11,10 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
+Inget ännu.
+
+## [0.1.0] - 2026-11-04
+
 ### Nytt
 
 - Första versionen av studieappen, med Hem, Plugga, Ärenden, Uppslag, Mina resultat och
@@ -37,4 +41,5 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 - Appen uppdaterar sig själv. När en ny version finns visas en ruta överst, och efter
   uppdateringen ser du vad som är nytt.
 
-[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/commits/master
+[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.1.0...master
+[0.1.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.1.0
