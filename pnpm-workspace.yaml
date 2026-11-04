@@ -1,0 +1,8 @@
+packages:
+  - apps/*
+  - packages/*
+
+# Native build scripts we trust. pnpm 10 skips all others.
+onlyBuiltDependencies:
+  - esbuild
+  - sharp
