@@ -88,9 +88,11 @@ Se `content/exempel/` för konkreta exempel på fråge- och ärendeformat.
 
 Realistiskt arbetsflöde för att få fram bra material:
 
-1. Pappa berättar ett verkligt (anonymiserat) ärende, muntligt eller i punktform.
+1. Pappa berättar ett verkligt (anonymiserat) ärende muntligt. Spela gärna in eller
+   anteckna i punktform; han ska inte behöva skriva något själv.
 2. Storebror eller en AI-assistent strukturerar det till `arende.yaml` med steg, handlingar
-   och facit enligt mallen.
+   och facit enligt mallen. En bra fråga att ställa honom per ärende: "Vad gjorde
+   handläggaren fel första gången?" Det blir händelserna.
 3. Handlingar tas fram: enkla ritningar kan genereras som SVG från parametrar (mått, höjder,
    avstånd), ansökningsblanketter och plankartor som PDF/PNG. Riktiga offentliga handlingar
    ska inte användas rakt av.

@@ -51,12 +51,10 @@ molnlagring av hennes studiedata. Beslutet kan omprövas efter fas 1.
 │   │ data/  (repository-lager mot SQLite)               │  │
 │   └────────────────────────────────────────────────────┘  │
 └──────────────────────────────────────────────────────────┘
-          │ (fas 3, valfritt)
+          │ (fas 3)
           ▼
-┌──────────────────────────────┐
-│  Studiehjälp-proxy (Vercel)  │ → Claude API
-│  Handledarportal (Supabase)  │
-└──────────────────────────────┘
+   Claude API direkt från appen (nyckel som hon klistrar in en gång)
+   Handledarportal (Supabase, valfritt)
 ```
 
 ## Mappstruktur
@@ -129,9 +127,13 @@ FSRS (via `ts-fsrs`) med standardparametrar. Varje besvarad fråga ger ett betyg
 
 ## Studiehjälp med AI (fas 3)
 
-- **Var**: en liten serverless-funktion på Vercel som tar emot fråga + kontext, lägger på
-  systemprompt och anropar Claude API. API-nyckeln ligger bara på servern. Appen autentiserar
-  med en enkel app-token som byts vid behov.
+- **Nyckel**: storebror skapar en API-nyckel i Anthropic Console (eget workspace med
+  månadstak) och ger den till henne. Hon klistrar in den en gång under Inställningar →
+  Studiehjälp. Nyckeln sparas i Windows Credential Manager via Rust-sidan (`keyring`), aldrig
+  i klartext på disk eller i databasen. Ingen egen server behövs.
+- **Anrop**: från Rust-sidan (Tauri-kommando) eller `@tauri-apps/plugin-http`, inte från
+  webbvyn direkt, så att nyckeln inte exponeras i JavaScript och CORS inte blir ett problem.
+  Strömmande svar så att texten dyker upp medan den skrivs.
 - **Modell**: `claude-opus-5-5` som standard (bäst resonemang kring juridik och motiveringar).
   Vid mycket användning kan enkla förklaringar gå på `claude-haiku-5-5`.
 - **Vad den gör**: förklarar ett svar djupare, förhör i en modul, ger första återkoppling på
@@ -140,7 +142,8 @@ FSRS (via `ts-fsrs`) med standardparametrar. Varje besvarad fråga ger ett betyg
   när den är osäker och hänvisar till handledaren vid bedömningsfrågor. Kontext (modulens
   lagrumssammanfattningar, ärendets facit) skickas med så att svaren förankras.
 - **Kostnad**: med prompt caching av systemprompt och ärendekontext är det ören per fråga.
-  Ett tak per dag i proxyn skyddar mot överraskningar.
+  Månadstaket sätts på nyckelns workspace i Anthropic Console. Appen visar ungefärlig
+  förbrukning under Inställningar.
 
 ## Handledarportal (fas 3, valfri)
 

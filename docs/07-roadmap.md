@@ -9,9 +9,11 @@ händer. Därför är fas 1 liten i funktioner men komplett i leveranskedja.
 ## Fas 0 · Planering (nu)
 
 - [x] Vision, innehållsplan, simulator-design, design, teknik, release-plan (dessa dokument)
-- [ ] Pappa läser 02 och 03 och justerar modullistan och ärendeidéerna
-- [ ] Ta reda på vilket OS hon har (styr signeringsbeslutet)
-- [ ] Besluta publikt repo eller separat release-repo
+- [ ] Pappa får 02 och 03 upplästa/förklarade och justerar modullistan och ärendeidéerna
+- [x] OS: **Windows**. Bygg bara Windows, ingen kodsignering, installationsguide med skärmbilder
+- [x] Repo: **publikt**. Uppdateringslänken pekar direkt på GitHub Releases
+- [x] AI: hon får en **API-nyckel av storebror** och klistrar in den i appen. Ingen proxy
+- [x] Innehåll: **pappa bidrar muntligt**. Storebror/AI strukturerar till YAML, pappa granskar facit
 - [ ] Namn på appen (arbetsnamn "Bygglov-studieapp"; något kortare vore trevligt)
 
 ## Fas 1 · Skelett som uppdaterar sig själv (v0.1)
@@ -26,7 +28,7 @@ Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men
 - SQLite med migrationer; svar och pass sparas
 - Updater + UpdateBanner + "Vad är nytt"
 - `ci.yml` och `release.yml`; första taggade releasen `v0.1.0`
-- `docs/installera.md` med skärmbilder
+- `docs/installera.md` med skärmbilder (Windows, SmartScreen)
 
 **Klart när**: hon installerat v0.1.0 och fått v0.1.1 via uppdateringsdialogen utan hjälp.
 
@@ -46,7 +48,8 @@ Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men
 
 ## Fas 3 · Studiehjälp och handledare (v0.5–v0.7)
 
-- Vercel-proxy mot Claude API med app-token, dagstak och prompt caching
+- Inställning för API-nyckel (sparas i Windows Credential Manager), anrop från Rust-sidan,
+  prompt caching, förbrukningsvisning
 - "Fråga handledaren" i frågevyn och ärendevyn; första återkoppling på beslutsutkast
 - Tentaläge
 - Uppslag: lagrumsregister, ordlista, processkartor
@@ -62,15 +65,21 @@ Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men
 - Tillgänglighetsgenomgång
 - 1.0 när pappa säger att ett case känns "på riktigt"
 
-## Öppna frågor (påverkar arbetet, svara när du kan)
+## Beslut som tagits
+
+| Fråga | Beslut | Konsekvens |
+| --- | --- | --- |
+| Windows eller Mac? | Windows | Bara Windows-bygge i CI, ingen kodsignering, SmartScreen-guide |
+| Publikt repo? | Ja | Uppdateringslänk direkt mot `releases/latest/download/latest.json` |
+| Hur får appen AI-tillgång? | Hon får en API-nyckel av storebror | Nyckel klistras in i Inställningar, sparas i Credential Manager, ingen server |
+| Hur bidrar pappa med innehåll? | Muntligt | Inga innehållsverktyg för honom; storebror/AI skriver YAML, han granskar |
+
+## Kvarvarande öppna frågor
 
 | Fråga | Varför det spelar roll | Förslag om inget svar |
 | --- | --- | --- |
-| Windows eller Mac? | Mac kräver Apple-konto för smidig uppdatering | Bygg båda, signera ingen, hantera när vi vet |
-| Publikt repo? | `releases/latest/download` kräver publika releaser | Separat publikt release-repo |
-| Vill pappa skriva innehåll direkt i YAML eller berätta muntligt? | Styr hur mycket verktyg för innehållsproduktion vi bygger | Muntligt → storebror/AI strukturerar |
-| Ska AI-studiehjälpen med alls? | Kräver proxy, API-nyckel och lite kostnad | Ja, men i fas 3, bakom en inställning |
 | Vilken utbildning/skola går hon? | Vi kan matcha modulerna mot deras faktiska kursplan | Utgå från listan i 02 |
+| Namn på appen? | Visas i installern, startmenyn och fönstertiteln | "Bygglov-studieapp" tills vidare |
 
 ## Förslag på arbetsflöde för fas 1
 
@@ -83,7 +92,7 @@ Fas 1 passar bra att köra som ett parallellt arbetsflöde med flera agenter, ef
 | B. Innehållsschema | `packages/content-schema`, `packages/content-build`, `content:check`, exempelinnehåll flyttat in | inga |
 | C. Quizmotor | `engine/quiz` + `engine/repetition` med tester, ren TS | B (typerna) |
 | D. Data | SQLite-migrationer, repositories, Tauri-capabilities | A |
-| E. Release | `ci.yml`, `release.yml`, updater-konfiguration, signeringsnycklar som placeholders, installationsguide | A |
+| E. Release | `ci.yml`, `release.yml` (Windows), updater-konfiguration, signeringsnycklar som placeholders, installationsguide | A |
 | F. Innehåll | Modul 3 och 6, ca 80 frågor med förklaringar och lagrum | B |
 
 Efter spåren: ett integrationssteg som kopplar quizvyn till motorn och databasen, kör

@@ -12,8 +12,8 @@ släppt något, trycker en knapp, och appen startar om uppdaterad.
  GitHub Actions: release.yml
    · pnpm install, content:check, test
    · tauri-action bygger
-       - Windows: .exe (NSIS) + .msi
-       - macOS: .dmg (universal eller per arkitektur)
+       - Windows: .exe (NSIS), x64
+       - (macOS kan läggas till senare om behov uppstår)
    · signerar uppdateringspaketen med vår minisign-nyckel
    · skapar GitHub Release med artefakter + latest.json
         │
@@ -37,22 +37,22 @@ släppt något, trycker en knapp, och appen startar om uppdaterad.
   **Förlorar vi den privata nyckeln kan befintliga installationer inte uppdateras**, så den
   säkerhetskopieras i en lösenordshanterare.
 - Releasen måste vara publicerad som "Latest" (inte draft/pre-release) för att
-  `releases/latest/download/` ska fungera. Repot kan vara privat: då behöver appen istället
-  hämta manifestet via en liten proxy eller så görs repot (eller ett separat release-repo)
-  publikt. **Enklast: separat publikt repo bara för releaser**, eller publikt huvudrepo.
+  `releases/latest/download/` ska fungera. Repot är publikt, så länken fungerar direkt.
 
-## Kodsignering per operativsystem
+## Kodsignering
 
-Det här är den enda riktigt kluriga frågan, och den beror på **vilken dator hon har**.
+**Beslut: hon har Windows. Vi bygger bara för Windows och signerar inte.** SmartScreen
+varnar vid första installationen, därefter sköter Tauris uppdaterare resten utan varningar.
+Installationsguiden visar exakt vad hon ska klicka på. Tabellen nedan sparas som referens
+om en Mac dyker upp i framtiden.
 
 | OS | Utan signering | Med signering |
 | --- | --- | --- |
 | **Windows** | Fungerar. SmartScreen varnar vid första installationen ("Mer info" → "Kör ändå"). Uppdateringar via Tauri fungerar därefter. | Certifikat kostar ca 2 000–4 000 kr/år. Inte värt det för en användare. |
 | **macOS** | Gatekeeper blockerar osignerade appar. Går runt med högerklick → Öppna första gången, men uppdateraren kan strula med osignerade/icke-notariserade paket. | Apple Developer Program 99 USD/år. Signering + notarisering i CI gör allt smärtfritt. Rekommenderas om hon har Mac. |
 
-**Rekommendation**: ta reda på vilken dator hon har innan fas 1 avslutas. Windows: kör osignerat,
-skriv en tydlig installationsguide med skärmbilder. Mac: köp Apple-konto, lägg in certifikat i
-CI från start.
+NSIS-installern väljs framför MSI: den kan installeras per användare utan adminrättigheter
+och uppdateraren hanterar den smidigast.
 
 ## Versionshantering
 
@@ -69,8 +69,8 @@ CI från start.
 Skriv `docs/installera.md` med skärmbilder när första releasen finns:
 
 1. Gå till release-sidan (eller få länken av storebror).
-2. Ladda ner `Bygglov-studieapp_x.y.z_x64-setup.exe` (Windows) eller `.dmg` (Mac).
-3. Hantera säkerhetsvarningen enligt bild.
+2. Ladda ner `Bygglov-studieapp_x.y.z_x64-setup.exe`.
+3. Klicka "Mer info" och sedan "Kör ändå" i SmartScreen-rutan (bild i guiden).
 4. Klart. Appen sköter resten.
 
 ## Innehållsuppdateringar
@@ -83,4 +83,4 @@ börja inte där.
 ## CI utan release
 
 `ci.yml` körs på varje push och PR: lint, typecheck, test, `content:check`, och ett
-snabbt Vite-bygge. Tauri-bygget körs bara vid taggar (det tar 10–20 min per plattform).
+snabbt Vite-bygge. Tauri-bygget körs bara vid taggar (det tar 10–20 min på Windows-runnern).
