@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
 export interface ProgressProps extends HTMLAttributes<HTMLDivElement> {
@@ -55,7 +55,7 @@ export interface MasteryRingProps {
   strokeWidth?: number;
   className?: string;
   /** Text inside the ring; defaults to the percentage. */
-  children?: React.ReactNode;
+  children?: ReactNode;
   label?: string;
 }
 

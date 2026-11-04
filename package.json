@@ -2,6 +2,7 @@
   "name": "bygglov-studieapp",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Studieapp för blivande bygglovshandläggare",
   "license": "MIT",
   "packageManager": "pnpm@10.28.0",

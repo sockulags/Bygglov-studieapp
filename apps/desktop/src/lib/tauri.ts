@@ -29,3 +29,26 @@ export async function getAppVersion(): Promise<string> {
 export function runtimeLabel(): string {
   return isTauri() ? 'Skrivbordsapp' : 'Webbläsare (utvecklingsläge)';
 }
+
+export type UpdateCheckResult =
+  | { status: 'unsupported' }
+  | { status: 'up-to-date' }
+  | { status: 'available'; version: string; notes?: string }
+  | { status: 'error'; message: string };
+
+/**
+ * Manual update check for Inställningar → Uppdateringar. Only asks the updater
+ * endpoint whether a newer version exists; downloading and installing is driven by
+ * the update flow (UpdateBanner) in the release track.
+ */
+export async function checkForUpdate(): Promise<UpdateCheckResult> {
+  if (!isTauri()) return { status: 'unsupported' };
+  try {
+    const { check } = await import('@tauri-apps/plugin-updater');
+    const update = await check();
+    if (!update) return { status: 'up-to-date' };
+    return { status: 'available', version: update.version, notes: update.body };
+  } catch (error: unknown) {
+    return { status: 'error', message: error instanceof Error ? error.message : String(error) };
+  }
+}

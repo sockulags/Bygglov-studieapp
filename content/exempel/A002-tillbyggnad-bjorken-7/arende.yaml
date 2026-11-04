@@ -2,6 +2,9 @@
 id: A002
 titel: Tillbyggnad av enbostadshus
 niva: 2
+status: utkast
+rattslage: "2025-12-01"
+lagrum_osaker: true   # paragrafnummer i 9 kap skrivna före omskrivningen 2025-12-01, kontrolleras mot Lagtextens byggregler
 fastighet: Björken 7, Åkerslunda kommun
 sammanfattning: >
   Sökanden vill bygga till sitt enbostadshus med 38 kvm åt söder. Fastigheten ligger inom

@@ -84,6 +84,36 @@ content/
 
 Se `content/exempel/` för konkreta exempel på fråge- och ärendeformat.
 
+## Källor och rättsläge
+
+**Normkälla är boken *Lagtextens byggregler 2026-01-01* (Svensk Byggtjänst)**, som den
+studerande använder i utbildningen och som pappa tipsade om. Den samlar PBL, PBF, Boverkets
+författningar och angränsande regler med sakregister. Alla lagrum i appen ska gå att slå upp
+där, och Uppslag-vyn bör följa bokens indelning så att hon hittar snabbt i båda.
+
+Två saker gör rättsläget extra viktigt just nu:
+
+1. **PBL skrevs om den 1 december 2025** ("nytt regelverk för bygglov", bl.a. ett nytt 9 kap).
+   Friggebod och attefallshus försvann som begrepp och ersattes av bygglovsbefriad
+   komplementbyggnad, komplementbostadshus och bygglovsbefriad tillbyggnad, med en samlad
+   pott per tomt (45 kvm inom plan, 65 kvm utanför), slopad anmälningsplikt för dessa och
+   krav på skriftligt grannmedgivande nära gräns. Paragrafnumreringen i 9 kap kan ha ändrats.
+2. **Boverkets byggregler är nya.** BBR är ersatt av nya författningar och från 1 juli 2026
+   gäller enbart de nya.
+
+Konsekvenser för innehållet:
+
+- Varje fråga och ärende har `rattslage` (vilket rättsläge det skrevs mot) och `status`
+  (`utkast` tills pappa granskat mot boken, därefter `granskad`). Appen visar en diskret
+  markering på utkast.
+- Lagrum där paragrafnumret inte är kontrollerat efter omskrivningen märks `lagrum_osaker`
+  och visas med ett frågetecken. Hellre "PBL 9 kap." än ett gissat paragrafnummer.
+- AI-genererat innehåll (inklusive det som skrivs under fas 1) är alltid `utkast`. Modellernas
+  träningsdata kan vara äldre än lagändringen.
+- Äldre begrepp (friggebod, attefall) får förekomma i frågor som uttryckligen kontrasterar
+  "före" och "nu", eftersom hon kommer möta dem i äldre kurslitteratur och i verkligheten.
+- Granskningsrunda med pappa och boken är ett eget steg i varje innehållsleverans.
+
 ## Att producera innehåll
 
 Realistiskt arbetsflöde för att få fram bra material:

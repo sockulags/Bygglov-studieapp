@@ -1,5 +1,5 @@
 import { Link } from '@tanstack/react-router';
-import { buttonVariants } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button-variants';
 
 export function NotFoundPage() {
   return (

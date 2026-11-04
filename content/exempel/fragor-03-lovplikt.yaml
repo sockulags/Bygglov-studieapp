@@ -1,58 +1,72 @@
 # Exempel på frågeformat. En fil per modul. Valideras med zod vid bygge.
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
+# lagrum_osaker: true när paragrafnumreringen inte är kontrollerad efter omskrivningen.
 modul: 03-lovplikt
 fragor:
   - id: lov-001
     typ: flerval
     svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    lagrum_osaker: true
     fraga: >
       En fastighetsägare vill bygga en fristående komplementbyggnad på 25 kvm byggnadsarea
-      i omedelbar närhet av sitt enbostadshus inom detaljplan. Byggnaden ska ha 3,5 m nockhöjd
-      och placeras 2 m från tomtgräns. Vad gäller?
+      i omedelbar närhet av sitt enbostadshus inom detaljplan. Nockhöjden blir 3,5 m och
+      byggnaden placeras 2 m från tomtgräns. Det finns inga andra komplementbyggnader på
+      tomten och området är inte särskilt värdefullt ur kulturhistorisk synpunkt. Vad gäller?
     alternativ:
       - text: Åtgärden kräver bygglov eftersom den överstiger 15 kvm.
       - text: Åtgärden kräver anmälan och startbesked, men inte bygglov.
+      - text: Åtgärden kräver varken bygglov eller anmälan, men grannens skriftliga medgivande krävs för placeringen.
         ratt: true
-      - text: Åtgärden är helt fri från både lov och anmälan.
       - text: Åtgärden kräver bygglov eftersom den ligger närmare tomtgräns än 4,5 m.
     forklaring: >
-      Detta är en s.k. attefallsbyggnad. Enligt 9 kap. 4 a § PBL krävs inte bygglov för en
-      komplementbyggnad på högst 30 kvm med nockhöjd högst 4,0 m i omedelbar närhet av ett
-      en- eller tvåbostadshus. Placering närmare gräns än 4,5 m kräver berörda grannars
-      medgivande. Åtgärden är dock anmälningspliktig enligt 6 kap. 5 § PBF och får inte
-      påbörjas utan startbesked (10 kap. 3 § PBL).
+      Sedan den 1 december 2025 är en komplementbyggnad på högst 30 kvm med nockhöjd högst 4 m
+      inom detaljplan bygglovsbefriad för en- och tvåbostadshus, inom en samlad pott om 45 kvm
+      per tomt. Anmälningsplikten för sådana byggnader är slopad. Placering närmare gräns än
+      4,5 m kräver dock grannens skriftliga medgivande. Byggherren måste ändå följa
+      planbestämmelser och kraven på byggnadsverk. Före ändringen hade detta varit ett
+      anmälningspliktigt attefallshus.
     lagrum:
-      - PBL 9 kap. 4 a §
-      - PBF 6 kap. 5 §
-      - PBL 10 kap. 3 §
-    taggar: [attefall, komplementbyggnad, anmalan, startbesked]
+      - PBL 9 kap.
+    taggar: [komplementbyggnad, lovbefriad, grannmedgivande, pott]
 
   - id: lov-002
     typ: flersvar
     svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    lagrum_osaker: true
     fraga: Vilka av följande åtgärder kräver normalt bygglov inom detaljplanerat område?
     alternativ:
       - text: Byta färg på fasaden på ett flerbostadshus så att byggnadens karaktär väsentligt ändras.
         ratt: true
-      - text: Sätta upp en 1,7 m hög plank mot gatan.
+      - text: Sätta upp ett 1,7 m högt plank mot gatan.
         ratt: true
       - text: Måla om ett enbostadshus i samma kulör.
       - text: Ta i anspråk en lokal för ett väsentligt annat ändamål, t.ex. butik till restaurang.
         ratt: true
-      - text: Bygga en friggebod på 14 kvm, 2,9 m nockhöjd, 4,5 m från gräns.
+      - text: Bygga en komplementbyggnad på 14 kvm, 2,9 m nockhöjd, 4,5 m från gräns, på en tomt utan andra komplementbyggnader.
     forklaring: >
-      Fasadändring som väsentligt ändrar byggnadens karaktär kräver lov enligt 9 kap. 2 § första
-      stycket 3 c PBL. Plank kräver lov enligt 6 kap. 1 § 7 PBF. Väsentligt ändrad användning
-      är lovpliktig enligt 9 kap. 2 § första stycket 3 a PBL. Friggeboden är lovbefriad enligt
-      9 kap. 4 § PBL, och ommålning i samma kulör ändrar inte karaktären.
+      Fasadändring som väsentligt ändrar byggnadens karaktär och väsentligt ändrad användning
+      är lovpliktiga enligt 9 kap. 2 § PBL. Plank kräver lov enligt 6 kap. 1 § PBF. Den lilla
+      komplementbyggnaden ryms inom de lovbefriade åtgärderna för en- och tvåbostadshus
+      (högst 30 kvm per byggnad, 45 kvm sammanlagt inom plan, nockhöjd högst 4 m), och
+      ommålning i samma kulör ändrar inte karaktären. Kontrollera gällande paragrafer i
+      9 kap. efter omskrivningen den 1 december 2025.
     lagrum:
       - PBL 9 kap. 2 §
-      - PBL 9 kap. 4 §
+      - PBL 9 kap.
       - PBF 6 kap. 1 §
-    taggar: [lovplikt, fasadandring, plank, andrad_anvandning, friggebod]
+    taggar: [lovplikt, fasadandring, plank, andrad_anvandning, komplementbyggnad]
 
   - id: lov-003
     typ: lucktext
     svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    lagrum_osaker: true
     fraga: >
       Byggnadsnämnden ska meddela beslut i ett bygglovsärende inom ___ veckor från det att den
       fullständiga ansökan kom in. Tiden får förlängas en gång med högst ___ veckor.
@@ -68,6 +82,9 @@ fragor:
   - id: lov-004
     typ: oppen
     svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    lagrum_osaker: true
     fraga: >
       Förklara skillnaden mellan att avvisa, avslå och avskriva en bygglovsansökan. Ge ett
       exempel på när vart och ett är rätt utgång.

@@ -1,9 +1,9 @@
-import type { HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
 export interface StampProps extends HTMLAttributes<HTMLSpanElement> {
   /** Main text, e.g. "INKOM" or "BEVILJAT". Rendered in uppercase. */
-  children: React.ReactNode;
+  children: ReactNode;
   /** Secondary line, e.g. a date "2026-03-02" or a diary number. */
   detail?: string;
   tone?: 'brick' | 'accent' | 'success' | 'ink';
