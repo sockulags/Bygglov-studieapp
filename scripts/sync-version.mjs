@@ -42,7 +42,8 @@ function syncJson(file) {
 /** Replace `version = "…"` inside the [package] table of Cargo.toml. */
 function syncCargoToml(file) {
   const text = readFileSync(file, 'utf8');
-  const match = /(\[package\][^[]*?\nversion\s*=\s*")([^"]+)(")/.exec(text);
+  // \r?\n: the Windows runner checks files out with CRLF unless .gitattributes says otherwise.
+  const match = /(\[package\][^[]*?\r?\nversion\s*=\s*")([^"]+)(")/.exec(text);
   if (!match) throw new Error(`Hittade ingen version under [package] i ${file}`);
   const before = match[2];
   const next = text.replace(match[0], `${match[1]}${version}${match[3]}`);
@@ -53,7 +54,7 @@ function syncCargoToml(file) {
 function syncCargoLock(file) {
   const text = readFileSync(file, 'utf8');
   const pattern = new RegExp(
-    `(\\[\\[package\\]\\]\\nname = "${CRATE_NAME}"\\nversion = ")([^"]+)(")`,
+    `(\\[\\[package\\]\\]\\r?\\nname = "${CRATE_NAME}"\\r?\\nversion = ")([^"]+)(")`,
   );
   const match = pattern.exec(text);
   if (!match) throw new Error(`Hittade inte paketet ${CRATE_NAME} i ${file}`);

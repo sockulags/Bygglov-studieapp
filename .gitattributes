@@ -1,0 +1,6 @@
+# Keep LF everywhere, also on Windows runners, so scripts and lockfiles parse the same.
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.icns binary
+*.pdf binary
