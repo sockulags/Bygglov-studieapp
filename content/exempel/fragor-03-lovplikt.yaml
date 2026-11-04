@@ -1,0 +1,91 @@
+# Exempel på frågeformat. En fil per modul. Valideras med zod vid bygge.
+modul: 03-lovplikt
+fragor:
+  - id: lov-001
+    typ: flerval
+    svarighet: 1
+    fraga: >
+      En fastighetsägare vill bygga en fristående komplementbyggnad på 25 kvm byggnadsarea
+      i omedelbar närhet av sitt enbostadshus inom detaljplan. Byggnaden ska ha 3,5 m nockhöjd
+      och placeras 2 m från tomtgräns. Vad gäller?
+    alternativ:
+      - text: Åtgärden kräver bygglov eftersom den överstiger 15 kvm.
+      - text: Åtgärden kräver anmälan och startbesked, men inte bygglov.
+        ratt: true
+      - text: Åtgärden är helt fri från både lov och anmälan.
+      - text: Åtgärden kräver bygglov eftersom den ligger närmare tomtgräns än 4,5 m.
+    forklaring: >
+      Detta är en s.k. attefallsbyggnad. Enligt 9 kap. 4 a § PBL krävs inte bygglov för en
+      komplementbyggnad på högst 30 kvm med nockhöjd högst 4,0 m i omedelbar närhet av ett
+      en- eller tvåbostadshus. Placering närmare gräns än 4,5 m kräver berörda grannars
+      medgivande. Åtgärden är dock anmälningspliktig enligt 6 kap. 5 § PBF och får inte
+      påbörjas utan startbesked (10 kap. 3 § PBL).
+    lagrum:
+      - PBL 9 kap. 4 a §
+      - PBF 6 kap. 5 §
+      - PBL 10 kap. 3 §
+    taggar: [attefall, komplementbyggnad, anmalan, startbesked]
+
+  - id: lov-002
+    typ: flersvar
+    svarighet: 2
+    fraga: Vilka av följande åtgärder kräver normalt bygglov inom detaljplanerat område?
+    alternativ:
+      - text: Byta färg på fasaden på ett flerbostadshus så att byggnadens karaktär väsentligt ändras.
+        ratt: true
+      - text: Sätta upp en 1,7 m hög plank mot gatan.
+        ratt: true
+      - text: Måla om ett enbostadshus i samma kulör.
+      - text: Ta i anspråk en lokal för ett väsentligt annat ändamål, t.ex. butik till restaurang.
+        ratt: true
+      - text: Bygga en friggebod på 14 kvm, 2,9 m nockhöjd, 4,5 m från gräns.
+    forklaring: >
+      Fasadändring som väsentligt ändrar byggnadens karaktär kräver lov enligt 9 kap. 2 § första
+      stycket 3 c PBL. Plank kräver lov enligt 6 kap. 1 § 7 PBF. Väsentligt ändrad användning
+      är lovpliktig enligt 9 kap. 2 § första stycket 3 a PBL. Friggeboden är lovbefriad enligt
+      9 kap. 4 § PBL, och ommålning i samma kulör ändrar inte karaktären.
+    lagrum:
+      - PBL 9 kap. 2 §
+      - PBL 9 kap. 4 §
+      - PBF 6 kap. 1 §
+    taggar: [lovplikt, fasadandring, plank, andrad_anvandning, friggebod]
+
+  - id: lov-003
+    typ: lucktext
+    svarighet: 1
+    fraga: >
+      Byggnadsnämnden ska meddela beslut i ett bygglovsärende inom ___ veckor från det att den
+      fullständiga ansökan kom in. Tiden får förlängas en gång med högst ___ veckor.
+    svar: ["10", "10"]
+    forklaring: >
+      9 kap. 27 § PBL. Om nämnden inte håller tiden reduceras avgiften med en femtedel per
+      påbörjad vecka enligt 12 kap. 8 a § PBL.
+    lagrum:
+      - PBL 9 kap. 27 §
+      - PBL 12 kap. 8 a §
+    taggar: [handlaggningstid, avgift]
+
+  - id: lov-004
+    typ: oppen
+    svarighet: 3
+    fraga: >
+      Förklara skillnaden mellan att avvisa, avslå och avskriva en bygglovsansökan. Ge ett
+      exempel på när vart och ett är rätt utgång.
+    bedomningspunkter:
+      - Avvisning: ansökan prövas inte i sak, t.ex. för att den trots föreläggande är ofullständig (9 kap. 22 § PBL).
+      - Avslag: ansökan prövas i sak och åtgärden bedöms inte uppfylla kraven, t.ex. planstridig utan att avvikelsen är liten.
+      - Avskrivning: ärendet avslutas utan prövning för att sökanden återkallat eller frågan förfallit.
+      - Anger att samtliga beslut ska motiveras och förses med överklagandehänvisning.
+    modellsvar: >
+      Avvisning innebär att nämnden inte prövar ansökan i sak, oftast för att den är så
+      ofullständig att den inte kan prövas och sökanden inte avhjälpt bristerna efter
+      föreläggande (9 kap. 22 § PBL). Avslag innebär att ansökan prövats i sak och att
+      åtgärden inte uppfyller förutsättningarna för lov, t.ex. att den strider mot
+      detaljplanen och avvikelsen inte kan godtas enligt 9 kap. 31 b §. Avskrivning används
+      när ärendet inte längre behöver prövas, typiskt när sökanden återkallar ansökan.
+      Alla tre är beslut som ska motiveras (32 § FL) och kunna överklagas (13 kap. PBL).
+    lagrum:
+      - PBL 9 kap. 22 §
+      - PBL 9 kap. 31 b §
+      - FL 32 §
+    taggar: [avvisning, avslag, avskrivning, beslut]
