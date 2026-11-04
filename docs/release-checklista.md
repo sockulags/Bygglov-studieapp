@@ -6,6 +6,10 @@
 > (en enda secret, `TAURI_SIGNING_PRIVATE_KEY`) och sedan första taggen. Workflowet
 > `Bygg-kontroll (Windows)` kan köras när som helst från fliken Actions för att testa bygget utan
 > att publicera något; det ger en installer som artefakt.
+>
+> **Släppa utan att pusha en tagg:** fliken Actions → *Release* → *Run workflow* på `master`.
+> Workflowet taggar då själv `v<version i package.json>` på senaste commiten och publicerar.
+> Det är så releaser startas från Claude-sessionen, vars git-proxy inte tillåter tagg-pushar.
 
 Så släpper storebror en ny version av Bygglov-studieapp. Bakgrunden står i
 [06-release-och-uppdatering.md](06-release-och-uppdatering.md); hur hon installerar första
