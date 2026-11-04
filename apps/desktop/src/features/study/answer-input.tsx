@@ -475,6 +475,12 @@ function Matching({
                   id={`${baseId}-${index}`}
                   value={matches[index] ?? ''}
                   disabled={answered}
+                  onKeyDown={(event) => {
+                    if (event.key === 'Enter' && !answered && matches.every((m) => m !== null)) {
+                      event.preventDefault();
+                      event.currentTarget.form?.requestSubmit();
+                    }
+                  }}
                   onChange={(event) =>
                     setMatches((current) =>
                       current.map((m, i) =>

@@ -29,7 +29,8 @@ Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men
   (51 + 47, status utkast; granskning med handledaren återstår)
 - [x] SQLite med migrationer; svar och pass sparas
 - [x] Updater + UpdateBanner + "Vad är nytt"
-- [ ] `ci.yml` och `release.yml`; första taggade releasen `v0.1.0`
+- [x] `ci.yml`, `release.yml` och `build-check.yml`; signeringsnyckel skapad och pubkey inlagd
+- [ ] Secret `TAURI_SIGNING_PRIVATE_KEY` på GitHub, sedan första taggade releasen `v0.1.0`
   (workflows klara; signeringsnyckel, pubkey och secrets saknas, se `docs/release-checklista.md`)
 - [ ] `docs/installera.md` med skärmbilder (Windows, SmartScreen)
   (texten klar; skärmbilderna tas vid första installationen)

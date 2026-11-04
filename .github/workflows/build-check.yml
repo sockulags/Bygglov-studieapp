@@ -1,0 +1,74 @@
+# Builds the Windows installer WITHOUT publishing anything, to catch Rust/Tauri build
+# errors before a real release. Uses a throwaway signing key, so the produced installer
+# can be installed and tested but its updater signature is meaningless. Trigger it
+# manually from the Actions tab, or push changes under src-tauri.
+name: Bygg-kontroll (Windows)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [master]
+    paths:
+      - 'apps/desktop/src-tauri/**'
+      - '.github/workflows/build-check.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Bygg installer (utan publicering)
+    runs-on: windows-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Installera Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cacha Rust-bygget
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/desktop/src-tauri -> target
+
+      - name: Installera beroenden
+        run: pnpm install --frozen-lockfile
+
+      - name: Kontrollera och bygg innehållet
+        run: |
+          pnpm content:check
+          pnpm content:build
+
+      - name: Tillfällig signeringsnyckel (bara för den här kontrollen)
+        run: pnpm --filter desktop exec tauri signer generate -w "$RUNNER_TEMP/check.key" --ci
+
+      - name: Bygg installer
+        env:
+          TAURI_SIGNING_PRIVATE_KEY: ${{ runner.temp }}/check.key
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ''
+        run: pnpm --filter desktop exec tauri build --bundles nsis --ci
+
+      - name: Lista resultatet
+        run: ls -la apps/desktop/src-tauri/target/release/bundle/nsis/
+
+      - name: Ladda upp installern som artefakt
+        uses: actions/upload-artifact@v4
+        with:
+          name: bygglov-studieapp-windows-installer
+          path: apps/desktop/src-tauri/target/release/bundle/nsis/*.exe
+          if-no-files-found: error
+          retention-days: 14

@@ -1,5 +1,12 @@
 # Release-checklista
 
+> **Läget 2026-11-04.** Steg 1 och 2 är redan gjorda: nyckelparet skapades i Claude-sessionen
+> utan lösenord, den publika nyckeln ligger i `tauri.conf.json` och den privata lämnades över till
+> storebror för att läggas in som secret och i lösenordshanteraren. Det som återstår är steg 3
+> (en enda secret, `TAURI_SIGNING_PRIVATE_KEY`) och sedan första taggen. Workflowet
+> `Bygg-kontroll (Windows)` kan köras när som helst från fliken Actions för att testa bygget utan
+> att publicera något; det ger en installer som artefakt.
+
 Så släpper storebror en ny version av Bygglov-studieapp. Bakgrunden står i
 [06-release-och-uppdatering.md](06-release-och-uppdatering.md); hur hon installerar första
 gången står i [installera.md](installera.md).
@@ -64,7 +71,7 @@ På GitHub: **Settings → Secrets and variables → Actions → New repository 
 | Secret | Värde |
 | --- | --- |
 | `TAURI_SIGNING_PRIVATE_KEY` | Hela innehållet i `~/.tauri/bygglov.key` |
-| `TAURI_SIGNING_PRIVATE_KEY_PASSWORD` | Lösenordet du valde i steg 1 |
+| `TAURI_SIGNING_PRIVATE_KEY_PASSWORD` | Behövs inte: nyckeln skapades utan lösenord. Lämna bort den. |
 
 `GITHUB_TOKEN` skapas automatiskt av GitHub för varje körning; den behöver du inte lägga in.
 Workflowet ber själv om skrivrättighet (`permissions: contents: write`). Om releasen ändå
