@@ -78,15 +78,25 @@ jobs:
         if: github.event_name == 'workflow_dispatch'
         env:
           TAG: ${{ steps.tag.outputs.tag }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           if git ls-remote --exit-code --tags origin "refs/tags/$TAG" >/dev/null 2>&1; then
             remote_sha="$(git ls-remote --tags origin "refs/tags/$TAG^{}" | cut -f1)"
             [ -z "$remote_sha" ] && remote_sha="$(git ls-remote --tags origin "refs/tags/$TAG" | cut -f1)"
             if [ "$remote_sha" != "$GITHUB_SHA" ]; then
-              echo "::error::Taggen $TAG finns redan och pekar på $remote_sha, inte på $GITHUB_SHA. Höj versionen i package.json (pnpm version:sync) och försök igen."
-              exit 1
+              # A tag left behind by a failed run has no release. Move it; a tag with a release is final.
+              if gh api "repos/$GITHUB_REPOSITORY/releases/tags/$TAG" >/dev/null 2>&1; then
+                echo "::error::Taggen $TAG är redan släppt (pekar på $remote_sha). Höj versionen i package.json (pnpm version:sync) och försök igen."
+                exit 1
+              fi
+              echo "Taggen $TAG finns på $remote_sha utan release (misslyckad körning). Flyttar den till $GITHUB_SHA."
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git tag -fa "$TAG" -m "Bygglov-studieapp $TAG"
+              git push --force origin "refs/tags/$TAG"
+            else
+              echo "Taggen $TAG finns redan på rätt commit."
             fi
-            echo "Taggen $TAG finns redan på rätt commit."
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -115,11 +125,23 @@ jobs:
             echo "__RELEASE_NOTES_EOF__"
           } >> "$GITHUB_OUTPUT"
 
+      - name: Förbered signeringsnyckeln
+        env:
+          KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+        run: |
+          # A pasted secret often ends with a newline, which the base64 decoder rejects.
+          printf '%s' "$KEY" | tr -d '\r\n\t ' > "$RUNNER_TEMP/updater.key"
+          if [ ! -s "$RUNNER_TEMP/updater.key" ]; then
+            echo "::error::Secreten TAURI_SIGNING_PRIVATE_KEY saknas eller är tom (se docs/release-checklista.md)."
+            exit 1
+          fi
+          echo "Nyckel: $(wc -c < "$RUNNER_TEMP/updater.key") tecken efter tvätt."
+
       - name: Bygg installer och publicera release
         uses: tauri-apps/tauri-action@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ runner.temp }}/updater.key
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
           projectPath: apps/desktop
