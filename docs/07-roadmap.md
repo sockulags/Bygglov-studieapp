@@ -31,7 +31,7 @@ Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men
 - [x] Updater + UpdateBanner + "Vad är nytt"
 - [x] `ci.yml`, `release.yml` och `build-check.yml`; signeringsnyckel skapad och pubkey inlagd
 - [x] Windows-bygget verifierat i GitHub Actions 2026-11-04 (installer 4 MB som artefakt)
-- [ ] Secret `TAURI_SIGNING_PRIVATE_KEY` på GitHub, sedan första taggade releasen `v0.1.0`
+- [x] Secret på GitHub och första releasen `v0.1.0` publicerad 2026-11-04 med signerad installer och `latest.json`
   (workflows klara; signeringsnyckel, pubkey och secrets saknas, se `docs/release-checklista.md`)
 - [ ] `docs/installera.md` med skärmbilder (Windows, SmartScreen)
   (texten klar; skärmbilderna tas vid första installationen)
