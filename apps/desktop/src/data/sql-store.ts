@@ -316,7 +316,9 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
     },
 
     async getReviewState(questionId) {
-      const row = await one<ReviewRow>('SELECT * FROM reviews WHERE question_id = $1', [questionId]);
+      const row = await one<ReviewRow>('SELECT * FROM reviews WHERE question_id = $1', [
+        questionId,
+      ]);
       return row ? mapReview(row) : null;
     },
 
@@ -387,7 +389,11 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
     async finishSession(id, result, finishedAt) {
       const { rowsAffected } = await driver.execute(
         'UPDATE sessions SET finished_at = $1, result_json = $2 WHERE id = $3',
-        [finishedAt === undefined ? nowIso() : toIso(finishedAt), toJson(result ?? null, 'result'), id],
+        [
+          finishedAt === undefined ? nowIso() : toIso(finishedAt),
+          toJson(result ?? null, 'result'),
+          id,
+        ],
       );
       if (rowsAffected === 0) throw new NotFoundError(`Pass ${id}`);
       const session = await sessions.getSession(id);
@@ -413,7 +419,10 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
 
   const settings: SettingsRepository = {
     async get(key) {
-      const row = await one<{ value_json: string }>('SELECT value_json FROM settings WHERE key = $1', [key]);
+      const row = await one<{ value_json: string }>(
+        'SELECT value_json FROM settings WHERE key = $1',
+        [key],
+      );
       return row ? fromJson(row.value_json) : undefined;
     },
 
@@ -471,12 +480,16 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
     },
 
     async getCaseStatus(caseId) {
-      const row = await one<CaseStatusRow>('SELECT * FROM case_status WHERE case_id = $1', [caseId]);
+      const row = await one<CaseStatusRow>('SELECT * FROM case_status WHERE case_id = $1', [
+        caseId,
+      ]);
       return row ? mapCaseStatus(row) : null;
     },
 
     async listCaseStatuses() {
-      const rows = await driver.select<CaseStatusRow>('SELECT * FROM case_status ORDER BY started_at, case_id');
+      const rows = await driver.select<CaseStatusRow>(
+        'SELECT * FROM case_status ORDER BY started_at, case_id',
+      );
       return rows.map(mapCaseStatus);
     },
 
@@ -520,18 +533,19 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
           optionalIso(input.completedAt),
         ],
       );
-      const row = await one<CaseStepRow>('SELECT * FROM case_steps WHERE case_id = $1 AND step_id = $2', [
-        input.caseId,
-        input.stepId,
-      ]);
+      const row = await one<CaseStepRow>(
+        'SELECT * FROM case_steps WHERE case_id = $1 AND step_id = $2',
+        [input.caseId, input.stepId],
+      );
       if (!row) throw new NotFoundError(`Steg ${input.stepId}`);
       return mapCaseStep(row);
     },
 
     async listSteps(caseId) {
-      const rows = await driver.select<CaseStepRow>('SELECT * FROM case_steps WHERE case_id = $1 ORDER BY id', [
-        caseId,
-      ]);
+      const rows = await driver.select<CaseStepRow>(
+        'SELECT * FROM case_steps WHERE case_id = $1 ORDER BY id',
+        [caseId],
+      );
       return rows.map(mapCaseStep);
     },
 
@@ -546,10 +560,10 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
           input.simDate,
         ],
       );
-      const row = await one<CaseEventRow>('SELECT * FROM case_events WHERE case_id = $1 AND event_id = $2', [
-        input.caseId,
-        input.eventId,
-      ]);
+      const row = await one<CaseEventRow>(
+        'SELECT * FROM case_events WHERE case_id = $1 AND event_id = $2',
+        [input.caseId, input.eventId],
+      );
       if (!row) throw new NotFoundError(`Händelse ${input.eventId}`);
       return mapCaseEvent(row);
     },
@@ -564,11 +578,14 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
 
     async submitDecision(input) {
       await requireCase(input.caseId);
-      const id = await insertId('INSERT INTO decisions (case_id, decision_json, submitted_at) VALUES ($1, $2, $3)', [
-        input.caseId,
-        toJson(input.decision, 'decision'),
-        input.submittedAt === undefined ? nowIso() : toIso(input.submittedAt),
-      ]);
+      const id = await insertId(
+        'INSERT INTO decisions (case_id, decision_json, submitted_at) VALUES ($1, $2, $3)',
+        [
+          input.caseId,
+          toJson(input.decision, 'decision'),
+          input.submittedAt === undefined ? nowIso() : toIso(input.submittedAt),
+        ],
+      );
       return requireDecision(id);
     },
 
@@ -586,10 +603,10 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
     },
 
     async markDecisionExported(id, exportedAt) {
-      const { rowsAffected } = await driver.execute('UPDATE decisions SET exported_at = $1 WHERE id = $2', [
-        exportedAt === undefined ? nowIso() : toIso(exportedAt),
-        id,
-      ]);
+      const { rowsAffected } = await driver.execute(
+        'UPDATE decisions SET exported_at = $1 WHERE id = $2',
+        [exportedAt === undefined ? nowIso() : toIso(exportedAt), id],
+      );
       if (rowsAffected === 0) throw new NotFoundError(`Beslut ${id}`);
       return requireDecision(id);
     },

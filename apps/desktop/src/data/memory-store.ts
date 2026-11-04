@@ -94,14 +94,24 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
     },
 
     async listAnswersForSession(sessionId) {
-      const rows = answerRows.filter((a) => a.sessionId === sessionId).sort(byKeyThenId<Answer>((a) => a.answeredAt));
+      const rows = answerRows
+        .filter((a) => a.sessionId === sessionId)
+        .sort(byKeyThenId<Answer>((a) => a.answeredAt));
       return cloneJson(rows);
     },
 
     async statsPerModule() {
-      const byModule = new Map<string, { answered: number; correct: number; questions: Set<string>; last: string }>();
+      const byModule = new Map<
+        string,
+        { answered: number; correct: number; questions: Set<string>; last: string }
+      >();
       for (const a of answerRows) {
-        const entry = byModule.get(a.moduleId) ?? { answered: 0, correct: 0, questions: new Set(), last: '' };
+        const entry = byModule.get(a.moduleId) ?? {
+          answered: 0,
+          correct: 0,
+          questions: new Set(),
+          last: '',
+        };
         entry.answered += 1;
         if (a.correct) entry.correct += 1;
         entry.questions.add(a.questionId);
@@ -110,23 +120,29 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
       }
       return [...byModule.entries()]
         .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
-        .map(
-          ([moduleId, e]): ModuleStats => ({
-            moduleId,
-            answered: e.answered,
-            correct: e.correct,
-            accuracy: e.answered === 0 ? 0 : e.correct / e.answered,
-            distinctQuestions: e.questions.size,
-            lastAnsweredAt: e.last === '' ? null : e.last,
-          }),
-        );
+        .map(([moduleId, e]): ModuleStats => ({
+          moduleId,
+          answered: e.answered,
+          correct: e.correct,
+          accuracy: e.answered === 0 ? 0 : e.correct / e.answered,
+          distinctQuestions: e.questions.size,
+          lastAnsweredAt: e.last === '' ? null : e.last,
+        }));
     },
   };
 
   /* ---------------------------------------------------------------- reviews */
 
   const sortReviews = (a: ReviewState, b: ReviewState) =>
-    a.due < b.due ? -1 : a.due > b.due ? 1 : a.questionId < b.questionId ? -1 : a.questionId > b.questionId ? 1 : 0;
+    a.due < b.due
+      ? -1
+      : a.due > b.due
+        ? 1
+        : a.questionId < b.questionId
+          ? -1
+          : a.questionId > b.questionId
+            ? 1
+            : 0;
 
   const reviews: ReviewsRepository = {
     async getDue(now, options) {
@@ -190,7 +206,9 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
     },
 
     async listRecent(limit = DEFAULT_RECENT_SESSIONS) {
-      const rows = [...sessionRows.values()].sort(byKeyThenId<Session>((s) => s.startedAt)).reverse();
+      const rows = [...sessionRows.values()]
+        .sort(byKeyThenId<Session>((s) => s.startedAt))
+        .reverse();
       return cloneJson(take(rows, assertLimit(limit)));
     },
   };
@@ -230,7 +248,8 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
 
   const cases: CasesRepository = {
     async startCase(input) {
-      if (caseRows.has(input.caseId)) throw new ConflictError(`Ärendet ${input.caseId} är redan påbörjat.`);
+      if (caseRows.has(input.caseId))
+        throw new ConflictError(`Ärendet ${input.caseId} är redan påbörjat.`);
       const row: CaseStatus = {
         caseId: input.caseId,
         status: 'in_progress',
@@ -250,7 +269,13 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
 
     async listCaseStatuses() {
       const rows = [...caseRows.values()].sort((a, b) =>
-        a.startedAt !== b.startedAt ? (a.startedAt < b.startedAt ? -1 : 1) : a.caseId < b.caseId ? -1 : 1,
+        a.startedAt !== b.startedAt
+          ? a.startedAt < b.startedAt
+            ? -1
+            : 1
+          : a.caseId < b.caseId
+            ? -1
+            : 1,
       );
       return cloneJson(rows);
     },
@@ -263,7 +288,9 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
     },
 
     async resetCase(caseId) {
-      const decisionIds = new Set([...decisionRows.values()].filter((d) => d.caseId === caseId).map((d) => d.id));
+      const decisionIds = new Set(
+        [...decisionRows.values()].filter((d) => d.caseId === caseId).map((d) => d.id),
+      );
       removeWhere(feedbackRows, (f) => decisionIds.has(f.decisionId));
       for (const id of decisionIds) decisionRows.delete(id);
       removeWhere(eventRows, (e) => e.caseId === caseId);
@@ -283,7 +310,12 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
         Object.assign(existing, values);
         return cloneJson(existing);
       }
-      const row: CaseStep = { id: ++ids.step, caseId: input.caseId, stepId: input.stepId, ...values };
+      const row: CaseStep = {
+        id: ++ids.step,
+        caseId: input.caseId,
+        stepId: input.stepId,
+        ...values,
+      };
       stepRows.push(row);
       return cloneJson(row);
     },
@@ -294,7 +326,9 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
 
     async recordEvent(input) {
       requireCase(input.caseId);
-      const existing = eventRows.find((e) => e.caseId === input.caseId && e.eventId === input.eventId);
+      const existing = eventRows.find(
+        (e) => e.caseId === input.caseId && e.eventId === input.eventId,
+      );
       if (existing) return cloneJson(existing);
       const row: CaseEvent = {
         id: ++ids.event,
@@ -308,7 +342,11 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
     },
 
     async listEvents(caseId) {
-      return cloneJson(eventRows.filter((e) => e.caseId === caseId).sort(byKeyThenId<CaseEvent>((e) => e.triggeredAt)));
+      return cloneJson(
+        eventRows
+          .filter((e) => e.caseId === caseId)
+          .sort(byKeyThenId<CaseEvent>((e) => e.triggeredAt)),
+      );
     },
 
     async submitDecision(input) {
@@ -357,7 +395,9 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
 
     async listSupervisorFeedback(decisionId) {
       return cloneJson(
-        feedbackRows.filter((f) => f.decisionId === decisionId).sort(byKeyThenId<SupervisorFeedback>((f) => f.createdAt)),
+        feedbackRows
+          .filter((f) => f.decisionId === decisionId)
+          .sort(byKeyThenId<SupervisorFeedback>((f) => f.createdAt)),
       );
     },
   };

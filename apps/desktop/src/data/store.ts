@@ -6,7 +6,10 @@ let storePromise: Promise<DataStore> | null = null;
 
 async function createDefaultStore(): Promise<DataStore> {
   if (!isTauri()) return createMemoryDataStore();
-  const [{ open }, { createSqlDataStore }] = await Promise.all([import('./db'), import('./sql-store')]);
+  const [{ open }, { createSqlDataStore }] = await Promise.all([
+    import('./db'),
+    import('./sql-store'),
+  ]);
   return createSqlDataStore(await open());
 }
 

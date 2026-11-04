@@ -173,7 +173,9 @@ export interface NewCaseStatus {
   startedAt?: string;
 }
 
-export type CaseStatusPatch = Partial<Pick<CaseStatus, 'status' | 'currentStepId' | 'simDate' | 'submittedAt'>>;
+export type CaseStatusPatch = Partial<
+  Pick<CaseStatus, 'status' | 'currentStepId' | 'simDate' | 'submittedAt'>
+>;
 
 /** arende_steg: the answer to one step. One row per (case, step); saving again replaces it. */
 export interface CaseStep {

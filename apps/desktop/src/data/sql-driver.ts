@@ -1,4 +1,8 @@
-import { MIGRATIONS_TABLE_SQL, migrations as defaultMigrations, type Migration } from './migrations';
+import {
+  MIGRATIONS_TABLE_SQL,
+  migrations as defaultMigrations,
+  type Migration,
+} from './migrations';
 
 /** A value that both the Tauri SQL plugin and node:sqlite can bind. */
 export type SqlValue = string | number | null;
@@ -8,7 +12,10 @@ export type SqlValue = string | number | null;
  * test driver. Queries use `$1, $2, ...` placeholders, each number used at least once.
  */
 export interface SqlDriver {
-  execute(sql: string, params?: readonly SqlValue[]): Promise<{ rowsAffected: number; lastInsertId: number | null }>;
+  execute(
+    sql: string,
+    params?: readonly SqlValue[],
+  ): Promise<{ rowsAffected: number; lastInsertId: number | null }>;
   select<Row>(sql: string, params?: readonly SqlValue[]): Promise<Row[]>;
 }
 
@@ -24,7 +31,9 @@ function assertOrdered(list: readonly Migration[]): void {
     const prev = list[i - 1];
     const cur = list[i];
     if (prev && cur && cur.version <= prev.version) {
-      throw new Error(`Migrations must have strictly increasing versions (${prev.version} → ${cur.version}).`);
+      throw new Error(
+        `Migrations must have strictly increasing versions (${prev.version} → ${cur.version}).`,
+      );
     }
   }
 }

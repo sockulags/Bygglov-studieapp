@@ -41,7 +41,7 @@ export function cloneJson<T>(value: T): T {
 }
 
 /** Applies a partial update, ignoring keys whose value is `undefined` (null is kept). */
-export function applyPatch<T extends object>(current: T, patch: Partial<T>): T {
+export function applyPatch<T extends object>(current: T, patch: Partial<NoInfer<T>>): T {
   const next = { ...current };
   for (const key of Object.keys(patch) as (keyof T)[]) {
     const value = patch[key];

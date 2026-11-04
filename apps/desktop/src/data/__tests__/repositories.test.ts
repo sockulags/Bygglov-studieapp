@@ -7,7 +7,11 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import { createMemoryDataStore } from '../memory-store';
 import { runMigrations } from '../sql-driver';
 import { createSqlDataStore } from '../sql-store';
-import { createNodeSqliteDriver, isNodeSqliteAvailable, type NodeSqliteDriver } from '../testing/node-sqlite-driver';
+import {
+  createNodeSqliteDriver,
+  isNodeSqliteAvailable,
+  type NodeSqliteDriver,
+} from '../testing/node-sqlite-driver';
 import { ConflictError, NotFoundError, type DataStore, type ReviewState } from '../types';
 
 const sqliteAvailable = await isNodeSqliteAvailable();
@@ -28,7 +32,11 @@ interface Harness {
 }
 
 const factories: [string, boolean, () => Promise<Harness>][] = [
-  ['memory', true, async () => ({ store: createMemoryDataStore(steppingClock()), dispose: () => {} })],
+  [
+    'memory',
+    true,
+    async () => ({ store: createMemoryDataStore(steppingClock()), dispose: () => {} }),
+  ],
   [
     'sqlite (node:sqlite)',
     sqliteAvailable,
@@ -108,7 +116,13 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
           answeredAt: at,
         });
       }
-      await store.answers.recordAnswer({ questionId: 'lov-002', moduleId: '03-lovplikt', correct: true, answer: [], mode: 'review' });
+      await store.answers.recordAnswer({
+        questionId: 'lov-002',
+        moduleId: '03-lovplikt',
+        correct: true,
+        answer: [],
+        mode: 'review',
+      });
 
       const all = await store.answers.listAnswersForQuestion('lov-001');
       expect(all.map((a) => a.answeredAt)).toEqual([
@@ -122,7 +136,14 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
 
     it('computes stats per module', async () => {
       const add = (questionId: string, moduleId: string, correct: boolean, answeredAt: string) =>
-        store.answers.recordAnswer({ questionId, moduleId, correct, answer: null, mode: 'quick-quiz', answeredAt });
+        store.answers.recordAnswer({
+          questionId,
+          moduleId,
+          correct,
+          answer: null,
+          mode: 'quick-quiz',
+          answeredAt,
+        });
       await add('fl-1', '01-forvaltningsratt', true, '2026-03-01T09:00:00Z');
       await add('lov-1', '03-lovplikt', true, '2026-03-01T09:00:00Z');
       await add('lov-1', '03-lovplikt', false, '2026-03-02T09:00:00Z');
@@ -155,9 +176,31 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
 
     it('links answers to a session', async () => {
       const s = await store.sessions.startSession({ mode: 'exam', moduleIds: ['03-lovplikt'] });
-      await store.answers.recordAnswer({ questionId: 'q1', moduleId: 'm', correct: true, answer: 1, mode: 'exam', sessionId: s.id, score: 0.5, responseTimeMs: 4200 });
-      await store.answers.recordAnswer({ questionId: 'q2', moduleId: 'm', correct: false, answer: 2, mode: 'exam', sessionId: s.id });
-      await store.answers.recordAnswer({ questionId: 'q3', moduleId: 'm', correct: false, answer: 3, mode: 'exam' });
+      await store.answers.recordAnswer({
+        questionId: 'q1',
+        moduleId: 'm',
+        correct: true,
+        answer: 1,
+        mode: 'exam',
+        sessionId: s.id,
+        score: 0.5,
+        responseTimeMs: 4200,
+      });
+      await store.answers.recordAnswer({
+        questionId: 'q2',
+        moduleId: 'm',
+        correct: false,
+        answer: 2,
+        mode: 'exam',
+        sessionId: s.id,
+      });
+      await store.answers.recordAnswer({
+        questionId: 'q3',
+        moduleId: 'm',
+        correct: false,
+        answer: 3,
+        mode: 'exam',
+      });
       const list = await store.answers.listAnswersForSession(s.id);
       expect(list.map((a) => a.questionId)).toEqual(['q1', 'q2']);
       expect(list[0]).toMatchObject({ score: 0.5, responseTimeMs: 4200, sessionId: s.id });
@@ -165,7 +208,13 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
 
     it('does not let callers mutate stored answers', async () => {
       const payload = { choice: [1, 2] };
-      const a = await store.answers.recordAnswer({ questionId: 'q', moduleId: 'm', correct: true, answer: payload, mode: 'study' });
+      const a = await store.answers.recordAnswer({
+        questionId: 'q',
+        moduleId: 'm',
+        correct: true,
+        answer: payload,
+        mode: 'study',
+      });
       payload.choice.push(3);
       (a.answer as { choice: number[] }).choice.push(4);
       const [stored] = await store.answers.listAnswersForQuestion('q');
@@ -174,7 +223,13 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
 
     it('rejects undefined payloads', async () => {
       await expect(
-        store.answers.recordAnswer({ questionId: 'q', moduleId: 'm', correct: true, answer: undefined, mode: 'study' }),
+        store.answers.recordAnswer({
+          questionId: 'q',
+          moduleId: 'm',
+          correct: true,
+          answer: undefined,
+          mode: 'study',
+        }),
       ).rejects.toThrow(TypeError);
     });
   });
@@ -182,7 +237,9 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
   describe.skipIf(!available)('reviews', () => {
     it('upserts and reads back a review state', async () => {
       await store.reviews.upsertReviewState(review({ questionId: 'lov-001' }));
-      await store.reviews.upsertReviewState(review({ questionId: 'lov-001', reps: 2, stability: 7.25, state: 2 }));
+      await store.reviews.upsertReviewState(
+        review({ questionId: 'lov-001', reps: 2, stability: 7.25, state: 2 }),
+      );
       expect(await store.reviews.getReviewState('lov-001')).toEqual(
         review({ questionId: 'lov-001', reps: 2, stability: 7.25, state: 2 }),
       );
@@ -190,37 +247,64 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
     });
 
     it('normalises timestamps to ISO UTC', async () => {
-      await store.reviews.upsertReviewState(review({ questionId: 'q', due: '2026-03-05T10:00:00+01:00', lastReview: null }));
-      expect(await store.reviews.getReviewState('q')).toMatchObject({ due: '2026-03-05T09:00:00.000Z', lastReview: null });
+      await store.reviews.upsertReviewState(
+        review({ questionId: 'q', due: '2026-03-05T10:00:00+01:00', lastReview: null }),
+      );
+      expect(await store.reviews.getReviewState('q')).toMatchObject({
+        due: '2026-03-05T09:00:00.000Z',
+        lastReview: null,
+      });
     });
 
     it('returns due reviews ordered, filtered by module and limited', async () => {
-      await store.reviews.upsertReviewState(review({ questionId: 'a', due: '2026-03-03T00:00:00Z' }));
-      await store.reviews.upsertReviewState(review({ questionId: 'b', due: '2026-03-01T00:00:00Z' }));
-      await store.reviews.upsertReviewState(review({ questionId: 'c', due: '2026-03-02T00:00:00Z', moduleId: '04-detaljplan' }));
-      await store.reviews.upsertReviewState(review({ questionId: 'future', due: '2026-04-01T00:00:00Z' }));
+      await store.reviews.upsertReviewState(
+        review({ questionId: 'a', due: '2026-03-03T00:00:00Z' }),
+      );
+      await store.reviews.upsertReviewState(
+        review({ questionId: 'b', due: '2026-03-01T00:00:00Z' }),
+      );
+      await store.reviews.upsertReviewState(
+        review({ questionId: 'c', due: '2026-03-02T00:00:00Z', moduleId: '04-detaljplan' }),
+      );
+      await store.reviews.upsertReviewState(
+        review({ questionId: 'future', due: '2026-04-01T00:00:00Z' }),
+      );
 
       const now = new Date('2026-03-10T00:00:00Z');
       expect((await store.reviews.getDue(now)).map((r) => r.questionId)).toEqual(['b', 'c', 'a']);
-      expect((await store.reviews.getDue(now, { moduleIds: ['03-lovplikt'] })).map((r) => r.questionId)).toEqual(['b', 'a']);
-      expect((await store.reviews.getDue(now, { limit: 2 })).map((r) => r.questionId)).toEqual(['b', 'c']);
+      expect(
+        (await store.reviews.getDue(now, { moduleIds: ['03-lovplikt'] })).map((r) => r.questionId),
+      ).toEqual(['b', 'a']);
+      expect((await store.reviews.getDue(now, { limit: 2 })).map((r) => r.questionId)).toEqual([
+        'b',
+        'c',
+      ]);
       expect((await store.reviews.getDue(now, { moduleIds: [] })).length).toBe(3);
       expect(await store.reviews.getDue(new Date('2026-02-01T00:00:00Z'))).toEqual([]);
       // Due exactly now counts as due.
-      expect((await store.reviews.getDue(new Date('2026-03-01T00:00:00Z'))).map((r) => r.questionId)).toEqual(['b']);
+      expect(
+        (await store.reviews.getDue(new Date('2026-03-01T00:00:00Z'))).map((r) => r.questionId),
+      ).toEqual(['b']);
     });
 
     it('lists review states per module', async () => {
       await store.reviews.upsertReviewState(review({ questionId: 'b' }));
       await store.reviews.upsertReviewState(review({ questionId: 'a', moduleId: '04-detaljplan' }));
       expect((await store.reviews.listReviewStates()).map((r) => r.questionId)).toEqual(['a', 'b']);
-      expect((await store.reviews.listReviewStates({ moduleIds: ['04-detaljplan'] })).map((r) => r.questionId)).toEqual(['a']);
+      expect(
+        (await store.reviews.listReviewStates({ moduleIds: ['04-detaljplan'] })).map(
+          (r) => r.questionId,
+        ),
+      ).toEqual(['a']);
     });
   });
 
   describe.skipIf(!available)('sessions', () => {
     it('starts and finishes a session', async () => {
-      const s = await store.sessions.startSession({ mode: 'quick-quiz', moduleIds: ['01-forvaltningsratt', '03-lovplikt'] });
+      const s = await store.sessions.startSession({
+        mode: 'quick-quiz',
+        moduleIds: ['01-forvaltningsratt', '03-lovplikt'],
+      });
       expect(s).toEqual({
         id: expect.any(Number),
         startedAt: '2026-03-01T08:00:00.000Z',
@@ -230,7 +314,10 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
         result: null,
       });
       const done = await store.sessions.finishSession(s.id, { correct: 8, total: 10 });
-      expect(done).toMatchObject({ finishedAt: '2026-03-01T08:00:01.000Z', result: { correct: 8, total: 10 } });
+      expect(done).toMatchObject({
+        finishedAt: '2026-03-01T08:00:01.000Z',
+        result: { correct: 8, total: 10 },
+      });
       expect(await store.sessions.getSession(s.id)).toEqual(done);
     });
 
@@ -240,10 +327,26 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
     });
 
     it('lists recent sessions newest first', async () => {
-      await store.sessions.startSession({ mode: 'review', moduleIds: [], startedAt: '2026-03-01T10:00:00Z' });
-      await store.sessions.startSession({ mode: 'exam', moduleIds: [], startedAt: '2026-03-03T10:00:00Z' });
-      await store.sessions.startSession({ mode: 'study', moduleIds: [], startedAt: '2026-03-02T10:00:00Z' });
-      expect((await store.sessions.listRecent()).map((s) => s.mode)).toEqual(['exam', 'study', 'review']);
+      await store.sessions.startSession({
+        mode: 'review',
+        moduleIds: [],
+        startedAt: '2026-03-01T10:00:00Z',
+      });
+      await store.sessions.startSession({
+        mode: 'exam',
+        moduleIds: [],
+        startedAt: '2026-03-03T10:00:00Z',
+      });
+      await store.sessions.startSession({
+        mode: 'study',
+        moduleIds: [],
+        startedAt: '2026-03-02T10:00:00Z',
+      });
+      expect((await store.sessions.listRecent()).map((s) => s.mode)).toEqual([
+        'exam',
+        'study',
+        'review',
+      ]);
       expect((await store.sessions.listRecent(2)).map((s) => s.mode)).toEqual(['exam', 'study']);
     });
   });
@@ -278,7 +381,11 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
     const caseId = 'A002';
 
     it('starts a case, refuses to start it twice and updates status', async () => {
-      const started = await store.cases.startCase({ caseId, currentStepId: 'S1', simDate: '2026-03-02' });
+      const started = await store.cases.startCase({
+        caseId,
+        currentStepId: 'S1',
+        simDate: '2026-03-02',
+      });
       expect(started).toEqual({
         caseId,
         status: 'in_progress',
@@ -287,28 +394,52 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
         startedAt: '2026-03-01T08:00:00.000Z',
         submittedAt: null,
       });
-      await expect(store.cases.startCase({ caseId, currentStepId: 'S1', simDate: '2026-03-02' })).rejects.toBeInstanceOf(
-        ConflictError,
-      );
+      await expect(
+        store.cases.startCase({ caseId, currentStepId: 'S1', simDate: '2026-03-02' }),
+      ).rejects.toBeInstanceOf(ConflictError);
 
-      const updated = await store.cases.updateCaseStatus(caseId, { currentStepId: 'S2', simDate: '2026-03-16', status: undefined });
-      expect(updated).toMatchObject({ status: 'in_progress', currentStepId: 'S2', simDate: '2026-03-16' });
+      const updated = await store.cases.updateCaseStatus(caseId, {
+        currentStepId: 'S2',
+        simDate: '2026-03-16',
+        status: undefined,
+      });
+      expect(updated).toMatchObject({
+        status: 'in_progress',
+        currentStepId: 'S2',
+        simDate: '2026-03-16',
+      });
 
       const submitted = await store.cases.updateCaseStatus(caseId, {
         status: 'submitted',
         currentStepId: null,
         submittedAt: '2026-03-20T12:00:00Z',
       });
-      expect(submitted).toMatchObject({ status: 'submitted', currentStepId: null, submittedAt: '2026-03-20T12:00:00.000Z' });
+      expect(submitted).toMatchObject({
+        status: 'submitted',
+        currentStepId: null,
+        submittedAt: '2026-03-20T12:00:00.000Z',
+      });
       expect(await store.cases.listCaseStatuses()).toEqual([submitted]);
-      await expect(store.cases.updateCaseStatus('saknas', { status: 'submitted' })).rejects.toBeInstanceOf(NotFoundError);
+      await expect(
+        store.cases.updateCaseStatus('saknas', { status: 'submitted' }),
+      ).rejects.toBeInstanceOf(NotFoundError);
     });
 
     it('saves steps as upserts in first-saved order', async () => {
       await store.cases.startCase({ caseId, currentStepId: 'S1', simDate: '2026-03-02' });
-      const draft = await store.cases.saveStep({ caseId, stepId: 'S1', answer: { bockat: ['H1'] } });
+      const draft = await store.cases.saveStep({
+        caseId,
+        stepId: 'S1',
+        answer: { bockat: ['H1'] },
+      });
       expect(draft).toMatchObject({ stepId: 'S1', points: null, completedAt: null });
-      await store.cases.saveStep({ caseId, stepId: 'S2', answer: 'ja', points: 1, completedAt: '2026-03-01T09:00:00Z' });
+      await store.cases.saveStep({
+        caseId,
+        stepId: 'S2',
+        answer: 'ja',
+        points: 1,
+        completedAt: '2026-03-01T09:00:00Z',
+      });
       const final = await store.cases.saveStep({
         caseId,
         stepId: 'S1',
@@ -323,7 +454,9 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
         ['S2', 1],
       ]);
       expect(steps[0]?.answer).toEqual({ bockat: ['H1', 'H2'] });
-      await expect(store.cases.saveStep({ caseId: 'saknas', stepId: 'S1', answer: null })).rejects.toBeInstanceOf(NotFoundError);
+      await expect(
+        store.cases.saveStep({ caseId: 'saknas', stepId: 'S1', answer: null }),
+      ).rejects.toBeInstanceOf(NotFoundError);
     });
 
     it('records each event once', async () => {
@@ -340,7 +473,10 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
 
     it('handles decisions, export and supervisor feedback', async () => {
       await store.cases.startCase({ caseId, currentStepId: 'S6', simDate: '2026-04-01' });
-      const d = await store.cases.submitDecision({ caseId, decision: { utfall: 'bevilja', motivering: 'Planenlig.' } });
+      const d = await store.cases.submitDecision({
+        caseId,
+        decision: { utfall: 'bevilja', motivering: 'Planenlig.' },
+      });
       expect(d).toMatchObject({ caseId, exportedAt: null, decision: { utfall: 'bevilja' } });
       expect(await store.cases.getDecision(d.id)).toEqual(d);
 
@@ -348,11 +484,20 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
       expect(exported.exportedAt).toBe('2026-04-02T08:00:00.000Z');
       await expect(store.cases.markDecisionExported(9999)).rejects.toBeInstanceOf(NotFoundError);
 
-      const f1 = await store.cases.addSupervisorFeedback({ decisionId: d.id, text: 'Bra motivering.', grade: 'G' });
-      const f2 = await store.cases.addSupervisorFeedback({ decisionId: d.id, text: 'Nämn grannmedgivandet.' });
+      const f1 = await store.cases.addSupervisorFeedback({
+        decisionId: d.id,
+        text: 'Bra motivering.',
+        grade: 'G',
+      });
+      const f2 = await store.cases.addSupervisorFeedback({
+        decisionId: d.id,
+        text: 'Nämn grannmedgivandet.',
+      });
       expect(f2.grade).toBeNull();
       expect(await store.cases.listSupervisorFeedback(d.id)).toEqual([f1, f2]);
-      await expect(store.cases.addSupervisorFeedback({ decisionId: 9999, text: 'x' })).rejects.toBeInstanceOf(NotFoundError);
+      await expect(
+        store.cases.addSupervisorFeedback({ decisionId: 9999, text: 'x' }),
+      ).rejects.toBeInstanceOf(NotFoundError);
 
       const d2 = await store.cases.submitDecision({ caseId, decision: { utfall: 'avsla' } });
       expect((await store.cases.listDecisions(caseId)).map((x) => x.id)).toEqual([d.id, d2.id]);
@@ -377,7 +522,9 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
       expect(await store.cases.listSteps('A001')).toHaveLength(1);
 
       // The case can be started again from scratch.
-      await expect(store.cases.startCase({ caseId, currentStepId: 'S1', simDate: '2026-05-01' })).resolves.toMatchObject({
+      await expect(
+        store.cases.startCase({ caseId, currentStepId: 'S1', simDate: '2026-05-01' }),
+      ).resolves.toMatchObject({
         simDate: '2026-05-01',
       });
     });

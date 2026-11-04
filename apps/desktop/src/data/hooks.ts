@@ -31,7 +31,8 @@ export function useModuleStats() {
 export function useDueReviews(options: DueReviewOptions = {}) {
   return useQuery({
     queryKey: dataKeys.dueReviews(options),
-    queryFn: async (): Promise<ReviewState[]> => (await getDataStore()).reviews.getDue(new Date(), options),
+    queryFn: async (): Promise<ReviewState[]> =>
+      (await getDataStore()).reviews.getDue(new Date(), options),
   });
 }
 
@@ -64,7 +65,11 @@ export interface UseSettingResult<T> {
  * A persisted setting. The stored JSON is validated with `schema`; a missing or invalid
  * value (for example after a format change) falls back to `defaultValue`.
  */
-export function useSetting<T>(key: string, schema: ZodType<T>, defaultValue: T): UseSettingResult<T> {
+export function useSetting<T>(
+  key: string,
+  schema: ZodType<T>,
+  defaultValue: T,
+): UseSettingResult<T> {
   const queryClient = useQueryClient();
   const queryKey = dataKeys.setting(key);
 

@@ -6,7 +6,10 @@
 import type { SqlDriver, SqlValue } from '../sql-driver';
 
 interface StatementSync {
-  run(params: Record<string, SqlValue>): { changes: number | bigint; lastInsertRowid: number | bigint };
+  run(params: Record<string, SqlValue>): {
+    changes: number | bigint;
+    lastInsertRowid: number | bigint;
+  };
   all(params: Record<string, SqlValue>): Record<string, unknown>[];
 }
 

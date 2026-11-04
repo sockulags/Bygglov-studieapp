@@ -1,7 +1,7 @@
 # Frågor för modul 03-lovplikt. En fil per modul. Valideras med zod (pnpm content:check).
 # status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
 # rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
-# lagrum_osaker: true när paragrafnumreringen inte är kontrollerad efter omskrivningen.
+# lagrum_osaker: true när paragrafnumreringen inte är kontrollerad mot docs/rattslage/pbl-9-kap.txt.
 modul: 03-lovplikt
 fragor:
   - id: lov-001
@@ -9,7 +9,6 @@ fragor:
     svarighet: 1
     status: utkast
     rattslage: "2025-12-01"
-    lagrum_osaker: true
     fraga: >
       En fastighetsägare vill bygga en fristående komplementbyggnad på 25 kvm byggnadsarea
       i omedelbar närhet av sitt enbostadshus inom detaljplan. Nockhöjden blir 3,5 m och
@@ -25,11 +24,13 @@ fragor:
       Sedan den 1 december 2025 är en komplementbyggnad på högst 30 kvm med nockhöjd högst 4 m
       inom detaljplan bygglovsbefriad för en- och tvåbostadshus, inom en samlad pott om 45 kvm
       per tomt. Anmälningsplikten för sådana byggnader är slopad. Placering närmare gräns än
-      4,5 m kräver dock grannens skriftliga medgivande. Byggherren måste ändå följa
-      planbestämmelser och kraven på byggnadsverk. Före ändringen hade detta varit ett
-      anmälningspliktigt attefallshus.
+      4,5 m kräver bygglov enligt 9 kap. 34 §, om inte berörda grannar skriftligen medgett
+      åtgärden (35 §). Byggherren måste ändå följa kraven på byggnadsverk. Före ändringen hade
+      detta varit ett anmälningspliktigt attefallshus.
     lagrum:
-      - PBL 9 kap.
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 35 §
     taggar: [komplementbyggnad, lovbefriad, grannmedgivande, pott]
 
   - id: lov-002
@@ -37,7 +38,6 @@ fragor:
     svarighet: 2
     status: utkast
     rattslage: "2025-12-01"
-    lagrum_osaker: true
     fraga: Vilka av följande åtgärder kräver normalt bygglov inom detaljplanerat område?
     alternativ:
       - text: Byta färg på fasaden på ett flerbostadshus så att byggnadens karaktär väsentligt ändras.
@@ -49,60 +49,64 @@ fragor:
         ratt: true
       - text: Bygga en komplementbyggnad på 14 kvm, 2,9 m nockhöjd, 4,5 m från gräns, på en tomt utan andra komplementbyggnader.
     forklaring: >
-      Fasadändring som väsentligt ändrar byggnadens karaktär och väsentligt ändrad användning
-      är lovpliktiga enligt 9 kap. 2 § PBL. Plank kräver lov enligt 6 kap. 1 § PBF. Den lilla
-      komplementbyggnaden ryms inom de lovbefriade åtgärderna för en- och tvåbostadshus
-      (högst 30 kvm per byggnad, 45 kvm sammanlagt inom plan, nockhöjd högst 4 m), och
-      ommålning i samma kulör ändrar inte karaktären. Kontrollera gällande paragrafer i
-      9 kap. efter omskrivningen den 1 december 2025.
+      Fasadändring och väsentligt ändrad användning är lovpliktiga som "annan ändring av en
+      byggnad" enligt 9 kap. 15 § PBL. Plank inom detaljplan regleras numera direkt i PBL,
+      9 kap. 19 §: lov krävs om planket är högre än 1,8 m inom 3,6 m från en byggnad eller högre
+      än 1,2 m längre bort. Den lilla komplementbyggnaden ryms inom 9 kap. 4 § (högst 30 kvm per
+      byggnad, 45 kvm sammanlagt inom plan, nockhöjd högst 4 m), och ommålning i samma kulör
+      ändrar inte karaktären.
     lagrum:
-      - PBL 9 kap. 2 §
-      - PBL 9 kap.
-      - PBF 6 kap. 1 §
+      - PBL 9 kap. 15 §
+      - PBL 9 kap. 19 §
+      - PBL 9 kap. 4 §
     taggar: [lovplikt, fasadandring, plank, andrad_anvandning, komplementbyggnad]
 
   - id: lov-003
     typ: lucktext
-    svarighet: 1
+    svarighet: 2
     status: utkast
     rattslage: "2025-12-01"
-    lagrum_osaker: true
     fraga: >
-      Byggnadsnämnden ska meddela beslut i ett bygglovsärende inom ___ veckor från det att den
-      fullständiga ansökan kom in. Tiden får förlängas en gång med högst ___ veckor.
-    svar: ["10", "10"]
+      Byggnadsnämnden ska besluta i ett bygglovsärende inom ___ veckor från ansökningsdagen.
+      Fristen får förlängas en gång med högst ___ veckor. Om nämnden förelägger sökanden att
+      komplettera inom ___ veckor från ansökningsdagen räknas fristen i stället från den dag
+      bristen avhjälpts.
+    svar: ["10", "10", "3"]
     forklaring: >
-      9 kap. 27 § PBL. Om nämnden inte håller tiden reduceras avgiften med en femtedel per
-      påbörjad vecka enligt 12 kap. 8 a § PBL.
+      9 kap. 99 § PBL i lydelsen från 1 december 2025. Nyheten är att fristen räknas från
+      ansökningsdagen, inte från när ansökan är komplett. Bara ett föreläggande inom tre veckor
+      flyttar startpunkten. Nämnden ska skriftligen informera sökanden om fristerna (100 §).
+      Överskrids fristen reduceras avgiften med en femtedel per påbörjad vecka (12 kap. 8 a §).
     lagrum:
-      - PBL 9 kap. 27 §
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 100 §
       - PBL 12 kap. 8 a §
-    taggar: [handlaggningstid, avgift]
+    taggar: [handlaggningstid, avgift, komplettering]
 
   - id: lov-004
     typ: oppen
     svarighet: 3
     status: utkast
     rattslage: "2025-12-01"
-    lagrum_osaker: true
     fraga: >
       Förklara skillnaden mellan att avvisa, avslå och avskriva en bygglovsansökan. Ge ett
       exempel på när vart och ett är rätt utgång.
     bedomningspunkter:
-      - "Avvisning: ansökan prövas inte i sak, t.ex. för att den trots föreläggande är ofullständig (9 kap. 22 § PBL)."
+      - "Avvisning: ansökan prövas inte i sak, t.ex. för att den trots föreläggande är ofullständig (9 kap. 91 § PBL). Nämnden kan alternativt avgöra ärendet i befintligt skick."
       - "Avslag: ansökan prövas i sak och åtgärden bedöms inte uppfylla kraven, t.ex. planstridig utan att avvikelsen är liten."
       - "Avskrivning: ärendet avslutas utan prövning för att sökanden återkallat eller frågan förfallit."
       - Anger att samtliga beslut ska motiveras och förses med överklagandehänvisning.
     modellsvar: >
       Avvisning innebär att nämnden inte prövar ansökan i sak, oftast för att den är så
       ofullständig att den inte kan prövas och sökanden inte avhjälpt bristerna efter
-      föreläggande (9 kap. 22 § PBL). Avslag innebär att ansökan prövats i sak och att
-      åtgärden inte uppfyller förutsättningarna för lov, t.ex. att den strider mot
-      detaljplanen och avvikelsen inte kan godtas enligt 9 kap. 31 b §. Avskrivning används
+      föreläggande (9 kap. 91 § PBL; nämnden kan också välja att avgöra ärendet i befintligt
+      skick). Avslag innebär att ansökan prövats i sak och att åtgärden inte uppfyller
+      förutsättningarna för lov, t.ex. att den strider mot detaljplanen och avvikelsen inte
+      kan godtas enligt 9 kap. 60 §. Avskrivning används
       när ärendet inte längre behöver prövas, typiskt när sökanden återkallar ansökan.
       Alla tre är beslut som ska motiveras (32 § FL) och kunna överklagas (13 kap. PBL).
     lagrum:
-      - PBL 9 kap. 22 §
-      - PBL 9 kap. 31 b §
+      - PBL 9 kap. 91 §
+      - PBL 9 kap. 60 §
       - FL 32 §
     taggar: [avvisning, avslag, avskrivning, beslut]

@@ -4,7 +4,6 @@ titel: Tillbyggnad av enbostadshus
 niva: 2
 status: utkast
 rattslage: "2025-12-01"
-lagrum_osaker: true   # paragrafnummer i 9 kap skrivna före omskrivningen 2025-12-01, kontrolleras mot Lagtextens byggregler
 fastighet: Björken 7, Åkerslunda kommun
 sammanfattning: >
   Sökanden vill bygga till sitt enbostadshus med 38 kvm åt söder. Fastigheten ligger inom
@@ -78,10 +77,11 @@ steg:
       - { text: Anmälan om kontrollansvarig, finns: false }
       - { text: Förslag till kontrollplan, finns: false, kommentar: "Krävs först till tekniskt samråd, inte för lovprövningen" }
     forklaring: >
-      Planritning, sektion och kontrollansvarig saknas. Enligt 9 kap. 22 § PBL ska nämnden
-      förelägga sökanden att avhjälpa bristerna inom viss tid. Handläggningstiden enligt
-      9 kap. 27 § börjar löpa först när ansökan är komplett.
-    lagrum: [PBL 9 kap. 21 §, PBL 9 kap. 22 §, PBL 9 kap. 27 §]
+      Planritning, sektion och kontrollansvarig saknas. Enligt 9 kap. 91 § PBL får nämnden
+      förelägga sökanden att avhjälpa bristerna inom viss tid. Tioveckorsfristen räknas från
+      ansökningsdagen (9 kap. 99 §); bara om föreläggandet skickas inom tre veckor räknas
+      fristen i stället från den dag bristen avhjälpts. Skynda alltså på föreläggandet.
+    lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 91 §, PBL 9 kap. 99 §]
 
   - id: S2
     typ: skrivelse
@@ -90,8 +90,8 @@ steg:
     bedomningspunkter:
       - Räknar upp de saknade handlingarna konkret
       - Anger en rimlig tidsfrist (t.ex. tre veckor)
-      - Upplyser om att ansökan kan komma att avvisas om komplettering uteblir (9 kap. 22 §)
-      - Upplyser om att handläggningstiden räknas från komplett ansökan
+      - Upplyser om att ansökan kan komma att avvisas eller avgöras i befintligt skick om föreläggandet inte följs (9 kap. 91 §)
+      - Skickas inom tre veckor från ansökningsdagen så att tidsfristen räknas från kompletteringen (9 kap. 99 § 4)
       - Begriplig ton, inte hotfull, inte svävande
     modelltext: handlingar/modell-forelaggande.md
 
@@ -113,7 +113,7 @@ steg:
     typ: fraga
     rubrik: Är avvikelserna liten avvikelse?
     fragetyp: flerval
-    fraga: Hur bör avvikelserna bedömas enligt 9 kap. 31 b § PBL?
+    fraga: Hur bör avvikelserna bedömas enligt 9 kap. 60 § PBL?
     alternativ:
       - text: Båda är små och förenliga med planens syfte; lov kan ges efter grannehörande.
         ratt: true
@@ -123,9 +123,10 @@ steg:
     forklaring: >
       Praxis godtar ofta mindre höjdöverskridanden och begränsade intrång på prickmark om
       syftet med bestämmelsen inte motverkas (här: avstånd till gata och grannar). Den samlade
-      bedömningen avgör. Eftersom lovet avviker från planen ska berörda grannar höras enligt
-      9 kap. 25 §. Observera att detta är en bedömningsfråga; handledaren kan ha synpunkter.
-    lagrum: [PBL 9 kap. 31 b §, PBL 9 kap. 25 §]
+      bedömningen avgör (9 kap. 60 och 64 §§). Eftersom åtgärden avviker från planen ska
+      berörda ägare underrättas enligt 9 kap. 94–96 §§. Observera att detta är en
+      bedömningsfråga; handledaren kan ha synpunkter.
+    lagrum: [PBL 9 kap. 60 §, PBL 9 kap. 64 §, PBL 9 kap. 94 §]
 
   - id: S5
     typ: urval
@@ -137,7 +138,7 @@ steg:
       - { text: "Björken 12 (söder, över gatan)", ratt: true, kommentar: Berörs av höjd och placering mot gatan }
       - { text: Åkerslunda 1:1 (kommunens gata), ratt: true, kommentar: Kommunen som fastighetsägare }
       - { text: Björken 3 (två tomter bort), ratt: false }
-    forklaring: Kända sakägare och boende som berörs ska underrättas enligt 9 kap. 25 § PBL. Hörandet tar i simuleringen två veckor.
+    forklaring: Ägare och innehavare av särskild rätt till berörda fastigheter ska underrättas enligt 9 kap. 94–96 §§ PBL; hyresgäster och bostadsrättshavare behöver inte längre underrättas. Meddelandet kungörs också på kommunens anslagstavla. Hörandet tar i simuleringen två veckor.
     tid_framat_dagar: 14
 
   - id: S6
@@ -145,14 +146,14 @@ steg:
     rubrik: Fatta beslut
     forvantat_beslut: bevilja
     bedomningspunkter:
-      - Beslut om att bevilja bygglov med stöd av 9 kap. 31 b § PBL
+      - Beslut om att bevilja bygglov med stöd av 9 kap. 56 och 60 §§ PBL
       - Motiverar varför avvikelserna är små och förenliga med planens syfte
       - Bemöter grannens yttrande (H7) sakligt
-      - Upplyser om att åtgärden inte får påbörjas utan startbesked (10 kap. 3 §)
-      - Upplyser om giltighetstid (9 kap. 43 §) och kungörelse (9 kap. 41 a §)
+      - Upplyser om att lovet gäller omedelbart (9 kap. 114 §) men att åtgärden inte får påbörjas utan startbesked (9 kap. 105 § 4, 10 kap. 3 §), och om risken vid påbörjande före laga kraft (105 § 5)
+      - Upplyser om giltighetstid två plus fem år (9 kap. 115 §) och att beslutet kungörs på kommunens anslagstavla (9 kap. 109 §)
       - Avgift angiven enligt taxan, med eventuell reduktion om tiden överskridits
       - Överklagandehänvisning finns
-      - Beslutet delges Björken 8 som yttrat sig negativt (9 kap. 41 §)
+      - Beslutet delges sökanden, fastighetsägaren och Björken 8 som yttrat sig utan att få gehör (9 kap. 108 §); meddelande om kungörelsen skickas till övriga grannar (110 §)
     modellbeslut: handlingar/modell-beslut.md
 
 handelser:
@@ -162,7 +163,7 @@ handelser:
     effekt:
       visa_handlingar: [H5, H6]
       tid_framat_dagar: 14
-      meddelande: Sökanden har kompletterat ärendet. Ansökan är nu komplett. Handläggningstiden börjar löpa.
+      meddelande: Sökanden har kompletterat ärendet. Eftersom föreläggandet skickades inom tre veckor räknas tioveckorsfristen från i dag (9 kap. 99 § första stycket 4).
       satt_komplett_datum: true
 
   - id: E2
@@ -176,7 +177,7 @@ handelser:
         typ: fraga
         rubrik: Ta ställning till yttrandet
         fragetyp: oppen
-        fraga: Grannen anför skuggning. Hur värderar du invändningen i förhållande till 2 kap. 9 § PBL?
+        fraga: Grannen anför skuggning. Hur värderar du invändningen i förhållande till 2 kap. 9 § PBL och 9 kap. 62 §?
         bedomningspunkter:
           - Skiljer på betydande olägenhet och ett allmänt försämrat läge
           - Resonerar om väderstreck, avstånd och tillbyggnadens höjd
@@ -196,7 +197,7 @@ handelser:
         fragetyp: oppen
         fraga: Förklara vilket fel nämnden gjorde och vilket lagrum som åsidosattes.
         bedomningspunkter:
-          - Identifierar att avvikelse från plan kräver grannehörande (9 kap. 25 §)
+          - Identifierar att avvikelse från plan kräver underrättelse till berörda grannar (9 kap. 94 §)
           - Förstår att felet är ett handläggningsfel som leder till upphävande
 
   - id: E4
