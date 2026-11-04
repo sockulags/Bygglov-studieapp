@@ -28,6 +28,9 @@ const OLD_SECTIONS_9: Record<string, string> = {
   '42 a': '9 kap. 114 §',
 };
 
+/** A law other than PBL named right before the chapter, e.g. "PBF 9 kap. 7 §". */
+const OTHER_LAW_BEFORE = /\b(PBF|FL|MB|KL|förordningen|förvaltningslagen|miljöbalken)\s*$/i;
+
 export interface ChapterNineRef {
   /** The text as written. */
   raw: string;
@@ -59,9 +62,6 @@ export function chapterNineRefs(text: string): ChapterNineRef[] {
   }
   return refs;
 }
-
-/** A law other than PBL named right before the chapter, e.g. "PBF 9 kap. 7 §". */
-const OTHER_LAW_BEFORE = /\b(PBF|FL|MB|KL|förordningen|förvaltningslagen|miljöbalken)\s*$/i;
 
 function sectionsIn(list: string): string[] {
   const out: string[] = [];

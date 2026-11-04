@@ -6,8 +6,11 @@
 const ISO_DATE = /^\d{4}-\d{2}-\d{2}$/;
 const DAY_MS = 24 * 60 * 60 * 1000;
 
+/** A real calendar date as `YYYY-MM-DD` (rejects e.g. 2026-02-30). */
 export function isIsoDate(value: string): boolean {
-  return ISO_DATE.test(value) && !Number.isNaN(Date.parse(`${value}T00:00:00Z`));
+  if (!ISO_DATE.test(value)) return false;
+  const time = Date.parse(`${value}T00:00:00Z`);
+  return !Number.isNaN(time) && new Date(time).toISOString().slice(0, 10) === value;
 }
 
 function toUtc(date: string): number {
@@ -17,7 +20,8 @@ function toUtc(date: string): number {
 
 /** `date` plus `days` calendar days (negative to go back). */
 export function addDays(date: string, days: number): string {
-  if (!Number.isInteger(days)) throw new RangeError(`Antal dagar ska vara ett heltal, inte ${days}.`);
+  if (!Number.isInteger(days))
+    throw new RangeError(`Antal dagar ska vara ett heltal, inte ${days}.`);
   return new Date(toUtc(date) + days * DAY_MS).toISOString().slice(0, 10);
 }
 

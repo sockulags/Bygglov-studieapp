@@ -127,6 +127,10 @@ export interface SubmittedDecision {
   stepId: string;
   date: string;
   draft: DecisionDraft;
+  /** The assessment as it was on the decision date (kept so later events cannot change it). */
+  assessment: DecisionAssessment;
+  /** Ticked assessment criteria (indices into `assessment.criteria`), null until assessed. */
+  checkedCriteria: number[] | null;
 }
 
 export interface CaseState {
