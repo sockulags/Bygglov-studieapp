@@ -1,4 +1,4 @@
-# Exempel på ärendeformat. Fiktiv fastighet, fiktiv kommun, fiktiv detaljplan.
+# Nivå 2-ärende. Fiktiv fastighet, fiktiv kommun, fiktiv detaljplan.
 id: A002
 titel: Tillbyggnad av enbostadshus
 niva: 2
@@ -134,7 +134,7 @@ steg:
     alternativ:
       - { text: Björken 6 (väster), ratt: true }
       - { text: Björken 8 (öster), ratt: true }
-      - { text: Björken 12 (söder, över gatan), ratt: true, kommentar: Berörs av höjd och placering mot gatan }
+      - { text: "Björken 12 (söder, över gatan)", ratt: true, kommentar: Berörs av höjd och placering mot gatan }
       - { text: Åkerslunda 1:1 (kommunens gata), ratt: true, kommentar: Kommunen som fastighetsägare }
       - { text: Björken 3 (två tomter bort), ratt: false }
     forklaring: Kända sakägare och boende som berörs ska underrättas enligt 9 kap. 25 § PBL. Hörandet tar i simuleringen två veckor.

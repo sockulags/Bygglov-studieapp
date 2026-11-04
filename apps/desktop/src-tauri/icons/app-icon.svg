@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- App icon: a plan sheet with a gable house and an approval stamp. Source for `tauri icon`. -->
+  <defs>
+    <clipPath id="sheet">
+      <rect x="168" y="152" width="688" height="720" rx="40"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="1024" height="1024" rx="224" fill="#2F5D50"/>
+  <rect x="168" y="152" width="688" height="720" rx="40" fill="#F7F5F0"/>
+  <g clip-path="url(#sheet)" stroke="#2F5D50" stroke-opacity="0.14" stroke-width="6">
+    <path d="M168 272 H856 M168 392 H856 M168 512 H856 M168 632 H856 M168 752 H856"/>
+    <path d="M288 152 V872 M408 152 V872 M528 152 V872 M648 152 V872 M768 152 V872"/>
+  </g>
+  <g fill="none" stroke="#2F5D50" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M272 492 L512 300 L752 492" stroke-width="44"/>
+    <path d="M332 452 V716 H692 V452" stroke-width="44"/>
+    <path d="M452 716 V580 H572 V716" stroke-width="36"/>
+  </g>
+  <circle cx="760" cy="768" r="140" fill="#B5543A"/>
+  <circle cx="760" cy="768" r="112" fill="none" stroke="#F7F5F0" stroke-width="10" stroke-opacity="0.55"/>
+  <path d="M700 770 L742 812 L824 726" fill="none" stroke="#FFFFFF" stroke-width="34" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

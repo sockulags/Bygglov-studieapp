@@ -1,6 +1,11 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { X } from 'lucide-react';
-import { forwardRef, type ComponentPropsWithoutRef, type ElementRef, type HTMLAttributes } from 'react';
+import {
+  forwardRef,
+  type ComponentPropsWithoutRef,
+  type ElementRef,
+  type HTMLAttributes,
+} from 'react';
 import { cn } from '@/lib/cn';
 
 export const Dialog = DialogPrimitive.Root;
@@ -26,8 +31,9 @@ export const DialogOverlay = forwardRef<
   );
 });
 
-export interface DialogContentProps
-  extends ComponentPropsWithoutRef<typeof DialogPrimitive.Content> {
+export interface DialogContentProps extends ComponentPropsWithoutRef<
+  typeof DialogPrimitive.Content
+> {
   /** Hide the top-right close button (e.g. for forced update flows). */
   hideClose?: boolean;
 }
@@ -69,9 +75,7 @@ export function DialogHeader({ className, ...props }: HTMLAttributes<HTMLDivElem
 }
 
 export function DialogFooter({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
-  return (
-    <div className={cn('mt-6 flex flex-wrap justify-end gap-2', className)} {...props} />
-  );
+  return <div className={cn('mt-6 flex flex-wrap justify-end gap-2', className)} {...props} />;
 }
 
 export const DialogTitle = forwardRef<

@@ -19,9 +19,7 @@ export function RootLayout() {
         tabIndex={-1}
         className={cn(
           'min-w-0 flex-1 transition-[padding] duration-[var(--duration-base)] ease-[var(--ease-out)]',
-          collapsed
-            ? 'pl-[var(--sidebar-width-collapsed)]'
-            : 'pl-[var(--sidebar-width)]',
+          collapsed ? 'pl-[var(--sidebar-width-collapsed)]' : 'pl-[var(--sidebar-width)]',
         )}
       >
         <div className="mx-auto w-full max-w-6xl px-8 py-10">

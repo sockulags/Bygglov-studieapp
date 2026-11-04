@@ -8,7 +8,15 @@ import { AppMark } from '@/components/layout/app-mark';
 import { useUiStore } from '@/store/ui';
 import { cn } from '@/lib/cn';
 
-function SideTooltip({ label, enabled, children }: { label: string; enabled: boolean; children: ReactNode }) {
+function SideTooltip({
+  label,
+  enabled,
+  children,
+}: {
+  label: string;
+  enabled: boolean;
+  children: ReactNode;
+}) {
   if (!enabled) return <>{children}</>;
   return (
     <TooltipPrimitive.Root>
@@ -93,7 +101,10 @@ export function Sidebar() {
         )}
       >
         <ThemeToggle collapsed={collapsed} />
-        <SideTooltip label={collapsed ? 'Visa sidopanel' : 'Fäll ihop sidopanel'} enabled={collapsed}>
+        <SideTooltip
+          label={collapsed ? 'Visa sidopanel' : 'Fäll ihop sidopanel'}
+          enabled={collapsed}
+        >
           <button
             type="button"
             onClick={toggleSidebar}

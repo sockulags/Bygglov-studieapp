@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes } from 'react';
 import { cn } from '@/lib/cn';
 
 export interface LawRefChipProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** The reference as written in content, e.g. "PBL 9 kap. 4 a §". */
+  /** The reference as written in content, e.g. "PBL 9 kap." or "FL 25 §". */
   reference: string;
 }
 

@@ -63,7 +63,11 @@ export function HomePage() {
   return (
     <>
       <PageHeader
-        eyebrow={new Intl.DateTimeFormat('sv-SE', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date())}
+        eyebrow={new Intl.DateTimeFormat('sv-SE', {
+          weekday: 'long',
+          day: 'numeric',
+          month: 'long',
+        }).format(new Date())}
         title={`${greeting()}.`}
         description="Dagens förslag: börja med ett snabbquiz i Lovplikt. Tio frågor, med förklaring och lagrum efter varje svar."
       />
@@ -90,7 +94,10 @@ export function HomePage() {
                     </div>
                     <span className="inline-flex items-center gap-1 text-sm font-medium text-accent">
                       {action.cta}
-                      <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                      <ArrowRight
+                        className="size-4 transition-transform group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
                     </span>
                   </CardContent>
                 </Card>
@@ -112,14 +119,19 @@ export function HomePage() {
                   <span className="text-sm tabular-nums text-muted">{module.number}</span>
                   <div>
                     <p className="text-sm font-medium">{module.title}</p>
-                    <Progress value={0} thin label={`Behärskning ${module.title}`} className="mt-1.5" />
+                    <Progress
+                      value={0}
+                      thin
+                      label={`Behärskning ${module.title}`}
+                      className="mt-1.5"
+                    />
                   </div>
                   <span className="text-right text-sm tabular-nums text-muted">–</span>
                 </div>
               ))}
               <p className="text-xs text-muted">
-                Staplarna fylls i allt eftersom du svarar. Behärskning räknas på repetitionsdata, inte
-                bara antal rätt.
+                Staplarna fylls i allt eftersom du svarar. Behärskning räknas på repetitionsdata,
+                inte bara antal rätt.
               </p>
             </CardContent>
           </Card>

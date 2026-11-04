@@ -25,4 +25,6 @@ export const primaryNav: NavItem[] = [
   { to: '/results', label: 'Mina resultat', icon: ChartLine },
 ];
 
-export const secondaryNav: NavItem[] = [{ to: '/settings', label: 'Inställningar', icon: Settings }];
+export const secondaryNav: NavItem[] = [
+  { to: '/settings', label: 'Inställningar', icon: Settings },
+];

@@ -22,4 +22,11 @@ pluggar aldrig behöver göra något mer tekniskt än att trycka "Uppdatera".
 
 ## Status
 
-Planeringsfas. Inget är byggt ännu. Se [docs/07-roadmap.md](docs/07-roadmap.md) för nästa steg.
+Projektskelettet finns: pnpm-monorepo med desktop-appen i [apps/desktop/](apps/desktop/README.md)
+(React + Tauri) och innehållspaketen i `packages/`. Se [docs/07-roadmap.md](docs/07-roadmap.md) för nästa steg.
+
+```sh
+pnpm install
+pnpm dev            # appen i webbläsaren på http://localhost:1420
+pnpm typecheck && pnpm test && pnpm lint
+```

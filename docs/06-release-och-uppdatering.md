@@ -32,6 +32,12 @@ släppt något, trycker en knapp, och appen startar om uppdaterad.
   - `bundle.createUpdaterArtifacts: true`
   - `plugins.updater.endpoints: ["https://github.com/<ägare>/<repo>/releases/latest/download/latest.json"]`
   - `plugins.updater.pubkey: "<publik minisign-nyckel>"`
+- **Just nu** står `plugins.updater.pubkey` som tom sträng (`""`) i
+  `apps/desktop/src-tauri/tauri.conf.json`, eftersom nyckelparet inte är skapat än. JSON
+  tillåter inga kommentarer, därför står anmärkningen här. Innan första releasen ska den
+  publika nyckeln (innehållet i `.pub`-filen från `signer generate`) klistras in där. Med tom
+  nyckel kan appen inte verifiera några uppdateringar, och `tauri build` med
+  `createUpdaterArtifacts: true` kräver dessutom att `TAURI_SIGNING_PRIVATE_KEY` är satt.
 - Nyckelpar skapas en gång med `pnpm tauri signer generate`. Den privata nyckeln läggs som
   GitHub-secret `TAURI_SIGNING_PRIVATE_KEY` (+ `TAURI_SIGNING_PRIVATE_KEY_PASSWORD`).
   **Förlorar vi den privata nyckeln kan befintliga installationer inte uppdateras**, så den

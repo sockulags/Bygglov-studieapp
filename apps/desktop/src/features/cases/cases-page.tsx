@@ -4,10 +4,26 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Stamp } from '@/components/ui/stamp';
 
 const levels = [
-  { level: 1, title: 'Enkla ärenden', body: 'Komplett ansökan inom plan. Fokus på rutinen: registrera, granska, besluta.' },
-  { level: 2, title: 'Kompletteringar och grannar', body: 'Saknade handlingar, grannehörande och liten avvikelse.' },
-  { level: 3, title: 'Svåra avvägningar', body: 'Planstridigt utgångsläge, remisser, överraskningar under handläggningen.' },
-  { level: 4, title: 'Tillsyn och överklagande', body: 'Olovligt byggande, förelägganden och vad som händer när beslutet överklagas.' },
+  {
+    level: 1,
+    title: 'Enkla ärenden',
+    body: 'Komplett ansökan inom plan. Fokus på rutinen: registrera, granska, besluta.',
+  },
+  {
+    level: 2,
+    title: 'Kompletteringar och grannar',
+    body: 'Saknade handlingar, grannehörande och liten avvikelse.',
+  },
+  {
+    level: 3,
+    title: 'Svåra avvägningar',
+    body: 'Planstridigt utgångsläge, remisser, överraskningar under handläggningen.',
+  },
+  {
+    level: 4,
+    title: 'Tillsyn och överklagande',
+    body: 'Olovligt byggande, förelägganden och vad som händer när beslutet överklagas.',
+  },
 ];
 
 export function CasesPage() {
@@ -25,13 +41,14 @@ export function CasesPage() {
           </SectionTitle>
           {levels.map((item) => (
             <div key={item.level}>
-              <div className="mb-2 flex items-baseline gap-3">
+              <div className="mb-3">
                 <h3 className="font-semibold">
                   Nivå {item.level} · {item.title}
                 </h3>
-                <span className="text-sm text-muted">{item.body}</span>
+                <p className="text-sm text-muted">{item.body}</p>
               </div>
               <EmptyState
+                className="py-8"
                 icon={<FolderOpen />}
                 title="Inga ärenden på den här nivån ännu"
                 description="Ärendena skrivs tillsammans med handledaren och följer med nästa uppdatering."
@@ -44,15 +61,17 @@ export function CasesPage() {
           <SectionTitle>
             <span id="cases-preview">Så ser en handling ut</span>
           </SectionTitle>
-          <Card variant="document" className="relative overflow-hidden p-6">
-            <div className="absolute top-4 right-4">
-              <Stamp detail="2026-03-02" size="sm">
-                Inkom
-              </Stamp>
-            </div>
+          <Card variant="document" className="overflow-hidden p-6">
             <CardContent className="prose-document p-0">
-              <p className="text-xs text-muted uppercase tracking-[0.08em]">Ansökan om bygglov</p>
-              <p className="mt-2 font-semibold">Tillbyggnad av enbostadshus</p>
+              <div className="flex items-start justify-between gap-3">
+                <p className="pt-1 text-xs tracking-[0.08em] text-muted uppercase">
+                  Ansökan om bygglov
+                </p>
+                <Stamp detail="2026-03-02" size="sm" className="shrink-0">
+                  Inkom
+                </Stamp>
+              </div>
+              <p className="mt-3 font-semibold">Tillbyggnad av enbostadshus</p>
               <p className="text-sm">Björken 7, Skogsvägen 12</p>
               <p className="mt-4 text-sm text-muted">
                 Handlingar renderas som A4-kort med ankomststämpel. Nya handlingar i diariet får en

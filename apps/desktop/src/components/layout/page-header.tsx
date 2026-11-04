@@ -14,7 +14,9 @@ export function PageHeader({ title, description, eyebrow, actions, className }: 
     <header className={cn('mb-8 flex flex-wrap items-end justify-between gap-4', className)}>
       <div className="max-w-2xl">
         {eyebrow && (
-          <p className="mb-1 text-xs font-semibold tracking-[0.08em] text-muted uppercase">{eyebrow}</p>
+          <p className="mb-1 text-xs font-semibold tracking-[0.08em] text-muted uppercase">
+            {eyebrow}
+          </p>
         )}
         <h1 className="text-3xl">{title}</h1>
         {description && <p className="mt-2 text-[1.0625rem] text-muted">{description}</p>}
@@ -26,7 +28,9 @@ export function PageHeader({ title, description, eyebrow, actions, className }: 
 
 export function SectionTitle({ children, className }: { children: ReactNode; className?: string }) {
   return (
-    <h2 className={cn('mb-3 text-sm font-semibold tracking-[0.06em] text-muted uppercase', className)}>
+    <h2
+      className={cn('mb-3 text-sm font-semibold tracking-[0.06em] text-muted uppercase', className)}
+    >
       {children}
     </h2>
   );

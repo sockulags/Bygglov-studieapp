@@ -16,7 +16,13 @@ import { useId, useState, type ReactNode } from 'react';
 import { PageHeader } from '@/components/layout/page-header';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import { checkForUpdate, getAppVersion, isTauri, runtimeLabel, type UpdateCheckResult } from '@/lib/tauri';
+import {
+  checkForUpdate,
+  getAppVersion,
+  isTauri,
+  runtimeLabel,
+  type UpdateCheckResult,
+} from '@/lib/tauri';
 import { cn } from '@/lib/cn';
 import { useUiStore, type TextSize, type Theme } from '@/store/ui';
 
@@ -149,8 +155,17 @@ function AppearanceSection() {
       title="Utseende"
       description="Tema och textstorlek. Ändringarna syns direkt och sparas på den här datorn."
     >
-      <SettingsRow label="Tema" hint="System följer Windows inställning för ljust eller mörkt läge.">
-        <Segmented name="theme" label="Tema" value={theme} options={themeOptions} onChange={setTheme} />
+      <SettingsRow
+        label="Tema"
+        hint="System följer Windows inställning för ljust eller mörkt läge."
+      >
+        <Segmented
+          name="theme"
+          label="Tema"
+          value={theme}
+          options={themeOptions}
+          onChange={setTheme}
+        />
       </SettingsRow>
       <SettingsRow label="Textstorlek" hint="Gäller all text i appen, även handlingar och beslut.">
         <Segmented
@@ -180,7 +195,11 @@ function updateMessage(result: UpdateCheckResult | undefined): string | null {
 }
 
 function UpdatesSection() {
-  const version = useQuery({ queryKey: ['app-version'], queryFn: getAppVersion, staleTime: Infinity });
+  const version = useQuery({
+    queryKey: ['app-version'],
+    queryFn: getAppVersion,
+    staleTime: Infinity,
+  });
   const check = useMutation({ mutationFn: checkForUpdate });
   const message = updateMessage(check.data);
   const inTauri = isTauri();
@@ -268,8 +287,8 @@ function StudyHelpSection() {
           </Button>
         </div>
         <p id={hintId} className="text-sm text-muted">
-          Nyckeln sparas i Windows Autentiseringshanteraren, aldrig i klartext på disken. Studiehjälpen
-          aktiveras i en kommande version; fram till dess sparas ingenting härifrån.
+          Nyckeln sparas i Windows Autentiseringshanteraren, aldrig i klartext på disken.
+          Studiehjälpen aktiveras i en kommande version; fram till dess sparas ingenting härifrån.
         </p>
       </div>
     </SettingsSection>
@@ -284,7 +303,10 @@ function DataSection() {
       title="Data"
       description="Din studiedata ligger bara på den här datorn. Exportera den för att flytta den eller ha en säkerhetskopia."
     >
-      <SettingsRow label="Exportera studiedata" hint="Sparar svar, repetition och ärenden som en JSON-fil.">
+      <SettingsRow
+        label="Exportera studiedata"
+        hint="Sparar svar, repetition och ärenden som en JSON-fil."
+      >
         <Button variant="secondary" disabled title={pending}>
           <Download aria-hidden="true" />
           Exportera
@@ -312,7 +334,10 @@ function DataSection() {
 export function SettingsPage() {
   return (
     <>
-      <PageHeader title="Inställningar" description="Utseende, uppdateringar, studiehjälp och din data." />
+      <PageHeader
+        title="Inställningar"
+        description="Utseende, uppdateringar, studiehjälp och din data."
+      />
       <div className="flex flex-col gap-10">
         <AppearanceSection />
         <UpdatesSection />

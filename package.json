@@ -20,7 +20,8 @@
     "format:check": "prettier --check .",
     "content:check": "pnpm --filter @bygglov/content-build check",
     "content:build": "pnpm --filter @bygglov/content-build build",
-    "version:sync": "node scripts/sync-version.mjs"
+    "version:sync": "node scripts/sync-version.mjs",
+    "version:check": "node scripts/sync-version.mjs --check"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

@@ -1,4 +1,4 @@
-# Exempel på frågeformat. En fil per modul. Valideras med zod vid bygge.
+# Frågor för modul 03-lovplikt. En fil per modul. Valideras med zod (pnpm content:check).
 # status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
 # rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
 # lagrum_osaker: true när paragrafnumreringen inte är kontrollerad efter omskrivningen.
@@ -89,9 +89,9 @@ fragor:
       Förklara skillnaden mellan att avvisa, avslå och avskriva en bygglovsansökan. Ge ett
       exempel på när vart och ett är rätt utgång.
     bedomningspunkter:
-      - Avvisning: ansökan prövas inte i sak, t.ex. för att den trots föreläggande är ofullständig (9 kap. 22 § PBL).
-      - Avslag: ansökan prövas i sak och åtgärden bedöms inte uppfylla kraven, t.ex. planstridig utan att avvikelsen är liten.
-      - Avskrivning: ärendet avslutas utan prövning för att sökanden återkallat eller frågan förfallit.
+      - "Avvisning: ansökan prövas inte i sak, t.ex. för att den trots föreläggande är ofullständig (9 kap. 22 § PBL)."
+      - "Avslag: ansökan prövas i sak och åtgärden bedöms inte uppfylla kraven, t.ex. planstridig utan att avvikelsen är liten."
+      - "Avskrivning: ärendet avslutas utan prövning för att sökanden återkallat eller frågan förfallit."
       - Anger att samtliga beslut ska motiveras och förses med överklagandehänvisning.
     modellsvar: >
       Avvisning innebär att nämnden inte prövar ansökan i sak, oftast för att den är så

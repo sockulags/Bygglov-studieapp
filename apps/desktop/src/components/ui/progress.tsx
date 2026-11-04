@@ -33,11 +33,7 @@ export function Progress({
       aria-valuemax={100}
       aria-valuenow={Math.round(clamped)}
       aria-label={label}
-      className={cn(
-        'w-full overflow-hidden rounded-full bg-line',
-        thin ? 'h-1' : 'h-2',
-        className,
-      )}
+      className={cn('w-full overflow-hidden rounded-full bg-line', thin ? 'h-1' : 'h-2', className)}
       {...props}
     >
       <div
@@ -72,7 +68,8 @@ export function MasteryRing({
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const offset = circumference * (1 - clamped / 100);
-  const tone = clamped >= 80 ? 'var(--success)' : clamped >= 40 ? 'var(--accent)' : 'var(--plan-yellow)';
+  const tone =
+    clamped >= 80 ? 'var(--success)' : clamped >= 40 ? 'var(--accent)' : 'var(--plan-yellow)';
 
   return (
     <div

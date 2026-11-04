@@ -43,7 +43,12 @@ export function Stamp({
     >
       <span>{children}</span>
       {detail && (
-        <span className={cn('font-semibold tracking-normal', size === 'sm' ? 'text-[0.6rem]' : 'text-[0.7rem]')}>
+        <span
+          className={cn(
+            'font-semibold tracking-normal',
+            size === 'sm' ? 'text-[0.6rem]' : 'text-[0.7rem]',
+          )}
+        >
           {detail}
         </span>
       )}

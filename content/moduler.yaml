@@ -1,0 +1,125 @@
+# Studiemoduler. Ordningen är ungefärlig svårighetsgrad. Källa: docs/02-innehall.md.
+# id har formatet NN-namn och NN ska vara samma som ordning.
+# lagrum_sammanfattning anges på kapitelnivå där paragrafnumreringen kan ha ändrats
+# efter omskrivningen av PBL 2025-12-01. Granskas mot Lagtextens byggregler 2026-01-01.
+moduler:
+  - id: 01-forvaltningsratt
+    ordning: 1
+    titel: Förvaltningsrätt och myndighetsrollen
+    beskrivning: >
+      Serviceskyldighet, kommunicering, jäv, motivering, överklagandehänvisning, delgivning,
+      offentlighet och sekretess.
+    lagrum_sammanfattning: Förvaltningslagen (2017:900), kommunallagen, tryckfrihetsförordningen, offentlighets- och sekretesslagen
+    lagrum: [FL, KL, TF, OSL]
+
+  - id: 02-pbl-systemet
+    ordning: 2
+    titel: PBL-systemet och begreppen
+    beskrivning: >
+      Lagens uppbyggnad, byggnadsnämndens roll, översiktsplan, detaljplan och
+      områdesbestämmelser, allmänna och enskilda intressen.
+    lagrum_sammanfattning: PBL 1–4 kap., PBL 12 kap.
+    lagrum: [PBL 1 kap., PBL 2 kap., PBL 3 kap., PBL 4 kap., PBL 12 kap.]
+
+  - id: 03-lovplikt
+    ordning: 3
+    titel: Lovplikt och anmälningsplikt
+    beskrivning: >
+      Vad som kräver bygglov, rivningslov, marklov eller anmälan. Bygglovsbefriade åtgärder
+      enligt regelverket från 1 december 2025: bygglovsbefriad komplementbyggnad,
+      komplementbostadshus och bygglovsbefriad tillbyggnad, samlad pott per tomt och
+      grannmedgivande nära gräns. Jämförelse med äldre begrepp som friggebod och attefallshus.
+    lagrum_sammanfattning: PBL 9 kap. (omskrivet 2025-12-01), PBF 6 kap.
+    lagrum: [PBL 9 kap., PBF 6 kap.]
+    lagrum_osaker: true
+
+  - id: 04-detaljplan
+    ordning: 4
+    titel: Detaljplan och planenlighet
+    beskrivning: >
+      Läsa plankarta och planbestämmelser, byggrätt, prickmark, byggnadshöjd och nockhöjd,
+      användning, liten avvikelse och planstridigt utgångsläge.
+    lagrum_sammanfattning: PBL 9 kap. (planenlighet och liten avvikelse), PBF 1 kap., Boverkets allmänna råd om mätning
+    lagrum: [PBL 9 kap., PBF 1 kap.]
+    lagrum_osaker: true
+
+  - id: 05-utanfor-plan
+    ordning: 5
+    titel: Prövning utanför detaljplan
+    beskrivning: >
+      Lokaliseringsprövning, områdesbestämmelser, sammanhållen bebyggelse och förhandsbesked.
+    lagrum_sammanfattning: PBL 9 kap., PBL 2 kap., PBL 4 kap.
+    lagrum: [PBL 9 kap., PBL 2 kap., PBL 4 kap.]
+    lagrum_osaker: true
+
+  - id: 06-handlaggning
+    ordning: 6
+    titel: Handläggningsprocessen
+    beskrivning: >
+      Ankomstregistrering, fullständighetsgranskning, föreläggande om komplettering,
+      handläggningstid och avgiftsreduktion, grannehörande, remisser, kungörelse och laga kraft.
+    lagrum_sammanfattning: PBL 9 kap., PBL 12 kap., PBF 9 kap.
+    lagrum: [PBL 9 kap., PBL 12 kap., PBF 9 kap.]
+    lagrum_osaker: true
+
+  - id: 07-krav-byggnadsverk
+    ordning: 7
+    titel: Krav på byggnadsverk
+    beskrivning: >
+      Utformningskrav, tekniska egenskapskrav, tillgänglighet, varsamhet, förvanskningsförbud
+      och tomtkrav.
+    lagrum_sammanfattning: PBL 8 kap., PBF 3 kap., Boverkets byggregler
+    lagrum: [PBL 8 kap., PBF 3 kap.]
+
+  - id: 08-ritning-berakning
+    ordning: 8
+    titel: Ritningsläsning och beräkning
+    beskrivning: >
+      Situationsplan, plan, fasad och sektion, skala, byggnadsarea, bruttoarea och öppenarea,
+      byggnadshöjd, våningar och avstånd till gräns.
+    lagrum_sammanfattning: SS 21054:2020 (area och volym för husbyggnader), Boverkets vägledning om mätning
+
+  - id: 09-genomforande
+    ordning: 9
+    titel: Genomförandet
+    beskrivning: >
+      Tekniskt samråd, kontrollansvarig, kontrollplan, startbesked, arbetsplatsbesök,
+      slutsamråd, slutbesked och interimistiskt slutbesked.
+    lagrum_sammanfattning: PBL 10 kap., PBF 7 kap.
+    lagrum: [PBL 10 kap., PBF 7 kap.]
+
+  - id: 10-tillsyn
+    ordning: 10
+    titel: Tillsyn och sanktioner
+    beskrivning: >
+      Olovligt byggande, lovföreläggande, rättelseföreläggande, byggsanktionsavgift, vite och
+      preskription.
+    lagrum_sammanfattning: PBL 11 kap., PBF 9 kap.
+    lagrum: [PBL 11 kap., PBF 9 kap.]
+
+  - id: 11-angransande
+    ordning: 11
+    titel: Angränsande lagstiftning
+    beskrivning: >
+      Strandskydd, kulturmiljölagen, miljöbalken, väglagen, fastighetsbildning och lagen om
+      skydd mot olyckor.
+    lagrum_sammanfattning: Miljöbalken 7 kap., kulturmiljölagen, väglagen, fastighetsbildningslagen, LSO
+    lagrum: [MB 7 kap., KML, VägL, FBL, LSO]
+
+  - id: 12-overklagande
+    ordning: 12
+    titel: Överklagande och prövningskedjan
+    beskrivning: >
+      Vem som får överklaga, tidsfrister, rättidsprövning, länsstyrelsen, mark- och
+      miljödomstolen och verkställbarhet.
+    lagrum_sammanfattning: PBL 13 kap., förvaltningslagens bestämmelser om överklagande (FL 40–47 §§)
+    lagrum: [PBL 13 kap., FL 40–47 §§]
+
+  - id: 13-kommunikation
+    ordning: 13
+    titel: Kommunikation och bemötande
+    beskrivning: >
+      Skriva begripliga beslut, svåra samtal, förväntanshantering, service kontra
+      myndighetsutövning.
+    lagrum_sammanfattning: Språklagen (klarspråk), förvaltningslagen om service
+    lagrum: [FL 6 §]

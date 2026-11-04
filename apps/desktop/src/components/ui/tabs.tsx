@@ -43,5 +43,7 @@ export const TabsContent = forwardRef<
   ElementRef<typeof TabsPrimitive.Content>,
   ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
 >(function TabsContent({ className, ...props }, ref) {
-  return <TabsPrimitive.Content ref={ref} className={cn('mt-4 outline-none', className)} {...props} />;
+  return (
+    <TabsPrimitive.Content ref={ref} className={cn('mt-4 outline-none', className)} {...props} />
+  );
 });

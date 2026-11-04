@@ -5,10 +5,26 @@ import { PageHeader, SectionTitle } from '@/components/layout/page-header';
 import { modules } from '@/features/study/modules';
 
 const modes = [
-  { id: 'quick', label: 'Snabbquiz', body: 'Tio slumpade frågor ur valda moduler. Resultat direkt.' },
-  { id: 'walkthrough', label: 'Genomgång', body: 'Alla frågor i en modul i pedagogisk ordning, med förklaringar.' },
-  { id: 'review', label: 'Repetition', body: 'Frågor som är på väg att glömmas, enligt repetitionsschemat.' },
-  { id: 'open', label: 'Instudering', body: 'Öppna frågor där du formulerar svaret själv och jämför med facit.' },
+  {
+    id: 'quick',
+    label: 'Snabbquiz',
+    body: 'Tio slumpade frågor ur valda moduler. Resultat direkt.',
+  },
+  {
+    id: 'walkthrough',
+    label: 'Genomgång',
+    body: 'Alla frågor i en modul i pedagogisk ordning, med förklaringar.',
+  },
+  {
+    id: 'review',
+    label: 'Repetition',
+    body: 'Frågor som är på väg att glömmas, enligt repetitionsschemat.',
+  },
+  {
+    id: 'open',
+    label: 'Instudering',
+    body: 'Öppna frågor där du formulerar svaret själv och jämför med facit.',
+  },
   { id: 'exam', label: 'Tenta', body: 'Blandade frågor, tidsgräns, resultat först i slutet.' },
 ] as const;
 
@@ -48,7 +64,11 @@ export function StudyPage() {
           {modules.map((module) => (
             <Card key={module.id} interactive>
               <CardContent className="flex items-start gap-4 p-5">
-                <MasteryRing value={0} size={52} label={`Behärskning ${module.title}: inte påbörjad`}>
+                <MasteryRing
+                  value={0}
+                  size={52}
+                  label={`Behärskning ${module.title}: inte påbörjad`}
+                >
                   <span className="text-muted">{module.number}</span>
                 </MasteryRing>
                 <div className="min-w-0">

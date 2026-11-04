@@ -26,9 +26,22 @@ export function AppMark({ className }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M28 47 V37 H36 V47" fill="none" stroke="currentColor" strokeWidth="3" strokeLinejoin="round" />
+      <path
+        d="M28 47 V37 H36 V47"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="3"
+        strokeLinejoin="round"
+      />
       <circle cx="47" cy="47" r="7" fill="var(--brick)" />
-      <path d="M43.5 47 L46 49.5 L50.5 44.5" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M43.5 47 L46 49.5 L50.5 44.5"
+        fill="none"
+        stroke="#fff"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
