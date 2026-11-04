@@ -22,6 +22,13 @@ larandemal:
   - Välja rätt sätt att avsluta ärendet när lov inte längre krävs, avskrivning eller frivilligt lov (9 kap. 52 och 79 §§)
   - Upplysa om anmälningsplikt för installationer (PBF 6 kap.) och om 10 kap. 2 a § PBL
 
+parter:
+  # Används för att känna igen mottagare i beslutets expediering.
+  sokande: [Elin Sandberg, Patrik Sandberg]
+  fastighetsagare: [Elin Sandberg, Patrik Sandberg]
+  grannar:
+    - { fastighet: Lärken 3, namn: [Agneta Berglund, Lars Berglund] }
+
 taxa:
   # Förenklad fiktiv taxa. Varje post är ett möjligt avgiftsbelopp i beslutet.
   avskrivning_efter_återkallelse: 1300      # en timmes handläggning (12 kap. 8 § 9 PBL)

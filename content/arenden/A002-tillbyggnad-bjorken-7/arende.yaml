@@ -17,6 +17,14 @@ larandemal:
   - Avgöra vilka grannar som ska höras
   - Skriva ett beslut med motivering, lagstöd och överklagandehänvisning
 
+parter:
+  # Används för att känna igen mottagare i beslutets expediering.
+  sokande: [Maria Lindqvist, Jonas Lindqvist]
+  fastighetsagare: [Maria Lindqvist, Jonas Lindqvist]
+  grannar:
+    - { fastighet: Björken 8, namn: [Gunilla Ahlgren, Bertil Ahlgren] }
+    - { fastighet: Åkerslunda 1:1, namn: [Åkerslunda kommun] }
+
 taxa:
   bygglov_tillbyggnad_16_49kvm: 9800
   reduktion_per_vecka: 0.2

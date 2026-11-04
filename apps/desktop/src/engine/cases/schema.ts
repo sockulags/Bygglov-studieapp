@@ -63,7 +63,14 @@ export const StepAnswerSchema: z.ZodType<StepAnswer> = z.discriminatedUnion('typ
 const deadlineFields = {
   applicationDate: isoDate,
   startDate: isoDate.nullable(),
-  basis: z.enum(['ansokningsdagen', 'komplettering', 'vantar_pa_komplettering']),
+  basis: z.enum([
+    'ansokningsdagen',
+    'andring_pa_sokandens_initiativ',
+    'komplettering',
+    'vantar_pa_komplettering',
+  ]),
+  // Missing in assessments stored before 99 § första stycket 2 was modelled.
+  amendmentDate: isoDate.nullable().default(null),
   injunctionDate: isoDate.nullable(),
   injunctionInTime: z.boolean().nullable(),
   extensionWeeks: z.number().int(),
@@ -123,6 +130,8 @@ export const CaseStateSchema: z.ZodType<CaseState> = z.object({
   simDate: isoDate,
   applicationDate: isoDate,
   completionDate: isoDate.nullable(),
+  // Missing in states stored before 99 § första stycket 2 was modelled.
+  amendmentDates: z.array(isoDate).default([]),
   extensionWeeks: z.number().int().min(0),
   deadlineDate: isoDate.nullable(),
   queue: z.array(z.string()),

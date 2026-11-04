@@ -84,6 +84,29 @@ describe('assessDecision', () => {
     expect(check(byName, state, 'delgivning_fastighetsagare')?.passed).toBe(true);
   });
 
+  it('recognises the applicants and the neighbours by name (parter)', () => {
+    const draft: DecisionDraft = {
+      ...emptyDecisionDraft(),
+      expediering: [
+        { mottagare: 'Maria och Jonas Lindqvist', satt: 'delges' },
+        { mottagare: 'Gunilla och Bertil Ahlgren', satt: 'delges' },
+        { mottagare: 'Ägarna till Björken 6 och 12', satt: 'meddelande' },
+        { mottagare: 'Akerslunda kommun', satt: 'meddelande' },
+      ],
+    };
+    expect(check(draft, state, 'delgivning_sokande')?.passed).toBe(true);
+    expect(check(draft, state, 'delgivning_fastighetsagare')?.passed).toBe(true);
+    expect(check(draft, state, 'delgivning_grannar')?.passed).toBe(true);
+    expect(check(draft, state, 'meddelande_grannar')).toMatchObject({ passed: true, details: [] });
+    // Served by name but only sent a notice: still not served.
+    const notice = check(
+      { ...draft, expediering: [{ mottagare: 'Bertil Ahlgren', satt: 'meddelande' }] },
+      state,
+      'delgivning_grannar',
+    );
+    expect(notice?.details).toEqual(['Björken 8 finns med som "meddelande" men ska delges.']);
+  });
+
   it('requires the reduced fee once the deadline has passed', () => {
     const late = advanceDays(state, 64); // 2026-06-02: 8 days late = 2 started weeks
     const full = check({ ...emptyDecisionDraft(), avgift: 9800 }, late, 'avgift');

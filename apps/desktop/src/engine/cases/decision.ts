@@ -9,6 +9,15 @@ import {
 import { calculateFee, caseDeadline, FEE_LAW_REFS, formatKronor, startedWeeks } from './deadline';
 import { isMissedResult, selectionStats } from './grading';
 import { chapterNineRefs } from './law';
+import {
+  caseParties,
+  findDesignation,
+  fold,
+  isApplicant,
+  isNeighbour,
+  isOwner,
+  type CaseParties,
+} from './parties';
 import type {
   CaseState,
   CheckSeverity,
@@ -167,14 +176,15 @@ export function assessDecision(
   const fee = calculateFee(caseFile.taxa, caseDeadline(state), state.simDate);
   add(feeCheck(draft, fee, draft.utfall));
 
-  // 7. Delivery: the applicant and the owner are served (delges).
-  const designation = caseDesignation(caseFile);
+  // 7. Delivery: the applicant and the owner are served (delges). Recipients are matched
+  // by role word, name (from `parter`) and property designation.
+  const parties = caseParties(caseFile);
   add(
     deliveryCheck({
       id: 'delgivning_sokande',
       title: 'Delgivning av sökanden',
       who: 'Sökanden',
-      matches: (m) => /s[öo]kand/.test(m),
+      matches: (m) => isApplicant(m, parties),
       recipients: draft.expediering,
       lawRefs: ['PBL 9 kap. 108 § första stycket 1'],
     }),
@@ -184,8 +194,7 @@ export function assessDecision(
       id: 'delgivning_fastighetsagare',
       title: 'Delgivning av fastighetsägaren',
       who: 'Fastighetsägaren',
-      matches: (m) =>
-        /fastighets[äa]gar/.test(m) || (designation !== null && mentions(m, designation)),
+      matches: (m) => isOwner(m, parties),
       recipients: draft.expediering,
       lawRefs: ['PBL 9 kap. 108 § första stycket 1'],
     }),
@@ -193,11 +202,13 @@ export function assessDecision(
 
   // 8. Neighbours whose objections were not accommodated are served too.
   const objectors = objectingNeighbours(caseFile, state);
-  if (grant && objectors.length > 0) add(objectorDeliveryCheck(objectors, draft.expediering));
+  if (grant && objectors.length > 0) {
+    add(objectorDeliveryCheck(objectors, draft.expediering, parties));
+  }
 
   // 9. Other notified neighbours get the notice of the public announcement.
   if (grant) {
-    const tip = announcementNoticeTip(caseFile, state, draft.expediering, objectors);
+    const tip = announcementNoticeTip(caseFile, state, draft.expediering, objectors, parties);
     if (tip) add(tip);
   }
 
@@ -373,36 +384,15 @@ function feeCheck(
 
 /* ----------------------------------------------------------------------- delivery */
 
-function normalise(text: string): string {
-  return text.toLowerCase().replace(/\s+/g, ' ').trim();
-}
-
-/** Whole-word match of a property designation such as "björken 8" (not "björken 82"). */
-function mentions(recipient: string, designation: string): boolean {
-  const escaped = normalise(designation).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  return new RegExp(`(^|[^\\p{L}\\d])${escaped}(?![\\d:])`, 'u').test(normalise(recipient));
-}
-
-/** "Björken 7" from "Björken 7, Åkerslunda kommun". */
-function caseDesignation(caseFile: CaseFile): string | null {
-  return findDesignation(caseFile.fastighet.split(',')[0] ?? '');
-}
-
-const DESIGNATION = /\p{Lu}[\p{L}-]*(?:\s\p{Lu}[\p{L}-]*)?\s\d+(?::\d+)?/u;
-
-function findDesignation(text: string): string | null {
-  return DESIGNATION.exec(text)?.[0] ?? null;
-}
-
 function deliveryCheck(options: {
   id: string;
   title: string;
   who: string;
-  matches: (normalisedRecipient: string) => boolean;
+  matches: (recipient: string) => boolean;
   recipients: readonly DecisionRecipient[];
   lawRefs: string[];
 }): Omit<DecisionCheck, 'details'> {
-  const found = options.recipients.filter((r) => options.matches(normalise(r.mottagare)));
+  const found = options.recipients.filter((r) => options.matches(r.mottagare));
   const served = found.some((r) => r.satt === 'delges');
   let message: string;
   if (served) message = `${options.who} delges beslutet.`;
@@ -448,6 +438,7 @@ function designationOf(doc: CaseDocument): string | null {
 function objectorDeliveryCheck(
   objectors: readonly Objector[],
   recipients: readonly DecisionRecipient[],
+  parties: CaseParties,
 ): Omit<DecisionCheck, 'details'> & { details?: string[] } {
   const lawRefs = ['PBL 9 kap. 108 § första stycket 2'];
   const unknown = objectors.filter((o) => o.designation === null);
@@ -455,11 +446,14 @@ function objectorDeliveryCheck(
     (o): o is Objector & { designation: string } => o.designation !== null,
   );
   const notServed = known.filter(
-    (o) => !recipients.some((r) => r.satt === 'delges' && mentions(r.mottagare, o.designation)),
+    (o) =>
+      !recipients.some(
+        (r) => r.satt === 'delges' && isNeighbour(r.mottagare, o.designation, parties),
+      ),
   );
   const details = [
     ...notServed.map((o) => {
-      const listed = recipients.find((r) => mentions(r.mottagare, o.designation));
+      const listed = recipients.find((r) => isNeighbour(r.mottagare, o.designation, parties));
       return listed
         ? `${o.designation} finns med som "${listed.satt}" men ska delges.`
         : `${o.designation} saknas i expedieringen (se ${o.title}).`;
@@ -489,6 +483,7 @@ function announcementNoticeTip(
   state: CaseState,
   recipients: readonly DecisionRecipient[],
   objectors: readonly Objector[],
+  parties: CaseParties,
 ): (Omit<DecisionCheck, 'details'> & { details?: string[] }) | null {
   const notified = allCaseSteps(caseFile)
     .filter((s): s is SelectionStep => s.typ === 'urval')
@@ -499,11 +494,11 @@ function announcementNoticeTip(
     .flatMap((s) => s.alternativ.filter((a) => a.ratt).map((a) => findDesignation(a.text)))
     .filter((d): d is string => d !== null);
   const objecting = objectors.map((o) => o.designation).filter((d): d is string => d !== null);
-  const others = [...new Set(notified)].filter(
-    (d) => !objecting.some((o) => normalise(o) === normalise(d)),
-  );
+  const others = [...new Set(notified)].filter((d) => !objecting.some((o) => fold(o) === fold(d)));
   if (others.length === 0) return null;
-  const missing = others.filter((d) => !recipients.some((r) => mentions(r.mottagare, d)));
+  const missing = others.filter(
+    (d) => !recipients.some((r) => isNeighbour(r.mottagare, d, parties)),
+  );
   return {
     id: 'meddelande_grannar',
     title: 'Meddelande till övriga grannar',

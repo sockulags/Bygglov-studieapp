@@ -82,6 +82,102 @@ describe('computeDeadline (9 kap. 99 §)', () => {
   });
 });
 
+describe('computeDeadline, 99 § första stycket 2 (ändring på sökandens initiativ)', () => {
+  it('runs ten weeks from the day the applicant changed the application', () => {
+    const d = computeDeadline({ applicationDate: '2026-08-17', amendmentDates: ['2026-09-10'] });
+    expect(d).toMatchObject({
+      basis: 'andring_pa_sokandens_initiativ',
+      startDate: '2026-09-10',
+      amendmentDate: '2026-09-10',
+      deadlineDate: '2026-11-19',
+    });
+    expect(d.explanation).toContain('Ny tidsfrist');
+    expect(d.explanation).toContain('99 § första stycket 2');
+    expect(d.explanation).toContain('100 § 2');
+  });
+
+  it('uses the latest amendment and ignores the application day itself', () => {
+    expect(
+      computeDeadline({
+        applicationDate: '2026-08-17',
+        amendmentDates: ['2026-09-10', '2026-08-17', '2026-08-30'],
+      }),
+    ).toMatchObject({ startDate: '2026-09-10', deadlineDate: '2026-11-19' });
+    expect(
+      computeDeadline({ applicationDate: '2026-08-17', amendmentDates: ['2026-08-17'] }),
+    ).toMatchObject({ basis: 'ansokningsdagen', amendmentDate: null });
+  });
+
+  it('counts an injunction within three weeks of the amendment (before the injunction)', () => {
+    const input = {
+      applicationDate: '2026-03-02',
+      amendmentDates: ['2026-03-20'],
+      injunctionDates: ['2026-04-05'], // 34 days after the application, 16 after the change
+    };
+    const waiting = computeDeadline(input);
+    expect(waiting).toMatchObject({
+      basis: 'vantar_pa_komplettering',
+      injunctionInTime: true,
+      deadlineDate: null,
+    });
+    expect(waiting.explanation).toContain('ändringen av ansökan 2026-03-20');
+    const done = computeDeadline({ ...input, completionDate: '2026-04-20' });
+    expect(done).toMatchObject({
+      basis: 'komplettering',
+      startDate: '2026-04-20',
+      deadlineDate: '2026-06-29',
+    });
+    expect(done.explanation).toContain('100 § 2');
+  });
+
+  it('restarts from a change after the injunction was complied with', () => {
+    const d = computeDeadline({
+      applicationDate: '2026-03-02',
+      injunctionDates: ['2026-03-10'],
+      completionDate: '2026-03-20',
+      amendmentDates: ['2026-04-01'],
+    });
+    expect(d).toMatchObject({
+      basis: 'andring_pa_sokandens_initiativ',
+      startDate: '2026-04-01',
+      deadlineDate: '2026-06-10',
+      injunctionInTime: true,
+    });
+  });
+
+  it('ignores an injunction more than three weeks after both the application and the change', () => {
+    const d = computeDeadline({
+      applicationDate: '2026-03-02',
+      amendmentDates: ['2026-03-05'],
+      injunctionDates: ['2026-04-01'], // 27 days after the change
+      completionDate: '2026-04-10',
+    });
+    expect(d).toMatchObject({
+      basis: 'andring_pa_sokandens_initiativ',
+      injunctionInTime: false,
+      startDate: '2026-03-05',
+      deadlineDate: '2026-05-14',
+    });
+  });
+
+  it('counts the extension from the new deadline', () => {
+    const d = computeDeadline({
+      applicationDate: '2026-08-17',
+      amendmentDates: ['2026-09-10'],
+      extensionWeeks: 10,
+    });
+    expect(d.deadlineDate).toBe('2027-01-28');
+    expect(d.explanation).toContain('förlängts med 10 veckor');
+    expect(calculateFee({ bygglov: 10000 }, d, '2027-01-28').reduction).toBe(0);
+    // Without the extension a decision on 2026-11-20 is one started week late.
+    const unextended = computeDeadline({
+      applicationDate: '2026-08-17',
+      amendmentDates: ['2026-09-10'],
+    });
+    expect(calculateFee({ bygglov: 10000 }, unextended, '2026-11-20').weeksOverdue).toBe(1);
+  });
+});
+
 describe('deadline through the engine', () => {
   function throughInjunction(daysBeforeInjunction: number): CaseState {
     let state = startCase(a002, { seed: 1 });

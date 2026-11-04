@@ -82,8 +82,12 @@ börja med ärendets id (`A` + tre siffror). Utgå från `A002-tillbyggnad-bjork
   bevilja, bevilja_med_villkor, avsla, avvisa eller avskriva, samt `bedomningspunkter`).
 - **`handelser`**: `id`, `namn`, `utlosare` och `effekt`. Utlösare (alla angivna villkor ska
   gälla): `efter_steg`, `vid_beslut`, `om_missat`, `om_forelagt`, `slump` (0–1). Effekter:
-  `visa_handlingar`, `tid_framat_dagar`, `meddelande`, `satt_komplett_datum`, `andrade_fakta`,
-  `nytt_steg` (ett helt steg som skjuts in).
+  `visa_handlingar`, `tid_framat_dagar`, `meddelande`, `satt_komplett_datum`, `ny_fristdag`,
+  `andrade_fakta`, `nytt_steg` (ett helt steg som skjuts in).
+- **`parter`** (valfritt): `sokande` och `fastighetsagare` (listor med namn) och `grannar`
+  (lista med `fastighet` och `namn`). Beslutskontrollen känner då igen mottagare i
+  expedieringen på namn, t.ex. "Maria och Jonas Lindqvist", och inte bara på rollord och
+  fastighetsbeteckning.
 
 Så tolkar ärendemotorn ärendet (bra att veta när du skriver):
 
@@ -94,6 +98,15 @@ Så tolkar ärendemotorn ärendet (bra att veta när du skriver):
   `fraga`/`flersvar` för andra urval, t.ex. remissinstanser.
 - `om_missat: S3` gäller om steget hoppades över eller besvarades fel, eller om beslutet
   fattades utan att steget gjorts. Självbedömda steg räknas aldrig som missade.
+- `satt_komplett_datum: true` betyder att bristerna avhjälptes den dag händelsen inträffar
+  (efter `tid_framat_dagar`). Om föreläggandet skickades inom tre veckor räknas
+  tioveckorsfristen från den dagen (9 kap. 99 § första stycket 4).
+- `ny_fristdag: sokandens_initiativ` betyder att sökanden **på eget initiativ** kom in med
+  ytterligare underlag eller en ändring av ansökan den dagen. Tioveckorsfristen räknas då
+  från den dagen (9 kap. 99 § första stycket 2), och diariet påminner om att sökanden ska
+  informeras skriftligen (100 § 2). Använd den inte för svar på ett föreläggande; då gäller
+  `satt_komplett_datum`. Gäller flera startpunkter räknas den senaste, och en förlängning
+  räknas från den fristen.
 - `vid_beslut: bevilja` gäller även `bevilja_med_villkor`. Beslutskontrollen godtar bara
   `forvantat_beslut`; beskriv godtagbara alternativ i `bedomningspunkter`.
 - Taxans poster är alternativ (t.ex. lov eller avskrivning); avgiften är rätt om den stämmer

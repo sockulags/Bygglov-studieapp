@@ -63,6 +63,7 @@ export function startCase(caseFile: CaseFile, options: StartCaseOptions): CaseSt
     simDate: date,
     applicationDate: date,
     completionDate: null,
+    amendmentDates: [],
     extensionWeeks: 0,
     deadlineDate: null,
     queue: caseFile.steg.map((s) => s.id),
@@ -505,9 +506,9 @@ function fireEvents(caseFile: CaseFile, state: CaseState, context: TriggerContex
 
 /**
  * Applies one event's effects in this order: time passes, documents arrive, the message
- * is logged, the completion date is set, facts change, a new step is inserted. Returns
- * the queue position for the next inserted step, so steps from several events keep file
- * order.
+ * is logged, the completion date is set, a new start of the deadline is noted, facts
+ * change, a new step is inserted. Returns the queue position for the next inserted step, so
+ * steps from several events keep file order.
  */
 function applyEvent(
   caseFile: CaseFile,
@@ -531,6 +532,10 @@ function applyEvent(
   }
   if (effekt.satt_komplett_datum) {
     state.completionDate = state.simDate;
+    updateDeadline(state);
+  }
+  if (effekt.ny_fristdag === 'sokandens_initiativ') {
+    if (!state.amendmentDates.includes(state.simDate)) state.amendmentDates.push(state.simDate);
     updateDeadline(state);
   }
   if (effekt.andrade_fakta) Object.assign(state.facts, effekt.andrade_fakta);

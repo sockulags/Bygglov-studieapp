@@ -117,6 +117,16 @@ describe('case model helpers', () => {
     ]);
   });
 
+  it('says the deadline runs from the change of the application (99 § första stycket 2)', () => {
+    const state = startCase(caseFile(), { seed: 1 });
+    const changed = { ...state, amendmentDates: ['2026-03-20'], simDate: '2026-03-25' };
+    const summary = deadlineSummary(changed);
+    expect(summary.label).toBe('65 dagar kvar');
+    expect(summary.detail).toBe(
+      'Beslut senast 2026-05-29 (9 kap. 99 §). 5 dagar sedan ändringen av ansökan.',
+    );
+  });
+
   it('summarises the 99 § deadline for the header', () => {
     const c = caseFile();
     const state = startCase(c, { seed: 1 });

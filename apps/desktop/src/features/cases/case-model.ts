@@ -1,6 +1,12 @@
 import { allCaseSteps, type CaseFile } from '@bygglov/content-schema';
 import type { CaseStatus } from '@/data';
-import { deadlineStatus, restoreCaseState, stepById, type CaseState } from '@/engine';
+import {
+  deadlineStatus,
+  restoreCaseState,
+  stepById,
+  type CaseState,
+  type DeadlineBasis,
+} from '@/engine';
 
 /**
  * Pure helpers for the case views: list status, progress, deadline text and the formatting
@@ -82,6 +88,14 @@ export interface DeadlineSummary {
   tone: 'normal' | 'warning' | 'overdue' | 'paused' | 'done';
 }
 
+/** What the ten weeks run from, for "N dagar sedan …". */
+const DEADLINE_START_LABELS: Record<DeadlineBasis, string> = {
+  ansokningsdagen: 'ansökningsdagen',
+  andring_pa_sokandens_initiativ: 'ändringen av ansökan',
+  komplettering: 'kompletteringen',
+  vantar_pa_komplettering: 'ansökningsdagen',
+};
+
 /** The 9 kap. 99 § deadline as shown in the case header. */
 export function deadlineSummary(state: CaseState): DeadlineSummary {
   // Once the decision is made the deadline is settled: it was met or it was not.
@@ -116,7 +130,7 @@ export function deadlineSummary(state: CaseState): DeadlineSummary {
     status.daysElapsed === null
       ? ''
       : ` ${status.daysElapsed} ${status.daysElapsed === 1 ? 'dag' : 'dagar'} sedan ${
-          status.basis === 'komplettering' ? 'kompletteringen' : 'ansökningsdagen'
+          DEADLINE_START_LABELS[status.basis]
         }.`;
   if (days < 0) {
     return {

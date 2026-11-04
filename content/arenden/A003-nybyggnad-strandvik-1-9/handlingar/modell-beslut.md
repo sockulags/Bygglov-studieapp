@@ -43,9 +43,10 @@ Avgiften för bygglovet är **31 800 kronor**.
 
 Avgiften har bestämts enligt kommunens taxa, post *bygglov för nybyggnad av enbostadshus
 utanför detaljplan*, som omfattar lovprövningen, underrättelse av grannar, remisser och
-kungörelse. Tidsfristen på tio veckor räknas från ansökningsdagen den 17 augusti 2026 och
-löper ut den 26 oktober 2026 (9 kap. 99 § första stycket 1 PBL). Beslutet fattas inom
-fristen, så avgiften reduceras inte (12 kap. 8 a § PBL). Ärendet har dessutom varit vilande
+kungörelse. Sökandena kom den 10 september 2026 på eget initiativ in med en ändrad
+situationsplan. Tidsfristen på tio veckor räknas därför från den dagen och löper ut den
+19 november 2026 (9 kap. 99 § första stycket 2 PBL). Beslutet den 12 oktober 2026 fattas
+inom fristen, så avgiften reduceras inte (12 kap. 8 a § PBL). Ärendet har dessutom varit vilande
 i väntan på strandskyddsdispens enligt 9 kap. 102 § PBL; en försening av det skälet hade
 inte heller gett reduktion. Redovisningen lämnas enligt 9 kap. 107 § PBL. Faktura skickas
 separat.
@@ -82,6 +83,9 @@ riksintressen. Den södra delen av fastigheten ligger inom strandskyddsområdet 
   någon plan, så ny underrättelse behövdes inte, men ägarna till Strandvik 1:12, som haft
   synpunkter, fick tillfälle att yttra sig över ändringen (9 kap. 94 § tredje stycket PBL).
   De har inte hörts av.
+- Den ändrade situationsplanen kom in den 10 september 2026 på sökandenas initiativ.
+  Tidsfristen för beslut räknas från den dagen (9 kap. 99 § första stycket 2 PBL), och
+  sökandena informerades samma dag skriftligen om den nya tidpunkten (9 kap. 100 § 2 PBL).
 - Sökandena och fastighetsägaren fick den 1 oktober 2026 ta del av underlaget och yttra sig
   till den 9 oktober (9 kap. 98 § PBL). De har inte haft något att tillägga.
 

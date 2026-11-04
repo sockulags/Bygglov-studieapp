@@ -2,6 +2,7 @@ import { addDays, daysBetween } from './dates';
 import type {
   CaseDeadline,
   CaseState,
+  DeadlineBasis,
   DeadlineStatus,
   FeeCalculation,
   FeeLine,
@@ -13,16 +14,20 @@ import type {
  * 12 kap. 8 a § PBL.
  *
  * - The ten weeks run from the application day (99 § första stycket 1).
+ * - If the applicant later, on their own initiative, hands in more material or changes the
+ *   application, they run from that day instead (99 § första stycket 2).
  * - If the board orders the applicant to remedy a deficiency (91 §) within three weeks of
- *   the application day, they run from the day the deficiency was remedied instead
- *   (99 § första stycket 4). A later injunction does not move the start.
- * - The deadline may be extended once by at most ten weeks (99 § andra stycket).
+ *   the day in 1 or 2, they run from the day the deficiency was remedied (99 § första
+ *   stycket 4). A later injunction does not move the start.
+ * - When several of these apply, the latest day counts. The applicant is to be told in
+ *   writing when the clock starts on another day than the application day (100 § 2).
+ * - The deadline may be extended once by at most ten weeks (99 § andra stycket), counted
+ *   from the deadline that applies.
  * - The fee is reduced by one fifth for every started week the deadline is exceeded
  *   (12 kap. 8 a §).
  *
- * Not modelled: new material on the applicant's own initiative (99 § första stycket 2),
- * the defence authorities' answer (3), the shorter deadlines in 99 a § and the solar
- * energy exception, and suspension under 102 §.
+ * Not modelled: the defence authorities' answer (99 § första stycket 3), the shorter
+ * deadlines in 99 a § and the solar energy exception, and suspension under 102 §.
  */
 
 export const DEADLINE_DAYS = 70;
@@ -35,11 +40,20 @@ const REDUCTION_KEY = /^reduktion/;
 export const DEADLINE_LAW_REFS = ['PBL 9 kap. 99 §'];
 export const FEE_LAW_REFS = ['PBL 12 kap. 8 a §', 'PBL 9 kap. 107 §'];
 
+const INFORM_APPLICANT =
+  ' Sökanden ska informeras skriftligen om den ändrade tidpunkten (9 kap. 100 § 2).';
+
 export interface DeadlineInput {
   applicationDate: string;
   /** Injunctions to complete the application, in any order. */
   injunctionDates?: readonly string[];
   completionDate?: string | null;
+  /**
+   * Days when the applicant, on their own initiative, handed in more material or changed
+   * the application (99 § första stycket 2), in any order. Days on or before the
+   * application day are ignored.
+   */
+  amendmentDates?: readonly string[];
   extensionWeeks?: number;
 }
 
@@ -48,11 +62,24 @@ export function computeDeadline(input: DeadlineInput): CaseDeadline {
   const { applicationDate } = input;
   const extensionWeeks = input.extensionWeeks ?? 0;
   const completionDate = input.completionDate ?? null;
-  const injunctionDate = [...(input.injunctionDates ?? [])].sort()[0] ?? null;
-  const injunctionInTime =
-    injunctionDate === null
-      ? null
-      : daysBetween(applicationDate, injunctionDate) <= INJUNCTION_WINDOW_DAYS;
+  const amendments = [...(input.amendmentDates ?? [])].filter((d) => d > applicationDate).sort();
+  const amendmentDate = amendments[amendments.length - 1] ?? null;
+
+  // 99 § första stycket 4: the injunction must come within three weeks of the day in 1 or 2.
+  const injunctions = [...(input.injunctionDates ?? [])].sort();
+  const anchorOf = (injunction: string): string | null =>
+    [applicationDate, ...amendments]
+      .filter(
+        (from) => from <= injunction && daysBetween(from, injunction) <= INJUNCTION_WINDOW_DAYS,
+      )
+      .pop() ?? null;
+  const injunctionDate = injunctions.find((d) => anchorOf(d) !== null) ?? injunctions[0] ?? null;
+  const anchor = injunctionDate === null ? null : anchorOf(injunctionDate);
+  const injunctionInTime = injunctionDate === null ? null : anchor !== null;
+  const anchorText =
+    anchor === null || anchor === applicationDate
+      ? `ansökningsdagen ${applicationDate}`
+      : `ändringen av ansökan ${anchor}`;
 
   const extension =
     extensionWeeks > 0
@@ -64,26 +91,47 @@ export function computeDeadline(input: DeadlineInput): CaseDeadline {
       applicationDate,
       startDate: null,
       basis: 'vantar_pa_komplettering',
+      amendmentDate,
       injunctionDate,
       injunctionInTime,
       extensionWeeks,
       deadlineDate: null,
       explanation:
-        `Föreläggandet om komplettering skickades ${injunctionDate}, inom tre veckor från ansökningsdagen. ` +
+        `Föreläggandet om komplettering skickades ${injunctionDate}, inom tre veckor från ${anchorText}. ` +
         'Tioveckorsfristen börjar därför löpa först den dag bristen avhjälps (9 kap. 99 § första stycket 4).' +
         extension,
     };
   }
 
-  const fromCompletion = injunctionInTime === true && completionDate !== null;
-  const startDate = fromCompletion ? completionDate : applicationDate;
+  // The latest applicable start counts; on the same day the remedied deficiency wins.
+  const fromCompletion =
+    injunctionInTime === true &&
+    completionDate !== null &&
+    (amendmentDate === null || completionDate >= amendmentDate);
+  const basis: DeadlineBasis = fromCompletion
+    ? 'komplettering'
+    : amendmentDate !== null
+      ? 'andring_pa_sokandens_initiativ'
+      : 'ansokningsdagen';
+  const startDate =
+    basis === 'komplettering'
+      ? (completionDate ?? applicationDate)
+      : basis === 'andring_pa_sokandens_initiativ'
+        ? (amendmentDate ?? applicationDate)
+        : applicationDate;
   const deadlineDate = addDays(startDate, DEADLINE_DAYS + extensionWeeks * 7);
 
   let explanation: string;
-  if (fromCompletion) {
+  if (basis === 'komplettering') {
     explanation =
-      `Föreläggandet om komplettering skickades ${injunctionDate}, inom tre veckor från ansökningsdagen ${applicationDate}. ` +
-      `Tioveckorsfristen räknas därför från den dag bristen avhjälptes, ${completionDate} (9 kap. 99 § första stycket 4), och löper ut ${deadlineDate}.`;
+      `Föreläggandet om komplettering skickades ${injunctionDate}, inom tre veckor från ${anchorText}. ` +
+      `Tioveckorsfristen räknas därför från den dag bristen avhjälptes, ${completionDate} (9 kap. 99 § första stycket 4), och löper ut ${deadlineDate}.` +
+      INFORM_APPLICANT;
+  } else if (basis === 'andring_pa_sokandens_initiativ') {
+    explanation =
+      `Ny tidsfrist: sökanden kom på eget initiativ in med en ändring av ansökan eller ytterligare underlag ${amendmentDate}. ` +
+      `Tioveckorsfristen räknas från den dagen (9 kap. 99 § första stycket 2) och löper ut ${deadlineDate}.` +
+      INFORM_APPLICANT;
   } else if (injunctionInTime === false) {
     explanation =
       `Föreläggandet om komplettering skickades ${injunctionDate}, mer än tre veckor efter ansökningsdagen. ` +
@@ -94,7 +142,8 @@ export function computeDeadline(input: DeadlineInput): CaseDeadline {
   return {
     applicationDate,
     startDate,
-    basis: fromCompletion ? 'komplettering' : 'ansokningsdagen',
+    basis,
+    amendmentDate,
     injunctionDate,
     injunctionInTime,
     extensionWeeks,
@@ -114,6 +163,7 @@ export function caseDeadline(state: CaseState): CaseDeadline {
     applicationDate: state.applicationDate,
     injunctionDates: state.injunctions.filter(isCompletionInjunction).map((i) => i.date),
     completionDate: state.completionDate,
+    amendmentDates: state.amendmentDates,
     extensionWeeks: state.extensionWeeks,
   });
 }

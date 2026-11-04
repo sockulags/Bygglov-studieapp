@@ -282,9 +282,13 @@ export const EVENT_EFFECT_KEYS = [
   'tid_framat_dagar',
   'meddelande',
   'satt_komplett_datum',
+  'ny_fristdag',
   'andrade_fakta',
   'nytt_steg',
 ] as const;
+
+/** Why the ten-week clock restarts (`ny_fristdag`). */
+export const NEW_DEADLINE_START_REASONS = ['sokandens_initiativ'] as const;
 
 export const EventEffectSchema = z
   .strictObject({
@@ -299,6 +303,18 @@ export const EventEffectSchema = z
     /** The application counts as complete from the event date (starts the 10-week clock). */
     satt_komplett_datum: z
       .boolean({ error: fieldError('satt_komplett_datum ska vara true eller false.') })
+      .optional(),
+    /**
+     * The ten-week clock (9 kap. 99 § första stycket 2 PBL) restarts on the event date:
+     * `sokandens_initiativ` means the applicant, on their own initiative, handed in more
+     * material or changed the application that day.
+     */
+    ny_fristdag: z
+      .enum(NEW_DEADLINE_START_REASONS, {
+        error: fieldError(
+          `ny_fristdag ska vara ${NEW_DEADLINE_START_REASONS.join(' eller ')} (9 kap. 99 § första stycket 2).`,
+        ),
+      })
       .optional(),
     /** Changed facts, e.g. a revised building height. */
     andrade_fakta: jsonRecord.optional(),
@@ -320,6 +336,31 @@ export const CaseFacitSchema = z.strictObject({
   sammanfattning: text.optional(),
   vanliga_fel: z.array(text, { error: fieldError('vanliga_fel ska vara en lista.') }).optional(),
   modellbeslut: caseFilePath.optional(),
+});
+
+const nameList = (what: string) =>
+  z
+    .array(text, { error: fieldError(`${what} ska vara en lista med namn.`) })
+    .min(1, { error: fieldError(`${what} behöver minst ett namn.`) });
+
+/**
+ * The parties of the case, used to recognise recipients in the decision's expediering by
+ * name, e.g. "Maria och Jonas Lindqvist" or "Ägarna till Strandvik 1:5, 1:3 och 1:1".
+ */
+export const CasePartiesSchema = z.strictObject({
+  sokande: nameList('sokande').optional(),
+  fastighetsagare: nameList('fastighetsagare').optional(),
+  grannar: z
+    .array(
+      z.strictObject({
+        /** Property designation, e.g. "Strandvik 1:5". */
+        fastighet: text,
+        /** Owners (and holders of special rights) of that property. */
+        namn: nameList('namn'),
+      }),
+      { error: fieldError('grannar ska vara en lista med fastighet och namn.') },
+    )
+    .optional(),
 });
 
 export const CaseFileSchema = z
@@ -357,6 +398,8 @@ export const CaseFileSchema = z
     handelser: z
       .array(CaseEventSchema, { error: fieldError('handelser ska vara en lista.') })
       .default([]),
+    /** Applicants, owners and neighbours by name (optional). */
+    parter: CasePartiesSchema.optional(),
     facit: CaseFacitSchema.optional(),
   })
   .superRefine((c, ctx) => {
@@ -376,6 +419,7 @@ export type EventTrigger = z.output<typeof EventTriggerSchema>;
 export type EventEffect = z.output<typeof EventEffectSchema>;
 export type CaseEvent = z.output<typeof CaseEventSchema>;
 export type CaseFacit = z.output<typeof CaseFacitSchema>;
+export type CaseParties = z.output<typeof CasePartiesSchema>;
 export type CaseFile = z.output<typeof CaseFileSchema>;
 export type CaseFileInput = z.input<typeof CaseFileSchema>;
 

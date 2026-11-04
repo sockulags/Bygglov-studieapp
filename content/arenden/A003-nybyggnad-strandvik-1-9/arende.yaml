@@ -28,6 +28,19 @@ larandemal:
   - Skriva ett beslut med upplysningar enligt 9 kap. 105 §, kungöra det (109 §) och expediera rätt (108 och 110 §§)
   - Rättidspröva ett överklagande (13 kap. 16 § PBL, 44–46 §§ FL) och skriva nämndens yttrande till länsstyrelsen
 
+parter:
+  # Används för att känna igen mottagare i beslutets expediering. Grannarna enligt
+  # grannförteckningen (H6).
+  sokande: [Sara Holm, Daniel Ek]
+  fastighetsagare: [Sara Holm]
+  grannar:
+    - { fastighet: Strandvik 1:5, namn: [Birgitta Nordin, Anders Nordin] }
+    - { fastighet: Strandvik 1:12, namn: [Monica Lundh, Göran Lundh] }
+    - { fastighet: Strandvik 1:3, namn: [Ulla Persson] }
+    - { fastighet: Strandvik 1:1, namn: [Strandviks gård AB] }
+    - { fastighet: Strandvik 1:20, namn: [Kent Åberg] }
+    - { fastighet: Strandvik 1:14, namn: [Lena Strand] }
+
 taxa:
   # Förenklad fiktiv taxa. Posten omfattar lovprövning utanför plan med underrättelse,
   # remisser och kungörelse.
@@ -437,7 +450,8 @@ steg:
       - Har upplysningarna i 105 § första stycket, giltighetstid (115 §), kontrollansvarig, att byggbedömare inte används, att åtgärden inte får påbörjas förrän startbesked getts, och risken med att påbörja innan beslutet fått laga kraft
       - Tar ställning till om lovet ska gälla först när det fått laga kraft (114 § andra stycket) och motiverar varför det inte behövs
       - Upplyser om andra tillstånd och villkor (92 §), Trafikverkets anslutningstillstånd, villkoren i strandskyddsdispensen och avloppstillståndet, utan att förena lovet med villkor som saknar stöd i lag (gatukostnadsvillkor enligt 82 § är inte aktuella utanför detaljplan)
-      - Avgiften är 31 800 kr enligt taxan och redovisas, utan reduktion eftersom beslutet fattas inom tidsfristen (12 kap. 8 a §, 9 kap. 107 §)
+      - Avgiften är 31 800 kr enligt taxan och redovisas, utan reduktion eftersom beslutet fattas inom tidsfristen, som efter den ändrade situationsplanen räknas från den 10 september och löper ut den 19 november 2026 (9 kap. 99 § första stycket 2, 12 kap. 8 a §, 9 kap. 107 §)
+      - Redovisar i handläggningen att sökandena skriftligen informerats om att tidsfristen räknas från den 10 september, när den ändrade situationsplanen kom in (9 kap. 100 § 2)
       - Överklagandehänvisningen anger att tiden för den som inte delges räknas från en vecka efter kungörelsen (13 kap. 16 §)
       - Beslutet delges sökandena, fastighetsägaren och ägarna till Strandvik 1:12 (108 §), kungörs på kommunens anslagstavla (109 §) och meddelande skickas till Strandvik 1:5, 1:3 och 1:1 (110 §)
     modellbeslut: handlingar/modell-beslut.md
@@ -452,8 +466,11 @@ handelser:
       meddelande: >
         Ägarna till Strandvik 1:12 har yttrat sig och motsätter sig huset. Trafikverket
         avstyrker utfarten i föreslaget läge och kräver att den flyttas österut. Du har
-        skickat remissvaret till sökandena, som i dag har kommit in med en reviderad
-        situationsplan där utfarten ligger 30 meter från västra gränsen.
+        skickat remissvaret till sökandena, som i dag på eget initiativ har kommit in med en
+        reviderad situationsplan där utfarten ligger 30 meter från västra gränsen. Något
+        föreläggande har inte skickats.
+      # Ändringen kom in på sökandenas initiativ: fristen räknas från i dag (99 § första stycket 2).
+      ny_fristdag: sokandens_initiativ
       andrade_fakta: { utfart_flyttad: true, utfart_lage_m: 30 }
       nytt_steg:
         id: S4b
@@ -475,8 +492,12 @@ handelser:
           ändringen strider mot detaljplanen eller områdesbestämmelserna. De som har haft
           synpunkter på den ursprungliga ansökan ska dock alltid ges tillfälle att yttra sig
           (9 kap. 94 § tredje stycket). Ägarna till Strandvik 1:12 får en vecka på sig. Den
-          nya utfarten ligger dessutom närmare deras fastighet.
-        lagrum: [PBL 9 kap. 94 §]
+          nya utfarten ligger dessutom närmare deras fastighet. Ändringen påverkar också
+          tidsfristen: den reviderade situationsplanen kom in den 10 september på sökandenas
+          eget initiativ, så tioveckorsfristen räknas från den dagen och löper ut den
+          19 november 2026 i stället för den 26 oktober (9 kap. 99 § första stycket 2).
+          Sökandena ska skriftligen informeras om den ändrade tidpunkten (100 § 2).
+        lagrum: [PBL 9 kap. 94 §, PBL 9 kap. 99 §, PBL 9 kap. 100 §]
         tid_framat_dagar: 7
 
   - id: E2

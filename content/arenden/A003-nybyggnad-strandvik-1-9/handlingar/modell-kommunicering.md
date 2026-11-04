@@ -35,6 +35,13 @@ Ni har tidigare fått Trafikverkets yttrande. Nu skickar jag med allt underlag a
    villkor. Länsstyrelsen har meddelat att den inte prövar beslutet.
 6. **Utdrag ur översiktsplanen** för Långsjöns västra strand.
 
+## Tidsfristen för beslut
+
+Som jag skrev till er den 10 september räknas tidsfristen på tio veckor från den dag er
+ändrade situationsplan kom in, den 10 september 2026, och inte från ansökningsdagen
+(9 kap. 99 § första stycket 2 och 100 § 2 plan- och bygglagen). Nämnden ska alltså besluta
+senast den 19 november 2026.
+
 ## Hur vi ser på ärendet
 
 Med den flyttade utfarten, tillståndet till avlopp och strandskyddsdispensen finns inget i

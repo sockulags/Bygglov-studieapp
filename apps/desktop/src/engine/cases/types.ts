@@ -146,6 +146,11 @@ export interface CaseState {
   applicationDate: string;
   /** Date the deficiencies were remedied (set by `satt_komplett_datum`), null until then. */
   completionDate: string | null;
+  /**
+   * Days on which the applicant, on their own initiative, handed in more material or changed
+   * the application (set by `ny_fristdag: sokandens_initiativ`, 9 kap. 99 § första stycket 2).
+   */
+  amendmentDates: string[];
   /** Weeks the 99 § deadline has been extended (0 = not extended, at most 10). */
   extensionWeeks: number;
   /** Decision deadline under 9 kap. 99 §, null while waiting for a requested completion. */
@@ -227,16 +232,28 @@ export interface DecisionCheck {
   details: string[];
 }
 
-export type DeadlineBasis = 'ansokningsdagen' | 'komplettering' | 'vantar_pa_komplettering';
+export type DeadlineBasis =
+  | 'ansokningsdagen'
+  | 'andring_pa_sokandens_initiativ'
+  | 'komplettering'
+  | 'vantar_pa_komplettering';
 
 export interface CaseDeadline {
   applicationDate: string;
   /** The day the ten weeks run from; null while waiting for a requested completion. */
   startDate: string | null;
   basis: DeadlineBasis;
-  /** First injunction to complete the application, if any. */
+  /**
+   * Latest day after the application day when the applicant, on their own initiative,
+   * handed in more material or changed the application (99 § första stycket 2), if any.
+   */
+  amendmentDate: string | null;
+  /** The injunction to complete the application that counts, if any. */
   injunctionDate: string | null;
-  /** Whether that injunction was issued within three weeks of the application day. */
+  /**
+   * Whether that injunction was issued within three weeks of the application day or of an
+   * amendment on the applicant's initiative (99 § första stycket 4).
+   */
   injunctionInTime: boolean | null;
   extensionWeeks: number;
   /** Last day for a timely decision; null while waiting for a completion. */
