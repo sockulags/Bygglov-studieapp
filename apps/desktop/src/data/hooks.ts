@@ -16,6 +16,8 @@ export const dataKeys = {
     ] as const,
   settings: () => [...dataKeys.all, 'settings'] as const,
   setting: (key: string) => [...dataKeys.settings(), key] as const,
+  reviewStates: () => [...dataKeys.reviews(), 'all'] as const,
+  answers: () => [...dataKeys.all, 'answers'] as const,
   recentSessions: (limit: number) => [...dataKeys.all, 'sessions', 'recent', limit] as const,
 };
 
@@ -36,6 +38,22 @@ export function useDueReviews(options: DueReviewOptions = {}) {
   });
 }
 
+/** Every review state (mastery per module on Hem, Plugga and Mina resultat). */
+export function useReviewStates() {
+  return useQuery({
+    queryKey: dataKeys.reviewStates(),
+    queryFn: async (): Promise<ReviewState[]> => (await getDataStore()).reviews.listReviewStates(),
+  });
+}
+
+/** Every answer, oldest first (weak tags in Mina resultat). */
+export function useAnswerHistory() {
+  return useQuery({
+    queryKey: dataKeys.answers(),
+    queryFn: async () => (await getDataStore()).answers.listAnswers(),
+  });
+}
+
 export function useRecentSessions(limit = 20) {
   return useQuery({
     queryKey: dataKeys.recentSessions(limit),
@@ -48,7 +66,12 @@ export function useRecordAnswer() {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: async (input: NewAnswer) => (await getDataStore()).answers.recordAnswer(input),
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: dataKeys.moduleStats() }),
+    onSuccess: async () => {
+      await Promise.all([
+        queryClient.invalidateQueries({ queryKey: dataKeys.moduleStats() }),
+        queryClient.invalidateQueries({ queryKey: dataKeys.answers() }),
+      ]);
+    },
   });
 }
 

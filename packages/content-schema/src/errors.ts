@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import type { z } from 'zod';
 
 /** One validation problem, with a readable path and a Swedish message. */
 export interface ContentIssue {
@@ -8,8 +8,7 @@ export interface ContentIssue {
 }
 
 export type ParseResult<T> =
-  | { success: true; data: T }
-  | { success: false; issues: ContentIssue[] };
+  { success: true; data: T } | { success: false; issues: ContentIssue[] };
 
 const TYPE_NAMES: Record<string, string> = {
   string: 'en text',
@@ -28,7 +27,8 @@ function describeInput(input: unknown): string {
   if (input === undefined) return 'saknas';
   if (input === null) return 'är tomt';
   if (Array.isArray(input)) return 'är en lista';
-  if (typeof input === 'string') return `är texten "${input.length > 40 ? `${input.slice(0, 40)}…` : input}"`;
+  if (typeof input === 'string')
+    return `är texten "${input.length > 40 ? `${input.slice(0, 40)}…` : input}"`;
   if (typeof input === 'number') return `är talet ${input}`;
   if (typeof input === 'boolean') return `är ${input}`;
   if (typeof input === 'object') return 'är ett objekt';

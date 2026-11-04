@@ -82,7 +82,8 @@ content/
     processer.yaml          # processkartor
 ```
 
-Se `content/exempel/` för konkreta exempel på fråge- och ärendeformat.
+Se [content/README.md](../content/README.md) för hur frågor och ärenden skrivs, och
+`content/fragor/03-lovplikt.yaml` och `content/arenden/` för riktiga exempel.
 
 ## Källor och rättsläge
 

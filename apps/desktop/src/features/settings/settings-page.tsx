@@ -1,79 +1,23 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import {
-  Download,
   Eye,
   EyeOff,
   KeyRound,
   Monitor,
   Moon,
   RefreshCw,
-  RotateCcw,
   Sun,
-  Upload,
   type LucideIcon,
 } from 'lucide-react';
-import { useId, useState, type ReactNode } from 'react';
+import { useId, useState } from 'react';
 import { PageHeader } from '@/components/layout/page-header';
 import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import {
-  checkForUpdate,
-  getAppVersion,
-  isTauri,
-  runtimeLabel,
-  type UpdateCheckResult,
-} from '@/lib/tauri';
+import { checkForUpdatesManually } from '@/features/updates';
+import { getAppVersion, isTauri, runtimeLabel, type UpdateCheckResult } from '@/lib/tauri';
+import { DataSection } from './data-section';
+import { SettingsRow, SettingsSection } from './settings-layout';
 import { cn } from '@/lib/cn';
 import { useUiStore, type TextSize, type Theme } from '@/store/ui';
-
-interface SectionProps {
-  id: string;
-  title: string;
-  description: string;
-  children: ReactNode;
-}
-
-function SettingsSection({ id, title, description, children }: SectionProps) {
-  return (
-    <section aria-labelledby={id} className="grid gap-4 md:grid-cols-[240px_1fr] md:gap-8">
-      <div>
-        <h2 id={id} className="text-lg">
-          {title}
-        </h2>
-        <p className="mt-1 text-sm text-muted">{description}</p>
-      </div>
-      <Card className="divide-y divide-line">{children}</Card>
-    </section>
-  );
-}
-
-function SettingsRow({
-  label,
-  hint,
-  children,
-  htmlFor,
-}: {
-  label: string;
-  hint?: ReactNode;
-  children: ReactNode;
-  htmlFor?: string;
-}) {
-  return (
-    <div className="flex flex-wrap items-center justify-between gap-4 px-6 py-5">
-      <div className="min-w-0 max-w-md">
-        {htmlFor ? (
-          <label htmlFor={htmlFor} className="font-medium">
-            {label}
-          </label>
-        ) : (
-          <p className="font-medium">{label}</p>
-        )}
-        {hint && <p className="mt-0.5 text-sm text-muted">{hint}</p>}
-      </div>
-      <div className="flex shrink-0 flex-wrap items-center gap-2">{children}</div>
-    </div>
-  );
-}
 
 interface SegmentOption<T extends string> {
   value: T;
@@ -200,7 +144,7 @@ function UpdatesSection() {
     queryFn: getAppVersion,
     staleTime: Infinity,
   });
-  const check = useMutation({ mutationFn: checkForUpdate });
+  const check = useMutation({ mutationFn: checkForUpdatesManually });
   const message = updateMessage(check.data);
   const inTauri = isTauri();
 
@@ -287,46 +231,11 @@ function StudyHelpSection() {
           </Button>
         </div>
         <p id={hintId} className="text-sm text-muted">
-          Nyckeln sparas i Windows Autentiseringshanteraren, aldrig i klartext på disken.
-          Studiehjälpen aktiveras i en kommande version; fram till dess sparas ingenting härifrån.
+          Studiehjälpen kommer i en senare version. Då sparas nyckeln i Windows
+          Autentiseringshanteraren, aldrig i klartext på disken. Fram till dess sparas ingenting av
+          det du skriver här.
         </p>
       </div>
-    </SettingsSection>
-  );
-}
-
-function DataSection() {
-  const pending = 'Aktiveras när studiedatan sparas lokalt i en kommande version.';
-  return (
-    <SettingsSection
-      id="settings-data"
-      title="Data"
-      description="Din studiedata ligger bara på den här datorn. Exportera den för att flytta den eller ha en säkerhetskopia."
-    >
-      <SettingsRow
-        label="Exportera studiedata"
-        hint="Sparar svar, repetition och ärenden som en JSON-fil."
-      >
-        <Button variant="secondary" disabled title={pending}>
-          <Download aria-hidden="true" />
-          Exportera
-        </Button>
-      </SettingsRow>
-      <SettingsRow label="Importera studiedata" hint="Läser in en tidigare exporterad fil.">
-        <Button variant="secondary" disabled title={pending}>
-          <Upload aria-hidden="true" />
-          Importera
-        </Button>
-      </SettingsRow>
-      <SettingsRow
-        label="Återställ"
-        hint="Raderar all studiedata och börjar om från början. Går inte att ångra."
-      >
-        <Button variant="danger" disabled title={pending}>
-          <RotateCcw aria-hidden="true" />
-          Återställ
-        </Button>
-      </SettingsRow>
     </SettingsSection>
   );
 }

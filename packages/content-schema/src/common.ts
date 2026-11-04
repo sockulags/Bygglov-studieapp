@@ -46,20 +46,28 @@ export const text = z
 export const identifier = z
   .string({ error: fieldError('Id ska vara en text.') })
   .regex(/^[A-Za-z0-9][A-Za-z0-9_-]*$/, {
-    error: fieldError('Id får bara innehålla bokstäver a–z, siffror, - och _ (inga mellanslag eller å, ä, ö).'),
+    error: fieldError(
+      'Id får bara innehålla bokstäver a–z, siffror, - och _ (inga mellanslag eller å, ä, ö).',
+    ),
   });
 
 /** Module id, e.g. `03-lovplikt`. */
 export const moduleId = z
   .string({ error: fieldError('Modul-id ska vara en text.') })
   .regex(/^\d{2}-[a-z0-9]+(?:-[a-z0-9]+)*$/, {
-    error: fieldError('Modul-id ska ha formatet NN-namn, t.ex. 03-lovplikt (gemener, inga å, ä, ö).'),
+    error: fieldError(
+      'Modul-id ska ha formatet NN-namn, t.ex. 03-lovplikt (gemener, inga å, ä, ö).',
+    ),
   });
 
 /** List of law references, e.g. `PBL 9 kap.`. Prefer the chapter over a guessed section. */
-export const lawRefs = z.array(text, { error: fieldError('lagrum ska vara en lista, t.ex. [PBL 9 kap.].') });
+export const lawRefs = z.array(text, {
+  error: fieldError('lagrum ska vara en lista, t.ex. [PBL 9 kap.].'),
+});
 
-export const tags = z.array(text, { error: fieldError('taggar ska vara en lista, t.ex. [lovplikt, plank].') });
+export const tags = z.array(text, {
+  error: fieldError('taggar ska vara en lista, t.ex. [lovplikt, plank].'),
+});
 
 export const reviewStatus = z.enum(['utkast', 'granskad'], {
   error: fieldError('status ska vara "utkast" eller "granskad".'),
@@ -72,7 +80,9 @@ export const reviewStatus = z.enum(['utkast', 'granskad'], {
 export const reviewFields = {
   status: reviewStatus.default('utkast'),
   rattslage: isoDate.default(DEFAULT_LEGAL_STATE),
-  lagrum_osaker: z.boolean({ error: fieldError('lagrum_osaker ska vara true eller false.') }).optional(),
+  lagrum_osaker: z
+    .boolean({ error: fieldError('lagrum_osaker ska vara true eller false.') })
+    .optional(),
   granskad_av: text.optional(),
   granskad_datum: isoDate.optional(),
 };

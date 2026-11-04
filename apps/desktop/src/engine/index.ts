@@ -1,6 +1,8 @@
 /**
- * engine/ — pure TypeScript without React: quiz, spaced repetition (FSRS),
- * case engine and assessment. Built by the engine track. Keep this module free of
- * DOM and Tauri imports so it can be unit-tested with vitest.
+ * engine/ — pure TypeScript without React: quiz grading, quiz sessions and spaced
+ * repetition (FSRS). Keep this module free of DOM and Tauri imports so it can be
+ * unit-tested with vitest. The case engine lives elsewhere.
  */
-export {};
+export * from './quiz';
+export * from './session';
+export * from './review';

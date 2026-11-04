@@ -100,6 +100,10 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
       return cloneJson(rows);
     },
 
+    async listAnswers() {
+      return cloneJson([...answerRows].sort(byKeyThenId<Answer>((a) => a.answeredAt)));
+    },
+
     async statsPerModule() {
       const byModule = new Map<
         string,
@@ -402,7 +406,19 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
     },
   };
 
-  return { kind: 'memory', answers, reviews, sessions, settings, cases };
+  async function clearAll(): Promise<void> {
+    answerRows.length = 0;
+    reviewRows.clear();
+    sessionRows.clear();
+    settingRows.clear();
+    caseRows.clear();
+    stepRows.length = 0;
+    eventRows.length = 0;
+    decisionRows.clear();
+    feedbackRows.length = 0;
+  }
+
+  return { kind: 'memory', answers, reviews, sessions, settings, cases, clearAll };
 }
 
 function removeWhere<T>(rows: T[], predicate: (row: T) => boolean): void {

@@ -66,14 +66,19 @@ export function loadContentTree(contentRoot: string): ContentTree {
     try {
       source = readFileSync(join(contentRoot, file), 'utf8');
     } catch (cause) {
-      error(file, `Filen kunde inte läsas: ${cause instanceof Error ? cause.message : String(cause)}`);
+      error(
+        file,
+        `Filen kunde inte läsas: ${cause instanceof Error ? cause.message : String(cause)}`,
+      );
       return { ok: false };
     }
     try {
       return { ok: true, value: parse(source) as unknown };
     } catch (cause) {
       if (cause instanceof YAMLParseError) {
-        const where = cause.linePos ? `rad ${cause.linePos[0].line}, kolumn ${cause.linePos[0].col}` : '';
+        const where = cause.linePos
+          ? `rad ${cause.linePos[0].line}, kolumn ${cause.linePos[0].col}`
+          : '';
         const firstLine = cause.message.split('\n')[0] ?? cause.message;
         error(file, `YAML-fel${where ? ` på ${where}` : ''}: ${firstLine}`);
       } else {
@@ -118,10 +123,18 @@ export function loadContentTree(contentRoot: string): ContentTree {
 
     const expectedName = `fragor/${data.modul}.yaml`;
     if (toPosix(file) !== expectedName) {
-      error(file, `Filen innehåller modul "${data.modul}" och ska därför heta ${expectedName}.`, 'modul');
+      error(
+        file,
+        `Filen innehåller modul "${data.modul}" och ska därför heta ${expectedName}.`,
+        'modul',
+      );
     }
     if (modules && !moduleIds.has(data.modul)) {
-      error(file, `Modulen "${data.modul}" finns inte i ${MODULES_FILE}. Kända moduler: ${knownModules()}.`, 'modul');
+      error(
+        file,
+        `Modulen "${data.modul}" finns inte i ${MODULES_FILE}. Kända moduler: ${knownModules()}.`,
+        'modul',
+      );
     }
     const otherFile = moduleFiles.get(data.modul);
     if (otherFile) {
@@ -134,12 +147,20 @@ export function loadContentTree(contentRoot: string): ContentTree {
       const path = `fragor[${question.id}]`;
       const first = questionIds.get(question.id);
       if (first && first !== file) {
-        error(file, `Fråge-id "${question.id}" används redan i ${first}. Id måste vara unika i allt innehåll.`, `${path}.id`);
+        error(
+          file,
+          `Fråge-id "${question.id}" används redan i ${first}. Id måste vara unika i allt innehåll.`,
+          `${path}.id`,
+        );
       } else {
         questionIds.set(question.id, file);
       }
       if (question.typ === 'ritning' && !fileExists(question.fil)) {
-        warn(file, `Ritningen ${question.fil} finns inte ännu (sökväg relativt content/).`, `${path}.fil`);
+        warn(
+          file,
+          `Ritningen ${question.fil} finns inte ännu (sökväg relativt content/).`,
+          `${path}.fil`,
+        );
       }
     });
     questionFiles.push({ file: toPosix(file), data });
@@ -177,18 +198,25 @@ export function loadContentTree(contentRoot: string): ContentTree {
     }
     data.moduler?.forEach((moduleId, index) => {
       if (modules && !moduleIds.has(moduleId)) {
-        error(file, `Modulen "${moduleId}" finns inte i ${MODULES_FILE}. Kända moduler: ${knownModules()}.`, `moduler[${index + 1}]`);
+        error(
+          file,
+          `Modulen "${moduleId}" finns inte i ${MODULES_FILE}. Kända moduler: ${knownModules()}.`,
+          `moduler[${index + 1}]`,
+        );
       }
     });
 
     // Referenced files that do not exist yet are allowed while a case is being written.
     const missing = (relativePath: string, path: string) => {
-      if (!fileExists(`${dir}/${relativePath}`)) warn(file, `Filen ${relativePath} finns inte ännu.`, path);
+      if (!fileExists(`${dir}/${relativePath}`))
+        warn(file, `Filen ${relativePath} finns inte ännu.`, path);
     };
     data.handlingar.forEach((h) => missing(h.fil, `handlingar[${h.id}].fil`));
     allCaseSteps(data).forEach((step) => {
-      if (step.typ === 'skrivelse' && step.modelltext) missing(step.modelltext, `steg[${step.id}].modelltext`);
-      if (step.typ === 'beslut' && step.modellbeslut) missing(step.modellbeslut, `steg[${step.id}].modellbeslut`);
+      if (step.typ === 'skrivelse' && step.modelltext)
+        missing(step.modelltext, `steg[${step.id}].modelltext`);
+      if (step.typ === 'beslut' && step.modellbeslut)
+        missing(step.modellbeslut, `steg[${step.id}].modellbeslut`);
     });
     if (data.facit?.modellbeslut) missing(data.facit.modellbeslut, 'facit.modellbeslut');
 

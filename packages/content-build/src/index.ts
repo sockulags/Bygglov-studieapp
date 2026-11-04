@@ -52,7 +52,9 @@ export function main(argv: string[]): number {
     };
     const result = buildContent(tree, targets);
     console.log('');
-    console.log(`Byggt: ${result.jsonFiles.length} JSON-filer i ${displayPath(root, targets.distDir)}/`);
+    console.log(
+      `Byggt: ${result.jsonFiles.length} JSON-filer i ${displayPath(root, targets.distDir)}/`,
+    );
     for (const file of result.jsonFiles) console.log(`  ${file}`);
     console.log(`Handlingar kopierade till ${displayPath(root, targets.publicDir)}/`);
     for (const dir of result.copiedDirs) console.log(`  ${dir}`);
@@ -60,7 +62,8 @@ export function main(argv: string[]): number {
   return 0;
 }
 
-const invokedDirectly = process.argv[1] !== undefined && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+const invokedDirectly =
+  process.argv[1] !== undefined && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (invokedDirectly) {
   try {
     process.exitCode = main(process.argv.slice(2));

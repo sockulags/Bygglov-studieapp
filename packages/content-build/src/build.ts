@@ -23,12 +23,19 @@ function writeJson(path: string, value: unknown) {
 /** Builds the summary written to `index.json`. */
 export function buildIndex(tree: ContentTree): ContentIndex {
   const questions = tree.questionFiles.flatMap((f) => f.data.fragor);
-  const countByModule = new Map(tree.questionFiles.map((f) => [f.data.modul, f.data.fragor.length]));
+  const countByModule = new Map(
+    tree.questionFiles.map((f) => [f.data.modul, f.data.fragor.length]),
+  );
   return {
     format: 1,
     moduler: [...(tree.modules?.moduler ?? [])]
       .sort((a, b) => a.ordning - b.ordning)
-      .map((m) => ({ id: m.id, titel: m.titel, ordning: m.ordning, antal_fragor: countByModule.get(m.id) ?? 0 })),
+      .map((m) => ({
+        id: m.id,
+        titel: m.titel,
+        ordning: m.ordning,
+        antal_fragor: countByModule.get(m.id) ?? 0,
+      })),
     fragor: {
       totalt: questions.length,
       status: {

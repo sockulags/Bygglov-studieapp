@@ -27,7 +27,14 @@ export const decisionOutcome = z.enum(DECISION_OUTCOMES, {
 
 export type DecisionOutcome = z.output<typeof decisionOutcome>;
 
-export const STEP_TYPES = ['checklista', 'fraga', 'berakning', 'urval', 'skrivelse', 'beslut'] as const;
+export const STEP_TYPES = [
+  'checklista',
+  'fraga',
+  'berakning',
+  'urval',
+  'skrivelse',
+  'beslut',
+] as const;
 export type StepType = (typeof STEP_TYPES)[number];
 
 /** Common document kinds. Other snake_case kinds are allowed too. */
@@ -53,7 +60,9 @@ const caseFilePath = text
     error: fieldError('Sökvägen ska vara relativ till ärendemappen, t.ex. handlingar/ansokan.pdf.'),
   })
   .refine((p) => p.startsWith('handlingar/'), {
-    error: fieldError('Filer i ett ärende ska ligga i mappen handlingar/, t.ex. handlingar/ansokan.pdf.'),
+    error: fieldError(
+      'Filer i ett ärende ska ligga i mappen handlingar/, t.ex. handlingar/ansokan.pdf.',
+    ),
   });
 
 const bulletList = (what: string) =>
@@ -66,7 +75,9 @@ export const CaseDocumentSchema = z.strictObject({
   typ: z
     .string({ error: fieldError('typ ska vara en text, t.ex. situationsplan.') })
     .regex(/^[a-z][a-z0-9_]*$/, {
-      error: fieldError(`typ ska skrivas med gemener och _, t.ex. ${KNOWN_DOCUMENT_TYPES.slice(0, 4).join(', ')}.`),
+      error: fieldError(
+        `typ ska skrivas med gemener och _, t.ex. ${KNOWN_DOCUMENT_TYPES.slice(0, 4).join(', ')}.`,
+      ),
     }),
   titel: text,
   fil: caseFilePath,
@@ -115,7 +126,9 @@ export const QuestionStepSchema = z
       error: fieldError(`fragetyp ska vara en av: ${STEP_QUESTION_TYPES.join(', ')}.`),
     }),
     fraga: text,
-    alternativ: z.array(ChoiceSchema, { error: fieldError('alternativ ska vara en lista.') }).optional(),
+    alternativ: z
+      .array(ChoiceSchema, { error: fieldError('alternativ ska vara en lista.') })
+      .optional(),
     svar: z.boolean({ error: fieldError('svar ska vara true eller false.') }).optional(),
     bedomningspunkter: bulletList('bedomningspunkter').optional(),
     modellsvar: text.optional(),
@@ -169,7 +182,9 @@ export const QuestionStepSchema = z
 export const CalculationItemSchema = z.strictObject({
   id: identifier,
   text,
-  svar: z.number({ error: fieldError('svar ska vara ett tal (punkt som decimaltecken, t.ex. 4.9).') }),
+  svar: z.number({
+    error: fieldError('svar ska vara ett tal (punkt som decimaltecken, t.ex. 4.9).'),
+  }),
   tolerans: nonNegativeNumber.default(0),
   enhet: text.optional(),
 });
@@ -178,7 +193,9 @@ export const CalculationStepSchema = z.strictObject({
   ...stepBase,
   typ: z.literal('berakning'),
   fragor: z
-    .array(CalculationItemSchema, { error: fieldError('fragor ska vara en lista med beräkningar.') })
+    .array(CalculationItemSchema, {
+      error: fieldError('fragor ska vara en lista med beräkningar.'),
+    })
     .min(1, { error: fieldError('Ett beräkningssteg behöver minst en fråga.') }),
 });
 
@@ -272,11 +289,17 @@ export const EVENT_EFFECT_KEYS = [
 export const EventEffectSchema = z
   .strictObject({
     /** Documents that appear in the diary (marked NY). */
-    visa_handlingar: z.array(identifier, { error: fieldError('visa_handlingar ska vara en lista med handlings-id.') }).optional(),
+    visa_handlingar: z
+      .array(identifier, {
+        error: fieldError('visa_handlingar ska vara en lista med handlings-id.'),
+      })
+      .optional(),
     tid_framat_dagar: wholeDays.optional(),
     meddelande: text.optional(),
     /** The application counts as complete from the event date (starts the 10-week clock). */
-    satt_komplett_datum: z.boolean({ error: fieldError('satt_komplett_datum ska vara true eller false.') }).optional(),
+    satt_komplett_datum: z
+      .boolean({ error: fieldError('satt_komplett_datum ska vara true eller false.') })
+      .optional(),
     /** Changed facts, e.g. a revised building height. */
     andrade_fakta: jsonRecord.optional(),
     /** A step inserted after the current one. */
@@ -301,9 +324,9 @@ export const CaseFacitSchema = z.strictObject({
 
 export const CaseFileSchema = z
   .strictObject({
-    id: z
-      .string({ error: fieldError('Ärende-id ska vara en text.') })
-      .regex(/^A\d{3}$/, { error: fieldError('Ärende-id ska ha formatet A + tre siffror, t.ex. A002.') }),
+    id: z.string({ error: fieldError('Ärende-id ska vara en text.') }).regex(/^A\d{3}$/, {
+      error: fieldError('Ärende-id ska ha formatet A + tre siffror, t.ex. A002.'),
+    }),
     titel: text,
     niva: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)], {
       error: fieldError('niva ska vara 1 (grund), 2 (normal), 3 (avancerad) eller 4 (tillsyn).'),
@@ -313,19 +336,27 @@ export const CaseFileSchema = z
     sammanfattning: text,
     startdatum: isoDate,
     /** Modules the case trains, for linking from the study view. */
-    moduler: z.array(moduleId, { error: fieldError('moduler ska vara en lista med modul-id.') }).optional(),
+    moduler: z
+      .array(moduleId, { error: fieldError('moduler ska vara en lista med modul-id.') })
+      .optional(),
     larandemal: bulletList('larandemal'),
     /** Simplified fictitious fee schedule: name -> amount (SEK) or factor. */
-    taxa: z.record(z.string(), z.number({ error: fieldError('Varje post i taxa ska vara ett tal.') }), {
-      error: fieldError('taxa ska vara en samling post: belopp.'),
-    }),
+    taxa: z.record(
+      z.string(),
+      z.number({ error: fieldError('Varje post i taxa ska vara ett tal.') }),
+      {
+        error: fieldError('taxa ska vara en samling post: belopp.'),
+      },
+    ),
     handlingar: z
       .array(CaseDocumentSchema, { error: fieldError('handlingar ska vara en lista.') })
       .min(1, { error: fieldError('Ett ärende behöver minst en handling.') }),
     steg: z
       .array(CaseStepSchema, { error: fieldError('steg ska vara en lista.') })
       .min(1, { error: fieldError('Ett ärende behöver minst ett steg.') }),
-    handelser: z.array(CaseEventSchema, { error: fieldError('handelser ska vara en lista.') }).default([]),
+    handelser: z
+      .array(CaseEventSchema, { error: fieldError('handelser ska vara en lista.') })
+      .default([]),
     facit: CaseFacitSchema.optional(),
   })
   .superRefine((c, ctx) => {
@@ -371,7 +402,8 @@ export function findCaseReferenceIssues(
   const checkUnique = (ids: { id: string; path: (string | number)[] }[], what: string) => {
     const seen = new Set<string>();
     for (const { id, path } of ids) {
-      if (seen.has(id)) issues.push({ path, message: `${what}-id "${id}" används mer än en gång.` });
+      if (seen.has(id))
+        issues.push({ path, message: `${what}-id "${id}" används mer än en gång.` });
       seen.add(id);
     }
     return seen;

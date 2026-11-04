@@ -13,7 +13,7 @@ startdatum: 2026-03-02
 larandemal:
   - Granska fullständighet och skriva föreläggande om komplettering
   - Läsa planbestämmelser och mäta byggnadshöjd och byggnadsarea
-  - Bedöma liten avvikelse enligt 9 kap. 31 b § PBL
+  - Bedöma liten avvikelse enligt 9 kap. 60 § PBL
   - Avgöra vilka grannar som ska höras
   - Skriva ett beslut med motivering, lagstöd och överklagandehänvisning
 
@@ -216,5 +216,5 @@ handelser:
           - { text: "Inget, lovet är beviljat.", ratt: false }
           - { text: "Ta ut byggsanktionsavgift för påbörjande utan startbesked och vid behov förbjuda fortsatt arbete.", ratt: true }
           - { text: "Återkalla bygglovet.", ratt: false }
-        forklaring: Påbörjande utan startbesked är sanktionerat i 11 kap. 51 § PBL och 9 kap. PBF. Nämnden kan också meddela förbud enligt 11 kap. 30–31 §§.
-        lagrum: [PBL 11 kap. 51 §, PBF 9 kap. 6 §, PBL 11 kap. 30 §]
+        forklaring: Påbörjande utan startbesked är sanktionerat i 11 kap. 51 § PBL och, för en tillbyggnad, 9 kap. 7 § PBF. Nämnden kan också förbjuda att arbetet fortsätter enligt 11 kap. 31 §.
+        lagrum: [PBL 11 kap. 51 §, PBF 9 kap. 7 §, PBL 11 kap. 31 §]

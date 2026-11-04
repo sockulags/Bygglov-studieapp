@@ -1,0 +1,99 @@
+# Builds the Windows installer and publishes a GitHub Release when a tag v* is pushed.
+# The release is published (not a draft), so releases/latest/download/latest.json,
+# which the in-app updater polls, points at it immediately. See docs/release-checklista.md.
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Bygg och publicera (Windows)
+    runs-on: windows-latest
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Installera Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Cacha Rust-bygget
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/desktop/src-tauri -> target
+
+      - name: Installera beroenden
+        run: pnpm install --frozen-lockfile
+
+      - name: Kontrollera tagg, version och signeringsnyckel
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          pnpm version:check
+          version="$(node -p "require('./package.json').version")"
+          if [ "v$version" != "$TAG" ]; then
+            echo "::error::Taggen $TAG matchar inte versionen $version i package.json. Kör pnpm version:sync och tagga v$version."
+            exit 1
+          fi
+          pubkey="$(node -p "require('./apps/desktop/src-tauri/tauri.conf.json').plugins.updater.pubkey")"
+          if [ -z "$pubkey" ]; then
+            echo "::error::plugins.updater.pubkey i tauri.conf.json är tom. Klistra in den publika nyckeln (se docs/release-checklista.md)."
+            exit 1
+          fi
+
+      - name: Test
+        run: pnpm test
+
+      - name: Kontrollera och bygg innehållet
+        run: |
+          pnpm content:check
+          pnpm content:build
+
+      - name: Hämta release notes ur CHANGELOG.md
+        id: notes
+        env:
+          TAG: ${{ github.ref_name }}
+        run: |
+          node .github/scripts/changelog-section.mjs "${TAG#v}" > "$RUNNER_TEMP/release-notes.md"
+          {
+            echo "body<<__RELEASE_NOTES_EOF__"
+            cat "$RUNNER_TEMP/release-notes.md"
+            echo "__RELEASE_NOTES_EOF__"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Bygg installer och publicera release
+        uses: tauri-apps/tauri-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        with:
+          projectPath: apps/desktop
+          tauriScript: pnpm tauri
+          args: --bundles nsis
+          tagName: ${{ github.ref_name }}
+          releaseName: Bygglov-studieapp v__VERSION__
+          releaseBody: ${{ steps.notes.outputs.body }}
+          releaseDraft: false
+          prerelease: false
+          uploadUpdaterJson: true
+          uploadUpdaterSignatures: true
+          updaterJsonPreferNsis: true

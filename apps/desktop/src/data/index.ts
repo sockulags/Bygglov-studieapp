@@ -10,11 +10,24 @@ export { createMemoryDataStore } from './memory-store';
 export { runMigrations, type SqlDriver, type SqlValue, type MigrationResult } from './sql-driver';
 export { migrations, type Migration } from './migrations';
 export {
+  BACKUP_FORMAT,
+  BACKUP_VERSION,
+  BackupFormatError,
+  exportStudyData,
+  importStudyData,
+  parseStudyDataBackup,
+  StudyDataBackupSchema,
+  type ImportSummary,
+  type StudyDataBackup,
+} from './backup';
+export {
   dataKeys,
+  useAnswerHistory,
   useDueReviews,
   useModuleStats,
   useRecentSessions,
   useRecordAnswer,
+  useReviewStates,
   useSetting,
   type UseSettingResult,
 } from './hooks';

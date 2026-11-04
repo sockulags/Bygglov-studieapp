@@ -13,7 +13,9 @@ export const ModuleSchema = z.strictObject({
   lagrum_sammanfattning: text,
   /** Optional structured references, usable as links into Uppslag. */
   lagrum: lawRefs.optional(),
-  lagrum_osaker: z.boolean({ error: fieldError('lagrum_osaker ska vara true eller false.') }).optional(),
+  lagrum_osaker: z
+    .boolean({ error: fieldError('lagrum_osaker ska vara true eller false.') })
+    .optional(),
 });
 
 export const ModulesFileSchema = z

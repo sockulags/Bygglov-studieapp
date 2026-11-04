@@ -1,4 +1,12 @@
-import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import {
+  cpSync,
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -42,7 +50,9 @@ describe('check', () => {
   it('accepts the repository content without errors', () => {
     const tree = loadContentTree(repoContent);
     expect(tree.errors).toEqual([]);
-    expect(tree.questionFiles.map((f) => f.file)).toEqual(['fragor/03-lovplikt.yaml']);
+    expect(tree.questionFiles.map((f) => f.file)).toEqual(
+      expect.arrayContaining(['fragor/03-lovplikt.yaml', 'fragor/06-handlaggning.yaml']),
+    );
     expect(tree.cases.map((c) => c.data.id)).toEqual(['A002']);
   });
 
@@ -50,18 +60,29 @@ describe('check', () => {
     write('fragor/04-detaljplan.yaml', `modul: 04-detaljplan\nfragor:${question('lov-001')}`);
     write('fragor/99-saknas.yaml', `modul: 99-saknas\nfragor:${question('x-001')}`);
     write('fragor/fel-namn.yaml', `modul: 05-utanfor-plan\nfragor:${question('x-002')}`);
-    const messages = loadContentTree(content).errors.map((e) => `${e.file} ${e.path}: ${e.message}`);
+    const messages = loadContentTree(content).errors.map(
+      (e) => `${e.file} ${e.path}: ${e.message}`,
+    );
     expect(messages).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(/^fragor\/04-detaljplan\.yaml fragor\[lov-001\]\.id: .*används redan i fragor\/03-lovplikt\.yaml/),
-        expect.stringMatching(/^fragor\/99-saknas\.yaml modul: Modulen "99-saknas" finns inte i moduler\.yaml/),
-        expect.stringMatching(/^fragor\/fel-namn\.yaml modul: .*ska därför heta fragor\/05-utanfor-plan\.yaml/),
+        expect.stringMatching(
+          /^fragor\/04-detaljplan\.yaml fragor\[lov-001\]\.id: .*används redan i fragor\/03-lovplikt\.yaml/,
+        ),
+        expect.stringMatching(
+          /^fragor\/99-saknas\.yaml modul: Modulen "99-saknas" finns inte i moduler\.yaml/,
+        ),
+        expect.stringMatching(
+          /^fragor\/fel-namn\.yaml modul: .*ska därför heta fragor\/05-utanfor-plan\.yaml/,
+        ),
       ]),
     );
   });
 
   it('reports YAML syntax errors with a line number', () => {
-    write('fragor/04-detaljplan.yaml', 'modul: 04-detaljplan\nfragor:\n  - id: a\n   typ: flerval\n');
+    write(
+      'fragor/04-detaljplan.yaml',
+      'modul: 04-detaljplan\nfragor:\n  - id: a\n   typ: flerval\n',
+    );
     const [first] = loadContentTree(content).errors;
     expect(first?.file).toBe('fragor/04-detaljplan.yaml');
     expect(first?.message).toMatch(/^YAML-fel på rad \d+/);
@@ -99,13 +120,26 @@ describe('build', () => {
     const publicDir = join(root, 'public');
     const result = buildContent(tree, { distDir, publicDir });
 
-    expect(result.jsonFiles).toEqual(['moduler.json', 'fragor/03-lovplikt.json', 'arenden/A002.json', 'index.json']);
-    const readJson = (file: string): unknown => JSON.parse(readFileSync(join(distDir, file), 'utf8'));
+    // The repository content grows; check the fixed points rather than the exact list.
+    expect(result.jsonFiles[0]).toBe('moduler.json');
+    expect(result.jsonFiles.at(-1)).toBe('index.json');
+    expect(result.jsonFiles).toEqual(
+      expect.arrayContaining([
+        'fragor/03-lovplikt.json',
+        'fragor/06-handlaggning.json',
+        'arenden/A002.json',
+      ]),
+    );
+    const readJson = (file: string): unknown =>
+      JSON.parse(readFileSync(join(distDir, file), 'utf8'));
     expect(parseQuestionFile(readJson('fragor/03-lovplikt.json')).success).toBe(true);
     expect(parseCaseFile(readJson('arenden/A002.json')).success).toBe(true);
     const index = parseContentIndex(readJson('index.json'));
     if (!index.success) throw new Error('index.json is invalid');
-    expect(index.data.fragor).toEqual({ totalt: 4, status: { utkast: 4, granskad: 0 } });
+    const total = tree.questionFiles.reduce((sum, file) => sum + file.data.fragor.length, 0);
+    expect(total).toBeGreaterThan(4);
+    expect(index.data.fragor.totalt).toBe(total);
+    expect(index.data.fragor.status.utkast + index.data.fragor.status.granskad).toBe(total);
     expect(index.data.arenden[0]).toMatchObject({ id: 'A002', niva: 2, antal_steg: 6 });
 
     const copied = join(publicDir, 'arenden/A002/handlingar');

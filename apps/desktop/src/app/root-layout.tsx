@@ -1,5 +1,6 @@
 import { Outlet } from '@tanstack/react-router';
 import { Sidebar } from '@/components/layout/sidebar';
+import { UpdatePrompt, WhatsNewDialog } from '@/features/updates';
 import { useUiStore } from '@/store/ui';
 import { cn } from '@/lib/cn';
 
@@ -23,9 +24,11 @@ export function RootLayout() {
         )}
       >
         <div className="mx-auto w-full max-w-6xl px-8 py-10">
+          <UpdatePrompt className="mb-6" />
           <Outlet />
         </div>
       </main>
+      <WhatsNewDialog />
     </div>
   );
 }

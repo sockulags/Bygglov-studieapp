@@ -529,4 +529,57 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
       });
     });
   });
+
+  describe.skipIf(!available)('whole store', () => {
+    it('lists every answer oldest first', async () => {
+      for (const [questionId, at] of [
+        ['lov-002', '2026-03-02T10:00:00Z'],
+        ['lov-001', '2026-03-01T10:00:00Z'],
+        ['hand-001', '2026-03-03T10:00:00Z'],
+      ] as const) {
+        await store.answers.recordAnswer({
+          questionId,
+          moduleId: questionId.startsWith('lov') ? '03-lovplikt' : '06-handlaggning',
+          correct: true,
+          answer: null,
+          mode: 'quick-quiz',
+          answeredAt: at,
+        });
+      }
+      expect((await store.answers.listAnswers()).map((a) => a.questionId)).toEqual([
+        'lov-001',
+        'lov-002',
+        'hand-001',
+      ]);
+    });
+
+    it('clears all study data and keeps working afterwards', async () => {
+      const session = await store.sessions.startSession({ mode: 'quick-quiz', moduleIds: [] });
+      await store.answers.recordAnswer({
+        questionId: 'lov-001',
+        moduleId: '03-lovplikt',
+        correct: true,
+        answer: null,
+        mode: 'quick-quiz',
+        sessionId: session.id,
+      });
+      await store.reviews.upsertReviewState(review({ questionId: 'lov-001' }));
+      await store.settings.set('tema', 'mörkt');
+      await store.cases.startCase({ caseId: 'A002', currentStepId: 'S1', simDate: '2026-03-02' });
+      const d = await store.cases.submitDecision({ caseId: 'A002', decision: {} });
+      await store.cases.addSupervisorFeedback({ decisionId: d.id, text: 'ok' });
+
+      await store.clearAll();
+
+      expect(await store.answers.listAnswers()).toEqual([]);
+      expect(await store.reviews.listReviewStates()).toEqual([]);
+      expect(await store.sessions.listRecent()).toEqual([]);
+      expect(await store.settings.getAll()).toEqual({});
+      expect(await store.cases.listCaseStatuses()).toEqual([]);
+      expect(await store.cases.listDecisions('A002')).toEqual([]);
+
+      await store.sessions.startSession({ mode: 'review', moduleIds: [] });
+      expect(await store.sessions.listRecent()).toHaveLength(1);
+    });
+  });
 });

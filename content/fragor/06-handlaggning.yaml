@@ -1,0 +1,1184 @@
+# Frågor för modul 06-handlaggning (Handläggningsprocessen). Valideras med zod (pnpm content:check).
+# Filen heter som modulens id i moduler.yaml, annars stoppar content:check bygget.
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# Lagrum i 9 kap. är kontrollerade mot docs/rattslage/pbl-9-kap.txt. PBL 10, 12 och 13 kap.,
+# FL (2017:900), KL (2017:725) och OSL är kontrollerade mot riksdagen.se 2026-11-04.
+# Alla exempel är fiktiva.
+modul: 06-handlaggning
+fragor:
+  # --- Ansökan, registrering och fullständighet --------------------------------------------
+
+  - id: hand-001
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande uppgifter ska en ansökan om bygglov innehålla enligt 9 kap. 86 § PBL?
+    alternativ:
+      - text: Fastighetens beteckning.
+        ratt: true
+      - text: Byggherrens person- eller organisationsnummer, namn och adress.
+        ratt: true
+      - text: Förslag på kontrollansvarig, om en sådan behövs.
+        ratt: true
+      - text: När arbetena är avsedda att påbörjas.
+        ratt: true
+      - text: De ritningar, beskrivningar och andra uppgifter som behövs för prövningen.
+        ratt: true
+      - text: Skriftliga yttranden från samtliga grannar.
+      - text: Kvitto på att bygglovsavgiften är betald.
+    forklaring: >
+      En ansökan om lov eller förhandsbesked ska vara skriftlig och innehålla det som räknas upp
+      i 9 kap. 86 § PBL. Grannarnas synpunkter hämtar nämnden själv in när det behövs
+      (94–97 §§), och avgiften tas ut i samband med beslutet. Vill sökanden få lov och
+      startbesked samtidigt kan hon skicka med handlingarna för startbesked (86 § 8). Det är
+      frivilligt.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [ansokan, fullstandighet]
+
+  - id: hand-002
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov skickas med e-post till byggnadsnämndens funktionsbrevlåda en fredag
+      kl. 22.10. Den öppnas av en handläggare på måndagen. Vilken dag kom ansökan in?
+    alternativ:
+      - text: Fredagen, när e-postmeddelandet nådde myndigheten.
+        ratt: true
+      - text: Måndagen, när en handläggare läste den.
+      - text: Måndagen, eftersom den kom in efter kontorstid.
+      - text: Den dag ansökan registrerades i diariet.
+    forklaring: >
+      En handling har kommit in till en myndighet den dag den når myndigheten eller en behörig
+      befattningshavare (22 § FL). Det har stor betydelse, eftersom tioveckorsfristen räknas
+      från ansökningsdagen, alltså den dag ansökan kom in till nämnden (9 kap. 99 § 1 PBL).
+      Ansökan är en allmän handling och ska registreras så snart den kommit in
+      (5 kap. 1 § OSL).
+    lagrum:
+      - FL 22 §
+      - PBL 9 kap. 99 §
+      - OSL 5 kap. 1 §
+    taggar: [ankomstdag, diarieforing, handlaggningstid]
+
+  - id: hand-003
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan saknar fasadritningar. Nämnden förelägger sökanden att komplettera. Vad måste
+      föreläggandet enligt 9 kap. 91 § PBL innehålla?
+    alternativ:
+      - text: En upplysning om att ansökan kan avvisas eller att ärendet kan avgöras i befintligt skick om föreläggandet inte följs.
+        ratt: true
+      - text: En upplysning om att ansökan alltid avslås om föreläggandet inte följs.
+      - text: En hänvisning till hur man överklagar föreläggandet.
+      - text: En uppgift om vad bygglovet kommer att kosta.
+    forklaring: >
+      Är ansökan ofullständig får nämnden förelägga sökanden att avhjälpa bristerna inom en viss
+      tid. Föreläggandet ska upplysa om att ansökan kan komma att avvisas eller att ärendet kan
+      avgöras i befintligt skick om föreläggandet inte följs (9 kap. 91 § första stycket).
+      Skriv konkret vilka handlingar som saknas och vilket datum de senast ska komma in.
+      Försök gärna först hjälpa sökanden till rätta inom serviceskyldigheten (20 § FL).
+    lagrum:
+      - PBL 9 kap. 91 §
+      - FL 20 §
+    taggar: [komplettering, forelaggande]
+
+  - id: hand-004
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Sökanden har inte följt ett föreläggande om komplettering. Vilka möjligheter har nämnden
+      enligt 9 kap. 91 § PBL?
+    alternativ:
+      - text: Bara att avvisa ansökan.
+      - text: Att avvisa ansökan eller att avgöra ärendet i befintligt skick.
+        ratt: true
+      - text: Att avskriva ärendet utan beslut.
+      - text: Att ge lov med villkor om att handlingarna kommer in senare.
+    forklaring: >
+      Om föreläggandet inte följs får nämnden avvisa ansökan eller avgöra ärendet i befintligt
+      skick (9 kap. 91 § andra stycket). Möjligheten att avgöra i befintligt skick är ny sedan
+      1 december 2025. Det kan vara rätt väg när underlaget räcker för att bedöma frågan i sak,
+      t.ex. för att avslå en tydligt planstridig åtgärd. Vid avvisning prövas ansökan inte alls i
+      sak. Båda besluten ska motiveras och kunna överklagas.
+    lagrum:
+      - PBL 9 kap. 91 §
+    taggar: [komplettering, avvisning, befintligt_skick]
+
+  - id: hand-005
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov kom in den 2 mars. Handläggaren skickade ett föreläggande om
+      komplettering den 30 mars och sökanden kompletterade den 10 april. Från vilken dag räknas
+      tioveckorsfristen?
+    alternativ:
+      - text: Från den 2 mars, ansökningsdagen.
+        ratt: true
+      - text: Från den 30 mars, när föreläggandet skickades.
+      - text: Från den 10 april, när bristen avhjälptes.
+      - text: Fristen börjar inte löpa förrän ansökan är komplett och nämnden har bekräftat det.
+    forklaring: >
+      Fristen räknas från ansökningsdagen (9 kap. 99 § 1 PBL). Bara om nämnden förelägger
+      sökanden inom tre veckor från ansökningsdagen räknas fristen i stället från den dag
+      bristen avhjälptes (99 § 4). Här skickades föreläggandet efter fyra veckor, så startpunkten
+      flyttas inte. Fullständighetsgranskningen måste därför göras tidigt, annars kan
+      avgiften reduceras trots att sökanden orsakat förseningen.
+    lagrum:
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 91 §
+    taggar: [handlaggningstid, treveckorsregeln, komplettering]
+
+  - id: hand-006
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Sex veckor efter ansökningsdagen skickar sökanden på eget initiativ in ändrade ritningar
+      där tillbyggnaden blivit större. Vad händer med tidsfristen?
+    alternativ:
+      - text: Ingenting, fristen räknas fortfarande från ansökningsdagen.
+      - text: Tioveckorsfristen börjar räknas från den dag de ändrade ritningarna kom in.
+        ratt: true
+      - text: Fristen förlängs automatiskt med tio veckor.
+      - text: Ansökan ska avvisas och sökanden lämna in en ny.
+    forklaring: >
+      Om ytterligare underlag eller en ändring av ansökan kommer in på sökandens initiativ räknas
+      tioveckorsfristen från den dagen (9 kap. 99 § 2 PBL). Nämnden ska då skriftligen informera
+      sökanden om den ändrade tidpunkten (100 § 2). Om ändringen gör att åtgärden strider mot
+      planen kan en ny underrättelse till grannarna också behövas (94 § tredje stycket).
+    lagrum:
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 100 §
+      - PBL 9 kap. 94 §
+    taggar: [handlaggningstid, andrad_ansokan]
+
+  # --- Tidsfrister och avgift -------------------------------------------------------------
+
+  - id: hand-007
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Tioveckorsfristen får förlängas en gång med högst ___ veckor. Gäller ärendet lov enligt
+      15 § 3 för installation av en solenergianläggning får fristen bara förlängas med högst ___
+      veckor. Gäller det installation av en värmepump ska nämnden besluta inom ___ veckor, utan
+      möjlighet till förlängning.
+    svar: ["10", "2", "4"]
+    forklaring: >
+      Förlängning får bara ske om det är nödvändigt på grund av handläggningen eller utredningen
+      (9 kap. 99 § andra stycket PBL), och sökanden ska få skriftlig information om förlängningen
+      och skälen innan den ursprungliga fristen gått ut (100 § 3). För solenergianläggningar och
+      värmepumpar som är fasadändringar gäller kortare frister (99 och 99 a §§).
+    lagrum:
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 99 a §
+      - PBL 9 kap. 100 §
+    taggar: [handlaggningstid, forlangning, solceller, varmepump]
+
+  - id: hand-008
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska byggnadsnämnden skriftligen informera sökanden om när en ansökan om lov har kommit in?
+    alternativ:
+      - text: Vilka tidsfrister som gäller, att avgiften reduceras om fristen överskrids och möjligheterna att överklaga.
+        ratt: true
+      - text: Vilka grannar som kommer att höras och deras kontaktuppgifter.
+      - text: Vilket beslut handläggaren tänker föreslå.
+      - text: Att lovet gäller först när det fått laga kraft.
+    forklaring: >
+      Enligt 9 kap. 100 § 1 PBL ska nämnden skriftligen informera om tidsfristerna, om att
+      avgiften reduceras om fristen överskrids och om möjligheterna att överklaga. I praktiken
+      görs det i ett mottagningsbevis. Ändras startpunkten för fristen eller förlängs den ska
+      sökanden också informeras skriftligen (100 § 2 och 3).
+    lagrum:
+      - PBL 9 kap. 100 §
+    taggar: [information, mottagningsbevis, handlaggningstid]
+
+  - id: hand-009
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Om nämnden förlänger handläggningsfristen räcker det att det framgår av beslutet i
+      ärendet varför fristen förlängdes.
+    svar: false
+    forklaring: >
+      Sökanden ska skriftligen informeras om förlängningen och skälen för den innan den
+      ursprungliga tidsfristen har gått ut (9 kap. 100 § 3 PBL). Informationen ska alltså komma
+      i tid och för sig, inte först i beslutet. Förlängning får bara ske en gång och bara om det är nödvändigt på grund av handläggningen
+      eller utredningen (99 §).
+    lagrum:
+      - PBL 9 kap. 100 §
+      - PBL 9 kap. 99 §
+    taggar: [forlangning, information]
+
+  - id: hand-010
+    typ: berakning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Bygglovsavgiften enligt kommunens taxa är 10 000 kr. Nämnden beslutar 1 vecka och 3 dagar
+      efter att tioveckorsfristen gick ut. Fristen har inte förlängts. Hur stor avgift får
+      nämnden ta ut?
+    svar: 6000
+    tolerans: 0
+    enhet: kr
+    losning: >
+      Fristen är överskriden med två påbörjade veckor. Reduktion 2 × 1/5 = 2/5 av 10 000 kr =
+      4 000 kr. Kvar att ta ut: 10 000 − 4 000 = 6 000 kr.
+    forklaring: >
+      Avgiften ska reduceras med en femtedel för varje påbörjad vecka som tidsfristen överskrids
+      (12 kap. 8 a § PBL). En dag in på en ny vecka räknas alltså som en hel vecka. Nämnden ska i
+      avgiftsbeslutet redovisa hur avgiften har bestämts (9 kap. 107 §).
+    lagrum:
+      - PBL 12 kap. 8 a §
+      - PBL 9 kap. 107 §
+    taggar: [avgift, avgiftsreduktion, berakning]
+
+  - id: hand-011
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Bygglovsavgiften är 15 000 kr. Beslutet kommer 4 veckor och 1 dag efter att tidsfristen
+      gick ut. Hur stor avgift får nämnden ta ut?
+    svar: 0
+    tolerans: 0
+    enhet: kr
+    losning: >
+      4 veckor och 1 dag innebär fem påbörjade veckor. 5 × 1/5 = hela avgiften. Nämnden får inte
+      ta ut någon lovavgift.
+    forklaring: >
+      Reduktionen är en femtedel per påbörjad vecka (12 kap. 8 a § PBL), så efter fyra hela
+      veckor och en dag är avgiften borta. Avgiften reduceras inte om fristen överskrids på grund
+      av ett beslut om att ärendet ska vila, t.ex. i avvaktan på strandskyddsdispens
+      (9 kap. 102 §).
+    lagrum:
+      - PBL 12 kap. 8 a §
+      - PBL 9 kap. 102 §
+    taggar: [avgift, avgiftsreduktion, berakning]
+
+  - id: hand-012
+    typ: berakning
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden förelade om komplettering två veckor efter ansökningsdagen. Bristen avhjälptes
+      exakt fem veckor efter ansökningsdagen. Nämnden förlängde sedan fristen en gång med tio
+      veckor, i rätt tid och med skäl. Hur många veckor efter ansökningsdagen måste beslutet
+      senast fattas för att avgiften inte ska reduceras?
+    svar: 25
+    tolerans: 0
+    enhet: veckor
+    losning: >
+      Föreläggandet kom inom tre veckor, så fristen räknas från dagen då bristen avhjälptes
+      (vecka 5). 5 + 10 veckors grundfrist + 10 veckors förlängning = 25 veckor efter
+      ansökningsdagen.
+    forklaring: >
+      Ett föreläggande inom tre veckor flyttar startpunkten till den dag bristen avhjälptes
+      (9 kap. 99 § 4 PBL). Fristen kan därefter förlängas en gång med högst tio veckor (99 §
+      andra stycket). Överskrids den sammanlagda fristen reduceras avgiften (12 kap. 8 a §).
+    lagrum:
+      - PBL 9 kap. 99 §
+      - PBL 12 kap. 8 a §
+    taggar: [handlaggningstid, berakning, treveckorsregeln]
+
+  # --- Underrättelse, kommunicering och totalförsvaret ------------------------------------
+
+  - id: hand-013
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: I vilket av följande fall ska byggnadsnämnden underrätta grannarna och ge dem tillfälle att yttra sig?
+    alternativ:
+      - text: Bygglov söks för ett nytt enbostadshus inom detaljplan som helt följer planen.
+      - text: Bygglov söks för en villa inom detaljplan där byggnadsarean överskrider planens högsta tillåtna byggnadsarea.
+        ratt: true
+      - text: Någon anmäler installation av en eldstad.
+      - text: Bygglov söks för en liten komplementbyggnad till ett enbostadshus utanför detaljplan, i ett område utan områdesbestämmelser.
+    forklaring: >
+      Underrättelse ska ske om åtgärden avviker från detaljplan eller områdesbestämmelser, eller
+      om den ska utföras utanför detaljplan i ett område som inte regleras av
+      områdesbestämmelser (9 kap. 94 § PBL). Utanför plan undantas åtgärder som endast
+      kompletterar ett en- eller tvåbostadshus med en liten tillbyggnad eller
+      komplementbyggnad (94 § 2 c och 59 § 1). En planenlig åtgärd inom plan kräver ingen
+      underrättelse.
+    lagrum:
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 59 §
+    taggar: [grannar, underrattelse, planavvikelse]
+
+  - id: hand-014
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Bygglov söks för en villa med en planavvikelse. Till vilka ska nämnden skicka meddelandet
+      om ansökan enligt 9 kap. 96 § PBL?
+    alternativ:
+      - text: Ägaren till en fastighet som gränsar till den aktuella fastigheten.
+        ratt: true
+      - text: Tomträttshavaren till en gränsande fastighet.
+        ratt: true
+      - text: Ägaren till fastigheten på andra sidan gatan.
+        ratt: true
+      - text: Hyresgäster i ett flerbostadshus på grannfastigheten.
+      - text: Bostadsrättshavare i en förening på grannfastigheten.
+    forklaring: >
+      Meddelandet ska skickas till ägaren eller innehavaren av en särskild rätt till en tomt
+      eller fastighet som gränsar till fastigheten, eller som skiljs från den endast av en väg
+      eller gata (9 kap. 96 § första stycket 1). Hyresgäster och bostadsrättshavare ska inte
+      längre få meddelandet. Meddelandet ska också kungöras på kommunens anslagstavla (96 § 2),
+      vilket ger andra berörda en möjlighet att upptäcka ärendet.
+    lagrum:
+      - PBL 9 kap. 96 §
+    taggar: [grannar, underrattelse, sakagare]
+
+  - id: hand-015
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur ska underrättelsen om en ansökan till grannar ske enligt 9 kap. 95 och 96 §§ PBL?
+    alternativ:
+      - text: Med ett meddelande som skickas till grannarna och kungörs på kommunens anslagstavla.
+        ratt: true
+      - text: Genom att ansökan kungörs i Post- och Inrikes Tidningar.
+      - text: Genom att sökanden själv samlar in grannarnas underskrifter.
+      - text: Genom en annons i ortstidningen.
+    forklaring: >
+      Meddelandet ska innehålla ansökans huvudsakliga innehåll, var ansökan hålls tillgänglig och
+      hur, till vem och inom vilken tid synpunkter kan lämnas (95 §). Det skickas till grannarna
+      och kungörs genom att anslås på kommunens anslagstavla enligt kungörandelagen (96 §). Ge
+      en rimlig svarstid och ange datumet tydligt.
+    lagrum:
+      - PBL 9 kap. 95 §
+      - PBL 9 kap. 96 §
+    taggar: [grannar, underrattelse, anslagstavla]
+
+  - id: hand-016
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Byggnadsnämnden behöver inte underrätta grannarna om det är uppenbart att lov inte kan ges.
+    svar: true
+    forklaring: >
+      Underrättelse behöver inte ske om det är uppenbart att lov inte kan ges, eller att ansökan
+      saknar betydelse för grannen (9 kap. 94 § andra stycket PBL). Det sparar tid i ärenden som
+      ändå ska avslås. Var försiktig med "uppenbart": är bedömningen tveksam ska grannarna höras.
+      Sökanden ska ändå kommuniceras innan avslag (98 §).
+    lagrum:
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 98 §
+    taggar: [grannar, underrattelse, avslag]
+
+  - id: hand-017
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Inför ett beslut om avslag har handläggaren gjort egna mätningar på plats och fått ett
+      yttrande från kommunens antikvarie. Vad gäller enligt 9 kap. 98 § PBL?
+    alternativ:
+      - text: Bara antikvariens yttrande behöver kommuniceras, eftersom handläggarens egna mätningar inte tillförts av någon annan.
+      - text: Sökanden och fastighetsägaren ska få del av allt underlag av betydelse, även mätningarna, och få yttra sig inom en bestämd tid.
+        ratt: true
+      - text: Inget behöver kommuniceras eftersom sökanden får överklaga beslutet.
+      - text: Bara sökanden ska kommuniceras, inte fastighetsägaren.
+    forklaring: >
+      Innan nämnden beslutar ska den, om det inte är uppenbart obehövligt, underrätta sökanden
+      och fastighetsägaren om allt underlag av betydelse för beslutet och ge dem tillfälle att
+      yttra sig inom en bestämd tid (9 kap. 98 § PBL). Tidigare gällde kommuniceringsplikten det
+      som någon annan tillfört ärendet. Nu omfattar den även nämndens eget underlag.
+      Motsvarande allmänna regel finns i 25 § FL.
+    lagrum:
+      - PBL 9 kap. 98 §
+      - FL 25 §
+    taggar: [kommunicering, fore_och_nu]
+
+  - id: hand-018
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov för ett nytt bostadshus utanför detaljplan gäller en plats i
+      anslutning till ett område av riksintresse för totalförsvarets anläggningar. Underrättelse
+      ska ske enligt 94 §. Vad gäller för Försvarsmakten eller Myndigheten för civilt försvar?
+    alternativ:
+      - text: De ska underrättas, lov kan bara ges med deras medgivande och tioveckorsfristen räknas från dagen deras besked kom in.
+        ratt: true
+      - text: De ska bara få en kopia av beslutet.
+      - text: De har rätt att yttra sig men nämnden får bortse från ett negativt yttrande.
+      - text: De berörs inte av bygglovsärenden.
+    forklaring: >
+      I de fall som avses i 94 § ska nämnden även underrätta Försvarsmakten eller MCF om åtgärden
+      ska vidtas inom eller i anslutning till ett riksintresse för totalförsvarets anläggningar
+      och är lovpliktig (9 kap. 97 § PBL). Lov eller positivt förhandsbesked kräver då deras
+      medgivande (80 §), och fristen räknas från den dag beskedet kom in (99 § 3). Beslutet ska
+      genast skickas till myndigheten (112 §).
+    lagrum:
+      - PBL 9 kap. 97 §
+      - PBL 9 kap. 80 §
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 112 §
+    taggar: [totalforsvar, underrattelse, handlaggningstid]
+
+  - id: hand-019
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov avser en byggnad som också omfattas av en pågående ansökan om
+      strandskyddsdispens. Vad får byggnadsnämnden göra?
+    alternativ:
+      - text: Besluta att bygglovsärendet inte ska avgöras förrän dispensfrågan har avgjorts.
+        ratt: true
+      - text: Avvisa bygglovsansökan tills dispensen är klar.
+      - text: Ge bygglov med villkor om att dispens beviljas senare.
+      - text: Ingenting, tioveckorsfristen gäller fullt ut och avgiften reduceras om den överskrids.
+    forklaring: >
+      Enligt 9 kap. 102 § 1 PBL får nämnden besluta att ett ärende om lov eller förhandsbesked
+      inte ska avgöras förrän frågan om strandskyddsdispens har avgjorts. Motsvarande gäller
+      expropriation och pågående planarbete (högst två år). Om fristen överskrids på grund av ett
+      sådant beslut reduceras avgiften inte (12 kap. 8 a §).
+    lagrum:
+      - PBL 9 kap. 102 §
+      - PBL 12 kap. 8 a §
+    taggar: [vilande, strandskydd, handlaggningstid]
+
+  # --- Beslutet och expediering -----------------------------------------------------------
+
+  - id: hand-020
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka upplysningar ska ett beslut om bygglov innehålla enligt 9 kap. 105 § PBL?
+    alternativ:
+      - text: Vilken giltighetstid lovet har.
+        ratt: true
+      - text: Om det ska finnas en kontrollansvarig och i så fall vem.
+        ratt: true
+      - text: Att åtgärden inte får påbörjas förrän lovet börjat gälla och nämnden gett startbesked.
+        ratt: true
+      - text: Att en åtgärd som påbörjas innan beslutet fått laga kraft kan behöva återställas om beslutet ändras.
+        ratt: true
+      - text: Att lovet får användas först fyra veckor efter kungörelsen.
+      - text: Namn och adress till alla grannar som underrättats.
+    forklaring: >
+      9 kap. 105 § PBL räknar upp vad lovbeslutet ska innehålla, bl.a. giltighetstid, vem som
+      är byggbedömare och kontrollansvarig, att åtgärden inte får påbörjas förrän lovet börjat
+      gälla enligt 114 § och startbesked getts, samt att en åtgärd som påbörjas före laga kraft
+      kan behöva återställas om beslutet ändras vid överprövning. Fyraveckorsregeln finns inte
+      längre.
+    lagrum:
+      - PBL 9 kap. 105 §
+      - PBL 9 kap. 114 §
+    taggar: [beslut, beslutets_innehall]
+
+  - id: hand-021
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad kräver 9 kap. 107 § PBL när nämnden tar ut en avgift för ett lovärende?
+    alternativ:
+      - text: Att nämnden i avgiftsbeslutet redovisar hur avgiften har bestämts.
+        ratt: true
+      - text: Att avgiften betalas innan beslutet om lov fattas.
+      - text: Att avgiften fastställs av kommunfullmäktige i varje enskilt ärende.
+      - text: Att avgiften aldrig får överstiga 10 000 kr.
+    forklaring: >
+      Sökanden ska kunna förstå och kontrollera avgiften. Därför ska nämnden redovisa hur den har
+      bestämts (9 kap. 107 §), t.ex. vilken post i taxan som använts och hur en eventuell
+      reduktion enligt 12 kap. 8 a § har räknats. Taxan beslutas av fullmäktige, men avgiften
+      bestäms i det enskilda beslutet.
+    lagrum:
+      - PBL 9 kap. 107 §
+      - PBL 12 kap. 8 a §
+    taggar: [avgift, beslut]
+
+  - id: hand-022
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka ska delges ett beslut om bygglov enligt 9 kap. 108 § PBL?
+    alternativ:
+      - text: Sökanden och fastighetsägaren, samt grannar som lämnat synpunkter som inte tillgodosetts.
+        ratt: true
+      - text: Alla som bor inom 100 m från fastigheten.
+      - text: Bara sökanden.
+      - text: Sökanden och länsstyrelsen.
+    forklaring: >
+      Beslutet ska tillsammans med en uppgift om vad den som vill överklaga måste göra delges
+      sökanden och fastighetsägaren samt de grannar enligt 96 § som lämnat synpunkter som inte
+      tillgodosetts (9 kap. 108 § PBL). Är delgivning uppenbart obehövlig skickas beslutet i
+      stället. För delgivning med sökanden är vissa sätt i delgivningslagen uteslutna
+      (108 § tredje stycket).
+    lagrum:
+      - PBL 9 kap. 108 §
+    taggar: [delgivning, beslut, grannar]
+
+  - id: hand-023
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Var ska ett beslut om att ge bygglov kungöras?
+    alternativ:
+      - text: I Post- och Inrikes Tidningar.
+      - text: På kommunens anslagstavla.
+        ratt: true
+      - text: I en ortstidning.
+      - text: På Boverkets webbplats.
+    forklaring: >
+      Ett beslut om att ge lov eller positivt förhandsbesked ska kungöras genom ett meddelande på
+      kommunens anslagstavla med beslutets huvudsakliga innehåll och var det hålls tillgängligt
+      (9 kap. 109 § PBL). Före 1 december 2025 kungjordes beslutet i Post- och Inrikes
+      Tidningar. Kungörelsen är viktig, eftersom överklagandetiden för den som inte delges räknas
+      från den.
+    lagrum:
+      - PBL 9 kap. 109 §
+      - PBL 13 kap. 16 §
+    taggar: [kungorelse, anslagstavla, fore_och_nu]
+
+  - id: hand-024
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad gäller för meddelandet om ett lovbeslut till grannarna enligt 9 kap. 110 § PBL?
+    alternativ:
+      - text: Det ska skickas senast den dag kungörandet sker, men inte till dem som delges beslutet.
+        ratt: true
+      - text: Det ska skickas en vecka efter kungörandet.
+      - text: Det ska skickas till alla grannar, även dem som delges.
+      - text: Det behövs inte eftersom beslutet kungörs.
+    forklaring: >
+      Meddelandet som kungörs enligt 109 § ska senast samma dag skickas till grannarna enligt
+      96 § (om beslutet inte uppenbart saknar betydelse för dem) och till dem som lämnat
+      synpunkter som inte tillgodosetts, om antalet inte är orimligt stort (9 kap. 110 §). Den
+      som delges eller får beslutet skickat enligt 108 § ska inte också få meddelandet.
+    lagrum:
+      - PBL 9 kap. 110 §
+      - PBL 9 kap. 108 §
+    taggar: [meddelande, grannar, kungorelse]
+
+  # --- När lovet gäller, laga kraft och giltighet -----------------------------------------
+
+  - id: hand-025
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ett beviljat bygglov börjar gälla först när det har fått laga kraft.
+    svar: false
+    forklaring: >
+      Enligt 9 kap. 114 § PBL gäller ett beslut om bygglov, rivningslov eller marklov omedelbart,
+      även om det inte har fått laga kraft. Arbetet får ändå inte påbörjas förrän nämnden gett
+      startbesked (105 § 4, 10 kap. 3 §). Byggherren som börjar före laga kraft tar risken att
+      behöva återställa om lovet ändras efter ett överklagande (105 § 5).
+    lagrum:
+      - PBL 9 kap. 114 §
+      - PBL 9 kap. 105 §
+      - PBL 10 kap. 3 §
+    taggar: [lov_galler, laga_kraft]
+
+  - id: hand-026
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: När ska byggnadsnämnden bestämma att ett lov ska gälla först när det fått laga kraft?
+    alternativ:
+      - text: Om det finns risk för att åtgärden medför skador som inte kan återställas på natur- eller kulturvärden, eller på totalförsvarets intressen i vissa områden.
+        ratt: true
+      - text: Alltid när grannar har lämnat synpunkter.
+      - text: När sökanden begär det.
+      - text: Aldrig, eftersom lov alltid gäller omedelbart.
+    forklaring: >
+      Undantaget i 9 kap. 114 § andra stycket PBL är obligatoriskt när rekvisiten är uppfyllda:
+      nämnden ska bestämma att beslutet gäller först vid laga kraft om genomförandet riskerar
+      skador som inte kan återställas på natur- eller kulturvärden, eller på totalförsvarets
+      intressen inom eller nära riksintressen för totalförsvarets anläggningar. Ett exempel kan
+      vara ett rivningslov för en byggnad med kulturhistoriskt värde.
+    lagrum:
+      - PBL 9 kap. 114 §
+    taggar: [lov_galler, laga_kraft, kulturvarden]
+
+  - id: hand-027
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      För den som inte ska delges ett lovbeslut räknas överklagandetiden från den dag som
+      infaller ___ vecka efter att beslutet kungjorts på kommunens anslagstavla. Själva
+      överklagandetiden är ___ veckor.
+    svar: [["1", "en"], ["3", "tre"]]
+    forklaring: >
+      13 kap. 16 § tredje stycket PBL anger startpunkten för den som inte ska delges enligt
+      9 kap. 108 §. Överklagandetiden är tre veckor enligt 44 § FL. En granne som inte delgetts
+      har alltså i praktiken fyra veckor från kungörelsen. För den som delges räknas tre veckor
+      från delgivningen.
+    lagrum:
+      - PBL 13 kap. 16 §
+      - FL 44 §
+    taggar: [overklagande, laga_kraft, kungorelse]
+
+  - id: hand-028
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur länge gäller ett bygglov som inte är tidsbegränsat?
+    alternativ:
+      - text: Åtgärden ska ha påbörjats inom två år och avslutats inom fem år från den dag beslutet fick laga kraft.
+        ratt: true
+      - text: Åtgärden ska ha påbörjats inom ett år och avslutats inom tre år från beslutsdagen.
+      - text: Lovet gäller för alltid.
+      - text: Åtgärden ska ha påbörjats inom två år från beslutsdagen, men det finns ingen tidsgräns för när den ska vara klar.
+    forklaring: >
+      Ett lov upphör att gälla om åtgärden inte har påbörjats inom två år och avslutats inom fem
+      år från laga kraft (9 kap. 115 § PBL). Tiden räknas alltså från laga kraft, inte från
+      beslutsdagen, trots att lovet gäller omedelbart. Lovbeslutet ska upplysa om giltighetstiden
+      (105 § 1).
+    lagrum:
+      - PBL 9 kap. 115 §
+      - PBL 9 kap. 105 §
+    taggar: [giltighetstid, laga_kraft]
+
+  - id: hand-029
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En kommun söker tidsbegränsat bygglov för en tillfällig skolpaviljong. Hur länge kan ett
+      sådant lov gälla som mest, om det inte är fråga om säsongsändamål?
+    alternativ:
+      - text: Högst tio år, med förlängning högst fem år i taget, sammanlagt högst femton år.
+        ratt: true
+      - text: Högst fem år utan möjlighet till förlängning.
+      - text: Högst tjugo år.
+      - text: Obegränsat, så länge platsen kan återställas.
+    forklaring: >
+      Tidsbegränsat bygglov får ges för högst tio år och förlängas med högst fem år i taget.
+      Sammanlagd tid över femton år tillåts bara för säsongsändamål enligt 71 § 2 och 40 §
+      (9 kap. 72 § PBL). Platsen ska kunna återställas (71 §) och ska återställas innan tiden gått
+      ut (73 §). Ansökan görs enligt 39 §.
+    lagrum:
+      - PBL 9 kap. 39 §
+      - PBL 9 kap. 71 §
+      - PBL 9 kap. 72 §
+      - PBL 9 kap. 73 §
+    taggar: [tidsbegransat_lov, aterstallande]
+
+  - id: hand-030
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: En byggherre kan fortfarande begära ett villkorsbesked från byggnadsnämnden.
+    svar: false
+    forklaring: >
+      Möjligheten till villkorsbesked togs bort den 1 december 2025. Den som vill ha nämndens
+      prövning av en åtgärd som inte kräver lov kan i stället ansöka om frivilligt lov
+      (9 kap. 52 § PBL), och den som vill veta om en åtgärd kan lokaliseras till en plats utanför
+      detaljplan kan begära förhandsbesked (41 §).
+    lagrum:
+      - PBL 9 kap. 52 §
+      - PBL 9 kap. 41 §
+    taggar: [villkorsbesked, fore_och_nu, frivilligt_lov]
+
+  - id: hand-031
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare vill bygga en komplementbyggnad som är lovbefriad men vill ändå ha ett beslut
+      från nämnden, eftersom grannen ifrågasätter den. Vad kan hon göra?
+    alternativ:
+      - text: Ansöka om frivilligt lov. Lov ska ges om åtgärden uppfyller kraven på lokalisering, placering och utformning.
+        ratt: true
+      - text: Ingenting, nämnden får inte pröva lovbefriade åtgärder.
+      - text: Begära villkorsbesked.
+      - text: Göra en anmälan, som nämnden då måste pröva som ett bygglov.
+    forklaring: >
+      Även om en åtgärd inte kräver lov får den som avser att vidta den ansöka om lov (9 kap.
+      52 § PBL). Prövningen gäller om åtgärden uppfyller de krav på lokalisering, placering och
+      utformning som finns i lagen och föreskrifterna (79 §). Om sökanden begär det gäller
+      kravet på startbesked även för en åtgärd med frivilligt lov (10 kap. 3 § andra stycket).
+    lagrum:
+      - PBL 9 kap. 52 §
+      - PBL 9 kap. 79 §
+      - PBL 10 kap. 3 §
+    taggar: [frivilligt_lov, lovbefriad]
+
+  # --- Förvaltningsrätt i lovärendet ------------------------------------------------------
+
+  - id: hand-032
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ledamot i byggnadsnämnden är bror till sökanden i ett bygglovsärende. Vad gäller?
+    alternativ:
+      - text: Han är jävig och får inte delta eller närvara när ärendet handläggs.
+        ratt: true
+      - text: Han får delta i överläggningen men inte i beslutet.
+      - text: Han får delta om han meddelar att han är bror till sökanden.
+      - text: Jäv gäller bara tjänstemän, inte förtroendevalda.
+    forklaring: >
+      En förtroendevald är jävig om en närstående är part i ärendet (6 kap. 28 § 1 KL). Den som
+      är jävig får inte delta eller närvara vid handläggningen (6 kap. 30 §). Samma jävsregler
+      gäller för anställda i kommunen (7 kap. 4 § KL). Nämnden får bortse från jäv bara om det
+      är uppenbart att frågan om opartiskhet saknar betydelse (6 kap. 29 §).
+    lagrum:
+      - KL 6 kap. 28 §
+      - KL 6 kap. 29 §
+      - KL 6 kap. 30 §
+      - KL 7 kap. 4 §
+    taggar: [jav, forvaltningsratt]
+
+  - id: hand-033
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska motiveringen i ett beslut om avslag innehålla enligt 32 § FL?
+    alternativ:
+      - text: Vilka föreskrifter som har tillämpats och vilka omständigheter som varit avgörande.
+        ratt: true
+      - text: Enbart en hänvisning till 9 kap. PBL.
+      - text: Namnen på de grannar som var negativa.
+      - text: En motivering behövs bara om sökanden begär det.
+    forklaring: >
+      Ett beslut som kan antas påverka någons situation på ett inte obetydligt sätt ska innehålla
+      en klargörande motivering med uppgifter om vilka föreskrifter som tillämpats och vilka
+      omständigheter som varit avgörande (32 § FL). För ett avslag betyder det att du anger
+      paragrafen, t.ex. 9 kap. 56 § PBL, och konkret vad i ansökan som inte uppfyller kraven.
+    lagrum:
+      - FL 32 §
+    taggar: [motivering, beslut, forvaltningsratt]
+
+  - id: hand-034
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I ett beviljat bygglov har fastighetsbeteckningen skrivits "Granen 14" i stället för
+      "Granen 41", som står i ansökan och på alla ritningar. Vad kan nämnden göra?
+    alternativ:
+      - text: Rätta beslutet, eftersom det är en uppenbar felaktighet till följd av skrivfel.
+        ratt: true
+      - text: Ingenting, ett beslut kan aldrig ändras.
+      - text: Sökanden måste söka nytt bygglov.
+      - text: Bara länsstyrelsen kan rätta felet efter överklagande.
+    forklaring: >
+      Ett beslut som innehåller en uppenbar felaktighet till följd av skrivfel, räknefel eller
+      liknande förbiseende får rättas av den myndighet som meddelat beslutet (36 § FL). Rättelse
+      gäller bara uppenbara fel, inte nya bedömningar. För ändring av ett beslut gäller 37–39 §§ FL.
+    lagrum:
+      - FL 36 §
+      - FL 37 §
+    taggar: [rattelse, beslut, forvaltningsratt]
+
+  - id: hand-035
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska en överklagandehänvisning innehålla enligt 33 § FL?
+    alternativ:
+      - text: Vilka krav som ställs på överklagandets form och innehåll, var det ska ges in och inom vilken tid.
+        ratt: true
+      - text: Bara namnet på den domstol som prövar överklagandet.
+      - text: En bedömning av hur troligt det är att överklagandet lyckas.
+      - text: Att överklagandet ska skickas direkt till länsstyrelsen.
+    forklaring: >
+      Om parten får överklaga ska den underrättas om hur det går till: krav på form och innehåll,
+      ingivande och överklagandetid (33 § FL). Överklagandet ska ges in till den myndighet som
+      meddelat beslutet, alltså byggnadsnämnden (43 § FL), och prövas av länsstyrelsen
+      (13 kap. 3 § PBL). Även
+      9 kap. 108 § PBL kräver att lovbeslutet delges med uppgift om vad den som vill överklaga
+      måste göra.
+    lagrum:
+      - FL 33 §
+      - FL 43 §
+      - PBL 13 kap. 3 §
+      - PBL 9 kap. 108 §
+    taggar: [overklagandehanvisning, beslut, forvaltningsratt]
+
+  - id: hand-036
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En pensionär ringer och säger att hon inte förstår blanketten för bygglovsansökan. Vad
+      kräver serviceskyldigheten i 6 § FL?
+    alternativ:
+      - text: Att handläggaren ger henne den hjälp hon behöver för att kunna ta till vara sina intressen, utan onödigt dröjsmål.
+        ratt: true
+      - text: Att handläggaren fyller i ansökan åt henne och skickar in den.
+      - text: Att hon hänvisas till en konsult.
+      - text: Ingenting, eftersom ansökan måste vara skriftlig.
+    forklaring: >
+      En myndighet ska se till att kontakterna med enskilda blir smidiga och enkla och lämna den
+      hjälp som behövs för att den enskilde ska kunna ta till vara sina intressen (6 § FL).
+      Hjälpen anpassas efter frågans art och personens behov. Serviceskyldigheten betyder inte
+      att du ska göra sökandens arbete eller ge löften om utgången. Är ansökan ofullständig ska
+      du i första hand hjälpa till rätta innan du förelägger (20 § FL).
+    lagrum:
+      - FL 6 §
+      - FL 20 §
+    taggar: [service, forvaltningsratt, bemotande]
+
+  # --- Para ihop och ordning --------------------------------------------------------------
+
+  - id: hand-037
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop utgången med den situation där den är rätt.
+    par:
+      - vanster: Avvisning
+        hoger: Ansökan är fortfarande ofullständig efter föreläggande och nämnden prövar den inte i sak
+      - vanster: Avslag
+        hoger: Ansökan har prövats i sak och åtgärden uppfyller inte förutsättningarna för lov
+      - vanster: Avskrivning
+        hoger: Sökanden har återkallat sin ansökan
+      - vanster: Bifall
+        hoger: Åtgärden uppfyller förutsättningarna och lov ges
+    forklaring: >
+      Avvisning och avskrivning innebär att frågan inte prövas i sak, avslag och bifall innebär
+      att den gör det. Vid ofullständig ansökan kan nämnden enligt 9 kap. 91 § PBL välja mellan
+      att avvisa och att avgöra ärendet i befintligt skick, vilket kan leda till avslag. Alla
+      utgångar är beslut som ska motiveras och förses med överklagandehänvisning.
+    lagrum:
+      - PBL 9 kap. 91 §
+      - FL 32 §
+      - FL 33 §
+    taggar: [avvisning, avslag, avskrivning, beslut]
+
+  - id: hand-038
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop momentet i handläggningen med rätt paragraf i 9 kap. PBL.
+    par:
+      - vanster: Föreläggande om komplettering
+        hoger: 91 §
+      - vanster: Underrättelse till grannar
+        hoger: 94 §
+      - vanster: Kommunicering med sökanden och fastighetsägaren
+        hoger: 98 §
+      - vanster: Tidsfrist för beslut
+        hoger: 99 §
+      - vanster: Kungörelse på anslagstavlan
+        hoger: 109 §
+      - vanster: Lovet gäller omedelbart
+        hoger: 114 §
+      - vanster: Giltighetstid
+        hoger: 115 §
+    forklaring: >
+      Handläggningsreglerna i det nya 9 kap. ligger i 85–113 §§ och följer ärendets gång från
+      ansökan till kungörelse. 114 och 115 §§ handlar om när lovet börjar gälla och hur länge.
+      Lär dig numren; de förekommer i varje föreläggande och beslut du skriver.
+    lagrum:
+      - PBL 9 kap. 91 §
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 98 §
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 109 §
+      - PBL 9 kap. 114 §
+      - PBL 9 kap. 115 §
+    taggar: [lagrum, struktur]
+
+  - id: hand-039
+    typ: ordning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen i ett bygglovsärende med en planavvikelse.
+    poster:
+      - Ansökan kommer in och registreras.
+      - Fullständighetsgranskning och vid behov föreläggande om komplettering.
+      - Underrättelse till grannarna med tid att lämna synpunkter.
+      - Kommunicering av underlaget med sökanden och fastighetsägaren.
+      - Beslut om bygglov.
+      - Delgivning till sökanden och kungörelse på kommunens anslagstavla.
+    forklaring: >
+      Fullständighetsgranskningen kommer först, helst inom tre veckor så att ett föreläggande
+      flyttar fristens startpunkt (9 kap. 99 § 4). Grannarnas synpunkter ingår i det underlag som
+      ska kommuniceras med sökanden och fastighetsägaren innan beslut (98 §). Efter beslutet
+      delges sökanden och fastighetsägaren (108 §) och beslutet kungörs (109 §).
+    lagrum:
+      - PBL 9 kap. 91 §
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 98 §
+      - PBL 9 kap. 108 §
+      - PBL 9 kap. 109 §
+    taggar: [process, ordning]
+
+  - id: hand-040
+    typ: ordning
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ordna stegen fram till att ett bygglov får laga kraft mot en granne som inte ska delges,
+      om ingen överklagar.
+    poster:
+      - Nämnden beslutar om bygglov.
+      - Beslutet kungörs på kommunens anslagstavla och meddelande skickas till grannen samma dag.
+      - En vecka passerar efter kungörelsen.
+      - Treveckorsfristen för överklagande börjar löpa.
+      - Fristen löper ut utan att någon har överklagat.
+    forklaring: >
+      För den som inte ska delges räknas överklagandetiden från den dag som infaller en vecka
+      efter kungörelsen (13 kap. 16 § PBL). Själva överklagandetiden är tre veckor (44 § FL).
+      Lovet gäller redan från beslutet (9 kap. 114 §), men giltighetstiden i 115 § räknas från
+      laga kraft.
+    lagrum:
+      - PBL 9 kap. 109 §
+      - PBL 9 kap. 110 §
+      - PBL 13 kap. 16 §
+      - FL 44 §
+    taggar: [laga_kraft, overklagande, ordning]
+
+  # --- Före 1 december 2025 och nu -------------------------------------------------------
+
+  - id: hand-041
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En erfaren kollega säger: "Klockan för de tio veckorna startar när ansökan är komplett."
+      Stämmer det i dag?
+    alternativ:
+      - text: Ja, så har det alltid varit.
+      - text: Nej, fristen räknas från ansökningsdagen. Bara ett föreläggande inom tre veckor flyttar startpunkten.
+        ratt: true
+      - text: Nej, fristen räknas från den dag ansökan registreras i diariet.
+      - text: Nej, det finns ingen frist längre.
+    forklaring: >
+      Före 1 december 2025 räknades fristen från den dag ansökan var komplett. Nu räknas den från
+      ansökningsdagen (9 kap. 99 § 1 PBL). Startpunkten flyttas bara om sökanden själv lämnar in
+      nytt underlag, om Försvarsmakten eller MCF lämnar besked, eller om nämnden förelagt om
+      komplettering inom tre veckor (99 § 2–4). Det gör tidig fullständighetsgranskning
+      avgörande.
+    lagrum:
+      - PBL 9 kap. 99 §
+    taggar: [fore_och_nu, handlaggningstid, treveckorsregeln]
+
+  - id: hand-042
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bygglov får fortfarande börja användas först fyra veckor efter att beslutet kungjorts i
+      Post- och Inrikes Tidningar.
+    svar: false
+    forklaring: >
+      Båda delarna är gamla regler. Före 1 december 2025 kungjordes lovbeslut i Post- och Inrikes
+      Tidningar och lovet fick verkställas tidigast fyra veckor efter kungörelsen. Nu kungörs
+      beslutet på kommunens anslagstavla (9 kap. 109 § PBL) och lovet gäller omedelbart
+      (114 §). Startbesked krävs fortfarande innan arbetet börjar.
+    lagrum:
+      - PBL 9 kap. 109 §
+      - PBL 9 kap. 114 §
+    taggar: [fore_och_nu, kungorelse, lov_galler]
+
+  - id: hand-043
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I en äldre mall för underrättelse står att meddelandet ska skickas till "ägare, hyresgäster
+      och bostadsrättshavare" i grannfastigheterna. Vad gäller nu?
+    alternativ:
+      - text: Mallen stämmer fortfarande.
+      - text: Meddelandet ska skickas till ägare och innehavare av särskild rätt, inte till hyresgäster och bostadsrättshavare, och kungöras på anslagstavlan.
+        ratt: true
+      - text: Meddelandet ska bara kungöras på anslagstavlan och inte skickas till någon.
+      - text: Meddelandet ska bara skickas till hyresgäster och bostadsrättshavare, eftersom ägaren delges beslutet.
+    forklaring: >
+      Kretsen som får underrättelsen under handläggningen har ändrats. Enligt 9 kap. 96 § PBL
+      skickas meddelandet till ägaren eller innehavaren av en särskild rätt till gränsande
+      fastigheter och kungörs på kommunens anslagstavla. Hyresgäster och bostadsrättshavare
+      ingår inte längre. Uppdatera mallarna när du hittar sådana rester av gamla regler.
+    lagrum:
+      - PBL 9 kap. 96 §
+    taggar: [fore_och_nu, grannar, underrattelse]
+
+  # --- Instudering -----------------------------------------------------------------------
+
+  - id: hand-044
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om tillbyggnad kom in för fem dagar sedan. Det saknas fasadritningar och
+      uppgift om kontrollansvarig. Beskriv vad ett föreläggande om komplettering ska innehålla
+      och varför det är viktigt att det skickas snart.
+    bedomningspunkter:
+      - Anger konkret vilka handlingar och uppgifter som saknas.
+      - Anger en bestämd tid för kompletteringen.
+      - Upplyser om att ansökan kan avvisas eller att ärendet kan avgöras i befintligt skick om föreläggandet inte följs (9 kap. 91 § PBL).
+      - Förklarar treveckorsregeln, att fristen räknas från dagen bristen avhjälps bara om föreläggandet skickas inom tre veckor (99 § 4).
+      - Nämner att sökanden skriftligen ska informeras om den ändrade tidpunkten för fristen (100 § 2).
+      - Nämner serviceskyldigheten, t.ex. att ringa sökanden och förklara (6 och 20 §§ FL).
+    modellsvar: >
+      Föreläggandet ska ange exakt vad som saknas, här fasadritningar i skala och uppgift om
+      kontrollansvarig med certifiering, och ett datum då kompletteringen senast ska ha kommit in.
+      Det ska upplysa om att ansökan kan avvisas eller att ärendet kan avgöras i befintligt skick
+      om föreläggandet inte följs (9 kap. 91 § PBL). Det är viktigt att det skickas inom tre veckor
+      från ansökningsdagen, eftersom tioveckorsfristen då räknas från den dag kompletteringen
+      kommer in (99 § 4). Annars löper fristen från ansökningsdagen och avgiften kan reduceras.
+      När kompletteringen kommit in informerar jag sökanden skriftligen om den nya
+      startpunkten (100 § 2). Jag ringer också gärna sökanden och förklarar vad som behövs.
+    lagrum:
+      - PBL 9 kap. 91 §
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 100 §
+      - FL 6 §
+    taggar: [komplettering, forelaggande, treveckorsregeln]
+
+  - id: hand-045
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Beskriv hela gången för grannehörande i ett ärende där en villa inom detaljplan avviker
+      från planen, från att ansökan är komplett till att beslutet fått laga kraft.
+    bedomningspunkter:
+      - Underrättelse krävs vid planavvikelse (9 kap. 94 § PBL).
+      - Meddelandets innehåll och mottagare, ägare och innehavare av särskild rätt till gränsande fastigheter, inte hyresgäster (95–96 §§).
+      - Meddelandet kungörs också på kommunens anslagstavla (96 § 2).
+      - Inkomna synpunkter kommuniceras med sökanden och fastighetsägaren före beslut (98 §).
+      - Grannar vars synpunkter inte tillgodosetts delges beslutet (108 §).
+      - Beslutet kungörs på anslagstavlan och meddelande skickas till övriga grannar senast samma dag (109–110 §§).
+      - Överklagandetid tre veckor, för icke delgivna från en vecka efter kungörelsen (13 kap. 16 § PBL, 44 § FL).
+    modellsvar: >
+      Eftersom villan avviker från planen ska nämnden underrätta grannarna (9 kap. 94 § PBL). Ett
+      meddelande med ansökans huvudsakliga innehåll, var den finns tillgänglig och hur, till vem
+      och när synpunkter ska lämnas skickas till ägare och innehavare av särskild rätt till
+      fastigheter som gränsar till tomten eller bara skiljs från den av en gata (95–96 §§).
+      Meddelandet kungörs också på kommunens anslagstavla. Synpunkter som kommer in är underlag
+      som ska kommuniceras med sökanden och fastighetsägaren innan beslut (98 §). Ges lov delges
+      beslutet sökanden, fastighetsägaren och de grannar vars synpunkter inte tillgodosetts
+      (108 §). Beslutet kungörs på anslagstavlan och meddelandet skickas samma dag till övriga
+      grannar (109–110 §§). Den som delges har tre veckor från delgivningen på sig att överklaga,
+      övriga tre veckor räknat från en vecka efter kungörelsen (13 kap. 16 § PBL, 44 § FL). När
+      ingen tid längre löper och ingen överklagat har beslutet fått laga kraft.
+    lagrum:
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 96 §
+      - PBL 9 kap. 98 §
+      - PBL 9 kap. 108 §
+      - PBL 9 kap. 109 §
+      - PBL 9 kap. 110 §
+      - PBL 13 kap. 16 §
+    taggar: [grannar, underrattelse, laga_kraft]
+
+  - id: hand-046
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Skriv en motivering till ett avslagsbeslut för en tillbyggnad som till största delen hamnar
+      på prickmark. Ange vad beslutet i övrigt måste innehålla och hur det ska expedieras.
+    bedomningspunkter:
+      - Anger tillämpliga föreskrifter, t.ex. 9 kap. 56 § första stycket 2 och 60 § PBL (32 § FL).
+      - Beskriver konkret omständigheterna, hur stor del som hamnar på prickmark och varför avvikelsen inte är liten.
+      - Bemöter sökandens synpunkter från kommuniceringen (98 §).
+      - Har överklagandehänvisning med form, innehåll, var och inom vilken tid (33 § FL).
+      - Beslutet delges sökanden och fastighetsägaren (9 kap. 108 §).
+      - Redovisar avgiften och hur den bestämts (107 §).
+      - Skrivet begripligt, utan onödiga facktermer.
+    modellsvar: >
+      Byggnadsnämnden avslår ansökan med stöd av 9 kap. 56 § första stycket 2 PBL. Enligt
+      detaljplanen får marken inom 6 m från södra gränsen inte bebyggas. Tillbyggnaden placeras
+      till 80 procent på denna mark. Avvikelsen är därför inte liten och kan inte godtas enligt
+      9 kap. 60 § PBL. Sökandens synpunkt att tillbyggnaden inte syns från gatan ändrar inte
+      bedömningen, eftersom planbestämmelsen syftar till att hålla zonen mot grannen fri.
+      Beslutet förses med upplysning om hur man överklagar, inom tre veckor från delgivningen,
+      skriftligen till byggnadsnämnden med angivande av vilket beslut som överklagas och vilken
+      ändring som begärs. Det delges sökanden och fastighetsägaren. Avgiften redovisas med
+      hänvisning till taxan.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 9 kap. 60 §
+      - FL 32 §
+      - FL 33 §
+      - PBL 9 kap. 108 §
+    taggar: [motivering, avslag, beslut]
+
+  - id: hand-047
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara för en byggherre vad det betyder att lovet "gäller omedelbart" men ännu inte fått
+      laga kraft. Vad bör hon tänka på innan hon börjar bygga?
+    bedomningspunkter:
+      - Lovet gäller omedelbart, även före laga kraft (9 kap. 114 § PBL).
+      - Startbesked krävs ändå innan arbetet börjar (105 § 4, 10 kap. 3 §).
+      - Lovet kan överklagas under överklagandetiden och kan upphävas.
+      - Börjar hon före laga kraft kan hon behöva återställa om beslutet ändras (105 § 5).
+      - Undantag när nämnden bestämt att lovet gäller först vid laga kraft (114 § andra stycket).
+      - Giltighetstiden räknas från laga kraft (115 §).
+    modellsvar: >
+      Sedan 1 december 2025 gäller ett bygglov direkt från beslutet, även om det inte fått laga
+      kraft (9 kap. 114 § PBL). Hon får ändå inte börja förrän nämnden gett startbesked. Under
+      överklagandetiden kan grannar eller andra som berörs överklaga, och om länsstyrelsen eller
+      domstolen upphäver lovet kan hon behöva riva eller återställa det som byggts, på egen
+      bekostnad (105 § 5). Är det viktigt att undvika den risken bör hon vänta tills lovet fått
+      laga kraft. I vissa ärenden har nämnden bestämt att lovet gäller först vid laga kraft, och då
+      måste hon vänta. Lovet måste påbörjas inom två år och vara klart inom fem år från laga kraft
+      (115 §).
+    lagrum:
+      - PBL 9 kap. 114 §
+      - PBL 9 kap. 105 §
+      - PBL 9 kap. 115 §
+      - PBL 10 kap. 3 §
+    taggar: [lov_galler, laga_kraft, service]

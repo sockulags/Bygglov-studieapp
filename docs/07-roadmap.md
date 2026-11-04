@@ -20,15 +20,19 @@ händer. Därför är fas 1 liten i funktioner men komplett i leveranskedja.
 
 Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men riktigt.
 
-- Monorepo, Tauri 2 + React + Vite + Tailwind, design tokens, ljust/mörkt läge
-- Navigation och alla huvudvyer som skal (Hem, Plugga, Ärenden, Uppslag, Resultat, Inställningar)
-- Innehållsschema (zod) + byggskript YAML → JSON + `content:check`
-- Quizmotor: flerval, flersvar, sant/falskt, lucktext; snabbquiz och modulgenomgång
-- Modul 3 (Lovplikt) och modul 6 (Handläggningsprocessen) med ca 40 frågor vardera
-- SQLite med migrationer; svar och pass sparas
-- Updater + UpdateBanner + "Vad är nytt"
-- `ci.yml` och `release.yml`; första taggade releasen `v0.1.0`
-- `docs/installera.md` med skärmbilder (Windows, SmartScreen)
+- [x] Monorepo, Tauri 2 + React + Vite + Tailwind, design tokens, ljust/mörkt läge
+- [x] Navigation och alla huvudvyer som skal (Hem, Plugga, Ärenden, Uppslag, Resultat, Inställningar)
+- [x] Innehållsschema (zod) + byggskript YAML → JSON + `content:check`
+- [x] Quizmotor: flerval, flersvar, sant/falskt, lucktext; snabbquiz och modulgenomgång
+  (dessutom para ihop, ordning, beräkning, öppna frågor, repetition, instudering och tentaläge)
+- [x] Modul 3 (Lovplikt) och modul 6 (Handläggningsprocessen) med ca 40 frågor vardera
+  (51 + 47, status utkast; granskning med handledaren återstår)
+- [x] SQLite med migrationer; svar och pass sparas
+- [x] Updater + UpdateBanner + "Vad är nytt"
+- [ ] `ci.yml` och `release.yml`; första taggade releasen `v0.1.0`
+  (workflows klara; signeringsnyckel, pubkey och secrets saknas, se `docs/release-checklista.md`)
+- [ ] `docs/installera.md` med skärmbilder (Windows, SmartScreen)
+  (texten klar; skärmbilderna tas vid första installationen)
 
 **Klart när**: hon installerat v0.1.0 och fått v0.1.1 via uppdateringsdialogen utan hjälp.
 

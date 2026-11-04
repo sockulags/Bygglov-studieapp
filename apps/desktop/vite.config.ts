@@ -38,6 +38,20 @@ export default defineConfig({
     target: process.env.TAURI_ENV_PLATFORM === 'windows' ? 'chrome105' : 'safari13',
     minify: process.env.TAURI_ENV_DEBUG ? false : 'esbuild',
     sourcemap: Boolean(process.env.TAURI_ENV_DEBUG),
+    rollupOptions: {
+      output: {
+        // Split libraries and the bundled study content out of the app code, so no chunk
+        // grows past Vite's size warning as the content grows.
+        // Lazily imported Tauri plugins keep their own chunks.
+        manualChunks(id) {
+          if (id.includes('/content-dist/')) return 'content';
+          if (/node_modules\/\.pnpm\/(react|react-dom|scheduler)@/.test(id)) return 'react';
+          if (id.includes('node_modules/.pnpm/@tanstack+')) return 'tanstack';
+          if (id.includes('node_modules/.pnpm/@radix-ui+')) return 'radix';
+          return undefined;
+        },
+      },
+    },
   },
   test: {
     environment: 'jsdom',

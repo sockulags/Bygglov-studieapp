@@ -3,6 +3,8 @@ import { RootLayout } from '@/app/root-layout';
 import { NotFoundPage } from '@/app/not-found';
 import { HomePage } from '@/features/home/home-page';
 import { StudyPage } from '@/features/study/study-page';
+import { StudySessionPage } from '@/features/study/session-page';
+import { isPracticeMode, type PracticeMode } from '@/features/study/modes';
 import { CasesPage } from '@/features/cases/cases-page';
 import { LookupPage } from '@/features/lookup/lookup-page';
 import { ResultsPage } from '@/features/results/results-page';
@@ -25,10 +27,23 @@ export const homeRoute = createRoute({
   component: HomePage,
 });
 
+export interface StudySearch {
+  /** Selected study mode tab, e.g. `?mode=review`. */
+  mode?: PracticeMode;
+}
+
 export const studyRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/study',
+  validateSearch: (search: Record<string, unknown>): StudySearch =>
+    isPracticeMode(search.mode) ? { mode: search.mode } : {},
   component: StudyPage,
+});
+
+export const studySessionRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/study/session',
+  component: StudySessionPage,
 });
 
 export const casesRoute = createRoute({
@@ -58,6 +73,7 @@ export const settingsRoute = createRoute({
 const routeTree = rootRoute.addChildren([
   homeRoute,
   studyRoute,
+  studySessionRoute,
   casesRoute,
   lookupRoute,
   resultsRoute,

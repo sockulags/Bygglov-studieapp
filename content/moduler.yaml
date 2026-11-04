@@ -29,9 +29,11 @@ moduler:
       enligt regelverket från 1 december 2025: bygglovsbefriad komplementbyggnad,
       komplementbostadshus och bygglovsbefriad tillbyggnad, samlad pott per tomt och
       grannmedgivande nära gräns. Jämförelse med äldre begrepp som friggebod och attefallshus.
-    lagrum_sammanfattning: PBL 9 kap. (omskrivet 2025-12-01), PBF 6 kap.
-    lagrum: [PBL 9 kap., PBF 6 kap.]
-    lagrum_osaker: true
+    # Paragrafintervallen kontrollerade mot docs/rattslage/pbl-9-kap.txt (lydelse 2025:974).
+    lagrum_sammanfattning: >-
+      PBL 9 kap. 2–55 §§ (lovplikt, bygglovsbefriade åtgärder, rivningslov, marklov och
+      anmälningsplikt), PBL 1 kap. 4 § (definitioner), PBF 6 kap. (anmälan)
+    lagrum: [PBL 9 kap., PBL 1 kap. 4 §, PBF 6 kap.]
 
   - id: 04-detaljplan
     ordning: 4
@@ -58,9 +60,11 @@ moduler:
     beskrivning: >
       Ankomstregistrering, fullständighetsgranskning, föreläggande om komplettering,
       handläggningstid och avgiftsreduktion, grannehörande, remisser, kungörelse och laga kraft.
-    lagrum_sammanfattning: PBL 9 kap., PBL 12 kap., PBF 9 kap.
-    lagrum: [PBL 9 kap., PBL 12 kap., PBF 9 kap.]
-    lagrum_osaker: true
+    # Paragrafintervallen kontrollerade mot docs/rattslage/pbl-9-kap.txt (lydelse 2025:974).
+    lagrum_sammanfattning: >-
+      PBL 9 kap. 85–115 §§ (ansökan, komplettering, underrättelser, tidsfrister, beslut,
+      kungörelse och giltighetstid), PBL 12 kap. 8 a § (avgiftsreduktion), förvaltningslagen
+    lagrum: [PBL 9 kap., PBL 12 kap. 8 a §, FL]
 
   - id: 07-krav-byggnadsverk
     ordning: 7

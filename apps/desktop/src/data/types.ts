@@ -66,6 +66,8 @@ export interface AnswersRepository {
   listAnswersForQuestion(questionId: string, options?: { limit?: number }): Promise<Answer[]>;
   /** Oldest first, in the order they were answered. */
   listAnswersForSession(sessionId: number): Promise<Answer[]>;
+  /** Every answer, oldest first (export, statistics over all history). */
+  listAnswers(): Promise<Answer[]>;
   /** One row per module that has answers, sorted by module id. */
   statsPerModule(): Promise<ModuleStats[]>;
 }
@@ -284,6 +286,11 @@ export interface DataStore {
   readonly sessions: SessionsRepository;
   readonly settings: SettingsRepository;
   readonly cases: CasesRepository;
+  /**
+   * Removes all study data (answers, reviews, sessions, cases, settings). The schema and
+   * migration history stay. Used by Inställningar → Återställ and before an import.
+   */
+  clearAll(): Promise<void>;
 }
 
 /** Thrown when a row that must exist is missing. */

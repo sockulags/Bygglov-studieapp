@@ -2,7 +2,13 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { parse } from 'yaml';
-import { formatIssues, parseCaseFile, parseModules, parseQuestionFile, type ContentIssue } from './index';
+import {
+  formatIssues,
+  parseCaseFile,
+  parseModules,
+  parseQuestionFile,
+  type ContentIssue,
+} from './index';
 
 const contentRoot = fileURLToPath(new URL('../../../content/', import.meta.url));
 
@@ -40,11 +46,17 @@ describe('content files in the repository', () => {
     const result = parseQuestionFile(loadYaml(QUESTIONS));
     if (!result.success) throw new Error(formatIssues(result.issues));
     const { fragor } = result.data;
-    expect(fragor.map((q) => q.typ)).toEqual(['flerval', 'flersvar', 'lucktext', 'oppen']);
+    // The file grows with new content; only the first four (the original examples) are fixed.
+    expect(fragor.slice(0, 4).map((q) => q.typ)).toEqual([
+      'flerval',
+      'flersvar',
+      'lucktext',
+      'oppen',
+    ]);
     for (const q of fragor) {
       expect(q.status).toBe('utkast');
       expect(q.rattslage).toBe('2025-12-01');
-      expect(q.lagrum_osaker).toBe(true);
+      expect(q.lagrum_osaker).toBeUndefined();
     }
     const first = fragor[0];
     if (first?.typ !== 'flerval') throw new Error('Expected flerval');
@@ -76,11 +88,29 @@ describe('content files in the repository', () => {
     const result = parseQuestionFile({
       modul: '03-lovplikt',
       fragor: [
-        { ...base, id: 'a', typ: 'flerval', alternativ: [{ text: 'Ja', ratt: true }, { text: 'Nej' }] },
-        { ...base, id: 'b', typ: 'flersvar', alternativ: [{ text: 'Ja', ratt: true }, { text: 'Nej' }] },
+        {
+          ...base,
+          id: 'a',
+          typ: 'flerval',
+          alternativ: [{ text: 'Ja', ratt: true }, { text: 'Nej' }],
+        },
+        {
+          ...base,
+          id: 'b',
+          typ: 'flersvar',
+          alternativ: [{ text: 'Ja', ratt: true }, { text: 'Nej' }],
+        },
         { ...base, id: 'c', typ: 'sant_falskt', svar: false },
         { ...base, id: 'd', typ: 'lucktext', svar: [10] },
-        { ...base, id: 'e', typ: 'para_ihop', par: [{ vanster: 'A', hoger: '1' }, { vanster: 'B', hoger: '2' }] },
+        {
+          ...base,
+          id: 'e',
+          typ: 'para_ihop',
+          par: [
+            { vanster: 'A', hoger: '1' },
+            { vanster: 'B', hoger: '2' },
+          ],
+        },
         { ...base, id: 'f', typ: 'ordning', poster: ['Först', 'Sedan'] },
         { ...base, id: 'g', typ: 'berakning', svar: 4.9, tolerans: 0.1, enhet: 'm' },
         { ...base, id: 'h', typ: 'oppen', bedomningspunkter: ['Punkt'] },
@@ -132,7 +162,7 @@ describe('broken question files', () => {
     const data = fixture(QUESTIONS);
     asList(data.fragor)[2]!.svar = ['10'];
     const issues = issuesOf(parseQuestionFile(data));
-    expect(issues[0]?.message).toMatch(/2 luckor .* 1 rader/);
+    expect(issues[0]?.message).toMatch(/3 luckor .* 1 rader/);
   });
 
   it('rejects invalid status, legal state and difficulty', () => {
@@ -193,7 +223,10 @@ describe('broken case files', () => {
     asList(data.handelser)[0]!.utlosare = {};
     asList(data.handelser)[3]!.utlosare = { slump: 1.5 };
     const issues = issuesOf(parseCaseFile(data));
-    expect(issues.map((i) => i.path)).toEqual(['handelser[E1].utlosare', 'handelser[E4].utlosare.slump']);
+    expect(issues.map((i) => i.path)).toEqual([
+      'handelser[E1].utlosare',
+      'handelser[E4].utlosare.slump',
+    ]);
   });
 
   it('reports duplicate step ids, including steps inserted by events', () => {

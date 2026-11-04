@@ -2,6 +2,7 @@
 //!
 //! The app is almost entirely web code (see `../src`). The Rust side only registers the
 //! plugins the web view needs: local SQLite, auto-update with restart, file dialogs,
+//! reading/writing the files chosen in those dialogs (export/import of study data),
 //! opening links in the system browser and HTTP for the study assistant (phase 3).
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
@@ -10,6 +11,7 @@ pub fn run() {
         .plugin(tauri_plugin_sql::Builder::default().build())
         .plugin(tauri_plugin_process::init())
         .plugin(tauri_plugin_dialog::init())
+        .plugin(tauri_plugin_fs::init())
         .plugin(tauri_plugin_opener::init())
         .plugin(tauri_plugin_http::init())
         .setup(|app| {

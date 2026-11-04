@@ -7,3 +7,4 @@ export * from './progress';
 export * from './stamp';
 export * from './law-ref-chip';
 export * from './update-banner';
+export * from './tooltip';

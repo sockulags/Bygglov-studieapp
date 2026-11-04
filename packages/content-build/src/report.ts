@@ -27,8 +27,10 @@ const plural = (count: number, one: string, many: string) => `${count} ${count =
 export function formatReport(tree: ContentTree): string {
   const questionCount = tree.questionFiles.reduce((sum, f) => sum + f.data.fragor.length, 0);
   const drafts =
-    tree.questionFiles.reduce((sum, f) => sum + f.data.fragor.filter((q) => q.status === 'utkast').length, 0) +
-    tree.cases.filter((c) => c.data.status === 'utkast').length;
+    tree.questionFiles.reduce(
+      (sum, f) => sum + f.data.fragor.filter((q) => q.status === 'utkast').length,
+      0,
+    ) + tree.cases.filter((c) => c.data.status === 'utkast').length;
 
   const lines = [
     'Innehållskontroll',
@@ -42,9 +44,13 @@ export function formatReport(tree: ContentTree): string {
   ];
 
   if (tree.errors.length > 0) {
-    lines.push(`Kontrollen misslyckades: ${plural(tree.errors.length, 'fel', 'fel')} måste rättas.`);
+    lines.push(
+      `Kontrollen misslyckades: ${plural(tree.errors.length, 'fel', 'fel')} måste rättas.`,
+    );
   } else if (tree.warnings.length > 0) {
-    lines.push(`Inga fel. ${plural(tree.warnings.length, 'varning', 'varningar')} stoppar inte bygget.`);
+    lines.push(
+      `Inga fel. ${plural(tree.warnings.length, 'varning', 'varningar')} stoppar inte bygget.`,
+    );
   } else {
     lines.push('Inga fel eller varningar.');
   }

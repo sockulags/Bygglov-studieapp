@@ -2,6 +2,10 @@
 # status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
 # rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
 # lagrum_osaker: true när paragrafnumreringen inte är kontrollerad mot docs/rattslage/pbl-9-kap.txt.
+# Lagrum i 9 kap. är kontrollerade mot docs/rattslage/pbl-9-kap.txt. PBF 6 kap., PBL 1, 4, 8 och
+# 10 kap. samt MB 7 kap. är kontrollerade mot riksdagen.se 2026-11-04 (PBF ändrad t.o.m.
+# SFS 2026:1722, PBL t.o.m. SFS 2026:1583, MB t.o.m. SFS 2026:1442).
+# Alla exempel är fiktiva.
 modul: 03-lovplikt
 fragor:
   - id: lov-001
@@ -21,12 +25,13 @@ fragor:
         ratt: true
       - text: Åtgärden kräver bygglov eftersom den ligger närmare tomtgräns än 4,5 m.
     forklaring: >
-      Sedan den 1 december 2025 är en komplementbyggnad på högst 30 kvm med nockhöjd högst 4 m
-      inom detaljplan bygglovsbefriad för en- och tvåbostadshus, inom en samlad pott om 45 kvm
-      per tomt. Anmälningsplikten för sådana byggnader är slopad. Placering närmare gräns än
-      4,5 m kräver bygglov enligt 9 kap. 34 §, om inte berörda grannar skriftligen medgett
-      åtgärden (35 §). Byggherren måste ändå följa kraven på byggnadsverk. Före ändringen hade
-      detta varit ett anmälningspliktigt attefallshus.
+      Sedan den 1 december 2025 är en komplementbyggnad inom detaljplan bygglovsbefriad om den
+      har högst 30 kvm byggnadsarea, nockhöjd högst 4 m, är mindre än huvudbyggnaden, placeras
+      inom tomten och ryms i den samlade potten om 45 kvm per tomt (9 kap. 4 §). Anmälningsplikten
+      för sådana byggnader är slopad. Placering närmare gräns än 4,5 m kräver bygglov enligt
+      9 kap. 34 §, om inte berörda grannar skriftligen medgett åtgärden (35 §). Byggherren måste
+      ändå följa kraven på byggnadsverk. Före ändringen hade detta varit ett anmälningspliktigt
+      attefallshus.
     lagrum:
       - PBL 9 kap. 4 §
       - PBL 9 kap. 34 §
@@ -38,23 +43,26 @@ fragor:
     svarighet: 2
     status: utkast
     rattslage: "2025-12-01"
-    fraga: Vilka av följande åtgärder kräver normalt bygglov inom detaljplanerat område?
+    fraga: >
+      Vilka av följande åtgärder kräver normalt bygglov inom detaljplanerat område? Inga av
+      byggnaderna eller områdena omfattas av skyddsbestämmelser eller är särskilt värdefulla.
     alternativ:
-      - text: Byta färg på fasaden på ett flerbostadshus så att byggnadens karaktär väsentligt ändras.
+      - text: Byta kulör på fasaden mot gatan (allmän plats) på ett flerbostadshus.
         ratt: true
-      - text: Sätta upp ett 1,7 m högt plank mot gatan.
+      - text: Sätta upp ett 1,7 m högt plank längs gatan, 8 m från bostadshuset.
         ratt: true
-      - text: Måla om ett enbostadshus i samma kulör.
+      - text: Byta kulör på ett enbostadshus från rött till grått.
       - text: Ta i anspråk en lokal för ett väsentligt annat ändamål, t.ex. butik till restaurang.
         ratt: true
       - text: Bygga en komplementbyggnad på 14 kvm, 2,9 m nockhöjd, 4,5 m från gräns, på en tomt utan andra komplementbyggnader.
     forklaring: >
-      Fasadändring och väsentligt ändrad användning är lovpliktiga som "annan ändring av en
-      byggnad" enligt 9 kap. 15 § PBL. Plank inom detaljplan regleras numera direkt i PBL,
-      9 kap. 19 §: lov krävs om planket är högre än 1,8 m inom 3,6 m från en byggnad eller högre
-      än 1,2 m längre bort. Den lilla komplementbyggnaden ryms inom 9 kap. 4 § (högst 30 kvm per
-      byggnad, 45 kvm sammanlagt inom plan, nockhöjd högst 4 m), och ommålning i samma kulör
-      ändrar inte karaktären.
+      Väsentligt ändrad användning och fasadändring är lovpliktiga som "annan ändring av en
+      byggnad" enligt 9 kap. 15 § PBL. Fasadändring (byte av kulör, fasadbeklädnad eller
+      taktäckningsmaterial) kräver numera lov bara inom detaljplan, på andra byggnader än en- och
+      tvåbostadshus och komplementbyggnader, och bara på fasad eller tak mot allmän plats
+      (15 § 3). Plank inom detaljplan regleras direkt i 9 kap. 19 §: lov krävs om planket är högre
+      än 1,8 m inom 3,6 m från en byggnad eller högre än 1,2 m längre bort. Den lilla
+      komplementbyggnaden ryms inom 9 kap. 4 §.
     lagrum:
       - PBL 9 kap. 15 §
       - PBL 9 kap. 19 §
@@ -110,3 +118,1229 @@ fragor:
       - PBL 9 kap. 60 §
       - FL 32 §
     taggar: [avvisning, avslag, avskrivning, beslut]
+
+  # --- Lovplikt i allmänhet --------------------------------------------------------------
+
+  - id: lov-005
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad är huvudregeln för nybyggnad av en byggnad enligt 9 kap. PBL?
+    alternativ:
+      - text: Det krävs bygglov, om inte något av undantagen i kapitlet är tillämpligt.
+        ratt: true
+      - text: Det krävs bygglov bara inom detaljplanelagt område.
+      - text: Det krävs bygglov bara för byggnader större än 30 kvm.
+      - text: Det räcker med anmälan för byggnader under 50 kvm.
+    forklaring: >
+      9 kap. 3 § PBL är kort: det krävs bygglov för nybyggnad, både inom och utanför detaljplan.
+      Undantagen finns i 4–7 §§ (komplementbyggnader, komplementbostadshus, ekonomibyggnader
+      utanför plan och vissa små byggnader för kollektivtrafiken eller på kommunens allmänna
+      platser). Även när ett undantag gäller kan lov krävas ändå enligt 34–37 §§, t.ex. nära
+      gräns eller i särskilt värdefulla miljöer (8 §). Med nybyggnad avses också att flytta en
+      byggnad till en ny plats (1 kap. 4 §).
+    lagrum:
+      - PBL 9 kap. 3 §
+      - PBL 9 kap. 8 §
+      - PBL 1 kap. 4 §
+    taggar: [lovplikt, nybyggnad]
+
+  - id: lov-006
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad skiljer ett komplementbostadshus från en komplementbyggnad enligt definitionerna i 1 kap. 4 § PBL?
+    alternativ:
+      - text: Komplementbostadshuset är inrett med en självständig bostad och kompletterar ett en- eller tvåbostadshus.
+        ratt: true
+      - text: Komplementbostadshuset får vara större än huvudbyggnaden.
+      - text: Komplementbostadshuset får byggas ihop med huvudbyggnaden, komplementbyggnaden måste vara fristående.
+      - text: Det finns ingen skillnad, orden är synonymer.
+    forklaring: >
+      Båda är fristående byggnader som kompletterar en annan byggnad. En komplementbyggnad
+      (t.ex. förråd, garage eller gäststuga utan eget kök) är inte inredd med en självständig
+      bostad och kan komplettera alla sorters byggnader. Ett komplementbostadshus är inrett med
+      en självständig bostad och får bara komplettera ett en- eller tvåbostadshus. Samma
+      storleksgränser och samma pott gäller för båda (9 kap. 4 och 5 §§).
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 9 kap. 4 §
+    taggar: [begrepp, komplementbyggnad, komplementbostadshus]
+
+  - id: lov-007
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur hög nockhöjd får en bygglovsbefriad komplementbyggnad ha inom detaljplan?
+    alternativ:
+      - text: Högst 3,0 m
+      - text: Högst 4,0 m
+        ratt: true
+      - text: Högst 4,5 m
+      - text: Högst 5,0 m
+    forklaring: >
+      Inom detaljplan gäller taknockshöjd högst 4,0 m (9 kap. 4 § 3). Utanför detaljplan är
+      gränsen 4,5 m (5 § 3). Höjden mäts till taknocken, alltså byggnadens högsta del av taket,
+      inte till takfoten. Ser du "3,0 m" i äldre material handlar det ofta om de gamla
+      friggebodsreglerna eller om små byggnader för kollektivtrafiken (7 §).
+    lagrum:
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 5 §
+    taggar: [komplementbyggnad, lovbefriad, nockhojd]
+
+  - id: lov-008
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka gränser gäller för en bygglovsbefriad komplementbyggnad utanför detaljplan?
+    alternativ:
+      - text: Högst 30 kvm byggnadsarea, nockhöjd högst 4,0 m, sammanlagt högst 45 kvm på tomten.
+      - text: Högst 50 kvm byggnadsarea, nockhöjd högst 4,5 m, sammanlagt högst 65 kvm på tomten.
+        ratt: true
+      - text: Högst 50 kvm byggnadsarea, ingen höjdgräns, ingen sammanlagd gräns.
+      - text: Högst 65 kvm byggnadsarea, nockhöjd högst 4,5 m, sammanlagt högst 100 kvm på tomten.
+    forklaring: >
+      9 kap. 5 § PBL ger större mått utanför detaljplan än 4 § ger inom plan: högst 50 kvm
+      byggnadsarea per byggnad, taknockshöjd högst 4,5 m och en sammanlagd pott på 65 kvm för
+      alla lovbefriade komplementbyggnader och komplementbostadshus på tomten. Därutöver ska
+      byggnaden vara mindre än den byggnad den kompletterar och placeras inom tomten.
+    lagrum:
+      - PBL 9 kap. 5 §
+    taggar: [komplementbyggnad, lovbefriad, utanfor_plan, pott]
+
+  - id: lov-009
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Inom detaljplan får en bygglovsbefriad komplementbyggnad ha en byggnadsarea på högst
+      ___ kvm och en taknockshöjd på högst ___ m. Sammanlagt får de lovbefriade
+      komplementbyggnaderna och komplementbostadshusen på tomten ha en byggnadsarea på högst
+      ___ kvm.
+    svar: [["30", "30,0", "30.0"], ["4", "4,0", "4.0"], ["45", "45,0", "45.0"]]
+    forklaring: >
+      Måtten i 9 kap. 4 § PBL är värda att kunna utantill: 30 kvm, 4,0 m och 45 kvm inom plan.
+      Utanför plan gäller 50 kvm, 4,5 m och 65 kvm (5 §). Byggnaden ska dessutom vara mindre än
+      den byggnad den kompletterar och placeras inom tomten.
+    lagrum:
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 5 §
+    taggar: [komplementbyggnad, pott, matt]
+
+  - id: lov-010
+    typ: berakning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På en villatomt inom detaljplan finns redan en bygglovsbefriad komplementbyggnad (ett
+      förråd) på 20 kvm byggnadsarea. Ägaren vill bygga ytterligare en lovbefriad
+      komplementbyggnad. Hur stor byggnadsarea får den nya byggnaden högst ha?
+    svar: 25
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Potten inom detaljplan är 45 kvm. 45 − 20 = 25 kvm. Det är mindre än gränsen 30 kvm per
+      byggnad, så 25 kvm är det som begränsar.
+    forklaring: >
+      Enligt 9 kap. 4 § 5 PBL ska alla lovbefriade komplementbyggnader och
+      komplementbostadshus på tomten räknas ihop och får sammanlagt ha högst 45 kvm byggnadsarea
+      inom detaljplan. Den nya byggnaden måste klara både gränsen per byggnad (30 kvm) och det
+      som återstår av potten. Det som blir kvar av potten är ofta det som avgör.
+    lagrum:
+      - PBL 9 kap. 4 §
+    taggar: [pott, berakning, komplementbyggnad]
+
+  - id: lov-011
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Utanför detaljplan finns på en tomt med ett enbostadshus på 140 kvm byggnadsarea en
+      friggebod på 15 kvm (byggd 2012) och ett attefallshus på 30 kvm (anmält och byggt 2021).
+      Ägaren vill nu bygga en bygglovsbefriad komplementbyggnad. Hur stor byggnadsarea får den
+      högst ha?
+    svar: 20
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Potten utanför detaljplan är 65 kvm. Befintliga lovbefriade byggnader: 15 + 30 = 45 kvm.
+      65 − 45 = 20 kvm, vilket är mindre än gränsen 50 kvm per byggnad.
+    forklaring: >
+      Byggnader som var undantagna från krav på bygglov enligt äldre bestämmelser, t.ex.
+      friggebodar och attefallshus, ska räknas in i den sammanlagda byggnadsarean (9 kap. 5 §
+      andra stycket). Att attefallshuset krävde anmälan ändrar inte det, eftersom det var
+      undantaget från bygglov. Den här typen av fråga kommer du att få från allmänheten när
+      äldre lovbefriade byggnader redan finns på tomten.
+    lagrum:
+      - PBL 9 kap. 5 §
+    taggar: [pott, berakning, fore_och_nu, utanfor_plan]
+
+  - id: lov-012
+    typ: berakning
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På en tomt inom detaljplan finns ett enbostadshus, ett garage på 40 kvm som uppfördes med
+      bygglov 1998 och en bygglovsbefriad komplementbyggnad på 18 kvm. Ägaren vill bygga
+      ytterligare en lovbefriad komplementbyggnad. Hur stor byggnadsarea får den högst ha?
+    svar: 27
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Garaget byggdes med bygglov och räknas inte in i potten. Bara den lovbefriade byggnaden på
+      18 kvm räknas. 45 − 18 = 27 kvm, vilket är under gränsen 30 kvm per byggnad.
+    forklaring: >
+      Potten i 9 kap. 4 § 5 PBL omfattar bara komplementbyggnader och komplementbostadshus som
+      inte krävt bygglov, eller som undantagits från lov enligt äldre bestämmelser. Byggnader som
+      uppförts med bygglov ingår inte. Kontrollera därför alltid hur befintliga byggnader på
+      tomten har kommit till, t.ex. i kommunens arkiv, innan du svarar en fastighetsägare.
+    lagrum:
+      - PBL 9 kap. 4 §
+    taggar: [pott, berakning, komplementbyggnad]
+
+  - id: lov-013
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En bostadsrättsförening med ett flerbostadshus inom detaljplan vill bygga ett cykelförråd
+      på 25 kvm och 3 m nockhöjd, mer än 4,5 m från tomtgräns. Vad gäller?
+    alternativ:
+      - text: Bygglov krävs alltid, eftersom lovbefriade komplementbyggnader bara får byggas vid en- och tvåbostadshus.
+      - text: Bygglov krävs inte, men förrådet ska följa detaljplanen, t.ex. prickmark och byggrätt, eftersom undantaget i 10 kap. 2 a § bara gäller en- och tvåbostadshus.
+        ratt: true
+      - text: Bygglov krävs inte och förrådet får placeras var som helst på tomten oavsett detaljplanen.
+      - text: Det krävs anmälan och startbesked.
+    forklaring: >
+      En komplementbyggnad kan komplettera vilken byggnad som helst, så 9 kap. 4 § gäller även
+      vid ett flerbostadshus. Ett komplementbostadshus får däremot bara byggas vid ett en- eller
+      tvåbostadshus. En lovbefriad åtgärd ska som huvudregel inte strida mot detaljplanen
+      (10 kap. 2 § PBL). Undantaget i 10 kap. 2 a §, som låter vissa åtgärder strida mot planen,
+      omfattar bara komplementbyggnader till en- och tvåbostadshus. Andra lovbefriade åtgärder
+      får avvika bara om avvikelsen är liten och inte motverkar planens syfte (10 kap. 2 b §).
+    lagrum:
+      - PBL 9 kap. 4 §
+      - PBL 10 kap. 2 §
+      - PBL 10 kap. 2 a §
+      - PBL 10 kap. 2 b §
+    taggar: [komplementbyggnad, planenlighet, flerbostadshus]
+
+  - id: lov-014
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villa har sedan 2023 en tillbyggnad på 12 kvm bruttoarea som gjordes utan bygglov
+      enligt dåvarande regler. Ägaren vill nu bygga till ett inglasat uterum på 20 kvm som inte
+      når över husets taknock. Huset ligger inom detaljplan och tillbyggnaden hamnar mer än
+      4,5 m från gränsen. Vad gäller?
+    alternativ:
+      - text: Uterummet är bygglovsbefriat eftersom det är mindre än 30 kvm.
+      - text: Uterummet kräver bygglov, eftersom de lovbefriade tillbyggnaderna tillsammans skulle bli 32 kvm.
+        ratt: true
+      - text: Uterummet kräver anmälan men inte bygglov.
+      - text: Den gamla tillbyggnaden räknas inte, eftersom den gjordes före 1 december 2025.
+    forklaring: >
+      Enligt 9 kap. 10 § PBL är en tillbyggnad bygglovsbefriad om den har högst 30 kvm
+      bruttoarea eller öppenarea, inte går över byggnadens taknock och om alla lovbefriade
+      tillbyggnader på byggnaden tillsammans blir högst 30 kvm. Tillbyggnader som undantagits
+      från bygglov enligt äldre bestämmelser räknas med. 12 + 20 = 32 kvm, så bygglov krävs.
+      Ett uterum på högst 18 kvm hade varit lovbefriat.
+    lagrum:
+      - PBL 9 kap. 10 §
+    taggar: [tillbyggnad, lovbefriad, pott, fore_och_nu]
+
+  - id: lov-015
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Den bygglovsbefriade tillbyggnaden på 30 kvm i 9 kap. 10 § PBL får bara göras på en- och tvåbostadshus.
+    svar: false
+    forklaring: >
+      9 kap. 10 § gäller tillbyggnad av alla byggnader som inte är komplementbyggnader eller
+      komplementbostadshus, alltså även t.ex. kontor, industribyggnader och flerbostadshus. För
+      tillbyggnad av komplementbyggnader och komplementbostadshus gäller i stället 11 och
+      12 §§. Skillnaden ligger i planfrågan: bara tillbyggnad av en- och tvåbostadshus får
+      strida mot detaljplanen enligt 10 kap. 2 a §.
+    lagrum:
+      - PBL 9 kap. 10 §
+      - PBL 9 kap. 11 §
+      - PBL 10 kap. 2 a §
+    taggar: [tillbyggnad, lovbefriad]
+
+  # --- Gräns, järnväg och grannmedgivande -------------------------------------------------
+
+  - id: lov-016
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare inom detaljplan vill bygga en lovbefriad komplementbyggnad på 20 kvm, 3 m
+      från tomtgränsen. Grannen har sagt muntligen att det går bra. Vad gäller?
+    alternativ:
+      - text: Det räcker med grannens muntliga medgivande, eftersom åtgärden är lovbefriad.
+      - text: Bygglov krävs, om inte grannen lämnar sitt medgivande skriftligen.
+        ratt: true
+      - text: Bygglov krävs alltid när en byggnad placeras närmare gräns än 4,5 m.
+      - text: Det krävs en anmälan till byggnadsnämnden med grannens underskrift.
+    forklaring: >
+      Nära gräns gäller utökad lovplikt: nybyggnad och tillbyggnad närmare gränsen än 4,5 m
+      kräver bygglov även när åtgärden annars är lovbefriad (9 kap. 34 § PBL). Undantag gäller
+      om de grannar som berörs skriftligen har medgett åtgärden (35 § 3). Kravet på skriftligt
+      medgivande är nytt. Före 1 december 2025 kunde ett medgivande vara muntligt, vilket ofta
+      gav bevisproblem.
+    lagrum:
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 35 §
+    taggar: [grannmedgivande, grans, komplementbyggnad, fore_och_nu]
+
+  - id: lov-017
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En lovbefriad komplementbyggnad ska placeras 2 m från gränsen mot en gata som är allmän
+      plats med kommunen som huvudman. Vem kan lämna det medgivande som gör att bygglov inte
+      krävs?
+    alternativ:
+      - text: Ingen, bygglov krävs alltid intill allmän plats.
+      - text: Huvudmannen för den allmänna platsen, genom ett skriftligt medgivande.
+        ratt: true
+      - text: Ägarna till fastigheterna på andra sidan gatan.
+      - text: Byggnadsnämnden, genom ett tjänsteutlåtande.
+    forklaring: >
+      Vid en åtgärd intill allmän plats ska grannen anses ha medgett åtgärden om huvudmannen för
+      den allmänna platsen har lämnat medgivandet (9 kap. 35 § andra stycket). Motsvarande gäller
+      vid järnväg, där järnvägens infrastrukturförvaltare lämnar medgivandet. Möjligheten för
+      huvudmannen att medge är ny sedan 1 december 2025.
+    lagrum:
+      - PBL 9 kap. 35 §
+    taggar: [grannmedgivande, allman_plats, grans]
+
+  - id: lov-018
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En lovbefriad tillbyggnad på 18 kvm planeras 22 m från mitten av ett järnvägsspår och
+      10 m från närmaste tomtgräns. Vad gäller?
+    alternativ:
+      - text: Inget lov krävs, eftersom tillbyggnaden ligger mer än 4,5 m från tomtgräns.
+      - text: Bygglov krävs, om inte järnvägens infrastrukturförvaltare skriftligen har medgett åtgärden.
+        ratt: true
+      - text: Bygglov krävs alltid inom 30 m från järnväg, utan undantag.
+      - text: Det krävs bara en anmälan till Trafikverket.
+    forklaring: >
+      Den utökade lovplikten i 9 kap. 34 § PBL gäller dels närmare gränsen än 4,5 m, dels inom
+      30 m från ett järnvägsspårs mitt. Undantaget med skriftligt medgivande i 35 § gäller även
+      här; vid järnväg anses grannen ha medgett om järnvägens infrastrukturförvaltare har gjort
+      det. Mät från spårets mitt, inte från spårområdets gräns.
+    lagrum:
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 35 §
+    taggar: [jarnvag, grannmedgivande, utokad_lovplikt]
+
+  - id: lov-019
+    typ: sant_falskt
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett företag vill bygga en lovbefriad tillbyggnad på 20 kvm på sin kontorsbyggnad, 2 m från
+      gränsen och delvis på mark som enligt detaljplanen inte får bebyggas. Grannens skriftliga
+      medgivande räcker för att bygglov inte ska krävas.
+    svar: false
+    forklaring: >
+      Grannmedgivandet befriar från lovplikten i 9 kap. 34 § bara om åtgärden inte strider mot
+      detaljplanen, eller är en sådan åtgärd som enligt 10 kap. 2 a § får strida mot planen
+      (9 kap. 35 § 3). Undantaget i 10 kap. 2 a § gäller bl.a. tillbyggnad av en- och
+      tvåbostadshus, inte kontorsbyggnader. Tillbyggnaden strider mot planen och kräver därför
+      bygglov trots medgivandet. Hade det varit en villa hade medgivandet räckt.
+    lagrum:
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 35 §
+      - PBL 10 kap. 2 a §
+    taggar: [grannmedgivande, planenlighet, tillbyggnad]
+
+  - id: lov-020
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En lovbefriad komplementbyggnad på 25 kvm till ett enbostadshus placeras mer än 4,5 m från
+      gränsen men på mark som enligt detaljplanen inte får förses med byggnad (prickmark). Gäller
+      planbestämmelsen för komplementbyggnaden?
+    alternativ:
+      - text: Ja, en lovbefriad åtgärd ska alltid följa detaljplanen.
+      - text: Nej, åtgärden får strida mot detaljplanen, utom mot planbestämmelser om skyddsåtgärder, t.ex. mot översvämning eller markförorening.
+        ratt: true
+      - text: Nej, detaljplaner gäller inte alls för lovbefriade åtgärder.
+      - text: Det avgörs av byggnadsnämnden genom en prövning av liten avvikelse.
+    forklaring: >
+      Huvudregeln är att en åtgärd som inte kräver lov inte får strida mot detaljplanen
+      (10 kap. 2 § PBL). 10 kap. 2 a § gör undantag för bl.a. nybyggnad av komplementbyggnad
+      till ett en- eller tvåbostadshus, komplementbostadshus, tillbyggnad av en- och
+      tvåbostadshus, ytterligare en bostad i ett enbostadshus, murar och plank samt altaner upp
+      till 50 kvm. Undantaget gäller inte planbestämmelser om skyddsåtgärder enligt 4 kap. 12 § 1.
+      Kraven i 8 kap. PBL och reglerna nära gräns gäller fortfarande.
+    lagrum:
+      - PBL 10 kap. 2 §
+      - PBL 10 kap. 2 a §
+    taggar: [planenlighet, komplementbyggnad, prickmark]
+
+  # --- Anmälan och startbesked --------------------------------------------------------------
+
+  - id: lov-021
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett lovbefriat komplementbostadshus på 30 kvm ska få kök, dusch och WC som kopplas till
+      det kommunala vatten- och avloppsnätet. Vad behöver anmälas till byggnadsnämnden?
+    alternativ:
+      - text: Ingenting, eftersom byggnaden är lovbefriad.
+      - text: Själva byggnaden, men inte installationerna.
+      - text: Installationen av vatten och avlopp, men inte själva byggnaden.
+        ratt: true
+      - text: Både byggnaden och installationerna.
+    forklaring: >
+      Anmälningsplikten för själva komplementbyggnaden och komplementbostadshuset är slopad sedan
+      1 december 2025. Vilka åtgärder som kräver anmälan står nu i 6 kap. plan- och
+      byggförordningen, som 9 kap. 55 § PBL hänvisar till. Där finns bl.a. installation eller
+      väsentlig ändring av anläggningar för vattenförsörjning och avlopp i en byggnad och av
+      ventilation (6 kap. 1 § 4 och 5 PBF). Byggaren får alltså inte börja med installationerna
+      förrän nämnden gett startbesked.
+    lagrum:
+      - PBL 9 kap. 55 §
+      - PBF 6 kap. 1 §
+      - PBL 10 kap. 3 §
+    taggar: [anmalan, komplementbostadshus, va, startbesked]
+
+  - id: lov-022
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilka av följande åtgärder kräver anmälan enligt 6 kap. 1 § PBF? Ingen av åtgärderna
+      kräver bygglov, rivningslov eller marklov.
+    alternativ:
+      - text: Installera en eldstad och en rökkanal i ett enbostadshus.
+        ratt: true
+      - text: Ta bort en bärande vägg så att konstruktionen påverkas väsentligt.
+        ratt: true
+      - text: Göra en ändring som väsentligt påverkar byggnadens brandskydd.
+        ratt: true
+      - text: Installera en hiss i ett befintligt flerbostadshus.
+        ratt: true
+      - text: Bygga en lovbefriad komplementbyggnad på 20 kvm inom detaljplan.
+      - text: Byta köksluckor och bänkskivor.
+      - text: Riva ett lovbefriat förråd på 12 kvm byggnadsarea.
+    forklaring: >
+      6 kap. 1 § PBF räknar upp vad som kräver anmälan när lov inte krävs: rivning av en
+      byggnad större än 50 kvm byggnadsarea, ändring som väsentligt påverkar bärande delar eller
+      brandskydd, installation eller väsentlig ändring av hiss, eldstad, rökkanal eller
+      ventilation, installation eller väsentlig ändring av vatten och avlopp samt nybyggnad
+      eller väsentlig ändring av vindkraftverk. Lovbefriade komplementbyggnader är inte med i
+      listan. Små förråd kan rivas utan anmälan.
+    lagrum:
+      - PBF 6 kap. 1 §
+      - PBL 9 kap. 55 §
+    taggar: [anmalan, pbf, installationer]
+
+  - id: lov-023
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare har anmält att hon ska ta bort en bärande vägg mellan kök och vardagsrum.
+      När får arbetet påbörjas?
+    alternativ:
+      - text: Direkt när anmälan skickats in.
+      - text: Fyra veckor efter att anmälan kommit in, om nämnden inte hört av sig.
+      - text: När byggnadsnämnden har gett ett skriftligt startbesked.
+        ratt: true
+      - text: När en kontrollansvarig har godkänt ritningarna.
+    forklaring: >
+      En åtgärd som omfattas av anmälningsplikt får inte påbörjas innan byggnadsnämnden har gett
+      ett startbesked (10 kap. 3 § PBL). Nämnden ger startbesked om åtgärden kan antas uppfylla
+      de tekniska egenskapskraven (10 kap. 23 c §). Tystnad från nämnden är aldrig ett
+      godkännande. Startbeskedet gäller omedelbart (10 kap. 24 a §). Börjar man utan startbesked
+      kan det bli byggsanktionsavgift.
+    lagrum:
+      - PBL 10 kap. 3 §
+      - PBL 10 kap. 23 c §
+      - PBF 6 kap. 1 §
+    taggar: [anmalan, startbesked, barande_konstruktion]
+
+  - id: lov-024
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnadsnämnden ska handlägga en anmälan inom ___ veckor. Tidsfristen får förlängas högst
+      en gång med högst ___ veckor.
+    svar: ["4", "4"]
+    forklaring: >
+      6 kap. 5 § PBF säger att reglerna för ansökningar i 9 kap. PBL (bl.a. 91 § om
+      komplettering och 99–101 §§ om tidsfrister och information) gäller också för en anmälan,
+      men med fyra veckor i stället för tio. Avgiften för en anmälan reduceras med en femtedel
+      per påbörjad vecka som fristen överskrids (12 kap. 8 a § andra stycket PBL).
+    lagrum:
+      - PBF 6 kap. 5 §
+      - PBL 12 kap. 8 a §
+    taggar: [anmalan, handlaggningstid]
+
+  # --- Rivningslov och marklov ------------------------------------------------------------
+
+  - id: lov-025
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Inom detaljplan vill en ägare riva ett garage på 40 kvm byggnadsarea som uppfördes med
+      bygglov på 1970-talet. Vad krävs?
+    alternativ:
+      - text: Rivningslov
+        ratt: true
+      - text: Anmälan
+      - text: Ingenting, garage får alltid rivas fritt.
+      - text: Marklov
+    forklaring: >
+      Inom detaljplan krävs rivningslov för att riva en byggnad eller en del av en byggnad
+      (9 kap. 43 § PBL). Undantag gäller bl.a. för byggnader som har tidsbegränsat lov eller
+      som får uppföras utan bygglov och inte är särskilt värdefulla (45 §). Ett garage på 40 kvm
+      ryms inte inom gränsen för lovbefriade komplementbyggnader (30 kvm inom plan), så
+      undantaget gäller inte.
+    lagrum:
+      - PBL 9 kap. 43 §
+      - PBL 9 kap. 45 §
+    taggar: [rivningslov, detaljplan]
+
+  - id: lov-026
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Utanför detaljplan ska ett äldre fritidshus med 70 kvm byggnadsarea rivas. Det finns inga
+      områdesbestämmelser och huset är inte särskilt värdefullt. Vad krävs?
+    alternativ:
+      - text: Rivningslov
+      - text: Anmälan och startbesked
+        ratt: true
+      - text: Ingenting
+      - text: Marklov för att återställa tomten
+    forklaring: >
+      Utanför detaljplan krävs rivningslov bara i de fall som räknas upp i 9 kap. 44 § PBL:
+      krav eller förbud i områdesbestämmelser, särskilt värdefulla byggnadsverk och byggnader i
+      särskilt värdefulla bebyggelseområden. Annars krävs i stället anmälan om byggnaden har en
+      byggnadsarea som är större än 50 kvm (6 kap. 1 § 1 PBF), och då krävs också startbesked
+      innan rivningen börjar (10 kap. 3 § PBL).
+    lagrum:
+      - PBL 9 kap. 44 §
+      - PBF 6 kap. 1 §
+      - PBL 10 kap. 3 §
+    taggar: [rivning, anmalan, utanfor_plan]
+
+  - id: lov-027
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Rivningslov kan numera krävas även utanför detaljplan, för en byggnad som är särskilt värdefull enligt 8 kap. 13 § PBL.
+    svar: true
+    forklaring: >
+      Sedan 1 december 2025 krävs rivningslov utanför detaljplan för byggnadsverk som är
+      särskilt värdefulla enligt 8 kap. 13 § och för byggnader inom särskilt värdefulla
+      bebyggelseområden (9 kap. 44 § 2 och 3). Tidigare krävdes rivningslov utanför plan bara om
+      områdesbestämmelser krävde det. Rivningslov får vägras om byggnadsverket bör bevaras på
+      grund av sitt historiska, kulturhistoriska, miljömässiga eller konstnärliga värde (76 §).
+    lagrum:
+      - PBL 9 kap. 44 §
+      - PBL 9 kap. 76 §
+      - PBL 8 kap. 13 §
+    taggar: [rivningslov, kulturvarden, utanfor_plan]
+
+  - id: lov-028
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Inom detaljplan vill en villaägare fylla upp en del av trädgården så att marknivån höjs
+      0,8 m. Fyllningen ingår inte i något bygglov och planen anger ingen marknivå. Vad krävs?
+    alternativ:
+      - text: Ingenting, markarbeten på egen tomt är alltid fria.
+      - text: Marklov, eftersom höjdläget ändras mer än 0,5 m.
+        ratt: true
+      - text: Bygglov för fyllningen.
+      - text: Anmälan till byggnadsnämnden.
+    forklaring: >
+      Inom detaljplan krävs marklov för schaktning eller fyllning som ändrar höjdläget mer än
+      0,5 m, om inte markytan höjs eller sänks till den nivå som bestämts i planen
+      (9 kap. 47 § 1 PBL). Måttet 0,5 m är nytt i lagen sedan 1 december 2025. Marklov krävs
+      inte om markåtgärden omfattas av ett bygglov (50 §), t.ex. när fyllningen ingår i ett
+      beviljat bygglov för ett nytt hus.
+    lagrum:
+      - PBL 9 kap. 47 §
+      - PBL 9 kap. 50 §
+    taggar: [marklov, fyllning]
+
+  # --- Annan ändring, fasad, solceller ----------------------------------------------------
+
+  - id: lov-029
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken av följande åtgärder kräver INTE bygglov?
+    alternativ:
+      - text: Inreda ytterligare en bostad i ett enbostadshus.
+        ratt: true
+      - text: Inreda ytterligare en bostad i ett tvåbostadshus.
+      - text: Bygga om ett lager inom detaljplan till bostäder.
+      - text: Göra om en butikslokal till förskola.
+    forklaring: >
+      Huvudregeln är att det krävs bygglov när det i en byggnad inreds ytterligare en bostad
+      (9 kap. 15 § 2 PBL) och när en byggnad tas i anspråk för ett väsentligen annat ändamål
+      (15 § 1). 17 § 1 gör undantag för ytterligare en bostad i ett enbostadshus som inte är ett
+      komplementbostadshus. Ett tvåbostadshus omfattas inte av undantaget. Undantaget gäller
+      inte heller i särskilt värdefulla miljöer (37 §).
+    lagrum:
+      - PBL 9 kap. 15 §
+      - PBL 9 kap. 17 §
+      - PBL 9 kap. 37 §
+    taggar: [andrad_anvandning, ytterligare_bostad, lovplikt]
+
+  - id: lov-030
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare inom detaljplan vill byta fasad från rött tegel till vit puts. Huset omfattas
+      inte av skyddsbestämmelser och är inte särskilt värdefullt. Vad gäller?
+    alternativ:
+      - text: Bygglov krävs, eftersom husets karaktär ändras väsentligt.
+      - text: Bygglov krävs bara för den fasad som vetter mot gatan.
+      - text: Bygglov krävs inte, eftersom lovplikten för fasadändring inte gäller en- och tvåbostadshus.
+        ratt: true
+      - text: Det krävs anmälan och startbesked.
+    forklaring: >
+      Enligt 9 kap. 15 § 3 PBL krävs bygglov för fasadändring inom detaljplan bara på andra
+      byggnader än en- och tvåbostadshus, komplementbyggnader och komplementbostadshus, och bara
+      på fasad eller tak mot allmän plats. Fasadändring definieras i 1 kap. 4 § som byte av
+      kulör, fasadbeklädnad eller taktäckningsmaterial eller annan påverkan på byggnadens yttre
+      karaktärsdrag. För särskilt värdefulla byggnader eller områden med skyddsbestämmelser
+      krävs däremot lov även på villor (37 §).
+    lagrum:
+      - PBL 9 kap. 15 §
+      - PBL 9 kap. 37 §
+      - PBL 1 kap. 4 §
+    taggar: [fasadandring, en_och_tvabostadshus]
+
+  - id: lov-031
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett flerbostadshus inom detaljplan ska få solpaneler på det takfall som vetter mot gatan,
+      som är allmän plats. Anläggningen får en effekt på 40 kW. Byggnaden är inte särskilt värdefull och ligger inte
+      i närheten av något riksintresse för totalförsvaret. Vad gäller?
+    alternativ:
+      - text: Bygglov krävs inte, solenergianläggningar är alltid lovbefriade.
+      - text: Bygglov krävs som fasadändring, eftersom effekten överstiger 11 kW.
+        ratt: true
+      - text: Det krävs anmälan, eftersom det är en teknisk installation.
+      - text: Bygglov krävs bara om anläggningen syns från gatan.
+    forklaring: >
+      Solpaneler på en fasad eller ett tak är en fasadändring. På ett flerbostadshus inom
+      detaljplan, mot allmän plats, kräver det bygglov enligt 9 kap. 15 § 3 PBL. 17 a § gör
+      undantag för solenergianläggningar med en effekt om högst elva kilowatt. Här är effekten
+      40 kW, så lov krävs. Handläggningsfristen får i sådana ärenden bara förlängas med högst två
+      veckor (99 §).
+    lagrum:
+      - PBL 9 kap. 15 §
+      - PBL 9 kap. 17 a §
+      - PBL 9 kap. 99 §
+    taggar: [solceller, fasadandring, lovplikt]
+
+  # --- Anläggningar och skyltar -----------------------------------------------------------
+
+  - id: lov-032
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilka av följande åtgärder kräver bygglov inom detaljplan? Alla placeras mer än 4,5 m från
+      tomtgräns och inget är särskilt värdefullt.
+    alternativ:
+      - text: Ett 1,5 m högt plank som placeras 10 m från bostadshuset.
+        ratt: true
+      - text: En 1,0 m hög mur 2 m från bostadshuset.
+      - text: En parkeringsplats för en verksamhet som tillsammans med befintlig parkering på fastigheten blir 60 kvm.
+        ratt: true
+      - text: Ett upplag på 10 kvm och 2 m höjd.
+      - text: En fast förvaringsanläggning som är 3,5 m hög.
+        ratt: true
+    forklaring: >
+      Lovplikten för anläggningar står sedan 1 december 2025 direkt i PBL. Mur, plank och altan
+      inom detaljplan kräver lov om de är högre än 1,8 m inom 3,6 m från en byggnad eller högre
+      än 1,2 m längre bort (9 kap. 19 §). Parkering kräver lov inom plan om den sammanlagda ytan
+      blir större än 50 kvm (22 §). Upplag, materialgårdar och fasta förvaringsanläggningar
+      kräver lov om de är högre än 3 m eller tar mer än 15 kvm inom plan (25 §).
+    lagrum:
+      - PBL 9 kap. 19 §
+      - PBL 9 kap. 22 §
+      - PBL 9 kap. 25 §
+    taggar: [anlaggningar, plank, parkering, upplag]
+
+  - id: lov-033
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare vill sätta upp en 15 m hög mast för amatörradio, 10 m från tomtgränsen. Krävs
+      bygglov?
+    alternativ:
+      - text: Nej, eftersom masten är lägre än 20 m.
+      - text: Ja, eftersom avståndet till gränsen är mindre än mastens höjd.
+        ratt: true
+      - text: Nej, bara master för mobiltelefoni kräver lov.
+      - text: Ja, alla master kräver bygglov.
+    forklaring: >
+      Enligt 9 kap. 28 § 3 PBL krävs bygglov för en mast, ett torn, en skorsten eller ett
+      vindkraftverk som är högre än 20 m eller som placeras närmare gränsen än anläggningens
+      höjd. Masten är 15 m men står bara 10 m från gränsen, så lov krävs. Lovplikten gäller nu
+      alla master och torn, inte bara radio- och telemaster som tidigare.
+    lagrum:
+      - PBL 9 kap. 28 §
+    taggar: [anlaggningar, mast, grans]
+
+  - id: lov-034
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En butik i ett affärshus inom detaljplan vill sätta upp en stor skylt på fasaden mot torget,
+      som är allmän plats. Byggnaden är inte särskilt värdefull. Vad är rätt beskrivning?
+    alternativ:
+      - text: Alla skyltar kräver bygglov inom detaljplan.
+      - text: Det finns ingen generell lovplikt för skyltar längre, men skylten kan kräva bygglov som fasadändring.
+        ratt: true
+      - text: Skyltar regleras inte alls i PBL efter 1 december 2025.
+      - text: Skylten kräver anmälan enligt 6 kap. PBF.
+    forklaring: >
+      Den generella lovplikten för skyltar och ljusanordningar är borttagen. En skylt på en
+      byggnad kan ändå kräva bygglov som fasadändring om den påverkar byggnadens yttre
+      karaktärsdrag, när byggnaden inte är ett en- eller tvåbostadshus och fasaden vetter mot
+      allmän plats (9 kap. 15 § 3 och 1 kap. 4 §). I särskilt värdefulla miljöer kan lov krävas
+      även för fristående skyltar (38 § 2). Skyltar är numera uttryckligen byggnadsverk.
+    lagrum:
+      - PBL 9 kap. 15 §
+      - PBL 9 kap. 38 §
+      - PBL 1 kap. 4 §
+    taggar: [skyltar, fasadandring]
+
+  # --- Utanför plan, ekonomibyggnader, särskilda områden ---------------------------------
+
+  - id: lov-035
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En lantbrukare utanför detaljplan vill uppföra en ny maskinhall för jordbruket, 3 m från
+      gränsen mot grannfastigheten. Vad gäller enligt PBL?
+    alternativ:
+      - text: Bygglov krävs, eftersom hallen ligger närmare gränsen än 4,5 m.
+      - text: Bygglov krävs inte, och reglerna om utökad lovplikt nära gräns gäller inte ekonomibyggnader utanför detaljplan.
+        ratt: true
+      - text: Det krävs anmälan och startbesked.
+      - text: Bygglov krävs om hallen är större än 50 kvm.
+    forklaring: >
+      En ekonomibyggnad är en byggnad som behövs för jordbruk, skogsbruk, vattenbruk, fiske
+      eller renskötsel (1 kap. 4 §). Utanför detaljplan krävs inte bygglov för ekonomibyggnader
+      (9 kap. 6 §), och undantaget nära gräns i 35 § 1 gör att 34 § inte slår till. Byggnaden
+      måste ändå uppfylla kraven i 8 kap. Kontrollera alltid om byggnaden verkligen är en
+      ekonomibyggnad, och om utökad lovplikt gäller, t.ex. för hästhållning nära totalförsvarets
+      flygplatser och skjutfält (36 §), eller strandskydd.
+    lagrum:
+      - PBL 9 kap. 6 §
+      - PBL 9 kap. 35 §
+      - PBL 1 kap. 4 §
+    taggar: [ekonomibyggnad, utanfor_plan, grans]
+
+  - id: lov-036
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villa inom detaljplan omfattas av en skyddsbestämmelse för särskilda värden enligt
+      4 kap. 16 § 3 PBL. Ägaren vill göra en tillbyggnad på 15 kvm som annars hade varit
+      lovbefriad. Vad gäller?
+    alternativ:
+      - text: Tillbyggnaden är lovbefriad, eftersom den är mindre än 30 kvm.
+      - text: Bygglov krävs, eftersom byggnaden omfattas av skyddsbestämmelser.
+        ratt: true
+      - text: Det krävs anmälan till länsstyrelsen.
+      - text: Det krävs rivningslov för den fasaddel som tas bort.
+    forklaring: >
+      9 kap. 37 § PBL innebär utökad lovplikt för nybyggnad, tillbyggnad, ytterligare en bostad
+      i ett enbostadshus och fasadändring när byggnaden omfattas av skyddsbestämmelser i
+      detaljplan eller områdesbestämmelser, när den är särskilt värdefull enligt 8 kap. 13 §,
+      eller när åtgärden görs i ett skyddat eller särskilt värdefullt område. 14 § påminner om att
+      lovfriheten i 10 § inte gäller i sådana fall. Lovprövningen ger nämnden möjlighet att
+      upprätthålla förvanskningsförbudet.
+    lagrum:
+      - PBL 9 kap. 37 §
+      - PBL 9 kap. 14 §
+      - PBL 8 kap. 13 §
+    taggar: [kulturvarden, utokad_lovplikt, tillbyggnad]
+
+  - id: lov-037
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En fastighetsägare vill bygga en lovbefriad komplementbyggnad på 20 kvm, 40 m från
+      strandlinjen vid en större sjö och 30 m från sitt bostadshus. Inget beslut om upphävt
+      strandskydd finns. Vad behöver hon
+      utöver att följa reglerna i PBL?
+    alternativ:
+      - text: Ingenting, lovbefriade byggnader omfattas inte av strandskyddet.
+      - text: Dispens från strandskyddet, eftersom nya byggnader inte får uppföras inom strandskyddsområdet.
+        ratt: true
+      - text: Bygglov, eftersom strandskyddet gör åtgärden lovpliktig.
+      - text: Ett skriftligt medgivande från länsstyrelsen enligt 9 kap. 35 § PBL.
+    forklaring: >
+      Strandskyddet gäller normalt 100 m från strandlinjen (7 kap. 14 § miljöbalken) och inom
+      strandskyddsområdet får nya byggnader inte uppföras (7 kap. 15 §). Det gäller oavsett om
+      åtgärden kräver bygglov. Dispens prövas normalt av kommunen och kräver särskilda skäl
+      (7 kap. 18 c §). Byggnadsnämnden ska upplysa sökanden om andra tillstånd som behövs
+      (9 kap. 92 § PBL). Kontrollera också om sjön omfattas, små sjöar och smala vattendrag kan
+      vara undantagna (7 kap. 13 a och 13 b §§ MB).
+    lagrum:
+      - MB 7 kap. 14 §
+      - MB 7 kap. 15 §
+      - MB 7 kap. 18 c §
+      - PBL 9 kap. 92 §
+    taggar: [strandskydd, lovbefriad, angransande_lagstiftning]
+
+  - id: lov-038
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: En åtgärd som inte kräver bygglov behöver inte uppfylla kraven på byggnadsverk i 8 kap. PBL.
+    svar: false
+    forklaring: >
+      Kraven i 8 kap. PBL, t.ex. utformningskrav, tekniska egenskapskrav och
+      förvanskningsförbudet, gäller alla byggnadsverk oavsett om de kräver lov. Byggherren
+      ansvarar för att åtgärden uppfyller kraven (10 kap. 5 §). Det som försvinner med
+      lovfriheten är den förebyggande prövningen, inte kraven. Brister kan leda till
+      tillsynsingripanden enligt 11 kap.
+    lagrum:
+      - PBL 8 kap.
+      - PBL 10 kap. 5 §
+    taggar: [krav_pa_byggnadsverk, lovbefriad, byggherrens_ansvar]
+
+  - id: lov-039
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Kommunen kan i en ny detaljplan bestämma att det inte ska krävas bygglov för fler åtgärder än vad PBL anger.
+    svar: false
+    forklaring: >
+      Sedan 1 december 2025 kan kommunen inte längre bestämma omfattningen av lovplikten i
+      detaljplan, med undantag för utökad lovplikt inom eller nära riksintressen för
+      totalförsvarets anläggningar (4 kap. 15 § PBL). Enligt Boverket slutar planbestämmelser om
+      minskad lovplikt som beslutats med stöd av PBL att gälla 1 december 2027. Fram till dess
+      kräver nybyggnader och tillbyggnader som undantagits från lov genom en sådan plan anmälan
+      (6 kap. 3 § PBF).
+    lagrum:
+      - PBL 4 kap. 15 §
+      - PBL 9 kap. 2 §
+      - PBF 6 kap. 3 §
+    taggar: [detaljplan, lovplikt, overgangsregler]
+
+  - id: lov-040
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Utanför detaljplan och utanför sammanhållen bebyggelse vill en ägare inreda en frisörsalong
+      på 35 kvm i en befintlig ladugård, som i dag bara används som förråd. Ladugården ligger
+      15 m från tomtgräns och är inte särskilt värdefull. Vad gäller?
+    alternativ:
+      - text: Bygglov krävs alltid för väsentligt ändrad användning.
+      - text: Bygglov krävs inte, eftersom lokalerna inte blir större än 50 kvm bruttoarea.
+        ratt: true
+      - text: Bygglov krävs inte, eftersom ladugården är en ekonomibyggnad.
+      - text: Det krävs marklov.
+    forklaring: >
+      Ändrad användning till ett väsentligen annat ändamål kräver normalt bygglov
+      (9 kap. 15 § 1 PBL). 16 § 1 gör undantag när det i en byggnad i ett område som varken
+      omfattas av detaljplan eller ingår i sammanhållen bebyggelse inreds en eller flera lokaler
+      med en sammanlagd bruttoarea på högst 50 kvm. Nära gräns (4,5 m) eller järnväg gäller ändå
+      utökad lovplikt (34 § 2). Tekniska åtgärder, t.ex. ny ventilation eller VA, kan kräva
+      anmälan.
+    lagrum:
+      - PBL 9 kap. 15 §
+      - PBL 9 kap. 16 §
+      - PBL 9 kap. 34 §
+    taggar: [andrad_anvandning, utanfor_plan, sammanhallen_bebyggelse]
+
+  # --- Para ihop, ordning ----------------------------------------------------------------
+
+  - id: lov-041
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop åtgärden med rätt paragraf i 9 kap. PBL.
+    par:
+      - vanster: Lovbefriad komplementbyggnad inom detaljplan
+        hoger: 9 kap. 4 §
+      - vanster: Lovbefriad komplementbyggnad utanför detaljplan
+        hoger: 9 kap. 5 §
+      - vanster: Lovbefriad tillbyggnad om högst 30 kvm
+        hoger: 9 kap. 10 §
+      - vanster: Utökad lovplikt nära gräns och järnväg
+        hoger: 9 kap. 34 §
+      - vanster: Skriftligt grannmedgivande
+        hoger: 9 kap. 35 §
+      - vanster: Utökad lovplikt för särskilt värdefulla byggnader
+        hoger: 9 kap. 37 §
+    forklaring: >
+      Det nya 9 kap. har en logik som är värd att lära sig: först huvudregeln (3 §, 9 §, 15 §),
+      sedan undantagen (4–7 §§, 10–13 §§, 16–17 a §§) och sist de bestämmelser som återinför
+      lovplikt i vissa lägen (34–38 §§). När du bedömer en åtgärd, gå i samma ordning.
+    lagrum:
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 5 §
+      - PBL 9 kap. 10 §
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 35 §
+      - PBL 9 kap. 37 §
+    taggar: [lagrum, lovbefriad, struktur]
+
+  - id: lov-042
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop begreppet med definitionen i 1 kap. 4 § PBL.
+    par:
+      - vanster: Komplementbyggnad
+        hoger: Fristående byggnad som kompletterar en byggnad och inte är inredd med en självständig bostad
+      - vanster: Komplementbostadshus
+        hoger: Fristående byggnad som kompletterar ett en- eller tvåbostadshus och är inredd med en självständig bostad
+      - vanster: Ekonomibyggnad
+        hoger: Byggnad som behövs för jordbruket, skogsbruket, vattenbruket, fisket eller renskötseln
+      - vanster: Fasadändring
+        hoger: Byte av kulör, fasadbeklädnad eller taktäckningsmaterial, eller annan påverkan på yttre karaktärsdrag
+      - vanster: Sammanhållen bebyggelse
+        hoger: Bebyggelse på tomter som gränsar till varandra eller skiljs åt endast av en väg, gata eller parkmark
+    forklaring: >
+      Fyra av definitionerna (ekonomibyggnad, fasadändring, komplementbostadshus och
+      komplementbyggnad) infördes i 1 kap. 4 § den 1 december 2025. Tidigare fick man leta
+      i förarbeten och praxis. Lär dig dem ordagrant, de avgör ofta om ett undantag gäller.
+    lagrum:
+      - PBL 1 kap. 4 §
+    taggar: [begrepp, definitioner]
+
+  - id: lov-043
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare ska installera en eldstad med rökkanal i sitt lovbefriade
+      komplementbostadshus. Ordna stegen.
+    poster:
+      - Byggherren lämnar in en anmälan med de handlingar som behövs för startbesked.
+      - Nämnden granskar anmälan och förelägger vid behov om komplettering.
+      - Nämnden ger startbesked och fastställer kontrollplanen.
+      - Installationen utförs och kontrolleras enligt kontrollplanen.
+      - Byggherren begär slutbesked och lämnar in underlag, t.ex. intyg från sotare.
+      - Nämnden ger slutbesked och eldstaden får tas i bruk.
+    forklaring: >
+      Eldstad och rökkanal är anmälningspliktiga (6 kap. 1 § 4 PBF). Anmälan ska innehålla de
+      handlingar som krävs för startbesked (6 kap. 6 § PBF). Arbetet får inte påbörjas förrän
+      startbesked getts (10 kap. 3 § PBL) och det som omfattas av startbeskedet får inte tas i
+      bruk förrän nämnden gett slutbesked (10 kap. 4 §). Att komplementbostadshuset i sig är
+      lovbefriat och anmälningsfritt ändrar inte detta.
+    lagrum:
+      - PBF 6 kap. 1 §
+      - PBF 6 kap. 6 §
+      - PBL 10 kap. 3 §
+      - PBL 10 kap. 4 §
+    taggar: [anmalan, startbesked, slutbesked, eldstad]
+
+  # --- Före 1 december 2025 och nu -------------------------------------------------------
+
+  - id: lov-044
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I en kursbok från 2022 står det att man får bygga en friggebod på 15 kvm utan bygglov. Vad
+      motsvarar det i dag inom detaljplan?
+    alternativ:
+      - text: Friggeboden finns kvar med samma mått, 15 kvm.
+      - text: En bygglovsbefriad komplementbyggnad på högst 30 kvm, inom en pott på 45 kvm per tomt.
+        ratt: true
+      - text: En anmälningspliktig komplementbyggnad på högst 25 kvm.
+      - text: Begreppet har ersatts av attefallshus på 30 kvm.
+    forklaring: >
+      Före 1 december 2025 fanns friggebod (15 kvm) och attefallshus (30 kvm, med anmälan) som
+      separata undantag. I dag finns i stället bygglovsbefriad komplementbyggnad och
+      komplementbostadshus, som omfattas av samma mått och en gemensam pott (9 kap. 4 och 5 §§). Orden
+      friggebod och attefallshus finns inte längre i lagen, men du kommer att höra dem från
+      sökande och se dem i äldre beslut och litteratur.
+    lagrum:
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 5 §
+    taggar: [fore_och_nu, komplementbyggnad]
+
+  - id: lov-045
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Före 1 december 2025 krävde ett attefallshus på 30 kvm anmälan och startbesked. Vad gäller
+      för ett komplementbostadshus på 30 kvm inom detaljplan i dag, om alla krav i 9 kap. 4 § är
+      uppfyllda?
+    alternativ:
+      - text: Samma som förut, anmälan och startbesked för byggnaden.
+      - text: Bygglov krävs, eftersom det innehåller en bostad.
+      - text: Ingen anmälan för själva byggnaden, men anmälan krävs för t.ex. installation av vatten, avlopp och ventilation.
+        ratt: true
+      - text: Varken anmälan eller startbesked krävs för något, inte heller installationer.
+    forklaring: >
+      Anmälningsplikten för själva byggnaden är borttagen. De tekniska installationerna kräver
+      fortfarande anmälan och startbesked enligt 6 kap. 1 § PBF, så i praktiken blir det ofta en
+      anmälan för ett komplementbostadshus med kök och badrum. Skillnaden är att nämnden inte
+      längre prövar byggnaden som sådan. Glöm inte gränsregeln i 9 kap. 34–35 §§.
+    lagrum:
+      - PBL 9 kap. 4 §
+      - PBF 6 kap. 1 §
+      - PBL 9 kap. 55 §
+    taggar: [fore_och_nu, komplementbostadshus, anmalan]
+
+  - id: lov-046
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande är nyheter sedan 1 december 2025 jämfört med reglerna före?
+    alternativ:
+      - text: Grannens medgivande nära gräns måste vara skriftligt.
+        ratt: true
+      - text: Den lovbefriade tillbyggnaden får vara 30 kvm i stället för 15 kvm.
+        ratt: true
+      - text: Själva komplementbyggnaden eller komplementbostadshuset kräver inte anmälan.
+        ratt: true
+      - text: Det krävs marklov inom plan när höjdläget ändras mer än 0,5 m.
+        ratt: true
+      - text: Lovbefriade byggnader får placeras närmare gränsen än 4,5 m utan medgivande.
+      - text: Bara byggnader som uppförts efter 1 december 2025 räknas in i potten.
+    forklaring: >
+      Grannmedgivandet ska nu alltid vara skriftligt (9 kap. 35 §), den lovbefriade
+      tillbyggnaden är 30 kvm (10 §, tidigare 15 kvm), anmälningsplikten för själva byggnaden är
+      borta och marklovsplikten inom plan har fått ett mått, 0,5 m (47 §). Gränsregeln på 4,5 m
+      finns kvar som utökad lovplikt (34 §), och äldre lovbefriade byggnader räknas in i potten
+      (4 och 5 §§).
+    lagrum:
+      - PBL 9 kap. 35 §
+      - PBL 9 kap. 10 §
+      - PBL 9 kap. 47 §
+      - PBL 9 kap. 4 §
+    taggar: [fore_och_nu, nyheter]
+
+  - id: lov-047
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Begreppen friggebod och attefallshus finns kvar i PBL efter 1 december 2025, men med nya mått.
+    svar: false
+    forklaring: >
+      Begreppen är borttagna ur lagen. I stället talar 9 kap. PBL om komplementbyggnad och
+      komplementbostadshus, som definieras i 1 kap. 4 §. I samtal med allmänheten är det bra att
+      kunna översätta: "friggebod" motsvarar i dag oftast en bygglovsbefriad komplementbyggnad
+      och "attefallshus" ett komplementbostadshus eller en större komplementbyggnad.
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 9 kap. 4 §
+    taggar: [fore_och_nu, begrepp]
+
+  # --- Instudering -----------------------------------------------------------------------
+
+  - id: lov-048
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara hur en lovbefriad åtgärd förhåller sig till kraven på byggnadsverk och till
+      detaljplanen. Varför är det fel att säga att "lovfritt betyder att man får göra vad man
+      vill"?
+    bedomningspunkter:
+      - Kraven i 8 kap. PBL (utformning, tekniska egenskapskrav, varsamhet, förvanskningsförbud) gäller oavsett lovplikt.
+      - Byggherren ansvarar själv för att kraven uppfylls (10 kap. 5 § PBL).
+      - Huvudregeln är att en lovbefriad åtgärd inte får strida mot detaljplan eller områdesbestämmelser (10 kap. 2 §).
+      - Undantaget i 10 kap. 2 a § (bl.a. komplementbyggnad och tillbyggnad till en- och tvåbostadshus, murar och plank) och att skyddsbestämmelser ändå gäller.
+      - Andra lovbefriade åtgärder får avvika bara lite och utan att motverka planens syfte (10 kap. 2 b §).
+      - Annan lagstiftning gäller ändå, t.ex. strandskydd, och anmälan kan krävas för installationer.
+      - Nämnden kan ingripa i efterhand genom tillsyn (11 kap.).
+    modellsvar: >
+      Lovfrihet betyder bara att nämnden inte prövar åtgärden i förväg. Byggnadsverket måste
+      ändå uppfylla kraven i 8 kap. PBL, t.ex. på utformning, bärförmåga, brandskydd och
+      varsamhet, och byggherren ansvarar själv för det (10 kap. 5 §). Huvudregeln i 10 kap. 2 §
+      är att en lovbefriad åtgärd inte heller får strida mot detaljplanen eller
+      områdesbestämmelserna. Ett viktigt undantag finns i 10 kap. 2 a §: bl.a. komplementbyggnader
+      och tillbyggnader till en- och tvåbostadshus, komplementbostadshus, murar och plank får
+      strida mot planen, dock inte mot bestämmelser om skyddsåtgärder. Övriga lovbefriade
+      åtgärder får bara avvika lite (2 b §). Därtill gäller annan lagstiftning, som strandskyddet
+      i miljöbalken, och vissa tekniska installationer kräver anmälan enligt 6 kap. PBF. Om
+      reglerna inte följs kan nämnden ingripa med tillsyn enligt 11 kap.
+    lagrum:
+      - PBL 8 kap.
+      - PBL 10 kap. 2 §
+      - PBL 10 kap. 2 a §
+      - PBL 10 kap. 2 b §
+      - PBL 10 kap. 5 §
+    taggar: [lovbefriad, planenlighet, krav_pa_byggnadsverk]
+
+  - id: lov-049
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne inom detaljplan har en friggebod på 12 kvm (byggd 2015) och ett attefallshus på
+      25 kvm (anmält och byggt 2019). Han ringer och vill bygga ytterligare ett lovbefriat förråd.
+      Förklara vad som gäller och hur stort förrådet får bli.
+    bedomningspunkter:
+      - Förklarar att friggebod och attefallshus i dag motsvaras av komplementbyggnad och komplementbostadshus (9 kap. 4 §).
+      - Räknar in de äldre byggnaderna i potten eftersom de var undantagna från lov enligt äldre bestämmelser.
+      - "Räknar rätt: 45 − 12 − 25 = 8 kvm kvar."
+      - Nämner övriga villkor (nockhöjd 4 m, mindre än huvudbyggnaden, inom tomten).
+      - Nämner gränsregeln 4,5 m och kravet på skriftligt grannmedgivande (34–35 §§).
+      - Påminner om att större förråd kräver bygglov och att det går att söka.
+    modellsvar: >
+      Sedan 1 december 2025 finns inte friggebod och attefallshus som begrepp. Lovbefriade
+      komplementbyggnader och komplementbostadshus inom detaljplan får sammanlagt ha högst 45 kvm
+      byggnadsarea på tomten (9 kap. 4 §), och äldre byggnader som var undantagna från lov räknas
+      in. Friggeboden och attefallshuset tar tillsammans 37 kvm, så det finns 8 kvm kvar. Ett
+      lovbefriat förråd får alltså vara högst 8 kvm, nockhöjd högst 4 m och placeras inom tomten.
+      Hamnar det närmare gränsen än 4,5 m behövs grannens skriftliga medgivande, annars bygglov.
+      Vill han ha ett större förråd kan han söka bygglov.
+    lagrum:
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 35 §
+    taggar: [pott, fore_och_nu, service]
+
+  - id: lov-050
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En kund ringer. Hon har ett enbostadshus på 120 kvm byggnadsarea utanför detaljplan och
+      utanför sammanhållen bebyggelse och vill bygga en gäststuga på 35 kvm med eget kök och
+      badrum, 3 m från gränsen, 30 m från bostadshuset och 60 m från stranden av en stor sjö.
+      Strandskyddet är inte upphävt. Inga andra
+      komplementbyggnader finns. Vad svarar du?
+    bedomningspunkter:
+      - Gäststugan är ett komplementbostadshus och ryms i måtten utanför plan (50 kvm, 4,5 m nockhöjd, pott 65 kvm, mindre än huvudbyggnaden) enligt 9 kap. 5 §.
+      - Placeringen 3 m från gränsen kräver bygglov om inte berörda grannar skriftligen medger (34–35 §§).
+      - Installation av vatten, avlopp och ventilation kräver anmälan och startbesked (6 kap. 1 § PBF).
+      - Strandskyddet gäller inom 100 m och dispens krävs oavsett lovfrihet (7 kap. 14–15 §§ MB).
+      - Avlopp kan också kräva tillstånd eller anmälan hos miljönämnden.
+      - Kraven i 8 kap. PBL gäller och hon ansvarar själv som byggherre.
+      - Svaret ges på ett begripligt sätt och med erbjudande om fortsatt hjälp (serviceskyldighet, FL 6 §).
+    modellsvar: >
+      Gäststugan med eget kök och bad är ett komplementbostadshus. Utanför detaljplan får det
+      vara högst 50 kvm byggnadsarea och 4,5 m i nockhöjd, mindre än huset och inom tomten,
+      och potten är 65 kvm (9 kap. 5 § PBL). 35 kvm går alltså bra. Eftersom stugan ska stå
+      3 m från gränsen krävs bygglov om inte grannen skriftligen medger placeringen (34–35 §§).
+      Själva byggnaden ska inte anmälas, men installationerna av vatten, avlopp och ventilation
+      ska anmälas och hon måste vänta på startbesked (6 kap. 1 § PBF, 10 kap. 3 § PBL). Stugan
+      ligger 60 m från sjön och därmed inom strandskyddsområdet, så hon behöver dispens från
+      strandskyddet oavsett lovfriheten (7 kap. 15 § miljöbalken). Ett nytt avlopp kan också
+      behöva prövas av miljönämnden. Jag förklarar att hon själv ansvarar för att byggnaden
+      uppfyller kraven och erbjuder henne att skicka in frågor skriftligt.
+    lagrum:
+      - PBL 9 kap. 5 §
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 35 §
+      - PBF 6 kap. 1 §
+      - MB 7 kap. 15 §
+      - FL 6 §
+    taggar: [komplementbostadshus, utanfor_plan, strandskydd, service]
+
+  - id: lov-051
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara för en villaägare skillnaden mellan bygglov, anmälan och startbesked. Ge ett
+      exempel på en åtgärd för vart och ett av fallen bygglov, anmälan och varken lov eller
+      anmälan.
+    bedomningspunkter:
+      - "Bygglov: förhandsprövning av om åtgärden får göras på platsen och hur den utformas (9 kap. PBL), t.ex. ett nytt bostadshus eller en tillbyggnad på 40 kvm."
+      - "Anmälan: ingen lovprövning, men nämnden ska ge startbesked innan arbetet börjar (6 kap. PBF), t.ex. eldstad, ventilation, VA eller ändring av bärande konstruktion."
+      - "Startbesked: beslut som krävs för både lovpliktiga och anmälningspliktiga åtgärder innan de påbörjas (10 kap. 3 § PBL)."
+      - "Varken lov eller anmälan: t.ex. en lovbefriad komplementbyggnad, men kraven i 8 kap. gäller ändå."
+      - Nämner att startbesked gäller omedelbart och att slutbesked krävs innan åtgärden tas i bruk.
+    modellsvar: >
+      Bygglov är en prövning i förväg av om åtgärden får göras på platsen, t.ex. att den följer
+      detaljplanen och är lämpligt utformad. Det krävs t.ex. för ett nytt hus eller en
+      tillbyggnad som är större än 30 kvm. Anmälan används för åtgärder som inte kräver lov men
+      där nämnden vill se att de tekniska kraven blir uppfyllda, t.ex. en ny eldstad eller att ta
+      bort en bärande vägg (6 kap. 1 § PBF). Startbesked är beslutet som säger att arbetet får
+      börja och krävs både efter bygglov och efter anmälan (10 kap. 3 § PBL). Startbeskedet
+      gäller omedelbart. En lovbefriad komplementbyggnad på 20 kvm kräver varken lov eller
+      anmälan, men den ska ändå uppfylla kraven i 8 kap. PBL. När arbetet är klart krävs i
+      lov- och anmälningsärenden slutbesked innan det tas i bruk.
+    lagrum:
+      - PBL 9 kap. 3 §
+      - PBF 6 kap. 1 §
+      - PBL 10 kap. 3 §
+      - PBL 10 kap. 4 §
+    taggar: [bygglov, anmalan, startbesked, service]

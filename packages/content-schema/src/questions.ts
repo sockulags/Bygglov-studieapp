@@ -48,7 +48,9 @@ const choices = (min: number) =>
 export const MultipleChoiceQuestionSchema = z
   .strictObject({ ...questionBase, typ: z.literal('flerval'), alternativ: choices(2) })
   .refine((q) => q.alternativ.filter((a) => a.ratt).length === 1, {
-    error: fieldError('En flervalsfråga ska ha exakt ett alternativ med ratt: true. Använd typ: flersvar för flera rätta.'),
+    error: fieldError(
+      'En flervalsfråga ska ha exakt ett alternativ med ratt: true. Använd typ: flersvar för flera rätta.',
+    ),
     path: ['alternativ'],
   });
 
@@ -72,7 +74,11 @@ const gapAnswer = z.union(
     text,
     z.array(z.union([z.number().transform(String), text])).min(1),
   ],
-  { error: fieldError('Varje lucka ska ha ett svar (text eller tal) eller en lista med godtagbara svar.') },
+  {
+    error: fieldError(
+      'Varje lucka ska ha ett svar (text eller tal) eller en lista med godtagbara svar.',
+    ),
+  },
 );
 
 export const ClozeQuestionSchema = z
@@ -81,10 +87,15 @@ export const ClozeQuestionSchema = z
     typ: z.literal('lucktext'),
     /** One entry per `___` in `fraga`, in order. */
     svar: z
-      .array(gapAnswer, { error: fieldError('svar ska vara en lista, ett svar per lucka, t.ex. ["10", "10"].') })
+      .array(gapAnswer, {
+        error: fieldError('svar ska vara en lista, ett svar per lucka, t.ex. ["10", "10"].'),
+      })
       .min(1, { error: fieldError('Det behövs minst ett svar.') }),
     /** Numeric tolerance applied to answers that are numbers. */
-    tolerans: z.number({ error: fieldError('tolerans ska vara ett tal.') }).nonnegative().optional(),
+    tolerans: z
+      .number({ error: fieldError('tolerans ska vara ett tal.') })
+      .nonnegative()
+      .optional(),
     skiftlageskanslig: z.boolean().optional(),
   })
   .superRefine((q, ctx) => {
@@ -120,8 +131,13 @@ export const OrderingQuestionSchema = z.strictObject({
 export const CalculationQuestionSchema = z.strictObject({
   ...questionBase,
   typ: z.literal('berakning'),
-  svar: z.number({ error: fieldError('svar ska vara ett tal, t.ex. 138 eller 4.9 (punkt som decimaltecken).') }),
-  tolerans: z.number({ error: fieldError('tolerans ska vara ett tal.') }).nonnegative().default(0),
+  svar: z.number({
+    error: fieldError('svar ska vara ett tal, t.ex. 138 eller 4.9 (punkt som decimaltecken).'),
+  }),
+  tolerans: z
+    .number({ error: fieldError('tolerans ska vara ett tal.') })
+    .nonnegative()
+    .default(0),
   enhet: text.optional(),
   /** Worked solution shown after answering. */
   losning: text.optional(),
@@ -145,12 +161,17 @@ export const DrawingQuestionSchema = z
     fil: text,
     bild_text: text.optional(),
     svar: z.number({ error: fieldError('svar ska vara ett tal.') }).optional(),
-    tolerans: z.number({ error: fieldError('tolerans ska vara ett tal.') }).nonnegative().default(0),
+    tolerans: z
+      .number({ error: fieldError('tolerans ska vara ett tal.') })
+      .nonnegative()
+      .default(0),
     enhet: text.optional(),
     bedomningspunkter: z.array(text).min(1).optional(),
   })
   .refine((q) => q.svar !== undefined || q.bedomningspunkter !== undefined, {
-    error: fieldError('En ritningsfråga behöver svar (för automatisk rättning) eller bedomningspunkter (för självrättning).'),
+    error: fieldError(
+      'En ritningsfråga behöver svar (för automatisk rättning) eller bedomningspunkter (för självrättning).',
+    ),
     path: ['svar'],
   });
 
@@ -167,7 +188,11 @@ export const QuestionSchema = z.discriminatedUnion(
     OpenQuestionSchema,
     DrawingQuestionSchema,
   ],
-  { error: fieldError(`typ saknas eller är okänd. Tillåtna frågetyper: ${QUESTION_TYPES.join(', ')}.`) },
+  {
+    error: fieldError(
+      `typ saknas eller är okänd. Tillåtna frågetyper: ${QUESTION_TYPES.join(', ')}.`,
+    ),
+  },
 );
 
 export const QuestionFileSchema = z

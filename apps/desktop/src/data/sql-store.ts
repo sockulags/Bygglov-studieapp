@@ -263,6 +263,14 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
       return rows.map(mapAnswer);
     },
 
+    async listAnswers() {
+      const rows = await driver.select<AnswerRow>(
+        'SELECT * FROM answers ORDER BY answered_at ASC, id ASC',
+        [],
+      );
+      return rows.map(mapAnswer);
+    },
+
     async statsPerModule() {
       const rows = await driver.select<{
         module_id: string;
@@ -636,5 +644,22 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
     },
   };
 
-  return { kind: 'sqlite', answers, reviews, sessions, settings, cases };
+  /** Tables cleared by `clearAll`, dependants first (foreign keys are not enforced, see db.ts). */
+  const DATA_TABLES = [
+    'supervisor_feedback',
+    'decisions',
+    'case_events',
+    'case_steps',
+    'case_status',
+    'answers',
+    'reviews',
+    'sessions',
+    'settings',
+  ] as const;
+
+  async function clearAll(): Promise<void> {
+    for (const table of DATA_TABLES) await driver.execute(`DELETE FROM ${table}`, []);
+  }
+
+  return { kind: 'sqlite', answers, reviews, sessions, settings, cases, clearAll };
 }
