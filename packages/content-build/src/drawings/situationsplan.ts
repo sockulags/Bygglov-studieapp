@@ -70,13 +70,11 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   ];
 
   const buildings: Building[] = [
-    ...p.ovriga_byggnader.map(
-      (b): Building => ({
-        r: b.rektangel,
-        lines: b.namn ? b.namn.split(/\s+(?=\S)/).slice(0, 3) : [],
-        kind: 'ovrig',
-      }),
-    ),
+    ...p.ovriga_byggnader.map((b): Building => ({
+      r: b.rektangel,
+      lines: b.namn ? b.namn.split(/\s+(?=\S)/).slice(0, 3) : [],
+      kind: 'ovrig',
+    })),
     { r: p.hus, lines: ['Befintligt', 'bostadshus'], kind: 'befintlig' },
   ];
   if (p.tillbyggnad) buildings.push({ r: p.tillbyggnad, lines: ['Ny', 'tillbyggnad'], kind: 'ny' });
@@ -115,13 +113,18 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     const nameSize = Math.min(TEXT.label, b * k * 0.38);
     const offset = street.fastighet ? nameSize * 0.55 : 0;
     parts.push(
-      label(horizontal ? cx : cx - offset, horizontal ? cy - offset : cy, street.namn.toUpperCase(), {
-        anchor: 'middle',
-        baseline: 'middle',
-        size: nameSize,
-        letterSpacing: nameSize * 0.25,
-        rotate,
-      }),
+      label(
+        horizontal ? cx : cx - offset,
+        horizontal ? cy - offset : cy,
+        street.namn.toUpperCase(),
+        {
+          anchor: 'middle',
+          baseline: 'middle',
+          size: nameSize,
+          letterSpacing: nameSize * 0.25,
+          rotate,
+        },
+      ),
     );
     if (street.fastighet) {
       parts.push(
@@ -198,7 +201,8 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
       rect(X(x), Y(y), w * k, d * k, {
         fill: 'none',
         stroke: INK,
-        'stroke-width': b.kind === 'ny' ? LINE.bold : b.kind === 'befintlig' ? LINE.heavy : LINE.medium,
+        'stroke-width':
+          b.kind === 'ny' ? LINE.bold : b.kind === 'befintlig' ? LINE.heavy : LINE.medium,
       }),
     );
   }
@@ -313,9 +317,7 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     const [, y, , d] = b.r;
     const below = y + d / 2 > houseCenter;
     chains.push(
-      below
-        ? horizontalChain(y + d + mm(4), b.r, y + d)
-        : horizontalChain(y - mm(4), b.r, y),
+      below ? horizontalChain(y + d + mm(4), b.r, y + d) : horizontalChain(y - mm(4), b.r, y),
     );
   }
 
@@ -333,8 +335,7 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     for (const at of [y, y + d]) {
       const key = Math.round(at * 1000) / 1000;
       const current = edges.get(key);
-      const better =
-        current === undefined || (east ? face > current : face < current);
+      const better = current === undefined || (east ? face > current : face < current);
       if (better) edges.set(key, face);
     }
   }
@@ -403,12 +404,17 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
       `Byggnadsarea totalt ${sv(existing + added, 1)} m² (${sv(((existing + added) / plot) * 100, 1)} %)`,
     ];
     rows.forEach((row, i) =>
-      parts.push(label(4, height - 14 - (rows.length - 1 - i) * 3, row, { size: TEXT.small, halo: true })),
+      parts.push(
+        label(4, height - 14 - (rows.length - 1 - i) * 3, row, { size: TEXT.small, halo: true }),
+      ),
     );
   }
 
   const entries = [
-    { swatch: { type: 'fill' as const, fill: PAPER, strokeWidth: LINE.heavy }, text: 'Befintlig byggnad' },
+    {
+      swatch: { type: 'fill' as const, fill: PAPER, strokeWidth: LINE.heavy },
+      text: 'Befintlig byggnad',
+    },
     {
       swatch: { type: 'fill' as const, fill: `url(#${ids.ny})`, strokeWidth: LINE.bold },
       text: 'Ny byggnad eller tillbyggnad',
@@ -426,10 +432,18 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
           },
         ]
       : []),
-    { swatch: { type: 'line' as const, width: LINE.bold, dash: '7 1.2 1.2 1.2' }, text: 'Tomtgräns' },
+    {
+      swatch: { type: 'line' as const, width: LINE.bold, dash: '7 1.2 1.2 1.2' },
+      text: 'Tomtgräns',
+    },
     { swatch: { type: 'line' as const, width: LINE.thin }, text: 'Fastighetsgräns, grannar' },
     ...(p.grannhus.length > 0
-      ? [{ swatch: { type: 'fill' as const, fill: '#ececec', strokeWidth: LINE.normal }, text: 'Byggnad på grannfastighet' }]
+      ? [
+          {
+            swatch: { type: 'fill' as const, fill: '#ececec', strokeWidth: LINE.normal },
+            text: 'Byggnad på grannfastighet',
+          },
+        ]
       : []),
   ];
   const footer = legend(0, 0, 'Teckenförklaring', entries, { rowHeight: 5 });

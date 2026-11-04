@@ -261,6 +261,9 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
         simDate: input.simDate,
         startedAt: input.startedAt === undefined ? nowIso() : toIso(input.startedAt),
         submittedAt: null,
+        state: roundTrip(input.state ?? null, 'case state'),
+        notes: input.notes ?? '',
+        reflection: input.reflection ?? '',
       };
       caseRows.set(row.caseId, row);
       return cloneJson(row);
@@ -287,6 +290,7 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
     async updateCaseStatus(caseId, patch) {
       const next = applyPatch(requireCase(caseId), patch);
       next.submittedAt = optionalIso(next.submittedAt);
+      next.state = roundTrip(next.state ?? null, 'case state');
       caseRows.set(caseId, next);
       return cloneJson(next);
     },

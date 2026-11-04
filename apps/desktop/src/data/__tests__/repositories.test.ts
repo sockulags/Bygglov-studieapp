@@ -393,6 +393,9 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
         simDate: '2026-03-02',
         startedAt: '2026-03-01T08:00:00.000Z',
         submittedAt: null,
+        state: null,
+        notes: '',
+        reflection: '',
       });
       await expect(
         store.cases.startCase({ caseId, currentStepId: 'S1', simDate: '2026-03-02' }),
@@ -423,6 +426,53 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
       await expect(
         store.cases.updateCaseStatus('saknas', { status: 'submitted' }),
       ).rejects.toBeInstanceOf(NotFoundError);
+    });
+
+    it('stores the engine state, notes and reflection with the status', async () => {
+      const state = { caseId, simDate: '2026-03-02', queue: ['S1', 'S2'], currentIndex: 0 };
+      const started = await store.cases.startCase({
+        caseId,
+        currentStepId: 'S1',
+        simDate: '2026-03-02',
+        state,
+        notes: 'Första tanken',
+      });
+      expect(started).toMatchObject({ state, notes: 'Första tanken', reflection: '' });
+
+      const next = { ...state, simDate: '2026-03-16', currentIndex: 1 };
+      const updated = await store.cases.updateCaseStatus(caseId, {
+        currentStepId: 'S2',
+        simDate: '2026-03-16',
+        state: next,
+      });
+      expect(updated).toMatchObject({ currentStepId: 'S2', state: next, notes: 'Första tanken' });
+
+      // Patching only the notes keeps the state; patching only the status keeps both.
+      await store.cases.updateCaseStatus(caseId, { notes: 'Ny anteckning', reflection: 'Bra' });
+      await store.cases.updateCaseStatus(caseId, { status: 'submitted' });
+      expect(await store.cases.getCaseStatus(caseId)).toMatchObject({
+        status: 'submitted',
+        state: next,
+        notes: 'Ny anteckning',
+        reflection: 'Bra',
+      });
+      expect((await store.cases.listCaseStatuses())[0]?.state).toEqual(next);
+
+      // A started case without stored state reads back as null.
+      await store.cases.startCase({ caseId: 'A001', currentStepId: null, simDate: '2026-04-07' });
+      expect(await store.cases.getCaseStatus('A001')).toMatchObject({
+        state: null,
+        notes: '',
+        reflection: '',
+      });
+
+      await store.cases.resetCase(caseId);
+      const again = await store.cases.startCase({
+        caseId,
+        currentStepId: 'S1',
+        simDate: '2026-03-02',
+      });
+      expect(again).toMatchObject({ state: null, notes: '' });
     });
 
     it('saves steps as upserts in first-saved order', async () => {

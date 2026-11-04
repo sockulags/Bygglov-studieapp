@@ -1,0 +1,306 @@
+# Nivå 1-ärende. Fiktiv fastighet, fiktiv kommun, fiktiv detaljplan.
+# Lagrum i 9 kap. PBL är kontrollerade mot docs/rattslage/pbl-9-kap.txt (lydelse 2025:974).
+# PBL 10 kap. 2 a och 3 §§, PBL 12 kap. 8 §, PBF 6 kap. 1 § och 7 kap. 5 § samt FL 6 § är
+# kontrollerade mot riksdagen.se (hämtade 2026-11-04).
+id: A001
+titel: Komplementbyggnad nära gräns
+niva: 1
+status: utkast
+rattslage: "2025-12-01"
+fastighet: Lärken 4, Åkerslunda kommun
+sammanfattning: >
+  Sökandena vill bygga ett förråd med verkstad på 28 kvm vid sitt enbostadshus. Fastigheten
+  ligger inom detaljplan och det finns inga andra komplementbyggnader på tomten. Byggnaden
+  hade varit bygglovsbefriad, men den placeras 3,0 meter från gränsen mot grannen. Ansökan är
+  komplett. Under handläggningen kommer grannarnas skriftliga medgivande in.
+startdatum: 2026-04-07
+moduler: [03-lovplikt, 06-handlaggning, 01-forvaltningsratt, 13-kommunikation]
+larandemal:
+  - Pröva om en komplementbyggnad är bygglovsbefriad enligt 9 kap. 4 § PBL
+  - Se att 9 kap. 34 § ger lovplikt närmare gränsen än 4,5 meter och att ett skriftligt grannmedgivande tar bort den (35 §)
+  - Ge sökanden service och begriplig information (FL 6 §)
+  - Välja rätt sätt att avsluta ärendet när lov inte längre krävs, avskrivning eller frivilligt lov (9 kap. 52 och 79 §§)
+  - Upplysa om anmälningsplikt för installationer (PBF 6 kap.) och om 10 kap. 2 a § PBL
+
+taxa:
+  # Förenklad fiktiv taxa. Varje post är ett möjligt avgiftsbelopp i beslutet.
+  avskrivning_efter_aterkallelse: 1300      # en timmes handläggning (12 kap. 8 § 9 PBL)
+  lov_komplementbyggnad_16_30kvm: 6500      # om ansökan prövas, även som frivilligt lov
+  reduktion_per_vecka: 0.2
+
+handlingar:
+  # Textdokument är Markdown (front matter: rubrik, avsandare, datum, diarienummer).
+  # Ritningar genereras från parametrar med `pnpm content:drawings`, se content/README.md.
+  - id: H1
+    typ: ansokan
+    titel: Ansökan om bygglov
+    fil: handlingar/ansokan.md
+    inkom: 2026-04-07
+    fakta:
+      atgard: komplementbyggnad
+      byggnadsarea_kvm: 28.0
+      nockhojd_m: 3.6
+      byggnadshojd_m: 2.5
+      avstand_till_grans_m: 3.0
+      grans_mot: Lärken 3
+      huvudbyggnad_byggnadsarea_kvm: 140
+      ovriga_komplementbyggnader_kvm: 0
+  - id: H2
+    typ: situationsplan
+    titel: Situationsplan 1:500
+    fil: handlingar/situationsplan.svg
+    inkom: 2026-04-07
+    parametrar:
+      skala: 500
+      tomt_bredd: 25
+      tomt_djup: 36
+      hus: [5.5, 8, 14, 10]                 # befintligt enbostadshus, 140 m² byggnadsarea
+      komplementbyggnad: [18, 24, 4, 7]     # 28 m², 3,0 m från östra gränsen, 5,0 m från södra
+      prickmark: [{ sida: norr, djup: 6 }]
+      gata: { sida: norr, namn: Lärkvägen, fastighet: "Åkerslunda 1:1" }
+      grannar: { norr: Sparven 2, oster: Lärken 3, soder: Lärken 9, vaster: Lärken 5 }
+      grannhus: [[29, 10, 12, 10], [-17, 9, 12, 9], [6, 42, 12, 9]]
+      ritningshuvud: { datum: 2026-03-30, ritad_av: Patrik Sandberg, ritningsnummer: A-01 }
+  - id: H3
+    typ: fasadritning
+    titel: Fasader mot öster och söder 1:100
+    fil: handlingar/fasader.svg
+    inkom: 2026-04-07
+    parametrar:
+      skala: 100
+      fasader:
+        - rubrik: Fasad mot öster (mot Lärken 3)
+          delar:
+            - namn: Ny komplementbyggnad
+              bredd: 7
+              byggnadshojd: 2.5
+              takvinkel: 29
+              vy: langsida
+              djup: 4
+              nockhojd: 3.6
+              takutsprang: 0.3
+              ny: true
+        - rubrik: Fasad mot söder
+          delar:
+            - namn: Ny komplementbyggnad
+              bredd: 4
+              byggnadshojd: 2.5
+              takvinkel: 29
+              vy: gavel
+              nockhojd: 3.6
+              takutsprang: 0.3
+              ny: true
+              oppningar:
+                - { typ: fonster, x: 1.4, bredd: 1.2, hojd: 1.0, underkant: 1.0 }
+      ritningshuvud: { datum: 2026-03-30, ritad_av: Patrik Sandberg, ritningsnummer: A-02 }
+  - id: H4
+    typ: planritning
+    titel: Planritning 1:100
+    fil: handlingar/planritning.svg
+    inkom: 2026-04-07
+    parametrar:
+      skala: 100
+      rubrik: Plan, förråd och verkstad
+      vaggtjocklek: 0.2
+      byggnader:
+        - { namn: Ny komplementbyggnad, rektangel: [18, 24, 4, 7], ny: true }
+      rum:
+        - { namn: Förråd, rektangel: [18.2, 24.2, 3.6, 2.7] }
+        - { namn: Verkstad, rektangel: [18.2, 27.0, 3.6, 3.8] }
+      dorrar:
+        - { position: [18, 25.0], vagg: vertikal, bredd: 1.0, oppnas_mot: vaster }
+        - { position: [18, 28.4], vagg: vertikal, bredd: 1.2, oppnas_mot: vaster }
+        - { position: [19.6, 26.9], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: soder }
+      fonster:
+        - { position: [19.4, 30.8], vagg: horisontell, bredd: 1.2 }
+      ritningshuvud: { datum: 2026-03-30, ritad_av: Patrik Sandberg, ritningsnummer: A-03 }
+  - id: H5
+    typ: planbestammelser
+    titel: Detaljplan Dp 1991-07, planbestämmelser
+    fil: handlingar/planbestammelser.md
+    inkom: 2026-04-07
+    fakta:
+      storsta_byggnadsarea_procent: 25
+      komplementbyggnad_hogsta_byggnadshojd: 3.0
+      komplementbyggnad_minsta_avstand_till_grans: 1.0
+      hogsta_takvinkel: 30
+      prickmark: "mark som inte får bebyggas, 6 m från gränsen mot gata"
+      genomforandetid_utgangen: true
+  - id: H6
+    typ: grannmedgivande
+    titel: Skriftligt medgivande från ägarna till Lärken 3
+    fil: handlingar/grannmedgivande-larken-3.md
+    dold_tills: E1
+    fakta: { fastighet: Lärken 3, undertecknat_av_samtliga_agare: true }
+  - id: H7
+    typ: skrivelse
+    titel: E-post från sökandena om återkallelse
+    fil: handlingar/epost-sokandena.md
+    dold_tills: E1
+
+steg:
+  - id: S1
+    typ: checklista
+    rubrik: Är ansökan komplett?
+    instruktion: >
+      Gå igenom handlingarna och markera vad som finns. Tänk på vad som behövs för att pröva just
+      en komplementbyggnad, inte ett nytt bostadshus.
+    poster:
+      - { text: Ifylld och undertecknad ansökan, finns: true }
+      - { text: Situationsplan med byggnadens mått och avstånd till gränserna, finns: true }
+      - { text: Fasadritningar med byggnadshöjd och nockhöjd, finns: true }
+      - { text: Planritning, finns: true }
+      - { text: Uppgift om övriga komplementbyggnader på tomten, finns: true, kommentar: "Ansökan anger att det inte finns några. Det behövs för att pröva den sammanlagda byggnadsarean i 9 kap. 4 § 5." }
+      - { text: Skriftligt medgivande från ägarna till Lärken 3, finns: false, kommentar: "Krävs inte för att ansökan ska vara komplett, men avgör om åtgärden alls kräver lov (9 kap. 35 §)." }
+      - { text: Anmälan om kontrollansvarig, finns: false, kommentar: "Behövs inte för en komplementbyggnad (PBF 7 kap. 5 § 3)." }
+    forklaring: >
+      Ansökan är komplett för prövningen, så något föreläggande om komplettering behövs inte
+      (9 kap. 91 §). Tioveckorsfristen räknas från ansökningsdagen den 7 april 2026 och löper ut
+      den 16 juni 2026 (9 kap. 99 § första stycket 1). Nämnden ska skriftligen informera
+      sökandena om tidsfristen, om att avgiften reduceras om den överskrids och om möjligheten
+      att överklaga (9 kap. 100 § 1). Kontrollansvarig krävs inte för en komplementbyggnad.
+    lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 91 §, PBL 9 kap. 99 §, PBL 9 kap. 100 §, PBF 7 kap. 5 §]
+    tid_framat_dagar: 1
+
+  - id: S2
+    typ: fraga
+    rubrik: Kräver åtgärden bygglov?
+    instruktion: Använd ansökan, situationsplanen och fasadritningen. Räkna själv, lita inte på vad sökandena kallar byggnaden.
+    fragetyp: flerval
+    fraga: Hur ska lovplikten för förrådet med verkstad bedömas?
+    alternativ:
+      - text: Den är bygglovsbefriad enligt 9 kap. 4 § och nämnden har inget att pröva.
+      - text: >-
+          Den uppfyller villkoren i 9 kap. 4 §, men eftersom den placeras närmare gränsen än
+          4,5 meter krävs bygglov enligt 34 §, om inte ägarna till Lärken 3 skriftligen medger
+          placeringen (35 § första stycket 3).
+        ratt: true
+      - text: Den kräver bygglov eftersom den är större än 15 kvm.
+      - text: Den kräver bygglov eftersom nockhöjden är högre än 3,0 meter.
+      - text: Den kräver inte bygglov, men en anmälan ska göras innan den byggs.
+    forklaring: >
+      Pröva villkoren i 9 kap. 4 § ett i taget: byggnadsarean 28,0 kvm är högst 30,0 kvm,
+      den är mindre än bostadshusets 140 kvm, nockhöjden 3,6 meter är högst 4,0 meter,
+      byggnaden ligger inom tomten och sammanlagt blir det 28 kvm komplementbyggnader av högst
+      45 kvm. Byggnaden hade alltså varit bygglovsbefriad. Men 9 kap. 34 § 1 kräver bygglov för
+      nybyggnad närmare gränsen än 4,5 meter för åtgärder som annars inte kräver lov, och
+      förrådet hamnar 3,0 meter från gränsen mot Lärken 3. Enligt 35 § första stycket 3 krävs
+      ändå inte lov om de grannar som berörs skriftligen har medgett åtgärden och den inte
+      strider mot detaljplanen (eller får strida mot den enligt 10 kap. 2 a §). Gränsen mot
+      Lärken 9 i söder ligger 5,0 meter bort, så bara ägarna till Lärken 3 berörs. 15 kvm och
+      3,0 meter i nockhöjd är de gamla gränserna för friggebod, som inte finns längre.
+      Anmälningsplikten för själva byggnaden är också borta.
+    lagrum: [PBL 9 kap. 3 §, PBL 9 kap. 4 §, PBL 9 kap. 34 §, PBL 9 kap. 35 §]
+
+  - id: S3
+    typ: skrivelse
+    rubrik: Informera sökandena
+    instruktion: >
+      Sökandena har sökt bygglov "för säkerhets skull" och vet inte att ett grannmedgivande kan
+      göra lov onödigt. Skriv ett kort brev eller e-postmeddelande till dem. Förklara läget och
+      vad de kan välja mellan, och berätta det de behöver veta om byggnaden blir lovfri.
+    bedomningspunkter:
+      - Förklarar att byggnaden uppfyller villkoren i 9 kap. 4 § men kräver bygglov enligt 34 § eftersom den placeras 3,0 meter från gränsen, närmare än 4,5 meter
+      - Förklarar att lov inte behövs om ägarna till Lärken 3 skriftligen medger placeringen (35 § första stycket 3), och att medgivandet ska avse den sökta byggnaden och placeringen och skrivas under av samtliga ägare
+      - "Beskriver valen: fortsätta med bygglovsprövningen, eller lämna in medgivandet och återkalla ansökan (ärendet skrivs av, avgift för nedlagd tid enligt taxan), eller behålla ansökan som frivilligt lov (9 kap. 52 §)"
+      - Upplyser om att byggnaden inte kräver anmälan, men att installation av vatten eller avlopp i byggnaden kräver anmälan och startbesked (PBF 6 kap. 1 § 5, PBL 10 kap. 3 §)
+      - Upplyser om att en bygglovsbefriad komplementbyggnad till ett en- eller tvåbostadshus får strida mot detaljplanen, utom mot bestämmelser om skyddsåtgärder (10 kap. 2 a §), och att den ändå ska uppfylla de tekniska kraven
+      - Anger vad som händer om de inte hör av sig (ärendet prövas som bygglov), och kontaktuppgifter
+      - Skriver begripligt och vänligt, utan att använda friggebod eller attefallshus som om de fortfarande fanns
+    modelltext: handlingar/modell-informationsbrev.md
+    forklaring: >
+      Myndigheten ska lämna den enskilde den hjälp som behövs för att hen ska kunna ta till
+      vara sina intressen (6 § förvaltningslagen). Här betyder det att berätta om en
+      enklare och billigare väg än den sökandena valt, utan att bestämma åt dem.
+    lagrum: [FL 6 §, PBL 9 kap. 34 §, PBL 9 kap. 35 §, PBL 9 kap. 52 §, PBL 10 kap. 2 a §, PBF 6 kap. 1 §]
+
+  - id: S4
+    typ: fraga
+    rubrik: Hur avslutas ärendet?
+    instruktion: Läs grannarnas medgivande och sökandenas e-post. Pröva om medgivandet räcker.
+    fragetyp: flersvar
+    fraga: Medgivandet från Lärken 3 har kommit in. Vilka av följande stämmer?
+    alternativ:
+      - text: Medgivandet är skriftligt, undertecknat av båda ägarna till Lärken 3 och avser den sökta byggnaden och placeringen, så förrådet kräver inte längre bygglov.
+        ratt: true
+      - text: Eftersom sökandena återkallar ansökan ska nämnden skriva av ärendet. Avskrivningsbeslutet bör upplysa om att åtgärden inte kräver lov.
+        ratt: true
+      - text: Om sökandena i stället vill ha ett beslut kan ansökan prövas som frivilligt lov. Lov ska då ges om åtgärden uppfyller kraven på lokalisering, placering och utformning (9 kap. 52 och 79 §§).
+        ratt: true
+      - text: Nämnden ska avvisa ansökan, eftersom man inte kan söka lov för en åtgärd som inte kräver lov.
+      - text: Nämnden ska bevilja bygglov enligt 9 kap. 56 § som vanligt, eftersom ansökan redan har kommit in.
+      - text: Innan ärendet avslutas måste ägarna till Lärken 3 också underrättas enligt 9 kap. 94 §.
+    forklaring: >
+      Med medgivandet uppfyller förrådet 35 § första stycket 3 a: grannarna har skriftligen
+      medgett åtgärden och den strider inte mot detaljplanen (byggnadsarea 18,7 procent av 25,
+      byggnadshöjd 2,5 av 3,0 meter, takvinkel 29 av 30 grader, 3,0 meter från gränsen där
+      planen kräver 1,0 meter, utanför prickmarken). Lov krävs då inte. En ansökan som
+      återkallas skrivs av; det finns inget kvar att pröva. Avvisning är fel väg, eftersom
+      9 kap. 52 § uttryckligen tillåter att man söker lov för en åtgärd som inte kräver lov.
+      Ett sådant frivilligt lov prövas enligt 79 §. Underrättelse enligt 94 § behövs inte; den
+      gäller avvikelser från detaljplanen och åtgärder utanför plan. Observera också att
+      startbesked inte krävs för ett frivilligt lov, om inte sökanden begär det (10 kap. 3 §).
+    lagrum: [PBL 9 kap. 35 §, PBL 9 kap. 52 §, PBL 9 kap. 79 §, PBL 10 kap. 3 §]
+    tid_framat_dagar: 3
+
+  - id: S5
+    typ: beslut
+    rubrik: Fatta beslut
+    instruktion: >
+      Skriv beslutet. Ett avskrivningsbeslut är kort, men det ska ändå ha skäl, avgift med
+      redovisning och överklagandehänvisning eftersom avgiften kan överklagas.
+    forvantat_beslut: avskriva
+    lagrum: [PBL 9 kap. 4 §, PBL 9 kap. 34 §, PBL 9 kap. 35 §]
+    bedomningspunkter:
+      - Beslutet är att ärendet skrivs av från vidare handläggning eftersom sökandena skriftligen har återkallat ansökan
+      - "Skälen visar att förrådet uppfyller alla villkor i 9 kap. 4 § (28,0 kvm, mindre än huvudbyggnaden, nockhöjd 3,6 m, inom tomten, sammanlagt 28 av 45 kvm)"
+      - Skälen visar att det skriftliga medgivandet från samtliga ägare till Lärken 3 gör att 34 § inte ger lovplikt, eftersom åtgärden inte strider mot detaljplanen (35 § första stycket 3 a)
+      - Upplyser om att anmälan och startbesked krävs om vatten eller avlopp installeras i byggnaden (PBF 6 kap. 1 § 5, PBL 10 kap. 3 §)
+      - Upplyser om att byggnaden ska uppföras så som medgivandet avser och ändå uppfylla de tekniska egenskapskraven, och att en annan placering eller större byggnad kan kräva lov
+      - Avgiften är 1 300 kr enligt taxan för nedlagd handläggning, och det framgår hur den bestämts (9 kap. 107 §, 12 kap. 8 § 9)
+      - Överklagandehänvisning finns (avgiftsbeslutet kan överklagas till länsstyrelsen, 13 kap. 3 §)
+      - Beslutet delges sökandena, som också är fastighetsägare; det kungörs inte, eftersom det inte är ett beslut om att ge lov (9 kap. 109 §)
+      - "Godtagbar alternativ lösning: om du i stället beviljar frivilligt lov ska beslutet bygga på 9 kap. 52 och 79 §§, motivera varför sökandena ändå vill ha ett beslut, och innehålla upplysningar och kungörelse som för ett lov (avgift 6 500 kr). Appens kontroll av utfallet markerar det ändå som avvikande."
+    modellbeslut: handlingar/modell-beslut.md
+
+handelser:
+  - id: E1
+    namn: Grannmedgivande inkommer
+    utlosare: { efter_steg: S3 }
+    effekt:
+      tid_framat_dagar: 9
+      visa_handlingar: [H6, H7]
+      meddelande: >
+        Sökandena har pratat med grannarna på Lärken 3. De skickar in ett skriftligt
+        medgivande som båda ägarna har skrivit under, och skriver att de återkallar ansökan om
+        lov inte längre behövs.
+      andrade_fakta: { grannmedgivande_lamnat: true, ansokan_aterkallad: true }
+
+  - id: E2
+    namn: Sökandena fick ingen information
+    utlosare: { om_missat: S3 }
+    effekt:
+      tid_framat_dagar: 14
+      visa_handlingar: [H6, H7]
+      meddelande: >
+        Sökandena ringer. De har hört av grannen på Lärken 3, som själv byggt nyligen, att ett
+        skriftligt grannmedgivande hade gjort bygglov onödigt, och undrar varför ingen på
+        kommunen sa något. De skickar in medgivandet och återkallar ansökan. Nämnden har en
+        serviceskyldighet (6 § förvaltningslagen); upplysningen hade sparat två veckor och en
+        irriterad kund.
+      andrade_fakta: { grannmedgivande_lamnat: true, ansokan_aterkallad: true }
+
+facit:
+  sammanfattning: >
+    Förrådet uppfyller 9 kap. 4 § men kräver lov enligt 34 § eftersom det placeras 3,0 meter
+    från gränsen. Med ett skriftligt medgivande från ägarna till Lärken 3 blir det lovfritt
+    (35 § första stycket 3 a). Sökandena återkallar och ärendet skrivs av, med upplysning om
+    anmälan för eventuell VA-installation. Frivilligt lov (52 och 79 §§) hade varit möjligt om
+    de velat ha ett beslut.
+  vanliga_fel:
+    - Att bedöma byggnaden som lovfri direkt utan att se avståndet till gränsen (34 §)
+    - Att använda de gamla gränserna för friggebod (15 kvm, nockhöjd 3,0 m)
+    - Att avvisa ansökan när lov inte längre krävs, i stället för att skriva av eller pröva den som frivilligt lov
+    - Att godta ett medgivande som bara en av två ägare skrivit under, eller ett muntligt medgivande
+    - Att glömma upplysningen om anmälan för vatten och avlopp (PBF 6 kap. 1 § 5)
+  modellbeslut: handlingar/modell-beslut.md

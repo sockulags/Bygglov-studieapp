@@ -1,0 +1,194 @@
+/*
+ * Styles for the case view (ärendevyn) that utilities cannot express well: documents as
+ * A4 paper with rendered Markdown, the arrival stamp and its animation. Colours come from
+ * the design tokens (styles/tokens.css), so light and dark themes both work.
+ */
+
+/* A4 sheet: 210 × 297 mm, scaled down with the panel. */
+.paper {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  max-width: 210mm;
+  min-height: min(297mm, 100%);
+  margin-inline: auto;
+  padding: clamp(20px, 6%, 18mm) clamp(20px, 8%, 20mm);
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
+  box-shadow: var(--shadow-paper);
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.paper-body > :first-child {
+  margin-top: 0;
+}
+
+.paper-body h1 {
+  margin: 0 0 0.75em;
+  font-size: 1.45rem;
+  line-height: 1.25;
+}
+
+.paper-body h2 {
+  margin: 1.6em 0 0.5em;
+  font-size: 1.12rem;
+}
+
+.paper-body h3 {
+  margin: 1.3em 0 0.4em;
+  font-size: 1rem;
+}
+
+.paper-body p,
+.paper-body ul,
+.paper-body ol,
+.paper-body table {
+  margin: 0 0 0.85em;
+}
+
+.paper-body ul,
+.paper-body ol {
+  padding-left: 1.4em;
+}
+
+.paper-body ul {
+  list-style: disc;
+}
+
+.paper-body ol {
+  list-style: decimal;
+}
+
+.paper-body li + li {
+  margin-top: 0.2em;
+}
+
+/* GFM task lists in forms (Ansökan): the checkbox replaces the bullet. */
+.paper-body li.task-list-item {
+  list-style: none;
+  margin-left: -1.4em;
+}
+
+.paper-body li.task-list-item input {
+  margin: 0 0.5em 0 0;
+  vertical-align: -0.1em;
+  accent-color: var(--ink);
+}
+
+.paper-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.94em;
+}
+
+.paper-body th,
+.paper-body td {
+  border: 1px solid var(--line-strong);
+  padding: 0.35em 0.6em;
+  text-align: left;
+  vertical-align: top;
+}
+
+.paper-body th {
+  background: var(--bg);
+  font-weight: 600;
+}
+
+/* Tables whose header row is empty (key/value tables in decisions) hide that row. */
+.paper-body thead:has(th:empty:only-child),
+.paper-body thead:not(:has(th:not(:empty))) {
+  display: none;
+}
+
+.paper-body hr {
+  margin: 1.6em 0;
+  border: 0;
+  border-top: 1px solid var(--line-strong);
+}
+
+.paper-body blockquote {
+  margin: 0 0 0.85em;
+  padding-left: 1em;
+  border-left: 3px solid var(--line-strong);
+  color: var(--muted);
+}
+
+.paper-body a {
+  color: var(--accent);
+}
+
+.paper-body strong {
+  font-weight: 650;
+}
+
+/* Arrival stamp (INKOM) in brick red. */
+.arrival-stamp {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 4px 10px;
+  border: 2px solid var(--brick);
+  border-radius: 3px;
+  color: var(--brick);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  transform: rotate(-4deg);
+  opacity: 0.92;
+  user-select: none;
+}
+
+.arrival-stamp small {
+  white-space: nowrap;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .stamp-animate {
+    animation: case-stamp-in 420ms var(--ease-out) both;
+  }
+
+  .fade-in-up {
+    animation: case-fade-in-up var(--duration-base) var(--ease-out) both;
+  }
+}
+
+@keyframes case-stamp-in {
+  0% {
+    opacity: 0;
+    transform: rotate(-12deg) scale(1.6);
+  }
+  60% {
+    opacity: 1;
+    transform: rotate(-3deg) scale(0.95);
+  }
+  100% {
+    opacity: 0.92;
+    transform: rotate(-4deg) scale(1);
+  }
+}
+
+@keyframes case-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Drawings are black on white, also in the dark theme. */
+.drawing-sheet {
+  background: #ffffff;
+}

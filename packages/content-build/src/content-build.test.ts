@@ -12,7 +12,7 @@ import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { parseCaseFile, parseContentIndex, parseQuestionFile } from '@bygglov/content-schema';
-import { buildContent, loadContentTree, main } from './index';
+import { buildContent, checkFrontMatter, loadContentTree, main, writeDrawings } from './index';
 
 const repoContent = fileURLToPath(new URL('../../../content/', import.meta.url));
 
@@ -50,6 +50,7 @@ describe('check', () => {
   it('accepts the repository content without errors', () => {
     const tree = loadContentTree(repoContent);
     expect(tree.errors).toEqual([]);
+    expect(tree.warnings).toEqual([]);
     expect(tree.questionFiles.map((f) => f.file)).toEqual(
       expect.arrayContaining(['fragor/03-lovplikt.yaml', 'fragor/06-handlaggning.yaml']),
     );
@@ -112,6 +113,86 @@ describe('check', () => {
   });
 });
 
+describe('drawings', () => {
+  const caseFile = 'arenden/A002-tillbyggnad-bjorken-7/arende.yaml';
+  const edit = (from: string, to: string) => {
+    const path = join(content, caseFile);
+    const source = readFileSync(path, 'utf8');
+    expect(source).toContain(from);
+    writeFileSync(path, source.replace(from, to), 'utf8');
+  };
+
+  it('renders the generated drawings of A002 when loading', () => {
+    const [a002] = loadContentTree(content).cases;
+    expect(a002?.drawings.map((d) => `${d.handling} ${d.kind} ${d.fil}`)).toEqual([
+      'H2 situationsplan handlingar/situationsplan.svg',
+      'H3 fasadritning handlingar/fasader.svg',
+      'H5 planritning handlingar/planritning.svg',
+      'H9 plankarta handlingar/plankarta.svg',
+    ]);
+  });
+
+  it('reports invalid parameters with a readable path', () => {
+    edit('tomt_djup: 32', 'tomt_djup: -1');
+    const errors = loadContentTree(content).errors.map((e) => `${e.path}: ${e.message}`);
+    expect(errors).toEqual(
+      expect.arrayContaining(['handlingar[H2].parametrar.tomt_djup: Ska vara större än 0.']),
+    );
+  });
+
+  it('reports a generated handling without a generator for its typ', () => {
+    edit('typ: plankarta', 'typ: karta');
+    const errors = loadContentTree(content).errors;
+    expect(errors.map((e) => e.path)).toEqual(['handlingar[H9].typ']);
+    expect(errors[0]?.message).toMatch(/ingen ritningsgenerator för typ karta/);
+  });
+
+  it('warns about stale or missing drawings and the drawings command fixes them', () => {
+    const dir = join(content, 'arenden/A002-tillbyggnad-bjorken-7/handlingar');
+    writeFileSync(join(dir, 'situationsplan.svg'), '<svg/>', 'utf8');
+    rmSync(join(dir, 'fasader.svg'));
+    const warnings = loadContentTree(content).warnings.map((w) => `${w.path}: ${w.message}`);
+    expect(warnings).toEqual([
+      'handlingar[H2].fil: Ritningen handlingar/situationsplan.svg stämmer inte med parametrarna. Kör pnpm content:drawings.',
+      'handlingar[H3].fil: Ritningen handlingar/fasader.svg är inte genererad ännu. Kör pnpm content:drawings.',
+    ]);
+
+    expect(main(['drawings', '--root', root])).toBe(0);
+    const tree = loadContentTree(content);
+    expect(tree.warnings).toEqual([]);
+    expect(readFileSync(join(dir, 'situationsplan.svg'), 'utf8')).toBe(
+      tree.cases[0]?.drawings[0]?.svg,
+    );
+    expect(writeDrawings(tree)).toEqual({
+      written: [],
+      unchanged: expect.arrayContaining([
+        'arenden/A002-tillbyggnad-bjorken-7/handlingar/situationsplan.svg',
+      ]) as unknown,
+    });
+  });
+
+  it('refuses to write drawings for content with errors', () => {
+    edit('tomt_djup: 32', 'tomt_djup: nej');
+    expect(main(['drawings', '--root', root])).toBe(1);
+  });
+
+  it('checks the front matter of Markdown handlingar', () => {
+    expect(checkFrontMatter('# Utan front matter')).toEqual([]);
+    expect(checkFrontMatter('---\nrubrik: Ansökan\ndatum: 2026-03-02\n---\n# Text')).toEqual([]);
+    expect(checkFrontMatter('---\nrubrik: Ansökan\nfran: Någon\ndatum: 2 mars\n---\n')).toEqual([
+      'Okänd nyckel i front matter: fran. Tillåtna nycklar: rubrik, avsandare, datum, diarienummer.',
+      'datum i front matter ska skrivas som ÅÅÅÅ-MM-DD.',
+    ]);
+    write(
+      'arenden/A002-tillbyggnad-bjorken-7/handlingar/ka.md',
+      '---\nrubrik: [inte, text]\n---\n# KA',
+    );
+    expect(loadContentTree(content).errors.map((e) => `${e.path}: ${e.message}`)).toEqual([
+      'handlingar[H6].fil: handlingar/ka.md: rubrik i front matter ska vara en text.',
+    ]);
+  });
+});
+
 describe('build', () => {
   it('writes JSON that validates again and copies case documents', () => {
     write('arenden/A002-tillbyggnad-bjorken-7/handlingar/ansokan.pdf', '%PDF-1.4');
@@ -144,7 +225,14 @@ describe('build', () => {
 
     const copied = join(publicDir, 'arenden/A002/handlingar');
     expect(existsSync(join(copied, 'ansokan.pdf'))).toBe(true);
+    expect(existsSync(join(copied, 'ansokan.md'))).toBe(true);
     expect(existsSync(join(copied, '.gitkeep'))).toBe(false);
+
+    // Generated drawings are written from the parameters, not copied.
+    expect(result.drawings).toContain('arenden/A002/handlingar/situationsplan.svg');
+    expect(readFileSync(join(copied, 'situationsplan.svg'), 'utf8')).toBe(
+      tree.cases[0]?.drawings[0]?.svg,
+    );
   });
 
   it('refuses to build content with errors', () => {

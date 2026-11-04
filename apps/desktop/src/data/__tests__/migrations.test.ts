@@ -18,6 +18,7 @@ const sqliteAvailable = await isNodeSqliteAvailable();
 const EXPECTED_TABLES = [
   'answers',
   'case_events',
+  'case_state',
   'case_status',
   'case_steps',
   'decisions',
@@ -95,6 +96,7 @@ describe.skipIf(!sqliteAvailable)('runMigrations on SQLite', () => {
     expect(tables(driver)).toEqual(EXPECTED_TABLES);
     expect(await driver.select('SELECT version, name, applied_at FROM schema_migrations')).toEqual([
       { version: 1, name: 'initial', applied_at: '2026-03-01T00:00:00.000Z' },
+      { version: 2, name: 'case_state', applied_at: '2026-03-01T00:00:00.000Z' },
     ]);
     driver.close();
   });
@@ -176,6 +178,25 @@ describe.skipIf(!sqliteAvailable)('runMigrations on SQLite', () => {
         "INSERT INTO answers (question_id, module_id, answered_at, correct, answer_json, mode) VALUES ('q', 'm', 'x', 2, '1', 'study')",
       ),
     ).rejects.toThrow(/CHECK/);
+    await driver.execute("INSERT INTO case_state (case_id, state_json) VALUES ('A1', '{}')");
+    await expect(
+      driver.execute("INSERT INTO case_state (case_id, state_json) VALUES ('A1', '[]')"),
+    ).rejects.toThrow(/UNIQUE|PRIMARY/);
+    driver.close();
+  });
+
+  it('adds case_state to a database created by version 1, keeping its cases', async () => {
+    const driver = await freshDriver();
+    const [initial] = migrations;
+    if (!initial) throw new Error('no migrations');
+    await runMigrations(driver, [initial]);
+    await driver.execute(
+      "INSERT INTO case_status (case_id, status, sim_date, started_at) VALUES ('A2', 'in_progress', '2026-03-02', 'x')",
+    );
+    const result = await runMigrations(driver);
+    expect(result.applied).toEqual([2]);
+    expect(tables(driver)).toContain('case_state');
+    expect(await driver.select('SELECT case_id FROM case_status')).toEqual([{ case_id: 'A2' }]);
     driver.close();
   });
 });

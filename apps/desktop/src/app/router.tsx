@@ -1,4 +1,9 @@
-import { createRootRoute, createRoute, createRouter } from '@tanstack/react-router';
+import {
+  createRootRoute,
+  createRoute,
+  createRouter,
+  lazyRouteComponent,
+} from '@tanstack/react-router';
 import { RootLayout } from '@/app/root-layout';
 import { NotFoundPage } from '@/app/not-found';
 import { HomePage } from '@/features/home/home-page';
@@ -52,6 +57,16 @@ export const casesRoute = createRoute({
   component: CasesPage,
 });
 
+/**
+ * One case (ärendevyn), e.g. /cases/A002. Loaded on demand, so the Markdown renderer and
+ * the case view stay out of the start bundle.
+ */
+export const caseRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: '/cases/$caseId',
+  component: lazyRouteComponent(() => import('@/features/cases/case-page'), 'CasePage'),
+});
+
 export const lookupRoute = createRoute({
   getParentRoute: () => rootRoute,
   path: '/lookup',
@@ -75,6 +90,7 @@ const routeTree = rootRoute.addChildren([
   studyRoute,
   studySessionRoute,
   casesRoute,
+  caseRoute,
   lookupRoute,
   resultsRoute,
   settingsRoute,

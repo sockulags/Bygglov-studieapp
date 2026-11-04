@@ -58,8 +58,7 @@ export function el(tag: string, attributes: Attrs = {}, children?: string | stri
     : `<${tag}${attrs(attributes)}>${inner}</${tag}>`;
 }
 
-export const group = (children: string[], attributes: Attrs = {}) =>
-  el('g', attributes, children);
+export const group = (children: string[], attributes: Attrs = {}) => el('g', attributes, children);
 
 /** Swedish decimal format, e.g. `sv(4.9, 1)` → "4,9". */
 export function sv(value: number, decimals: number): string {
@@ -84,7 +83,7 @@ export function textWidth(value: string, size: number, bold = false): number {
   let units = 0;
   for (const ch of value) {
     if (ch === ' ') units += 0.28;
-    else if ('il.,:;|!\'’'.includes(ch)) units += 0.26;
+    else if ("il.,:;|!'’".includes(ch)) units += 0.26;
     else if ('ftjrI()-'.includes(ch)) units += 0.36;
     else if ('mwMW'.includes(ch)) units += 0.86;
     else if (ch >= 'A' && ch <= 'Z') units += 0.68;
@@ -220,14 +219,10 @@ export function hatchPattern(
 /** Regular dots, as a fill pattern (prickmark on a plan map). */
 export function dotPattern(id: string, options: { spacing: number; radius: number }): string {
   const s = options.spacing;
-  return el(
-    'pattern',
-    { id, patternUnits: 'userSpaceOnUse', width: s, height: s },
-    [
-      el('circle', { cx: s / 4, cy: s / 4, r: options.radius, fill: INK }),
-      el('circle', { cx: (3 * s) / 4, cy: (3 * s) / 4, r: options.radius, fill: INK }),
-    ],
-  );
+  return el('pattern', { id, patternUnits: 'userSpaceOnUse', width: s, height: s }, [
+    el('circle', { cx: s / 4, cy: s / 4, r: options.radius, fill: INK }),
+    el('circle', { cx: (3 * s) / 4, cy: (3 * s) / 4, r: options.radius, fill: INK }),
+  ]);
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -378,11 +373,18 @@ export function scaleBar(
   }
   for (let i = 0; i <= segments; i += 1) {
     const value = step * i;
-    const text = i === segments ? `${sv(value, value % 1 === 0 ? 0 : 1)} m` : sv(value, value % 1 === 0 ? 0 : 1);
+    const text =
+      i === segments
+        ? `${sv(value, value % 1 === 0 ? 0 : 1)} m`
+        : sv(value, value % 1 === 0 ? 0 : 1);
     parts.push(label(x + i * segment, y + h + 3, text, { anchor: 'middle', size: TEXT.small }));
   }
   parts.push(label(x, y - 1.5, `Skala 1:${scaleDenominator}`, { size: TEXT.small }));
-  return { svg: group(parts, { class: 'skalstock' }), width: segment * segments + 4, height: h + 6 };
+  return {
+    svg: group(parts, { class: 'skalstock' }),
+    width: segment * segments + 4,
+    height: h + 6,
+  };
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -410,7 +412,9 @@ export function legend(
   const size = options.size ?? TEXT.small;
   const sw = 9;
   const sh = 3.4;
-  const parts: string[] = [label(x, y + TEXT.normal, heading, { size: TEXT.normal, weight: 'bold' })];
+  const parts: string[] = [
+    label(x, y + TEXT.normal, heading, { size: TEXT.normal, weight: 'bold' }),
+  ];
   let width = textWidth(heading, TEXT.normal, true);
   entries.forEach((entry, i) => {
     const top = y + 5 + i * row;
@@ -622,4 +626,14 @@ export function composeSheet(options: {
     },
     parts,
   )}\n`;
+}
+
+/** Centred, underlined heading under a view, e.g. "FASAD MOT SÖDER". */
+export function viewHeading(x: number, y: number, text: string): string {
+  const value = text.toUpperCase();
+  const w = textWidth(value, TEXT.heading, true);
+  return (
+    label(x, y, value, { anchor: 'middle', size: TEXT.heading, weight: 'bold' }) +
+    line(x - w / 2, y + 1.2, x + w / 2, y + 1.2, LINE.medium)
+  );
 }

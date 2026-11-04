@@ -77,6 +77,10 @@ const caseStatusSchema = z.object({
   simDate: z.string().min(1),
   startedAt: iso,
   submittedAt: iso.nullable(),
+  // Added in migration 2; backups written before it lack these fields.
+  state: json.default(null),
+  notes: z.string().default(''),
+  reflection: z.string().default(''),
 }) satisfies z.ZodType<CaseStatus>;
 
 const caseStepSchema = z.object({
@@ -271,6 +275,9 @@ export async function importStudyData(
       currentStepId: status.currentStepId,
       simDate: status.simDate,
       startedAt: status.startedAt,
+      state: status.state,
+      notes: status.notes,
+      reflection: status.reflection,
     });
     if (status.status !== 'in_progress' || status.submittedAt !== null) {
       await store.cases.updateCaseStatus(status.caseId, {

@@ -13,6 +13,15 @@ import {
 } from '@bygglov/content-schema';
 import { globSync } from 'tinyglobby';
 import { parse, YAMLParseError } from 'yaml';
+import {
+  DRAWING_KINDS,
+  DrawingDoesNotFitError,
+  isDrawingKind,
+  isGeneratedDrawing,
+  parseDrawing,
+  renderDrawing,
+  type DrawingKind,
+} from './drawings';
 
 /** A problem tied to a file. `path` locates it inside the file, if known. */
 export interface Finding extends ContentIssue {
@@ -25,10 +34,65 @@ export interface LoadedQuestionFile {
   data: QuestionFile;
 }
 
+/** A handling whose SVG is generated from `parametrar`. */
+export interface PlannedDrawing {
+  handling: string;
+  kind: DrawingKind;
+  /** Path inside the case folder, e.g. `handlingar/situationsplan.svg`. */
+  fil: string;
+  /** The rendered SVG. */
+  svg: string;
+}
+
 export interface LoadedCase {
   /** Folder relative to the content root, e.g. `arenden/A002-tillbyggnad-bjorken-7`. */
   dir: string;
   data: CaseFile;
+  /** Generated drawings, rendered from the validated parameters. */
+  drawings: PlannedDrawing[];
+}
+
+/** Keys allowed in the front matter of a Markdown handling. */
+export const FRONT_MATTER_KEYS = ['rubrik', 'avsandare', 'datum', 'diarienummer'] as const;
+
+/**
+ * Splits optional front matter (`---` YAML `---`) from a Markdown document. Returns
+ * `undefined` for `frontMatter` when there is none.
+ */
+export function splitFrontMatter(source: string): { frontMatter?: string; body: string } {
+  const match = /^---\r?\n([\s\S]*?)\r?\n---[ \t]*(?:\r?\n|$)/.exec(source);
+  if (!match) return { body: source };
+  return { frontMatter: match[1] ?? '', body: source.slice(match[0].length) };
+}
+
+/** Problems in a Markdown handling's front matter, as Swedish messages. */
+export function checkFrontMatter(source: string): string[] {
+  const { frontMatter } = splitFrontMatter(source);
+  if (frontMatter === undefined) return [];
+  let value: unknown;
+  try {
+    value = parse(frontMatter) as unknown;
+  } catch (cause) {
+    const first = (cause instanceof Error ? cause.message : String(cause)).split('\n')[0];
+    return [`Front matter är inte giltig YAML: ${first}`];
+  }
+  if (value === null || value === undefined) return [];
+  if (typeof value !== 'object' || Array.isArray(value)) {
+    return ['Front matter ska vara nyckel: värde-rader mellan två rader med ---.'];
+  }
+  const problems: string[] = [];
+  for (const [key, field] of Object.entries(value)) {
+    if (!(FRONT_MATTER_KEYS as readonly string[]).includes(key)) {
+      problems.push(
+        `Okänd nyckel i front matter: ${key}. Tillåtna nycklar: ${FRONT_MATTER_KEYS.join(', ')}.`,
+      );
+    } else if (typeof field !== 'string' || field.trim() === '') {
+      problems.push(`${key} i front matter ska vara en text.`);
+    } else if (key === 'datum' && !/^\d{4}-\d{2}-\d{2}$/.test(field)) {
+      problems.push('datum i front matter ska skrivas som ÅÅÅÅ-MM-DD.');
+    }
+  }
+  return problems;
 }
 
 export interface ContentTree {
@@ -206,12 +270,72 @@ export function loadContentTree(contentRoot: string): ContentTree {
       }
     });
 
+    // Generated drawings: validate the parameters and render once.
+    const drawings: PlannedDrawing[] = [];
+    data.handlingar.forEach((h) => {
+      if (!isGeneratedDrawing(h)) return;
+      const path = `handlingar[${h.id}]`;
+      if (!isDrawingKind(h.typ)) {
+        error(
+          file,
+          `Handlingen har parametrar och en .svg-fil men det finns ingen ritningsgenerator för typ ${h.typ}. Generatorer finns för: ${DRAWING_KINDS.join(', ')}.`,
+          `${path}.typ`,
+        );
+        return;
+      }
+      const parsed = parseDrawing(h.typ, h.parametrar);
+      if (!parsed.success) {
+        for (const issue of parsed.issues) {
+          error(file, issue.message, `${path}.parametrar${issue.path ? `.${issue.path}` : ''}`);
+        }
+        return;
+      }
+      let svg: string;
+      try {
+        svg = renderDrawing(parsed.data, {
+          fastighet: data.fastighet,
+          projekt: data.titel,
+          titel: h.titel,
+          datum: h.inkom ?? data.startdatum,
+          idPrefix: `${data.id}-${h.id}`,
+        });
+      } catch (cause) {
+        if (!(cause instanceof DrawingDoesNotFitError)) throw cause;
+        error(file, cause.message, `${path}.parametrar`);
+        return;
+      }
+      drawings.push({ handling: h.id, kind: h.typ, fil: h.fil, svg });
+      const target = join(contentRoot, dir, h.fil);
+      if (!fileExists(`${dir}/${h.fil}`)) {
+        warn(
+          file,
+          `Ritningen ${h.fil} är inte genererad ännu. Kör pnpm content:drawings.`,
+          `${path}.fil`,
+        );
+      } else if (readFileSync(target, 'utf8') !== svg) {
+        warn(
+          file,
+          `Ritningen ${h.fil} stämmer inte med parametrarna. Kör pnpm content:drawings.`,
+          `${path}.fil`,
+        );
+      }
+    });
+
     // Referenced files that do not exist yet are allowed while a case is being written.
     const missing = (relativePath: string, path: string) => {
-      if (!fileExists(`${dir}/${relativePath}`))
+      if (!fileExists(`${dir}/${relativePath}`)) {
         warn(file, `Filen ${relativePath} finns inte ännu.`, path);
+        return;
+      }
+      if (relativePath.toLowerCase().endsWith('.md')) {
+        const source = readFileSync(join(contentRoot, dir, relativePath), 'utf8');
+        for (const problem of checkFrontMatter(source))
+          error(file, `${relativePath}: ${problem}`, path);
+      }
     };
-    data.handlingar.forEach((h) => missing(h.fil, `handlingar[${h.id}].fil`));
+    data.handlingar.forEach((h) => {
+      if (!isGeneratedDrawing(h)) missing(h.fil, `handlingar[${h.id}].fil`);
+    });
     allCaseSteps(data).forEach((step) => {
       if (step.typ === 'skrivelse' && step.modelltext)
         missing(step.modelltext, `steg[${step.id}].modelltext`);
@@ -233,7 +357,7 @@ export function loadContentTree(contentRoot: string): ContentTree {
       }
     });
 
-    cases.push({ dir, data });
+    cases.push({ dir, data, drawings });
   }
 
   return {

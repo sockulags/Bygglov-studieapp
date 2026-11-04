@@ -1,0 +1,570 @@
+# Nivå 3-ärende. Fiktiv fastighet, fiktiv kommun, fiktiv översiktsplan.
+# Lagrum i 9 kap. PBL är kontrollerade mot docs/rattslage/pbl-9-kap.txt (lydelse 2025:974,
+# 105 § i lydelse 2026:712). PBL 2, 3, 4, 10, 12 och 13 kap., FL, MB 7, 16 och 19 kap.,
+# väglagen, förordningen (1998:899) om miljöfarlig verksamhet och hälsoskydd och
+# trafikbullerförordningen (2015:216) är kontrollerade mot riksdagen.se (hämtade 2026-11-04).
+# Ärendet utspelar sig efter 2026-07-01 så att 9 kap. 105 § i nu gällande lydelse gäller.
+id: A003
+titel: Nybyggnad av enbostadshus utanför detaljplan nära strand
+niva: 3
+status: utkast
+rattslage: "2025-12-01"
+fastighet: Strandvik 1:9, Åkerslunda kommun
+sammanfattning: >
+  Sökandena vill bygga ett enbostadshus på en tidigare bebyggd fritidshustomt vid Långsjön.
+  Fastigheten ligger utanför detaljplan och utanför sammanhållen bebyggelse. Huset och en del
+  av tomten hamnar inom strandskyddat område, den nya utfarten ska anslutas till en allmän väg
+  och avloppet blir enskilt. Ärendet kräver lokaliseringsprövning, remisser, vilande i väntan
+  på strandskyddsdispens, underrättelse av grannar och kommunicering. Efter beslutet
+  överklagar en granne.
+startdatum: 2026-08-17
+moduler: [05-utanfor-plan, 06-handlaggning, 11-angransande, 12-overklagande, 02-pbl-systemet]
+larandemal:
+  - Göra en lokaliseringsprövning enligt 9 kap. 57 § och 2 kap. 2, 4, 5, 6 och 9 §§ PBL, och pröva om detaljplan krävs (4 kap. 2 §)
+  - Se vilka andra tillstånd som behövs och vilka som ska få remiss (strandskyddsdispens, avlopp, anslutning till allmän väg)
+  - Låta ärendet vila i väntan på strandskyddsdispens (9 kap. 102 §) och förstå följden för avgiften (12 kap. 8 a §)
+  - Underrätta grannar utanför plan (9 kap. 94–96 §§) och hantera en ändrad ansökan efter underrättelsen
+  - Kommunicera underlaget med sökanden och fastighetsägaren (9 kap. 98 §)
+  - Skriva ett beslut med upplysningar enligt 9 kap. 105 §, kungöra det (109 §) och expediera rätt (108 och 110 §§)
+  - Rättidspröva ett överklagande (13 kap. 16 § PBL, 44–46 §§ FL) och skriva nämndens yttrande till länsstyrelsen
+
+taxa:
+  # Förenklad fiktiv taxa. Posten omfattar lovprövning utanför plan med underrättelse,
+  # remisser och kungörelse.
+  bygglov_nybyggnad_enbostadshus_utanfor_plan: 31800
+  reduktion_per_vecka: 0.2
+
+handlingar:
+  # Textdokument är Markdown (front matter: rubrik, avsandare, datum, diarienummer).
+  # Fasader och planritning genereras från parametrar med `pnpm content:drawings`.
+  #
+  # Situationsplanerna H2 och H9 har ännu inga parametrar: generatorn kan i dag bara rita ett
+  # befintligt bostadshus (`hus` är obligatoriskt och märks "Befintligt bostadshus") och saknar
+  # strandlinje, strandskyddsgräns, utfart och anläggningar. Föreslagna parametrar står som
+  # kommentarer under respektive handling och ska aktiveras när generatorn stöder nycklarna.
+  # Samma mått finns i `fakta`, så att texterna och bedömningen redan nu bygger på dem.
+  - id: H1
+    typ: ansokan
+    titel: Ansökan om bygglov
+    fil: handlingar/ansokan.md
+    inkom: 2026-08-17
+    fakta:
+      atgard: nybyggnad av enbostadshus
+      byggnadsarea_kvm: 160
+      byggnadshojd_m: 3.4
+      nockhojd_m: 5.95
+      detaljplan: false
+      omradesbestammelser: false
+      kontrollansvarig: Henrik Wallin
+      byggbedomare: false
+      buller_fasad_ekvivalent_dba: 47
+      buller_uteplats_ekvivalent_dba: 42
+      buller_uteplats_maximal_dba: 61
+  - id: H2
+    typ: situationsplan
+    titel: Situationsplan 1:1000
+    fil: handlingar/situationsplan.svg
+    inkom: 2026-08-17
+    fakta:
+      tomt_bredd_m: 60
+      tomt_djup_m: 70
+      tomtarea_kvm: 4200
+      nytt_hus: [22, 30, 16, 10]
+      altan: [26, 40, 8, 4]
+      strandlinje_soder_om_tomten_m: 65
+      strandskyddsgrans_fran_norra_gransen_m: 35
+      hus_inom_strandskydd_m: 5
+      utfart: "5 m bred, 3–8 m från västra gränsen, i innerkurva"
+      avstand_hus_vagomrade_m: 30
+      markbadd: [46, 16, 8, 8]
+      borrad_brunn: [10, 28]
+    # Föreslagna parametrar (kräver nya nycklar i generatorn, se kommentaren ovan):
+    # parametrar:
+    #   skala: 1000
+    #   tomt_bredd: 60
+    #   tomt_djup: 70
+    #   nybyggnad: [22, 30, 16, 10]          # NY: nytt bostadshus, skrafferas; `hus` valfritt
+    #   anlaggningar:                        # NY: rektanglar med namn, ritas tunt streckade
+    #     - { rektangel: [26, 40, 8, 4], namn: Altan }
+    #     - { rektangel: [46, 16, 8, 8], namn: Markbädd }
+    #   punkter: [{ punkt: [10, 28], namn: Borrad brunn }]   # NY: punktsymbol med text
+    #   utfart: { sida: norr, lage: 3, bredd: 5 }            # NY: lage = avstånd från V/N hörn
+    #   strandlinje: { sida: soder, avstand: 65, namn: Långsjön }   # NY: utanför tomten
+    #   strandskydd: { avstand: 100 }        # NY: streckad gräns 100 m från strandlinjen
+    #   gata: { sida: norr, namn: Väg 612, bredd: 7 }
+    #   grannar: { norr: Strandvik 1:3, oster: Strandvik 1:12, soder: Strandvik 1:1, vaster: Strandvik 1:5 }
+    #   grannhus: [[-52, 20, 12, 9], [84, 16, 14, 9], [20, -40, 12, 9]]
+    #   ritningshuvud: { datum: 2026-08-10, ritad_av: Ek & Holm Arkitektur, ritningsnummer: A-01 }
+  - id: H3
+    typ: fasadritning
+    titel: Fasader mot söder och öster 1:100
+    fil: handlingar/fasader.svg
+    inkom: 2026-08-17
+    parametrar:
+      skala: 100
+      fasader:
+        - rubrik: Fasad mot söder (mot Långsjön)
+          delar:
+            - namn: Nytt enbostadshus
+              bredd: 16
+              byggnadshojd: 3.4
+              takvinkel: 27
+              vy: langsida
+              djup: 10
+              takutsprang: 0.5
+              ny: true
+              oppningar:
+                - { typ: fonster, x: 1.2, bredd: 1.4 }
+                - { typ: fonster, x: 5.0, bredd: 2.4, hojd: 1.6, underkant: 0.5 }
+                - { typ: altandorr, x: 9.0, bredd: 1.6 }
+                - { typ: fonster, x: 12.0, bredd: 2.4, hojd: 1.6, underkant: 0.5 }
+        - rubrik: Fasad mot öster
+          delar:
+            - namn: Nytt enbostadshus
+              bredd: 10
+              byggnadshojd: 3.4
+              takvinkel: 27
+              vy: gavel
+              takutsprang: 0.5
+              ny: true
+              oppningar:
+                - { typ: fonster, x: 1.4, bredd: 1.2 }
+                - { typ: fonster, x: 6.0, bredd: 1.6 }
+                - { typ: fonster, x: 4.6, bredd: 0.8, hojd: 0.8, underkant: 3.9 }
+      ritningshuvud: { datum: 2026-08-10, ritad_av: Ek & Holm Arkitektur, ritningsnummer: A-02 }
+  - id: H4
+    typ: planritning
+    titel: Planritning och sektion A-A 1:100
+    fil: handlingar/planritning.svg
+    inkom: 2026-08-17
+    parametrar:
+      skala: 100
+      rubrik: Plan 1
+      byggnader:
+        - { namn: Nytt enbostadshus, rektangel: [22, 30, 16, 10], ny: true }
+      rum:
+        - { namn: Sovrum, rektangel: [22.3, 30.3, 3.4, 3.6] }
+        - { namn: Bad, rektangel: [25.8, 30.3, 2.4, 3.6] }
+        - { namn: Hall, rektangel: [28.3, 30.3, 3.0, 3.6] }
+        - { namn: Tvätt, rektangel: [31.4, 30.3, 2.4, 3.6] }
+        - { namn: Sovrum, rektangel: [33.9, 30.3, 3.8, 3.6] }
+        - { namn: Sovrum, rektangel: [22.3, 34.0, 3.4, 5.7] }
+        - { namn: Kök och vardagsrum, rektangel: [25.8, 34.0, 11.9, 5.7] }
+      dorrar:
+        - { position: [29.3, 30.0], vagg: horisontell, bredd: 1.0, oppnas_mot: norr }
+        - { position: [28.8, 33.9], vagg: horisontell, typ: oppning, tjocklek: 0.1, bredd: 1.2 }
+        - { position: [23.5, 33.9], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: norr }
+        - { position: [34.8, 33.9], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: norr }
+        - { position: [28.2, 31.5], vagg: vertikal, tjocklek: 0.1, bredd: 0.8, oppnas_mot: vaster }
+        - { position: [31.3, 31.5], vagg: vertikal, tjocklek: 0.1, bredd: 0.8, oppnas_mot: oster }
+        - { position: [25.7, 36.0], vagg: vertikal, tjocklek: 0.1, bredd: 0.8, oppnas_mot: vaster }
+        - { position: [31.0, 39.7], vagg: horisontell, bredd: 1.6, oppnas_mot: soder }
+      fonster:
+        - { position: [23.2, 39.7], vagg: horisontell, bredd: 1.4 }
+        - { position: [27.0, 39.7], vagg: horisontell, bredd: 2.4 }
+        - { position: [34.0, 39.7], vagg: horisontell, bredd: 2.4 }
+        - { position: [23.4, 30.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [26.6, 30.0], vagg: horisontell, bredd: 0.6 }
+        - { position: [34.9, 30.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [37.7, 31.4], vagg: vertikal, bredd: 1.2 }
+        - { position: [37.7, 36.0], vagg: vertikal, bredd: 1.6 }
+        - { position: [22.0, 36.0], vagg: vertikal, bredd: 1.2 }
+      sektion:
+        rubrik: Sektion A-A
+        snitt: { fran: [30.5, 28.5], till: [30.5, 41.5], sikt: vaster }
+        bredd: 10
+        byggnadshojd: 3.4
+        takvinkel: 27
+        takutsprang: 0.5
+        rum: Kök och vardagsrum
+      ritningshuvud: { datum: 2026-08-10, ritad_av: Ek & Holm Arkitektur, ritningsnummer: A-03 }
+  - id: H5
+    typ: oversiktsplan
+    titel: Översiktsplanen, utdrag för Långsjöns västra strand
+    fil: handlingar/oversiktsplan.md
+    inkom: 2026-08-17
+    fakta:
+      detaljplan: false
+      omradesbestammelser: false
+      lis_omrade: false
+      riksintresse: false
+      hogsta_hogvatten_m: 29.4
+      lagsta_golvniva_m: 30.5
+  - id: H6
+    typ: ovrigt
+    titel: Grannförteckning ur fastighetsregistret
+    fil: handlingar/grannforteckning.md
+    inkom: 2026-08-17
+  - id: H7
+    typ: remissvar
+    titel: Remissvar från Trafikverket
+    fil: handlingar/remissvar-trafikverket.md
+    dold_tills: E1
+  - id: H8
+    typ: grannyttrande
+    titel: Yttrande från ägarna till Strandvik 1:12
+    fil: handlingar/yttrande-strandvik-1-12.md
+    dold_tills: E1
+    fakta: { fastighet: Strandvik 1:12 }
+  - id: H9
+    typ: situationsplan
+    titel: Situationsplan 1:1000, revidering A (flyttad utfart)
+    fil: handlingar/situationsplan-rev-a.svg
+    dold_tills: E1
+    fakta:
+      utfart: "5 m bred, 30–35 m från västra gränsen, god sikt i båda riktningar"
+      andrat_mot_H2: utfartens läge och infartsvägen
+    # Föreslagna parametrar: som H2 men med
+    #   utfart: { sida: norr, lage: 30, bredd: 5 }
+    #   ritningshuvud: { datum: 2026-09-09, ritad_av: Ek & Holm Arkitektur, ritningsnummer: A-01 rev A }
+  - id: H10
+    typ: remissvar
+    titel: Yttrande från miljöenheten om vatten och avlopp
+    fil: handlingar/remissvar-miljoenheten.md
+    dold_tills: E2
+  - id: H11
+    typ: strandskyddsdispens
+    titel: Beslut om strandskyddsdispens
+    fil: handlingar/beslut-strandskyddsdispens.md
+    dold_tills: E2
+    fakta:
+      sarskilt_skal: "7 kap. 18 e § 1 miljöbalken, redan ianspråktaget"
+      tomtplats_inom_strandskydd: "x 14–46 m, y 35–52 m i situationsplanens koordinater"
+  - id: H12
+    typ: overklagande
+    titel: Överklagande från ägarna till Strandvik 1:5
+    fil: handlingar/overklagande-strandvik-1-5.md
+    dold_tills: E3
+    fakta: { fastighet: Strandvik 1:5, inkom: 2026-11-02, kungjort: 2026-10-14 }
+  - id: H13
+    typ: skrivelse
+    titel: Länsstyrelsens begäran om yttrande
+    fil: handlingar/lansstyrelsen-begaran-om-yttrande.md
+    dold_tills: E4
+
+steg:
+  - id: S1
+    typ: checklista
+    rubrik: Är ansökan komplett?
+    instruktion: >
+      Gå igenom handlingarna. Markera vad som finns i ansökan. Skilj på det som behövs för
+      bygglovsprövningen och det som prövas i andra ärenden.
+    poster:
+      - { text: Ifylld och undertecknad ansökan, finns: true }
+      - { text: "Situationsplan med placering, avstånd till gränser och väg", finns: true }
+      - { text: Fasadritningar, finns: true }
+      - { text: Planritning och sektion, finns: true }
+      - { text: Förslag till kontrollansvarig, finns: true, kommentar: "Krävs för ett nytt bostadshus (10 kap. 9 § PBL) och ska anges i ansökan (9 kap. 86 § 3 b)." }
+      - { text: Redovisning av vatten och avlopp, finns: true, kommentar: "Borrad brunn och markbädd. Tillståndet till avloppsanordningen söks hos miljöenheten." }
+      - { text: Bullerberäkning, finns: true, kommentar: "Behövs för ett bostadshus utanför detaljplan nära allmän väg (2 kap. 6 a § och 9 kap. 105 § andra stycket)." }
+      - { text: Ansökan om strandskyddsdispens, finns: false, kommentar: "Ingår inte i bygglovsansökan, men behövs eftersom huset delvis ligger inom 100 meter från Långsjön. Sökandena ska upplysas om det (9 kap. 92 §)." }
+      - { text: Tillstånd från Trafikverket för ny utfart mot väg 612, finns: false, kommentar: "Söks av sökandena hos Trafikverket (39 § väglagen). Nämnden remitterar ansökan." }
+    forklaring: >
+      Ansökan är komplett för bygglovsprövningen, så något föreläggande om komplettering
+      behövs inte (9 kap. 91 §). Det som saknas är andra tillstånd, som prövas i andra ärenden.
+      Tioveckorsfristen räknas från ansökningsdagen den 17 augusti 2026 och löper ut den
+      26 oktober 2026 (9 kap. 99 § första stycket 1). Sökandena ska skriftligen informeras om
+      fristen, om avgiftsreduktionen och om möjligheten att överklaga (100 § 1).
+    lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 91 §, PBL 9 kap. 92 §, PBL 9 kap. 99 §, PBL 9 kap. 100 §]
+    tid_framat_dagar: 2
+
+  - id: S2
+    typ: fraga
+    rubrik: Andra tillstånd och remisser
+    instruktion: Läs ansökan, situationsplanen och utdraget ur översiktsplanen.
+    fragetyp: flersvar
+    fraga: >
+      Huset ligger delvis inom 100 meter från Långsjön, får en ny utfart mot den allmänna vägen
+      612 och ett enskilt avlopp med vattentoalett. Vilka av följande ska du göra?
+    alternativ:
+      - text: Upplysa sökandena om att strandskyddsdispens krävs för huset och tomtplatsen, och att den söks hos kommunen.
+        ratt: true
+      - text: Skicka ansökan på remiss till Trafikverket, som är väghållare för väg 612 och prövar anslutningen.
+        ratt: true
+      - text: Skicka ansökan på remiss till miljöenheten om vatten och avlopp, och samordna prövningarna.
+        ratt: true
+      - text: Begära länsstyrelsens tillstånd enligt 47 § väglagen eftersom huset byggs nära vägen.
+      - text: Kräva marklov för schaktningen till grunden.
+      - text: Underrätta Försvarsmakten.
+    forklaring: >
+      Nya byggnader får inte uppföras inom strandskyddsområde (7 kap. 15 § miljöbalken) utan
+      dispens, som kommunen prövar (18 c §). Nämnden ska upplysa sökanden om andra tillstånd som
+      behövs (9 kap. 92 § PBL). En utfart mot allmän väg kräver väghållarens tillstånd (39 §
+      väglagen), och Trafikverkets syn behövs också för lämplighetsprövningen av trafiken
+      (2 kap. 5 § 3 och 6 § 6 PBL). En avloppsanordning som vattentoaletter ska anslutas till
+      kräver tillstånd från kommunens miljönämnd (13 § förordningen om miljöfarlig verksamhet
+      och hälsoskydd). Prövningar enligt annan lag ska samordnas när det lämpligen kan ske
+      (2 kap. 11 § PBL). I Åkerslunda sköts både bygglov och miljöfrågor av bygg- och
+      miljönämnden, så remissen går till miljöenheten. Länsstyrelsens tillstånd enligt 47 §
+      väglagen krävs bara inom tolv meter från vägområdet; huset ligger 30 meter därifrån.
+      Marklov för schaktning krävs inom detaljplan (9 kap. 47 §) eller där
+      områdesbestämmelser säger det (48 §), och markåtgärder som ingår i ett bygglov kräver
+      inte marklov (50 §). Försvarsmakten underrättas bara inom eller nära riksintressen för
+      totalförsvaret (9 kap. 97 §), och sådana finns inte här.
+    lagrum: [PBL 9 kap. 92 §, PBL 2 kap. 11 §, MB 7 kap. 15 §, MB 7 kap. 18 c §, VägL 39 §, FMH 13 §]
+    tid_framat_dagar: 1
+
+  - id: S3
+    typ: fraga
+    rubrik: Vad händer med bygglovet medan dispensen prövas?
+    fragetyp: flerval
+    fraga: >
+      Sökandena har nu ansökt om strandskyddsdispens. Miljöenheten räknar med att kunna besluta
+      om några veckor. Vad gör du med bygglovsärendet?
+    alternativ:
+      - text: Beslutar att bygglovsärendet inte ska avgöras förrän frågan om strandskyddsdispens är avgjord, och fortsätter under tiden med underrättelser och remisser.
+        ratt: true
+      - text: Beviljar bygglov nu med villkoret att strandskyddsdispens ges.
+      - text: Avslår ansökan, eftersom huset inte får byggas utan dispens.
+      - text: Avvisar ansökan tills sökandena kan visa upp en dispens.
+      - text: Fortsätter som vanligt och fattar beslut inom tio veckor oavsett dispensen, eftersom avgiften annars ska reduceras.
+    forklaring: >
+      Enligt 9 kap. 102 § första stycket 1 får nämnden, trots tidsfristen i 99 §, besluta att ett
+      lovärende inte ska avgöras förrän frågan om strandskyddsdispens har avgjorts. Avgiften
+      reduceras inte om tidsfristen överskrids på grund av ett sådant beslut (12 kap. 8 a §).
+      Handläggningen i övrigt kan fortsätta. Ett lov kan inte villkoras av att dispens ges;
+      villkorade lov finns bara i väntan på planbeslut (9 kap. 81 §). Att avslå eller avvisa
+      vore fel, eftersom dispensfrågan ännu inte är avgjord.
+    lagrum: [PBL 9 kap. 102 §, PBL 9 kap. 99 §, PBL 12 kap. 8 a §, PBL 9 kap. 81 §]
+
+  - id: S4
+    typ: urval
+    rubrik: Vilka ska underrättas?
+    instruktion: >
+      Åtgärden är ett nytt bostadshus utanför detaljplan. Använd grannförteckningen och
+      situationsplanen och välj vilka som ska få underrättelsen.
+    alternativ:
+      - { text: "Strandvik 1:5, väster (Birgitta och Anders Nordin)", ratt: true }
+      - { text: "Strandvik 1:12, öster (Monica och Göran Lundh)", ratt: true }
+      - { text: "Strandvik 1:3, norr om väg 612 (Ulla Persson)", ratt: true, kommentar: "Skiljs från Strandvik 1:9 endast av en väg (9 kap. 96 § första stycket 1)." }
+      - { text: "Strandvik 1:1, söder, skog och strand mot Långsjön (Strandviks gård AB)", ratt: true }
+      - { text: "Strandvik 1:20, väster om Strandvik 1:5", ratt: false, kommentar: Gränsar inte till Strandvik 1:9. }
+      - { text: "Hyresgästen i bostadshuset på Strandvik 1:5", ratt: false, kommentar: "Hyresgäster och bostadsrättshavare underrättas inte längre; meddelandet går till ägare och innehavare av särskild rätt." }
+    forklaring: >
+      Underrättelse krävs eftersom åtgärden ska utföras utanför detaljplan, inte är reglerad i
+      områdesbestämmelser och inte bara kompletterar ett en- eller tvåbostadshus
+      (9 kap. 94 § första stycket 2). Meddelandet ska innehålla ansökans huvudsakliga innehåll,
+      var den hålls tillgänglig och hur, till vem och när synpunkter kan lämnas (95 §). Det
+      skickas till ägare och innehavare av särskild rätt till fastigheter som gränsar till
+      Strandvik 1:9 eller skiljs från den endast av en väg, och kungörs på kommunens
+      anslagstavla (96 §). Underrättelsen skickas den 20 augusti med svar senast den
+      3 september.
+    lagrum: [PBL 9 kap. 94 §, PBL 9 kap. 95 §, PBL 9 kap. 96 §]
+    tid_framat_dagar: 14
+
+  - id: S5
+    typ: fraga
+    rubrik: Lokaliseringsprövning
+    instruktion: >
+      Nu har dispensen, remissvaren och grannyttrandet kommit in. Gör lokaliseringsprövningen
+      och skriv några stycken, som underlag för beslutet.
+    fragetyp: oppen
+    fraga: >
+      Är platsen lämplig för ett nytt enbostadshus enligt 9 kap. 57 § och 2 kap. PBL? Krävs
+      detaljplan? Ta ställning till invändningarna från ägarna till Strandvik 1:12.
+    bedomningspunkter:
+      - Konstaterar att fastigheten ligger utanför detaljplan och utanför sammanhållen bebyggelse, att områdesbestämmelser saknas och att prövningen görs enligt 9 kap. 57 §
+      - Bedömer att ett enstaka bostadshus på en tidigare bebyggd tomt inte kräver detaljplan (4 kap. 2 §), med stöd av översiktsplanens beskrivning av bebyggelsetrycket
+      - Bedömer markanvändningen (2 kap. 2 och 4 §§) med stöd av översiktsplanen och påpekar att den är vägledande men inte bindande (3 kap. 2 §)
+      - Går igenom 2 kap. 5 §, vatten och avlopp, trafik och utfart, översvämning, och buller enligt 2 kap. 6 a § med värdena i bullerberäkningen
+      - Bedömer placering och utformning med hänsyn till landskapsbilden och naturvärdena (2 kap. 6 §)
+      - Prövar grannens invändningar mot 2 kap. 9 § och konstaterar att trafikfrågan har lösts med den flyttade utfarten
+      - Konstaterar att strandskyddsfrågan och allmänhetens passage har prövats i dispensbeslutet och inte prövas på nytt i bygglovet
+    modellsvar: >
+      Strandvik 1:9 ligger utanför detaljplan och områdesbestämmelser, och de närmaste
+      bostadstomterna gränsar inte till varandra, så bebyggelsen är inte sammanhållen. Lov ska
+      därför ges om åtgärden inte förutsätter planläggning och uppfyller kraven i 2 och 8 kap.
+      (9 kap. 57 §). Ett enda bostadshus på en tomt som varit bebyggd sedan 1950-talet är inte
+      en ny sammanhållen bebyggelse, och översiktsplanen beskriver bebyggelsetrycket som
+      måttligt, så detaljplan krävs inte (4 kap. 2 §). Översiktsplanen säger att enstaka hus kan
+      prövas i anslutning till väg och befintlig bebyggelse och att strandnära lägen bara kan
+      komma i fråga där marken redan är ianspråktagen. Planen är inte bindande men ger stöd för
+      att platsen är lämplig (2 kap. 2 och 4 §§, 3 kap. 2 §). Marken är inte jordbruksmark och
+      berörs inte av riksintressen. Vatten ordnas med borrad brunn och avloppet med markbädd,
+      som miljöenheten har gett tillstånd till. Golvnivån +34,6 ligger väl över översiktsplanens
+      lägsta nivå +30,5. Utfarten flyttas enligt Trafikverkets krav till ett läge med god sikt.
+      Bullerberäkningen visar 47 dBA vid fasad och 42 dBA vid uteplats, under riktvärdena
+      (2 kap. 5 och 6 a §§). Huset placeras på den gamla tomtplatsen i skogsbrynet, i en
+      skala och utformning som passar landskapet (2 kap. 6 §). Grannarna på Strandvik 1:12
+      oroade sig för trafiken vid kurvan; den frågan är löst. Deras invändning om stranden och
+      allmänhetens tillgång har prövats i dispensbeslutet, som anger tomtplatsen och kräver fri
+      passage. Huset ligger 22 meter från gränsen mot Strandvik 1:12 och cirka 70 meter från
+      deras hus. Det medför ingen betydande olägenhet (2 kap. 9 §).
+    lagrum: [PBL 9 kap. 57 §, PBL 4 kap. 2 §, PBL 2 kap. 2 §, PBL 2 kap. 4 §, PBL 2 kap. 5 §, PBL 2 kap. 6 §, PBL 2 kap. 6 a §, PBL 2 kap. 9 §, PBL 3 kap. 2 §]
+
+  - id: S6
+    typ: skrivelse
+    rubrik: Kommunicera underlaget
+    instruktion: >
+      Innan beslutet ska sökandena och fastighetsägaren få veta vad som kommit in och få yttra
+      sig. Skriv kommuniceringsbrevet.
+    bedomningspunkter:
+      - Riktas till båda sökandena och till fastighetsägaren (Sara Holm är både sökande och ägare, Daniel Ek är sökande)
+      - Räknar upp underlaget av betydelse som tillkommit, grannyttrandet från Strandvik 1:12, Trafikverkets remissvar, miljöenhetens yttrande, strandskyddsdispensen och översiktsplanen, och bifogar det eller anger var det finns
+      - Anger en bestämd tid för att yttra sig och att nämnden annars kan besluta på befintligt underlag
+      - Berättar hur nämnden ser på ärendet utan att skriva som om beslutet redan var fattat
+      - Hänvisar till 9 kap. 98 § PBL
+    modelltext: handlingar/modell-kommunicering.md
+    forklaring: >
+      Före beslut om lov ska nämnden underrätta sökanden och fastighetsägaren om allt underlag
+      av betydelse och ge dem tillfälle att yttra sig inom en bestämd tid, om det inte är
+      uppenbart obehövligt (9 kap. 98 § PBL, jfr 25 § förvaltningslagen). Underlaget är här
+      positivt för sökandena, men grannyttrandet och Trafikverkets krav är sådant de ska få se.
+    lagrum: [PBL 9 kap. 98 §, FL 25 §]
+    tid_framat_dagar: 11
+
+  - id: S7
+    typ: beslut
+    rubrik: Fatta beslut
+    instruktion: >
+      Skriv beslutet. Tänk på vilka upplysningar 9 kap. 105 § kräver i ett lov för ett
+      bostadshus utanför detaljplan, och på vem som ska delges och vem som ska få meddelande.
+    forvantat_beslut: bevilja
+    lagrum: [PBL 9 kap. 57 §]
+    bedomningspunkter:
+      - Beviljar bygglov för nybyggnad av enbostadshus med stöd av 9 kap. 57 § PBL, enligt den reviderade situationsplanen med flyttad utfart (A-01 rev A)
+      - Motiverar lokaliseringen mot 2 kap. 2, 4, 5, 6 och 9 §§ och förklarar varför detaljplan inte krävs (4 kap. 2 §)
+      - Bemöter yttrandet från Strandvik 1:12 sakligt, trafiken (löst genom flyttad utfart) och stranden (prövad i dispensbeslutet)
+      - Anger beräknade bullervärden vid fasad och uteplats (9 kap. 105 § andra stycket)
+      - Har upplysningarna i 105 § första stycket, giltighetstid (115 §), kontrollansvarig, att byggbedömare inte används, att åtgärden inte får påbörjas förrän startbesked getts, och risken med att påbörja innan beslutet fått laga kraft
+      - Tar ställning till om lovet ska gälla först när det fått laga kraft (114 § andra stycket) och motiverar varför det inte behövs
+      - Upplyser om andra tillstånd och villkor (92 §), Trafikverkets anslutningstillstånd, villkoren i strandskyddsdispensen och avloppstillståndet, utan att förena lovet med villkor som saknar stöd i lag (gatukostnadsvillkor enligt 82 § är inte aktuella utanför detaljplan)
+      - Avgiften är 31 800 kr enligt taxan och redovisas, utan reduktion eftersom beslutet fattas inom tidsfristen (12 kap. 8 a §, 9 kap. 107 §)
+      - Överklagandehänvisningen anger att tiden för den som inte delges räknas från en vecka efter kungörelsen (13 kap. 16 §)
+      - Beslutet delges sökandena, fastighetsägaren och ägarna till Strandvik 1:12 (108 §), kungörs på kommunens anslagstavla (109 §) och meddelande skickas till Strandvik 1:5, 1:3 och 1:1 (110 §)
+    modellbeslut: handlingar/modell-beslut.md
+
+handelser:
+  - id: E1
+    namn: Remissvar från Trafikverket och grannyttrande
+    utlosare: { efter_steg: S4 }
+    effekt:
+      tid_framat_dagar: 7
+      visa_handlingar: [H7, H8, H9]
+      meddelande: >
+        Ägarna till Strandvik 1:12 har yttrat sig och motsätter sig huset. Trafikverket
+        avstyrker utfarten i föreslaget läge och kräver att den flyttas österut. Du har
+        skickat remissvaret till sökandena, som i dag har kommit in med en reviderad
+        situationsplan där utfarten ligger 30 meter från västra gränsen.
+      andrade_fakta: { utfart_flyttad: true, utfart_lage_m: 30 }
+      nytt_steg:
+        id: S4b
+        typ: fraga
+        rubrik: Ändrad ansökan efter underrättelsen
+        fragetyp: flerval
+        fraga: Situationsplanen har ändrats efter att grannarna underrättades. Vad gäller?
+        alternativ:
+          - text: Alla fyra grannar ska underrättas på nytt, eftersom ansökan har ändrats.
+          - text: >-
+              Ingen ny underrättelse behövs, eftersom ändringen inte strider mot någon detaljplan
+              eller några områdesbestämmelser, men ägarna till Strandvik 1:12, som haft
+              synpunkter, ska ges tillfälle att yttra sig över ändringen.
+            ratt: true
+          - text: Ingen behöver höras, eftersom det var Trafikverket som krävde ändringen.
+          - text: Bara Trafikverket behöver godkänna den nya situationsplanen.
+        forklaring: >
+          Om ansökan ändras efter underrättelsen behöver en ny underrättelse bara ske om
+          ändringen strider mot detaljplanen eller områdesbestämmelserna. De som har haft
+          synpunkter på den ursprungliga ansökan ska dock alltid ges tillfälle att yttra sig
+          (9 kap. 94 § tredje stycket). Ägarna till Strandvik 1:12 får en vecka på sig. Den
+          nya utfarten ligger dessutom närmare deras fastighet.
+        lagrum: [PBL 9 kap. 94 §]
+        tid_framat_dagar: 7
+
+  - id: E2
+    namn: Strandskyddsdispens beviljas
+    utlosare: { efter_steg: S4 }
+    effekt:
+      tid_framat_dagar: 14
+      visa_handlingar: [H10, H11]
+      meddelande: >
+        Bygg- och miljönämnden har på delegation gett strandskyddsdispens med villkor och
+        tillstånd till avloppsanordningen. Dispensbeslutet har skickats till länsstyrelsen, som
+        i går meddelade att den inte kommer att pröva beslutet (19 kap. 3 b § miljöbalken).
+        Dispensfrågan är avgjord och bygglovsärendet kan avgöras.
+      andrade_fakta: { strandskyddsdispens: true, avloppstillstand: true }
+
+  - id: E3
+    namn: Överklagande från Strandvik 1:5
+    utlosare: { efter_steg: S7, vid_beslut: bevilja }
+    effekt:
+      tid_framat_dagar: 21
+      visa_handlingar: [H12]
+      meddelande: >
+        Beslutet kungjordes på kommunens anslagstavla den 14 oktober 2026. I dag, 19 dagar
+        senare, har ett överklagande kommit in från ägarna till Strandvik 1:5. De fick
+        meddelande om kungörelsen men har inte delgetts beslutet.
+      nytt_steg:
+        id: S8
+        typ: fraga
+        rubrik: Har överklagandet kommit in i rätt tid?
+        fragetyp: flerval
+        fraga: >
+          Beslutet kungjordes den 14 oktober 2026. Ägarna till Strandvik 1:5 delgavs inte
+          beslutet. Deras överklagande kom in till nämnden den 2 november 2026. Vad gäller?
+        alternativ:
+          - text: >-
+              Det har kommit in i rätt tid. Tiden räknas från den 21 oktober, en vecka efter
+              kungörelsen, och går ut den 11 november. Nämnden ska skyndsamt överlämna
+              överklagandet och handlingarna till länsstyrelsen.
+            ratt: true
+          - text: Det har kommit in i rätt tid, eftersom tre veckor från kungörelsen löper ut den 4 november.
+          - text: Det ska avvisas, eftersom de inte lämnade några synpunkter när de underrättades.
+          - text: Det har kommit in i rätt tid, men nämnden ska avvisa det eftersom de inte är sakägare.
+        forklaring: >
+          Den som inte ska delges beslutet enligt 9 kap. 108 § har tre veckor på sig räknat från
+          dagen en vecka efter kungörelsen på anslagstavlan (13 kap. 16 § tredje stycket PBL och
+          44 § förvaltningslagen). Kungörelse den 14 oktober ger den 21 oktober och sista dag
+          den 11 november. Svaret "4 november" ger rätt slutsats av fel skäl. Nämnden prövar
+          bara om överklagandet kommit in i rätt tid (45 § FL) och ska sedan skyndsamt
+          överlämna det till länsstyrelsen (46 § FL, 13 kap. 3 § PBL). Frågan om klagorätt
+          prövas av länsstyrelsen (47 § FL). Att inte ha yttrat sig under underrättelsen tar
+          inte bort rätten att överklaga ett lov; den begränsningen gäller detaljplaner
+          (13 kap. 11 § PBL).
+        lagrum: [PBL 13 kap. 16 §, FL 44 §, FL 45 §, FL 46 §, FL 47 §, PBL 13 kap. 3 §]
+        tid_framat_dagar: 1
+
+  - id: E4
+    namn: Länsstyrelsen begär yttrande
+    utlosare: { efter_steg: S8 }
+    effekt:
+      tid_framat_dagar: 14
+      visa_handlingar: [H13]
+      meddelande: >
+        Överklagandet och handlingarna överlämnades till länsstyrelsen den 3 november.
+        Länsstyrelsen har nu begärt att nämnden yttrar sig över överklagandet.
+      nytt_steg:
+        id: S9
+        typ: skrivelse
+        rubrik: Yttrande till länsstyrelsen
+        instruktion: >
+          Skriv nämndens yttrande över överklagandet. Ta ställning till vad nämnden yrkar och
+          bemöt varje grund som de klagande anför.
+        bedomningspunkter:
+          - Anger att nämnden vidhåller beslutet och anser att överklagandet ska avslås
+          - Bemöter grunden om strandskyddet och stigen, frågan är prövad i dispensbeslutet, som inte överklagats, och villkoren håller passagen fri
+          - Bemöter grunden om utsikt och värdeminskning (ingen betydande olägenhet enligt 2 kap. 9 § PBL, avstånd och läge)
+          - Bemöter påståendet att detaljplan krävs (4 kap. 2 § PBL, ett enstaka hus på en tidigare bebyggd tomt)
+          - "Bemöter påståendet om att de inte underrättats: meddelandet skickades den 20 augusti till dem som lagfarna ägare och kungjordes på anslagstavlan, och de har ändå kunnat överklaga"
+          - Redovisar handläggningen kort och sakligt med datum och hänvisar till handlingarna i stället för att upprepa dem
+          - Tar inte ställning till klagorätten som om nämnden avgjorde den; det gör länsstyrelsen
+        modelltext: handlingar/modell-yttrande.md
+        lagrum: [PBL 13 kap. 3 §, PBL 2 kap. 9 §, PBL 4 kap. 2 §, PBL 9 kap. 96 §]
+
+facit:
+  sammanfattning: >
+    Lokaliseringen är lämplig: en tidigare bebyggd tomt, ingen sammanhållen bebyggelse och
+    inget planbehov. Ärendet vilar enligt 9 kap. 102 § tills strandskyddsdispensen är avgjord,
+    grannarna underrättas enligt 94 § första stycket 2, utfarten flyttas efter Trafikverkets
+    remissvar och Strandvik 1:12 får yttra sig över ändringen. Efter kommunicering beviljas
+    lov enligt 57 § med bullervärden och upplysningar enligt 105 §. Överklagandet från
+    Strandvik 1:5 har kommit in i rätt tid och överlämnas till länsstyrelsen med nämndens
+    yttrande.
+  vanliga_fel:
+    - Att bevilja lov med villkor att strandskyddsdispens ges, i stället för att låta ärendet vila (9 kap. 102 §)
+    - Att pröva strandskyddet på nytt i bygglovet eller i yttrandet, i stället för att hänvisa till dispensbeslutet
+    - Att glömma bullervärdena i beslutet (9 kap. 105 § andra stycket)
+    - Att bara skicka meddelande om kungörelsen till grannen som haft synpunkter som inte tillgodosetts; den grannen ska delges (9 kap. 108 §)
+    - Att räkna överklagandetiden från kungörelsen i stället för från en vecka efter den (13 kap. 16 §)
+    - Att nämnden själv avvisar ett överklagande för att klaganden saknar klagorätt; nämnden prövar bara om det kommit in i rätt tid
+  modellbeslut: handlingar/modell-beslut.md

@@ -165,6 +165,15 @@ export interface CaseStatus {
   simDate: string;
   startedAt: string;
   submittedAt: string | null;
+  /**
+   * The case engine's whole state (`CaseState` from engine/cases) as JSON, null when none
+   * is stored. The case view validates it with `restoreCaseState` when reading it back.
+   */
+  state: unknown;
+  /** The learner's own notes for the case (arbetsytan → Anteckningar). */
+  notes: string;
+  /** "Egna reflektioner" written in the comparison view after the decision. */
+  reflection: string;
 }
 
 export interface NewCaseStatus {
@@ -173,10 +182,19 @@ export interface NewCaseStatus {
   simDate: string;
   /** Defaults to now. */
   startedAt?: string;
+  /** Defaults to null. */
+  state?: unknown;
+  /** Defaults to an empty string. */
+  notes?: string;
+  /** Defaults to an empty string. */
+  reflection?: string;
 }
 
 export type CaseStatusPatch = Partial<
-  Pick<CaseStatus, 'status' | 'currentStepId' | 'simDate' | 'submittedAt'>
+  Pick<
+    CaseStatus,
+    'status' | 'currentStepId' | 'simDate' | 'submittedAt' | 'state' | 'notes' | 'reflection'
+  >
 >;
 
 /** arende_steg: the answer to one step. One row per (case, step); saving again replaces it. */

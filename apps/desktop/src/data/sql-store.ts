@@ -78,6 +78,10 @@ interface CaseStatusRow {
   sim_date: string;
   started_at: string;
   submitted_at: string | null;
+  /** From the LEFT JOIN with case_state (migration 2); null when that row is missing. */
+  state_json: string | null;
+  notes: string | null;
+  reflection: string | null;
 }
 
 interface CaseStepRow {
@@ -158,7 +162,15 @@ const mapCaseStatus = (r: CaseStatusRow): CaseStatus => ({
   simDate: r.sim_date,
   startedAt: r.started_at,
   submittedAt: r.submitted_at,
+  state: fromJson(r.state_json),
+  notes: r.notes ?? '',
+  reflection: r.reflection ?? '',
 });
+
+/** case_status joined with its case_state row (migration 2). */
+const CASE_STATUS_SELECT = `SELECT s.case_id, s.status, s.current_step_id, s.sim_date, s.started_at,
+  s.submitted_at, c.state_json, c.notes, c.reflection
+  FROM case_status s LEFT JOIN case_state c ON c.case_id = s.case_id`;
 
 const mapCaseStep = (r: CaseStepRow): CaseStep => ({
   id: Number(r.id),
@@ -462,6 +474,19 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
     return status;
   }
 
+  /** Upserts the case_state row (engine state, notes, reflection) of a started case. */
+  async function saveCaseState(
+    caseId: string,
+    values: Pick<CaseStatus, 'state' | 'notes' | 'reflection'>,
+  ): Promise<void> {
+    await driver.execute(
+      `INSERT INTO case_state (case_id, state_json, notes, reflection) VALUES ($1, $2, $3, $4)
+       ON CONFLICT (case_id) DO UPDATE SET state_json = excluded.state_json,
+         notes = excluded.notes, reflection = excluded.reflection`,
+      [caseId, toJson(values.state ?? null, 'case state'), values.notes, values.reflection],
+    );
+  }
+
   async function requireDecision(id: number): Promise<Decision> {
     const decision = await cases.getDecision(id);
     if (!decision) throw new NotFoundError(`Beslut ${id}`);
@@ -484,19 +509,22 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
           input.startedAt === undefined ? nowIso() : toIso(input.startedAt),
         ],
       );
+      await saveCaseState(input.caseId, {
+        state: input.state ?? null,
+        notes: input.notes ?? '',
+        reflection: input.reflection ?? '',
+      });
       return requireCase(input.caseId);
     },
 
     async getCaseStatus(caseId) {
-      const row = await one<CaseStatusRow>('SELECT * FROM case_status WHERE case_id = $1', [
-        caseId,
-      ]);
+      const row = await one<CaseStatusRow>(`${CASE_STATUS_SELECT} WHERE s.case_id = $1`, [caseId]);
       return row ? mapCaseStatus(row) : null;
     },
 
     async listCaseStatuses() {
       const rows = await driver.select<CaseStatusRow>(
-        'SELECT * FROM case_status ORDER BY started_at, case_id',
+        `${CASE_STATUS_SELECT} ORDER BY s.started_at, s.case_id`,
       );
       return rows.map(mapCaseStatus);
     },
@@ -510,6 +538,13 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
           WHERE case_id = $5`,
         [next.status, next.currentStepId, next.simDate, next.submittedAt, caseId],
       );
+      if (
+        patch.state !== undefined ||
+        patch.notes !== undefined ||
+        patch.reflection !== undefined
+      ) {
+        await saveCaseState(caseId, next);
+      }
       return requireCase(caseId);
     },
 
@@ -521,6 +556,7 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
       await driver.execute('DELETE FROM decisions WHERE case_id = $1', [caseId]);
       await driver.execute('DELETE FROM case_events WHERE case_id = $1', [caseId]);
       await driver.execute('DELETE FROM case_steps WHERE case_id = $1', [caseId]);
+      await driver.execute('DELETE FROM case_state WHERE case_id = $1', [caseId]);
       await driver.execute('DELETE FROM case_status WHERE case_id = $1', [caseId]);
     },
 
@@ -650,6 +686,7 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
     'decisions',
     'case_events',
     'case_steps',
+    'case_state',
     'case_status',
     'answers',
     'reviews',

@@ -25,6 +25,7 @@ import {
   rect,
   sheetIndex,
   textWidth,
+  viewHeading,
   type ChainPoint,
 } from './svg';
 
@@ -49,7 +50,7 @@ function geometry(part: FacadePart): PartGeometry {
   return { part, x0: part.x, x1: part.x + part.bredd, bh: part.byggnadshojd, nock, tan };
 }
 
-interface LevelMark {
+export interface LevelMark {
   z: number;
   /** x (m) of the feature the level refers to. */
   featureX: number;
@@ -57,8 +58,70 @@ interface LevelMark {
   note?: string;
 }
 
+/** Width needed right of the level line for the labels. */
+export function levelLabelWidth(marks: LevelMark[]): number {
+  return Math.max(
+    ...marks.map(
+      (m) => textWidth(m.text, TEXT.normal) + (m.note ? 1.5 + textWidth(m.note, TEXT.small) : 0),
+    ),
+  );
+}
+
+/** Level marks (nivåkotor) on a vertical line at `levelX`, with dashed leaders to the features. */
+export function levelColumn(
+  marks: LevelMark[],
+  o: {
+    levelX: number;
+    X: (x: number) => number;
+    Z: (z: number) => number;
+    topY: number;
+    groundY: number;
+  },
+): string {
+  const sorted = [...marks].sort((a, b) => b.z - a.z);
+  let lastY = -Infinity;
+  const parts: string[] = [line(o.levelX, o.topY, o.levelX, o.groundY, LINE.hair)];
+  for (const m of sorted) {
+    const y = o.Z(m.z);
+    const textY = Math.max(y, lastY + MIN_LABEL_SPACING_MM);
+    lastY = textY;
+    if (Math.abs(m.z) > 0.005) {
+      parts.push(
+        line(o.X(m.featureX) + 1, y, o.levelX + 1.5, y, LINE.hair, {
+          'stroke-dasharray': '1.2 0.8',
+        }),
+      );
+    }
+    parts.push(
+      polygon(
+        [
+          [o.levelX, y],
+          [o.levelX - 1.1, y - 1.6],
+          [o.levelX + 1.1, y - 1.6],
+        ],
+        { fill: INK },
+      ),
+    );
+    if (textY !== y) parts.push(line(o.levelX + 1.5, y, o.levelX + 3.5, textY - 0.8, LINE.hair));
+    parts.push(label(o.levelX + 4, textY - 0.3, m.text, { size: TEXT.normal }));
+    if (m.note) {
+      parts.push(
+        label(o.levelX + 4 + textWidth(m.text, TEXT.normal) + 1.5, textY - 0.3, m.note, {
+          size: TEXT.small,
+          italic: true,
+        }),
+      );
+    }
+  }
+  return group(parts, { class: 'nivaer' });
+}
+
 /** Intervals of [from, to] not covered by any of `covers`. */
-function visibleIntervals(from: number, to: number, covers: [number, number][]): [number, number][] {
+function visibleIntervals(
+  from: number,
+  to: number,
+  covers: [number, number][],
+): [number, number][] {
   let result: [number, number][] = [[from, to]];
   for (const [a, b] of covers) {
     result = result.flatMap(([c, d]): [number, number][] => {
@@ -78,7 +141,12 @@ interface Rendered {
   svg: string;
 }
 
-function renderOpening(o: FacadeOpening, g: PartGeometry, X: (x: number) => number, Z: (z: number) => number) {
+function renderOpening(
+  o: FacadeOpening,
+  g: PartGeometry,
+  X: (x: number) => number,
+  Z: (z: number) => number,
+) {
   const sill = o.underkant ?? defaultSill(o.typ);
   const h = o.hojd ?? defaultOpeningHeight(o.typ);
   const x = g.x0 + o.x;
@@ -101,7 +169,15 @@ function renderOpening(o: FacadeOpening, g: PartGeometry, X: (x: number) => numb
     parts.push(inner(0.06));
     if (w > 1.05) parts.push(line(left + pw / 2, top, left + pw / 2, top + ph, LINE.thin));
     // Sill.
-    parts.push(line(left - 0.05 * k, top + ph + 0.04 * k, left + pw + 0.05 * k, top + ph + 0.04 * k, LINE.thin));
+    parts.push(
+      line(
+        left - 0.05 * k,
+        top + ph + 0.04 * k,
+        left + pw + 0.05 * k,
+        top + ph + 0.04 * k,
+        LINE.thin,
+      ),
+    );
   } else if (o.typ === 'altandorr') {
     if (w > 1.3) {
       const half = pw / 2;
@@ -149,12 +225,7 @@ function renderFacade(f: Facade, k: number, groundId: string): Rendered {
       note,
     });
   }
-  const labelWidth = Math.max(
-    ...marks.map(
-      (m) =>
-        textWidth(m.text, TEXT.normal) + (m.note ? 1.5 + textWidth(m.note, TEXT.small) : 0),
-    ),
-  );
+  const labelWidth = levelLabelWidth(marks);
 
   const left = GROUND_EXTENSION_MM;
   const top = 10;
@@ -269,49 +340,19 @@ function renderFacade(f: Facade, k: number, groundId: string): Rendered {
     }
   });
 
-  parts.push(line(X(minX) - GROUND_EXTENSION_MM, groundY, X(maxX) + GROUND_EXTENSION_MM, groundY, LINE.bold));
+  parts.push(
+    line(X(minX) - GROUND_EXTENSION_MM, groundY, X(maxX) + GROUND_EXTENSION_MM, groundY, LINE.bold),
+  );
 
-  // Levels.
-  const sorted = [...marks].sort((a, b) => b.z - a.z);
-  let lastY = -Infinity;
-  const levelParts: string[] = [line(levelX, Z(topZ) - 2, levelX, groundY, LINE.hair)];
-  for (const m of sorted) {
-    const y = Z(m.z);
-    const textY = Math.max(y, lastY + MIN_LABEL_SPACING_MM);
-    lastY = textY;
-    if (Math.abs(m.z) > 0.005) {
-      levelParts.push(
-        line(X(m.featureX) + 1, y, levelX + 1.5, y, LINE.hair, { 'stroke-dasharray': '1.2 0.8' }),
-      );
-    }
-    levelParts.push(
-      polygon(
-        [
-          [levelX, y],
-          [levelX - 1.1, y - 1.6],
-          [levelX + 1.1, y - 1.6],
-        ],
-        { fill: INK },
-      ),
-    );
-    if (textY !== y) levelParts.push(line(levelX + 1.5, y, levelX + 3.5, textY - 0.8, LINE.hair));
-    levelParts.push(label(levelX + 4, textY - 0.3, m.text, { size: TEXT.normal }));
-    if (m.note) {
-      levelParts.push(
-        label(levelX + 4 + textWidth(m.text, TEXT.normal) + 1.5, textY - 0.3, m.note, {
-          size: TEXT.small,
-          italic: true,
-        }),
-      );
-    }
-  }
-  parts.push(group(levelParts, { class: 'nivaer' }));
+  parts.push(levelColumn(marks, { levelX, X, Z, topY: Z(topZ) - 2, groundY }));
 
   // Part names under the ground, on the widest visible stretch of each part.
   geoms.forEach((g, i) => {
     if (!g.part.namn) return;
     const covers = geoms.slice(i + 1).map((other): [number, number] => [other.x0, other.x1]);
-    const best = visibleIntervals(g.x0, g.x1, covers).sort((a, b) => b[1] - b[0] - (a[1] - a[0]))[0];
+    const best = visibleIntervals(g.x0, g.x1, covers).sort(
+      (a, b) => b[1] - b[0] - (a[1] - a[0]),
+    )[0];
     if (!best) return;
     parts.push(
       label((X(best[0]) + X(best[1])) / 2, groundY + 6, g.part.namn, {
@@ -346,11 +387,7 @@ function renderFacade(f: Facade, k: number, groundId: string): Rendered {
     headingY += 6;
   }
 
-  const heading = f.rubrik.toUpperCase();
-  const headingX = (X(minX) + X(maxX)) / 2;
-  const hw = textWidth(heading, TEXT.heading, true);
-  parts.push(label(headingX, headingY, heading, { anchor: 'middle', size: TEXT.heading, weight: 'bold' }));
-  parts.push(line(headingX - hw / 2, headingY + 1.2, headingX + hw / 2, headingY + 1.2, LINE.medium));
+  parts.push(viewHeading((X(minX) + X(maxX)) / 2, headingY, f.rubrik));
 
   return { width, height: headingY + 3, svg: group(parts, { class: 'fasad' }) };
 }
@@ -386,7 +423,9 @@ export function renderFasadritning(p: FasadritningParams, context: DrawingContex
       width: a.width + gap + b.width,
       height: Math.max(a.height, b.height),
       svg: group([
-        group([a.svg], { transform: `translate(0 ${(Math.max(a.height, b.height) - a.height).toFixed(2)})` }),
+        group([a.svg], {
+          transform: `translate(0 ${(Math.max(a.height, b.height) - a.height).toFixed(2)})`,
+        }),
         group([b.svg], {
           transform: `translate(${(a.width + gap).toFixed(2)} ${(Math.max(a.height, b.height) - b.height).toFixed(2)})`,
         }),
@@ -405,7 +444,8 @@ export function renderFasadritning(p: FasadritningParams, context: DrawingContex
     };
     const sideIndex = sheetIndex({ ...side, footer });
     const stackedIndex = sheetIndex({ ...stacked, footer });
-    content = stackedIndex !== -1 && (sideIndex === -1 || stackedIndex < sideIndex) ? stacked : side;
+    content =
+      stackedIndex !== -1 && (sideIndex === -1 || stackedIndex < sideIndex) ? stacked : side;
   }
 
   return composeSheet({

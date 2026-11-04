@@ -22,47 +22,195 @@ taxa:
   reduktion_per_vecka: 0.2
 
 handlingar:
+  # Textdokument är Markdown (front matter: rubrik, avsandare, datum, diarienummer).
+  # Ritningar genereras från parametrar med `pnpm content:drawings`, se content/README.md.
   - id: H1
     typ: ansokan
     titel: Ansökan om bygglov
-    fil: handlingar/ansokan.pdf
+    fil: handlingar/ansokan.md
     inkom: 2026-03-02
   - id: H2
     typ: situationsplan
     titel: Situationsplan 1:500
     fil: handlingar/situationsplan.svg
     inkom: 2026-03-02
-    parametrar: { tomt_bredd: 24, tomt_djup: 32, hus: [6, 10, 10, 8], tillbyggnad: [6, 18, 7, 5.5], prickmark_sydlig_zon: 6 }
+    parametrar:
+      skala: 500
+      tomt_bredd: 24
+      tomt_djup: 32
+      hus: [6, 13, 12.5, 8]           # befintligt bostadshus, 100 m² byggnadsarea
+      tillbyggnad: [8, 21, 7, 5.5]    # 38,5 m², går 0,5 m in på prickmarken
+      prickmark: [{ sida: soder, djup: 6 }]
+      gata: { sida: soder, namn: Björkvägen, fastighet: "Åkerslunda 1:1" }
+      grannar: { norr: "Åkerslunda 1:1 (park)", oster: Björken 8, soder: Björken 12, vaster: Björken 6 }
+      grannhus: [[-17, 12, 11, 9], [30, 10, 12, 9], [6, 47, 12, 9]]
+      ritningshuvud: { datum: 2026-02-18, ritad_av: Maria Lindqvist, ritningsnummer: A-01 }
   - id: H3
     typ: fasadritning
     titel: Fasader mot söder och öster 1:100
     fil: handlingar/fasader.svg
     inkom: 2026-03-02
-    parametrar: { byggnadshojd: 4.9, takvinkel: 27 }
+    parametrar:
+      skala: 100
+      fasader:
+        - rubrik: Fasad mot söder
+          delar:
+            - namn: Befintlig byggnad
+              bredd: 12.5
+              byggnadshojd: 4.4
+              takvinkel: 30
+              vy: langsida
+              djup: 8
+              oppningar:
+                - { typ: fonster, x: 0.6, bredd: 1.2 }
+                - { typ: dorr, x: 10.4, bredd: 1.0 }
+                - { typ: fonster, x: 11.6, bredd: 0.6, hojd: 1.0, underkant: 1.1 }
+            - namn: Ny tillbyggnad
+              x: 2
+              bredd: 7
+              byggnadshojd: 4.9
+              takvinkel: 27
+              vy: gavel
+              ny: true
+              oppningar:
+                - { typ: altandorr, x: 1.2, bredd: 1.6 }
+                - { typ: fonster, x: 3.6, bredd: 2.2, hojd: 1.6, underkant: 0.5 }
+                - { typ: fonster, x: 2.9, bredd: 1.2, hojd: 0.8, underkant: 3.3 }
+        - rubrik: Fasad mot öster
+          delar:
+            - namn: Ny tillbyggnad
+              bredd: 5.5
+              byggnadshojd: 4.9
+              takvinkel: 27
+              vy: langsida
+              djup: 7
+              ny: true
+              oppningar:
+                - { typ: fonster, x: 2.0, bredd: 2.0, hojd: 1.4 }
+            - namn: Befintlig byggnad
+              x: 5.5
+              bredd: 8
+              byggnadshojd: 4.4
+              takvinkel: 30
+              vy: gavel
+              oppningar:
+                - { typ: fonster, x: 1.5, bredd: 1.0 }
+                - { typ: fonster, x: 5.5, bredd: 1.2 }
+                - { typ: fonster, x: 3.5, bredd: 1.0, hojd: 0.9, underkant: 3.3 }
+      ritningshuvud: { datum: 2026-02-18, ritad_av: Maria Lindqvist, ritningsnummer: A-02 }
   - id: H4
     typ: planbestammelser
-    titel: Detaljplan Dp 1978-14, plankarta med bestämmelser
-    fil: handlingar/plan.pdf
+    titel: Detaljplan Dp 1978-14, planbestämmelser
+    fil: handlingar/planbestammelser.md
     inkom: 2026-03-02
     fakta: { hogsta_byggnadshojd: 4.5, storsta_byggnadsarea_procent: 20, prickmark: "mark som inte får bebyggas, 6 m från södra gränsen" }
   - id: H5
     typ: planritning
-    titel: Planritning 1:100
+    titel: Planritning och sektion A-A 1:100
     fil: handlingar/planritning.svg
     inkom: 2026-03-16        # kommer först efter komplettering, se händelse E1
     dold_tills: E1
+    parametrar:
+      skala: 100
+      rubrik: Plan 1
+      byggnader:
+        - { namn: Befintligt bostadshus, rektangel: [6, 13, 12.5, 8] }
+        - { namn: Tillbyggnad, rektangel: [8, 21, 7, 5.5], ny: true }
+      rum:
+        - { namn: Sovrum, rektangel: [6.3, 13.3, 3.4, 3.1] }
+        - { namn: Bad, rektangel: [9.8, 13.3, 2.2, 3.1] }
+        - { namn: Sovrum, rektangel: [12.1, 13.3, 3.0, 3.1] }
+        - { namn: Sovrum, rektangel: [15.2, 13.3, 3.0, 3.1] }
+        - { namn: Kök, rektangel: [6.3, 16.5, 3.6, 4.2] }
+        - { namn: Vardagsrum, rektangel: [10.0, 16.5, 5.6, 4.2] }
+        - { namn: Hall, rektangel: [15.7, 16.5, 2.5, 4.2] }
+        - { namn: Allrum, rektangel: [8.3, 21.0, 6.4, 5.2] }
+      dorrar:
+        - { position: [11.0, 20.7], vagg: horisontell, typ: oppning, bredd: 1.8 }
+        - { position: [16.4, 20.7], vagg: horisontell, bredd: 1.0, oppnas_mot: norr }
+        - { position: [10.4, 16.4], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: norr }
+        - { position: [7.0, 16.4], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: norr }
+        - { position: [13.0, 16.4], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: norr, gangjarn: slut }
+        - { position: [16.0, 16.4], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: norr }
+        - { position: [15.6, 18.5], vagg: vertikal, tjocklek: 0.1, bredd: 0.9, oppnas_mot: vaster }
+        - { position: [9.2, 26.2], vagg: horisontell, bredd: 1.6, oppnas_mot: norr }
+      fonster:
+        - { position: [11.6, 26.2], vagg: horisontell, bredd: 2.2 }
+        - { position: [14.7, 22.5], vagg: vertikal, bredd: 2.0 }
+        - { position: [8.0, 23.0], vagg: vertikal, bredd: 1.6 }
+        - { position: [6.6, 20.7], vagg: horisontell, bredd: 1.2 }
+        - { position: [18.2, 14.3], vagg: vertikal, bredd: 1.2 }
+        - { position: [18.2, 18.0], vagg: vertikal, bredd: 1.0 }
+        - { position: [7.4, 13.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [13.0, 13.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [16.1, 13.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [6.0, 17.8], vagg: vertikal, bredd: 1.2 }
+      sektion:
+        rubrik: Sektion A-A
+        snitt: { fran: [8, 24.5], till: [15, 24.5], sikt: norr }
+        bredd: 7
+        byggnadshojd: 4.9
+        takvinkel: 27
+        rum: Allrum
+      ritningshuvud: { datum: 2026-03-12, ritad_av: Maria Lindqvist, ritningsnummer: A-03 }
   - id: H6
     typ: anmalan_ka
     titel: Anmälan om kontrollansvarig
-    fil: handlingar/ka.pdf
+    fil: handlingar/ka.md
     inkom: 2026-03-16
     dold_tills: E1
   - id: H7
     typ: grannyttrande
     titel: Yttrande från ägaren till Björken 8
-    fil: handlingar/yttrande-bjorken-8.pdf
+    fil: handlingar/yttrande-bjorken-8.md
     dold_tills: E2
-
+  # Plankartan hör ihop med H4 men ligger sist, så att de äldre handlingarnas ordning består.
+  - id: H9
+    typ: plankarta
+    titel: Detaljplan Dp 1978-14, plankarta 1:1000
+    fil: handlingar/plankarta.svg
+    inkom: 2026-03-02
+    parametrar:
+      skala: 1000
+      plan:
+        beteckning: Dp 1978-14
+        namn: Byggnadsplan för kvarteret Björken m.fl.
+        laga_kraft: 1978-06-12
+        anmarkning: Gäller som detaljplan. Genomförandetiden har gått ut.
+      omrade: [0, 0, 120, 88]
+      kvarter:
+        - namn: Björken
+          rektangel: [0, 14, 120, 32]
+          anvandning: B
+          byggnadshojd: 4.5
+          byggnadsarea_procent: 20
+          prickmark: [{ sida: soder, djup: 6 }]
+          fastigheter:
+            - { beteckning: "5", rektangel: [0, 14, 24, 32] }
+            - { beteckning: "6", rektangel: [24, 14, 24, 32] }
+            - { beteckning: "7", rektangel: [48, 14, 24, 32], markerad: true }
+            - { beteckning: "8", rektangel: [72, 14, 24, 32] }
+            - { beteckning: "3", rektangel: [96, 14, 24, 32] }
+        - namn: Björken
+          rektangel: [0, 56, 120, 32]
+          anvandning: B
+          byggnadshojd: 4.5
+          byggnadsarea_procent: 20
+          prickmark: [{ sida: norr, djup: 6 }]
+          fastigheter:
+            - { beteckning: "14", rektangel: [0, 56, 24, 32] }
+            - { beteckning: "13", rektangel: [24, 56, 24, 32] }
+            - { beteckning: "12", rektangel: [48, 56, 24, 32] }
+            - { beteckning: "11", rektangel: [72, 56, 24, 32] }
+            - { beteckning: "10", rektangel: [96, 56, 24, 32] }
+      allmanna_platser:
+        - { anvandning: PARK, rektangel: [0, 0, 120, 14] }
+        - { anvandning: GATA, namn: Björkvägen, rektangel: [0, 46, 120, 10] }
+      ritningshuvud:
+        projekt: Utdrag ur detaljplan Dp 1978-14
+        ritningstyp: Plankarta
+        datum: 2026-03-02
+        ritad_av: Åkerslunda kommun
 steg:
   - id: S1
     typ: checklista

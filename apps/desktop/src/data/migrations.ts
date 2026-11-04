@@ -34,6 +34,8 @@
  *   arende_handelse  → case_events
  *     id, arende_id → case_id, handelse_id → event_id, utlost_tidpunkt → triggered_at,
  *     sim_datum → sim_date; UNIQUE (case_id, event_id)
+ *     added (migration 2, table case_state, one row per case_status row):
+ *            state_json (the case engine's whole CaseState), notes, reflection
  *   beslut           → decisions
  *     id, arende_id → case_id, beslut_json → decision_json, inlamnad → submitted_at,
  *     export_tidpunkt → exported_at
@@ -157,6 +159,20 @@ export const migrations: readonly Migration[] = [
       `CREATE TABLE IF NOT EXISTS settings (
         key TEXT PRIMARY KEY,
         value_json TEXT NOT NULL
+      )`,
+    ],
+  },
+  {
+    version: 2,
+    name: 'case_state',
+    statements: [
+      // A separate table instead of ALTER TABLE ... ADD COLUMN, which SQLite cannot make
+      // idempotent. Read together with case_status through a LEFT JOIN.
+      `CREATE TABLE IF NOT EXISTS case_state (
+        case_id TEXT PRIMARY KEY REFERENCES case_status (case_id) ON DELETE CASCADE,
+        state_json TEXT,
+        notes TEXT NOT NULL DEFAULT '',
+        reflection TEXT NOT NULL DEFAULT ''
       )`,
     ],
   },

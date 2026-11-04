@@ -1,4 +1,4 @@
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import type { ContentIndex } from '@bygglov/content-schema';
 import type { ContentTree } from './load';
@@ -13,6 +13,8 @@ export interface BuildTargets {
 export interface BuildResult {
   jsonFiles: string[];
   copiedDirs: string[];
+  /** Generated drawings, relative to the public folder. */
+  drawings: string[];
 }
 
 function writeJson(path: string, value: unknown) {
@@ -90,6 +92,17 @@ export function buildContent(tree: ContentTree, targets: BuildTargets): BuildRes
     if (existsSync(source)) cpSync(source, target, { recursive: true, filter: skipHidden });
     copiedDirs.push(`arenden/${data.id}/handlingar`);
   }
+  // Generated drawings are always written fresh from their parameters.
+  const drawings: string[] = [];
+  for (const { data, drawings: planned } of tree.cases) {
+    for (const drawing of planned) {
+      const relativePath = `arenden/${data.id}/${drawing.fil}`;
+      const target = join(targets.publicDir, relativePath);
+      mkdirSync(dirname(target), { recursive: true });
+      writeFileSync(target, drawing.svg, 'utf8');
+      drawings.push(relativePath);
+    }
+  }
   for (const { data } of tree.questionFiles) {
     for (const q of data.fragor) {
       if (q.typ !== 'ritning') continue;
@@ -100,5 +113,32 @@ export function buildContent(tree: ContentTree, targets: BuildTargets): BuildRes
       cpSync(source, target);
     }
   }
-  return { jsonFiles, copiedDirs };
+  return { jsonFiles, copiedDirs, drawings };
+}
+
+/**
+ * Writes generated drawings into the case folders in `content/`, so they can be reviewed and
+ * committed. Returns the written paths relative to the content root. Files that already match
+ * are left untouched.
+ */
+export function writeDrawings(tree: ContentTree): { written: string[]; unchanged: string[] } {
+  if (tree.errors.length > 0) {
+    throw new Error('Innehållet har fel och ritningarna kan inte genereras. Kör content:check.');
+  }
+  const written: string[] = [];
+  const unchanged: string[] = [];
+  for (const { dir, drawings } of tree.cases) {
+    for (const drawing of drawings) {
+      const relativePath = `${dir}/${drawing.fil}`;
+      const target = join(tree.root, relativePath);
+      if (existsSync(target) && readFileSync(target, 'utf8') === drawing.svg) {
+        unchanged.push(relativePath);
+        continue;
+      }
+      mkdirSync(dirname(target), { recursive: true });
+      writeFileSync(target, drawing.svg, 'utf8');
+      written.push(relativePath);
+    }
+  }
+  return { written, unchanged };
 }

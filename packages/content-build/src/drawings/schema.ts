@@ -267,7 +267,9 @@ export type Facade = z.output<typeof FacadeSchema>;
 export const FasadritningSchema = z.strictObject({
   skala: scale(100),
   fasader: z
-    .array(FacadeSchema, { error: fieldError('fasader ska vara en lista med en eller två fasader.') })
+    .array(FacadeSchema, {
+      error: fieldError('fasader ska vara en lista med en eller två fasader.'),
+    })
     .min(1, { error: fieldError('Ritningen behöver minst en fasad.') })
     .max(2, { error: fieldError('En fasadritning får ha högst två fasader.') }),
   ritningshuvud: titleBlock,
@@ -318,9 +320,7 @@ export const PlanRoomSchema = z.strictObject({
   namn: text,
   /** Inner (net) dimensions of the room. */
   rektangel: rectangle,
-  visa_area: z
-    .boolean({ error: fieldError('visa_area ska vara true eller false.') })
-    .default(true),
+  visa_area: z.boolean({ error: fieldError('visa_area ska vara true eller false.') }).default(true),
 });
 export type PlanRoom = z.output<typeof PlanRoomSchema>;
 
@@ -452,7 +452,9 @@ export const BlockSchema = z.strictObject({
     .optional(),
   /** Prickmark along each property's side, e.g. 6 m from the southern boundary. */
   prickmark: z.array(ZoneSchema, { error: fieldError('prickmark ska vara en lista.') }).default([]),
-  fastigheter: z.array(PlotSchema, { error: fieldError('fastigheter ska vara en lista.') }).default([]),
+  fastigheter: z
+    .array(PlotSchema, { error: fieldError('fastigheter ska vara en lista.') })
+    .default([]),
 });
 export type Block = z.output<typeof BlockSchema>;
 

@@ -52,7 +52,10 @@ async function seed(store: DataStore) {
     currentStepId: 'S2',
     simDate: '2026-03-04',
     startedAt: '2026-03-01T09:00:00Z',
+    state: { caseId: 'A002', simDate: '2026-03-04' },
+    notes: 'Kolla prickmarken.',
   });
+  await store.cases.updateCaseStatus('A002', { reflection: 'Glömde 110 §.' });
   await store.cases.saveStep({ caseId: 'A002', stepId: 'S1', answer: [1, 2], points: 2 });
   await store.cases.recordEvent({ caseId: 'A002', eventId: 'E1', simDate: '2026-03-03' });
   const decision = await store.cases.submitDecision({ caseId: 'A002', decision: { b: 1 } });
@@ -93,8 +96,46 @@ describe('study data backup', () => {
     expect(again.data.reviews).toEqual(backup.data.reviews);
     expect(again.data.settings).toEqual({ exempel: { a: 1 } });
     expect(again.data.cases.statuses).toEqual(backup.data.cases.statuses);
+    expect(again.data.cases.statuses[0]).toMatchObject({
+      state: { caseId: 'A002', simDate: '2026-03-04' },
+      notes: 'Kolla prickmarken.',
+      reflection: 'Glömde 110 §.',
+    });
     expect(again.data.cases.steps.map((s) => s.answer)).toEqual([[1, 2]]);
     expect(again.data.cases.feedback.map((f) => f.grade)).toEqual(['G']);
+  });
+
+  it('reads backups written before case_state existed', () => {
+    const backup = {
+      format: 'bygglov-studiedata',
+      version: 1,
+      exportedAt: '2026-03-10T00:00:00.000Z',
+      appVersion: '0.1.0',
+      data: {
+        answers: [],
+        reviews: [],
+        sessions: [],
+        settings: {},
+        cases: {
+          statuses: [
+            {
+              caseId: 'A002',
+              status: 'in_progress',
+              currentStepId: 'S2',
+              simDate: '2026-03-04',
+              startedAt: '2026-03-01T09:00:00.000Z',
+              submittedAt: null,
+            },
+          ],
+          steps: [],
+          events: [],
+          decisions: [],
+          feedback: [],
+        },
+      },
+    };
+    const parsed = parseStudyDataBackup(JSON.stringify(backup));
+    expect(parsed.data.cases.statuses[0]).toMatchObject({ state: null, notes: '', reflection: '' });
   });
 
   it('rejects files that are not a backup without touching the store', () => {
