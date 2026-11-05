@@ -13,6 +13,20 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 Inget ännu.
 
+## [0.6.1] - 2026-11-05
+
+### Ändrat
+
+- När du öppnar ett ärende ligger allt i en kolumn i mitten: vad ärendet gäller, Att göra nu
+  (steget du svarar på direkt där), planbestämmelser och fakta och diariet. När du öppnar en
+  handling delas vyn i tre: diariet till vänster, handlingen i mitten och steget till höger.
+- Handlingar visas som ett A4-ark i verklig storlek.
+
+### Rättat
+
+- Ritningar öppnades kraftigt inzoomade på breda skärmar. Nu öppnas de i 100 %, centrerade,
+  och krymps bara om panelen är för smal. Anpassa fyller fortfarande hela bredden.
+
 ## [0.6.0] - 2026-11-05
 
 ### Nytt
@@ -209,7 +223,8 @@ Inget ännu.
 - Appen uppdaterar sig själv. När en ny version finns visas en ruta överst, och efter
   uppdateringen ser du vad som är nytt.
 
-[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.6.0...master
+[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.6.1...master
+[0.6.1]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.6.1
 [0.6.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.6.0
 [0.5.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.5.0
 [0.4.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.4.0
