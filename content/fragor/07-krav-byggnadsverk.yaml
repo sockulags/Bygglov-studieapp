@@ -8,10 +8,9 @@
 #   (förordning 2015:216) och lso-utdrag.txt.
 # Frågorna följer lydelsen som gäller i dag. Där en ändring redan är beslutad (lag 2026:746 och
 # förordning 2026:1265, i kraft 2027-01-01) säger förklaringen det.
-# Boverkets byggregler: de flesta krav finns sedan 2025 i nya föreskrifter (BFS 2024:4 och
-# 2024:6–2024:13). BBR finns kvar som BBR 31 (BFS 2024:14) med avsnitt 1, 2 och 9. Äldre regler
-# får tillämpas samlat om ansökan eller anmälan kom in före 2026-07-01. Gamla BBR-avsnitt
-# används inte.
+# Boverkets byggregler: BBR upphävdes 2026-10-01 genom BFS 2026:9. Kraven finns i BFS 2024:4,
+# 2024:6–2024:13, 2026:4 och 2026:9 (docs/rattslage/boverket/). Hänvisa med BFS-nummer, kapitel
+# och paragraf. Äldre regler får tillämpas samlat enligt övergångsbestämmelserna.
 # Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
 modul: 07-krav-byggnadsverk
 fragor:
@@ -115,21 +114,23 @@ fragor:
     rattslage: "2025-12-01"
     fraga: Vad gäller för Boverkets byggregler i dag?
     alternativ:
-      - text: De flesta krav finns nu i nya föreskrifter, och BBR finns kvar för bland annat energihushållning.
+      - text: BBR är upphävd och kraven finns i nya föreskrifter, men äldre regler kan få tillämpas under en övergångstid.
         ratt: true
       - text: BBR gäller parallellt med de nya föreskrifterna till 2030, och byggherren väljer fritt.
       - text: Varje kommun beslutar själv vilken version av byggreglerna som gäller i kommunen.
-      - text: BBR gäller i sin helhet, och bara avsnittsnumren har ändrats.
+      - text: BBR gäller fortfarande, men avsnittsnumren har ändrats.
     forklaring: >
       PBL och PBF säger vad som ska uppnås (8 kap. 4 § PBL och 3 kap. PBF). Hur kraven uppfylls
       preciseras i Boverkets föreskrifter, som meddelas med stöd av bemyndigandet i 16 kap. 2 §.
-      Sedan 2025 finns de flesta kraven i nya föreskrifter (BFS 2024:4 och 2024:6–2024:13), en för
-      varje område, till exempel brand, buller och tillgänglighet. BBR finns kvar som BBR 31
-      (BFS 2024:14) för bland annat energihushållning. Äldre regler får tillämpas om ansökan eller
-      anmälan kom in före den 1 juli 2026, men då alla tillsammans. I äldre kurslitteratur och
-      gamla beslut ser du hänvisningar till gamla BBR-avsnitt, så kontrollera alltid vilka regler
-      som gäller för det aktuella ärendet.
-    lagrum: [PBL 16 kap. 2 §, PBL 8 kap. 4 §, PBF 3 kap.]
+      Sedan 2025 finns kraven i en föreskrift för varje område, till exempel brand, buller och
+      tillgänglighet (BFS 2024:4 och 2024:6–2024:13). BFS 2026:4 om hållbar mobilitet kom 2026, och
+      BFS 2026:9 om energihushållning upphävde BBR den 1 oktober 2026. Äldre regler kan ändå
+      gälla: BBR:s energiregler får tillämpas om ansökan eller anmälan kommer in före den 1
+      oktober 2027, och övriga äldre krav om den kom in före den 1 juli 2026. Äldre regler måste
+      tillämpas samlat och får inte blandas med de nya. I äldre kurslitteratur och gamla beslut
+      ser du hänvisningar till BBR-avsnitt, så kontrollera alltid vilka regler som gäller för
+      det aktuella ärendet.
+    lagrum: [PBL 16 kap. 2 §, PBL 8 kap. 4 §, PBF 3 kap., BFS 2026:9, BFS 2024:14]
     taggar: [boverkets_byggregler, rattslage]
 
   - id: krav-006
@@ -1082,8 +1083,10 @@ fragor:
       lovet (9 kap. 56 §). Hållbar mobilitet är dessutom ett tekniskt egenskapskrav (8 kap. 4 §
       första stycket 11): enligt 3 kap. 20 b § PBF ska byggnaden ha den laddutrustning och det
       antal cykelparkeringsplatser som krävs med hänsyn till bl.a. antalet bilplatser och
-      användningen. De tekniska egenskapskraven hanteras i det tekniska samrådet och kontrollplanen
-      inför startbeskedet. Ett villkor om exakt antal platser saknar stöd. Be sökanden visa
+      användningen. BFS 2026:4 2 kap. 2 § kräver som huvudregel minst två cykelparkeringsplatser
+      per bostadslägenhet i ett flerbostadshus. De tekniska egenskapskraven hanteras i det
+      tekniska samrådet och kontrollplanen inför startbeskedet, så ett villkor i lovet om antal
+      platser saknar stöd. Be sökanden visa
       cykelparkeringen redan nu, så att platsen finns på tomten.
     lagrum:
       - PBL 8 kap. 9 §
@@ -1137,3 +1140,548 @@ fragor:
       - PBL 8 kap. 8 §
       - PBL 11 kap. 5 §
     taggar: [stadsbild, lovbefriad, tillsyn]
+
+  # --- Boverkets föreskrifter (kontrollerade mot docs/rattslage/boverket/, 2026-11-05) ---------
+
+  - id: krav-047
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop kravet med föreskriften där det finns.
+    par:
+      - vanster: Skydd mot brandspridning mellan byggnader
+        hoger: BFS 2024:7
+      - vanster: Ljudnivåer inomhus
+        hoger: BFS 2024:10
+      - vanster: Ramper och hissar i byggnader
+        hoger: BFS 2024:12
+      - vanster: Angöringsplats på tomten
+        hoger: BFS 2024:13
+      - vanster: Boendeenheter som delar kök
+        hoger: BFS 2024:11
+      - vanster: Energihushållning
+        hoger: BFS 2026:9
+      - vanster: Cykelparkering
+        hoger: BFS 2026:4
+    forklaring: >
+      Boverkets byggregler är inte längre ett samlat dokument. Varje område har en egen
+      föreskrift, och kraven hänvisas till med BFS-nummer, kapitel och paragraf, till exempel
+      BFS 2024:12 2 kap. 4 § för rampens lutning.
+    lagrum: [BFS 2024:7, BFS 2024:10, BFS 2024:11, BFS 2024:12, BFS 2024:13, BFS 2026:4, BFS 2026:9]
+    taggar: [boverkets_byggregler, rattslage]
+
+  - id: krav-048
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov för ett nytt bostadshus kommer in i november 2026. BBR:s energiregler
+      får tillämpas i stället för BFS 2026:9, om alla äldre regler tillämpas samlat.
+    svar: true
+    forklaring: >
+      BFS 2026:9 upphävde BBR den 1 oktober 2026, men enligt övergångsbestämmelserna får BBR
+      tillämpas på arbeten där ansökan om bygglov eller anmälan kommer in före den 1 oktober 2027.
+      En förutsättning är att samtliga äldre bestämmelser tillämpas. Byggherren kan alltså inte
+      plocka det bästa ur båda regelverken.
+    lagrum: [BFS 2026:9]
+    taggar: [boverkets_byggregler, rattslage, energi]
+
+  - id: krav-049
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov för ett flerbostadshus kommer in den 3 november 2026. Byggherren vill
+      följa brandreglerna i gamla BBR, eftersom projekteringen började för två år sedan. Vad
+      gäller?
+    alternativ:
+      - text: Det går inte. Ansökan kom in efter den 1 juli 2026, så BFS 2024:7 gäller.
+        ratt: true
+      - text: Det går, eftersom projekteringen började innan de nya reglerna trädde i kraft.
+      - text: Det går, om byggherren anger det i ansökan.
+      - text: Det är nämnden som väljer regelverk i varje ärende.
+    forklaring: >
+      Äldre brandregler fick tillämpas om ansökan om bygglov eller anmälan kom in före den 1 juli
+      2026, eller om arbeten utan lov eller anmälan påbörjades före dess. Det är alltså datumet då
+      ansökan kom in som avgör, inte när projekteringen började eller när beslutet fattas. Om
+      bygglov hade getts före den 1 juli 2025 skulle de äldre reglerna tillämpas.
+    lagrum: [BFS 2024:14, BFS 2024:7]
+    taggar: [boverkets_byggregler, rattslage, brand]
+
+  - id: krav-050
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      BFS 2024:11 och BFS 2024:12 har ett kapitel med utformningskrav och ett med tekniska
+      egenskapskrav. Vad betyder uppdelningen för handläggningen?
+    alternativ:
+      - text: Utformningskraven prövas i bygglovet, medan de tekniska egenskapskraven hanteras inför startbeskedet.
+        ratt: true
+      - text: Båda kapitlen prövas i bygglovet.
+      - text: Båda kapitlen hanteras först vid slutbeskedet.
+      - text: Utformningskraven gäller bara nya byggnader och de tekniska egenskapskraven bara ändringar.
+    forklaring: >
+      Enligt 9 kap. 56 § första stycket 4 PBL prövas bland annat kraven i 8 kap. 1 §, som är
+      utformningskrav. De tekniska egenskapskraven i 8 kap. 4 § hör till det tekniska samrådet,
+      kontrollplanen och startbeskedet (10 kap. 23 §). Med föreskrifternas kapitelindelning ser du
+      direkt var ett krav hör hemma.
+    lagrum: [BFS 2024:11 2 kap., BFS 2024:11 3 kap., PBL 9 kap. 56 §, PBL 10 kap. 23 §]
+    taggar: [lovprovning, tekniska_egenskapskrav, utformning]
+
+  - id: krav-051
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I bostäder med boendeenheter för en person får matlagning delas av högst ___ personer. Ett
+      rum för personhygien får delas av högst ___ boendeenheter.
+    svar: [["12", "tolv"], ["3", "tre"]]
+    forklaring: >
+      Gränserna står i BFS 2024:11 2 kap. 7 och 8 §§. Rummet för personhygien ska dessutom finnas i
+      anslutning till boendeenheterna och på samma plan. De delade funktionerna ska vara
+      dimensionerade för det antal personer som delar dem. Reglerna gäller inte särskilda
+      boendeformer för äldre eller särskilda bostäder för personer med nedsatt funktionsförmåga.
+    lagrum: [BFS 2024:11 2 kap. 7 §, BFS 2024:11 2 kap. 8 §]
+    taggar: [bostadsutformning, lamplighet]
+
+  - id: krav-052
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan gäller ett kollektivboende med 14 boendeenheter för en person, som alla ska dela
+      ett kök. Hur bedömer du planlösningen?
+    alternativ:
+      - text: Kravet uppfylls inte, eftersom matlagning får delas av högst tolv personer.
+        ratt: true
+      - text: Den är godtagbar, eftersom föreskrifterna inte anger något högsta antal.
+      - text: Den är godtagbar om köket är tillräckligt stort.
+      - text: Den är godtagbar, eftersom kollektivboenden är undantagna från kraven.
+    forklaring: >
+      Enligt BFS 2024:11 2 kap. 7 § får matlagning delas av högst tolv personer. Sökanden behöver
+      alltså ändra planen, till exempel genom ett kök till. Regeln är ett utformningskrav och hör
+      därför till bygglovsprövningen.
+    lagrum: [BFS 2024:11 2 kap. 7 §, PBF 3 kap. 1 §]
+    taggar: [bostadsutformning, lamplighet, lovprovning]
+
+  - id: krav-053
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Föreskrifterna om bostäders lämplighet gäller inte när ett fritidshus med högst två bostäder uppförs.
+    svar: true
+    forklaring: >
+      Det framgår av BFS 2024:11 1 kap. 2 §. Undantaget gäller både uppförande och ändring av
+      fritidshus med högst två bostäder.
+    lagrum: [BFS 2024:11 1 kap. 2 §]
+    taggar: [bostadsutformning, lamplighet]
+
+  - id: krav-054
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I ett nytt flerbostadshus finns inget utrymme för tvättmaskin i lägenheterna. Planen visar i
+      stället en gemensam tvättstuga i bottenvåningen. Vad gäller?
+    alternativ:
+      - text: Det är tillåtet om tvättstugan ligger nära bostäderna och är dimensionerad för dem som delar den.
+        ratt: true
+      - text: Det är inte tillåtet, eftersom varje bostad ska ha plats för tvätt.
+      - text: Det är bara tillåtet i studentbostäder.
+      - text: Det är tillåtet, och föreskrifterna ställer inga krav på tvättstugans storlek.
+    forklaring: >
+      Enligt BFS 2024:11 2 kap. 4 § får utrymme för att tvätta och torka tvätt placeras utanför
+      bostaden och delas av flera bostäder. Det ska finnas i bostädernas närhet och vara
+      dimensionerat för de bostäder som delar funktionen. Den fasta utrustningen regleras i 3 kap.
+      2 §.
+    lagrum: [BFS 2024:11 2 kap. 4 §, BFS 2024:11 3 kap. 2 §]
+    taggar: [bostadsutformning, lamplighet]
+
+  - id: krav-055
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop måttet med vad det gäller.
+    par:
+      - vanster: Vändmått i byggnader i allmänhet
+        hoger: Cirkel med diametern 1,50 m
+      - vanster: Vändmått i en enskild bostad
+        hoger: Cirkel med diametern 1,30 m
+      - vanster: Fri passage i byggnader i allmänhet
+        hoger: Minst 0,80 m
+      - vanster: Fri passage i en enskild bostad
+        hoger: Minst 0,76 m
+      - vanster: Fri passage på en tomt
+        hoger: Minst 0,90 m
+    forklaring: >
+      Måtten för byggnader och enskilda bostäder står i BFS 2024:12 1 kap. 6 §, och måtten för
+      tomter i BFS 2024:13 2 kap. 1 §. När du läser en ritning behöver du veta vilket mått som
+      gäller: bostaden har egna, lägre mått, medan trapphus och andra gemensamma utrymmen
+      följer de allmänna.
+    lagrum: [BFS 2024:12 1 kap. 6 §, BFS 2024:13 2 kap. 1 §]
+    taggar: [tillganglighet, ritning]
+
+  - id: krav-056
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En huvudentré ligger 0,50 m över marken. Hur lång måste en ramp minst vara, mätt horisontellt
+      och utan vilplan, för att klara den högsta tillåtna lutningen?
+    svar: 6
+    tolerans: 0
+    enhet: m
+    losning: Högsta lutning är 1:12, så 0,50 m nivåskillnad kräver 0,50 × 12 = 6 m.
+    forklaring: >
+      En ramp som ska uppfylla tillgänglighetskraven får luta högst 1:12 (BFS 2024:12 2 kap. 4 §).
+      Ett vilplan ska vara utformat med hänsyn till användningen och minst ge plats för en rullstol
+      som manövreras av en hjälpare.
+    lagrum: [BFS 2024:12 2 kap. 4 §]
+    taggar: [tillganglighet, berakning]
+
+  - id: krav-057
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I en ny kontorsbyggnad finns en korridor med en nivåskillnad på 1,4 m. Ritningen visar en
+      trappa och en ramp. Är det tillräckligt?
+    alternativ:
+      - text: Nej, om nivåskillnaden är större än 1 meter ska det finnas en hiss.
+        ratt: true
+      - text: Ja, en ramp räcker oavsett nivåskillnad.
+      - text: Ja, bara rampen lutar högst 1:12.
+      - text: Ja, kraven gäller inte kontorsbyggnader.
+    forklaring: >
+      Kommunikationsutrymmen med nivåskillnader ska förutom trappa ha ramp eller hiss, och är
+      nivåskillnaden större än 1 meter ska det finnas en hiss (BFS 2024:12 2 kap. 2 §). Kravet står
+      i kapitlet om utformningskrav och syns redan på ritningarna i lovet.
+    lagrum: [BFS 2024:12 2 kap. 2 §]
+    taggar: [tillganglighet, utformning]
+
+  - id: krav-058
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt enbostadshus har tre trappsteg upp till entrén och ingen ramp på ritningarna. Hur
+      bedömer du det?
+    alternativ:
+      - text: Det räcker att en tillgänglig ramp går att ordna på byggnadens tomt.
+        ratt: true
+      - text: Rampen måste byggas innan slutbesked kan ges.
+      - text: Tillgänglighetskraven gäller inte enbostadshus.
+      - text: Entrén måste ligga i marknivå.
+    forklaring: >
+      För en- och tvåbostadshus räcker det att det går att ordna tillgängliga och användbara ramper
+      till entréer som ska vara tillgängliga, och ramperna ska kunna placeras på byggnadens tomt
+      (BFS 2024:12 2 kap. 1 §). Kontrollera därför att det finns plats på situationsplanen för en
+      ramp som lutar högst 1:12.
+    lagrum: [BFS 2024:12 2 kap. 1 §, BFS 2024:12 2 kap. 4 §]
+    taggar: [tillganglighet, ritning]
+
+  - id: krav-059
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka skäl kan motivera att tillgänglighetskraven anpassas vid ändring av en byggnad?
+    alternativ:
+      - text: Det krävs för att följa förbudet mot förvanskning.
+        ratt: true
+      - text: Det krävs för att uppfylla kravet på varsamhet.
+        ratt: true
+      - text: Kostnaden är oskäligt hög i förhållande till den förväntade nyttan.
+        ratt: true
+      - text: Det finns betydande tekniska skäl.
+        ratt: true
+      - text: Byggherren har inte räknat med kostnaden.
+      - text: Inga personer med funktionsnedsättning väntas använda byggnaden i dag.
+    forklaring: >
+      BFS 2024:12 4 kap. 1 § räknar upp sju grunder. Utöver de här fyra finns att det är uppenbart
+      oskäligt med hänsyn till ändringens omfattning, att tillgängligheten bara blir försumbart
+      bättre, och att det krävs för godtagbara egenskaper i fråga om hälsa och säkerhet, tillgänglighet
+      eller kulturvärden. Att det blir dyrare än väntat räcker inte, utan kostnaden ska vara
+      oskäligt hög jämfört med nyttan. Bostäder har motsvarande lista i BFS 2024:11 4 kap. 1 §.
+    lagrum: [BFS 2024:12 4 kap. 1 §, PBL 8 kap. 7 §]
+    taggar: [tillganglighet, andring]
+
+  - id: krav-060
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett flerbostadshus i fyra våningar utan hiss får nya planlösningar i alla lägenheter och
+      större ingrepp i trapphuset. Vad är utgångspunkten?
+    alternativ:
+      - text: En tillgänglig hiss ska installeras, om det inte finns skäl som medger undantag.
+        ratt: true
+      - text: Hiss krävs aldrig i befintliga byggnader.
+      - text: Hiss krävs bara om hyresgästerna begär det.
+      - text: Hiss krävs bara om byggnaden är högre än tio plan.
+    forklaring: >
+      Enligt BFS 2024:12 4 kap. 5 § ska en tillgänglig hiss installeras vid ändring av flerbostadshus
+      med fler än två våningar, om ändringen innefattar större ingrepp i trapphus, omdisposition av
+      planlösningar eller omfattande ingrepp i stommen. Kravet behöver inte uppfyllas om det finns
+      skäl enligt 4 kap. 1 § 2, 4, 6 eller 7, eller om det är olämpligt med hänsyn till
+      boendekvaliteter.
+    lagrum: [BFS 2024:12 4 kap. 5 §, BFS 2024:12 4 kap. 1 §]
+    taggar: [tillganglighet, andring, hiss]
+
+  - id: krav-061
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En tillbyggnad i entréplanet av ett enbostadshus får under vissa villkor ha en nivåskillnad
+      mot det befintliga huset som inte är tillgänglig.
+    svar: true
+    forklaring: >
+      BFS 2024:12 4 kap. 4 § tillåter det om det finns skäl enligt 1 § eller med hänsyn till stads-
+      och landskapsbilden, om den befintliga bostaden inte försämras och om nivåskillnaden utan
+      svårighet kan göras tillgänglig i efterhand.
+    lagrum: [BFS 2024:12 4 kap. 4 §]
+    taggar: [tillganglighet, andring, tillbyggnad]
+
+  - id: krav-062
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På situationsplanen för ett nytt flerbostadshus ligger den enda angöringsplatsen 35 m gångväg
+      från den tillgängliga entrén. Vad gäller?
+    alternativ:
+      - text: Det räcker inte. Minst en angöringsplats ska finnas inom 25 meters gångavstånd.
+        ratt: true
+      - text: Det räcker, eftersom det inte finns något krav på avstånd.
+      - text: Det räcker, eftersom kravet är högst 50 meter.
+      - text: Det räcker om det finns en parkeringsplats inom 100 meter.
+    forklaring: >
+      Enligt BFS 2024:13 2 kap. 5 § ska det på eller i nära anslutning till tomten finnas minst en
+      angöringsplats inom 25 meters gångavstånd från en tillgänglig entré. Siffran 50 meter gäller
+      räddningsfordon. För tillgänglig parkering anger 2 kap. 6 § inget avstånd, utan att minst en
+      sådan plats ska kunna ordnas.
+    lagrum: [BFS 2024:13 2 kap. 5 §, BFS 2024:13 2 kap. 6 §, PBL 8 kap. 9 §]
+    taggar: [tomt, tillganglighet, ritning]
+
+  - id: krav-063
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Avståndet från uppställningsplats för räddningsfordon till en byggnads angreppspunkter ska
+      vara längst ___ meter.
+    svar: ["50"]
+    forklaring: >
+      Kravet står i BFS 2024:13 3 kap. 1 §. Ett längre avstånd får användas om det finns särskilda
+      skäl. Går det inte att klara avståndet från gatunätet ska en räddningsväg anordnas (2 §).
+      Angreppspunkter är entréer och andra ingångar som är avsedda för räddningstjänsten.
+    lagrum: [BFS 2024:13 3 kap. 1 §, BFS 2024:13 3 kap. 2 §]
+    taggar: [tomt, brand]
+
+  - id: krav-064
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En fast bassäng för bad på en tomt ska ha skydd mot drunkning som yngre barn inte kan ta sig
+      förbi.
+    svar: true
+    forklaring: >
+      Det framgår av BFS 2024:13 5 kap. 3 §. Dammar, fasta brunnar och behållare som inte är slutna
+      ska också ha skydd som begränsar risken för drunkning (5 §).
+    lagrum: [BFS 2024:13 5 kap. 3 §, BFS 2024:13 5 kap. 5 §]
+    taggar: [tomt, sakerhet]
+
+  - id: krav-065
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka villkor gäller för att en mindre avvikelse ska få göras från föreskrifterna i BFS 2024:12?
+    alternativ:
+      - text: Det finns särskilda skäl.
+        ratt: true
+      - text: Byggnaden kan ändå antas bli tekniskt tillfredsställande.
+        ratt: true
+      - text: Det finns ingen avsevärd olägenhet från annan synpunkt.
+        ratt: true
+      - text: Grannarna har skriftligen godkänt avvikelsen.
+      - text: Avvikelsen sänker byggkostnaden.
+    forklaring: >
+      Villkoren står i BFS 2024:12 1 kap. 3 §, och skälen ska dokumenteras i samband med
+      projekteringen. Samma regel finns i de flesta av Boverkets föreskrifter. Blanda inte ihop den
+      med liten avvikelse från detaljplan i 9 kap. 60 § PBL, som handlar om något helt annat.
+    lagrum: [BFS 2024:12 1 kap. 3 §, PBL 9 kap. 60 §]
+    taggar: [mindre_avvikelse, tekniska_egenskapskrav]
+
+  - id: krav-066
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Brandföreskrifterna BFS 2024:7 har samma regel om mindre avvikelse som BFS 2024:12.
+    svar: false
+    forklaring: >
+      BFS 2024:7 har ingen sådan regel. Där kan kraven i stället uppfyllas antingen genom de
+      preciserade kraven eller genom analytisk dimensionering, till exempel för skyddet mot
+      brandspridning mellan byggnader (6 kap. 3 §). BFS 2024:4 och BFS 2026:9 saknar också
+      en regel om mindre avvikelse.
+    lagrum: [BFS 2024:7 6 kap. 3 §]
+    taggar: [mindre_avvikelse, brand]
+
+  - id: krav-067
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt förråd med 12 m² byggnadsarea ska stå 3 m från ett enbostadshus på samma tomt. Vad
+      gäller för skydd mot brandspridning mellan byggnaderna?
+    alternativ:
+      - text: Inget skydd krävs, eftersom förrådets byggnadsarea är högst 15 m².
+        ratt: true
+      - text: Förrådet måste flyttas till minst 8 m från huset.
+      - text: Förrådets vägg mot huset måste brandavskiljas.
+      - text: Husets fasad mot förrådet måste brandavskiljas.
+    forklaring: >
+      Huvudregeln är ett skyddsavstånd på 8 meter eller brandavskiljning i motstående delar
+      (BFS 2024:7 6 kap. 5 §). Men för komplementbyggnader till en- eller tvåbostadshus krävs inget
+      skydd om byggnadsarean är högst 15 m² (6 kap. 10 §, införd genom BFS 2025:10). Vid större
+      komplementbyggnader behöver du titta på resten av kapitlet.
+    lagrum: [BFS 2024:7 6 kap. 5 §, BFS 2024:7 6 kap. 10 §]
+    taggar: [brand, komplementbyggnad]
+
+  - id: krav-068
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnader ska ha ett skyddsavstånd på ___ meter till andra byggnader eller vara utformade med
+      brandavskiljning i motstående delar inom det avståndet.
+    svar: [["8", "åtta"]]
+    forklaring: >
+      Regeln står i BFS 2024:7 6 kap. 5 §. Placeringen på situationsplanen avgör alltså om
+      fasaderna behöver brandavskiljas, och det är bra att se redan i lovskedet.
+    lagrum: [BFS 2024:7 6 kap. 5 §]
+    taggar: [brand, ritning]
+
+  - id: krav-069
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken byggnadsklass har ett enbostadshus i två plan ovan mark?
+    alternativ:
+      - text: Byggnadsklass 3
+        ratt: true
+      - text: Byggnadsklass 2
+      - text: Byggnadsklass 1
+      - text: Byggnadsklass 0
+    forklaring: >
+      Byggnadsklass 3 avser byggnader med litet skyddsbehov. Dit hör byggnader i högst ett plan och
+      en- och tvåbostadshus i två plan (BFS 2024:7 2 kap. 8 §). Ett enbostadshus i tre plan har
+      byggnadsklass 2 (7 §). Byggnadsklass 1 avser byggnader med stort skyddsbehov, och
+      byggnadsklass 0 byggnader med mycket stort skyddsbehov.
+    lagrum: [BFS 2024:7 2 kap. 7 §, BFS 2024:7 2 kap. 8 §]
+    taggar: [brand]
+
+  - id: krav-070
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I utrymmen för sömn och vila får ljudnivån inomhus från trafik högst vara ___ dB ekvivalent
+      nivå och högst ___ dB maximal nivå nattetid.
+    svar: ["30", "45"]
+    forklaring: >
+      Värdena står i BFS 2024:10 2 kap. 8 § och tabell 2:8. Den maximala nivån får överskridas med
+      högst 10 dB högst fem gånger per natt. Skilj dem från förordningen (2015:216) om trafikbuller,
+      som anger riktvärden utomhus. Utomhusvärdena hör till lovet, inomhusvärdena till de
+      tekniska egenskapskraven.
+    lagrum: [BFS 2024:10 2 kap. 8 §, TbF 3 §]
+    taggar: [buller, tekniska_egenskapskrav]
+
+  - id: krav-071
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Årsmedelvärdet av radon i luften får inte överstiga ___ Bq/m³ i utrymmen där människor vistas
+      mer än tillfälligt.
+    svar: ["200"]
+    forklaring: Gränsvärdet står i BFS 2024:8 3 kap. 2 §.
+    lagrum: [BFS 2024:8 3 kap. 2 §]
+    taggar: [hygien, tekniska_egenskapskrav]
+
+  - id: krav-072
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Energikraven i BFS 2026:9 gäller inte ett bostadshus som är avsett att användas mindre än fyra månader per år.
+    svar: true
+    forklaring: >
+      Det framgår av BFS 2026:9 1 kap. 3 §. Föreskrifterna gäller inte heller byggnader som ska
+      användas kortare tid än två år, eller byggnader med en temperaturreglerad area under 50
+      kvadratmeter.
+    lagrum: [BFS 2026:9 1 kap. 3 §]
+    taggar: [energi, tekniska_egenskapskrav]
+
+  - id: krav-073
+    typ: berakning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ett nytt flerbostadshus har 20 bostadslägenheter. Hur många cykelparkeringsplatser ska det minst ha enligt huvudregeln?
+    svar: 40
+    tolerans: 0
+    enhet: platser
+    losning: Minst två platser för varje bostadslägenhet ger 2 × 20 = 40.
+    forklaring: >
+      Huvudregeln är minst två cykelparkeringsplatser per bostadslägenhet (BFS 2026:4 2 kap. 2 §).
+      Antalet får anpassas om det är lämpligt med hänsyn till lokala förutsättningar, till exempel
+      om husets bostäder i huvudsak är avsedda för en person eller för personer som normalt inte
+      cyklar.
+    lagrum: [BFS 2026:4 2 kap. 2 §, PBF 3 kap. 20 b §]
+    taggar: [hallbar_mobilitet, parkering]
+
+  - id: krav-074
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ett nytt flerbostadshus får 12 bilparkeringsplatser på tomten. Vad krävs för laddning av elfordon?
+    alternativ:
+      - text: Förinstallerad kabeldragning för minst hälften av platserna, ledningsinfrastruktur för resten och minst en laddningspunkt.
+        ratt: true
+      - text: En laddningspunkt vid varje parkeringsplats.
+      - text: Bara ledningsinfrastruktur för alla platser.
+      - text: Inget, eftersom kravet bara gäller lokalbyggnader.
+    forklaring: >
+      Kravet gäller flerbostadshus med fler än tre bilparkeringsplatser i byggnaden eller på tomten
+      (BFS 2026:4 2 kap. 1 §). Lokalbyggnader har egna regler i 2 kap. 3 §. Det är ett tekniskt
+      egenskapskrav som hanteras inför startbeskedet.
+    lagrum: [BFS 2026:4 2 kap. 1 §, BFS 2026:4 2 kap. 3 §, PBL 8 kap. 4 §]
+    taggar: [hallbar_mobilitet, parkering, tekniska_egenskapskrav]

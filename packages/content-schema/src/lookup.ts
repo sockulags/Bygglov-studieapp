@@ -369,8 +369,10 @@ export type ProcessFile = z.output<typeof ProcessFileSchema>;
 /** Short code used first in a lagrum, e.g. "PBL" in "PBL 9 kap. 60 §". */
 export const lawCode = z
   .string({ error: fieldError('kod ska vara en text, t.ex. PBL.') })
-  .regex(/^[A-Za-zÅÄÖåäö0-9]+$/, {
-    error: fieldError('kod får bara innehålla bokstäver och siffror, t.ex. PBL eller VägL.'),
+  .regex(/^(BFS \d{4}:\d+|[A-Za-zÅÄÖåäö0-9]+)$/, {
+    error: fieldError(
+      'kod får bara innehålla bokstäver och siffror, t.ex. PBL eller VägL, eller vara ett BFS-nummer, t.ex. BFS 2024:7.',
+    ),
   });
 
 const httpsUrl = z
@@ -549,11 +551,12 @@ export interface ParsedLawRef {
 
 /**
  * Splits a lagrum such as "PBL 9 kap. 60 §", "PBL 9 kap. 85–115 §§" or "FL 25 §" into its
- * parts. For a range or list of sections, `section` is the first one.
+ * parts. For a range or list of sections, `section` is the first one. A Boverket regulation
+ * is one law per BFS number, so "BFS 2024:12 2 kap. 4 §" has the code "BFS 2024:12".
  */
 export function parseLawRef(reference: string): ParsedLawRef {
   const trimmed = reference.trim();
-  const code = trimmed.split(/\s+/)[0] ?? trimmed;
+  const code = /^BFS \d{4}:\d+/.exec(trimmed)?.[0] ?? trimmed.split(/\s+/)[0] ?? trimmed;
   const rest = trimmed.slice(code.length);
   const chapterMatch = /(\d+)\s*kap\./.exec(rest);
   const afterChapter = chapterMatch

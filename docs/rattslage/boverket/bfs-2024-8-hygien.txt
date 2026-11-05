@@ -1,0 +1,629 @@
+BOVERKETS FÖRFATTNINGSSAMLING BFS 2024:8: hygien, hälsa och miljö samt hushållning med vatten och avfall
+Källa: https://rinfo.boverket.se/BFS2024-8/pdf/BFS2024-8.pdf
+Hämtad 2026-11-05. Ändrad t.o.m.: grundförfattningen (Boverkets register).
+Text utvunnen ur PDF. Författningar är fria att återge. Ändringsförfattningar står efter
+grundförfattningen och är inte inarbetade.
+========================================================================
+
+Boverkets författningssamling
+
+Utgivare: Yvonne Svensson
+BFS 2024:8
+
+1
+Boverkets föreskrifter om skydd med hänsyn till hygien,
+hälsa och miljö samt hushållning med vatten och avfall;
+Utkom från trycket
+den 20 november 2024
+
+beslutade den 19 november 2024.
+
+Boverket föreskriver1 följande med stöd av 10 kap. 3 § 3, 10 och 11, 8 § och
+24 § 1 plan- och byggförordningen (2011:338).
+AVDELNING I. ÖVERGRIPANDE BESTÄMMELSER
+1 kap. Allmänt
+Författningens innehåll
+1 §    Denna författning innehåller föreskrifter om
+1. tekniska egenskapskrav avseende skydd med hänsyn till hygien, hälsa och
+miljö enligt 3 kap. 9 § plan- och byggförordningen (2011:338),
+2. tekniska egenskapskrav avseende hushållning med vatten enligt 3 kap. 20 §
+plan- och byggförordningen, och
+3. tekniska egenskapskrav avseende hushållning med avfall enligt 8 kap. 4 §
+första stycket 9 plan- och bygglagen (2010:900).
+Författningen innehåller också föreskrifter om anpassning av de tekniska
+egenskapskraven vid ändring av byggnader enligt 8 kap. 7 § plan- och bygglagen
+och om kontroll enligt 10 kap. 5 § samma lag.
+Föreskrifternas tillämpningsområde
+2 §    Föreskrifterna i 1 kap. gäller vid uppförande av nya byggnader och vid
+ändring av byggnader för den ändrade delen.
+Föreskrifterna i 2–11 kap. gäller vid uppförande av nya byggnader.
+Föreskrifterna i 12–13 kap. gäller vid ändring av byggnader.
+Mindre avvikelse från föreskrifterna i denna författning
+3 §    Mindre avvikelse får göras från föreskrifterna i denna författning i enskilda
+fall om
+1. det finns särskilda skäl,
+2. byggnaden ändå kan antas bli tekniskt tillfredsställande, och
+3. det inte finns någon avsevärd olägenhet från annan synpunkt.
+Om mindre avvikelse enligt första stycket tillämpas ska skälen för detta
+dokumenteras i samband med den projektering som regleras i 8–9 §§.
+
+1 Se Europaparlamentets och rådets direktiv (EU) 2015/1535 av den 9 september 2015 om ett
+informationsförfarande beträffande tekniska föreskrifter och beträffande föreskrifter för
+informationssamhällets tjänster (kodifiering).
+
+BFS 2024:8
+
+2
+Definitioner
+4 §    Termer och uttryck i denna författning har samma betydelse som i plan- och
+bygglagen (2010:900) och plan- och byggförordningen (2011:338).
+
+5 §    I denna författning avses med
+avfallsanordning: fast anordning för hantering av avfall,
+boendeenhet: del av en bostad som är upplåten för enskilt bruk i bostäder där
+vissa bostadsfunktioner delas,
+högsta tillåtna fukttillstånd: den övre gräns där fukt inte kan förväntas orsaka
+skador som påverkar hygien eller hälsa,
+luftväxling: utbyte av luft i byggnader,
+skadedjur: djur som kan orsaka skador, lukt, obehag eller mikrobiell växt som
+kan påverka hygien eller hälsa,
+tappkallvatten: kallt vatten av dricksvattenkvalitet,
+tappvarmvatten: uppvärmt tappkallvatten,
+tappvatten: vatten som utgör tappkallvatten eller tappvarmvatten, och
+övrigt vatten: vatten som inte uppfyller kraven för tappvatten men som
+används i en byggnad i stället för tappvatten.
+
+6 §    Med byggprodukter med förhandsbedömda egenskaper avses i denna
+författning produkter som tillverkats för att permanent ingå i byggnadsverk och
+som antingen
+1. är CE-märkta,
+2. är typgodkända eller tillverkningskontrollerade enligt bestämmelserna i
+8 kap. 22–23 §§ plan- och bygglagen (2010:900),
+3. har certifierats av ett certifieringsorgan som ackrediterats för uppgiften och
+för produkten i fråga enligt Europaparlamentets och rådets förordning (EG) nr
+765/2008 av den 9 juli 2008 om krav för ackreditering och upphävande av
+förordning (EEG) nr 339/93, eller
+4. har tillverkats i en fabrik vars tillverkning och produktionskontroll och
+utfallet därav för byggprodukten fortlöpande övervakas, bedöms och godkänns av
+ett certifieringsorgan som ackrediterats för uppgiften och för produkten i fråga
+enligt förordning (EG) nr 765/2008.
+Såsom bedömning i enlighet med alternativ 3 eller 4 godtas även en bedömning
+utfärdad av ett organ inom Europeiska ekonomiska samarbetsområdet eller i
+Turkiet om organet på annat sätt än genom ackreditering för uppgiften enligt
+förordning (EG) nr 765/2008, erbjuder motsvarande garantier i fråga om teknisk
+och yrkesmässig kompetens samt garantier om oberoende.
+Byggprodukter och material
+7 §    Byggprodukter och material ska ha kända och dokumenterade egenskaper i
+de avseenden som har betydelse för byggnadens förmåga att uppfylla kraven i
+denna författning.
+Byggprodukter med förhandsbedömda egenskaper ska anses ha kända och
+dokumenterade egenskaper i de avseenden som de är förhandsbedömda.
+Egenskaper hos andra byggprodukter än byggprodukter med förhandsbedömda
+egenskaper ska provas eller bedömas genom annan vedertagen metod. Inom
+Europeiska unionen vedertagen metod ska användas där sådan finns.
+
+BFS 2024:8
+
+3
+Projektering och utförande
+8 §    Byggnader ska projekteras
+1. på ett fackmässigt sätt,
+2. så att arbetet kan utföras på ett sådant sätt att kraven i denna författning
+uppfylls, och
+3. så att förutsatt underhåll kan ske.
+Första stycket gäller inte om det är obehövligt.
+Vid ändring av byggnad får erfarenheter från den befintliga byggnaden
+användas.
+
+9 §    Projekteringen ska dokumenteras.
+Dokumentationen ska innehålla uppgifter om
+1. byggnadens avsedda användning,
+2. de dimensionerande förutsättningarna med betydelse för byggnadens
+förmåga att uppfylla kraven på skydd med hänsyn till hygien, hälsa och miljö
+samt hushållning med vatten och avfall, och
+3. bedömda hälsorisker samt vid behov hur de ska hanteras för att inte bli
+oacceptabla.
+Första och andra styckena gäller inte om det är obehövligt.
+
+10 §    Byggnader ska utföras
+1. på ett fackmässigt sätt, och
+2. enligt gällande handlingar.
+Särskilt om ändring av byggnader
+11 §    Vid ändring av en byggnad ska det klarläggas om
+1. byggnaden har sådana brister avseende kraven på skydd med hänsyn till
+hygien, hälsa och miljö som kan åtgärdas inom ramen för den planerade åtgärden,
+2. den planerade åtgärden kan medföra en försämring av egenskaperna i fråga
+om skydd med hänsyn till hygien, hälsa och miljö i den befintliga byggnaden, och
+3. ändringen kommer att medföra en negativ påverkan på byggnadens
+kulturvärden och hur en sådan negativ påverkan kan undvikas.
+
+12 §    Vid ändring av en byggnads system för luftväxling ska det klarläggas vilka
+möjligheter det finns att utnyttja befintliga kanaler eller att på annat sätt minimera
+ingreppets omfattning.
+Kontroll
+13 §    Kontroll av att kraven på skydd med hänsyn till hygien, hälsa och miljö
+samt hushållning med vatten och avfall uppfylls ska göras
+1. under projektering och utförande enligt 14–16 §§,
+2. i den färdiga byggnaden enligt 17 §, eller
+3. med en kombination av punkt 1 och 2.
+Kontroll ska utföras fackmässigt.
+Resultatet av kontrollen ska dokumenteras.
+
+14 §    Vid kontroll under projektering ska det kontrolleras att dimensionerande
+förutsättningar, projekteringsmetoder, provningsmetoder och beräkningar är
+relevanta och redovisade i handlingarna.
+
+BFS 2024:8
+
+4
+15 §    Vid kontroll under utförande ska det kontrolleras att arbetet utförs enligt
+gällande handlingar.
+
+16 §    Byggprodukter och material ska kontrolleras när de tas emot på
+byggarbetsplatsen. Kontroll ska göras av att byggprodukter och material har
+förutsatta egenskaper.
+För byggprodukter med förhandsbedömda egenskaper kan kontrollen
+inskränkas till identifiering, kontroll av märkning och granskning av
+dokumentationen av de förhandsbedömda egenskaperna.
+
+17 §    Vid kontroll i den färdiga byggnaden ska kontroll göras genom provning,
+mätning eller besiktning.
+Luftkvalitets-, fuktsäkerhets- och vattensäkerhetsdokumentation
+18 §    Luftkvalitets-, fuktsäkerhets- och vattensäkerhetsdokumentation ska
+upprättas.
+Dokumentationen ska minst omfatta uppgifter om
+1. byggnadens avsedda användning,
+2. de dimensionerande förutsättningarna med betydelse för byggnadens
+förmåga att uppfylla kraven på luftkvalitet, fuktsäkerhet och vattensäkerhet i
+denna författning, och
+3. tekniska lösningar och skyddsfunktioner för att undvika oacceptabla
+hälsorisker.
+Kraven i första och andra styckena gäller om åtgärden kräver lov eller anmälan
+och det inte är obehövligt.
+Drift- och underhållsinstruktioner
+19 §    Drift- och underhållsinstruktioner ska upprättas så att byggnaden i drift kan
+uppfylla kraven i denna författning.
+Kravet i första stycket gäller om åtgärden kräver lov eller anmälan och det inte
+är obehövligt.
+AVDELNING II. UPPFÖRANDE AV NYA BYGGNADER
+2 kap. Material
+1 §    I byggnader får inte ingå material som påverkar byggnadernas inomhusmiljö
+eller närmiljö så att det uppstår oacceptabla hälsorisker.
+3 kap. Luft
+1 §    Byggnader ska vara utformade så att de kan ge förutsättningar för
+acceptabel luftkvalitet inomhus vid avsedd användning.
+Acceptabel luftkvalitet innebär att luften inte innehåller föroreningar i en
+koncentration som medför oacceptabla hälsorisker eller besvärande lukt.
+
+2 §    Årsmedelvärdet av aktivitetskoncentrationen av radon i luften får inte
+överstiga 200 Bq/m3 i utrymmen där människor vistas mer än tillfälligt.
+
+BFS 2024:8
+
+5
+3 §    Byggnader ska vara utformade så att luftkvaliteten inte blir oacceptabel på
+grund av spridning av luftföroreningar inom byggnaden, från mark eller från
+utomhusluften till inomhusmiljön.
+
+4 §    Byggnaders ventilationssystem ska vara utformade så att rum kan ha
+kontinuerlig luftväxling.
+Luftväxlingen ska kunna föra bort luftföroreningar så att luftkvaliteten blir
+acceptabel för den avsedda användningen. Särskild hänsyn ska tas till
+1. tilluftens kvalitet,
+2. föroreningar från den avsedda användningen,
+3. föroreningar från byggnaden, och
+4. luftbehandling.
+
+5 §    Ventilationssystem för bostäder ska vara utformade för ett uteluftsflöde på
+minst 0,35 l/s per kvadratmeter golvarea.
+Ventilationssystem för rum i bostäder ska vara utformade för ett uteluftsflöde
+på minst 4,0 l/s per person.
+
+6 §    I bostäder ska det finnas möjlighet till ökad luftväxling om det inte är
+obehövligt. Luftföroreningar från matlagning ska kunna tas om hand i anslutning
+till föroreningskällan.
+Oacceptabla tryckskillnader över byggnadsdelar får inte uppstå vid ökad
+luftväxling.
+
+7 §    Ventilationsinstallationer ska vara placerade och utformade så att de, i sin
+helhet, är åtkomliga för invändig kontroll och rengöring.
+4 kap. Ljusförhållanden
+1 §    Bostäder ska vara utformade så att de har tillgång till dagsljus motsvarande
+en dagsljusfaktor om minst 1,0 procent, för minst halva den sammanlagda
+bedömda ytan av samtliga rum i bostaden, där människor vistas mer än tillfälligt.
+I bostäder där bostadsfunktionerna matlagning, samvaro och måltider delas ska
+kravet i första stycket uppfyllas både i boendeenheten och i rum för delade
+bostadsfunktioner.
+
+2 §    I bostäder ska utrymme för bostadsfunktionerna samvaro och måltider ha
+utblick.
+Kravet i första stycket gäller inte för utrymmen för delade bostadsfunktioner
+för samvaro och måltider i bostäder med boendeenheter avsedda för en person.
+
+3 §    Rum i lokaler, där människor vistas mer än tillfälligt, ska vara utformade så
+att de medger tillräckligt dagsljus och utblick för att undvika olägenheter för
+människors hälsa.
+Kraven i första stycket gäller inte om det är orimligt med hänsyn till rummets
+avsedda användning eller förhållandena i övrigt.
+
+4 §    Fast belysning ska vara utformad för den avsedda användningen så att det
+inte uppstår oacceptabla hälsorisker.
+
+BFS 2024:8
+
+6
+5 kap. Rumshöjd
+1 §    Rumshöjden ska vara tillräcklig för att undvika olägenheter för människors
+hälsa och vara anpassad till rummets avsedda användning.
+6 kap. Termisk komfort
+1 §    Acceptabel termisk komfort ska kunna upprätthållas vid avsedd användning.
+Bedömningen av acceptabel termisk komfort ska ta särskild hänsyn till
+1. avsedd klädsel,
+2. avsedd aktivitetsnivå,
+3. hur länge användningen pågår,
+4. möjlighet för användare att själva påverka det termiska klimatet, och
+5. normalt uteklimat och eventuell förändring av det under en ekonomiskt
+rimlig livslängd.
+
+2 §    För rum i byggnader där användare inte enkelt kan avbryta eller justera
+användningen får det termiska klimatet inte innebära en oacceptabel hälsorisk.
+Kravet i första stycket gäller även vid onormalt uteklimat.
+7 kap. Fuktsäkerhet
+1 §    Fukttillstånden i byggnadsdelar får inte överskrida de högsta tillåtna fukttill-
+stånden.
+Om det inte finns något väl undersökt och dokumenterat högsta tillåtna
+fukttillstånd för ett material eller en produkt, ska en relativ fuktighet på
+75 procent anses vara högsta tillåtna fukttillstånd.
+Vid bestämmande av fukttillstånd ska särskild hänsyn tas till
+1. fuktrelaterade uteklimatlaster under byggnadsdelens livslängd,
+2. fuktlaster från den avsedda användningen,
+3. byggfukt,
+4. byggnadens avsedda styrning i drift,
+5. luftrörelser inom, genom och mellan byggnadsdelar,
+6. ångtransport inom och genom byggnadsdelar,
+7. kapillär fukttransport inom och genom byggnadsdelar,
+8. om delar av byggnaden kan förväntas bli kallare än det omgivande klimatet,
+och
+9. hur fuktlasterna kan påverkas om en ny byggnad uppförs i direkt eller nära
+anslutning till en befintlig byggnad.
+Kraven i första och andra styckena gäller inte om det är obehövligt.
+
+2 §    Byggnadsdelar får inte bestå av material eller produkter som under
+utförandet har överskridit högsta tillåtna fukttillstånd, om det kan innebära
+fuktskador i drift som ger oacceptabla hälsorisker.
+
+3 §    Byggnadsdelar som har kontakt med utomhusklimatet och genomföringar i
+och anslutningar till dem ska vara utformade så att fukt hindras från att ta sig in i
+en oacceptabel mängd.
+
+BFS 2024:8
+
+7
+4 §    Byggnader ska vara utformade så att regnvatten och smältvatten leds bort
+från byggnaderna i tillräcklig omfattning. Vid utformning av avledning ska
+särskild hänsyn tas till risker orsakade av frysning.
+
+5 §    Byggnadsdelar som har kontakt med marken ska vara utformade så att fukt
+från marken hindras från att ta sig in i en oacceptabel mängd.
+Nödvändiga åtgärder ska utföras kring byggnaden för att minska belastningen
+från vatten i eller på marken.
+
+6 §    Om en ny byggnad uppförs i direkt eller nära anslutning till en befintlig
+byggnad som har fuktskador, ska den nya byggnaden vara utformad så att
+skadorna inte kan påverka den nya byggnadens inomhusmiljö på ett oacceptabelt
+sätt.
+
+7 §    Ytor inomhus, som kan förväntas utsättas för vatten i vätskefas, ska ha ett
+vattentätt skikt om det inte är obehövligt. Skiktet ska hindra fukt från att ta sig in i
+byggnadsdelar i oacceptabel mängd. Utformningen ska särskilt ta hänsyn till
+1. täthet mot vatten i vätskefas,
+2. täthet i skarvar, anslutningar, infästningar och genomföringar, och
+3. ånggenomgångsmotstånd.
+I golvytor, som ofta kommer att utsättas för vatten i vätskefas, får
+genomföringar göras endast för golvavlopp.
+
+8 §    Vattentäta skikt ska vara åldersbeständiga. Utformningen ska särskilt ta
+hänsyn till
+1. rörelser i material och mellan material,
+2. beständighet mot kemisk och biologisk nedbrytning, och
+3. vibrationer.
+
+9 §    Ytor inomhus, som kan förväntas utsättas för vattenstänk, våtrengöring eller
+kondensvatten, ska ha ett vattenavvisande ytskikt.
+Kravet i första stycket gäller inte om det är uppenbart obehövligt.
+
+10 §    Om byggnadsdelar kan förväntas utsättas för kondens i skadlig omfattning,
+ska det finnas funktioner som begränsar mängden kondens eller dess
+skadeverkningar.
+
+11 §    Golvytor, som ofta kommer att utsättas för vatten i vätskefas, ska ha
+golvavlopp om det behövs för att hindra fukt från att ta sig in i byggnadsdelar.
+I utrymmen med golvavlopp ska golvet ha fall mot avloppet i de delar av
+utrymmet som ofta kommer att utsättas för vatten i vätskefas.
+Bakfall får inte förekomma i någon del av utrymmet.
+8 kap. Vatten- och avloppsinstallationer
+1 §    Vatten- och avloppsinstallationer ska vara utformade så att de har tillräcklig
+beständighet mot de yttre och inre belastningar de förväntas utsättas för.
+Vid utformningen av sådana installationer ska särskild hänsyn tas till
+1. kemiska och mikrobiella processer,
+2. tryck,
+3. egentyngd av vatten och krafter från vatten i rörelse,
+
+BFS 2024:8
+
+8
+4. skydd mot dämning,
+5. utrymme för expansion, och
+6. skydd mot frysning.
+Installationer för tappvatten ska vara utformade för ett statiskt vattentryck på
+lägst 1 MPa och med hänsyn till den påverkan som tryckslag medför.
+
+2 §    Om byggnadsdelar riskerar att utsättas för vattenläckage från
+vatteninstallationer, ska det finnas funktioner som begränsar läckaget eller dess
+skadeverkningar.
+Fogar på vattenledningar ska placeras så att utläckande vatten enkelt kan
+upptäckas och åtgärdas.
+
+3 §    Installationer för tappvatten ska vara utförda av material som gör att
+ohälsosamma koncentrationer av skadliga ämnen inte kan utlösas i tappvattnet.
+
+4 §    Installationer för tappvatten ska ha sådana egenskaper att tappkallvattnet
+efter tappstället uppfyller kvalitetskraven för dricksvatten.
+
+5 §    Installationer för tappvatten ska vara utformade så att tappvattnet inte kan
+förorenas av gaser eller vätskor genom återströmning eller på annat sätt.
+
+6 §    Installationer för tappvatten ska vara utformade så att den mikrobiella
+tillväxten i tappvattnet inte främjas.
+Installationer för tappvatten ska vara gjorda av material som inte främjar
+mikrobiell tillväxt i tappvattnet.
+Installationer för tappvarmvatten ska vara utformade så att en vattentemperatur
+på lägst 50 °C kan uppnås vid tappstället.
+Cirkulationsledningar för tappvarmvatten ska vara utformade så att
+temperaturen på tappvarmvattnet i cirkulationsledningarna inte understiger 50 °C
+i någon del av installationen.
+
+7 §    Installationer för tappkallvatten ska vara utformade så att tappkallvattnet
+inte värms upp oavsiktligt.
+
+8 §    Installationer för tappvatten ska vara utformade så att de kan ge ett vatten-
+flöde fram till tappstället som är tillräckligt för byggnadens avsedda användning
+och som inte påverkar tappvattensystemets funktion negativt.
+Rätt tempererat tappvarmvatten ska kunna fås utan besvärande väntetid.
+
+9 §    Avstängningsventiler och armaturer för avtappning av tappvattensystemet
+ska finnas i tillräcklig mängd med hänsyn till byggnadens användning.
+
+10 §    Installationer för spillvatten ska vara utformade så att spillvattnet kan
+avledas utan att installationen eller avloppsanläggningen påverkas negativt.
+
+11 §    Installationer för spillvatten ska vara utformade så att de kan föra bort de
+föroreningar som de är avsedda för.
+
+12 §    Installationer för spillvatten ska vara utformade så att förorenad luft inte
+sprids till inomhusmiljön.
+
+BFS 2024:8
+
+9
+13 §    Vatten från tappställen och säkerhetsventiler ska kunna avledas.
+Kravet i första stycket gäller inte om det är obehövligt.
+
+14 §    Spillvattenledningar ska vara anslutna så att spillvattnet från en
+avloppsenhet förhindras att tränga in i en annan avloppsenhet.
+
+15 §    Installationer för spillvatten, där vattnet kan innehålla skadliga ämnen i
+mer än obetydliga mängder, ska vara utformade så att dessa ämnen avskiljs och
+inte kan släppas ut oavsiktligt.
+Avloppsenheter för spillvatten som kan innehålla brandfarliga eller explosiva
+vätskor får inte ha vattenlås.
+Spillvattenledningar från vattentoaletter får inte vara anslutna till
+bensinavskiljare, oljeavskiljare eller fettavskiljare.
+
+16 §    Installationer för övrigt vatten ska vara utformade så att mikrobiell tillväxt
+i vattnet inte främjas.
+
+17 §    Installationer för övrigt vatten ska vara märkta så att de inte kan förväxlas
+med installationer för tappvatten.
+9 kap. Utsläpp till omgivningen
+1 §    Installationer för avluft och luftning av spillvattenledning ska vara
+utformade och placerade så att
+1. föroreningar eller besvärande lukt inte förs tillbaka in i byggnaden, och
+2. olägenheter inte uppstår i byggnadens omgivning.
+
+2 §    Byggnader ska vara utformade så att spillvatten hanteras genom allmän va-
+anläggning eller enskild anläggning.
+
+3 §    Byggnader ska vara utformade så att olägenheter till följd av innehållet i
+förbränningsgaser som släpps ut från byggnaden begränsas.
+
+4 §    Förbränningsgaser ska släppas ut via skorstenar eller andra anordningar som
+är utformade och placerade så att
+1. gaserna inte förs tillbaka in i byggnaden, och
+2. olägenheter inte uppstår i byggnadens omgivning.
+Skorstenar och andra anordningar ska vara utformade så att god
+genomströmning och tillräcklig lufttillförsel till förbränningen säkerställs.
+10 kap. Skadedjur
+1 §    Byggnader ska vara utformade så att det försvåras för skadedjur att ta sig in
+i byggnaderna, om det inte är orimligt med hänsyn till byggnadens utformning
+eller användning.
+
+2 §    Lägenhetsskiljande konstruktioner ska vara utformade så att det försvåras
+för skadedjur att ta sig igenom dem.
+
+BFS 2024:8
+
+10
+11 kap. Avfall
+1 §    Avfall ska kunna hanteras i eller i anslutning till en byggnad.
+Det ska finnas avfallsanordningar eller avfallsutrymmen för hantering av
+avfall.
+Kraven i första och andra styckena gäller inte om det är obehövligt med hänsyn
+till byggnadens avsedda användning.
+Kravet i andra stycket gäller inte för en- och tvåbostadshus.
+
+2 §    Avfallsanordningar och avfallsutrymmen ska vara placerade, utformade och
+dimensionerade så att risken begränsas för användarnas och grannarnas hygien
+och hälsa.
+
+3 §    Avfallsanordningar och avfallsutrymmen ska vara placerade, utformade och
+dimensionerade så att avfallet kan tas om hand och forslas bort på det sätt som
+krävs.
+I bostadslägenheter ska det finnas plats för tillfällig förvaring av avfallet.
+AVDELNING III. ÄNDRING AV BYGGNADER
+12 kap. Allmänt vid ändring av byggnader
+Anpassning vid ändring av byggnader
+1 §    Vid ändring av byggnad ska den ändrade delen uppfylla kraven i 2–11 kap.
+Kraven får dock anpassas om
+1. det krävs för att uppfylla kravet på varsamhet,
+2. det krävs för att följa förbudet mot förvanskning,
+3. det är oskäligt med hänsyn till ändringens omfattning,
+4. byggnadens skydd med hänsyn till hygien, hälsa och miljö bara blir
+försumbart bättre om kravet uppfylls,
+5. kostnaden är oskäligt hög i förhållande till den förväntade nyttan,
+6. det finns tekniska skäl, eller
+7. det krävs för att ett annat utformnings- eller tekniskt egenskapskrav ska
+kunna tillgodoses på en godtagbar nivå eller för att tillvarata byggnadens
+kulturvärden.
+Trots första stycket får anpassning av kraven inte göras i större omfattning än
+vad som medges i 13 kap.
+
+2 §    Försämring av byggnadens skydd med hänsyn till hygien, hälsa och miljö
+får endast ske om
+1.  byggnaden även efter ändringen uppfyller kraven i 2–11 kap.,
+2. det krävs för att byggnaden ska få godtagbara egenskaper avseende hälsa
+och säkerhet eller avseende tillgänglighet och användbarhet för personer med
+nedsatt rörelse- eller orienteringsförmåga eller för att tillvarata byggnadens
+kulturvärden, eller
+3. försämringen kan anses vara försumbar.
+
+BFS 2024:8
+
+11
+Ändrad användning
+3 §    Vid ändrad användning ska ändringens omfattning bedömas utifrån om den
+nya användningen ställer högre krav på byggnadens skydd med hänsyn till
+hygien, hälsa och miljö jämfört med den tidigare användningen.
+Varsamhet
+4 §    Vid en bedömning om kravet på varsamhet är uppfyllt ska hänsyn tas till hur
+åtgärden respekterar byggnadens karaktär avseende
+1. proportioner, form och volym,
+2. materialval och utförande,
+3. färgsättning, samt
+4. detaljomsorg och detaljeringsnivå.
+Hänsyn ska också tas till om
+1. detaljer som är väsentliga för byggnadens karaktär tillvaratas, och
+2. egenskaper som har betydelse för boende- och brukarkvaliteter bibehålls.
+Förbud mot förvanskning
+5 §    För att en åtgärd inte ska anses medföra en förvanskning av en särskilt
+värdefull byggnad ska åtgärden
+1. inte förändra byggnadens karaktärsdrag,
+2. inte skada de egenskaper som ligger till grund för byggnadens eller områdets
+kulturvärden, och
+3. vid utbyte av byggnadsdelar utföras med material och hantverksteknik som
+är anpassad till byggnadens ålder och karaktär.
+Trots första stycket 3 ska en åtgärd inte anses utgöra en förvanskning om en
+förändring av material eller teknik är en förutsättning för att kunna
+1. tillgodose utformningskraven och de tekniska egenskapskraven på en
+acceptabel nivå, eller
+2. upprätthålla funktionen hos de tekniska systemen på en acceptabel nivå.
+Särskilt värdefull byggnad
+6 §    Vid bedömningen av om en byggnad ska anses vara särskilt värdefull ska en
+prövning göras mot följande kriterier:
+1. Byggnaden tydliggör tidigare samhällsförhållanden genom att den
+a) representerar en tidigare vanlig byggnadskategori eller konstruktion som nu
+har blivit sällsynt,
+b) belyser tidigare bostadsförhållanden, sociala och ekonomiska villkor,
+arbetsförhållanden, olika gruppers livsvillkor, stadsbyggnadsideal eller
+arkitektoniska ideal samt värderingar och tankemönster, eller
+c) har representerat en för lokalsamhället viktig funktion eller verksamhet.
+2. Byggnaden tydliggör samhällsutvecklingen genom att den
+a) genom sin funktion illustrerar ett väsentligt skeende eller en väsentlig
+samhällsföreteelse,
+b) har tjänat som förebild eller på annat sätt varit uppmärksammad i sin samtid,
+eller
+c) präglas av en stark arkitektonisk idé.
+3. Byggnaden i sig utgör en källa till kunskap om äldre material och teknik.
+4. Byggnaden värderas högt i ett lokalt sammanhang genom att den har haft
+stor betydelse
+a) i ortens sociala liv,
+
+BFS 2024:8
+
+12
+b) för ortens identitet, eller
+c) i lokala traditioner.
+Byggnaden kan anses vara särskilt värdefull från konstnärlig synpunkt genom
+att den uppvisar särskilda estetiska kvaliteter eller har en hög ambitionsnivå med
+avseende på
+1. arkitektonisk gestaltning,
+2.  utförande och materialval, eller
+3.  konstnärlig gestaltning och utsmyckning.
+Byggnaden kan anses vara särskilt värdefull från miljömässig synpunkt genom
+att den utgör en del av en miljö som uppfyller kriterierna i första stycket.
+För att en byggnad ska anses vara särskilt värdefull ska byggnaden särskilt väl
+belysa ett visst förhållande eller i sitt sammanhang ha få motsvarigheter som kan
+belysa samma förhållande.
+Byggnader från tiden före 1920-talets bebyggelseexpansion, som har sin
+huvudsakliga karaktär bevarad, ska anses vara särskilt värdefulla om inte något
+talar däremot.
+13 kap. Särskilt vid ändring av byggnader
+Allmänt
+1 §    Detta kapitel innehåller särskilda krav vid ändring av byggnader om
+1. material,
+2. luft,
+3. dagsljus,
+4. fuktsäkerhet, och
+5. vatten- och avloppsinstallationer.
+Material
+2 §    Om en byggnad som ändras innehåller material som kan medföra
+oacceptabla hälsorisker ska dessa material tas bort i den ändrade delen.
+Om det finns synnerliga skäl får materialen behållas i byggnaden om andra
+åtgärder vidtas som förhindrar att dessa material kan medföra oacceptabla
+hälsorisker.
+Luft
+3 §    Om byggnadens användning ändras ska ändringens omfattning bedömas
+utifrån om den nya användningen ställer högre krav på byggnadens luftväxling än
+den tidigare användningen.
+
+4 §    Ventilationskanaler som tas ur bruk ska demonteras eller tillslutas.
+Dagsljus
+5 §    Om en byggnad ändras så att bostäder inreds i lokaler, som inte tidigare
+använts som bostad, ska den ändrade delen uppfylla kraven i 4 kap. 1 §. Finns
+skäl enligt 12 kap. 1 § så kan dock tillgång till dagsljus motsvarande en
+dagsljusfaktor om 0,8 procent godtas.
+Anpassning av kravet i första stycket är endast tillåtet om
+1. ljusförhållandena bara skulle förbättras försumbart om kravet uppfylls, eller
+2. det krävs för att inte förvanska en särskilt värdefull byggnad.
+
+BFS 2024:8
+
+13
+Fukt
+6 §    Om byggnadens användning ändras, ska ändringens omfattning bedömas
+utifrån om den nya användningen medför högre fuktrisker jämfört med den
+tidigare användningen.
+
+7 §    Fuktskadade byggnadsdelar, som utgör en väsentlig del av byggnadens
+konstruktion eller karaktär, får behållas om andra åtgärder vidtas som förhindrar
+att fuktskadan medför oacceptabla hälsorisker.
+Vatten- och avloppsinstallationer
+8 §    Om en byggnad ändras ska den ändrade delen uppfylla kraven i 8 kap. 3–
+6 §§. Anpassning av dessa krav är tillåtet endast om byggnadens skydd med
+hänsyn till hygien, hälsa och miljö bara skulle förbättras försumbart om kraven
+uppfylls.
+
+9 §    Vatten- och avloppsinstallationer som tas ur bruk ska demonteras eller
+proppas så nära den vatten- och avloppsförande ledningen som möjligt.
+
+1. Denna författning träder i kraft den 1 juli 2025.
+2. Äldre bestämmelser i Boverkets byggregler (2011:6) – föreskrifter och
+allmänna råd får dock tillämpas i den utsträckning som framgår av punkten 3 i
+övergångsbestämmelserna till Boverkets föreskrifter (2024:14) om ändring i
+Boverkets byggregler (2011:6) – föreskrifter och allmänna råd.
+
+På Boverkets vägnar
+
+ANDERS SJELVGREN
+
+Fredrik Olsson

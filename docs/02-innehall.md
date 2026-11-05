@@ -100,10 +100,9 @@ Två saker gör rättsläget extra viktigt just nu:
    komplementbyggnad, komplementbostadshus och bygglovsbefriad tillbyggnad, med en samlad
    pott per tomt (45 kvm inom plan, 65 kvm utanför), slopad anmälningsplikt för dessa och
    krav på skriftligt grannmedgivande nära gräns. Paragrafnumreringen i 9 kap kan ha ändrats.
-2. **Boverkets byggregler är nya.** De flesta krav finns sedan 2025 i nya föreskrifter
-   (BFS 2024:4 och 2024:6–2024:13). BBR finns kvar som BBR 31 för bland annat
-   energihushållning. Äldre regler får tillämpas samlat om ansökan eller anmälan kom in före
-   1 juli 2026.
+2. **Boverkets byggregler är nya.** BBR upphävdes 1 oktober 2026 genom BFS 2026:9. Kraven finns
+   i BFS 2024:4, 2024:6–2024:13, 2026:4 och 2026:9 (`docs/rattslage/boverket/`). Äldre regler får
+   tillämpas samlat enligt övergångsbestämmelserna.
 
 Konsekvenser för innehållet:
 

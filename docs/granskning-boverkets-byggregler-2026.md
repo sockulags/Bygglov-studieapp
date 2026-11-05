@@ -7,6 +7,12 @@ ingenting i appen ska kopieras därifrån.
 
 Sidnummer nedan är PDF-sidor. Den tryckta sidsiffran är ett lägre.
 
+> **Uppdaterat samma dag.** Boken visar läget den 1 januari 2026. Vid hämtning från Boverket
+> visade det sig att **BBR upphävdes den 1 oktober 2026** genom BFS 2026:9, och att BFS 2026:4 om
+> hållbar mobilitet har tillkommit. Det som står nedan om att BBR 31 finns kvar gäller alltså
+> bara bokens lydelse. Appen följer dagens läge, se `docs/rattslage/README.md`. Förslagen i
+> avsnitt 2 och 3 är genomförda, utom ärendehändelser och ritningsuppgifter.
+
 ## Sammanfattning
 
 - **PBL och PBF i appen är nyare än boken.** Boken är ändrad t.o.m. SFS 2025:1079 (PBL) och

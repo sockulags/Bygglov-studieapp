@@ -237,6 +237,12 @@ describe('law references and chapters', () => {
     expect(parseLawRef('FL 40–47 §§')).toEqual({ code: 'FL', section: '40' });
     expect(parseLawRef('SS 21054:2020')).toEqual({ code: 'SS' });
     expect(parseLawRef('MB 7 kap. 18 c §')).toEqual({ code: 'MB', chapter: 7, section: '18 c' });
+    expect(parseLawRef('BFS 2024:12 2 kap. 4 §')).toEqual({
+      code: 'BFS 2024:12',
+      chapter: 2,
+      section: '4',
+    });
+    expect(parseLawRef('BFS 2026:9')).toEqual({ code: 'BFS 2026:9' });
   });
 
   it('sorts sections with letters after the plain number', () => {

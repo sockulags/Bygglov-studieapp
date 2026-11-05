@@ -7,7 +7,7 @@ paragrafnummer. Varje fil har källa, hämtdatum och "ändrad t.o.m." i filhuvud
 fil i stället för att lita på minnet när riksdagen.se visar en senare ändring, och lägg till en
 rad i tabellen när en ny fil sparas.
 
-Alla sparade lagtexter (43 filer i 42 rader):
+Alla sparade lagtexter (44 filer i 43 rader):
 
 | Fil | Innehåll | Källa | Hämtad | Ändrad t.o.m. |
 | --- | --- | --- | --- | --- |
@@ -53,8 +53,40 @@ Alla sparade lagtexter (43 filer i 42 rader):
 | `boverket-matt-och-planbestammelser.txt` | PBL kunskapsbanken om mätregler, planbestämmelser och liten avvikelse | Boverket | 2026-11-05 | – |
 | `boverket-tillsyn-utdrag.txt` | PBL kunskapsbanken om tillsyn, med sammanfattad praxis | Boverket | 2026-11-05 | – |
 | `prisbasbelopp.txt` | Prisbasbeloppet 2026 (59 200 kr) och 2027 (59 600 kr) | SCB | 2026-11-05 | – |
+| `pbf-10-kap.txt` | PBF 10 kap. (bemyndiganden) | riksdagen.se | 2026-11-05 | SFS 2026:1722 |
 
-PBF 10 kap. och övriga kapitel hämtas vid behov från riksdagen.se.
+Övriga PBF-kapitel hämtas vid behov från riksdagen.se.
+
+## Boverkets föreskrifter
+
+Texterna i `boverket/` är utvunna ur Boverkets PDF:er på rinfo.boverket.se och hämtade
+2026-11-05. Ändringsstatus är kontrollerad i
+[Boverkets författningssamling](https://forfattningssamling.boverket.se/) samma dag.
+Ändringsförfattningar står sist i filen och är inte inarbetade.
+
+| Fil | Innehåll | I kraft | Ändrad t.o.m. | Allmänna råd | Mindre avvikelse |
+| --- | --- | --- | --- | --- | --- |
+| `bfs-2024-4-aktsamhet.txt` | Aktsamhet vid bygg-, rivnings- och markåtgärder | 2025-01-01 | BFS 2026:6 | Nej | Nej |
+| `bfs-2024-6-barformaga.txt` | Bärförmåga, stadga och beständighet (ersatte EKS) | 2025-07-01 | – | Ja | Ja |
+| `bfs-2024-7-brand.txt` | Säkerhet i händelse av brand | 2025-07-01 | BFS 2025:10 | Ja | Nej |
+| `bfs-2024-8-hygien.txt` | Hygien, hälsa och miljö, vatten och avfall | 2025-07-01 | – | Nej | Ja |
+| `bfs-2024-9-sakerhet.txt` | Säkerhet vid användning | 2025-07-01 | – | Nej | Ja |
+| `bfs-2024-10-buller.txt` | Skydd mot buller | 2025-07-01 | – | Nej | Ja |
+| `bfs-2024-11-bostader.txt` | Bostäders lämplighet för sitt ändamål | 2025-07-01 | – | Nej | Ja |
+| `bfs-2024-12-tillganglighet.txt` | Tillgänglighet och användbarhet | 2025-07-01 | – | Nej | Ja |
+| `bfs-2024-13-tomter.txt` | Krav på tomter | 2025-07-01 | – | Nej | Ja, delvis |
+| `bfs-2026-4-hallbar-mobilitet.txt` | Hållbar mobilitet (laddning, cykelparkering) | 2026-07-01, delar senare | – | Ja | Ja |
+| `bfs-2026-9-energi.txt` | Energihushållning och värmeisolering | 2026-10-01 | BFS 2026:17 (från 2033) | Nej | Nej |
+| `bfs-2020-5-detaljplan.txt` | Föreskrifter om detaljplan | Ej kontrollerat | Ej kontrollerat | – | – |
+| `bfs-2024-14-andring-bbr.txt` | Ändring i BBR, sparad för övergångsbestämmelserna | 2025-07-01 | Upphävd | – | – |
+
+**BBR (BFS 2011:6) upphävdes 2026-10-01** genom BFS 2026:9. Övergångsreglerna är två:
+
+- BFS 2026:9: BBR får tillämpas om ansökan om bygglov eller anmälan kommer in före 2027-10-01,
+  eller om arbeten utan lov eller anmälan påbörjas före dess. Samtliga äldre bestämmelser ska
+  då tillämpas. Det gäller inte kraven i 2 kap. 8 § 1–3 (styr- och reglersystem i lokaler).
+- BFS 2024:14: äldre regler fick tillämpas om ansökan eller anmälan kom in före 2026-07-01, och
+  ska tillämpas om bygglov gavs före 2025-07-01.
 
 ## De största förändringarna, i korthet
 
@@ -105,10 +137,8 @@ PBF 10 kap. och övriga kapitel hämtas vid behov från riksdagen.se.
 - **Rivningslov** krävs nu även utanför plan för särskilt värdefulla byggnader (9 kap. 44 §).
 - **Försvarsmakten och Myndigheten för civilt försvar** har fått underrättelse- och vetoroll i
   vissa områden (9 kap. 36, 80, 97 §§).
-- Boverkets byggregler: de flesta krav finns sedan 2025 i nya föreskrifter (BFS 2024:4 och
-  2024:6–2024:13). BBR finns kvar som BBR 31 (BFS 2024:14) med avsnitt 1, 2 och 9
-  (energihushållning). Äldre regler får tillämpas om ansökan eller anmälan kom in före
-  1 juli 2026, men då alla tillsammans.
+- Boverkets byggregler: se avsnittet om Boverkets föreskrifter nedan. BBR är upphävd sedan
+  1 oktober 2026.
 
 ## Senare ändringar som innehållet följer
 

@@ -10,319 +10,793 @@ eller öppenarean eller en kombination av dessa minskad med 15 kvadratmeter, el
    2. en markåtgärd motsvarar den area som åtgärden avser.
 
 9 kap. Byggsanktionsavgifter
+
 Allmänna bestämmelser
-1 §
-   En byggsanktionsavgift enligt 11 kap. plan- och bygglagen
-(2010:900) ska tas ut för de överträdelser och med det belopp som följer av detta kapitel. Avgiften fastställs med tillämpning av det prisbasbelopp som gäller för det år som beslutet om avgiften fattas. Avgiften får uppgå till högst 50 prisbasbelopp. Förordning (2013:308).
-2 §
-   Om en byggsanktionsavgift har beslutats för en överträdelse och den avgiftsskyldige därefter inte vidtar rättelse, ska en ny avgift för överträdelsen tas ut. Varje sådan ny avgift tas ut med dubbla det belopp som togs ut senast i enlighet med detta kapitel. Den sammanlagda avgiften för överträdelsen får dock uppgå till högst 50 prisbasbelopp.
-En ny avgift får beslutas endast om den avgiftsskyldige har fått skälig tid att vidta rättelse. Förordning (2013:308).
-3 §
-   Om en byggsanktionsavgift har beslutats för en överträdelse och den avgiftsskyldige därefter på nytt gör sig skyldig till en överträdelse av samma slag, ska en avgift för den nya överträdelsen tas ut med dubbla det belopp som följer av detta kapitel, dock högst 50 prisbasbelopp.
-Första stycket gäller endast överträdelser som begås inom två år från det tidigare beslutet om byggsanktionsavgift.
-3 a §
-   Om en byggsanktionsavgift ska tas ut på grund av att den  avgiftsskyldige har påbörjat en åtgärd eller en del av en  åtgärd innan byggnadsnämnden har gett ett startbesked som  omfattar den åtgärden eller delen, eller innan den tidpunkt  som byggnadsnämnden enligt 10 kap. 24 § 6 plan- och bygglagen 
-(2010:900) i ett startbesked har angett att åtgärden får  påbörjas, ska avgiften bestämmas till hälften av det belopp  som annars följer av detta kapitel om den avgiftsskyldige när  åtgärden eller delen påbörjades 
-   1. hade fått bygglov för åtgärden, eller 
-   2. hade fullgjort skyldigheten att anmäla åtgärden.
+
+1 § En byggsanktionsavgift enligt 11 kap. plan- och bygglagen
+(2010:900) ska tas ut för de överträdelser och med det belopp
+som följer av detta kapitel. Avgiften fastställs med
+tillämpning av det prisbasbelopp som gäller för det år som
+beslutet om avgiften fattas. Avgiften får uppgå till högst
+50 prisbasbelopp. Förordning (2013:308).
+
+2 § Om en byggsanktionsavgift har beslutats för en
+överträdelse och den avgiftsskyldige därefter inte vidtar
+rättelse, ska en ny avgift för överträdelsen tas ut. Varje
+sådan ny avgift tas ut med dubbla det belopp som togs ut
+senast i enlighet med detta kapitel. Den sammanlagda avgiften
+för överträdelsen får dock uppgå till högst 50 prisbasbelopp.
+
+En ny avgift får beslutas endast om den avgiftsskyldige har
+fått skälig tid att vidta rättelse. Förordning (2013:308).
+
+3 § Om en byggsanktionsavgift har beslutats för en
+överträdelse och den avgiftsskyldige därefter på nytt gör sig
+skyldig till en överträdelse av samma slag, ska en avgift för
+den nya överträdelsen tas ut med dubbla det belopp som följer
+av detta kapitel, dock högst 50 prisbasbelopp.
+
+Första stycket gäller endast överträdelser som begås inom två
+år från det tidigare beslutet om byggsanktionsavgift.
+
+3 a § Om en byggsanktionsavgift ska tas ut på grund av att den 
+avgiftsskyldige har påbörjat en åtgärd eller en del av en 
+åtgärd innan byggnadsnämnden har gett ett startbesked som 
+omfattar den åtgärden eller delen, eller innan den tidpunkt 
+som byggnadsnämnden enligt 10 kap. 24 § 6 plan- och bygglagen 
+(2010:900) i ett startbesked har angett att åtgärden får 
+påbörjas, ska avgiften bestämmas till hälften av det belopp 
+som annars följer av detta kapitel om den avgiftsskyldige när 
+åtgärden eller delen påbörjades 
+
+1. hade fått bygglov för åtgärden, eller 
+
+2. hade fullgjort skyldigheten att anmäla åtgärden.
 Förordning (2022:910).
-4 §
-   Tillsynsmyndigheten ansvarar för indrivning av byggsanktionsavgifter.
+
+4 § Tillsynsmyndigheten ansvarar för indrivning av
+byggsanktionsavgifter.
+
 Bestämmelser om begäran om indrivning m.m. finns i 4-9 §§
-indrivningsförordningen (1993:1229). Att den betalningsskyldige ska uppmanas att betala fordringen innan ansökan om indrivning görs framgår av 3 § nämnda förordning.
-Indrivning behöver inte begäras för en fordran som understiger 100 kronor, om indrivning inte krävs från allmän synpunkt.
+indrivningsförordningen (1993:1229). Att den
+betalningsskyldige ska uppmanas att betala fordringen innan
+ansökan om indrivning görs framgår av 3 § nämnda förordning.
+
+Indrivning behöver inte begäras för en fordran som understiger
+100 kronor, om indrivning inte krävs från allmän synpunkt.
+
 Användning av motordrivna anordningar i byggnadsverk
-5 §
-   Byggsanktionsavgiften för användning av en motordriven anordning i ett byggnadsverk i strid mot 5 kap. 12, 13, 14 eller 15 § är 2 prisbasbelopp.
+
+5 § Byggsanktionsavgiften för användning av en motordriven
+anordning i ett byggnadsverk i strid mot 5 kap. 12, 13, 14
+eller 15 § är 2 prisbasbelopp.
+
 Startbesked
+
 Nybyggnad och tillbyggnad
-6 §
-   För att påbörja en lovpliktig nybyggnad eller del av en  sådan nybyggnad före startbesked, eller före den tidpunkt som  anges i ett startbesked, och därigenom bryta mot 10 kap. 3, 
-3 a §
-   eller 24 § 6 plan- och bygglagen (2010:900) är  byggsanktionsavgiften när åtgärden avser
-   1. ett en- eller tvåbostadshus: 1,5 prisbasbelopp med ett  tillägg av 0,005 prisbasbelopp per kvadratmeter av byggnadens  sanktionsarea,
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,25 prisbasbelopp med ett tillägg av 
-0,005 prisbasbelopp per kvadratmeter av byggnadens  sanktionsarea,
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 3  prisbasbelopp med ett tillägg av 0,02 prisbasbelopp per  kvadratmeter av byggnadens sanktionsarea, eller
-   4. en annan byggnad än de som omfattas av 1-3: 3 prisbasbelopp  med ett tillägg av 0,01 prisbasbelopp per kvadratmeter av  byggnadens sanktionsarea. Förordning (2025:979).
-7 §
-   För att påbörja en lovpliktig tillbyggnad eller del av en  sådan tillbyggnad före startbesked, eller före den tidpunkt  som anges i ett startbesked, och därigenom bryta mot 10 kap. 
-3, 3 a § eller 24 § 6 plan- och bygglagen (2010:900) är  byggsanktionsavgiften när åtgärden vidtas på
-   1. ett en- eller tvåbostadshus: 0,5 prisbasbelopp med ett  tillägg av 0,005 prisbasbelopp per kvadratmeter av  tillbyggnadens sanktionsarea,
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,08 prisbasbelopp med ett tillägg av 
-0,005 prisbasbelopp per kvadratmeter av tillbyggnadens  sanktionsarea,
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 1  prisbasbelopp med ett tillägg av 0,02 prisbasbelopp per  kvadratmeter av tillbyggnadens sanktionsarea, eller
-   4. en annan byggnad än de som omfattas av 1-3: 1 prisbasbelopp  med ett tillägg av 0,01 prisbasbelopp per kvadratmeter av  tillbyggnadens sanktionsarea.
-Om tillbyggnaden endast avser en eller flera takkupor, är  byggsanktionsavgiften 0,25 prisbasbelopp per takkupa i stället  för den avgift som följer av första stycket.  Förordning (2025:979).
+
+6 § För att påbörja en lovpliktig nybyggnad eller del av en 
+sådan nybyggnad före startbesked, eller före den tidpunkt som 
+anges i ett startbesked, och därigenom bryta mot 10 kap. 3, 
+3 a § eller 24 § 6 plan- och bygglagen (2010:900) är 
+byggsanktionsavgiften när åtgärden avser
+
+1. ett en- eller tvåbostadshus: 1,5 prisbasbelopp med ett 
+tillägg av 0,005 prisbasbelopp per kvadratmeter av byggnadens 
+sanktionsarea,
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,25 prisbasbelopp med ett tillägg av 
+0,005 prisbasbelopp per kvadratmeter av byggnadens 
+sanktionsarea,
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 3 
+prisbasbelopp med ett tillägg av 0,02 prisbasbelopp per 
+kvadratmeter av byggnadens sanktionsarea, eller
+
+4. en annan byggnad än de som omfattas av 1-3: 3 prisbasbelopp 
+med ett tillägg av 0,01 prisbasbelopp per kvadratmeter av 
+byggnadens sanktionsarea. Förordning (2025:979).
+
+7 § För att påbörja en lovpliktig tillbyggnad eller del av en 
+sådan tillbyggnad före startbesked, eller före den tidpunkt 
+som anges i ett startbesked, och därigenom bryta mot 10 kap. 
+3, 3 a § eller 24 § 6 plan- och bygglagen (2010:900) är 
+byggsanktionsavgiften när åtgärden vidtas på
+
+1. ett en- eller tvåbostadshus: 0,5 prisbasbelopp med ett 
+tillägg av 0,005 prisbasbelopp per kvadratmeter av 
+tillbyggnadens sanktionsarea,
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,08 prisbasbelopp med ett tillägg av 
+0,005 prisbasbelopp per kvadratmeter av tillbyggnadens 
+sanktionsarea,
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 1 
+prisbasbelopp med ett tillägg av 0,02 prisbasbelopp per 
+kvadratmeter av tillbyggnadens sanktionsarea, eller
+
+4. en annan byggnad än de som omfattas av 1-3: 1 prisbasbelopp 
+med ett tillägg av 0,01 prisbasbelopp per kvadratmeter av 
+tillbyggnadens sanktionsarea.
+
+Om tillbyggnaden endast avser en eller flera takkupor, är 
+byggsanktionsavgiften 0,25 prisbasbelopp per takkupa i stället 
+för den avgift som följer av första stycket. 
+Förordning (2025:979).
+
 Annan ändring av en byggnad än tillbyggnad
-8 §
-   För att påbörja en lovpliktig ändring av en byggnad som  avser ändrad användning eller påbörja en del av en sådan  ändring före startbesked, eller före den tidpunkt som anges i  ett startbesked, och därigenom bryta mot 10 kap. 3, 3 a §  eller 24 § 6 plan- och bygglagen (2010:900) är  byggsanktionsavgiften när ändringen avser
-   1. ett en- eller tvåbostadshus: 0,125 prisbasbelopp med ett  tillägg av 0,003 prisbasbelopp per kvadratmeter av den  sanktionsarea som ändringen avser,
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,0625 prisbasbelopp med ett tillägg av 
-0,003 prisbasbelopp per kvadratmeter av den sanktionsarea som  ändringen avser,
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 0,25  prisbasbelopp med ett tillägg av 0,0125 prisbasbelopp per  kvadratmeter av den sanktionsarea som 
+
+8 § För att påbörja en lovpliktig ändring av en byggnad som 
+avser ändrad användning eller påbörja en del av en sådan 
+ändring före startbesked, eller före den tidpunkt som anges i 
+ett startbesked, och därigenom bryta mot 10 kap. 3, 3 a § 
+eller 24 § 6 plan- och bygglagen (2010:900) är 
+byggsanktionsavgiften när ändringen avser
+
+1. ett en- eller tvåbostadshus: 0,125 prisbasbelopp med ett 
+tillägg av 0,003 prisbasbelopp per kvadratmeter av den 
+sanktionsarea som ändringen avser,
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,0625 prisbasbelopp med ett tillägg av 
+0,003 prisbasbelopp per kvadratmeter av den sanktionsarea som 
+ändringen avser,
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 0,25 
+prisbasbelopp med ett tillägg av 0,0125 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som 
+
 ändringen avser, eller
-   4. en annan byggnad än de som omfattas av 1-3: 0,25  prisbasbelopp med ett tillägg av 0,00625 prisbasbelopp per  kvadratmeter av den sanktionsarea som ändringen avser.  Förordning (2025:979).
-9 §
-   För att påbörja en lovpliktig ändring av en byggnad som  avser inredning av ytterligare en bostad eller påbörja en del  av en sådan ändring före startbesked, eller före den tidpunkt  som anges i ett startbesked, och därigenom bryta mot 10 kap. 
-3, 3 a § eller 24 § 6 plan- och bygglagen (2010:900) är  byggsanktionsavgiften 0,125 prisbasbelopp med ett tillägg av 
-0,005 prisbasbelopp per kvadratmeter av den sanktionsarea som  ändringen avser. Förordning (2025:979).
-10 §
-   För att påbörja en lovpliktig ändring av en byggnad som  avser fasadändring eller påbörja en del av en sådan ändring  före startbesked, eller före den tidpunkt som anges i ett  startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
-24 §
-   6 plan- och bygglagen (2010:900) är byggsanktionsavgiften  när ändringen avser
-   1. ett en- eller tvåbostadshus: 0,125 prisbasbelopp med ett  tillägg av 0,0005 prisbasbelopp per kvadratmeter av den area  som ändringen avser,
-   2. för en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,0625 prisbasbelopp med ett tillägg av 
-0,0005 prisbasbelopp per kvadratmeter av den area som  ändringen avser,
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 
-0,25 prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per  kvadratmeter av den area som ändringen avser, eller
-   4. en annan byggnad än de som omfattas av 1-3: 
-0,25 prisbasbelopp med ett tillägg av 0,001 prisbasbelopp per  kvadratmeter av den area som ändringen avser.
-Om ändringen avser endast ett fönster eller en dörr, är  byggsanktionsavgiften 0,125 prisbasbelopp per fönster eller  dörr som berörs i stället för den avgift som följer av första  stycket.
-Om ändringen avser endast en balkong eller entré, är  byggsanktionsavgiften 0,25 prisbasbelopp per balkong eller  entré i stället för den avgift som följer av första stycket.  Förordning (2025:979).
-11 §
-   För att påbörja en sådan ändring av en byggnad som kräver  lov i en detaljplan eller i områdesbestämmelser eller kräver  anmälan enligt 6 kap. 1 § första stycket 2 eller påbörja en  del av en sådan ändring före startbesked, eller före den  tidpunkt som anges i ett startbesked, och därigenom bryta mot 
-10 kap. 3, 3 a § eller 24 § 6 plan- och bygglagen (2010:900)  är byggsanktionsavgiften när ändringen avser
-   1. ett en- eller tvåbostadshus: 0,125 prisbasbelopp med ett  tillägg av 0,003 prisbasbelopp per kvadratmeter av den  sanktionsarea som berörs av ändringen,
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,0625 prisbasbelopp med ett tillägg av 
-0,003 prisbasbelopp per kvadratmeter av den sanktionsarea som  berörs av ändringen,
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 
-0,25 prisbasbelopp med ett tillägg av 0,0125 prisbasbelopp per  kvadratmeter av den sanktionsarea som berörs av ändringen,  eller
-   4. en annan byggnad än de som omfattas av 1-3: 0,25  prisbasbelopp med ett tillägg av 0,00625 prisbasbelopp per  kvadratmeter av den sanktionsarea som berörs av ändringen.
+
+4. en annan byggnad än de som omfattas av 1-3: 0,25 
+prisbasbelopp med ett tillägg av 0,00625 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som ändringen avser. 
 Förordning (2025:979).
+
+9 § För att påbörja en lovpliktig ändring av en byggnad som 
+avser inredning av ytterligare en bostad eller påbörja en del 
+av en sådan ändring före startbesked, eller före den tidpunkt 
+som anges i ett startbesked, och därigenom bryta mot 10 kap. 
+3, 3 a § eller 24 § 6 plan- och bygglagen (2010:900) är 
+byggsanktionsavgiften 0,125 prisbasbelopp med ett tillägg av 
+0,005 prisbasbelopp per kvadratmeter av den sanktionsarea som 
+ändringen avser. Förordning (2025:979).
+
+10 § För att påbörja en lovpliktig ändring av en byggnad som 
+avser fasadändring eller påbörja en del av en sådan ändring 
+före startbesked, eller före den tidpunkt som anges i ett 
+startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
+24 § 6 plan- och bygglagen (2010:900) är byggsanktionsavgiften 
+när ändringen avser
+
+1. ett en- eller tvåbostadshus: 0,125 prisbasbelopp med ett 
+tillägg av 0,0005 prisbasbelopp per kvadratmeter av den area 
+som ändringen avser,
+
+2. för en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,0625 prisbasbelopp med ett tillägg av 
+0,0005 prisbasbelopp per kvadratmeter av den area som 
+ändringen avser,
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 
+0,25 prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per 
+kvadratmeter av den area som ändringen avser, eller
+
+4. en annan byggnad än de som omfattas av 1-3: 
+0,25 prisbasbelopp med ett tillägg av 0,001 prisbasbelopp per 
+kvadratmeter av den area som ändringen avser.
+
+Om ändringen avser endast ett fönster eller en dörr, är 
+byggsanktionsavgiften 0,125 prisbasbelopp per fönster eller 
+dörr som berörs i stället för den avgift som följer av första 
+stycket.
+
+Om ändringen avser endast en balkong eller entré, är 
+byggsanktionsavgiften 0,25 prisbasbelopp per balkong eller 
+entré i stället för den avgift som följer av första stycket. 
+Förordning (2025:979).
+
+11 § För att påbörja en sådan ändring av en byggnad som kräver 
+lov i en detaljplan eller i områdesbestämmelser eller kräver 
+anmälan enligt 6 kap. 1 § första stycket 2 eller påbörja en 
+del av en sådan ändring före startbesked, eller före den 
+tidpunkt som anges i ett startbesked, och därigenom bryta mot 
+10 kap. 3, 3 a § eller 24 § 6 plan- och bygglagen (2010:900) 
+är byggsanktionsavgiften när ändringen avser
+
+1. ett en- eller tvåbostadshus: 0,125 prisbasbelopp med ett 
+tillägg av 0,003 prisbasbelopp per kvadratmeter av den 
+sanktionsarea som berörs av ändringen,
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,0625 prisbasbelopp med ett tillägg av 
+0,003 prisbasbelopp per kvadratmeter av den sanktionsarea som 
+berörs av ändringen,
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 
+0,25 prisbasbelopp med ett tillägg av 0,0125 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som berörs av ändringen, 
+eller
+
+4. en annan byggnad än de som omfattas av 1-3: 0,25 
+prisbasbelopp med ett tillägg av 0,00625 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som berörs av ändringen.
+Förordning (2025:979).
+
 Andra anläggningar än byggnader
-12 §
-   För att påbörja en lovpliktig åtgärd som avser en annan  anläggning än en byggnad eller påbörja en del av en sådan  åtgärd före startbesked, eller före den tidpunkt som anges i  ett startbesked, och därigenom bryta mot 10 kap. 3, 3 a §  eller 24 § 6 plan- och bygglagen (2010:900) är  byggsanktionsavgiften när åtgärden avser 
-   1. en anläggning för en grundvattentäkt: 1,5 prisbasbelopp,
-   2. en mur eller ett plank: 0,025 prisbasbelopp med ett tillägg  av 0,01 prisbasbelopp per löpmeter,
-   3. en altan: 0,25 prisbasbelopp med ett tillägg av 0,005  prisbasbelopp per kvadratmeter av berörd area,
-   4. en linbana: 5 prisbasbelopp,
-   5. en nöjespark, en djurpark, en idrottsanläggning, en  skidbacke, en skidlift, en campingplats eller en hamn för  fritidsbåtar: 0,5 prisbasbelopp med ett tillägg av 0,005  prisbasbelopp per kvadratmeter av berörd area,
-   6. ett upplag, en materialgård, en fast förvaringsanläggning,  en tunnel, ett bergrum, en parkeringsplats eller en  begravningsplats: 0,025 prisbasbelopp med ett tillägg av 0,005  prisbasbelopp per kvadratmeter av berörd area,
-   7. en transformatorstation: 5 prisbasbelopp med ett tillägg av 
+
+12 § För att påbörja en lovpliktig åtgärd som avser en annan 
+anläggning än en byggnad eller påbörja en del av en sådan 
+åtgärd före startbesked, eller före den tidpunkt som anges i 
+ett startbesked, och därigenom bryta mot 10 kap. 3, 3 a § 
+eller 24 § 6 plan- och bygglagen (2010:900) är 
+byggsanktionsavgiften när åtgärden avser 
+
+1. en anläggning för en grundvattentäkt: 1,5 prisbasbelopp,
+
+2. en mur eller ett plank: 0,025 prisbasbelopp med ett tillägg 
+av 0,01 prisbasbelopp per löpmeter,
+
+3. en altan: 0,25 prisbasbelopp med ett tillägg av 0,005 
+prisbasbelopp per kvadratmeter av berörd area,
+
+4. en linbana: 5 prisbasbelopp,
+
+5. en nöjespark, en djurpark, en idrottsanläggning, en 
+skidbacke, en skidlift, en campingplats eller en hamn för 
+fritidsbåtar: 0,5 prisbasbelopp med ett tillägg av 0,005 
+prisbasbelopp per kvadratmeter av berörd area,
+
+6. ett upplag, en materialgård, en fast förvaringsanläggning, 
+en tunnel, ett bergrum, en parkeringsplats eller en 
+begravningsplats: 0,025 prisbasbelopp med ett tillägg av 0,005 
+prisbasbelopp per kvadratmeter av berörd area,
+
+7. en transformatorstation: 5 prisbasbelopp med ett tillägg av 
 0,025 prisbasbelopp av anläggningens area, eller
-   8. en mast, ett torn, en skorsten eller ett vindkraftverk: 2,5  prisbasbelopp. Förordning (2025:979).
-Vissa åtgärder i fråga om ett byggnadsverk som kräver lov eller anmälan
-13 §
-   För att påbörja en sådan åtgärd avseende ett byggnadsverk  som kräver anmälan enligt 6 kap. 1 § första stycket 3, 4, 5  eller 6 eller påbörja en del av en sådan åtgärd före  startbesked, eller före den tidpunkt som anges i ett  startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
-24 §
-   6 plan- och bygglagen (2010:900) är byggsanktionsavgiften  när åtgärden avser
-   1. installation eller väsentlig ändring av en hiss: 
+
+8. en mast, ett torn, en skorsten eller ett vindkraftverk: 2,5 
+prisbasbelopp. Förordning (2025:979).
+
+Vissa åtgärder i fråga om ett byggnadsverk som kräver lov
+eller anmälan
+
+13 § För att påbörja en sådan åtgärd avseende ett byggnadsverk 
+som kräver anmälan enligt 6 kap. 1 § första stycket 3, 4, 5 
+eller 6 eller påbörja en del av en sådan åtgärd före 
+startbesked, eller före den tidpunkt som anges i ett 
+startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
+24 § 6 plan- och bygglagen (2010:900) är byggsanktionsavgiften 
+när åtgärden avser
+
+1. installation eller väsentlig ändring av en hiss: 
 0,25 prisbasbelopp,
-   2. installation eller väsentlig ändring av en eldstad: 
+
+2. installation eller väsentlig ändring av en eldstad: 
 0,1 prisbasbelopp,
-   3. installation eller väsentlig ändring av en rökkanal eller  anordning för ventilation: 0,05 prisbasbelopp med ett tillägg  av 0,0025 prisbasbelopp per kvadratmeter av den byggnadsarea  som berörs,
-   4. installation eller väsentlig ändring av en anläggning för  vattenförsörjning eller avlopp: 0,05 prisbasbelopp med ett  tillägg av 0,0025 prisbasbelopp per kvadratmeter av den  byggnadsarea som berörs, 
-   5. en sådan ändring som väsentligt påverkar brandskyddet: 
-0,25 prisbasbelopp med ett tillägg av 0,0025 prisbasbelopp per  kvadratmeter av den byggnadsarea som berörs, eller
-   6. ett vindkraftverk: 2,5 prisbasbelopp.
+
+3. installation eller väsentlig ändring av en rökkanal eller 
+anordning för ventilation: 0,05 prisbasbelopp med ett tillägg 
+av 0,0025 prisbasbelopp per kvadratmeter av den byggnadsarea 
+som berörs,
+
+4. installation eller väsentlig ändring av en anläggning för 
+vattenförsörjning eller avlopp: 0,05 prisbasbelopp med ett 
+tillägg av 0,0025 prisbasbelopp per kvadratmeter av den 
+byggnadsarea som berörs, 
+
+5. en sådan ändring som väsentligt påverkar brandskyddet: 
+0,25 prisbasbelopp med ett tillägg av 0,0025 prisbasbelopp per 
+kvadratmeter av den byggnadsarea som berörs, eller
+
+6. ett vindkraftverk: 2,5 prisbasbelopp.
 Förordning (2025:979).
+
 Skyltar och ljusanordningar
-14 §
-   För att påbörja en lovpliktig åtgärd som avser en skylt  eller en ljusanordning eller påbörja en del av en sådan åtgärd  före startbesked, eller före den tidpunkt som anges i ett  startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
-24 §
-   6 plan- och bygglagen (2010:900) är byggsanktionsavgiften  när åtgärden avser
-   1. en skylt: 0,1 prisbasbelopp med ett tillägg av 
+
+14 § För att påbörja en lovpliktig åtgärd som avser en skylt 
+eller en ljusanordning eller påbörja en del av en sådan åtgärd 
+före startbesked, eller före den tidpunkt som anges i ett 
+startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
+24 § 6 plan- och bygglagen (2010:900) är byggsanktionsavgiften 
+när åtgärden avser
+
+1. en skylt: 0,1 prisbasbelopp med ett tillägg av 
 0,025 prisbasbelopp per kvadratmeter av skyltens area, eller
-   2. en ljusanordning: 0,0625 prisbasbelopp.  Förordning (2025:979).
+
+2. en ljusanordning: 0,0625 prisbasbelopp. 
+Förordning (2025:979).
+
 Rivning
-15 §
-   För att påbörja en sådan rivning av en byggnad som kräver  lov eller kräver anmälan enligt 6 kap. 1 § första stycket 1  eller påbörja en del av en sådan rivning före startbesked,  eller före den tidpunkt som anges i ett startbesked, och  därigenom bryta mot 10 kap. 3, 3 a § eller 24 § 6 plan- och  bygglagen (2010:900) är byggsanktionsavgiften när rivningen  avser
-   1. ett en- eller tvåbostadshus: 1 prisbasbelopp med ett  tillägg av 0,002 prisbasbelopp per kvadratmeter av den rivna  byggnadens sanktionsarea,
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,17 prisbasbelopp med ett tillägg av 
-0,002 prisbasbelopp per kvadratmeter av den rivna byggnadens  sanktionsarea,
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 
-2 prisbasbelopp med ett tillägg av 0,008 prisbasbelopp per  kvadratmeter av den rivna byggnadens sanktionsarea, eller
-   4. en annan byggnad än de som omfattas av 1-3: 2 prisbasbelopp  med ett tillägg av 0,004 prisbasbelopp per kvadratmeter av den  rivna byggnadens sanktionsarea. 
-Om rivningen avser en sådan byggnad som enligt 9 kap. 76 §  plan- och bygglagen bör bevaras, ska byggsanktionsavgiften  räknas upp med 300 procent. Förordning (2025:979).
-16 §
-   För att påbörja en sådan rivning av en del av en byggnad  som kräver lov eller kräver anmälan enligt 6 kap. 1 § första  stycket 1 eller påbörja en del av en sådan rivning före  startbesked, eller före den tidpunkt som anges i ett  startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
-24 §
-   6 plan- och bygglagen (2010:900) är byggsanktionsavgiften  när åtgärden vidtas på
-   1. ett en- eller tvåbostadshus: 0,4 prisbasbelopp med ett  tillägg av 0,002 prisbasbelopp per kvadratmeter av den rivna  byggnadsdelens sanktionsarea,
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,07 prisbasbelopp med ett tillägg av 
-0,002 prisbasbelopp per kvadratmeter av den rivna  byggnadsdelens sanktionsarea,
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 0,8  prisbasbelopp med ett tillägg av 0,008 prisbasbelopp per  kvadratmeter av den rivna byggnadsdelens sanktionsarea, eller
-   4. en annan byggnad än de som omfattas av 1-3: 0,8  prisbasbelopp med ett tillägg av 0,004 prisbasbelopp per  kvadratmeter av den rivna byggnadsdelens sanktionsarea.
+
+15 § För att påbörja en sådan rivning av en byggnad som kräver 
+lov eller kräver anmälan enligt 6 kap. 1 § första stycket 1 
+eller påbörja en del av en sådan rivning före startbesked, 
+eller före den tidpunkt som anges i ett startbesked, och 
+därigenom bryta mot 10 kap. 3, 3 a § eller 24 § 6 plan- och 
+bygglagen (2010:900) är byggsanktionsavgiften när rivningen 
+avser
+
+1. ett en- eller tvåbostadshus: 1 prisbasbelopp med ett 
+tillägg av 0,002 prisbasbelopp per kvadratmeter av den rivna 
+byggnadens sanktionsarea,
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,17 prisbasbelopp med ett tillägg av 
+0,002 prisbasbelopp per kvadratmeter av den rivna byggnadens 
+sanktionsarea,
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 
+2 prisbasbelopp med ett tillägg av 0,008 prisbasbelopp per 
+kvadratmeter av den rivna byggnadens sanktionsarea, eller
+
+4. en annan byggnad än de som omfattas av 1-3: 2 prisbasbelopp 
+med ett tillägg av 0,004 prisbasbelopp per kvadratmeter av den 
+rivna byggnadens sanktionsarea. 
+
+Om rivningen avser en sådan byggnad som enligt 9 kap. 76 § 
+plan- och bygglagen bör bevaras, ska byggsanktionsavgiften 
+räknas upp med 300 procent. Förordning (2025:979).
+
+16 § För att påbörja en sådan rivning av en del av en byggnad 
+som kräver lov eller kräver anmälan enligt 6 kap. 1 § första 
+stycket 1 eller påbörja en del av en sådan rivning före 
+startbesked, eller före den tidpunkt som anges i ett 
+startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
+24 § 6 plan- och bygglagen (2010:900) är byggsanktionsavgiften 
+när åtgärden vidtas på
+
+1. ett en- eller tvåbostadshus: 0,4 prisbasbelopp med ett 
+tillägg av 0,002 prisbasbelopp per kvadratmeter av den rivna 
+byggnadsdelens sanktionsarea,
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,07 prisbasbelopp med ett tillägg av 
+0,002 prisbasbelopp per kvadratmeter av den rivna 
+byggnadsdelens sanktionsarea,
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 0,8 
+prisbasbelopp med ett tillägg av 0,008 prisbasbelopp per 
+kvadratmeter av den rivna byggnadsdelens sanktionsarea, eller
+
+4. en annan byggnad än de som omfattas av 1-3: 0,8 
+prisbasbelopp med ett tillägg av 0,004 prisbasbelopp per 
+kvadratmeter av den rivna byggnadsdelens sanktionsarea.
+
 Om rivningen avser en del av en sådan byggnad som enligt 
-9 kap. 76 § plan- och bygglagen bör bevaras, ska  byggsanktionsavgiften räknas upp med 300 procent.
+9 kap. 76 § plan- och bygglagen bör bevaras, ska 
+byggsanktionsavgiften räknas upp med 300 procent.
 Förordning (2025:979).
-16 a §
-   För att påbörja en lovpliktig rivning av en annan  anläggning än en byggnad eller en del av en sådan anläggning  före startbesked, eller före den tidpunkt som anges i ett  startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
-24 §
-   6 plan- och bygglagen (2010:900) är byggsanktionsavgiften  när åtgärden avser
-   1. en mur eller ett plank: 0,017 prisbasbelopp med ett tillägg  av 0,00625 prisbasbelopp per löpmeter av den rivna  anläggningen,
-   2. en altan: 0,17 prisbasbelopp med ett tillägg av 0,003  prisbasbelopp per kvadratmeter av den rivna anläggningens  area,
-   3. en linbana: 2 prisbasbelopp,
-   4. en nöjespark, en djurpark, en idrottsanläggning, en  skidbacke, en skidlift, en campingplats eller en hamn för  fritidsbåtar: 0,4 prisbasbelopp med ett tillägg av 0,003  prisbasbelopp per kvadratmeter av den rivna anläggningens  area, 
-   5. ett upplag, en materialgård, en fast förvaringsanläggning,  en tunnel, ett bergrum, en parkeringsplats eller en  begravningsplats: 0,017 prisbasbelopp med ett tillägg av 0,003  prisbasbelopp per kvadratmeter av den rivna anläggningens  area,
-   6. en transformatorstation: 0,4 prisbasbelopp med ett tillägg  av 0,017 prisbasbelopp per kvadratmeter av den rivna  anläggningens area, eller
-   7. en mast, ett torn, en skorsten eller ett vindkraftverk: 1,5  prisbasbelopp.
-Om rivningen avser en sådan annan anläggning än en byggnad som  enligt 9 kap. 76 § plan- och bygglagen bör bevaras, ska  byggsanktionsavgiften räknas upp med 300 procent.
+
+16 a § För att påbörja en lovpliktig rivning av en annan 
+anläggning än en byggnad eller en del av en sådan anläggning 
+före startbesked, eller före den tidpunkt som anges i ett 
+startbesked, och därigenom bryta mot 10 kap. 3, 3 a § eller 
+24 § 6 plan- och bygglagen (2010:900) är byggsanktionsavgiften 
+när åtgärden avser
+
+1. en mur eller ett plank: 0,017 prisbasbelopp med ett tillägg 
+av 0,00625 prisbasbelopp per löpmeter av den rivna 
+anläggningen,
+
+2. en altan: 0,17 prisbasbelopp med ett tillägg av 0,003 
+prisbasbelopp per kvadratmeter av den rivna anläggningens 
+area,
+
+3. en linbana: 2 prisbasbelopp,
+
+4. en nöjespark, en djurpark, en idrottsanläggning, en 
+skidbacke, en skidlift, en campingplats eller en hamn för 
+fritidsbåtar: 0,4 prisbasbelopp med ett tillägg av 0,003 
+prisbasbelopp per kvadratmeter av den rivna anläggningens 
+area, 
+
+5. ett upplag, en materialgård, en fast förvaringsanläggning, 
+en tunnel, ett bergrum, en parkeringsplats eller en 
+begravningsplats: 0,017 prisbasbelopp med ett tillägg av 0,003 
+prisbasbelopp per kvadratmeter av den rivna anläggningens 
+area,
+
+6. en transformatorstation: 0,4 prisbasbelopp med ett tillägg 
+av 0,017 prisbasbelopp per kvadratmeter av den rivna 
+anläggningens area, eller
+
+7. en mast, ett torn, en skorsten eller ett vindkraftverk: 1,5 
+prisbasbelopp.
+
+Om rivningen avser en sådan annan anläggning än en byggnad som 
+enligt 9 kap. 76 § plan- och bygglagen bör bevaras, ska 
+byggsanktionsavgiften räknas upp med 300 procent.
 Förordning (2025:979).
+
 Markåtgärd
-17 §
-   För att påbörja en lovpliktig markåtgärd eller en del av  en sådan markåtgärd före startbesked, eller före den tidpunkt  som anges i ett startbesked, och därigenom bryta mot 10 kap. 
-3, 3 a § eller 24 § 6 plan- och bygglagen (2010:900) är  byggsanktionsavgiften när åtgärden avser
-   1. schaktning eller fyllning inom en tomt: 0,025 prisbasbelopp  med ett tillägg av 0,001 prisbasbelopp per kvadratmeter av  sanktionsarean,
-   2. schaktning eller fyllning inom en allmän plats: 0,05  prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per  kvadratmeter av sanktionsarean, 
-   3. schaktning eller fyllning i ett område utanför detaljplan: 
-0,025 prisbasbelopp med ett tillägg av 0,001 prisbasbelopp per  kvadratmeter av sanktionsarean, 
-   4. trädfällning: 0,25 prisbasbelopp per träd, 
-   5. skogsplantering: 0,025 prisbasbelopp med ett tillägg av 
+
+17 § För att påbörja en lovpliktig markåtgärd eller en del av 
+en sådan markåtgärd före startbesked, eller före den tidpunkt 
+som anges i ett startbesked, och därigenom bryta mot 10 kap. 
+3, 3 a § eller 24 § 6 plan- och bygglagen (2010:900) är 
+byggsanktionsavgiften när åtgärden avser
+
+1. schaktning eller fyllning inom en tomt: 0,025 prisbasbelopp 
+med ett tillägg av 0,001 prisbasbelopp per kvadratmeter av 
+sanktionsarean,
+
+2. schaktning eller fyllning inom en allmän plats: 0,05 
+prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per 
+kvadratmeter av sanktionsarean, 
+
+3. schaktning eller fyllning i ett område utanför detaljplan: 
+0,025 prisbasbelopp med ett tillägg av 0,001 prisbasbelopp per 
+kvadratmeter av sanktionsarean, 
+
+4. trädfällning: 0,25 prisbasbelopp per träd, 
+
+5. skogsplantering: 0,025 prisbasbelopp med ett tillägg av 
 0,0025 prisbasbelopp per kvadratmeter av sanktionsarean, eller
-   6. en markåtgärd som kan försämra markens genomsläpplighet: 
-0,05 prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per  kvadratmeter av sanktionsarean. Förordning (2025:979).
+
+6. en markåtgärd som kan försämra markens genomsläpplighet: 
+0,05 prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per 
+kvadratmeter av sanktionsarean. Förordning (2025:979).
+
 Slutbesked
+
 Nybyggnad och tillbyggnad
-18 §
-   För att ta en byggnad i bruk efter nybyggnad före  slutbesked, och därigenom bryta mot 10 kap. 4 § plan- och  bygglagen (2010:900) är byggsanktionsavgiften när åtgärden  avser
-   1. ett en- eller tvåbostadshus: 0,3 prisbasbelopp med ett  tillägg av 0,001 prisbasbelopp per kvadratmeter av byggnadens  sanktionsarea, 
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,05 prisbasbelopp med ett tillägg av 
-0,001 prisbasbelopp per kvadratmeter av byggnadens  sanktionsarea, 
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 0,6  prisbasbelopp med ett tillägg av 0,004 prisbasbelopp per  kvadratmeter av byggnadens sanktionsarea, eller
-   4. en annan byggnad än de som omfattas av 1-3: 0,6  prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per  kvadratmeter av byggnadens sanktionsarea. 
+
+18 § För att ta en byggnad i bruk efter nybyggnad före 
+slutbesked, och därigenom bryta mot 10 kap. 4 § plan- och 
+bygglagen (2010:900) är byggsanktionsavgiften när åtgärden 
+avser
+
+1. ett en- eller tvåbostadshus: 0,3 prisbasbelopp med ett 
+tillägg av 0,001 prisbasbelopp per kvadratmeter av byggnadens 
+sanktionsarea, 
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,05 prisbasbelopp med ett tillägg av 
+0,001 prisbasbelopp per kvadratmeter av byggnadens 
+sanktionsarea, 
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 0,6 
+prisbasbelopp med ett tillägg av 0,004 prisbasbelopp per 
+kvadratmeter av byggnadens sanktionsarea, eller
+
+4. en annan byggnad än de som omfattas av 1-3: 0,6 
+prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per 
+kvadratmeter av byggnadens sanktionsarea. 
+
 Om endast en del av en byggnad tas i bruk i strid med 10 kap. 
-4 §
-   plan- och bygglagen, ska det som sägs i första stycket om  sanktionsarea i stället avse den area som tas i bruk.
+4 § plan- och bygglagen, ska det som sägs i första stycket om 
+sanktionsarea i stället avse den area som tas i bruk.
 Förordning (2025:979).
-19 §
-   /Upphör att gälla U:2027-01-01/ 
-För att ta en byggnad i bruk efter tillbyggnad före  slutbesked, och därigenom bryta mot 10 kap. 4 § plan- och  bygglagen (2010:900) är byggsanktionsavgiften när åtgärden  avser 
-   1. ett en- eller tvåbostadshus: 0,1 prisbasbelopp med ett  tillägg av 0,001 prisbasbelopp per kvadratmeter av  tillbyggnadens sanktionsarea, 
-   2. en komplementbyggnad, ett komplementsbostadshus eller en  annan liten byggnad: 0,016 prisbasbelopp med ett tillägg av 
-0,001 prisbasbelopp per kvadratmeter av tillbyggnadens  sanktionsarea, 
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 0,2  prisbasbelopp med ett tillägg av 0,004 prisbasbelopp per  kvadratmeter av tillbyggnadens sanktionsarea, eller 
-   4. en annan byggnad än de som omfattas av 1-3: 0,2  prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per  kvadratmeter av tillbyggnadens sanktionsarea. 
+
+19 § /Upphör att gälla U:2027-01-01/
+För att ta en byggnad i bruk efter tillbyggnad före 
+slutbesked, och därigenom bryta mot 10 kap. 4 § plan- och 
+bygglagen (2010:900) är byggsanktionsavgiften när åtgärden 
+avser 
+
+1. ett en- eller tvåbostadshus: 0,1 prisbasbelopp med ett 
+tillägg av 0,001 prisbasbelopp per kvadratmeter av 
+tillbyggnadens sanktionsarea, 
+
+2. en komplementbyggnad, ett komplementsbostadshus eller en 
+annan liten byggnad: 0,016 prisbasbelopp med ett tillägg av 
+0,001 prisbasbelopp per kvadratmeter av tillbyggnadens 
+sanktionsarea, 
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 0,2 
+prisbasbelopp med ett tillägg av 0,004 prisbasbelopp per 
+kvadratmeter av tillbyggnadens sanktionsarea, eller 
+
+4. en annan byggnad än de som omfattas av 1-3: 0,2 
+prisbasbelopp med ett tillägg av 0,002 prisbasbelopp per 
+kvadratmeter av tillbyggnadens sanktionsarea. 
+
 Om endast en del av en byggnad tas i bruk i strid med 10 kap. 
-4 §
-   plan- och bygglagen, ska det som sägs i första stycket om  sanktionsarea i stället avse den area som tas i bruk.
+4 § plan- och bygglagen, ska det som sägs i första stycket om 
+sanktionsarea i stället avse den area som tas i bruk.
 Förordning (2025:979).
-19 §
-   /Träder i kraft I:2027-01-01/ 
-För att ta en byggnad i bruk efter tillbyggnad före  slutbesked, och därigenom bryta mot 10 kap. 4 § plan- och  bygglagen (2010:900), är byggsanktionsavgiften när åtgärden  avser 
-   1. ett en- eller tvåbostadshus: 0,1 prisbasbelopp med ett  tillägg av 0,001 prisbasbelopp per kvadratmeter av  tillbyggnadens sanktionsarea, 
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,016 prisbasbelopp med ett tillägg av 
-0,001 prisbasbelopp per kvadratmeter av tillbyggnadens  sanktionsarea, 
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller  idrottsevenemang: 0,2 prisbasbelopp med ett tillägg av 
+
+19 § /Träder i kraft I:2027-01-01/
+För att ta en byggnad i bruk efter tillbyggnad före 
+slutbesked, och därigenom bryta mot 10 kap. 4 § plan- och 
+bygglagen (2010:900), är byggsanktionsavgiften när åtgärden 
+avser 
+
+1. ett en- eller tvåbostadshus: 0,1 prisbasbelopp med ett 
+tillägg av 0,001 prisbasbelopp per kvadratmeter av 
+tillbyggnadens sanktionsarea, 
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,016 prisbasbelopp med ett tillägg av 
+0,001 prisbasbelopp per kvadratmeter av tillbyggnadens 
+sanktionsarea, 
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller 
+idrottsevenemang: 0,2 prisbasbelopp med ett tillägg av 
 0,004 prisbasbelopp per kvadratmeter av tillbyggnadens sank-
 tionsarea, eller 
-   4. en annan byggnad än de som omfattas av 1-3: 0,2 prisbasbelopp med ett tillägg av 0,002 prisbasbelopp  per kvadratmeter av tillbyggnadens sanktionsarea. 
+
+4. en annan byggnad än de som omfattas av 1-
+3: 0,2 prisbasbelopp med ett tillägg av 0,002 prisbasbelopp 
+per kvadratmeter av tillbyggnadens sanktionsarea. 
+
 Om endast en del av en byggnad tas i bruk i strid med 10 kap. 
-4 §
-   plan- och bygglagen, ska det som sägs i första stycket om  sanktionsarea i stället avse den area som tas i bruk.
+4 § plan- och bygglagen, ska det som sägs i första stycket om 
+sanktionsarea i stället avse den area som tas i bruk.
 Förordning (2026:1265).
+
 Annan ändring av en byggnad än tillbyggnad
-20 §
-   För att ta en byggnad i bruk efter en ändring som innebär  ändrad användning före slutbesked, och därigenom bryta mot 
-10 kap. 4 § plan- och bygglagen (2010:900) är  byggsanktionsavgiften när ändringen avser
-   1. ett en- eller tvåbostadshus: 0,025 prisbasbelopp med ett  tillägg av 0,0006 prisbasbelopp per kvadratmeter av den  sanktionsarea som ändringen avser, 
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,0125 prisbasbelopp med ett tillägg av 
-0,0006 prisbasbelopp per kvadratmeter av den sanktionsarea som  ändringen avser,
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 
-0,05 prisbasbelopp med ett tillägg av 0,0025 prisbasbelopp per  kvadratmeter av den sanktionsarea som ändringen avser, eller 
-   4. en annan byggnad än de som omfattas av 1-3: 0,05  prisbasbelopp med ett tillägg av 0,00125 prisbasbelopp per  kvadratmeter av den sanktionsarea som ändringen avser. 
+
+20 § För att ta en byggnad i bruk efter en ändring som innebär 
+ändrad användning före slutbesked, och därigenom bryta mot 
+10 kap. 4 § plan- och bygglagen (2010:900) är 
+byggsanktionsavgiften när ändringen avser
+
+1. ett en- eller tvåbostadshus: 0,025 prisbasbelopp med ett 
+tillägg av 0,0006 prisbasbelopp per kvadratmeter av den 
+sanktionsarea som ändringen avser, 
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,0125 prisbasbelopp med ett tillägg av 
+0,0006 prisbasbelopp per kvadratmeter av den sanktionsarea som 
+ändringen avser,
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 
+0,05 prisbasbelopp med ett tillägg av 0,0025 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som ändringen avser, eller 
+
+4. en annan byggnad än de som omfattas av 1-3: 0,05 
+prisbasbelopp med ett tillägg av 0,00125 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som ändringen avser. 
+
 Om endast en del av en byggnad tas i bruk i strid med 10 kap. 
-4 §
-   plan- och bygglagen, ska det som sägs i första stycket om  sanktionsarea i stället avse den area som tas i bruk.
+4 § plan- och bygglagen, ska det som sägs i första stycket om 
+sanktionsarea i stället avse den area som tas i bruk.
 Förordning (2025:979).
-21 §
-   För att ta en byggnad i bruk efter en ändring som innebär  att en ytterligare bostad inreds före slutbesked, och  därigenom bryta mot 10 kap. 4 § plan- och bygglagen (2010:900)  är byggsanktionsavgiften för varje ytterligare bostad 0,025  prisbasbelopp med ett tillägg av 0,001 prisbasbelopp per  kvadratmeter av den sanktionsarea som ändringen avser.
+
+21 § För att ta en byggnad i bruk efter en ändring som innebär 
+att en ytterligare bostad inreds före slutbesked, och 
+därigenom bryta mot 10 kap. 4 § plan- och bygglagen (2010:900) 
+är byggsanktionsavgiften för varje ytterligare bostad 0,025 
+prisbasbelopp med ett tillägg av 0,001 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som ändringen avser.
+
 Om endast en del av en byggnad tas i bruk i strid med 10 kap. 
-4 §
-   plan- och bygglagen, ska det som sägs i första stycket om  sanktionsarea i stället avse den area som tas i bruk.
+4 § plan- och bygglagen, ska det som sägs i första stycket om 
+sanktionsarea i stället avse den area som tas i bruk.
 Förordning (2025:979).
-22 §
-   För att ta en byggnad i bruk efter en ändring som berör  de bärande delarna före slutbesked, och därigenom bryta mot 
-10 kap. 4 § plan- och bygglagen (2010:900) är  byggsanktionsavgiften när ändringen avser
-   1. ett en- eller tvåbostadshus: 0,025 prisbasbelopp med ett  tillägg av 0,0006 prisbasbelopp per kvadratmeter av den  sanktionsarea som berörs av ändringen,
-   2. en komplementbyggnad, ett komplementbostadshus eller en  annan liten byggnad: 0,0125 prisbasbelopp med ett tillägg av 
-0,0006 prisbasbelopp per kvadratmeter av den sanktionsarea som  berörs av ändringen,
-   3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad  eller en byggnad för kultur- eller idrottsevenemang: 0,05  prisbasbelopp med ett tillägg av 0,0025 prisbasbelopp per  kvadratmeter av den sanktionsarea som berörs av ändringen,  eller
-   4. en annan byggnad än de som omfattas av 1-3: 0,05  prisbasbelopp med ett tillägg av 0,00125 prisbasbelopp per  kvadratmeter av den sanktionsarea som berörs av ändringen.
+
+22 § För att ta en byggnad i bruk efter en ändring som berör 
+de bärande delarna före slutbesked, och därigenom bryta mot 
+10 kap. 4 § plan- och bygglagen (2010:900) är 
+byggsanktionsavgiften när ändringen avser
+
+1. ett en- eller tvåbostadshus: 0,025 prisbasbelopp med ett 
+tillägg av 0,0006 prisbasbelopp per kvadratmeter av den 
+sanktionsarea som berörs av ändringen,
+
+2. en komplementbyggnad, ett komplementbostadshus eller en 
+annan liten byggnad: 0,0125 prisbasbelopp med ett tillägg av 
+0,0006 prisbasbelopp per kvadratmeter av den sanktionsarea som 
+berörs av ändringen,
+
+3. ett flerbostadshus, en kontorsbyggnad, en handelsbyggnad 
+eller en byggnad för kultur- eller idrottsevenemang: 0,05 
+prisbasbelopp med ett tillägg av 0,0025 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som berörs av ändringen, 
+eller
+
+4. en annan byggnad än de som omfattas av 1-3: 0,05 
+prisbasbelopp med ett tillägg av 0,00125 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som berörs av ändringen.
+
 Om endast en del av en byggnad tas i bruk i strid med 10 kap. 
-4 §
-   plan- och bygglagen, ska det som sägs i första stycket om  sanktionsarea i stället avse den area som tas i bruk.
+4 § plan- och bygglagen, ska det som sägs i första stycket om 
+sanktionsarea i stället avse den area som tas i bruk.
 Förordning (2025:979).
+
 Andra anläggningar än byggnader
-23 §
-   För att ta en annan anläggning än en byggnad i bruk efter  en lovpliktig åtgärd före slutbesked, och därigenom bryta mot 
-10 kap. 4 § plan- och bygglagen (2010:900) är  byggsanktionsavgiften när anläggningen är
-   1. en anläggning för en grundvattentäkt: 0,3 prisbasbelopp,
-   2. en altan: 0,016 prisbasbelopp med ett tillägg av 0,001  prisbasbelopp per kvadratmeter av berörd area,
-   3. en linbana: 1 prisbasbelopp, 
-   4. en nöjespark, en djurpark, en idrottsanläggning, en  skidbacke, en skidlift, en campingplats eller en hamn för  fritidsbåtar: 0,1 prisbasbelopp med ett tillägg av 0,001  prisbasbelopp per kvadratmeter av berörd area,
-   5. ett upplag, en materialgård, en fast förvaringsanläggning,  en tunnel, ett bergrum, en parkeringsplats eller en  begravningsplats: 0,005 prisbasbelopp med ett tillägg av 0,001  prisbasbelopp per kvadratmeter av berörd area,
-   6. en transformatorstation: 0,1 prisbasbelopp med ett tillägg  av 0,005 prisbasbelopp av anläggningens area, eller
-   7. en mast, ett torn, en skorsten eller ett vindkraftverk: 0,5  prisbasbelopp.
+
+23 § För att ta en annan anläggning än en byggnad i bruk efter 
+en lovpliktig åtgärd före slutbesked, och därigenom bryta mot 
+10 kap. 4 § plan- och bygglagen (2010:900) är 
+byggsanktionsavgiften när anläggningen är
+
+1. en anläggning för en grundvattentäkt: 0,3 prisbasbelopp,
+
+2. en altan: 0,016 prisbasbelopp med ett tillägg av 0,001 
+prisbasbelopp per kvadratmeter av berörd area,
+
+3. en linbana: 1 prisbasbelopp, 
+
+4. en nöjespark, en djurpark, en idrottsanläggning, en 
+skidbacke, en skidlift, en campingplats eller en hamn för 
+fritidsbåtar: 0,1 prisbasbelopp med ett tillägg av 0,001 
+prisbasbelopp per kvadratmeter av berörd area,
+
+5. ett upplag, en materialgård, en fast förvaringsanläggning, 
+en tunnel, ett bergrum, en parkeringsplats eller en 
+begravningsplats: 0,005 prisbasbelopp med ett tillägg av 0,001 
+prisbasbelopp per kvadratmeter av berörd area,
+
+6. en transformatorstation: 0,1 prisbasbelopp med ett tillägg 
+av 0,005 prisbasbelopp av anläggningens area, eller
+
+7. en mast, ett torn, en skorsten eller ett vindkraftverk: 0,5 
+prisbasbelopp.
+
 Om endast en del av en anläggning tas i bruk i strid med 
-10 kap. 4 § plan-och bygglagen, ska det som sägs i första  stycket om area i stället avse den area som tas i bruk.
+10 kap. 4 § plan-och bygglagen, ska det som sägs i första 
+stycket om area i stället avse den area som tas i bruk.
 Förordning (2025:979).
+
 /Rubriken upphör att gälla U:2027-01-01/
-Vissa åtgärder i fråga om ett byggnadsverk som kräver lov eller anmälan
+Vissa åtgärder i fråga om ett byggnadsverk som kräver lov
+eller anmälan
+
 /Rubriken träder i kraft I:2027-01-01/
 Vissa åtgärder i fråga om ett byggnadsverk som kräver anmälan
-24 §
-   För att ta ett byggnadsverk i bruk efter en sådan  anmälningspliktig åtgärd som avses i 6 kap. 1 § första stycket 
+
+24 § För att ta ett byggnadsverk i bruk efter en sådan 
+anmälningspliktig åtgärd som avses i 6 kap. 1 § första stycket 
 3, 4 eller 5 före slutbesked, och därigenom bryta mot 10 kap. 
-4 §
-   plan- och bygglagen (2010:900), är byggsanktionsavgiften  när åtgärden avser
-   1. installation eller väsentlig ändring av en hiss: 0,05  prisbasbelopp,
-   2. installation eller väsentlig ändring av en eldstad: 0,02  prisbasbelopp,
-   3. installation eller väsentlig ändring av en rökkanal, en  anordning för ventilation eller en anläggning för  vattenförsörjning eller avlopp: 0,01 prisbasbelopp med ett  tillägg av 0,0005 prisbasbelopp per kvadratmeter av den  byggnadsarea som berörs, eller
-   4. en sådan ändring som väsentligt påverkar brandskyddet: 0,05  prisbasbelopp med ett tillägg av 0,0005 prisbasbelopp per  kvadratmeter av den byggnadsarea som berörs.
+4 § plan- och bygglagen (2010:900), är byggsanktionsavgiften 
+när åtgärden avser
+
+1. installation eller väsentlig ändring av en hiss: 0,05 
+prisbasbelopp,
+
+2. installation eller väsentlig ändring av en eldstad: 0,02 
+prisbasbelopp,
+
+3. installation eller väsentlig ändring av en rökkanal, en 
+anordning för ventilation eller en anläggning för 
+vattenförsörjning eller avlopp: 0,01 prisbasbelopp med ett 
+tillägg av 0,0005 prisbasbelopp per kvadratmeter av den 
+byggnadsarea som berörs, eller
+
+4. en sådan ändring som väsentligt påverkar brandskyddet: 0,05 
+prisbasbelopp med ett tillägg av 0,0005 prisbasbelopp per 
+kvadratmeter av den byggnadsarea som berörs.
+
 Om endast en del av ett byggnadsverk tas i bruk i strid med 
-10 kap. 4 § plan- och bygglagen, ska det som sägs i första  stycket om byggnadsarea i stället avse den area som tas i  bruk. Förordning (2025:979).
+10 kap. 4 § plan- och bygglagen, ska det som sägs i första 
+stycket om byggnadsarea i stället avse den area som tas i 
+bruk. Förordning (2025:979).
+
 Byggprodukter
-25 §
-   /Upphör att gälla U:2027-01-08/ 
-Byggsanktionsavgiften för att underlåta att upprätta en  prestandadeklaration trots att det krävs enligt artikel 4.1 i  Europaparlamentets och rådets förordning (EU) nr 305/2011 av  den 9 mars 2011 om fastställande av harmoniserade villkor för  saluföring av byggprodukter och om upphävande av rådets  direktiv 89/106/EG eller för att tillhandahålla en produkt på  marknaden utan prestandadeklaration enligt artikel 7.1 i  samma förordning är 1 prisbasbelopp. 
-Byggsanktionsavgiften för en ekonomisk aktör som inte fullgör  sina skyldigheter enligt 4 kap. 11-11 e §§ är 1  prisbasbelopp.
-Byggsanktionsavgiften för en ekonomisk aktör som inte fullgör  sina skyldigheter enligt artiklarna 11.1, 11.2, 11.8, 12.1, 
-13.1, 13.2, 13.5, 13.7, 14.1-14.4 i Europaparlamentets och  rådets förordning (EU) nr 2016/424 av den 9 mars 2016 om  linbaneanläggningar och om upphävande av direktiv 2000/9/EG  är 1 prisbasbelopp. Förordning (2018:103).
-25 §
-   /Träder i kraft I:2027-01-08/ 
+
+25 § /Upphör att gälla U:2027-01-08/
+Byggsanktionsavgiften för att underlåta att upprätta en 
+prestandadeklaration trots att det krävs enligt artikel 4.1 i 
+Europaparlamentets och rådets förordning (EU) nr 305/2011 av 
+den 9 mars 2011 om fastställande av harmoniserade villkor för 
+saluföring av byggprodukter och om upphävande av rådets 
+direktiv 89/106/EG eller för att tillhandahålla en produkt på 
+marknaden utan prestandadeklaration enligt artikel 7.1 i 
+samma förordning är 1 prisbasbelopp. 
+
+Byggsanktionsavgiften för en ekonomisk aktör som inte fullgör 
+sina skyldigheter enligt 4 kap. 11-11 e §§ är 1 
+prisbasbelopp.
+
+Byggsanktionsavgiften för en ekonomisk aktör som inte fullgör 
+sina skyldigheter enligt artiklarna 11.1, 11.2, 11.8, 12.1, 
+13.1, 13.2, 13.5, 13.7, 14.1-14.4 i Europaparlamentets och 
+rådets förordning (EU) nr 2016/424 av den 9 mars 2016 om 
+linbaneanläggningar och om upphävande av direktiv 2000/9/EG 
+är 1 prisbasbelopp. Förordning (2018:103).
+
+25 § /Träder i kraft I:2027-01-08/
 Byggsanktionsavgiften är 1 prisbasbelopp för att 
-   1. underlåta att upprätta den dokumentation som krävs enligt  artikel 13.1 i EU:s byggproduktförordning eller artikel 4.1 i  förordning (EU) nr 305/2011, eller 
-   2. tillhandahålla en produkt på marknaden utan sådan  dokumentation enligt artikel 16.1 i EU:s byggproduktförordning  eller artikel 7.1 i förordning (EU) nr 305/2011.  Förordning (2026:197).
-25 a §
-   /Träder i kraft I:2027-01-08/ 
-Byggsanktionsavgiften är 1 prisbasbelopp för en  ekonomisk aktör som inte fullgör sina skyldigheter 
-   1. enligt 4 kap. 11-11 e §§, eller
-   2. enligt artiklarna 11.1, 11.2, 11.8, 12.1, 13.1, 13.2, 13.5, 
+
+1. underlåta att upprätta den dokumentation som krävs enligt 
+artikel 13.1 i EU:s byggproduktförordning eller artikel 4.1 i 
+förordning (EU) nr 305/2011, eller 
+
+2. tillhandahålla en produkt på marknaden utan sådan 
+dokumentation enligt artikel 16.1 i EU:s byggproduktförordning 
+eller artikel 7.1 i förordning (EU) nr 305/2011. 
+Förordning (2026:197).
+
+25 a § /Träder i kraft I:2027-01-08/
+Byggsanktionsavgiften är 1 prisbasbelopp för en 
+ekonomisk aktör som inte fullgör sina skyldigheter 
+
+1. enligt 4 kap. 11-11 e §§, eller
+
+2. enligt artiklarna 11.1, 11.2, 11.8, 12.1, 13.1, 13.2, 13.5, 
 13.7 eller 14.1-14.4 i EU:s linbaneförordning.
 Förordning (2026:197).
+
 Tidsbegränsade bygglov
-26 §
-   För att inte återställa en plats eller ett byggnadsverk  innan tiden för ett tidsbegränsat bygglov har gått ut, och  därigenom bryta mot 9 kap. 73 § plan- och bygglagen (2010:900)  är byggsanktionsavgiften när åtgärden avser 
-   1. en nybyggnad: 1 prisbasbelopp med ett tillägg av 0,005  prisbasbelopp per kvadratmeter av byggnadens sanktionsarea,
-   2. en tillbyggnad: 0,3 prisbasbelopp med ett tillägg av 
-0,005 prisbas-belopp per kvadratmeter av tillbyggnadens  sanktionsarea,
-   3. en ändring av en byggnad genom ändrad användning: 0,125  prisbasbelopp med ett tillägg av 0,003 prisbasbelopp per  kvadratmeter av den sanktionsarea som ändringen avser,
-   4. en ändring av en byggnad genom att en ytterligare bostad  inreds: 0,125 prisbasbelopp med ett tillägg av 0,0025  prisbasbelopp per kvadratmeter av den sanktionsarea som  ändringen avser,
-   5. en fasadändring som avser ett fönster eller en dörr: 0,0625  prisbasbelopp per fönster eller dörr som berörs,
-   6. en fasadändring som avser en balkong eller entré: 0,125  prisbasbelopp per balkong eller entré, 
-   7. en fasadändring som inte omfattas av 5 och 6: 0,125  prisbasbelopp med ett tillägg av 0,0005 prisbasbelopp per  kvadratmeter av den area som ändringen avser,
-   8. en anläggning för en grundvattentäkt: 0,75 prisbasbelopp,
-   9. en linbana: 2,5 prisbasbelopp,
-   10. en nöjespark, en djurpark, en idrottsanläggning, en  skidbacke, en skidlift, en campingplats eller en hamn för  fritidsbåtar: 0,25 prisbasbelopp med ett tillägg av 0,0025  prisbasbelopp per kvadratmeter av berörd area,
-   11. ett upplag, en materialgård, en tunnel, ett bergrum, en  parkeringsplats eller en begravningsplats: 0,125 prisbasbelopp  med ett tillägg av 0,0025 prisbasbelopp per kvadratmeter av  berörd area,
-   12. en fast förvaringsanläggning: 2,5 prisbasbelopp,
-   13. en mast, ett torn, en skorsten eller ett  vindkraftverk: 1,25 prisbasbelopp,
-   14. en mur eller ett plank: 0,0125 prisbasbelopp med ett  tillägg av 0,005 prisbasbelopp per löpmeter,
-   15. en altan: 0,125 prisbasbelopp,
-   16. en transformatorstation: 0,25 prisbasbelopp med ett  tillägg av 0,0125 prisbasbelopp av anläggningens area,
-   17. en skylt: 0,05 prisbasbelopp med ett tillägg av 0,0125  prisbasbelopp per kvadratmeter av skyltens area, eller
-   18. en ljusanordning: 0,03 prisbasbelopp.  Förordning (2025:979).
-27 §
-   Har upphävts genom förordning (2025:979).
-28 §
-   Har upphävts genom förordning (2025:979).
-29 §
-   Har upphävts genom förordning (2025:979).
-30 §
-   Har upphävts genom förordning (2025:979).
-31 §
-   Har upphävts genom förordning (2025:979).
-32 §
-   Har upphävts genom förordning (2025:979).
+
+26 § För att inte återställa en plats eller ett byggnadsverk 
+innan tiden för ett tidsbegränsat bygglov har gått ut, och 
+därigenom bryta mot 9 kap. 73 § plan- och bygglagen (2010:900) 
+är byggsanktionsavgiften när åtgärden avser 
+
+1. en nybyggnad: 1 prisbasbelopp med ett tillägg av 0,005 
+prisbasbelopp per kvadratmeter av byggnadens sanktionsarea,
+
+2. en tillbyggnad: 0,3 prisbasbelopp med ett tillägg av 
+0,005 prisbas-belopp per kvadratmeter av tillbyggnadens 
+sanktionsarea,
+
+3. en ändring av en byggnad genom ändrad användning: 0,125 
+prisbasbelopp med ett tillägg av 0,003 prisbasbelopp per 
+kvadratmeter av den sanktionsarea som ändringen avser,
+
+4. en ändring av en byggnad genom att en ytterligare bostad 
+inreds: 0,125 prisbasbelopp med ett tillägg av 0,0025 
+prisbasbelopp per kvadratmeter av den sanktionsarea som 
+ändringen avser,
+
+5. en fasadändring som avser ett fönster eller en dörr: 0,0625 
+prisbasbelopp per fönster eller dörr som berörs,
+
+6. en fasadändring som avser en balkong eller entré: 0,125 
+prisbasbelopp per balkong eller entré, 
+
+7. en fasadändring som inte omfattas av 5 och 6: 0,125 
+prisbasbelopp med ett tillägg av 0,0005 prisbasbelopp per 
+kvadratmeter av den area som ändringen avser,
+
+8. en anläggning för en grundvattentäkt: 0,75 prisbasbelopp,
+
+9. en linbana: 2,5 prisbasbelopp,
+
+10. en nöjespark, en djurpark, en idrottsanläggning, en 
+skidbacke, en skidlift, en campingplats eller en hamn för 
+fritidsbåtar: 0,25 prisbasbelopp med ett tillägg av 0,0025 
+prisbasbelopp per kvadratmeter av berörd area,
+
+11. ett upplag, en materialgård, en tunnel, ett bergrum, en 
+parkeringsplats eller en begravningsplats: 0,125 prisbasbelopp 
+med ett tillägg av 0,0025 prisbasbelopp per kvadratmeter av 
+berörd area,
+
+12. en fast förvaringsanläggning: 2,5 prisbasbelopp,
+
+13. en mast, ett torn, en skorsten eller ett 
+vindkraftverk: 1,25 prisbasbelopp,
+
+14. en mur eller ett plank: 0,0125 prisbasbelopp med ett 
+tillägg av 0,005 prisbasbelopp per löpmeter,
+
+15. en altan: 0,125 prisbasbelopp,
+
+16. en transformatorstation: 0,25 prisbasbelopp med ett 
+tillägg av 0,0125 prisbasbelopp av anläggningens area,
+
+17. en skylt: 0,05 prisbasbelopp med ett tillägg av 0,0125 
+prisbasbelopp per kvadratmeter av skyltens area, eller
+
+18. en ljusanordning: 0,03 prisbasbelopp. 
+Förordning (2025:979).
+
+27 § Har upphävts genom förordning (2025:979).
+
+28 § Har upphävts genom förordning (2025:979).
+
+29 § Har upphävts genom förordning (2025:979).
+
+30 § Har upphävts genom förordning (2025:979).
+
+31 § Har upphävts genom förordning (2025:979).
+
+32 § Har upphävts genom förordning (2025:979).

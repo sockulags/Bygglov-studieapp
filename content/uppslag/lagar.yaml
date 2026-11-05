@@ -137,3 +137,51 @@ lagar:
   - kod: Boverket
     namn: Boverkets föreskrifter, allmänna råd och vägledning (PBL kunskapsbanken)
     lank: https://www.boverket.se/sv/PBL-kunskapsbanken/
+
+  - kod: "BFS 2024:4"
+    namn: "Boverkets föreskrifter: aktsamhet vid bygg-, rivnings- och markåtgärder (BFS 2024:4)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-4
+
+  - kod: "BFS 2024:6"
+    namn: "Boverkets föreskrifter: bärförmåga, stadga och beständighet i byggnader m.m. (BFS 2024:6)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-6
+
+  - kod: "BFS 2024:7"
+    namn: "Boverkets föreskrifter: säkerhet i händelse av brand i byggnader (BFS 2024:7)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-7
+
+  - kod: "BFS 2024:8"
+    namn: "Boverkets föreskrifter: skydd med hänsyn till hygien, hälsa och miljö samt hushållning med vatten och avfall (BFS 2024:8)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-8
+
+  - kod: "BFS 2024:9"
+    namn: "Boverkets föreskrifter: säkerhet vid användning av byggnader (BFS 2024:9)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-9
+
+  - kod: "BFS 2024:10"
+    namn: "Boverkets föreskrifter: skydd mot buller i byggnader (BFS 2024:10)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-10
+
+  - kod: "BFS 2024:11"
+    namn: "Boverkets föreskrifter: bostäders lämplighet för sitt ändamål (BFS 2024:11)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-11
+
+  - kod: "BFS 2024:12"
+    namn: "Boverkets föreskrifter: byggnaders tillgänglighet och användbarhet (BFS 2024:12)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-12
+
+  - kod: "BFS 2024:13"
+    namn: "Boverkets föreskrifter: krav på tomter m.m. (BFS 2024:13)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-13
+
+  - kod: "BFS 2024:14"
+    namn: "Boverkets föreskrifter: ändring i BBR, upphävd 2026-10-01 (övergångsbestämmelser) (BFS 2024:14)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2024-14
+
+  - kod: "BFS 2026:4"
+    namn: "Boverkets föreskrifter: hållbar mobilitet (BFS 2026:4)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2026-4
+
+  - kod: "BFS 2026:9"
+    namn: "Boverkets föreskrifter: energihushållning och värmeisolering i byggnader (BFS 2026:9)"
+    lank: https://forfattningssamling.boverket.se/detaljer/BFS2026-9

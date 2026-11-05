@@ -25,8 +25,8 @@ skrivs som vanlig svenska.
   `granskad_av` och `granskad_datum: ÅÅÅÅ-MM-DD`.
 - Sätt `lagrum_osaker: true` bara när du hänvisar till något du inte kunnat slå upp.
 - Hänvisa till Boverkets föreskrifter med BFS-nummer, kapitel och paragraf, till exempel
-  `BFS 2024:12 2 kap. 4 §`. Ta texten från boverket.se, aldrig ur minnet. BBR 31 (BFS 2024:14)
-  har bara avsnitt 1, 2 och 9 kvar. Äldre BBR-avsnitt används inte.
+  `BFS 2024:12 2 kap. 4 §`. Ta texten från `docs/rattslage/boverket/`, aldrig ur minnet. BBR är
+  upphävd sedan 1 oktober 2026, så gamla BBR-avsnitt används inte.
 
 ## Så skriver du en fråga
 

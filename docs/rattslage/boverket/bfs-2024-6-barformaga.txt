@@ -1,0 +1,1793 @@
+BOVERKETS FÖRFATTNINGSSAMLING BFS 2024:6: bärförmåga, stadga och beständighet
+Källa: https://rinfo.boverket.se/BFS2024-6/pdf/BFS2024-6.pdf
+Hämtad 2026-11-05. Ändrad t.o.m.: grundförfattningen (Boverkets register).
+Text utvunnen ur PDF. Författningar är fria att återge. Ändringsförfattningar står efter
+grundförfattningen och är inte inarbetade.
+========================================================================
+
+Boverkets författningssamling
+
+Utgivare: Yvonne Svensson
+BFS 2024:6
+
+Boverkets föreskrifter och allmänna råd om bärförmåga,
+stadga och beständighet i byggnader m.m.;
+1
+Utkom från trycket
+den 20 november 2024
+
+beslutade den 19 november 2024.
+
+Boverket föreskriver1 följande med stöd av 10 kap. 3 § 1, 8 § och 24 § 1 plan-
+och byggförordningen (2011:338).
+AVDELNING I. ÖVERGRIPANDE BESTÄMMELSER
+1 kap. Allmänt
+Författningens innehåll
+1 §    Denna författning innehåller föreskrifter till tekniska egenskapskrav
+avseende bärförmåga, stadga och beständighet enligt 3 kap. 7 § plan- och
+byggförordningen (2011:338).
+Författningen innehåller också föreskrifter om anpassning av de tekniska
+egenskapskraven vid ändring av byggnader enligt 8 kap. 7 § plan- och bygglagen
+(2010:900) och om kontroll enligt 10 kap. 5 § samma lag.
+De allmänna råden innehåller generella rekommendationer om tillämpningen
+av föreskrifterna i denna författning. De allmänna råden föregås av texten Allmänt
+råd och är tryckta med mindre och indragen text.
+Föreskrifternas tillämpningsområde
+2 §    Föreskrifterna i 1 kap. gäller vid uppförande av nya byggnader och vid
+ändring av byggnader för den ändrade delen.
+Föreskrifterna i 2–7 kap. gäller vid uppförande av nya byggnader.
+Föreskrifterna i 8 kap. gäller vid ändring av byggnader.
+Föreskrifterna gäller även på motsvarande sätt i tillämpliga delar vid mark- och
+rivningsarbeten.
+Föreskrifterna gäller även på motsvarande sätt i tillämpliga delar vid
+uppförande och ändring av andra anläggningar än byggnader, där bristande
+bärförmåga, stadga och beständighet kan medföra risk för oproportionerligt stora
+skador, om inte annat särskilt anges.
+Föreskrifterna gäller inte bergtunnlar eller bergrum.
+Mindre avvikelse från föreskrifterna i denna författning
+3 §    Mindre avvikelse får göras från föreskrifterna i denna författning i enskilda
+fall om
+1. det finns särskilda skäl,
+
+1 Se Europaparlamentets och rådets direktiv (EU) 2015/1535 av den 9 september 2015 om
+ett informationsförfarande beträffande tekniska föreskrifter och beträffande föreskrifter
+för informationssamhällets tjänster (kodifiering).
+
+BFS 2024:6
+
+2
+2. byggnaden ändå kan antas bli tekniskt tillfredsställande, och
+3. det inte finns någon avsevärd olägenhet från annan synpunkt.
+Om mindre avvikelse enligt första stycket tillämpas ska skälen för detta
+dokumenteras i samband med den projektering som regleras i 8 §.
+Definitioner
+4 §    Termer och uttryck i denna författning har samma betydelse som i plan- och
+bygglagen (2010:900) och plan- och byggförordningen (2011:338).
+
+5 §    I denna författning avses med
+beräkningsmodell: representation av ett bärverks verkningssätt,
+bunden last: last som har en bestämd utbredning och läge på bärverket eller
+bärverksdelen så att lastens storlek och riktning kan bestämmas otvetydigt för
+hela bärverket eller bärverksdelen om denna storlek och riktning bestäms vid en
+punkt på bärverket eller bärverksdelen,
+bärverk: ordnad kombination av sammanfogade delar dimensionerad för att ta
+laster och ge tillräcklig styvhet,
+dimensioneringssystem: sammanhängande system för beräkning, provning,
+med mera, som används för dimensionering,
+fri last: last som i rummet kan ha olika utbredningar över bärverket,
+indirekt last: last som uppkommer på grund av påtvingade deformationer eller
+accelerationer,
+kvasi-permanent last: värde som bestäms så att den totala tidsperiod under
+vilket värdet kommer att överskridas är en stor del av referensperioden, och
+referensvindhastighet: medelvindhastighet under 10 minuter på höjden
+10 meter över markytan med råhetsfaktor z0 = 0,05 som med en sannolikhet av
+98 procent inte överskrids under ett år.
+
+6 §    Med byggprodukter med förhandsbedömda egenskaper avses i denna
+författning produkter som tillverkats för att permanent ingå i byggnadsverk och
+som antingen
+1. är CE-märkta,
+2. är typgodkända eller tillverkningskontrollerade enligt bestämmelserna i
+8 kap. 22–23 §§ plan- och bygglagen (2010:900),
+3. har certifierats av ett certifieringsorgan som ackrediterats för uppgiften och
+för produkten i fråga enligt förordning (EG) nr 765/2008 av den 9 juli 2008 om
+krav för ackreditering och upphävande av förordning (EEG) nr 339/93, eller
+4. har tillverkats i en fabrik vars tillverkning och produktionskontroll och
+utfallet därav för byggprodukten fortlöpande övervakas, bedöms och godkänns av
+ett certifieringsorgan som ackrediterats för uppgiften och för produkten i fråga
+enligt förordning (EG) nr 765/2008.
+Såsom bedömning i enlighet med alternativ 3 eller 4 godtas även en bedömning
+utfärdad av ett organ inom europeiska ekonomiska samarbetsområdet eller i
+Turkiet om organet på annat sätt än genom ackreditering för uppgiften enligt
+förordningen (EG) nr 765/2008, erbjuder motsvarande garantier i fråga om
+teknisk och yrkesmässig kompetens samt garantier om oberoende.
+Byggprodukter och material
+7 §    Byggprodukter och material ska ha kända och dokumenterade egenskaper i
+de avseenden som har betydelse för byggnadens förmåga att uppfylla kraven i
+denna författning.
+
+BFS 2024:6
+
+3
+Byggprodukter med förhandsbedömda egenskaper ska anses ha kända och
+dokumenterade egenskaper i de avseenden som de är förhandsbedömda.
+Egenskaper hos andra byggprodukter än byggprodukter med förhandsbedömda
+egenskaper ska provas eller bedömas genom annan vedertagen metod. Inom
+Europeiska unionen vedertagen metod ska användas där sådan finns.
+Projektering och utförande
+8 §    Byggnader ska projekteras
+1. på ett fackmässigt sätt,
+2. så att arbetet kan utföras på ett sådant sätt att kraven i denna författning
+uppfylls, och
+3. så att förutsatt underhåll kan ske.
+Projekteringen ska dokumenteras.
+Första och andra styckena gäller inte om det är obehövligt.
+Vid ändring av en byggnad får erfarenheter från den befintliga byggnaden
+användas.
+Om olika personer utför olika delar av projekteringen ska projekteringen
+samordnas.
+
+9 §    Dimensionering som ingår i projekteringen ska utföras genom
+1. beräkning,
+2. provning, eller
+3. genom en kombination av punkt 1 och 2.
+Trots första stycket får dimensionering av geokonstruktioner utföras genom
+1. beräkning,
+2. provning,
+3. hävdvunna metoder,
+4. observationsmetod, eller
+5. genom en kombination av punkt 1–4.
+Dimensioneringen ska dokumenteras så att dimensioneringskontroll enligt 17 §
+kan ske.
+
+10 §    Beräkningar ska baseras på en beräkningsmodell som i rimlig utsträckning
+beskriver bärverkets verkningssätt i relevanta gränstillstånd.
+Följande ska beaktas vid val av beräkningsmodell
+1. modellosäkerhet,
+2. eftergivlighet hos upplag, inspänning och avstyvning,
+3. styvhet, massa och dämpning,
+4. tilläggskrafter och tilläggsmoment orsakade av deformationer,
+5. lastexcentriciteter,
+6. oavsiktliga geometriska avvikelser,
+7. randvillkor,
+8. samverkan mellan bärverk,
+9. samverkan mellan bärverksdelar,
+10. samverkan mellan undergrund och bärverk,
+11. materialegenskaper, och
+12. byggmetoder.
+
+11 §    Planering, utförande och utvärdering av provning ska genomföras på
+sådant sätt att bärverket får samma tillförlitlighet med hänsyn till relevanta
+
+BFS 2024:6
+
+4
+gränstillstånd och lastförutsättningar som om dimensioneringen utförts genom
+beräkning.
+
+12 §    Byggnader ska utföras
+1. på ett fackmässigt sätt, och
+2. enligt gällande handlingar.
+Särskilt om ändring av byggnader
+13 §    Vid ändring av en byggnad ska det klarläggas om
+1. byggnaden har brister avseende kraven på bärförmåga, stadga och
+beständighet som kan åtgärdas inom ramen för den planerade åtgärden,
+2. den planerade åtgärden kan medföra en försämring av egenskaperna
+avseende bärförmåga, stadga och beständighet i den befintliga byggnaden
+inklusive eventuell ökning av lasteffekter, och
+3. ändringen kommer att medföra en negativ påverkan på byggnadens
+kulturvärden och hur en sådan negativ påverkan kan undvikas.
+I samband med detta ska skicket på befintliga bärverk kontrolleras i den
+utsträckning som krävs för att det ska kunna antas att de i huvudsak uppfyller sin
+funktion.
+
+14 §    Om anpassning enligt 8 kap. 1 § görs ska en riskbedömning göras.
+Riskbedömningen ska innehålla
+1. en redovisning av anpassningen i förhållande till kraven i 2–7 kap.,
+2. skälen för anpassning,
+3. en redogörelse för konsekvenserna av anpassningen, och
+4. en redogörelse för vilka åtgärder som vidtagits för att risken för människors
+säkerhet ska bli godtagbar.
+Riskbedömningen ska dokumenteras.
+Kontroll
+15 §    Kontroll av att kraven på bärförmåga, stadga och beständighet i byggnader
+och sådana andra anläggningar som omfattas av denna författning uppfylls ska
+göras under projektering och utförande enligt 16–19 §§.
+Kontroll ska utföras fackmässigt.
+Resultatet av kontrollen ska dokumenteras.
+
+16 §    Vid kontroll under projektering ska det kontrolleras att dimensionerande
+förutsättningar, projekteringsmetoder, provningsmetoder och beräkningar är
+relevanta och redovisade i handlingarna.
+
+17 §    Dimensioneringskontroll ska göras för byggnader i säkerhetsklass 2 eller 3.
+Dimensioneringskontrollen ska utföras av en person som inte har varit delaktig
+i framtagandet av de handlingar som ska kontrolleras.
+Dimensioneringskontrollen ska omfatta kontroll av att
+1. de antaganden som dimensioneringen baseras på överensstämmer med de
+krav som ställs för ifrågavarande byggnad,
+2. antaganden om egenskaper hos byggprodukter och material är tillämpliga,
+3. antaganden om laster och materialpåverkan är tillämpliga,
+4. valda beräkningsmodeller och -metoder är lämpliga,
+5. grafiska eller numeriska beräkningar är korrekt genomförda,
+6. valda provningsmetoder är lämpliga,
+
+BFS 2024:6
+
+5
+7. beräkningsresultaten är korrekt överförda till handlingarna, och
+8. erforderlig samordning av projekteringsarbetet har skett.
+
+18 §    Vid kontroll under utförande ska det kontrolleras att
+1. arbetet utförs enligt gällande handlingar, och
+2. tidigare inte verifierbara projekteringsförutsättningar som är av betydelse för
+säkerheten är uppfyllda.
+
+19 §    Byggprodukter och material ska kontrolleras när de tas emot på
+byggarbetsplatsen. Kontroll ska göras av att byggprodukter och material har
+förutsatta egenskaper.
+För byggprodukter med förhandsbedömda egenskaper kan kontrollen
+inskränkas till identifiering, kontroll av märkning och granskning av
+dokumentationen av de förhandsbedömda egenskaperna.
+Konstruktionsdokumentation
+20 §    En konstruktionsdokumentation ska upprättas och omfatta minst följande
+1. förutsättningarna för dimensionering och uppförande av byggnaden eller den
+ändrade delen, även inkluderat geokonstruktionen,
+2. bärverkets verkningssätt,
+3. vilka särskilda åtgärder som vidtagits för att förhindra oproportionerligt stora
+skador vid olyckshändelser,
+4. byggnadens avsedda livslängd och hur den ska uppnås, och
+5. uppgifter om vilket gällande regelverk och vilket dimensioneringssystem
+som har tillämpats.
+Kravet i första stycket gäller om åtgärden kräver lov eller anmälan.
+Konstruktionsdokumentation behövs inte för byggnader som är högst 50 m2
+och är avsedda för personer att vistas i tillfälligt.
+Vid ändring av byggnad behövs inte konstruktionsdokumentation om det är
+obehövligt.
+Driftsinstruktioner
+21 §    För byggnader som är beroende av att tekniska anordningar eller
+installationer är i drift ska driftsinstruktioner upprättas i den omfattning som krävs
+för att byggnaden ska kunna uppfylla kraven i denna författning.
+AVDELNING II. UPPFÖRANDE AV NYA BYGGNADER
+2 kap. Allmänt
+1 §    Denna avdelning innehåller krav på bärförmåga, stadga och beständighet vid
+uppförande av nya byggnader.
+Allmänt råd
+Kraven på bärförmåga, stadga och beständighet i 2–7 kap. kan uppfyllas
+genom användning av dimensioneringssystemet europeiska konstruktions-
+standarder, eurokoder, med tillhörande svenska nationella bilagor samt
+eventuella ändringar och tillägg. I de fall inga särskilda nationella val har
+publicerats i nationell bilaga eller styrs av denna författning gäller
+eurokodens rekommendationer. De eurokoder som anses uppfylla kraven i
+denna författning är
+
+BFS 2024:6
+
+6
+1. SS-EN 1990 Eurokod 0: Grundläggande dimensioneringsregler
+a) SS-EN 1990:2002
+2. SS-EN 1991 Eurokodserie 1: Laster på konstruktioner
+a) SS-EN 1991-1-1:2002
+b) SS-EN 1991-1-2:2002
+c) SS-EN 1991-1-3:2003
+d) SS-EN 1991-1-4:2005
+e) SS-EN 1991-1-5:2003
+f) SS-EN 1991-1-6:2005
+g) SS-EN 1991-1-7:2006
+h) SS-EN 1991-3:2006
+i) SS-EN 1991-4:2006
+3. SS-EN 1992 Eurokodserie 2: Projektering av betongkonstruktioner
+a) SS-EN 1992-1-1:2005
+b) SS-EN 1992-1-2:2004
+c) SS-EN 1992-3:2006
+d) SS-EN 1992-4:2018
+4. SS-EN 1993 Eurokodserie 3: Projektering av stålkonstruktioner
+a) SS-EN 1993-1-1:2005
+b) SS-EN 1993-1-2:2005
+c) SS-EN 1993-1-3:2006
+d) SS-EN 1993-1-4:2006
+e) SS-EN 1993-1-5:2006
+f) SS-EN 1993-1-6:2007
+g) SS-EN 1993-1-7:2007
+h) SS-EN 1993-1-8:2005
+i) SS-EN 1993-1-9:2005
+j) SS-EN 1993-1-10:2005
+k) SS-EN 1993-1-11:2006
+l) SS-EN 1993-1-12:2007
+m) SS-EN 1993-3-1:2006
+n) SS-EN 1993-3-2:2006
+o) SS-EN 1993-4-1:2007
+p) SS-EN 1993-4-2:2007
+q) SS-EN 1993-5:2007
+r) SS-EN 1993-6:2007
+5. SS-EN 1994 Eurokodserie 4: Projektering av
+samverkanskonstruktioner i stål och betong
+a) SS-EN 1994-1-1:2005
+b) SS-EN 1994-1-2:2005
+6. SS-EN 1995 Eurokodserie 5: Projektering av träkonstruktioner
+a) SS-EN 1995-1-1:2004
+b) SS-EN 1995-1-2:2004
+7. SS-EN 1996 Eurokodserie 6: Projektering av murverkskonstruktioner
+a) SS-EN 1996-1-1:2005
+b) SS-EN 1996-1-2:2005
+c) SS-EN 1996-2:2006
+d) SS-EN 1996-3:2006
+8. SS-EN 1997 Eurokodserie 7: Geokonstruktioner
+a) SS-EN 1997-1:2005
+9. SS-EN 1999 Eurokodserie 9: Projektering av
+aluminiumkonstruktioner
+a) SS-EN 1999-1-1:2007
+b) SS-EN 1999-1-2:2007
+c) SS-EN 1999-1-3:2007
+d) SS-EN 1999-1-4:2007
+e) SS-EN 1999-1-5:2007
+
+BFS 2024:6
+
+7
+Bärförmåga
+Krav i brottgränstillstånd
+2 §    Bärverk ska med tillräcklig tillförlitlighet i brottgränstillstånd ha en
+bärförmåga som är lika med eller större än lasteffekten från laster och annan
+påverkan som sannolikt kommer att uppkomma under byggnadens uppförande
+och användning. Brottgränstillstånd som ska beaktas är
+1. materialbrott inklusive utmattning,
+2. hydrauliska brott,
+3. instabilitet,
+4. brott på grund av för stor deformation, och
+5. mekanism.
+För olyckshändelser gäller särskilda regler enligt 5 kap.
+
+3 §    Byggnader ska ha statisk jämvikt så att stabiliserande krafter med tillräcklig
+tillförlitlighet är större än eller lika med laster som kan orsaka stjälpning, lyftning
+och glidning.
+
+4 §    Med hänsyn till risk för allvarliga personskador vid överskridande av
+brottgränstillstånd i bärverk ska en byggnad hänföras till någon av följande
+säkerhetsklasser:
+1. Säkerhetsklass 1, låg.
+2. Säkerhetsklass 2, normal.
+3. Säkerhetsklass 3, hög.
+
+5 §    Bärverk i följande byggnader och andra anläggningar ska hänföras till
+säkerhetsklass 3:
+1. Byggnader där personer vistas mer än tillfälligt, såsom flerbostadshus,
+varuhus, sjukhus, skolor, sporthallar, utställningshallar, samlingslokaler, större
+kontor och större industrilokaler.
+2. Fasta cisterner för kemiska produkter som är hälso- och miljöfarliga eller
+kan medföra olyckshändelser av allvarlig karaktär.
+
+6 §    Bärverk i följande byggnader och andra anläggningar får hänföras till
+säkerhetsklass 2:
+1. Små byggnader med högst två plan där få personer vistas mer än tillfälligt,
+såsom en- eller tvåbostadshus, mindre kontor och mindre industrilokaler.
+2. Byggnader där få personer vistas tillfälligt och som är större än en- eller
+tvåbostadshus, såsom större lagerlokaler och större ekonomibyggnader.
+3. Fasta cisterner där personer vistas mer än tillfälligt och som inte innehåller
+hälso- och miljöfarliga ämnen eller kan medföra olyckshändelser av allvarlig
+karaktär.
+4. Vindkraftverk där personer vistas mer än tillfälligt.
+
+7 §    Bärverk i följande byggnader och andra anläggningar får hänföras till
+säkerhetsklass 1:
+1. Små byggnader med högst två plan där få personer vistas tillfälligt, såsom
+komplementbyggnader, mindre lagerlokaler och mindre ekonomibyggnader.
+2. Fasta cisterner där personer vistas tillfälligt och som inte innehåller hälso-
+och miljöfarliga ämnen eller kan medföra olyckshändelser av allvarlig karaktär.
+3. Vindkraftverk där personer vistas tillfälligt.
+
+BFS 2024:6
+
+8
+
+8 §    Bedömning av säkerhetsklass för bärverk i byggnader och andra
+anläggningar som inte omfattas av 5–7 §§ ska ske med ledning av 10 §.
+
+9 §    Bärverksdelar där överskridande av brottgränstillstånd ger en lägre risk för
+allvarlig personskada än vad som följer av 5–8 §§ får hänföras till en lägre
+säkerhetsklass. Bedömning av säkerhetsklass för enskilda bärverksdelar ska ske
+med ledning av 10 §.
+
+10 §    Vid bedömning av risk för allvarliga personskador vid överskridande av
+brottgränstillstånd i delar av bärverk ska följande beaktas:
+1. Bärverkets eller bärverksdelens beteende vid brott.
+2. Hur stort område som påverkas.
+3. Hur många personer som vistas i, på eller invid delen av bärverket.
+4. Hur ofta och länge personer vistas i, på eller invid delen av bärverket.
+
+11 §    För att uppnå tillräcklig tillförlitlighet vid dimensionering i
+brottgränstillstånd ska säkerhetsindex, β, vara minst följande:
+1. Säkerhetsklass 1: 3,7.
+2. Säkerhetsklass 2: 4,3.
+3. Säkerhetsklass 3: 4,8.
+Säkerhetsindex ska vid dimensionering för olyckslaster vara minst 3,1.
+Säkerhetsindex ska vid bedömning av kvarvarande kapacitet efter lokal skada
+vara minst 2,3.
+Angivna säkerhetsindex avser referenstiden 1 år.
+Stadga
+Krav i bruksgränstillstånd
+12 §    För bärverk ska följande företeelser endast förekomma i acceptabel
+omfattning i bruksgränstillstånd från laster och annan påverkan som sannolikt
+kommer att uppkomma under byggnadens uppförande och användning:
+1. Deformationer.
+2. Sprickbildning.
+3. Svajning.
+4. Svängningar.
+5. Vibrationer.
+Beständighet
+13 §    Byggprodukter och material som ingår i bärverk ska antingen vara naturligt
+beständiga eller göras beständiga genom skyddsåtgärder och underhåll så att
+kraven i brottgräns- och bruksgränstillstånd uppfylls under byggnadens livslängd.
+Är permanent skydd inte möjligt ska förväntade förändringar av egenskaperna
+och omgivningen beaktas vid dimensioneringen. Bärverket ska vid förutsatt
+underhållsbehov utformas så att de påverkade delarna blir åtkomliga för
+återkommande skyddsåtgärder och underhåll.
+
+BFS 2024:6
+
+9
+3 kap. Partialkoefficientmetoden
+1 §    Vid dimensionering med partialkoefficientmetoden för att uppnå
+säkerhetsindex enligt 2 kap. 11 § ska lastkombinationer och partialkoefficienter
+enligt detta kapitel tillämpas tillsammans med karakteristiska värden för laster
+och materialegenskaper enligt detta kapitel och 4 kap.
+Trots första stycket får andra partialkoefficienter och karakteristiska värden
+tillämpas om dessa kalibrerats i enlighet med säkerhetsindex i 2 kap. 11 §.
+
+2 §    Säkerhetsklassen för en bärverksdel beaktas i tabell 3:1–3:3 genom
+partialkoefficienten γd. Värdet för respektive säkerhetsklass ska vara för:
+1. Säkerhetsklass 1: γd = 0,83.
+2. Säkerhetsklass 2: γd = 0,91.
+3. Säkerhetsklass 3: γd = 1,00.
+Laster
+3 §    Det karakteristiska värdet Gk för en permanent last ska minst motsvara det
+värde som med en sannolikhet av 50 procent inte överskrids.
+
+4 §    Det karakteristiska värdet Qk för en variabel last ska för byggnader minst
+motsvara det värde som med en sannolikhet av 98 procent inte överskrids någon
+gång under 1 år.
+Om lastens karaktär eller dimensioneringsfallet avsevärt avviker från vad som
+anges i denna författning får fraktiler eller upprepningstider som bättre motsvarar
+förutsättningarna användas.
+
+5 §    Det karakteristiska värdet för en olyckslast ska bestämmas med hänsyn till
+lastens art.
+Lastkombinationer
+6 §    Lastkombinationer enligt tabell 3:1 ska tillämpas vid dimensionering av
+bärverk och bärverksdelar i brottgränstillstånd.
+Tabell 3:1
+Lastkombinationer i brottgränstillstånd
+Lasttyp
+Lastkombination 1
+Lastkombination 2
+Permanent last, G,
+ogynnsam
+γd1,2Gk
+γd1,35Gk
+Permanent last, G,
+gynnsam
+Gk
+Gk
+Spännkraft, P,
+γpPk
+γpPk
+Variabel last, Q,
+ogynnsam huvudlast
+γd1,5Qk
+-
+Variabel last, Q,
+ogynnsamma övriga laster
+γd1,5Ψ0Qk
+-
+Variabel last, Q,
+Gynnsam
+0
+-
+
+7 §    Trots 6 § får partialkoefficienten för variabel last i tabell 3:1 sättas till γd1,4
+vid dimensionering för tryck från vätskor.
+
+8 §    Trots 6 § får partialkoefficient för utmattningslaster sättas till 1,0.
+
+BFS 2024:6
+
+10
+
+9 §    Lastkombination enligt tabell 3:2 ska tillämpas vid kontroll av byggnadens
+statiska jämvikt.
+Tabell 3:2
+Lastkombination för kontroll av statisk jämvikt
+Lasttyp
+Lastkombination 3
+Permanent last, G, ogynnsam
+1,1Gk
+Permanent last, G, gynnsam
+0,9Gk
+Variabel last, Q,
+ogynnsam huvudlast
+γd1,5Qk
+Variabel last, Q, ogynnsamma övriga
+laster
+γd1,5Ψ0Qk
+Variabel last, Q,
+gynnsam
+0
+
+10 §    Trots 6 § får lastkombination enligt tabell 3:3 tillämpas för geotekniska
+laster vid dimensionering av geokonstruktioner i brottgränstillstånd enligt 26 §.
+Tabell 3:3
+Lastkombination i brottgränstillstånd för geotekniska laster
+Lasttyp
+Lastkombination 4
+Permanent last, G, ogynnsam
+γd1,1Gk,
+dock lägst Gk
+Permanent last, G, gynnsam
+Gk
+Variabel last, Q,
+ogynnsam huvudlast
+γd1,4Qk
+Variabel last, Q, ogynnsamma övriga
+laster
+γd1,4Ψ0Qk
+Variabel last, Q,
+gynnsam
+0
+
+11 §    Trots 6 § får lastkombinationer enligt tabell 3:4 tillämpas vid
+dimensionering i brottgränstillstånd vid olyckshändelser.
+Tabell 3:4
+Lastkombinationer vid olyckshändelser
+Lasttyp
+Lastkombination 5
+(Olyckslast)
+Lastkombination 6
+(Kvarvarande kapacitet
+efter lokal skada)
+Permanent last, G,
+ogynnsam
+Gk
+Gk
+Permanent last, G,
+gynnsam
+Gk
+Gk
+Spännkraft, P,
+γpPk
+γpPk
+Olyckslast, A
+Ad
+
+Variabel last, Q,
+ogynnsam huvudlast
+Ψ1Qk
+Ψ2Qk
+Variabel last, Q,
+ogynnsamma övriga laster
+Ψ2Qk
+Ψ2Qk
+Variabel last, Q,
+Gynnsam
+0
+0
+
+12 §    Vid dimensionering med partialkoefficientmetoden ska
+lastkombinationsfaktorer enligt tabell 3:5 och 3:6 tillämpas.
+
+BFS 2024:6
+
+11
+Tabell 3:5
+Lastkombinationsfaktorer för nyttiga laster
+Last
+Kategori
+Ψ0
+Ψ1
+Ψ2
+Nyttig last i bostäder, kontor
+A, B
+0,7
+0,5
+0,3
+Nyttig last i samlingslokaler,
+affärslokaler
+C, D
+0,7
+0,7
+0,6
+Nyttig last i lagerutrymmen
+E
+1,0
+0,9
+0,8
+Nyttig last i utrymmen med
+fordonstrafik, fordonstyngd ≤ 30 kN
+F
+0,7
+0,7
+0,6
+Nyttig last i utrymmen med
+fordonstrafik, fordonstyngd > 30 kN
+upp till 160 kN
+G
+0,7
+0,5
+0,3
+Nyttig last på yttertak
+H
+0
+0
+0
+Tabell 3:6
+Lastkombinationsfaktorer för klimatlaster
+Last
+Ψ0
+Ψ1
+Ψ2
+Snölast i snözon 1 och 1,5
+0,6
+0,3
+0,1
+Snölast i snözon 2 och 2,5
+0,7
+0,4
+0,2
+Snölast i snözon 3 och uppåt
+0,8
+0,6
+0,2
+Vindlast
+0,3
+0,2
+0
+Temperaturlast
+0,6
+0,5
+0
+Material och bärförmåga
+13 §    Vid användning av partialkoefficientmetoden ska egenskaper hos
+byggprodukter och material beskrivas med karakteristiska värden.
+Det karakteristiska värdet i brottgränstillstånd ska definieras som nedre eller
+övre 5-procentsfraktilen beroende på vad som är ogynnsamt vid
+dimensioneringen.
+Trots andra stycket är det nedre karakteristiska värdet för materialhållfasthet
+för stål ett nominellt värde som motsvarar ett minimivärde.
+Trots andra stycket är det karakteristiska värdet för materialhållfasthet för
+murverk medelvärdet.
+
+14 §    Trots 13 § ska det karakteristiska värdet för en geoteknisk parameter
+grundas på resultat och härledda värden från laboratorie- och fältförsök,
+kompletterade med väletablerad erfarenhet, och ska väljas genom försiktig
+värdering av det värde som påverkar uppkomsten av ett gränstillstånd.
+Den mest ogynnsamma kombinationen av undre och övre värden på av
+varandra oberoende parametrar ska tillämpas.
+
+15 §    Dimensionerande materialvärden vid dimensionering med
+partialkoefficientmetoden ska normalt bestämmas enligt
+
+där κ är en faktor för material vars bärförmåga är beroende av fuktförhållanden,
+volym under spänning och lastens varaktighet, fk det karakteristiska värdet på
+materialegenskapen som avses och γM partialkoefficient för materialegenskapen
+inklusive modellosäkerhet och måttavvikelser.
+
+𝑓𝑑= 𝜅𝑓𝑘
+𝛾𝑀
+
+BFS 2024:6
+
+12
+16 §    Om inget annat anges i denna författning får partialkoefficienter för
+materialegenskaper och bärförmåga sättas till 1,0 vid dimensionering för
+olyckslast och vid beräkning av kvarvarande kapacitet efter lokal skada.
+Betong
+17 §    Partialkoefficienter enligt tabell 3:7 och tabell 3:8 ska tillämpas vid
+dimensionering av bärverk och bärverksdelar av armerad och oarmerad betong.
+Tabell 3:7
+Partialkoefficienter för materialegenskaper för betong
+Materialegenskap
+γM
+Betong – hållfasthetsvärden
+1,5
+Betong – elasticitetsmodul
+Avser medelvärde vid dimensionering i brottgränstillstånd
+1,2
+Armering – hållfasthetsvärden
+1,15
+Pålar
+1,65
+Tabell 3:8
+Partialkoefficienter för spännkraftsbelastade bärverk och
+bärverksdelar av betong
+Typ av spännkraft
+γP
+Gynnsam förspänninga)
+Avser medelvärde
+1,0
+Instabilitet, ogynnsam förspänninga)
+Avser medelvärde
+1,3
+Spänningsökning till följd av förspänning, undre värdeb)
+Avser medelvärde
+0,8
+Spänningsökning till följd av förspänning, övre värdeb)
+Avser medelvärde
+1,2
+Spänningsökning till följd av förspänning vid linjär analys
+med ospruckna tvärsnitt
+1,0
+Lokala effekter av förspänning
+1,2
+a) Vid beräkning av spännkraftens dimensioneringsvärde
+b) Vid beräkning av spänningsökning utifrån hela
+bärverksdelens deformation
+
+18 §    Vid dimensionering för olyckshändelser ska γM för hållfasthetsvärden i
+betong sättas till 1,2.
+Stål
+19 §    Partialkoefficienter enligt tabell 3:9–3:12 ska tillämpas vid dimensionering
+av bärverk och bärverksdelar av stål.
+Tabell 3:9
+Partialkoefficienter för materialegenskaper för stål
+Typ av brott
+γM
+Tvärsnitt
+1,0
+Instabilitet
+1,0
+Dragbrott
+0,9fu/fy, dock högst 1,1
+
+BFS 2024:6
+
+13
+Tabell 3:10
+Partialkoefficienter för materialegenskaper för förband och
+knutpunkter
+Typ av brott
+γM
+Tvärsnitt
+1,0
+Instabilitet
+1,0
+Dragbrott och hålkanttryck
+1,2
+Fästelement
+1,2
+Svetsar
+1,2
+Glidning, brottgränstillstånd
+1,2
+Injektionsskruvar
+1,0
+Fackverksknutpunkter med konstruktionsrör
+1,0
+Förspänningskraft i höghållfast skruv
+1,0
+Tabell 3:11
+Partialkoefficienter för materialegenskaper vid
+utmattningsbelastning
+Metod
+γM
+Skadetålighetsmetod, säkerhetsklass 1 och 2
+1,0
+Skadetålighetsmetod, säkerhetsklass 3
+1,15
+Livslängdsmetod, säkerhetsklass 1 och 2
+1,15
+Livslängdsmetod, säkerhetsklass 3
+1,35
+Tabell 3:12
+Partialkoefficienter för materialegenskaper för övriga bärverk
+Bärverk
+γM
+Silor och cisterner, fackverksknutpunkter med
+konstruktionsrör
+1,2
+Silor och cisterner, ledbultar i bruksgränstillstånd
+1,1
+Torn och skorstenar, stag och förankringar
+2,0
+Torn och skorstenar, isoleringsmaterial
+2,5
+
+20 §    För kallformade profiler, profilerad plåt och rostfritt stål ska
+partialkoefficienten γM för dragbrott sättas till 1,2. För tvärsnittsbrott och
+instabilitetsbrott ska partialkoefficienter enligt tabell 3:9 tillämpas.
+Partialkoefficienten γM för fästelelement i förband med kallformade profiler
+och profilerad plåt ska sättas till 1,25. Övriga partialkoefficienter för förband väljs
+enligt tabell 3:10.
+Samverkanskonstruktioner
+21 §    Vid dimensionering av samverkanskonstruktioner ska partialkoefficienter
+för respektive material enligt denna författning tillämpas.
+För skjuvförbindare och längsskjuvning i samverkansplattor ska
+partialkoefficienter enligt tabell 3:13 tillämpas.
+För samverkanskonstruktioner som påverkas av spännkrafter genom styrd
+tvångsdeformation får partialkoefficienten γP sättas till 1,0 för både gynnsamma
+och ogynnsamma effekter.
+Tabell 3:13
+Partialkoefficienter för samverkanskonstruktioner
+Del av bärverk
+γV
+Skjuvförbindare
+1,25
+Längsskjuvning i samverkansplattor
+1,2
+
+BFS 2024:6
+
+14
+Trä
+22 §    Vid dimensionering av bärverk och bärverksdelar av trä ska
+partialkoefficienter enligt tabell 3:14 tillämpas.
+Tabell 3:14
+Partialkoefficienter för materialegenskaper för trä
+Material
+γM
+Konstruktionsvirke
+1,3
+Limträ
+1,25
+Korslimmat trä
+1,25
+Lättbalkar
+1,25
+Fanerträ, plywood, strimlespånskivor (OSB)
+1,2
+Spånskivor
+1,3
+Träfiberskivor
+1,3
+Förband
+1,3
+Spikplåtar
+1,25
+Murverk
+23 §    Partialkoefficienter enligt tabell 3:15 och 3:16 ska tillämpas vid
+dimensionering av bärverk och bärverksdelar av murverk.
+Tabell 3:15
+Partialkoefficienter för materialegenskaper för murverk
+Murverk
+γM
+Stenar/block kategori I, specialmurbruk
+1,8
+Stenar/block kategori I, receptmurbruk
+2,0
+Stenar/block kategori II,
+valfritt murbruk
+2,3
+Tabell 3:16
+Partialkoefficienter för materialegenskaper för armering och
+kramlor i murverk
+Armering och kramlor
+γM
+Armeringsförankring
+2,0
+Armeringshållfasthet
+1,3
+Murkramlors förankring
+Avser medelvärde
+2,5
+Murkramlors hållfasthet
+1,5
+Aluminium
+24 §    Partialkoefficienter enligt tabell 3:17 ska tillämpas vid dimensionering av
+bärverk och bärverksdelar av aluminium.
+Tabell 3:17
+Partialkoefficienter för materialegenskaper för aluminium
+Typ av brott
+γM
+Tvärsnitt
+1,1
+Instabilitet
+1,1
+Dragbrott och hålkanttryck
+1,25
+Skruvförband, nitförband, ledbultsförband,
+svetsförband, friktionsförband
+1,25
+Friktionsförband i bruksgränstillstånd
+1,1
+
+BFS 2024:6
+
+15
+Typ av brott
+γM
+Limförband
+1,3
+Injektionsskruvar
+1,0
+
+25 §    För kallformad profilerad plåt av aluminium ska partialkoefficienten γM för
+tvärsnittsbrott och instabilitet sättas till 1,0. För dragbrott ska partialkoefficient
+enligt tabell 3:17 tillämpas.
+Geokonstruktioner
+26 §    Vid dimensionering av geokonstruktioner med partialkoefficientmetoden
+ska partialkoefficienter för jordparametrar enligt tabell 3:18 tillämpas.
+Partialkoefficienter för bärförmåga, γR, ska sättas till 1,0. För laster från
+ovanliggande byggnader ska lastkombinationer och partialkoefficienter enligt 6 §
+tillämpas. För geotekniska laster får lastkombinationer och partialkoefficienter
+enligt 10 § tillämpas.
+Tabell 3:18
+Partialkoefficienter för jordparametrar
+Jordparameter
+γM
+Friktionsvinkel
+1,3
+Kohesion
+1,3
+Odränerad skjuvhållfasthet
+1,5
+Enaxlig tryckhållfasthet
+1,5
+Tunghet
+1,0
+
+27 §    Trots 26 § ska vid dimensionering av pålar för geoteknisk bärförmåga
+partialkoefficienter för bärförmåga enligt tabell 3:19 tillämpas.
+Partialkoefficienter för jordparametrar, γM, ska sättas till 1,0. För laster ska
+lastkombinationer och partialkoefficienter enligt 6 § tillämpas.
+Tabell 3:19
+Partialkoefficienter för bärförmåga
+Bärförmåga avser
+γR, slagna pålar
+γR, grävpålar och CFA-pålar
+Spets
+1,2
+1,3
+Mantel (tryck)
+1,2
+1,3
+Total/kombinerad (tryck)
+1,2
+1,3
+Mantel (drag)
+1,3
+1,4
+
+28 §    Vid verifiering av risk för upptryckning och hydraulisk bottenuppluckring
+ska dimensionerande lastvärden enligt tabell 3:20 tillämpas. Partialkoefficienter
+för bärförmåga och material ska tillämpas enligt tabell 3:18 och 3:19.
+Tabell 3:20
+Dimensionerande lastvärden vid verifiering av risk för upptryckning
+och hydraulisk bottenuppluckring
+Lasttyp
+Dimensionerande lastvärde
+Permanent last, G, Ogynnsam
+1,0Gk
+Permanent last, G, Gynnsam
+0,9Gk
+Variabel last, Q, ogynnsam
+1,5Qk
+
+BFS 2024:6
+
+16
+4 kap. Laster
+Allmänt
+1 §    Med hänsyn till lasters variation i tiden ska laster betraktas som
+1. permanenta laster,
+2. variabla laster, eller
+3. olyckslaster.
+
+2 §    Laster ska betraktas som statiska eller dynamiska laster beroende på hur
+snabbt de påförs och hur bärverket påverkas av acceleration.
+
+3 §    Laster med så många lastvariationer att utmattningsbrott kan uppträda ska
+betraktas som utmattningslaster.
+
+4 §    Laster som kan ge tidsberoende deformationer av betydelse ska betraktas
+som kvasi-permanenta laster.
+
+5 §    Med hänsyn till lasters fördelning i rummet ska laster betraktas som bundna
+eller fria.
+
+6 §    Lastvärden ska i görligaste mån bestämmas med hjälp av statistiska metoder
+och med stöd av empiriskt erhållna resultat.
+
+7 §    Laster som har en gemensam orsak och som är starkt beroende av varandra
+och med stor sannolikhet uppträder med höga värden samtidigt ska räknas som en
+enda last.
+Egentyngd
+8 §    Egentyngd av byggnadsdelar ska antas vara permanent last. Tyngden av
+byggnadsdelar som lätt kan avlägsnas, flyttas eller kompletteras ska räknas som
+variabel last.
+
+9 §    Egentyngd i byggnader omfattar tyngden av bärverket och icke bärande
+delar, inklusive fasta installationer, liksom tyngden av jord och ballast.
+Nyttig last
+10 §    Karakteristisk vertikal last av inredning, gods och personer ska antas bestå
+av en utbredd variabel fri last eller en koncentrerad punktlast enligt tabell 4:1. De
+koncentrerade punktlasterna behöver inte kombineras med andra variabla laster.
+Lasterna ska placeras så att de på ett rimligt sätt beskriver verkliga förhållanden
+och ger största möjliga lasteffekt på en bärverksdel.
+
+BFS 2024:6
+
+17
+Tabell 4:1
+Last av inredning, gods och personer.
+Lokaltyp
+Kategori
+Utbredd
+last,
+bjälklag
+(kN/m2)
+Utbredd
+last,
+trappor
+(kN/m2)
+Utbredd
+last,
+balkonger
+(kN/m2)
+Koncentrerad
+punktlast
+(kN) (trappor)
+Rum och utrymmen i bostäder
+A
+2,0
+2,0
+3,5
+2,0 (2,0)
+Vindsutrymmen i bostäder med
+minst 0,6 m fri höjd
+A
+1,0
+-
+-
+1,5
+Vindsutrymmen i bostäder med
+minst 0,6 m fri höjd, utan fast
+trappa till vinden och med
+tillträde genom lucka med max
+öppningsarea på 1 m2
+A
+0,5
+-
+-
+0,5
+Kontorslokaler
+B
+2,5
+3,0
+3,5
+3,0 (3,0)
+Samlingslokaler och utrymmen
+med flyttbara sittplatser
+C1
+2,5
+3,0
+2,5
+3,0 (3,0)
+Samlingslokaler och utrymmen
+med fasta sittplatser
+C2
+2,5
+3,0
+2,5
+3,0 (3,0)
+Samlingslokaler och utrymmen
+utan hinder för människor i
+rörelse
+C3
+3,0
+3,0
+3,0
+3,0 (3,0)
+Samlingslokaler och utrymmen
+där fysiska aktiviteter kan
+förekomma
+C4
+4,0
+3,0
+4,0
+4,0 (3,0)
+Samlingslokaler och utrymmen
+där stora folksamlingar kan
+förekomma
+C5
+5,0
+5,0
+5,0
+4,5 (4,5)
+Affärslokaler avsedda för
+detaljhandel.
+D1
+4,0
+3,0
+4,0
+4,0 (3,0)
+Affärslokaler i varuhus.
+D2
+5,0
+3,0
+5,0
+7,0 (3,0)
+Utrymmen där ansamling av
+gods kan förväntas, inklusive
+kommunikationsutrymmen
+E1
+5,0
+5,0
+5,0
+7,0 (3,0)
+
+11 §    Trots 10 § ska nyttig last av gods i lagerutrymmen beräknas utifrån det
+högsta av godsets tunghet och kategori E1 i tabell 4:1. Lasten ska antas vara fri
+med de begränsningar som betingas av förhållandena.
+
+12 §    I de fall bjälklag har flera användningsområden för samma yta ska de
+dimensioneras för den mest ogynnsamma lasten som ger de största lasteffekterna i
+den betraktade bärverksdelen.
+
+13 §    Bärverksdelar ska dimensioneras för dynamiska krafter orsakade av
+personer och objekt i snabb, kraftig rörelse.
+Reduktionsfaktorer
+14 §    Om en bärverksdel bär upp en större area, A, än 20 m2 är det för kategori
+A, B, C och D i tabell 4:1 tillåtet att reducera den utbredda nyttiga lasten med en
+reduktionsfaktor αA enligt
+
+𝛼𝐴= 0,5 + 10
+𝐴≤1,0
+
+BFS 2024:6
+
+18
+För nyttiga laster i kategori C och D är det lägsta tillåtna värdet på
+reduktionsfaktorn αA= 0,6.
+
+15 §    Om en bärverksdel bär fler plan, n, än två är det för kategori A, B, C och D
+i tabell 4:1 tillåtet att reducera den utbredda nyttiga lasten på varje plan med en
+reduktionsfaktor αn enligt
+
+16 §    För bostäder och kontor är det möjligt att kombinera αA och αn. Det lägsta
+tillåtna värdet på den sammanvägda reduktionsfaktorn är αA ∙ αn = 0,5.
+
+17 §    För yttertak som endast är åtkomliga för normalt underhåll och
+reparationer ska en utbredd last på 0,4 kN/m2 samt koncentrerad punktlast på
+1,0 kN användas som karakteristiska nyttiga laster.
+Last på skyddsräcken, barriärer och skiljeväggar
+18 §    För skyddsräcken, barriärer och skiljeväggar ska minst karakteristisk
+horisontell linjelast enligt tabell 4:2 användas.
+Tabell 4:2
+Karakteristisk horisontell linjelast mot räcke, barriär eller skiljevägg
+Lokaltyp
+Kategori
+Karakteristisk
+horisontell linjelast mot
+räcke, barriär eller
+skiljevägg (kN/m)
+Bostäder, kontorslokaler och
+samlingslokaler med flyttbara sittplatser
+A, B, C1
+0,5
+Samlingslokaler och utrymmen där stora
+folksamlingar kan förekomma
+C5
+3,0
+Övriga samlingslokaler och affärslokaler
+C2, C3, C4, D
+1,0
+Utrymmen där gods kan ansamlas
+E
+2,0
+
+19 §    Balkongfront under räcke för vilken karakteristiska linjelasten är 3,0 kN/m
+ska antas vara belastad med en godtyckligt placerad koncentrerad horisontell
+punktlast på 3,0 kN.
+Last av fordon
+20 §    Fordon ska antas ge fria variabla laster.
+
+21 §    För utrymmen med fordonstrafik och parkeringsplatser ska karakteristiska
+laster enligt tabell 4:3 väljas. Utbredd last och koncentrerad axellast behöver inte
+antas verka samtidigt.
+Tabell 4:3
+Karakteristisk last av fordon
+Fordonstyngd
+Kategori
+Utbredd last
+(kN/m2)
+koncentrerad
+axellast (kN)
+Yta för
+axellast (mm)
+≤ 30 kN
+F
+2,5
+20
+100 x 100
+> 30 kN och ≤ 160 kN
+G
+5,0
+90
+200 x 200
+
+𝛼𝑛= 0,7 + 0,6
+𝑛≤1,0
+
+BFS 2024:6
+
+19
+22 §    Bärverk som kan förväntas bära enstaka lastade tyngre fordon i allmän
+väg- eller gatutrafik ska dimensioneras för en lastgrupp enligt figur 4:1.
+Karakteristiska lasten Qk ska sättas till 55 kN inklusive dynamiskt tillskott och
+med lastreduktionsfaktor ψ0 = 0. Lastfältet ska placeras på ogynnsammaste sätt
+inom det område som fordonet kan trafikera. Vidare ska inverkan av en
+karakteristisk horisontell bromskraft på 100 kN i lastfältets längdriktning beaktas.
+Trots första stycket får Qk sättas till 40 kN inklusive dynamiskt tillskott och
+med lastreduktionsfaktor ψ0 = 0 vid dimensionering av bärverk som kan förväntas
+bära enbart utryckningsfordon, mindre lastfordon eller arbetsfordon. Den
+horisontella bromskraften får här sättas till 70 kN i lastfältets längdriktning.
+Figur 4:1
+Last av fordon
+
+23 §    Om specialfordon med en av verksamheten betingad utformning
+förekommer i en byggnad ska bärverket dimensioneras för såväl fordonets
+hjultryck som totallast, ökade med ett dynamiskt tillskott. Dessa laster ska
+bestämmas med beaktande av fordonets art och den trafikerade ytans
+beskaffenhet. För denna last ska lastreduktionsfaktorn ψ0 sättas till 1,0.
+
+24 §    Bärverk som kan bli utsatta för påkörning ska dimensioneras för en
+koncentrerad karakteristisk horisontell last på 5 kN med lastreduktionsfaktor
+ψ0 = 0.
+Laster på trapphus
+25 §    Väggar, trapplopp och vilplan i trapphus som används som enda
+utrymningsväg ska ha tillräcklig bärförmåga för att säkerställa utrymning och ska
+dimensioneras för följande laster:
+1. Byggnader med högst 8 plan
+a) väggar: 4 kN/m2, och
+b) trapplopp och vilplan: 8 kN/m2.
+2. Byggnader med mer än 8 plan
+a) väggar: 6 kN/m2, och
+b) trapplopp och vilplan: 12 kN/m2.
+Lasten betraktas som fri och ska antas kunna verka i alla riktningar.
+
+BFS 2024:6
+
+20
+26 §    Dörrar in till och ut ur trapphuset samt glaspartier som maximalt utgör
+10 procent av trapphusets omslutande väggarea i respektive plan undantas från
+krav på bärförmåga enligt 25 §.
+Snölast
+27 §    Snölast ska antas vara variabel och bunden last. Hänsyn ska tas till hur
+snölasten fördelar sig på taket och det lokala klimatet.
+
+28 §    Karakteristiskt värde för snölast, Sk, ska bestämmas enligt
+Sk = μCtCeS0
+
+Beteckningar:
+μ: formfaktor som beskriver snölastens fördelning på taket.
+Ct: termisk koefficient som beror på energiförluster genom taket eller annan
+termisk påverkan.
+Ce: exponeringsfaktor som beror på hur mycket snö som blåser av taket.
+S0: snölast på mark enligt 30 §.
+
+29 §    Lägsta tillåtna exponeringsfaktor Ce är 1,0.
+
+30 §    Karakteristiskt värde för snölast på mark enligt figur 4:2 ska tillämpas.
+Kartan är giltig upp till 1 500 meter över havet.
+
+BFS 2024:6
+
+21
+Figur 4:2
+Karakteristiska värden för snölast på mark, S0
+
+BFS 2024:6
+
+22
+
+BFS 2024:6
+
+23
+
+31 §    Trots 30 § får karakteristiskt värde för snölast på mark tas fram genom en
+statistisk analys av en serie snölastdata. Den mätserien ska i sådana fall omfatta
+uppgifter om årsmaxima från minst 30 år.
+Vindlast
+32 §    Vindlast ska antas vara variabel last och får betraktas som bunden inom
+ramen för de variationer som ges för olika formfaktorer. Hänsyn ska tas till det
+lokala klimatet.
+
+33 §    Inverkan av vind på bärverk och bärverksdelar ska bestämmas med hänsyn
+både till ut- och invändig vindlast. Den mest ogynnsamma kombinationen av ut-
+och invändig vindlast ska anses verka samtidigt.
+
+34 §    För bärverk och bärverksdelar med liten dämpning och styvhet ska
+vindlastens dynamiska inverkan beaktas.
+
+35 §    Referensvindhastigheter, vb, enligt figur 4:3 ska tillämpas när
+dimensionerande vindlast beräknas.
+
+BFS 2024:6
+
+24
+Figur 4:3
+Referensvindhastighet, vb
+
+BFS 2024:6
+
+25
+
+BFS 2024:6
+
+26
+36 §    Dimensionerande vindlaster under byggskeden som pågår kortare tid än
+1 år får reduceras med hänsyn till vindhastighetens variation över året. Detsamma
+gäller för byggnader som ska vara uppförda kortare tid än 1 år.
+
+37 §    Karakteristiskt värde för vindlasten, wk, ska för statiskt belastade bärverk
+bestämmas enligt
+
+wk = μ∙qpk
+
+Beteckningar:
+μ: formfaktor som beskriver vindlastens fördelning på bärverket.
+qpk (z): karakteristiskt värde på vindens hastighetstryck vid referenshöjden z
+enligt 38 §.
+
+38 §    Vindens karakteristiska hastighetstryck på en given höjd z, qpk, ska
+bestämmas enligt
+
+För z < zmin, med zmin enligt 39 §, är qpk(z) = qPk(zmin).
+
+Beteckningar:
+Iv(z) är turbulensintensiteten på höjden z enligt
+
+kp är spetsfaktorn
+
+Spetsfaktorn är 3,0 för byggnader och bärverksdelar när hänsyn till
+egenfrekvens inte behöver beaktas. För byggnader och bärverksdelar där
+dynamiska effekter har väsentlig påverkan på hastighetstrycket ska spetsfaktorn
+beräknas separat.
+
+kr är terrängfaktorn som beror av terrängtypen enligt 39 §
+
+z0 är råhetslängden, som beror av terrängtypen.
+z0,ref är referensråhetslängden som är satt till 0,05 m
+c0(z) är topografifaktorn. Topografifaktorn är 1 om topografin inte behöver
+beaktas. Om byggnadens omgivande topografi har väsentlig inverkan på
+vindlasten ska topografifaktorn beräknas separat.
+qb är referenshastighetstrycket enligt
+
+𝑞𝑝𝑘 𝑧 =  1 + 2 ∙𝑘𝑝∙𝐼𝑣 𝑧  ∙ 𝑘𝑟∙ln  𝑧
+𝑧0
+ ∙𝑐0 𝑧
+2
+∙𝑞𝑏
+𝐼𝑣 𝑧 =
+1
+𝑐0 𝑧 ∙ln  𝑧
+𝑧0
+
+𝑘𝑟= 0,19 ∙ 𝑧0
+𝑧0,𝑟𝑒𝑓
+
+0,07
+
+𝑞𝑏= 1
+2 ∙𝜌∙𝑣𝑏
+2
+
+BFS 2024:6
+
+27
+ρ är luftens densitet och antas som ρ = 1,25 kg/m3
+vb är referensvindhastigheten enligt 35 §.
+
+39 §    Terrängtyper och terrängparametrar ska väljas enligt tabell 4:4.
+Tabell 4:4
+Terrängtyper med tillhörande terrängparametrar
+Terrängtyp
+Beskrivning
+Råhetslängd z0(m)
+Höjden zmin(m) under
+vilken vindtrycket är
+konstant
+0
+Havs- eller kustområde
+exponerat för öppet hav
+0,003
+1
+I
+Sjö eller plant och
+horisontellt område med
+försumbar vegetation och
+utan hinder.
+0,01
+1
+II
+Område med låg
+vegetation som gräs och
+enstaka hinder, såsom träd
+eller byggnader, med
+minsta inbördes avstånd
+lika med 20 gånger
+hindrens höjd.
+0,05
+2
+III
+
+Område täckt med
+vegetation eller byggnader
+eller med enstaka hinder
+med största inbördes
+avstånd lika med 20
+gånger hindrens höjd,
+såsom byar, förorter och
+skogsmark).
+0,3
+5
+IV
+Område där minst 15 % av
+arean är bebyggd och där
+byggnadernas medelhöjd
+är större än 15 m.
+1,0
+10
+
+40 §    Trots 38 och 39 §§ får referensvindhastigheter och dimensionerande
+vindlaster baseras på vindtunnelförsök.
+Temperaturlast
+41 §    Temperaturlast ska antas vara variabel och indirekt last.
+
+42 §    Vid bestämning av dimensionerande temperaturlast för en bärverksdel ska
+följande beaktas
+1. variationer i lufttemperatur,
+2. variationer i solstrålning,
+3. materialets termiska egenskaper,
+4. bärverkets utformning, och
+5. variationer i temperatur till följd av driftsförhållanden.
+
+43 §    Karakteristiska värden på maximal och minimal lufttemperatur ska
+bestämmas genom att använda figur 4:4 eller figur 4:5.
+
+BFS 2024:6
+
+28
+Figur 4:4
+Karakteristiska värden för maximal lufttemperatur
+
+BFS 2024:6
+
+29
+
+BFS 2024:6
+
+30
+Figur 4:5
+Karakteristiska värden för minimal lufttemperatur
+
+BFS 2024:6
+
+31
+
+BFS 2024:6
+
+32
+
+Geotekniska laster
+44 §    Vertikal last från jord, berg och vatten ska antas vara permanent och
+bunden last samt ska beräknas på grundval av materialens tunghet.
+
+45 §    Jordtryck ska antas vara permanent och bunden last.
+
+46 §    De vattenstånd som bestämmer vattentryck ska bestämmas utifrån de
+hydrauliska och hydrogeologiska förhållandena på platsen.
+Vattentrycket ska som regel antas vara bunden last. Vattentrycket vid
+medelvattenstånd eller grundvattnets medelnivå ska antas vara permanent last.
+Skillnaden mellan vattentrycket vid förekommande vattenstånd och det
+permanenta vattentrycket ska antas vara variabel last.
+
+47 §    Dynamiska krafter, orsakade av snabba vattentrycksförändringar eller av
+vågor, ska helt eller delvis antas vara fri last.
+Istryck
+48 §    Istryck ska förutsättas verka i nivå med vattenytan och ska antas vara fri
+variabel statisk last som i vissa fall kan ge upphov till dynamisk inverkan. Last av
+istryck behöver inte förutsättas uppdelad i dellaster.
+Last av kranar, maskiner och hissar
+49 §    Kranar, traverser och liknande ska antas ge vertikala och horisontala
+variabla laster eller olyckslaster.
+Lasten ska antas bestå av en statisk och en dynamisk komponent.
+
+50 §    Last av maskiner och av material eller produkter som förekommer
+tillsammans med maskinerna ska antas vara variabel last eller olyckslast. Statisk
+och dynamisk lasteffekt ska beaktas.
+Trots första stycket får lasten av en fast installerad del av en maskin med
+entydigt definierad och säkert bestämd egentyngd antas vara permanent last.
+
+51 §    Last av lätt flyttbara maskiner ska betraktas som fri last. Lasten av en fast
+installerad maskin får efter omständigheterna antas vara helt bunden eller bestå av
+en bunden och en fri lastdel.
+Laster för silor och behållare
+52 §    Silotryck ska bestämmas utifrån den avsedda användningen.
+Särskild hänsyn ska tas till
+1. fyllningsmassans fysikaliska egenskaper och hanteringssätt,
+2. silons utformning, och
+3. farligaste lagringshöjd.
+
+BFS 2024:6
+
+33
+5 kap. Olyckshändelser
+1 §    För byggnader i säkerhetsklass 3 ska kända och okända olyckshändelser
+beaktas.
+Kända olyckshändelser
+2 §    För byggnader i säkerhetsklass 3 ska bärverk dimensioneras i
+brottgränstillstånd för olyckslaster från kända olyckshändelser, såsom explosion,
+påkörning, slag eller stöt.
+
+3 §    Trots 2 § behövs inte dimensionering för kända olyckshändelser om den
+kollapsade arean vid en lokal skada eller kollaps av en enskild bärverksdel
+begränsas till det minsta av
+1. 15 procent av bjälklagsarean, eller
+2. 100 m2
+i vardera av två angränsande plan.
+
+4 §    Följande ska beaktas för storlek, läge och utbredning för olyckslaster från
+påkörning, slag eller stöt:
+1. Bärverkets geometri.
+2. Omgivning.
+3. Fordonets eller fartygets
+a) geometri,
+b) massa,
+c) hastighet, och
+d) position.
+Okända olyckshändelser
+5 §    För byggnader i säkerhetsklass 3 ska konsekvenserna av en okänd
+olyckshändelse begränsas antingen genom
+1. att begränsa den kollapsade arean vid en lokal skada eller kollaps av en
+enskild bärverksdel, eller
+2. sammanbindning av bärverksdelar.
+Bärverket i byggnaden ska förbli stabilt efter en sådan händelse.
+Begränsning av kollapsad area
+6 §    Vid tillämpning av 5 § 1 ska antingen 7 eller 8 §§ tillämpas.
+
+7 §    Den kollapsade arean begränsas till det minsta av
+1. 15 procent av bjälklagsarean, eller
+2. 100 m2,
+i vardera av två angränsande plan.
+
+8 §    Den kollapsade arean för taket begränsas till det minsta av
+1. 15 procent av takarean, eller
+2. längden av en primärbärning i takbärverket multiplicerad med bredden på de
+till primärbärningen intilliggande facken,
+i ett plan.
+
+BFS 2024:6
+
+34
+9 §     Om det inte är möjligt att tillämpa 6–8 §§ får en bärverksdel dimensioneras
+som väsentlig bärverksdel enligt 10 eller 11 §§. Detta får endast tillämpas för ett
+fåtal bärverksdelar i bärverket.
+
+10 §    För väggar och bjälklag ska 34 kN/m2 vinkelrätt bärverksdelen användas
+när en väsentlig bärverksdel dimensioneras.
+
+11 §    Pelare, balkar och takstolar ska ha en bärförmåga som är minst 1,3 gånger
+de dimensionerande lasteffekterna när väsentlig bärverksdel dimensioneras.
+Bärverksdelens upplag ska utformas för en horisontell kraft som fås av det största
+av 1,3 gånger dimensionerande lasteffekterna och 20 kN. Dimensioneringsvärden
+som ska tillämpas för lasteffekter samt materialegenskaper avser beräkningar i
+brottgränstillstånd enligt 3 kap. 6 §.
+Sammanbindning
+12 §    Vid tillämpning av 5 § 2 ska de dragband och förbindningar som utgör
+sammanbindning mellan bärverksdelarna utformas så att de ger ett segt beteende i
+bärverket.
+
+13 §    Vid dimensionering av horisontell sammanbindning får lasten sättas till
+60 procent av lasten som fås av lastkombination 6 i 3 kap. 11 § multiplicerat med
+influensarean för respektive förband.
+Lasten får begränsas
+1. för inre upplagslinjer till 600 kN,
+2. för yttre upplagslinjer till 300 kN, och
+3. vinkelrätt upplagslinjer till 80 kN/m.
+
+14 §    Vid dimensionering av vertikal sammanbindning ska de pelare och väggar
+som bär vertikala laster kunna uppta en dragkraft lika med den största
+dimensionerande kraften av permanent och variabel last på pelaren eller väggen
+från vilket enskilt plan som helst.
+6 kap. Material och geometri
+1 §    Dimensioneringsvärden för materialegenskaper ska i görligaste mån
+bestämmas med hjälp av statistiska metoder och med stöd av empiriskt erhållna
+resultat.
+
+2 §    Följande ska beaktas avseende materialegenskaper och geometri vid
+dimensionering i brott- och bruksgränstillstånd:
+1. Fuktpåverkan.
+2. Temperaturpåverkan.
+3. Tidsberoende effekter.
+4. Utmattningsbeteende.
+5. Storlekseffekter.
+6. Tvärsnittsförändringar.
+7. Lokala effekter.
+8. Deformationsegenskaper.
+9. Utförande.
+10. Mekanisk åverkan.
+11. Osäkerhet i metoder för att bedöma materialets egenskaper.
+
+BFS 2024:6
+
+35
+12. Materialets sammansättning och kemiska egenskaper.
+
+3 §    Följande ska beaktas avseende material och geometri vid säkerställande av
+bärverkets beständighet:
+1. Fuktpåverkan.
+2. Temperaturpåverkan.
+3. Miljöpåverkan och kemiska angrepp.
+4. Skadedjur.
+5. Mekanisk åverkan.
+6. Osäkerhet i metoder för att bedöma materialets beständighet.
+7. Materialets sammansättning och kemiska egenskaper.
+
+4 §    Bärverk ska utformas med lämplig sammanbindning för att förhindra att
+bärverksdelar glider isär eller av upplag.
+
+5 §    Bärförmåga i brottgränstillstånd hos förband ska beräknas för såväl
+fästelement som för grundmaterial.
+
+6 §    Bärförmågan i brottgränstillstånd hos svetsförband ska beräknas för såväl
+det svagaste snittet genom svetsen som snitten omedelbart intill svetsen.
+
+7 §    Förskjutningar i förband ska beaktas.
+Vid samverkan mellan flera förbindare i ett förband ska kraftfördelningen inom
+förbandet bestämmas med hänsyn till bärverksdelarnas deformation samt till
+förbindarnas styvhet och deformationsförmåga.
+
+8 §    Armering ska ha sådana egenskaper att den i samverkan med omgivande
+material kan ge det färdiga bärverket ett segt beteende vid brott.
+
+9 §    Armerade bärverk och bärverksdelar ska ha tillräcklig vidhäftning mellan de
+ingående komponenterna så att krafter kan överföras och tillräckligt skydd så att
+kraven på beständighet kan uppnås.
+
+10 §    Bärverk och bärverksdelar av stål eller aluminium ska ha sådana
+egenskaper att en hastig spänningsökning eller en lokal spänningskoncentration
+inte leder till sprött brott, och att risken för skiktbristning begränsas.
+7 kap. Geokonstruktioner
+1 §    Geokonstruktioner ska utformas så att
+1. de inte orsakar sådana förändringar av jord- och grundvattenförhållanden att
+skador uppkommer i närbelägna byggnader och anläggningar, och
+2. de inte oskäligt försvårar användning av intilliggande mark.
+
+2 §    Geokonstruktioner ska hänföras till säkerhetsklass enligt 2 kap. och till
+geoteknisk kategori beroende på omfattning och komplexitet enligt följande:
+1. Geoteknisk kategori 1: små och enkla byggnader som utförs med försumbar
+risk och kända grundförhållanden.
+2. Geoteknisk kategori 2: konventionella typer av byggnader och
+grundläggning utan exceptionell risk för omgivningspåverkan eller speciella jord-
+eller belastningsförhållanden.
+
+BFS 2024:6
+
+36
+3. Geoteknisk kategori 3: byggnader, eller delar av dessa, som faller utanför
+gränserna till geoteknisk kategori 1 och 2.
+Geoteknisk kategori 1 får inte tillämpas för geokonstruktioner i
+säkerhetsklass 3.
+
+3 §    En geoteknisk undersökning ska utföras för alla geokonstruktioner.
+Undersökningen ska klarlägga de geotekniska förutsättningarna för
+geokonstruktionens utformning och utförande. Undersökningens detaljeringsgrad
+ska anpassas till geokonstruktionens geotekniska kategori.
+Tillgängliga uppgifter om jord-, berg- och grundvattenförhållanden samt
+uppgifter om berörda byggnaders grundläggning ska sammanställas.
+
+4 §    Egenskaper för jord och berg ska beskrivas med geotekniska parametrar och
+bestämmas från försöksresultat, antingen direkt eller genom teoretisk eller
+empirisk korrelation och från andra relevanta data.
+Hänsyn ska tas till möjliga skillnader mellan markens egenskaper erhållna från
+försöksresultat och de som styr beteendet hos geokonstruktionen.
+AVDELNING III. ÄNDRING AV BYGGNADER
+8 kap. Allmänt vid ändring av byggnader
+Anpassning vid ändring av byggnader
+1 §    Vid ändring av byggnad ska den ändrade delen uppfylla kraven i 2–7 kap.
+Säkerhetsnivån får dock anpassas om säkerheten avseende bärförmåga, stadga
+och beständighet ändå blir godtagbar, och
+1. det krävs för att uppfylla kravet på varsamhet,
+2. det krävs för att följa förbudet mot förvanskning,
+3. det är oskäligt att uppfylla kravet med hänsyn till ändringens omfattning,
+4. byggnadens bärförmåga, stadga och beständighet bara blir försumbart bättre
+om kravet uppfylls,
+5. kostnaden är oskäligt hög i förhållande till den förväntade nyttan,
+6. det finns tekniska skäl, eller
+7. det krävs för att byggnaden ska få godtagbara egenskaper avseende hälsa
+och säkerhet eller avseende tillgänglighet och användbarhet för personer med
+nedsatt rörelse- eller orienteringsförmåga eller för att tillvarata byggnadens
+kulturvärden.
+
+2 §    Försämring av byggnadens egenskaper avseende bärförmåga, stadga och
+beständighet får endast ske om
+1. byggnaden även efter ändringen uppfyller de i 2–7 kap. angivna kraven,
+2. det krävs för att byggnaden ska få godtagbara egenskaper avseende hälsa
+och säkerhet eller avseende tillgänglighet och användbarhet för personer med
+nedsatt rörelse- eller orienteringsförmåga eller för att tillvarata byggnadens
+kulturvärden, eller
+3. försämringen kan anses vara försumbar.
+
+BFS 2024:6
+
+37
+Ändrad användning
+3 §    Vid ändrad användning ska ändringens omfattning bedömas utifrån om den
+nya användningen ställer högre krav på bärförmåga, stadga och beständighet i
+byggnaden jämfört med den tidigare användningen inklusive eventuell ökning av
+lasteffekter.
+Varsamhet
+4 §    Vid en bedömning om kravet på varsamhet är uppfyllt ska hänsyn tas till hur
+åtgärden respekterar byggnadens karaktär avseende
+1. proportioner, form och volym,
+2. materialval och utförande,
+3. färgsättning, samt
+4. detaljomsorg och detaljeringsnivå.
+Hänsyn ska också tas till om
+1. detaljer som är väsentliga för byggnadens karaktär tillvaratas, och
+2. egenskaper som har betydelse för boende- och brukarkvaliteter bibehålls.
+Förbud mot förvanskning
+5 §    För att en åtgärd inte ska anses medföra en förvanskning av en särskilt
+värdefull byggnad ska åtgärden
+1. inte förändra byggnadens karaktärsdrag,
+2. inte skada de egenskaper som ligger till grund för byggnadens eller områdets
+kulturvärden, och
+3. vid utbyte av byggnadsdelar utföras med material och hantverksteknik som
+är anpassad till byggnadens ålder och karaktär.
+Trots första stycket 3 ska en åtgärd inte anses utgöra en förvanskning om en
+förändring av material eller teknik är en förutsättning för att kunna
+1. tillgodose utformningskraven och de tekniska egenskapskraven på en
+acceptabel nivå, eller
+2. upprätthålla funktionen hos de tekniska systemen på en acceptabel nivå.
+Särskilt värdefull byggnad
+6 §    Vid bedömningen av om en byggnad ska anses vara särskilt värdefull ska en
+prövning göras mot följande kriterier:
+1. Byggnaden tydliggör tidigare samhällsförhållanden genom att den
+a) representerar en tidigare vanlig byggnadskategori eller konstruktion som nu
+har blivit sällsynt,
+b) belyser tidigare bostadsförhållanden, sociala och ekonomiska villkor,
+arbetsförhållanden, olika gruppers livsvillkor, stadsbyggnadsideal eller
+arkitektoniska ideal samt värderingar och tankemönster, eller
+c) har representerat en för lokalsamhället viktig funktion eller verksamhet.
+2. Byggnaden tydliggör samhällsutvecklingen genom att den
+a) genom sin funktion illustrerar ett väsentligt skeende eller en väsentlig
+samhällsföreteelse,
+b) har tjänat som förebild eller på annat sätt varit uppmärksammad i sin samtid,
+eller
+c) präglas av en stark arkitektonisk idé.
+3. Byggnaden i sig utgör en källa till kunskap om äldre material och teknik.
+
+BFS 2024:6
+
+38
+4. Byggnaden värderas högt i ett lokalt sammanhang genom att den har haft
+stor betydelse
+a) i ortens sociala liv,
+b) för ortens identitet, eller
+c) i lokala traditioner.
+Byggnaden kan anses vara särskilt värdefull från konstnärlig synpunkt genom
+att den uppvisar särskilda estetiska kvaliteter eller har en hög ambitionsnivå med
+avseende på
+1. arkitektonisk gestaltning,
+2. utförande och materialval, eller
+3. konstnärlig gestaltning och utsmyckning.
+Byggnaden kan anses vara särskilt värdefull från miljömässig synpunkt genom
+att den utgör en del av en miljö som uppfyller kriterierna i första stycket.
+För att en byggnad ska anses vara särskilt värdefull ska byggnaden särskilt väl
+belysa ett visst förhållande eller i sitt sammanhang ha få motsvarigheter som kan
+belysa samma förhållande.
+Byggnader från tiden före 1920-talets bebyggelseexpansion, som har sin
+huvudsakliga karaktär bevarad, ska anses vara särskilt värdefulla om inte något
+talar däremot.
+
+1. Denna författning träder i kraft den 1 juli 2025.
+2. Genom författningen upphävs Boverkets föreskrifter och allmänna råd
+(2011:10) om tillämpning av europeiska konstruktionsstandarder (eurokoder).
+3. Äldre bestämmelser får dock tillämpas i den utsträckning som framgår av
+punkten 3 i övergångsbestämmelserna till Boverkets föreskrifter (2024:14) om
+ändring i Boverkets byggregler (2011:6) – föreskrifter och allmänna råd.
+
+På Boverkets vägnar
+
+ANDERS SJELVGREN
+
+Oskar Larsson Ivanov

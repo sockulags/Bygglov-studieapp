@@ -1,0 +1,369 @@
+BOVERKETS FÖRFATTNINGSSAMLING BFS 2026:4: hållbar mobilitet
+Källa: https://rinfo.boverket.se/BFS2026-4/pdf/BFS2026-4.pdf
+Hämtad 2026-11-05. Ändrad t.o.m.: grundförfattningen (Boverkets register).
+Text utvunnen ur PDF. Författningar är fria att återge. Ändringsförfattningar står efter
+grundförfattningen och är inte inarbetade.
+========================================================================
+
+Boverkets författningssamling
+
+Utgivare: Anette Martinsson
+BFS 2026:4
+
+1
+Boverkets föreskrifter och allmänna råd om hållbar
+mobilitet;
+Utkom från trycket
+den 9 juni 2026
+
+beslutade den 9 juni 2026.
+
+Boverket föreskriver följande med stöd av 10 kap. 3 § 13, 4 a §, 8 § och 24 § 2
+plan- och byggförordningen (2011:338).
+1 kap. Övergripande bestämmelser
+Författningens innehåll
+1 §    Denna författning innehåller föreskrifter till tekniska egenskapskrav
+avseende hållbar mobilitet enligt 3 kap. 20 b § plan- och byggförordningen
+(2011:338). Författningen innehåller föreskrifter om att byggnader ska ha tillgång
+till utrustning för laddning av elfordon och cykelparkeringsplatser.
+Författningen innehåller också föreskrifter om anpassning av de tekniska
+egenskapskraven vid ändring av byggnader enligt 8 kap. 7 § plan- och bygglagen
+(2010:900) och om kontroll enligt 10 kap. 5 § samma lag.
+De allmänna råden innehåller generella rekommendationer om tillämpningen
+av föreskrifterna i denna författning. De allmänna råden föregås av texten Allmänt
+råd och är tryckta med mindre och indragen text.
+Föreskrifternas tillämpningsområde
+2 §    Föreskrifterna i 1 kap. gäller vid uppförande av nya byggnader och vid
+ändring av byggnader. För redan uppförda byggnader gäller 1–3 och 5–7 §§.
+Föreskrifterna i 2 kap. gäller vid uppförande av nya byggnader.
+Föreskrifterna i 3 kap. gäller vid ändring av byggnader.
+Föreskrifterna i 4 kap. gäller för redan uppförda byggnader.
+
+3 §    Föreskrifterna i denna författning gäller endast byggnader för vilka energi
+används för att påverka inomhusmiljön.
+
+4 §    Kraven på hållbar mobilitet i 8 kap. 4 § första stycket 11 plan- och
+bygglagen (2010:900), 3 kap. 20 b § plan- och byggförordningen (2011:338) och
+denna författning gäller inte vid annan ändring av en byggnad än
+1. ombyggnad som omfattar byggnadens elektriska infrastruktur i fall då
+bilparkeringen är belägen i byggnaden, och
+2. ombyggnad som sker i samband med att ändringsåtgärder vidtas på
+bilparkeringen i fall då bilparkeringen är belägen på tomten till byggnaden.
+Mindre avvikelse från föreskrifterna i denna författning
+5 §    Mindre avvikelse får göras från föreskrifterna i denna författning i enskilda
+fall om
+1. det finns särskilda skäl,
+2. byggnaden ändå kan antas bli tekniskt tillfredsställande, och
+
+BFS 2026:4
+
+2
+3. det inte finns någon avsevärd olägenhet från annan synpunkt.
+Om mindre avvikelse enligt första stycket tillämpas ska skälen för detta
+dokumenteras i samband med den projektering som regleras i 10 §.
+Definitioner
+6 §    Termer och uttryck i denna författning har samma betydelse som i plan- och
+bygglagen (2010:900) och plan- och byggförordningen (2011:338).
+
+7 §    I denna författning avses med:
+Bilparkeringsplats: Utrymme särskilt avsett och anpassat för parkering av en
+personbil eller en lätt lastbil. Om särskilda markeringar inte finns, ska en
+bilparkeringsplats anses uppta en area med måtten 2,70 x 5 meter och ha ett
+tillräckligt fritt utrymme bakåt.
+Cykelparkeringsplats: Särskilt utrymme för att parkera minst en cykel. Om
+särskilda anordningar för cykelparkering inte finns, ska en cykelparkeringsplats
+för en standardcykel anses uppta en area med måtten 0,60 x 1,90 meter och ha ett
+tillräckligt fritt utrymme bakåt. En cykelparkeringsplats för en lådcykel eller
+annan cykel med större dimensioner än en standardcykel ska anses uppta en area
+med måtten 1,20 x 2,50 meter och ha ett tillräckligt fritt utrymme bakåt.
+Dubbelriktad laddning: Smart laddningsfunktion där elflödets riktning kan
+vändas, så att det går från batteriet till den laddningspunkt som batteriet är
+anslutet till.
+Flerbostadshus: byggnad med fler än två bostäder och i vilken mer än halva
+bruttoarean är avsedd för bostäder.
+Förinstallerad kabeldragning: Alla åtgärder som är nödvändiga för att
+möjliggöra enkel installation av laddningspunkter inbegripet kablar, kabelvägar
+och vid behov dataöverföring och elmätare.
+Laddningspunkt: Gränssnitt där ett fordon i taget kan laddas.
+Lastbalansering: Funktion som balanserar tillgänglig effekt så att flera
+utrustningar delar på tillgänglig effekt.
+Ledningsinfrastruktur: Kanaler för elektriska kablar för att i ett senare skede
+möjliggöra installation av laddningspunkter för elfordon, eldrivna cyklar och
+andra fordonstyper i kategori L i den mening som avses i artikel 4 i
+Europaparlamentets och rådets förordning (EU) nr 168/2013 av den 15 januari
+2013 om godkännande av och marknadstillsyn för två- och trehjuliga fordon och
+fyrhjulingar.
+Lokalbyggnad: Byggnad i vilken mer än halva bruttoarean är avsedd för annat
+än bostäder.
+Offentligt organ: Statlig, regional och kommunal myndighet och enhet som
+direkt finansieras och administreras av sådan myndighet men som inte är av
+industriell eller kommersiell karaktär.
+Smart laddning: Laddningsfunktion där mängden energi som överförs till
+batteriet justeras dynamiskt, baserat på information som tas emot genom
+elektronisk kommunikation.
+
+8 §    Med byggprodukter med förhandsbedömda egenskaper avses i denna
+författning produkter som tillverkats för att permanent ingå i byggnadsverk och
+som antingen
+1. är CE-märkta,
+2. är typgodkända eller tillverkningskontrollerade enligt bestämmelserna i
+8 kap. 22–23 §§ plan- och bygglagen (2010:900),
+
+BFS 2026:4
+
+3
+3. har certifierats av ett certifieringsorgan som ackrediterats för uppgiften och
+för produkten i fråga enligt Europaparlamentets och rådets förordning (EG) nr
+765/2008 av den 9 juli 2008 om krav för ackreditering och upphävande av
+förordning (EEG) nr 339/93, eller
+4. har tillverkats i en fabrik vars tillverkning och produktionskontroll och
+utfallet därav för byggprodukten fortlöpande övervakas, bedöms och godkänns av
+ett certifieringsorgan som ackrediterats för uppgiften och för produkten i fråga
+enligt förordning (EG) nr 765/2008.
+Såsom bedömning i enlighet med alternativ 3 eller 4 godtas även en bedömning
+utfärdad av ett organ inom Europeiska ekonomiska samarbetsområdet eller i
+Turkiet om organet på annat sätt än genom ackreditering för uppgiften enligt
+förordning (EG) nr 765/2008, erbjuder motsvarande garantier i fråga om teknisk
+och yrkesmässig kompetens samt garantier om oberoende.
+Byggprodukter och material
+9 §    Byggprodukter och material ska ha kända och dokumenterade egenskaper i
+de avseenden som har betydelse för byggnadens förmåga att uppfylla kraven i
+denna författning.
+Byggprodukter med förhandsbedömda egenskaper ska anses ha kända och
+dokumenterade egenskaper i de avseenden som de är förhandsbedömda.
+Egenskaper hos andra byggprodukter än byggprodukter med förhandsbedömda
+egenskaper ska provas eller bedömas genom annan vedertagen metod. Inom
+Europeiska unionen vedertagen metod ska användas där sådan finns.
+Projektering och utförande
+10 §    Byggnader ska projekteras
+1. på ett fackmässigt sätt,
+2. så att arbetet kan utföras på ett sådant sätt att kraven i denna författning
+uppfylls, och
+3. så att förutsatt underhåll kan ske.
+Projekteringen ska dokumenteras.
+Första och andra styckena gäller inte om det är obehövligt.
+
+11 §    Byggnader ska utföras
+1. på ett fackmässigt sätt, och
+2. enligt gällande handlingar.
+Särskilt om ändring av byggnader
+12 §    Vid ändring av en byggnad ska det klarläggas om
+1. byggnaden har sådana brister avseende kraven på hållbar mobilitet som kan
+åtgärdas inom ramen för den planerade åtgärden,
+2. den planerade åtgärden kan medföra en försämring av egenskaperna i fråga
+om hållbar mobilitet i den befintliga byggnaden, och
+3. ändringen kommer att medföra en negativ påverkan på byggnadens
+kulturvärden och hur en sådan negativ påverkan kan undvikas.
+Kontroll
+13 §    Kontroll av att kraven på hållbar mobilitet uppfylls ska göras
+1. under projektering och utförande enligt 14–16 §§,
+2. i den färdiga byggnaden enligt 17 §, eller
+
+BFS 2026:4
+
+4
+3. med en kombination av punkt 1 och 2.
+Kontroll ska utföras fackmässigt.
+Resultatet av kontrollen ska dokumenteras.
+
+14 §    Vid kontroll under projektering ska det kontrolleras att dimensionerande
+förutsättningar, projekteringsmetoder, provningsmetoder och beräkningar är
+relevanta och redovisade i handlingarna.
+
+15 §    Vid kontroll under utförande ska det kontrolleras att arbetet utförs enligt
+gällande handlingar.
+
+16 §    Byggprodukter och material ska kontrolleras när de tas emot på
+byggarbetsplatsen. Kontroll ska göras av att byggprodukter och material har
+förutsatta egenskaper.
+För byggprodukter med förhandsbedömda egenskaper kan kontrollen
+inskränkas till identifiering, kontroll av märkning och granskning av
+dokumentationen av de förhandsbedömda egenskaperna.
+
+17 §    Vid kontroll i den färdiga byggnaden ska kontroll göras genom provning,
+mätning eller besiktning.
+2 kap. Krav vid uppförande av nya byggnader
+Flerbostadshus
+1 §    Ett flerbostadshus med bilparkering med fler än tre bilparkeringsplatser,
+som finns i byggnaden eller på tomten till byggnaden, ska ha tillgång till följande
+utrustning för laddning av elfordon:
+1. Förinstallerad kabeldragning för minst hälften av bilparkeringsplatserna.
+2. Ledningsinfrastruktur för återstående bilparkeringsplatser.
+3. Minst en laddningspunkt.
+
+2 §    Ett flerbostadshus ska ha minst två cykelparkeringsplatser för varje
+bostadslägenhet. Det ska i skälig omfattning finnas platser för cyklar med större
+dimensioner än standardcyklar.
+Kravet på antalet cykelparkeringsplatser i första stycket får anpassas om det är
+lämpligt med hänsyn till lokala förutsättningar, inbegripet demografiska,
+geografiska och klimatmässiga förhållanden. Vid lämplighetsbedömningen ska
+särskilt beaktas
+1. om flerbostadshuset i huvudsak innehåller bostäder avsedda för endast en
+person eller personer som normalt inte cyklar, och
+2. möjligheten att utifrån terrängförhållandena ta sig till flerbostadshuset med
+cykel.
+Lokalbyggnader
+3 §    En lokalbyggnad med bilparkering med fler än fem bilparkeringsplatser,
+som finns i byggnaden eller på tomten till byggnaden, ska ha tillgång till följande
+utrustning för laddning av elfordon:
+1. Förinstallerad kabeldragning för minst hälften av bilparkeringsplatserna.
+2. Ledningsinfrastruktur för återstående bilparkeringsplatser.
+3. Minst en laddningspunkt per fem bilparkeringsplatser.
+
+BFS 2026:4
+
+5
+För en lokalbyggnad i vilken mer än halva bruttoarean är avsedd för
+kontorsverksamhet gäller trots första stycket 3 krav på minst en laddningspunkt
+per två bilparkeringsplatser.
+
+4 §    En lokalbyggnad ska ha cykelparkeringsplatser som utgör minst 15 procent
+av den genomsnittliga eller 10 procent av den totala användarkapaciteten i
+byggnaden. Det ska i skälig omfattning finnas platser för cyklar med större
+dimensioner än standardcyklar.
+Kravet på antalet cykelparkeringsplatser i första stycket får anpassas för
+lokalbyggnader som personer normalt inte anländer till med cykel. Vid
+bedömningen av för vilka byggnader kravet får anpassas ska särskilt beaktas
+1. möjligheten att utifrån trafik- eller terrängförhållandena ta sig till byggnaden
+med cykel, och
+2. om byggnaden utifrån sitt läge och placering eller den verksamhet som
+bedrivs typiskt sett inte är en sådan byggnad personer cyklar till.
+Krav på utrustningen för laddning av elfordon
+Förinstallerad kabeldragning och ledningsinfrastruktur
+5 §    Förinstallerad kabeldragning för flerbostadshus ska vara dimensionerad så
+att laddningspunkter ska kunna användas samtidigt och effektivt om de installeras
+på samtliga bilparkeringsplatser med förinstallerad kabeldragning enligt 1 § 1.
+Förinstallerad kabeldragning och ledningsinfrastruktur för lokalbyggnader ska
+1. vara dimensionerad så att laddningspunkter ska kunna användas samtidigt
+och effektivt om de installeras på samtliga bilparkeringsplatser med förinstallerad
+kabeldragning enligt 3 § första stycket 1, och
+2. stödja installation av ett system för styrsystem för lastbalansering eller
+laddning, om det är motiverat och lämpligt med hänsyn till antalet
+laddningspunkter och kapaciteten i byggnadens elsystem.
+Kraven på förinstallerad kabeldragning och ledningsinfrastruktur ska vara
+uppfyllda från elcentral till bilparkeringsplatsernas direkta närhet.
+Allmänt råd
+Ledningsinfrastruktur kan bestå av system med kanaler, tomrör, kabelstegar
+eller liknande där kablar till laddningspunkter enkelt kan dras fram. Inom
+vissa utrymmen i byggnader kan kravet på ledningsinfrastruktur uppfyllas
+genom att tak eller väggar är utformade så att kablar på ett enkelt sätt kan
+monteras direkt på dem. Sådana utrymmen kan vara i bilparkeringsplatsens
+direkta närhet eller andra utrymmen där montering direkt på vägg eller tak
+kan anses utgöra det lämpligaste monteringssättet.
+Laddningspunkter
+6 §    Laddningspunkter ska kunna använda smart laddning. Laddningspunkter ska
+även kunna använda dubbelriktad laddning, om så är lämpligt med hänsyn till
+1. antalet laddningspunkter,
+2. byggnadens förutsättningar att ta emot eller leverera ström vidare till aktuell
+nätägare, och
+3. nätägarens möjlighet att ta emot ström från aktuell byggnad.
+Laddningspunkter ska drivas på grundval av allmänt tillgängliga och icke-
+diskriminerande kommunikationsprotokoll och kommunikationsstandarder, på ett
+interoperabelt sätt.
+
+BFS 2026:4
+
+6
+7 §    Laddningspunkter för växelström ska utrustas med uttag eller
+anslutningsdon av typ 2 som avses i punkt 1.1–1.2 i bilaga II till
+Europaparlamentets och rådets förordning (EU) 2023/1804 om utbyggnad av
+infrastruktur för alternativa drivmedel och om upphävande av direktiv
+2014/94/EU.
+Laddningspunkter för likström ska utrustas med anslutningsdon av typ
+Combo 2 som avses i punkt 1.2 i bilaga II till samma förordning.
+
+8 §    Laddningspunkter ska placeras och utformas så att de är lätt åtkomliga och
+användbara. De ska placeras så att anslutningen kan ske på en höjd av högst
+1,2 meter över bilparkeringsplatsens yta.
+Allmänt råd
+Eventuella påkörningsskydd och liknande utrustning bör utformas så att det
+är möjligt att komma åt laddningspunkten från en eldriven rullstol för
+begränsad utomhusanvändning (mindre utomhusrullstol). Hinder i form av
+kantstenar och nivåskillnader bör undvikas. Eventuell skyltning bör vara lätt
+att läsa, ha god ljushetskontrast, inte ge upphov till reflexer och vara
+placerad på lämplig höjd för att kunna läsas av både personer i rullstol och
+stående personer.
+3 kap. Krav vid ändring av byggnader
+Anpassning av kraven vid ändring av byggnader
+1 §    Vid en sådan ombyggnad som avses i 1 kap. 4 § ska kraven i 2 kap.
+uppfyllas. Kraven får dock anpassas om det krävs för att följa förbudet mot
+förvanskning i 8 kap. 13 § plan- och bygglagen (2010:900) eller uppfylla kravet
+på varsamhet i 8 kap. 17 § samma lag.
+Kravet på antalet cykelparkeringsplatser för flerbostadshus i 2 kap. 2 § första
+stycket får anpassas om det vid ändring av en byggnad inte är möjligt att
+säkerställa två cykelparkeringsplatser för varje bostadslägenhet.
+Undantag från kraven vid ändring av byggnader
+2 §    Trots 1 § behöver kravet på minst en laddningspunkt för flerbostadshus i
+2 kap. 1 § 3 inte uppfyllas vid ändring av en byggnad.
+
+3 §    Trots 1 § behöver kraven i 2 kap. inte uppfyllas vid ombyggnad av en
+byggnad som ägs och används av en ideell organisation, som är ett litet eller
+medelstort företag i den mening som avses i artikel 2.1 i bilagan till
+kommissionens rekommendation 2003/361/EG av den 6 maj 2003 om
+definitionen av mikroföretag samt små och medelstora företag, om kostnaderna
+för att installera utrustning för laddning av elfordon enligt 2 kap. överstiger minst
+10 procent av den totala kostnaden för ombyggnaden.
+Med ideell organisation avses även trossamfund och en registrerad
+organisatorisk del av ett trossamfund i den mening som avses i lagen (1998:1593)
+om trossamfund.
+
+BFS 2026:4
+
+7
+4 kap. Krav på redan uppförda lokalbyggnader
+1 §    Kraven i detta kapitel får anpassas om det krävs för att följa förbudet mot
+förvanskning i 8 kap. 13 § plan- och bygglagen (2010:900) eller uppfylla kravet
+på varsamhet i 8 kap. 17 § samma lag.
+
+2 §    En lokalbyggnad med bilparkering med fler än tjugo bilparkeringsplatser,
+som finns i byggnaden eller på tomten till byggnaden, ska ha tillgång till minst en
+laddningspunkt för laddning av elfordon.
+Kravet i första stycket gäller inte om lokalbyggnaden ägs och används av en
+ideell organisation som är ett litet eller medelstort företag i den mening som avses
+i artikel 2.1 i bilagan till kommissionens rekommendation 2003/361/EG av den 6
+maj 2003 om definitionen av mikroföretag samt små och medelstora företag. Med
+ideell organisation avses även trossamfund och en registrerad organisatorisk del
+av ett trossamfund i den mening som avses i lagen (1998:1593) om trossamfund.
+Laddningspunkter ska uppfylla de krav som följer av 2 kap. 7 och 8 §§.
+
+3 §    En lokalbyggnad med bilparkering med fler än tjugo bilparkeringsplatser
+som finns i byggnaden ska, utöver vad som följer av 2 § första och tredje
+styckena, ha tillgång till följande utrustning för laddning av elfordon
+1. ledningsinfrastruktur för minst hälften av bilparkeringsplatserna, eller
+2. minst en laddningspunkt per tio bilparkeringsplatser.
+Ledningsinfrastruktur ska uppfylla det krav som följer av 2 kap. 5 § tredje
+stycket och laddningspunkter ska uppfylla de krav som följer av 2 kap. 6–8 §§.
+
+4 §    En lokalbyggnad med sådan bilparkering som avses i 3 § ska ha
+cykelparkeringsplatser som utgör minst 15 procent av den genomsnittliga eller
+10 procent av den totala användarkapaciteten i byggnaden. Det ska i skälig
+omfattning finnas platser för cyklar med större dimensioner än standardcyklar.
+Kravet på antalet cykelparkeringsplatser i första stycket får anpassas för
+lokalbyggnader som personer normalt inte anländer till med cykel. Vid
+bedömningen av för vilka byggnader kravet får anpassas ska särskilt beaktas
+1. möjligheten att utifrån trafik- eller terrängförhållandena ta sig till byggnaden
+med cykel, och
+2. om byggnaden utifrån sitt läge och placering eller den verksamhet som
+bedrivs typiskt sett inte är en sådan byggnad personer cyklar till.
+
+5 §    En lokalbyggnad som ägs eller nyttjas av ett offentligt organ och som har
+bilparkering med fler än tjugo bilparkeringsplatser som finns i byggnaden ska,
+utöver vad som följer av 2 § och 3 §, ha förinstallerad kabeldragning för minst
+hälften av bilparkeringsplatserna.
+Den förinstallerade kabeldragningen ska uppfylla de krav som följer av 2 kap.
+5 § andra och tredje styckena.
+
+BFS 2026:4
+
+8
+
+1. Denna författning träder i kraft den 1 januari 2027 i fråga om 4 kap. 3–4 §§,
+den 1 januari 2033 i fråga om 4 kap. 5 § och i övrigt den 1 juli 2026.
+2. Genom författningen upphävs Boverkets föreskrifter och allmänna råd (BFS
+2021:2) om utrustning för laddning av elfordon.
+
+På Boverkets vägnar
+
+ANDERS SJELVGREN
+
+Anders Johansson

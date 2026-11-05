@@ -1741,3 +1741,98 @@ begrepp:
     modul: 08-ritning-berakning
     status: utkast
     rattslage: "2025-12-01"
+
+  - id: angoringsplats
+    term: Angöringsplats
+    definition: >-
+      En plats för kortare tillfällig uppställning av bil eller annat fordon, för på- och
+      avstigning eller i- och urlastning. Minst en ska finnas inom 25 meters gångavstånd från
+      en tillgänglig entré.
+    lagrum: [BFS 2024:13 1 kap. 5 §, BFS 2024:13 2 kap. 5 §]
+    relaterade: [angreppspunkt, tillganglighet]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: angreppspunkt
+    term: Angreppspunkt
+    definition: >-
+      Byggnadens entréer eller andra ingångar som är avsedda att användas av
+      räddningstjänsten. Uppställningsplatsen för räddningsfordon ska ligga längst 50 meter
+      från dem.
+    lagrum: [BFS 2024:13 1 kap. 5 §, BFS 2024:13 3 kap. 1 §]
+    relaterade: [angoringsplats]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: anpassning-vid-andring
+    term: Anpassning vid ändring
+    definition: >-
+      Vid ändring ska den ändrade delen som huvudregel uppfylla kraven för nya byggnader, men
+      kraven får anpassas av skäl som räknas upp i föreskrifterna, till exempel varsamhet,
+      förvanskning eller att kostnaden är oskäligt hög i förhållande till nyttan.
+    lagrum: [PBL 8 kap. 7 §, BFS 2024:11 4 kap. 1 §, BFS 2024:12 4 kap. 1 §]
+    relaterade: [mindre-avvikelse-foreskrifter, tillganglighet]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: avskiljbar-del-av-rum
+    term: Avskiljbar del av rum
+    definition: >-
+      Ett utrymme för en bostadsfunktion som finns i samma rum som en annan bostadsfunktion,
+      och som är utformat så att det skulle kunna skiljas av och bli ett eget rum.
+    lagrum: [BFS 2024:11 1 kap. 5 §]
+    relaterade: [boendeenhet, bostadsfunktioner]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: boendeenhet
+    term: Boendeenhet
+    definition: >-
+      Del av en bostad som är upplåten för enskilt bruk i bostäder där vissa bostadsfunktioner
+      delas. Matlagning får delas av högst tolv personer och ett rum för personhygien av högst
+      tre boendeenheter för en person.
+    lagrum: [BFS 2024:11 1 kap. 5 §, BFS 2024:11 2 kap. 7 §, BFS 2024:11 2 kap. 8 §]
+    relaterade: [bostadsfunktioner, avskiljbar-del-av-rum]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: bostadsfunktioner
+    term: Bostadsfunktioner
+    definition: >-
+      Funktionerna sömn och vila, samvaro, matlagning, måltider, hygien och förvaring. En
+      bostad ska utformas och dimensioneras för dem.
+    lagrum: [BFS 2024:11 1 kap. 5 §, BFS 2024:11 2 kap. 1 §, PBF 3 kap. 1 §]
+    relaterade: [boendeenhet, avskiljbar-del-av-rum]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggnadsklass
+    term: Byggnadsklass
+    definition: >-
+      Indelning av byggnader efter skyddsbehov vid brand, från byggnadsklass 0 (mycket stort
+      skyddsbehov) till byggnadsklass 3 (litet skyddsbehov). Klassen beror bland annat på
+      antal plan och byggnadsarea.
+    lagrum: [BFS 2024:7 2 kap. 5 §, BFS 2024:7 2 kap. 8 §]
+    relaterade: [tekniska-egenskapskrav]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: mindre-avvikelse-foreskrifter
+    term: Mindre avvikelse från föreskrifter
+    definition: >-
+      Från de flesta av Boverkets föreskrifter får mindre avvikelse göras i enskilda fall, om
+      det finns särskilda skäl, byggnaden ändå kan antas bli tekniskt tillfredsställande och
+      det inte finns någon avsevärd olägenhet. Skälen ska dokumenteras. Skilj det från liten
+      avvikelse från detaljplan.
+    lagrum: [BFS 2024:11 1 kap. 3 §, BFS 2024:12 1 kap. 3 §]
+    relaterade: [liten-avvikelse, anpassning-vid-andring]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"

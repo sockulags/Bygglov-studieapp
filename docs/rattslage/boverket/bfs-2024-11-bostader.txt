@@ -1,0 +1,330 @@
+BOVERKETS FÖRFATTNINGSSAMLING BFS 2024:11: bostäders lämplighet för sitt ändamål
+Källa: https://rinfo.boverket.se/BFS2024-11/pdf/BFS2024-11.pdf
+Hämtad 2026-11-05. Ändrad t.o.m.: grundförfattningen (Boverkets register).
+Text utvunnen ur PDF. Författningar är fria att återge. Ändringsförfattningar står efter
+grundförfattningen och är inte inarbetade.
+========================================================================
+
+Boverkets författningssamling
+
+Utgivare: Yvonne Svensson
+BFS 2024:11
+
+1
+Boverkets föreskrifter om bostäders lämplighet för sitt
+ändamål;
+Utkom från trycket
+den 20 november 2024
+
+beslutade den 19 november 2024.
+
+Boverket föreskriver1 följande med stöd av 10 kap. 1 § 2, 3 § 8, 8 § och 24 § 1
+plan- och byggförordningen (2011:338).
+1 kap. Övergripande bestämmelser
+Författningens innehåll
+1 §    Denna författning innehåller föreskrifter till
+1. utformningskrav avseende att byggnader som innehåller bostäder ska vara
+lämpliga för sitt ändamål enligt 3 kap. 1 § plan- och byggförordningen
+(2011:338), och
+2. tekniska egenskapskrav avseende att byggnader som innehåller bostäder ska
+vara lämpliga för avsett ändamål enligt 3 kap. 17 § plan- och byggförordningen.
+Författningen innehåller också föreskrifter om anpassning av
+utformningskraven och de tekniska egenskapskraven vid ändring av byggnader
+enligt 8 kap. 7 § plan- och bygglagen (2010:900) och om kontroll enligt 10 kap.
+5 § samma lag.
+Föreskrifternas tillämpningsområde
+2 §    Föreskrifterna i denna författning gäller för bostäder.
+Föreskrifterna i 1 kap. gäller vid uppförande av nya byggnader och vid ändring
+av byggnader för den ändrade delen.
+Föreskrifterna i 2 och 3 kap. gäller vid uppförande av nya byggnader.
+Föreskrifterna i 4 kap. gäller vid ändring av byggnader.
+Föreskrifterna gäller inte vid uppförande eller ändring av fritidshus med högst
+två bostäder.
+Mindre avvikelse från föreskrifterna i denna författning
+3 §    Mindre avvikelse får göras från föreskrifterna i denna författning i enskilda
+fall om
+1. det finns särskilda skäl,
+2. byggnaden ändå kan antas bli tekniskt tillfredsställande, och
+3. det inte finns någon avsevärd olägenhet från annan synpunkt.
+Om mindre avvikelse enligt första stycket tillämpas ska skälen för detta
+dokumenteras i samband med den projektering som regleras i 8 §.
+
+1 Se Europaparlamentets och rådets direktiv (EU) 2015/1535 av den 9 september 2015 om ett
+informationsförfarande beträffande tekniska föreskrifter och beträffande föreskrifter för
+informationssamhällets tjänster (kodifiering).
+
+BFS 2024:11
+
+2
+Definitioner
+4 §    Termer och uttryck i denna författning har samma betydelse som i plan- och
+bygglagen (2010:900) och plan- och byggförordningen (2011:338).
+
+5 §    I denna författning avses med
+avskiljbar del av rum: ett utrymme för en bostadsfunktion, som finns i samma
+rum som utrymmet för en annan bostadsfunktion, och som är utformat så att delen
+skulle kunna skiljas av och bli ett separat rum,
+boendeenhet: del av en bostad som är upplåten för enskilt bruk i bostäder där
+vissa bostadsfunktioner delas,
+bostadsfunktioner: funktionerna sömn och vila, samvaro, matlagning, måltider,
+hygien och förvaring, enligt 3 kap. 1 och 17 §§ plan- och byggförordningen
+(2011:338),
+matlagning: beredning och förvaring av livsmedel, och
+rum: ett utrymme i en byggnad, som kan beträdas och är avgränsat på alla sidor
+av golv, väggar och tak.
+
+6 §    Med byggprodukter med förhandsbedömda egenskaper avses i denna
+författning produkter som tillverkats för att permanent ingå i byggnadsverk och
+som antingen
+1. är CE-märkta,
+2. är typgodkända eller tillverkningskontrollerade enligt bestämmelserna i
+8 kap. 22–23 §§ plan- och bygglagen (2010:900),
+3. har certifierats av ett certifieringsorgan som ackrediterats för uppgiften och
+för produkten i fråga enligt Europaparlamentets och rådets förordning (EG)
+nr 765/2008 av den 9 juli 2008 om krav för ackreditering och upphävande av
+förordning (EEG) nr 339/93, eller
+4. har tillverkats i en fabrik vars tillverkning och produktionskontroll och
+utfallet därav för byggprodukten fortlöpande övervakas, bedöms och godkänns av
+ett certifieringsorgan som ackrediterats för uppgiften och för produkten i fråga
+enligt förordningen (EG) nr 765/2008.
+Såsom bedömning i enlighet med alternativ 3 eller 4 godtas även en bedömning
+utfärdad av ett organ inom Europeiska ekonomiska samarbetsområdet eller i
+Turkiet om organet på annat sätt än genom ackreditering för uppgiften enligt
+förordningen (EG) nr 765/2008, erbjuder motsvarande garantier i fråga om
+teknisk och yrkesmässig kompetens samt garantier om oberoende.
+Byggprodukter och material
+7 §    Byggprodukter och material ska ha kända och dokumenterade egenskaper i
+de avseenden som har betydelse för byggnadens förmåga att uppfylla kraven i
+denna författning.
+Byggprodukter med förhandsbedömda egenskaper ska anses ha kända och
+dokumenterade egenskaper i de avseenden som de är förhandsbedömda.
+Egenskaper hos andra byggprodukter än byggprodukter med förhandsbedömda
+egenskaper ska provas eller bedömas genom annan vedertagen metod. Inom
+Europeiska unionen vedertagen metod ska användas där sådan finns.
+
+BFS 2024:11
+
+3
+Projektering och utförande
+8 §    Byggnader ska projekteras
+1. på ett fackmässigt sätt,
+2. så att arbetet kan utföras på ett sådant sätt att kraven i denna författning
+uppfylls, och
+3. så att förutsatt underhåll kan ske.
+Projekteringen ska dokumenteras.
+Första och andra styckena gäller inte om det är obehövligt.
+
+9 §    Byggnader ska utföras
+1. på ett fackmässigt sätt, och
+2. enligt gällande handlingar.
+Särskilt om ändring av byggnad
+10 §    Vid ändring av en byggnad ska det klarläggas om
+1. byggnaden har sådana brister avseende kraven på lämplighet för sitt ändamål
+som kan åtgärdas inom ramen för den planerade åtgärden,
+2. den planerade åtgärden kan medföra en försämring av egenskaperna i fråga
+om lämplighet för sitt ändamål i den befintliga byggnaden, och
+3. ändringen kommer att medföra en negativ påverkan på byggnadens
+kulturvärden och hur en sådan negativ påverkan kan undvikas.
+Kontroll
+11 §    Kontroll av att kraven på bostäders lämplighet för sitt ändamål uppfylls ska
+göras
+1. under projektering och utförande enligt 12–14 §§,
+2. i den färdiga byggnaden enligt 15 §, eller
+3. med en kombination av punkt 1 och 2.
+Kontroll ska utföras fackmässigt.
+Resultatet av kontrollen ska dokumenteras.
+
+12 §    Vid kontroll under projektering ska det kontrolleras att dimensionerande
+förutsättningar, projekteringsmetoder, provningsmetoder och beräkningar är
+relevanta och redovisade i handlingarna.
+
+13 §    Vid kontroll under utförande ska det kontrolleras att arbetet utförs enligt
+gällande handlingar.
+
+14 §    Byggprodukter och material ska kontrolleras när de tas emot på
+byggarbetsplatsen. Kontroll ska göras av att byggprodukter och material har
+förutsatta egenskaper.
+För byggprodukter med förhandsbedömda egenskaper kan kontrollen
+inskränkas till identifiering, kontroll av märkning och granskning av
+dokumentationen av de förhandsbedömda egenskaperna.
+
+15 §    Vid kontroll i den färdiga byggnaden ska kontroll göras genom provning,
+mätning eller besiktning.
+
+BFS 2024:11
+
+4
+2 kap. Utformningskrav på bostäder vid uppförande av nya
+byggnader
+1 §    En bostad ska utformas och dimensioneras för bostadsfunktionerna.
+Utformningen och dimensioneringen ska göras med hänsyn till
+1. bostadens storlek,
+2. det antal boende som den är avsedd för,
+3. behovet av avskiljbara delar av rum, och
+4. den inredning och utrustning som behövs.
+
+2 §    Vid tillämpning av 1 § för dimensionering och utformning av en
+studentbostad får hänsyn även tas till att bostaden används av den enskilde
+studerande under en avgränsad tid.
+
+3 §    I bostaden ska finnas rum för personhygien.
+
+4 §    Utrymme för att tvätta och torka tvätt får placeras utanför bostaden och
+delas av flera bostäder. Utrymmet ska finnas i bostädernas närhet. Utrymmet ska
+vara dimensionerat för de bostäder som delar funktionen.
+
+5 §    Utrymme för förvaring som inte är för dagligt bruk får placeras utanför
+bostaden men i dess närhet. Om utrymmet är placerat utanför bostaden ska det
+vara avskilt.
+
+6 §    Rum för förvaring av skrymmande föremål för dagligt bruk, får placeras
+utanför bostaden och får delas av flera bostäder. Rummet ska vara dimensionerat
+för de bostäder som delar funktionen.
+Bostäder med boendeenheter
+7 §    Bostadsfunktionerna samvaro, matlagning och måltider får delas av flera
+boendeenheter som är avsedda för en person. De delade funktionerna ska finnas i
+anslutning till boendeenheterna. De delade funktionerna ska vara dimensionerade
+så att de är lämpliga för det antal personer som delar dem.
+Bostadsfunktionen matlagning får delas av högst tolv personer.
+
+8 §    Rum för personhygien får delas av högst tre boendeenheter som är avsedda
+för en person. Rummet ska finnas i anslutning till, och på samma plan, som
+boendeenheterna.
+
+9 §    Bostadsfunktionerna samvaro, matlagning och måltider får delvis delas av
+flera boendeenheter som är avsedda för flera personer, som komplement till
+funktionerna i boendeenheterna.
+
+10 §    I särskilda boendeformer för äldre, med boendeenheter, får
+bostadsfunktionerna samvaro, matlagning och måltider delvis delas av flera
+boendeenheter, som komplement till funktionerna i boendeenheterna. De delade
+funktionerna ska finnas i anslutning till boendeenheterna.
+För särskilda boendeformer för äldre får 7–9 §§ inte tillämpas.
+
+11 §    För särskilda bostäder för personer med nedsatt funktionsförmåga får 7–
+10 §§ inte tillämpas.
+
+BFS 2024:11
+
+5
+3 kap. Tekniska egenskapskrav på bostäder vid uppförande av
+nya byggnader
+1 §    Rum för personhygien ska ha fast inredning och utrustning för
+personhygien.
+
+2 §    Ett utrymme för tvätt och tork av tvätt, som delas av flera bostäder, ska ha
+fast inredning och utrustning för att maskinellt tvätta och torka tvätt.
+Den fasta inredningen och utrustningen ska vara dimensionerad för de bostäder
+som delar funktionen.
+
+3 §    Ett utrymme för bostadsfunktionen matlagning ska ha fast inredning och
+utrustning för matlagning.
+Den fasta inredningen och utrustningen ska vara dimensionerad för det antal
+personer som bostaden är avsedd för. För en studentbostad får hänsyn även tas till
+att bostaden används av den enskilde studerande under en avgränsad tid.
+Boendeenheter som är avsedda för personer med demenssjukdom i särskilda
+boendeformer för äldre är undantagna från kravet enligt första stycket. Dock ska
+nödvändiga installationer vara förberedda.
+
+4 §    Om bostadsfunktionen matlagning delas av flera boendeenheter enligt 2 kap.
+7 § ska den fasta inredningen och utrustningen enligt 3 § vara dimensionerad så
+att den är lämplig för det antal personer som delar den.
+4 kap. Krav på bostäder vid ändring av byggnader
+Anpassning vid ändring av byggnader
+1 §    Vid ändring av byggnad ska den ändrade delen uppfylla kraven i 2 och
+3 kap. Kraven får dock anpassas om
+1. det krävs för att uppfylla kravet på varsamhet,
+2. det krävs för att följa förbudet mot förvanskning,
+3. det är oskäligt att uppfylla kravet med hänsyn till ändringens omfattning,
+4. bostadens lämplighet för sitt ändamål bara blir försumbart bättre om kravet
+uppfylls,
+5. kostnaden är oskäligt hög i förhållande till den förväntade nyttan,
+6. det finns tekniska skäl, eller
+7. det krävs för att ett annat utformnings- eller tekniskt egenskapskrav ska
+kunna tillgodoses på en godtagbar nivå eller för att tillvarata byggnadens
+kulturvärden.
+
+2 §    Försämring av byggnadens lämplighet för sitt ändamål får endast ske om
+1. bostaden även efter ändringen uppfyller kraven i 2 och 3 kap.,
+2. det krävs för att kunna tillgodose ett annat utformnings- eller tekniskt
+egenskapskrav eller för att tillvarata byggnadens kulturvärden, eller
+3. försämringen kan anses vara försumbar.
+Varsamhet
+3 §    Vid en bedömning om kravet på varsamhet är uppfyllt ska hänsyn tas till hur
+åtgärden respekterar byggnadens karaktär avseende
+1. proportioner, form och volym,
+
+BFS 2024:11
+
+6
+2. materialval och utförande,
+3. färgsättning, samt
+4. detaljomsorg och detaljeringsnivå.
+Hänsyn ska också tas till om
+1. detaljer som är väsentliga för byggnadens karaktär tillvaratas, och
+2. egenskaper som har betydelse för boende- och brukarkvaliteter bibehålls.
+Förbud mot förvanskning
+4 §    För att en åtgärd inte ska anses medföra en förvanskning av en särskilt
+värdefull byggnad ska åtgärden
+1. inte förändra byggnadens karaktärsdrag,
+2. inte skada de egenskaper som ligger till grund för byggnadens eller områdets
+kulturvärden, och
+3. vid utbyte av byggnadsdelar utföras med material och hantverksteknik som
+är anpassad till byggnadens ålder och karaktär.
+Trots första stycket 3 ska en åtgärd inte anses utgöra en förvanskning om en
+förändring av material eller teknik är en förutsättning för att kunna
+1. tillgodose utformningskraven och de tekniska egenskapskraven på en
+acceptabel nivå, eller
+2. upprätthålla funktionen hos de tekniska systemen på en acceptabel nivå.
+Särskilt värdefull byggnad
+5 §    Vid bedömningen av om en byggnad ska anses vara särskilt värdefull, ska
+en prövning göras mot följande kriterier:
+1. Byggnaden tydliggör tidigare samhällsförhållanden genom att den
+a) representerar en tidigare vanlig byggnadskategori eller konstruktion som nu
+har blivit sällsynt,
+b) belyser tidigare bostadsförhållanden, sociala och ekonomiska villkor,
+arbetsförhållanden, olika gruppers livsvillkor, stadsbyggnadsideal eller
+arkitektoniska ideal samt värderingar och tankemönster, eller
+c) har representerat en för lokalsamhället viktig funktion eller verksamhet.
+2. Byggnaden tydliggör samhällsutvecklingen genom att den
+a) genom sin funktion illustrerar ett väsentligt skeende eller en väsentlig
+samhällsföreteelse,
+b) har tjänat som förebild eller på annat sätt varit uppmärksammad i sin samtid,
+eller
+c) präglas av en stark arkitektonisk idé.
+3. Byggnaden i sig utgör en källa till kunskap om äldre material och teknik.
+4. Byggnaden värderas högt i ett lokalt sammanhang genom att den har haft
+stor betydelse
+a) i ortens sociala liv,
+b) för ortens identitet, eller
+c) i lokala traditioner.
+Byggnaden kan anses vara särskilt värdefull från konstnärlig synpunkt genom
+att den uppvisar särskilda estetiska kvaliteter eller har en hög ambitionsnivå med
+avseende på
+1. arkitektonisk gestaltning,
+2. i utförande och materialval, eller
+3. i konstnärlig gestaltning och utsmyckning.
+Byggnaden kan anses vara särskilt värdefull från miljömässig synpunkt genom
+att den utgör en del av en miljö som uppfyller kriterierna i första stycket.
+
+BFS 2024:11
+
+7
+För att en byggnad ska anses vara särskilt värdefull ska byggnaden särskilt väl
+belysa ett visst förhållande eller i sitt sammanhang ha få motsvarigheter som kan
+belysa samma förhållande.
+Byggnader från tiden före 1920-talets bebyggelseexpansion, som har sin
+huvudsakliga karaktär bevarad, ska anses vara särskilt värdefulla om inte något
+talar däremot.
+
+1. Denna författning träder i kraft den 1 juli 2025.
+2. Äldre bestämmelser i Boverkets byggregler (2011:6) – föreskrifter och
+allmänna råd får dock tillämpas i den utsträckning som framgår av punkten 3 i
+övergångsbestämmelserna till Boverkets föreskrifter (2024:14) om ändring i
+Boverkets byggregler (2011:6) – föreskrifter och allmänna råd.
+
+På Boverkets vägnar
+
+ANDERS SJELVGREN
+
+Parisa Ghandari

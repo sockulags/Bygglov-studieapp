@@ -1,0 +1,2094 @@
+BOVERKETS FÖRFATTNINGSSAMLING BFS 2020:5: detaljplan
+Källa: https://rinfo.boverket.se/BFS2020-5/pdf/BFS2020-5.pdf
+Hämtad 2026-11-05. Ändrad t.o.m.: grundförfattningen, registret ej kontrollerat (Boverkets register).
+Text utvunnen ur PDF. Författningar är fria att återge. Ändringsförfattningar står efter
+grundförfattningen och är inte inarbetade.
+========================================================================
+
+Boverkets författningssamling
+
+Utgivare: Anette Martinsson
+BFS 2020:5
+
+Boverkets föreskrifter om detaljplan;
+1
+Utkom från trycket
+den 17 september 2020
+beslutade den 9 september 2020.
+
+Informationsförfarande enligt förordningen (1994:2029) om tekniska regler har
+genomförts.1
+Boverket föreskriver följande med stöd av 10 kap. 29 § plan- och
+byggförordningen (2011:338).
+1 kap. Inledning, innehåll och definitioner
+1 §    Denna författning innehåller föreskrifter till plan- och bygglagen (2010:900)
+och plan- och byggförordningen (2011:338).
+Författningen innehåller föreskrifter om detaljplanens reglering och om detalj-
+planens digitala information.
+
+2 §    Dessa föreskrifter innehåller följande kapitel:
+1. Inledning, innehåll och definitioner.
+2. Digital information.
+3. Avgränsningar och planområde.
+4. Användningsbestämmelser för allmän plats.
+5. Användningsbestämmelser för kvartersmark.
+6. Användningsbestämmelser för vattenområde.
+7. Egenskapsbestämmelser.
+Definitioner
+3 §    I dessa föreskrifter avses med
+avgränsning horisontellt: avgränsning av horisontalplanet,
+avgränsning vertikalt: avgränsning i höjdled,
+digital information: uppgifter i detaljplan i digitalt format,
+nockhöjd: avstånd från den medelnivå som marken har invid byggnaden, eller i
+planbestämmelsen angivet plan, till yttertakets högsta del,
+nollplan: geoiden i det höjdssystem som detaljplanen är upprättad enligt,
+takvinkel: lutningen mellan yttertaket och horisontalplanet, och
+totalhöjd: avstånd från den medelnivå som marken har invid byggnadsverket,
+eller i planbestämmelsen angivet plan, till högsta punkten på byggnadsverket.
+2 kap. Digital information
+1 §    Digital information som avses i 2–8 §§ ska kunna ingå i en överföring av
+digital information samt vara möjlig att återge i detaljplanens beslutade form.
+
+1 Se Europaparlamentets och rådets direktiv (EU) 2015/1535 av den 9 september 2015 om
+ett informationsförfarande beträffande tekniska föreskrifter och beträffande föreskrifter
+för informationssamhällets tjänster.
+
+BFS 2020:5
+
+2
+2 §    Reglering i en detaljplan som bestämts enligt 4–7 kap. i dessa föreskrifter
+ska vara identifierbar, lägesbestämd samt punkt-, linje-, yt- eller volymbaserad.
+Digital koppling av information
+3 §    Följande information ska digitalt kopplas till planområdet
+1. kommunens namn,
+2. detaljplanens namn,
+3. kommunens diarienummer för detaljplanen,
+4. hänvisning till beslutsprotokollet,
+5. vilket datum detaljplanen är påbörjad, och
+6. vilket datum detaljplanen fick laga kraft.
+Vid ändring av en detaljplan som inte upprättats enligt denna föreskrift gäller
+inte denna bestämmelse.
+
+4 §    Vid ändring av en detaljplan som är upprättad enligt denna föreskrift ska
+förutom den information som anges i 3 § följande information digitalt kopplas till
+planområdet
+1. kommunens diarienummer för ändringen av detaljplanen,
+2. hänvisning till beslutsprotokollet,
+3. när ändringen påbörjades, och
+4. när ändringen fick laga kraft.
+
+5 §    Om någon del av en detaljplan omfattas av sådant förordnande som avses i
+13 kap. 17 § tredje stycket plan- och bygglagen (2010:900), ska information om
+det datum när detaljplanen får genomföras enligt förordnandet digitalt kopplas till
+det område som förordnandet omfattar.
+Vid ändring av en detaljplan som inte upprättats enligt denna föreskrift gäller
+inte första stycket.
+
+6 §    Information om genomförandetid ska digitalt kopplas till planområdet.
+Om detaljplanen har olika genomförandetider ska information om genom-
+förandetiderna digitalt kopplas till de användningsbestämmelser de gäller för.
+Vid ändring av en detaljplan som är upprättad enligt denna föreskrift ska
+genomförandetiden digitalt kopplas till de planbestämmelser ändringen avser.
+Vid ändring av en detaljplan som inte upprättats enligt denna föreskrift gäller
+inte första och andra stycket.
+
+7 §    Egenskapsbestämmelser enligt 7 kap. 2–25 §§ ska digitalt kopplas till den
+eller de användningsbestämmelser som de gäller för.
+Vid ändring av en detaljplan som inte upprättats enligt denna föreskrift gäller
+inte första stycket.
+
+8 §    För en användningsbestämmelse som är tillfällig enligt 4 kap. 26 § plan- och
+bygglagen (2010:900) ska information om den tid som den tillfälliga använd-
+ningen får pågå digitalt kopplas till användningsbestämmelsen.
+3 kap. Avgränsningar och planbestämmelser
+1 §    Ett planområde ska avgränsas horisontellt och får även helt eller delvis
+avgränsas vertikalt.
+
+BFS 2020:5
+
+3
+2 §    Området som en planbestämmelse gäller inom ska avgränsas horisontellt
+och får även avgränsas vertikalt.
+
+3 §    En precisering av en planbestämmelse innebär att endast det som anges i
+preciseringen är tillåtet.
+
+4 §    Planbestämmelser får inte formuleras så att de innehåller hänvisningar till
+planbeskrivningen, andra handlingar eller författningar.
+4 kap. Användningsbestämmelser för allmän plats
+1 §    Endast de användningar som är reglerade i 2–10 §§ får användas vid
+reglering med användningsbestämmelser på allmän plats i detaljplan.
+Formuleringar av bestämmelser, formuleringar av preciseringar och
+bestämmelsekoder ska följa det som anges i tabellerna nedan. Annan precisering
+får endast användas när tillämpbar formulering saknas. Hakparentesen [Annan
+precisering] ska då ersättas med en egen formulering av preciseringen.
+Torg
+2 §    Användningen torg ska tillämpas för områden för alla typer av torg med
+tillhörande verksamheter. I användningen ingår även komplement som behövs för
+torgets funktion.
+Tabell 4.1
+Torg
+Formulering av bestämmelse
+Bestämmelsekod
+Torg
+DP_AP_Torg
+Tabell 4.2
+Precisering av bestämmelsen torg
+Formulering av precisering
+Bestämmelsekod
+Salutorg
+DP_AP_Torg_Salu
+Restaurangtorg
+DP_AP_Torg_Restaurang
+Kollektivtrafiktorg
+DP_AP_Torg_Kollektivtrafik
+[Annan precisering]
+DP_AP_Torg_Annan
+Väg
+3 §    Användningen väg ska tillämpas för områden avsedda främst för trafik till,
+från och genom en ort samt mellan olika områden inom en ort. I användningen
+ingår även komplement som behövs för vägens funktion.
+Tabell 4.3
+Väg
+Formulering av bestämmelse
+Bestämmelsekod
+Väg
+DP_AP_Vag
+Tabell 4.4
+Precisering av bestämmelsen väg
+Formulering av precisering
+Bestämmelsekod
+Genomfartsväg
+DP_AP_Vag_Genomfart
+Infartsväg
+DP_AP_Vag_Infart
+[Annan precisering]
+DP_AP_Vag_Annan
+
+BFS 2020:5
+
+4
+Gata
+4 §    Användningen gata ska tillämpas för områden avsedda främst för trafik
+inom en ort eller för trafik som har sitt mål vid gatan. I användningen ingår även
+komplement som behövs för gatans funktion.
+Tabell 4.5
+Gata
+Formulering av bestämmelse
+Bestämmelsekod
+Gata
+DP_AP_Gata
+Tabell 4.6
+Precisering av bestämmelsen gata
+Formulering av precisering
+Bestämmelsekod
+Kollektivtrafikgata
+DP_AP_Gata_Kollektiv
+Industrigata
+DP_AP_Gata_Industri
+Huvudgata
+DP_AP_Gata_Huvud
+Lokalgata
+DP_AP_Gata_Lokal
+Gågata
+DP_AP_Gata_Ga
+[Annan precisering]
+DP_AP_Gata_Annan
+Gång- och cykelväg
+5 §    Användningen gång- och cykelväg ska tillämpas för områden avsedda för
+gång-, cykel- och mopedtrafik. I användningen ingår även komplement som
+behövs för gång- och cykelvägens funktion.
+Tabell 4.7
+Gång- och cykelväg
+Formulering av bestämmelse
+Bestämmelsekod
+Gång- och cykelväg
+DP_AP_GC
+Tabell 4.8
+Precisering av bestämmelsen gång- och cykelväg
+Formulering av precisering
+Bestämmelsekod
+Gångväg
+DP_AP_GC_Gang
+Cykelväg
+DP_AP_GC_CykelMoped
+Enbart cykeltrafik
+DP_AP_GC_EnbartCykel
+[Annan precisering]
+DP_AP_GC_Annan
+Parkering
+6 §    Användningen parkering ska tillämpas för områden för parkering. I
+användningen ingår även komplement som behövs för parkeringens funktion.
+Tabell 4.9
+Parkering
+Formulering av bestämmelse
+Bestämmelsekod
+Parkering
+DP_AP_Parkering
+Tabell 4.10
+Precisering av bestämmelsen parkering
+Formulering av precisering
+Bestämmelsekod
+Bilparkering
+DP_AP_Parkering_Bil
+Cykelparkering
+DP_AP_Parkering_Cykel
+Bussparkering
+DP_AP_Parkering_Buss
+Husbilsparkering
+DP_AP_Parkering_Husbil
+
+BFS 2020:5
+
+5
+Formulering av precisering
+Bestämmelsekod
+Lastbilsparkering
+DP_AP_Parkering_Lastbil
+[Annan precisering]
+DP_AP_Parkering_Annan
+Park
+7 §    Användningen park ska tillämpas för områden för grönområden som kräver
+skötsel och som helt eller till viss del är anlagda. I användningen ingår även
+komplement till parkens användning.
+Tabell 4.11
+Park
+Formulering av bestämmelse
+Bestämmelsekod
+Park
+DP_AP_Park
+Tabell 4.12
+Precisering av bestämmelsen park
+Formulering av precisering
+Bestämmelsekod
+Lek
+DP_AP_Park_Lek
+Spontanidrott
+DP_AP_Park_Spontan
+[Annan precisering]
+DP_AP_Park_Annan
+Natur
+8 §    Användningen natur ska tillämpas för områden för friväxande grönområden
+som inte sköts mer än enligt skötselplan eller genom visst begränsat underhåll.
+Även mindre park-, vatten- och friluftsanläggningar och andra komplement till
+naturområdets användning ingår.
+Tabell 4.13
+Natur
+Formulering av bestämmelse
+Bestämmelsekod
+Natur
+DP_AP_Natur
+Tabell 4.14
+Precisering av bestämmelsen natur
+Formulering av precisering
+Bestämmelsekod
+Skog
+DP_AP_Natur_Skog
+Våtmark
+DP_AP_Natur_Vatmark
+[Annan precisering]
+DP_AP_Natur_Annan
+Skydd
+9 §    Användningen skydd ska tillämpas för områden för åtgärder som skyddar
+mot störning, markförorening, olyckor, översvämning och erosion. I
+användningen ingår även komplement som behövs för skyddets funktion.
+Tabell 4.15
+Skydd
+Formulering av bestämmelse
+Bestämmelsekod
+Skydd
+DP_AP_Skydd
+Tabell 4.16
+Precisering av bestämmelsen skydd
+Formulering av precisering
+Bestämmelsekod
+Översvämningsyta
+DP_AP_Skydd_Oversvamning
+Översvämningsskydd
+DP_AP_Skydd_Oversvamningsskydd
+Bullerskydd
+DP_AP_Skydd_Bullerskydd
+
+BFS 2020:5
+
+6
+Formulering av precisering
+Bestämmelsekod
+Erosionsskydd
+DP_AP_Skydd_Erosion
+Vibrationsskydd
+DP_AP_Skydd_Vibrationsskydd
+[Annan precisering]
+DP_AP_Skydd_Annan
+Annan allmän plats
+10 §    Användningen annan allmän plats ska tillämpas i de fall någon av
+användningarna i 2–9 §§ inte är tillämpliga. Användningen ska alltid preciseras.
+Tabell 4.17
+Precisering av användningen annan allmän plats
+Formulering av precisering
+Bestämmelsekod
+[Annan precisering]
+DP_AP_AnnanAP_Annan
+5 kap. Användningsbestämmelser för kvartersmark
+1 §    Endast de användningar som är reglerade i 2–22 §§ får användas vid
+reglering med användningsbestämmelser på kvartersmark i detaljplan.
+Formuleringar av bestämmelser, formuleringar av preciseringar och
+bestämmelsekoder ska följa det som anges i tabellerna nedan. Annan precisering
+får endast användas när tillämpbar formulering saknas. Hakparentesen [Annan
+precisering] ska då ersättas med en egen formulering av preciseringen.
+Bostäder
+2 §    Användningen bostäder ska tillämpas för områden för olika former av
+boende av varaktig karaktär. Även bostadskomplement ingår i användningen.
+Tabell 5.1
+Bostäder
+Formulering av bestämmelse
+Bestämmelsekod
+Bostäder
+DP_KM_B2
+Tabell 5.2
+Precisering av bestämmelsen bostäder
+Formulering av precisering
+Bestämmelsekod
+[Annan precisering]
+DP_KM_B2_Annan
+Centrum
+3 §    Användningen centrum ska tillämpas för områden för kombinationer av
+handel, service, tillfällig vistelse, samlingslokaler, kontor och annan jämförlig
+verksamhet som ligger centralt eller på annat sätt ska vara lätta att nå. Även
+komplement till verksamheten centrum ingår i användningen.
+Tabell 5.3
+Centrum
+Formulering av bestämmelse
+Bestämmelsekod
+Centrum
+DP_KM_C2
+Tabell 5.4
+Precisering av bestämmelsen centrum
+Formulering av precisering
+Bestämmelsekod
+Bibliotek
+DP_KM_C2_Bibliotek
+Bio
+DP_KM_C2_Bio
+Restaurang
+DP_KM_C2_Restaurang
+
+BFS 2020:5
+
+7
+Formulering av precisering
+Bestämmelsekod
+Café
+DP_KM_C2_Cafe
+Träningslokal
+DP_KM_C2_Traning
+[Annan precisering]
+DP_KM_C2_Annan
+Vård
+4 §    Användningen vård ska tillämpas för områden för vårdverksamhet som
+avser människor. Även komplement till verksamheten vård ingår i användningen.
+Tabell 5.5
+Vård
+Formulering av bestämmelse
+Bestämmelsekod
+Vård
+DP_KM_D2
+Tabell 5.6
+Precisering av bestämmelsen vård
+Formulering av precisering
+Bestämmelsekod
+Vårdcentral
+DP_KM_D2_Vardcentral
+Tandvård
+DP_KM_D2_Tand
+Sjukhus
+DP_KM_D2_Sjukhus
+Kriminalvård
+DP_KM_D2_Kriminal
+Rättspsykiatrisk vård
+DP_KM_D2_Rattspsyk
+[Annan precisering]
+DP_KM_D2_Annan
+Tekniska anläggningar
+5 §    Användningen tekniska anläggningar ska tillämpas för områden för tekniskt
+ändamål. Även komplement till verksamheten tekniska anläggningar ingår i
+användningen.
+Tabell 5.7
+Tekniska anläggningar
+Formulering av bestämmelse
+Bestämmelsekod
+Tekniska anläggningar
+DP_KM_E2
+Tabell 5.8
+Precisering av bestämmelsen tekniska anläggningar
+Formulering av precisering
+Bestämmelsekod
+Avfallsanläggning
+DP_KM_E2_Avfall
+Avloppsanläggning
+DP_KM_E2_Avlopp
+Avloppsreningsverk
+DP_KM_E2_Reningsverk
+Dagvattenanläggning
+DP_KM_E2_Dagvattenanlaggning
+Dagvattendamm
+DP_KM_E2_Dagvattendamm
+Fjärrkylanläggning
+DP_KM_E2_Fjarrkyl
+Fjärrvärmeverk
+DP_KM_E2_Fjarrvarmeverk
+Fördröjningsmagasin
+DP_KM_E2_Fordrojning
+Kraftvärmeverk
+DP_KM_E2_Kraftvarmeverk
+Pumpstation
+DP_KM_E2_Pump
+Solenergianläggning
+DP_KM_E2_Sol
+Ställverk
+DP_KM_E2_Stallverk
+Transformatorstation
+DP_KM_E2_Transformator
+Vattenkraftverk
+DP_KM_E2_Vattenkraftverk
+Vattenreservoar
+DP_KM_E2_Vattenreservoar
+
+BFS 2020:5
+
+8
+Formulering av precisering
+Bestämmelsekod
+Vattenverk
+DP_KM_E2_Vattenverk
+Vindkraftverk
+DP_KM_E2_Vindkraftverk
+Värmeverk
+DP_KM_E2_Varmeverk
+[Annan precisering]
+DP_KM_E2_Annan
+Flygtrafik
+6 §    Användningen flygtrafik ska tillämpas för områden för flygverksamhet och
+kompletterande handel och service till resenärer. Även komplement till
+verksamheten flygtrafik ingår i användningen.
+Tabell 5.9
+Flygtrafik
+Formulering av bestämmelse
+Bestämmelsekod
+Flygtrafik
+DP_KM_F2
+Tabell 5.10
+Precisering av bestämmelsen flygtrafik
+Formulering av precisering
+Bestämmelsekod
+Helikoptertrafik
+DP_KM_F2_Helikopter
+[Annan precisering]
+DP_KM_F2_Annan
+Drivmedel
+7 §    Användningen drivmedel ska tillämpas för områden för hantering och
+försäljning av drivmedel och kompletterande handel och service i mindre
+omfattning. Även komplement till verksamheten drivmedel ingår i användningen.
+Tabell 5.11
+Drivmedel
+Formulering av bestämmelse
+Bestämmelsekod
+Drivmedel
+DP_KM_G2
+Tabell 5.12
+Precisering av bestämmelsen drivmedel
+Formulering av precisering
+Bestämmelsekod
+Drivmedel utan kompletterande försäljning
+DP_KM_G2_DrivUtanForsalj
+Laddning av elfordon
+DP_KM_G2_Laddning
+[Annan precisering]
+DP_KM_G2_Annan
+Detaljhandel
+8 §    Användningen detaljhandel ska tillämpas för områden för handel med varor
+och tjänster. Även komplement till verksamheten detaljhandel ingår i
+användningen.
+Tabell 5.13
+Detaljhandel
+Formulering av bestämmelse
+Bestämmelsekod
+Detaljhandel
+DP_KM_H2
+Tabell 5.14
+Precisering av bestämmelsen detaljhandel
+Formulering av precisering
+Bestämmelsekod
+Detaljhandel med livsmedel
+DP_KM_H2_Livs
+Detaljhandel med skrymmande varor
+DP_KM_H2_Skrym
+
+BFS 2020:5
+
+9
+Formulering av precisering
+Bestämmelsekod
+Detaljhandel utom handel med livsmedel
+DP_KM_H2_EjLivs
+Detaljhandel utom handel med livsmedel
+och skrymmande varor
+DP_KM_H2_EjLivsEjSkrym
+Detaljhandel utom handel med
+skrymmande varor
+DP_KM_H2_EjSkrym
+Industri
+9 §    Användningen industri ska tillämpas för områden för produktion, lager,
+partihandel och annan jämförlig verksamhet. Även komplement till verksamheten
+industri ingår i användningen.
+Tabell 5.15
+Industri
+Formulering av bestämmelse
+Bestämmelsekod
+Industri
+DP_KM_J2
+Tabell 5.16
+Precisering av bestämmelsen industri
+Formulering av precisering
+Bestämmelsekod
+Lager
+DP_KM_J2_Lager
+Logistik
+DP_KM_J2_Logistik
+Upplag
+DP_KM_J2_Upplag
+Processindustri
+DP_KM_J2_Process
+[Annan precisering]
+DP_KM_J2_Annan
+Kontor
+10 §    Användningen kontor ska tillämpas för områden för kontor, tjänste-
+verksamhet och annan jämförlig verksamhet med liten eller ingen varuhantering.
+Även komplement till verksamheten kontor ingår i användningen.
+Tabell 5.17
+Kontor
+Formulering av bestämmelse
+Bestämmelsekod
+Kontor
+DP_KM_K2
+Tabell 5.18
+Precisering av bestämmelsen kontor
+Formulering av precisering
+Bestämmelsekod
+[Annan precisering]
+DP_KM_K2_Annan
+Odling och djurhållning
+11 §    Användningen odling och djurhållning ska tillämpas för områden för olika
+typer av odling, djurhållning samt djurvård. Här ingår verksamhetsanknuten
+försäljning. Även komplement till verksamheten odling och djurhållning ingår i
+användningen.
+Tabell 5.19
+Odling och djurhållning
+Formulering av bestämmelse
+Bestämmelsekod
+Odling och djurhållning
+DP_KM_L2
+
+BFS 2020:5
+
+10
+Tabell 5.20
+Precisering av bestämmelsen odling och djurhållning
+Formulering av precisering
+Bestämmelsekod
+Koloniområde
+DP_KM_L2_Koloni
+Handelsträdgård
+DP_KM_L2_Handelstradgard
+Ridanläggning
+DP_KM_L2_Rid
+Djursjukhus
+DP_KM_L2_Djursjukhus
+Veterinärstation
+DP_KM_L2_Veterinar
+[Annan precisering]
+DP_KM_L2_Annan
+Begravningsplats
+12 §    Användningen begravningsplats ska tillämpas för områden för
+begravningsändamål. Även komplement till verksamheten begravningsplats ingår
+i användningen.
+Tabell 5.21
+Begravningsplats
+Formulering av bestämmelse
+Bestämmelsekod
+Begravningsplats
+DP_KM_M2
+Tabell 5.22
+Precisering av bestämmelsen begravningsplats
+Formulering av precisering
+Bestämmelsekod
+Minneslund
+DP_KM_M2_Minneslund
+Begravningsplats för djur
+DP_KM_M2_Djur
+[Annan precisering]
+DP_KM_M2_Annan
+Friluftsliv och camping
+13 §    Användningen friluftsliv och camping ska tillämpas för områden för det
+rörliga friluftslivet och campingplatser. Campingplatser är endast avsedda för
+tillfällig uthyrning och för enkelt flyttbara enheter. Även komplement till
+verksamheten friluftsliv och camping ingår i användningen.
+Tabell 5.23
+Friluftsliv och camping
+Formulering av bestämmelse
+Bestämmelsekod
+Friluftsliv och camping
+DP_KM_N2
+Tabell 5.24
+Precisering av bestämmelsen friluftsliv och camping
+Formulering av precisering
+Bestämmelsekod
+Camping
+DP_KM_N2_Camping
+Friluftsbad
+DP_KM_N2_Bad
+Friluftsområde
+DP_KM_N2_Friluftsomrade
+Skidbacke
+DP_KM_N2_Skidbacke
+[Annan precisering]
+DP_KM_N2_Annan
+Tillfällig vistelse
+14 §    Användningen tillfällig vistelse ska tillämpas för områden för olika typer
+av tillfällig övernattning och konferensanläggningar. Även komplement till
+verksamheten tillfällig vistelse ingår i användningen.
+
+BFS 2020:5
+
+11
+Tabell 5.25
+Tillfällig vistelse
+Formulering av bestämmelse
+Bestämmelsekod
+Tillfällig vistelse
+DP_KM_O2
+Tabell 5.26
+Precisering av bestämmelsen tillfällig vistelse
+Formulering av precisering
+Bestämmelsekod
+Hotell
+DP_KM_O2_Hotell
+Vandrarhem
+DP_KM_O2_Vandrarhem
+Stugby
+DP_KM_O2_Stugby
+Konferensanläggning
+DP_KM_O2_Konferens
+Förläggningsboende
+DP_KM_O2_Forlaggning
+[Annan precisering]
+DP_KM_O2_Annan
+Parkering
+15 §    Användningen parkering ska tillämpas för områden för parkerings-
+anläggningar. Även komplement till verksamheten parkering ingår i
+användningen.
+Tabell 5.27
+Parkering
+Formulering av bestämmelse
+Bestämmelsekod
+Parkering
+DP_KM_P2
+Tabell 5.28
+Precisering av bestämmelsen parkering
+Formulering av precisering
+Bestämmelsekod
+Parkeringshus
+DP_KM_P2_Hus
+Cykelparkering
+DP_KM_P2_Cykel
+Bussparkering
+DP_KM_P2_Buss
+[Annan precisering]
+DP_KM_P2_Annan
+Besöksanläggningar
+16 §    Användningen besöksanläggningar ska tillämpas för områden för
+verksamheter som riktar sig till besökare. Här ingår kulturella och religiösa
+verksamheter, sport- och idrottsverksamheter samt övriga besöksverksamheter.
+Även komplement till verksamheten besöksanläggningar ingår i användningen.
+Tabell 5.29
+Besöksanläggningar
+Formulering av bestämmelse
+Bestämmelsekod
+Besöksanläggningar
+DP_KM_R2
+Tabell 5.30
+Besöksanläggningar
+Formulering av precisering
+Bestämmelsekod
+Golfbana
+DP_KM_R2_Golf
+Badanläggning
+DP_KM_R2_Bad
+Ishall
+DP_KM_R2_Is
+Hästsport
+DP_KM_R2_Hastsport
+Idrottsplats
+DP_KM_R2_Idrott
+Idrottshall
+DP_KM_R2_Idrottshall
+Skjutbana
+DP_KM_R2_Skjutbana
+
+BFS 2020:5
+
+12
+Formulering av precisering
+Bestämmelsekod
+Nöjespark
+DP_KM_R2_Nojespark
+Djurpark
+DP_KM_R2_Djur
+Skidanläggning
+DP_KM_R2_Skid
+Motorsportbana
+DP_KM_R2_Motorsport
+Mässhall
+DP_KM_R2_Masshall
+Arena
+DP_KM_R2_Arena
+Museum
+DP_KM_R2_Museum
+Kulturhus
+DP_KM_R2_Kultur
+Teater
+DP_KM_R2_Teater
+Konserthus
+DP_KM_R2_Konsert
+Bygdegård
+DP_KM_R2_Bygdegard
+Lokal för religiösa ändamål
+DP_KM_R2_LokalForReligiosa
+[Annan precisering]
+DP_KM_R2_Annan
+Skola
+17 §    Användningen skola ska tillämpas för områden för förskola, fritidshem,
+skola eller annan jämförlig verksamhet. Även komplement till verksamheten
+skola ingår i användningen.
+Tabell 5.31
+Skola
+Formulering av bestämmelse
+Bestämmelsekod
+Skola
+DP_KM_S2
+Tabell 5.32
+Precisering av bestämmelsen skola
+Formulering av precisering
+Bestämmelsekod
+Förskola
+DP_KM_S2_Forskola
+Grundskola
+DP_KM_S2_Grundskola
+Gymnasium
+DP_KM_S2_Gymnasium
+Högskola och universitet
+DP_KM_S2_HogskolaUniversitet
+Vuxenutbildning
+DP_KM_S2_Vuxen
+[Annan precisering]
+DP_KM_S2_Annan
+Trafik
+18 §    Användningen trafik ska tillämpas för områden för väg- och spårtrafik med
+tillhörande anläggningar samt vägreservat. Här ingår spårområden och liknande
+anläggningar samt stations- och servicebyggnader. Även komplement till
+verksamheten trafik ingår i användningen.
+Tabell 5.33
+Trafik
+Formulering av bestämmelse
+Bestämmelsekod
+Trafik
+DP_KM_T2
+Tabell 5.34
+Precisering av bestämmelsen trafik
+Formulering av precisering
+Bestämmelsekod
+Resecentrum
+DP_KM_T2_Resecentrum
+Busstation
+DP_KM_T2_Busstation
+Järnvägsstation
+DP_KM_T2_Jarnvagsstation
+
+BFS 2020:5
+
+13
+Formulering av precisering
+Bestämmelsekod
+Taxistation
+DP_KM_T2_Taxistation
+Järnväg
+DP_KM_T2_Jarnvag
+Spårväg
+DP_KM_T2_Sparvag
+Tunnelbana
+DP_KM_T2_Tunnelbana
+Linbana
+DP_KM_T2_Linbana
+Spårreservat
+DP_KM_T2_Sparreservat
+Vägreservat
+DP_KM_T2_Vagreservat
+[Annan precisering]
+DP_KM_T2_Annan
+Räddningstjänst och annat samhällsviktigt ändamål
+19 §    Användningen räddningstjänst och annat samhällsviktigt ändamål ska
+tillämpas för områden för räddningstjänst och annat liknande samhällsviktigt
+ändamål. Även komplement till verksamheten räddningstjänst och annat
+samhällsviktigt ändamål ingår i användningen.
+Tabell 5.35
+Räddningstjänst och annat samhällsviktigt ändamål
+Formulering av bestämmelse
+Bestämmelsekod
+Räddningstjänst och annat samhällsviktigt
+ändamål
+DP_KM_U2
+Tabell 5.36
+Precisering av bestämmelsen räddningstjänst och annat
+samhällsviktigt ändamål
+Formulering av precisering
+Bestämmelsekod
+Räddningstjänst
+DP_KM_U2_Raddningstjanst
+Brandstation
+DP_KM_U2_Brandstation
+Utryckningsstation
+DP_KM_U2_Utryckning
+[Annan precisering]
+DP_KM_U2_Annan
+Hamn
+20 §    Användningen hamn ska tillämpas för områden för hamnverksamhet och
+sjötrafik med kompletterande handel och service. Även komplement till
+verksamheten hamn ingår i användningen.
+Tabell 5.37
+Hamn
+Formulering av bestämmelse
+Bestämmelsekod
+Hamn
+DP_KM_V2
+Tabell 5.38
+Precisering av bestämmelsen hamn
+Formulering av precisering
+Bestämmelsekod
+Småbåtshamn
+DP_KM_V2_Smabat
+Kemikalie- och oljehamn
+DP_KM_V2_Olja
+Färjeterminal
+DP_KM_V2_Farje
+Varv
+DP_KM_V2_Varv
+Sjösäkerhetsanordning
+DP_KM_V2_Sjosakerhet
+[Annan precisering]
+DP_KM_V2_Annan
+
+BFS 2020:5
+
+14
+Verksamheter
+21 §    Användningen verksamheter ska tillämpas för områden för service, lager,
+tillverkning med tillhörande försäljning, partihandel och annan jämförlig
+verksamhet med begränsad omgivningspåverkan. Även komplement till
+verksamheten ingår i användningen.
+Tabell 5.39
+Verksamheter
+Formulering av bestämmelse
+Bestämmelsekod
+Verksamheter
+DP_KM_Z2
+Tabell 5.40
+Precisering av bestämmelsen verksamheter
+Formulering av precisering
+Bestämmelsekod
+Verkstad
+DP_KM_Z2_Verkstad
+Bilprovning
+DP_KM_Z2_Bilprovning
+Partihandel
+DP_KM_Z2_Partihandel
+[Annan precisering]
+DP_KM_Z2_Annan
+Annan kvartersmark
+22 §    Användningen annan kvartersmark ska tillämpas i de fall någon av
+användningarna i 2–21 §§ inte är tillämpliga. Användningen ska alltid preciseras.
+Även komplement till verksamheten annan kvartersmark ingår i användningen.
+Tabell 5.41
+Precisering av bestämmelsen annan kvartersmark
+Formulering av precisering
+Bestämmelsekod
+[Annan precisering]
+DP_KM_Y2_Annan
+6 kap. Användningsbestämmelser för vattenområde
+1 §    Endast den användning som är reglerad i 2 § får användas vid reglering med
+användningsbestämmelser på vattenområde i detaljplan.
+Formuleringar av bestämmelser, formuleringar av preciseringar och
+bestämmelsekoder ska följa det som anges i tabellerna nedan. Annan precisering
+får endast användas när tillämpbar formulering saknas. Hakparentesen [Annan
+precisering] ska då ersättas med en egen formulering av preciseringen.
+Vattenområde
+2 §    Vattenområde ska endast tillämpas för öppet vatten och vatten med mindre
+anläggningar där karaktären av öppet vatten avses bibehållas.
+Tabell 6.1
+Vattenområde
+Formulering av bestämmelse
+Bestämmelsekod
+Vattenområde
+DP_VO_W2
+Tabell 6.2
+Precisering av bestämmelsen vattenområde
+Formulering av precisering
+Bestämmelsekod
+Hamn
+DP_VO_W2_Hamn
+Småbåtshamn
+DP_VO_W2_Smabatshamn
+Bryggor
+DP_VO_W2_Bryggor
+Förtöjningsplats
+DP_VO_W2_Fortojning
+
+BFS 2020:5
+
+15
+Formulering av precisering
+Bestämmelsekod
+Farled
+DP_VO_W2_Farled
+Testbana
+DP_VO_W2_Testbana
+Skoterled
+DP_VO_W2_Skoter
+Landningsbana
+DP_VO_W2_Landning
+Väg på is
+DP_VO_W2_VagPaIs
+[Annan precisering]
+DP_VO_W2_Annan
+7 kap. Egenskapsbestämmelser
+1 §    Endast de egenskapsbestämmelser som är reglerade i 2–26 §§ får användas
+vid reglering med egenskapsbestämmelser i detaljplan.
+Formuleringar av bestämmelser och bestämmelsekoder ska följa det som anges
+i tabellerna nedan. Formuleringen [fritext] får endast användas när tillämpbar
+formulering saknas.
+Hakparentesen [text vid behov] ska antingen ersättas med text eller tas bort.
+Övriga hakparenteser ska ersättas med siffra eller text.
+Där tabellen inte anger formulering av bestämmelser ska i stället egen
+formulering användas och sorteras under rätt underkategori med tillhörande
+underkategorikod enligt tabellerna nedan.
+Utformning av allmän plats
+2 §    Bestämmelser om utformning av allmän plats ska tillämpas för att reglera
+utformning på allmän plats.
+Tabell 7.1
+Utformning av allmän plats
+Underkategori
+Underkategorikod
+Utformning av områden för fordonstrafik
+DP_AP_Eg_UtformAP_Fordon
+Utformning av områden för gång och cykel
+DP_AP_Eg_UtformAP_GC
+Utformning av områden för dagvatten
+DP_AP_Eg_UtformAP_Dagv
+Utformning av områden för lek och aktivitet
+DP_AP_Eg_UtformAP_LekAktivitet
+Utformning av vegetation
+DP_AP_Eg_UtformAP_Veg
+Användning av byggnader
+DP_AP_Eg_UtformAP_AnvAvByggn
+Placering
+DP_AP_Eg_UtformAP_Plac
+Markens utformning
+DP_AP_Eg_UtformAP_Mark
+Utformning av byggnadsverk
+DP_AP_Eg_UtformAP_UtfByggnadsverk
+Skydd mot störningar
+DP_AP_Eg_UtformAP_SkyddStorning
+Storlek på byggnadsverk
+DP_AP_Eg_UtformAP_Storlek
+Annan utformning av allmän plats
+DP_AP_Eg_UtformAP_Annan
+Utnyttjandegrad
+3 §    Bestämmelser om utnyttjandegrad tillämpas på kvartersmark för att reglera
+bebyggandets största eller minsta omfattning.
+
+BFS 2020:5
+
+16
+Tabell 7.2
+Utnyttjandegrad
+Underkategori
+Formulering av
+bestämmelser
+Bestämmelsekod
+Största area i
+kvm
+Största bruttoarea är
+[siffra] m² per fastighet
+DP_KM_Eg_Utnytt_StorstaAreaKvm_Bru
+ttoFastigh
+Största area i
+kvm
+Största bruttoarea är
+[siffra] m²
+DP_KM_Eg_Utnytt_StorstaAreaKvm_Bru
+tto
+Största area i
+kvm
+Största bruttoarea är
+[siffra] m² inom
+användningsområdet
+DP_KM_Eg_Utnytt_StorstaAreaKvm_Bru
+ttoAnv
+Största area i
+kvm
+Största byggnadsarea
+är [siffra] m² per
+fastighet
+DP_KM_Eg_Utnytt_StorstaAreaKvm_By
+ggnadsareaFastigh
+Största area i
+kvm
+Största byggnadsarea
+är [siffra] m²
+DP_KM_Eg_Utnytt_StorstaAreaKvm_By
+ggnadsarea
+Största area i
+kvm
+Största byggnadsarea
+är [siffra] m² inom
+användningsområdet
+DP_KM_Eg_Utnytt_StorstaAreaKvm_By
+ggnadsareaAnv
+Största area i
+kvm
+[Fritext]
+DP_KM_Eg_Utnytt_StorstaAreaKvm_An
+nan
+Största area i
+procent
+Största bruttoarea är
+[siffra] % av
+fastighetsarean inom
+egenskapsområdet
+DP_KM_Eg_Utnytt_StorstaAreaProc_Bru
+ttoEgen
+Största area i
+procent
+Största bruttoarea är
+[siffra] % av
+fastighetsarean inom
+användningsområdet
+DP_KM_Eg_Utnytt_StorstaAreaProc_Bru
+ttoAnv
+Största area i
+procent
+Största byggnadsarea
+är [siffra] % av
+fastighetsarean inom
+egenskapsområdet
+DP_KM_Eg_Utnytt_StorstaAreaProc_By
+ggnadsEgen
+Största area i
+procent
+Största byggnadsarea
+är [siffra] % av
+fastighetsarean inom
+användningsområdet
+DP_KM_Eg_Utnytt_StorstaAreaProc_By
+ggnadsAnv
+Största area i
+procent
+[fritext]
+DP_KM_Eg_Utnytt_StorstaAreaProc_An
+nan
+Minsta area i
+kvm
+Minsta bruttoarea är
+[siffra] m² per fastighet
+DP_KM_Eg_Utnytt_MinstaAreaKvm_Brut
+toFastigh
+Minsta area i
+kvm
+Minsta bruttoarea är
+[siffra] m²
+DP_KM_Eg_Utnytt_MinstaAreaKvm_Brut
+toKvm
+Minsta area i
+kvm
+Minsta bruttoarea är
+[siffra] m² inom
+användningsområdet
+DP_KM_Eg_Utnytt_MinstaAreaKvm_Brut
+toAnv
+Minsta area i
+kvm
+Minsta byggnadsarea
+är [siffra] m² per
+fastighet
+DP_KM_Eg_Utnytt_MinstaAreaKvm_Byg
+gnadsFastigh
+Minsta area i
+kvm
+Minsta byggnadsarea
+är [siffra] m²
+DP_KM_Eg_Utnytt_MinstaAreaKvm_Byg
+gnads
+Minsta area i
+kvm
+Minsta byggnadsarea
+är [siffra] m² inom
+användningsområdet
+DP_KM_Eg_Utnytt_MinstaAreaKvm_Byg
+gnadsAnv
+Minsta area i
+kvm
+[fritext]
+DP_KM_Eg_Utnytt_MinstaAreaKvm_Ann
+an
+
+BFS 2020:5
+
+17
+Underkategori
+Formulering av
+bestämmelser
+Bestämmelsekod
+Minsta area i
+procent
+Minsta bruttoarea är
+[siffra] % av
+fastighetsarean inom
+egenskapsområdet
+DP_KM_Eg_Utnytt_MinstaAreaProc_Brut
+toEgen
+Minsta area i
+procent
+Minsta bruttoarea är
+[siffra] % av
+fastighetsarean inom
+användningsområdet
+DP_KM_Eg_Utnytt_MinstaAreaProc_Brut
+toAnv
+Minsta area i
+procent
+Minsta byggnadsarea
+är [siffra] % av
+fastighetsarean inom
+egenskapsområdet
+DP_KM_Eg_Utnytt_MinstaAreaProc_Byg
+gnadsEgen
+Minsta area i
+procent
+Minsta byggnadsarea
+är [siffra] % av
+fastighetsarean inom
+användningsområdet
+DP_KM_Eg_Utnytt_MinstaAreaProc_Byg
+gnadsAnv
+Minsta area i
+procent
+[Fritext]
+DP_KM_Eg_Utnytt_MinstaAreaProc_Ann
+an
+Area under mark
+Största bruttoarea
+under mark är [siffra]
+m² [text vid behov]
+DP_KM_Eg_Utnytt_AreaUnderMark_Stor
+staKvm
+Area under mark
+Minsta bruttoarea
+under mark är [siffra]
+m² [text vid behov]
+DP_KM_Eg_Utnytt_AreaUnderMark_Min
+staKvm
+Area under mark
+[fritext]
+DP_KM_Eg_Utnytt_AreaUnderMark_Ann
+an
+Area per
+byggnad
+Största bruttoarea är
+[siffra] m² per [text]
+DP_KM_Eg_Utnytt_AreaPerByggnad_St
+orstaBruttoKvm
+Area per
+byggnad
+Minsta bruttoarea är
+[siffra] m² per [text]
+DP_KM_Eg_Utnytt_AreaPer
+Byggnad_MinstaBruttoKvm
+Area per
+byggnad
+Största byggnadsarea
+är [siffra] m² per [text]
+DP_KM_Eg_Utnytt_AreaPerByggnad_St
+orstaByggnadsKvm
+Area per
+byggnad
+Minsta byggnadsarea
+är [siffra] m² per [text]
+DP_KM_Eg_Utnytt_AreaPerByggnad_Mi
+nstaByggnadsKvm
+Area per
+byggnad
+[fritext]
+DP_KM_Eg_Utnytt_AreaPerBygg_Annan
+Annan
+utnyttjandegrad
+[fritext]
+DP_KM_Eg_Utnytt_AnnanUtnytt_Annan
+Höjd på byggnadsverk
+4 §    Bestämmelser om höjd på byggnadsverk ska tillämpas på kvartersmark för
+att reglera höjd på byggnadsverk.
+Tabell 7.3
+Höjd på byggnadsverk
+Underkategori
+Formulering av
+bestämmelser
+Bestämmelsekod
+Högsta höjd på
+byggnadsverk
+Högsta nockhöjd på
+[text] är [siffra] meter
+[text vid behov]
+DP_KM_Eg_Hojd_HogstaHojd_Byggnad
+sverkNockhojd
+Högsta höjd på
+byggnadsverk
+Högsta nockhöjd är
+[siffra] meter
+DP_KM_Eg_Hojd_HogstaHojd_Nockhojd
+
+BFS 2020:5
+
+18
+Underkategori
+Formulering av
+bestämmelser
+Bestämmelsekod
+Högsta höjd på
+byggnadsverk
+Högsta nockhöjd på
+[text] är [siffra] meter
+över angivet nollplan
+[text vid behov]
+DP_KM_Eg_Hojd_HogstaHojd_Byggnad
+sverkNockhojdNollplan
+Högsta höjd på
+byggnadsverk
+Högsta nockhöjd är
+[siffra] meter över
+angivet nollplan
+DP_KM_Eg_Hojd_HogstaHojd_Nockhojd
+Nollplan
+Högsta höjd på
+byggnadsverk
+Högsta totalhöjd på
+[text] är [siffra] meter
+[text vid behov]
+DP_KM_Eg_Hojd_HogstaHojd_Byggnad
+sverkTotalhojd
+Högsta höjd på
+byggnadsverk
+Högsta totalhöjd är
+[siffra] meter
+DP_KM_Eg_Hojd_HogstaHojd_Totalhojd
+Högsta höjd på
+byggnadsverk
+Högsta totalhöjd på
+[text] är [siffra] meter
+över angivet nollplan
+[text vid behov]
+DP_KM_Eg_Hojd_HogstaHojd_Byggnad
+sverkTotalhojdNollplan
+Högsta höjd på
+byggnadsverk
+Högsta totalhöjd är
+[siffra] meter över
+angivet nollplan
+DP_KM_Eg_Hojd_HogstaHojd_Totalhojd
+Nollplan
+Högsta höjd på
+byggnadsverk
+[fritext]
+DP_KM_Eg_Hojd_HogstaHojd_Annan
+Lägsta höjd på
+byggnadsverk
+Lägsta nockhöjd på
+[text] är [siffra] meter
+[text vid behov]
+DP_KM_Eg_Hojd_LagstaHojd_Byggnads
+verkNockhojd
+Lägsta höjd på
+byggnadsverk
+Lägsta nockhöjd är
+[siffra] meter
+DP_KM_Eg_Hojd_LagstaHojd_Nockhojd
+Lägsta höjd på
+byggnadsverk
+Lägsta nockhöjd på
+[text] är [siffra] meter
+över angivet nollplan
+[text vid behov]
+DP_KM_Eg_Hojd_LagstaHojd_Byggnads
+verkNockhojdNollplan
+Lägsta höjd på
+byggnadsverk
+Lägsta nockhöjd är
+[siffra] meter över
+angivet nollplan
+DP_KM_Eg_Hojd_LagstaHojd_Nockhojd
+Nollplan
+Lägsta höjd på
+byggnadsverk
+Lägsta totalhöjd på
+[text] är [siffra] meter
+[text vid behov]
+DP_KM_Eg_Hojd_LagstaHojd_Byggnads
+verkTotalhojd
+Lägsta höjd på
+byggnadsverk
+Lägsta totalhöjd är
+[siffra] meter
+DP_KM_Eg_Hojd_LagstaHojd_Totalhojd
+Lägsta höjd på
+byggnadsverk
+Lägsta totalhöjd på
+[text] är [siffra] meter
+över angivet nollplan
+[text vid behov]
+DP_KM_Eg_Hojd_LagstaHojd_Byggnads
+verkTotalhojdNollplan
+Lägsta höjd på
+byggnadsverk
+Lägsta totalhöjd är
+[siffra] meter över
+angivet nollplan
+DP_KM_Eg_Hojd_LagstaHojd_Totalhojd
+Nollplan
+Lägsta höjd på
+byggnadsverk
+[fritext]
+DP_KM_Eg_Hojd_LagstaHojd_Annan
+Exakt höjd på
+byggnadsverk
+Nockhöjden på [text]
+ska vara [siffra] meter
+[text vid behov]
+DP_KM_Eg_Hojd_ExaktHojd_Byggnadsv
+erkNockhojd
+Exakt höjd på
+byggnadsverk
+Nockhöjden ska vara
+[siffra] meter
+DP_KM_Eg_Hojd_ExaktHojd_Nockhojd
+
+BFS 2020:5
+
+19
+Underkategori
+Formulering av
+bestämmelser
+Bestämmelsekod
+Exakt höjd på
+byggnadsverk
+Nockhöjden på [text]
+ska vara [siffra] meter
+över angivet nollplan
+[text vid behov]
+DP_KM_Eg_Hojd_ExaktHojd_Byggnadsv
+erkNockhojdNollplan
+Exakt höjd på
+byggnadsverk
+Nockhöjden ska vara
+[siffra] meter över
+angivet nollplan
+DP_KM_Eg_Hojd_ExaktHojd_NockhojdN
+ollplan
+Exakt höjd på
+byggnadsverk
+Totalhöjden på [text]
+ska vara [siffra] meter
+[text vid behov]
+DP_KM_Eg_Hojd_ExaktHojd_Byggnadsv
+erkTotalhojd
+Exakt höjd på
+byggnadsverk
+Totalhöjden ska vara
+[siffra] meter
+DP_KM_Eg_Hojd_ExaktHojd_Totalhojd
+Exakt höjd på
+byggnadsverk
+Totalhöjden på [text]
+ska vara [siffra] meter
+över angivet nollplan
+[text vid behov]
+DP_KM_Eg_Hojd_ExaktHojd_Byggnadsv
+erkTotalhojdNollplan
+Exakt höjd på
+byggnadsverk
+Totalhöjden ska vara
+[siffra] meter över
+angivet nollplan
+DP_KM_Eg_Hojd_ExaktHojd_TotalhojdN
+ollplan
+Exakt höjd på
+byggnadsverk
+[fritext]
+DP_KM_Eg_Hojd_ExaktHojd_Annan
+Begränsning av markens utnyttjande
+5 §    Bestämmelser om begränsning av markens utnyttjande ska tillämpas på
+kvartersmark för att reglera att marken inte får förses med byggnadsverk eller viss
+typ av byggnadsverk, att marken endast får endast förses med viss typ av
+byggnadsverk eller att marken endast får förses med byggnadsverk under mark.
+Tabell 7.4
+Begränsning av markens utnyttjande
+Underkategori
+Underkategorikod
+Marken får inte förses
+med byggnadsverk
+DP_KM_Eg_BegransningAvMarkensUtnyttjande_EjByggna
+dsverk
+Marken får endast förses
+med viss typ av
+byggnadsverk
+DP_KM_Eg_BegransningAvMarkensUtnyttjande_TypByggn
+adsverk
+Endast byggnadsverk
+under mark
+DP_KM_Eg_BegransningAvMarkensUtnyttjande_Byggnads
+verkUnderMark
+Takvinkel
+6 §    Bestämmelser om takvinkel ska tillämpas på kvartersmark för att reglera
+lutning i grader på tak.
+Tabell 7.5
+Takvinkel
+Underkategori
+Formulering av
+bestämmelser
+Bestämmelsekod
+Största takvinkel
+Största takvinkel är
+[siffra] grader
+DP_KM_Eg_Takvinkel_Storsta_Storsta
+Största takvinkel
+Största takvinkel för
+[text] är [siffra] grader
+DP_KM_Eg_Takvinkel_Storsta_Byggnad
+Största takvinkel
+[fritext]
+DP_KM_Eg_Takvinkel_Storsta_Annan
+Minsta takvinkel
+Minsta takvinkel är
+[siffra] grader
+DP_KM_Eg_Takvinkel_Minsta_Minsta
+
+BFS 2020:5
+
+20
+Underkategori
+Formulering av
+bestämmelser
+Bestämmelsekod
+Minsta takvinkel
+Minsta takvinkel för
+[text] är [siffra] grader
+DP_KM_Eg_Takvinkel_Minsta_Byggnad
+Minsta takvinkel
+[fritext]
+DP_KM_Eg_Takvinkel_Minsta_Annan
+Exakt takvinkel
+Takvinkeln ska vara
+[siffra] grader
+DP_KM_Eg_Takvinkel_Exakt_Exakt
+Exakt takvinkel
+Takvinkeln för [text]
+ska vara [siffra]
+grader
+DP_KM_Eg_Takvinkel_Exakt_Byggnad
+Exakt takvinkel
+[fritext]
+DP_KM_Eg_Takvinkel_Exakt_Annan
+Fastighetsstorlek
+7 §    Bestämmelser om fastighetsstorlek ska tillämpas på kvartersmark för att
+reglera största eller minsta fastighetsstorlek.
+Tabell 7.6
+Fastighetsstorlek
+Underkategori
+Formulering av
+bestämmelser
+Bestämmelsekod
+Största
+fastighetsstorlek
+Största
+fastighetsstorlek är
+[siffra] m²
+DP_KM_Eg_Fastighetsstorlek_Storsta_Storsta
+Minsta
+fastighetsstorlek
+Minsta
+fastighetsstorlek är
+[siffra] m²
+DP_KM_Eg_Fastighetsstorlek_Minsta_Minsta
+Placering
+8 §    Bestämmelser om placering ska tillämpas på kvartersmark för att reglera
+byggnadsverks och tomters placering.
+Tabell 7.7
+Placering
+Underkategori
+Underkategorikod
+Placering av byggnadsverk
+DP_KM_Eg_Plac_Byggnadsverk
+Annan placering
+DP_KM_Eg_Plac_AnnanPlac
+Utformning
+9 §    Bestämmelser om utformning ska tillämpas på kvartersmark för att reglera
+byggnadsverks form, färg och material, fasadutsmyckningar, typer av
+byggnadsverk samt utformning av tomt.
+Tabell 7.8
+Utformning
+Underkategori
+Underkategorikod
+En- och tvåbostadshus
+DP_KM_Eg_Utform_EnOchTva
+Flerbostadshus
+DP_KM_Eg_Utform_Flerbostad
+Annan typ av byggnadsverk
+DP_KM_Eg_Utform_AnnanTypAvByggnadsverk
+Byggnadsverks form, färg och
+material
+DP_KM_Eg_Utform_Form
+Annan utformning
+DP_KM_Eg_Utform_AnnanUtform
+
+BFS 2020:5
+
+21
+Utförande
+10 §    Bestämmelser om utförande ska tillämpas på kvartersmark för att reglera
+byggnadsteknik och markens genomsläpplighet.
+Tabell 7.9
+Utförande
+Underkategori
+Underkategorikod
+Grundläggning
+DP_KM_Eg_Utforande_Grundlagg
+Entréer
+DP_KM_Eg_Utforande_Entre
+Fasader
+DP_KM_Eg_Utforande_Fasader
+Ventilation
+DP_KM_Eg_Utforande_Ventilation
+Markens genomsläpplighet
+DP_KM_Eg_Utforande_Genomslapp
+Schaktningsnivå
+DP_KM_Eg_Utforande_Schaktningsniva
+Annat utförande
+DP_KM_Eg_Utforande_AnnatUtforande
+Byggnaders användning
+11 §    Bestämmelser om byggnaders användning ska tillämpas på kvartersmark
+för att reglera hur byggnaders användning avgränsas eller fördelas.
+Tabell 7.10
+Byggnaders användning
+Underkategori
+Underkategorikod
+Byggnaders användning
+DP_KM_Eg_ByggnadersAnvandning_ByggnAnv
+Lägenhetsutformning
+DP_KM_Eg_ByggnadersAnvandning_Lagenhetsutform
+Lägenhetsfördelning och storlek på lägenheter
+12 §    Bestämmelser om lägenhetsfördelning och storlek på lägenheter ska
+tillämpas på kvartersmark för att reglera andelen lägenheter av olika slag i
+bostadsbyggnader och lägenheternas storlek.
+Tabell 7.11
+Lägenhetsfördelning och storlek på lägenheter
+Underkategori
+Underkategorikod
+Lägenhetsfördelning
+DP_KM_Eg_LghFordelningOchStorlek_LghFordelning
+Storlek på lägenheter
+DP_KM_Eg_LghFordelningOchStorlek_LghStorlek
+Markens anordnande och vegetation
+13 §    Bestämmelser om markens anordnande och vegetation ska tillämpas på
+kvartersmark för att reglera markförhållanden, vegetation och parkering.
+Tabell 7.12
+Markens anordnade och vegetation
+Underkategori
+Underkategorikod
+Markförhållanden
+DP_KM_Eg_MarkensAnordOchVeg_Markforhallanden
+Vegetation
+DP_KM_Eg_MarkensAnordOchVeg_Vegetation
+Parkering och lastning
+DP_KM_Eg_MarkensAnordOchVeg_ParkeringLastning
+Annan mark
+DP_KM_Eg_MarkensAnordOchVeg_AnnanMark
+Stängsel, utfart och annan utgång
+14 §    Bestämmelser om stängsel, utfart och annan utgång ska tillämpas på
+allmän plats och kvartersmark för att reglera var stängsel ska finnas samt var
+utfart och annan utgång får respektive inte får anordnas mot allmän plats.
+
+BFS 2020:5
+
+22
+Tabell 7.13
+Stängsel, utfart och annan utgång, allmän plats
+Underkategori
+Underkategorikod
+Utfart
+DP_AP_Eg_StangselUtfart_Utfart
+Stängsel
+DP_AP_Eg_StangselUtfart_Stangsel
+Tabell 7.14
+Stängsel, utfart och annan utgång, kvartersmark
+Underkategori
+Underkategorikod
+Utfart
+DP_KM_Eg_StangselUtfart_Utfart
+Stängsel
+DP_KM_Eg_StangselUtfart_Stangsel
+Skydd av kulturvärden
+15 §    Bestämmelser om skydd av kulturvärden ska på allmän plats tillämpas för
+att reglera hur befintliga miljöer som är särskilt värdefulla ur historisk,
+kulturhistorisk, miljömässig eller konstnärlig synpunkt ska skyddas.
+Bestämmelser om skydd av kulturvärden ska på kvartersmark tillämpas för att
+reglera hur befintliga byggnader, bygglovspliktiga anläggningar, bebyggelse-
+områden och tomter som är särskilt värdefulla ur historisk, kulturhistorisk,
+miljömässig eller konstnärlig synpunkt ska skyddas.
+Tabell 7.15
+Skydd av kulturvärden, allmän plats
+Underkategori
+Underkategorikod
+Byggnad
+DP_AP_Eg_SkyddKultur_Byggnad
+Bygglovspliktig anläggning
+DP_AP_Eg_SkyddKultur_ByggAnlagg
+Byggnadsdel
+DP_AP_Eg_SkyddKultur_Byggnadsdel
+Bebyggelseområde
+DP_AP_Eg_SkyddKultur_Bebyggelseomr
+Annat skydd av kulturvärden
+DP_AP_Eg_SkyddKultur_AnnatSkyddKultur
+Tabell 7.16
+Skydd av kulturvärden, kvartersmark
+Underkategori
+Underkategorikod
+Byggnad
+DP_KM_Eg_SkyddKultur_Byggnad
+Bygglovspliktig anläggning
+DP_KM_Eg_SkyddKultur_ByggAnlagg
+Byggnadsdel
+DP_KM_Eg_SkyddKultur_Byggnadsdel
+Bebyggelseområde
+DP_KM_Eg_SkyddKultur_Bebyggelseomr
+Tomt
+DP_KM_Eg_SkyddKultur_Tomt
+Annat skydd av kulturvärden
+DP_KM_Eg_SkyddKultur_AnnatSkyddKultur
+Rivningsförbud
+16 §    Bestämmelser om rivningsförbud ska tillämpas på allmän plats och
+kvartersmark för att reglera att befintliga byggnader som är särskilt värdefulla
+från historisk, kulturhistorisk, miljömässig eller konstnärlig synpunkt inte får
+rivas.
+Första stycket gäller även byggnader som i sig inte är särskilt värdefulla men
+som ingår i ett bebyggelseområde som är särskilt värdefullt från historisk,
+kulturhistorisk, miljömässig eller konstnärlig synpunkt.
+Tabell 7.17
+Rivningsförbud, allmän plats
+Underkategori
+Underkategorikod
+Rivningsförbud
+DP_AP_Eg_Rivningsforbud_Rivningsforbud
+
+BFS 2020:5
+
+23
+Tabell 7.18
+Rivningsförbud, kvartersmark
+Underkategori
+Underkategorikod
+Rivningsförbud
+DP_KM_Eg_Rivningsforbud_Rivningsforbud
+Varsamhet
+17 §    Bestämmelser om varsamhet ska tillämpas på allmän plats och
+kvartersmark för att reglera vilka karaktärsdrag och värden hos befintliga
+byggnader och bygglovspliktiga anläggningar som varsamheten speciellt ska
+inriktas på.
+Tabell 7.19
+Varsamhet, allmän plats
+Underkategori
+Underkategorikod
+Varsamhet
+DP_AP_Eg_Varsam_Varsam
+Tabell 7.20
+Varsamhet, kvartersmark
+Underkategori
+Underkategorikod
+Varsamhet
+DP_KM_Eg_Varsam_Varsam
+Skydd mot störningar
+18 §    Bestämmelser om skydd mot störningar ska tillämpas på kvartersmark för
+att reglera skyddsåtgärder för att motverka markföroreningar, olyckor,
+översvämning och erosion, skyddsåtgärder för att motverka störningar från
+omgivningen samt högsta tillåtna nivåer på störning.
+Tabell 7.21
+Skydd mot störningar
+Underkategori
+Underkategorikod
+Buller
+DP_KM_Eg_Skydd_Buller
+Vibration
+DP_KM_Eg_Skydd_Vibration
+Ljus
+DP_KM_Eg_Skydd_Ljus
+Markföroreningar
+DP_KM_Eg_Skydd_Markfororening
+Olyckor
+DP_KM_Eg_Skydd_Olyckor
+Översvämning
+DP_KM_Eg_Skydd_Oversvamning
+Erosion
+DP_KM_Eg_Skydd_Erosion
+Högsta tillåtna värden
+DP_KM_Eg_Skydd_HogstaTillatnaVarden
+Annat skydd mot störningar
+DP_KM_Eg_Skydd_AnnatSkyddMotStorning
+Markreservat för allmännyttiga ändamål
+19 §    Bestämmelser om markreservat för allmännyttiga ändamål ska tillämpas på
+allmän plats, kvartersmark och vattenområde för att reglera att ett område
+reserveras för att ge utrymme för ett visst allmännyttigt ändamål.
+Tabell 7.22
+Markreservat för allmännyttiga ändamål, allmän plats
+Underkategori
+Underkategorikod
+Elektronisk kommunikation
+DP_AP_Eg_Markreservat_ElektroniskKom
+Energianläggningar
+DP_AP_Eg_Markreservat_Energi
+Underjordiska ledningar
+DP_AP_Eg_Markreservat_UnderjordiskLedning
+Luftledningar
+DP_AP_Eg_Markreservat_Luftledning
+Gång- och cykeltrafik
+DP_AP_Eg_Markreservat_GC
+
+BFS 2020:5
+
+24
+Körtrafik
+DP_AP_Eg_Markreservat_Kortrafik
+Spårtrafik
+DP_AP_Eg_Markreservat_Spartrafik
+Bro
+DP_AP_Eg_Markreservat_Bro
+Brygga
+DP_AP_Eg_Markreservat_Brygga
+Tunnel
+DP_AP_Eg_Markreservat_Tunnel
+Tabell 7.23
+Markreservat för allmännyttiga ändamål, kvartersmark
+Underkategori
+Underkategorikod
+Elektronisk kommunikation
+DP_KM_Eg_Markreservat_ElektroniskKom
+Energianläggningar
+DP_KM_Eg_Markreservat_Energi
+Underjordiska ledningar
+DP_KM_Eg_Markreservat_UnderjordiskLedning
+Luftledningar
+DP_KM_Eg_Markreservat_Luftledning
+Gång- och cykeltrafik
+DP_KM_Eg_Markreservat_GC
+Körtrafik
+DP_KM_Eg_Markreservat_Kortrafik
+Spårtrafik
+DP_KM_Eg_Markreservat_Spartrafik
+Bro
+DP_KM_Eg_Markreservat_Bro
+Brygga
+DP_KM_Eg_Markreservat_Brygga
+Tunnel
+DP_KM_Eg_Markreservat_Tunnel
+Tabell 7.24
+Markreservat för allmännyttiga ändamål, vattenområde
+Underkategori
+Underkategorikod
+Elektronisk kommunikation
+DP_VO_Eg_Markreservat_ElektroniskKom
+Energianläggningar
+DP_VO_Eg_Markreservat_Energi
+Underjordiska ledningar
+DP_VO_Eg_Markreservat_UnderjordiskLedning
+Luftledningar
+DP_VO_Eg_Markreservat_Luftledning
+Gång- och cykeltrafik
+DP_VO_Eg_Markreservat_GC
+Körtrafik
+DP_VO_Eg_Markreservat_Kortrafik
+Spårtrafik
+DP_VO_Eg_Markreservat_Spartrafik
+Bro
+DP_VO_Eg_Markreservat_Bro
+Brygga
+DP_VO_Eg_Markreservat_Brygga
+Tunnel
+DP_VO_Eg_Markreservat_Tunnel
+Markreservat för gemensamhetsanläggningar
+20 §    Bestämmelser om markreservat för gemensamhetsanläggningar ska
+tillämpas på allmän plats, kvartersmark och vattenområde för att reglera att ett
+område reserveras för att ge utrymme för en gemensamhetsanläggning.
+Tabell 7.25
+Markreservat för gemensamhetsanläggningar, allmän plats
+Underkategori
+Underkategorikod
+Gemensamhetsanläggning
+DP_AP_Eg_MarkreservatGemensam_Gemensam
+Tabell 7.26
+Markreservat för gemensamhetsanläggningar, kvartersmark
+Underkategori
+Underkategorikod
+Gemensamhetsanläggning
+DP_KM_Eg_MarkreservatGemensam_Gemensam
+Tabell 7.27
+Markreservat för gemensamhetsanläggningar, vattenområde
+Underkategori
+Underkategorikod
+Gemensamhetsanläggning
+DP_VO_Eg_MarkreservatGemensam_Gemensam
+
+BFS 2020:5
+
+25
+Villkor för lov
+21 §    Bestämmelser om villkor för lov ska tillämpas på allmän plats och
+kvartersmark för att reglera att lov för en åtgärd som innebär en väsentlig ändring
+av markens användning inte får ges förrän en viss annan åtgärd först har
+genomförts.
+Tabell 7.28
+Villkor för lov, allmän plats
+Underkategori
+Underkategorikod
+Trafikanläggning
+DP_AP_Eg_VillkorLov_Trafikanl
+Energianläggning
+DP_AP_Eg_VillkorLov_Energianl
+Anläggning för vattenförsörjning
+DP_AP_Eg_VillkorLov_Vattenanl
+Avloppsanläggning
+DP_AP_Eg_VillkorLov_Avloppsanl
+Ändring av utfart eller annan utgång
+DP_AP_Eg_VillkorLov_Utfart
+Skydds- eller säkerhetsåtgärd
+DP_AP_Eg_VillkorLov_SkyddSakerhet
+Bulleråtgärd
+DP_AP_Eg_VillkorLov_Buller
+Tabell 7.29
+Villkor för lov, kvartersmark
+Underkategori
+Underkategorikod
+Trafikanläggning
+DP_KM_Eg_VillkorLov_Trafikanl
+Energianläggning
+DP_KM_Eg_VillkorLov_Energianl
+Anläggning för vattenförsörjning
+DP_KM_Eg_VillkorLov_Vattenanl
+Avloppsanläggning
+DP_KM_Eg_VillkorLov_Avloppsanl
+Ändring av utfart eller annan utgång
+DP_KM_Eg_VillkorLov_Utfart
+Skydds- eller säkerhetsåtgärd
+DP_KM_Eg_VillkorLov_SkyddSakerhet
+Bulleråtgärd
+DP_KM_Eg_VillkorLov_Buller
+Rivning av byggnadsverk
+DP_KM_Eg_VillkorLov_Rivning
+Ombyggnad av byggnadsverk
+DP_KM_Eg_VillkorLov_Ombyggnad
+Flytt av byggnadsverk
+DP_KM_Eg_VillkorLov_Flytt
+Ändrad användning av byggnadsverk
+DP_KM_Eg_VillkorLov_AndradAnv
+Avhjälpande av markförorening
+DP_KM_Eg_VillkorLov_Markfororening
+Villkor för startbesked
+22 §    Bestämmelser om villkor för startbesked ska tillämpas på allmän plats och
+kvartersmark för att reglera att startbesked för en åtgärd som innebär en väsentlig
+ändring av markens användning inte får ges förrän en viss annan åtgärd först har
+genomförts.
+Tabell 7.30
+Villkor för startbesked, allmän plats
+Underkategori
+Underkategorikod
+Trafikanläggning
+DP_AP_Eg_VillkorStart_Trafikanl
+Energianläggning
+DP_AP_Eg_VillkorStart_Energianl
+Anläggning för vattenförsörjning
+DP_AP_Eg_VillkorStart_Vattenanl
+Avloppsanläggning
+DP_AP_Eg_VillkorStart_Avloppsanl
+Ändring av utfart eller annan utgång
+DP_AP_Eg_VillkorStart_Utfart
+Skydds- eller säkerhetsåtgärd
+DP_AP_Eg_VillkorStart_SkyddSakerhet
+Bulleråtgärd
+DP_AP_Eg_VillkorStart_Buller
+
+BFS 2020:5
+
+26
+Tabell 7.31
+Villkor för startbesked, kvartersmark
+Underkategori
+Underkategorikod
+Trafikanläggning
+DP_KM_Eg_VillkorStart_Trafikanl
+Energianläggning
+DP_KM_Eg_VillkorStart_Energianl
+Anläggning för vattenförsörjning
+DP_KM_Eg_VillkorStart_Vattenanl
+Avloppsanläggning
+DP_KM_Eg_VillkorStart_Avloppsanl
+Ändrad användning av byggnadsverk
+DP_KM_Eg_VillkorStart_AndradAnv
+Skydds- eller säkerhetsåtgärd
+DP_KM_Eg_VillkorStart_SkyddSakerhet
+Bulleråtgärd
+DP_KM_Eg_VillkorStart_Buller
+Rivning av byggnadsverk
+DP_KM_Eg_VillkorStart_Rivning
+Ombyggnad av byggnadsverk
+DP_KM_Eg_VillkorStart_Ombyggnad
+Flytt av byggnadsverk
+DP_KM_Eg_VillkorStart_Flytt
+Ändring av utfart eller annan utgång
+DP_KM_Eg_VillkorStart_Utfart
+Avhjälpande av markförorening
+DP_KM_Eg_VillkorStart_Markfororening
+Ändrad lovplikt
+23 §    Bestämmelser om ändrad lovplikt ska tillämpas på allmän plats och
+kvartersmark för att minska eller öka omfattningen av kraven på bygg-, rivnings-
+eller marklov. Bestämmelser om ändrad lovplikt ska alltid preciseras med vad
+som avses.
+Tabell 7.32
+Ändrad lovplikt, allmän plats
+Underkategori
+Underkategorikod
+Omfattning av kraven på bygglov
+DP_AP_Eg_AndradLovplikt_Bygglov
+Omfattning av kraven på rivningslov
+DP_AP_Eg_AndradLovplikt_Rivningslov
+Omfattning av kraven på marklov
+DP_AP_Eg_AndradLovplikt_Marklov
+Tabell 7.33
+Ändrad lovplikt, kvartersmark
+Underkategori
+Underkategorikod
+Omfattning av kraven på bygglov
+DP_KM_Eg_AndradLovplikt_Bygglov
+Omfattning av kraven på rivningslov
+DP_KM_Eg_AndradLovplikt_Rivningslov
+Omfattning av kraven på marklov
+DP_KM_Eg_AndradLovplikt_Marklov
+Fastighetsindelningsbestämmelser
+24 §    Fastighetsindelningsbestämmelser ska tillämpas på allmän plats,
+kvartersmark och vattenområde för att reglera hur en fastighet eller samfällighet
+ska utformas. Fastighetsindelningsbestämmelser ska även tillämpas för att reglera
+att servitut, ledningsrätter och liknande särskilda rättigheter samt gemensamhets-
+anläggningar ska skapas, ändras eller upphävas.
+Tabell 7.34
+Fastighetsindelningsbestämmelser, allmän plats
+Underkategori
+Underkategorikod
+Indelning i fastigheter
+DP_AP_Eg_Fastighetsindel_IndelningFastigh
+Servitut
+DP_AP_Eg_Fastighetsindel_Servitut
+Ledningsrätt
+DP_AP_Eg_Fastighetsindel_Ledningsratt
+Gemensamhetsanläggning
+DP_AP_Eg_Fastighetsindel_Gemensamanl
+Annan rättighet
+DP_AP_Eg_Fastighetsindel_Annan
+
+BFS 2020:5
+
+27
+Tabell 7.35
+Fastighetsindelningsbestämmelser, kvartersmark
+Underkategori
+Underkategorikod
+Indelning i fastigheter
+DP_KM_Eg_Fastighetsindel_IndelningFastigh
+Servitut
+DP_KM_Eg_Fastighetsindel_Servitut
+Ledningsrätt
+DP_KM_Eg_Fastighetsindel_Ledningsratt
+Gemensamhetsanläggning
+DP_KM_Eg_Fastighetsindel_Gemensamanl
+Annan rättighet
+DP_KM_Eg_Fastighetsindel_Annan
+Tabell 7.36
+Fastighetsindelningsbestämmelser, vattenområde
+Underkategori
+Underkategorikod
+Indelning i fastigheter
+DP_VO_Eg_Fastighetsindel_IndelningFastigh
+Servitut
+DP_VO_Eg_Fastighetsindel_Servitut
+Ledningsrätt
+DP_VO_Eg_Fastighetsindel_Ledningsratt
+Gemensamhetsanläggning
+DP_VO_Eg_Fastighetsindel_Gemensamanl
+Annan rättighet
+DP_VO_Eg_Fastighetsindel_Annan
+Upphävande av strandskydd
+25 §    Bestämmelser om upphävande av strandskydd ska tillämpas på allmän
+plats, kvartersmark och vattenområde för att reglera var strandskyddet upphävs
+genom detaljplanen.
+Tabell 7.37
+Upphävande av strandskydd, allmän plats
+Underkategori
+Underkategorikod
+Upphävande av strandskydd
+DP_AP_Eg_Strandskydd_Strandskydd
+Tabell 7.38
+Upphävande av strandskydd, kvartersmark
+Underkategori
+Underkategorikod
+Upphävande av strandskydd
+DP_KM_Eg_Strandskydd_Strandskydd
+Tabell 7.39
+Upphävande av strandskydd, vattenområde
+Underkategori
+Underkategorikod
+Upphävande av strandskydd
+DP_VO_Eg_Strandskydd_Strandskydd
+Huvudmannaskap
+26 §    Bestämmelser om huvudmannaskap ska tillämpas på allmän plats för att
+reglera då den allmänna platsen ska ha enskilt huvudmannaskap.
+Tabell 7.40
+Huvudmannaskap
+Underkategori
+Underkategorikod
+Enskilt huvudmannaskap
+DP_AP_Eg_Huvudman_EnskiltHuvudm
+
+BFS 2020:5
+
+28
+
+1. Denna författning träder i kraft den 1 oktober 2020.
+2. Författningen ska tillämpas på detaljplaner som påbörjas efter den
+31 december 2021.
+
+På Boverkets vägnar
+
+YVONNE SVENSSON
+
+Klara Falk
