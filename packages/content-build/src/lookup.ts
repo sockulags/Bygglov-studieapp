@@ -48,7 +48,11 @@ interface LookupContext {
   contentRoot: string;
   moduleIds: ReadonlySet<string> | null;
   readYaml: (file: string) => { ok: true; value: unknown } | { ok: false };
-  validate: <T>(file: string, value: unknown, parser: (input: unknown) => ParseResult<T>) => T | null;
+  validate: <T>(
+    file: string,
+    value: unknown,
+    parser: (input: unknown) => ParseResult<T>,
+  ) => T | null;
   error: (file: string, message: string, path?: string) => void;
   warn: (file: string, message: string, path?: string) => void;
   questionFiles: readonly { file: string; data: QuestionFile }[];
@@ -57,7 +61,13 @@ interface LookupContext {
 
 /** Where the source text of a chapter file lives: `docs/rattslage/<same name>.txt`. */
 export function chapterSourcePath(contentRoot: string, chapterFile: string): string {
-  return join(contentRoot, '..', 'docs', 'rattslage', basename(chapterFile).replace(/\.ya?ml$/, '.txt'));
+  return join(
+    contentRoot,
+    '..',
+    'docs',
+    'rattslage',
+    basename(chapterFile).replace(/\.ya?ml$/, '.txt'),
+  );
 }
 
 export function loadLookup(ctx: LookupContext): LoadedLookup {
@@ -97,7 +107,11 @@ export function loadLookup(ctx: LookupContext): LoadedLookup {
     if (!data) continue;
     const expected = `${data.lag.toLowerCase()}-${data.kapitel}-kap`;
     if (!name.startsWith(`${expected}.`)) {
-      error(file, `Filen innehåller ${data.lag} ${data.kapitel} kap. och ska heta ${expected}.yaml.`, 'lag');
+      error(
+        file,
+        `Filen innehåller ${data.lag} ${data.kapitel} kap. och ska heta ${expected}.yaml.`,
+        'lag',
+      );
     }
     chapters.push({ file, data });
   }
@@ -108,7 +122,9 @@ export function loadLookup(ctx: LookupContext): LoadedLookup {
       error(file, `Modulen "${moduleId}" finns inte i moduler.yaml.`, path);
     }
   };
-  glossary?.begrepp.forEach((term) => checkModule(GLOSSARY_FILE, term.modul, `begrepp[${term.id}].modul`));
+  glossary?.begrepp.forEach((term) =>
+    checkModule(GLOSSARY_FILE, term.modul, `begrepp[${term.id}].modul`),
+  );
   processes?.processer.forEach((process) =>
     checkModule(PROCESS_FILE, process.modul, `processer[${process.id}].modul`),
   );
@@ -140,8 +156,14 @@ export function loadLookup(ctx: LookupContext): LoadedLookup {
     }
     const source = chapterSourcePath(contentRoot, file);
     if (existsSync(source)) {
-      for (const problem of compareWithSource(data, parseLawChapterText(readFileSync(source, 'utf8')))) {
-        warn(file, `${problem} Kör pnpm --filter @bygglov/content-build exec tsx src/index.ts lagtext.`);
+      for (const problem of compareWithSource(
+        data,
+        parseLawChapterText(readFileSync(source, 'utf8')),
+      )) {
+        warn(
+          file,
+          `${problem} Kör pnpm --filter @bygglov/content-build exec tsx src/index.ts lagtext.`,
+        );
       }
     }
   }
@@ -163,7 +185,11 @@ export function loadLookup(ctx: LookupContext): LoadedLookup {
       const ref = parseLawRef(reference);
       const where = `${path}.lagrum[${index + 1}]`;
       if (laws && !lawCodes.has(ref.code)) {
-        report(file, `Lagkoden "${ref.code}" i "${reference}" finns inte i ${LAW_CATALOG_FILE}.`, where);
+        report(
+          file,
+          `Lagkoden "${ref.code}" i "${reference}" finns inte i ${LAW_CATALOG_FILE}.`,
+          where,
+        );
         return;
       }
       if (ref.chapter === undefined || ref.section === undefined) return;
@@ -171,7 +197,11 @@ export function loadLookup(ctx: LookupContext): LoadedLookup {
       if (!sections) return;
       const section = sections.get(ref.section);
       if (!section) {
-        report(file, `"${reference}": ${ref.code} ${ref.chapter} kap. har ingen ${ref.section} §.`, where);
+        report(
+          file,
+          `"${reference}": ${ref.code} ${ref.chapter} kap. har ingen ${ref.section} §.`,
+          where,
+        );
       } else if (section.upphavd) {
         report(file, `"${reference}": ${ref.section} § är upphävd (${section.upphavd}).`, where);
       }
@@ -179,7 +209,9 @@ export function loadLookup(ctx: LookupContext): LoadedLookup {
   };
   glossary?.begrepp.forEach((t) => checkRefs(t.lagrum, GLOSSARY_FILE, `begrepp[${t.id}]`, error));
   processes?.processer.forEach((p) =>
-    p.steg.forEach((s) => checkRefs(s.lagrum, PROCESS_FILE, `processer[${p.id}].steg[${s.id}]`, error)),
+    p.steg.forEach((s) =>
+      checkRefs(s.lagrum, PROCESS_FILE, `processer[${p.id}].steg[${s.id}]`, error),
+    ),
   );
   // Questions and cases belong to other files; problems there are warnings, not errors.
   for (const { file, data } of ctx.questionFiles) {
@@ -195,7 +227,10 @@ export function loadLookup(ctx: LookupContext): LoadedLookup {
 }
 
 /** Differences between a chapter file and the parsed source text, as Swedish messages. */
-export function compareWithSource(data: LawChapterFile, source: readonly ParsedLawSection[]): string[] {
+export function compareWithSource(
+  data: LawChapterFile,
+  source: readonly ParsedLawSection[],
+): string[] {
   const problems: string[] = [];
   const inFile = new Map(data.paragrafer.map((s) => [s.paragraf, s]));
   for (const parsed of source) {
@@ -220,7 +255,14 @@ export function compareWithSource(data: LawChapterFile, source: readonly ParsedL
 }
 
 /** The fields of a section that come from the source text (everything but the summary). */
-const SOURCE_FIELDS = ['rubrik', 'lagtext', 'andrad_genom', 'upphavd', 'upphor', 'kommande'] as const;
+const SOURCE_FIELDS = [
+  'rubrik',
+  'lagtext',
+  'andrad_genom',
+  'upphavd',
+  'upphor',
+  'kommande',
+] as const;
 
 /**
  * Updates the law text of a chapter YAML from the parsed source, keeping the summaries and

@@ -243,6 +243,8 @@ steg:
     typ: skrivelse
     rubrik: Skriv föreläggande om komplettering
     instruktion: Skriv ett kort föreläggande till sökanden. Ange vad som saknas, tidsfrist och konsekvens.
+    # Ett föreläggande enligt 9 kap. 91 §; slaget (komplettering) tas ur rubriken.
+    ar_forelaggande: true
     bedomningspunkter:
       - Räknar upp de saknade handlingarna konkret
       - Anger en rimlig tidsfrist (t.ex. tre veckor)

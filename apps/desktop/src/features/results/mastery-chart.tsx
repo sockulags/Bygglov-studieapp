@@ -35,8 +35,8 @@ function placeEndLabels(items: readonly EndLabel[]): EndLabel[] {
 }
 
 /** Short name for an end label: "Lovplikt" rather than the full module title. */
-function shortTitle(title: string): string {
-  return title.length > 15 ? `${title.slice(0, 14)}…` : title;
+function shortTitle(title: string, max: number): string {
+  return title.length > max ? `${title.slice(0, max - 1)}…` : title;
 }
 
 /** Mastery per module over time: one 2 px line per studied module, y fixed at 0–100 %. */
@@ -52,7 +52,10 @@ export function MasteryChart({
 }) {
   const [ref, width] = useElementWidth<HTMLDivElement>();
   const cursor = useChartCursor(days.length);
-  const labelSpace = series.length > 0 ? 156 : 16;
+  // Room for the end labels: full module names when the card is wide enough.
+  const wide = width >= 720;
+  const labelSpace = series.length === 0 ? 16 : wide ? 212 : 156;
+  const labelChars = wide ? 24 : 15;
   const plotLeft = MARGIN.left;
   const plotRight = Math.max(plotLeft + 40, width - labelSpace);
   const plotWidth = plotRight - plotLeft;
@@ -75,7 +78,7 @@ export function MasteryChart({
       const last = s.points[s.points.length - 1];
       return {
         moduleId: s.moduleId,
-        text: `${shortTitle(s.title)} ${last?.mastery ?? 0} %`,
+        text: `${shortTitle(s.title, labelChars)} ${last?.mastery ?? 0} %`,
         y: yAt(last?.mastery ?? 0),
       };
     }),

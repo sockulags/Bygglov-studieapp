@@ -78,12 +78,13 @@ börja med ärendets id (`A` + tre siffror). Utgå från `A002-tillbyggnad-bjork
 - **`steg`**: `id`, `typ`, `rubrik` och fält per typ:
   `checklista` (`poster` med `finns`), `fraga` (`fragetyp` flerval/flersvar/sant_falskt/oppen),
   `berakning` (`fragor` med `svar` och `tolerans`), `urval` (`alternativ` med `ratt`),
-  `skrivelse` (`bedomningspunkter`, valfritt `modelltext`), `beslut` (`forvantat_beslut`:
-  bevilja, bevilja_med_villkor, avsla, avvisa eller avskriva, samt `bedomningspunkter`).
+  `skrivelse` (`bedomningspunkter`, valfritt `modelltext` och `ar_forelaggande: true`),
+  `beslut` (`forvantat_beslut`: bevilja, bevilja_med_villkor, avsla, avvisa eller avskriva,
+  `bedomningspunkter` och valfritt `godtagbara_utfall`). Alla steg kan ha `vilande`.
 - **`handelser`**: `id`, `namn`, `utlosare` och `effekt`. Utlösare (alla angivna villkor ska
   gälla): `efter_steg`, `vid_beslut`, `om_missat`, `om_forelagt`, `slump` (0–1). Effekter:
   `visa_handlingar`, `tid_framat_dagar`, `meddelande`, `satt_komplett_datum`, `ny_fristdag`,
-  `andrade_fakta`, `nytt_steg` (ett helt steg som skjuts in).
+  `vilande`, `vilande_upphor`, `andrade_fakta`, `nytt_steg` (ett helt steg som skjuts in).
 - **`parter`** (valfritt): `sokande` och `fastighetsagare` (listor med namn) och `grannar`
   (lista med `fastighet` och `namn`). Beslutskontrollen känner då igen mottagare i
   expedieringen på namn, t.ex. "Maria och Jonas Lindqvist", och inte bara på rollord och
@@ -91,9 +92,10 @@ börja med ärendets id (`A` + tre siffror). Utgå från `A002-tillbyggnad-bjork
 
 Så tolkar ärendemotorn ärendet (bra att veta när du skriver):
 
-- Ett `skrivelse`-steg vars `rubrik` eller `instruktion` innehåller "förelägg" räknas som ett
-  föreläggande. Ordet efter "om" blir dess slag, så "Skriv föreläggande om komplettering"
-  utlöser `om_forelagt: komplettering` och styr när tioveckorsfristen (9 kap. 99 §) börjar.
+- Ett `skrivelse`-steg med `ar_forelaggande: true` räknas som ett föreläggande. Ordet efter
+  "föreläggande om" i rubriken eller instruktionen blir dess slag, så "Skriv föreläggande om
+  komplettering" utlöser `om_forelagt: komplettering` och styr när tioveckorsfristen
+  (9 kap. 99 §) börjar. Utan fältet är steget en vanlig skrivelse, vad det än heter.
 - Ett `urval`-steg räknas som underrättelse av grannar (9 kap. 94 §). Använd en
   `fraga`/`flersvar` för andra urval, t.ex. remissinstanser.
 - `om_missat: S3` gäller om steget hoppades över eller besvarades fel, eller om beslutet
@@ -107,12 +109,65 @@ Så tolkar ärendemotorn ärendet (bra att veta när du skriver):
   informeras skriftligen (100 § 2). Använd den inte för svar på ett föreläggande; då gäller
   `satt_komplett_datum`. Gäller flera startpunkter räknas den senaste, och en förlängning
   räknas från den fristen.
-- `vid_beslut: bevilja` gäller även `bevilja_med_villkor`. Beslutskontrollen godtar bara
-  `forvantat_beslut`; beskriv godtagbara alternativ i `bedomningspunkter`.
+- `vid_beslut: bevilja` gäller även `bevilja_med_villkor`. Beslutskontrollen godtar
+  `forvantat_beslut` och utfallen i `godtagbara_utfall`, en lista med `utfall` och en kort
+  `motivering` som visas i bedömningen, t.ex. frivilligt lov i stället för avskrivning i A001:
+
+  ```yaml
+  godtagbara_utfall:
+    - utfall: bevilja
+      motivering: Ansökan kan i stället prövas som frivilligt lov (9 kap. 52 och 79 §§).
+  ```
+
+  Ett godtaget utfall räknas inte som missat för `om_missat`.
 - Taxans poster är alternativ (t.ex. lov eller avskrivning); avgiften är rätt om den stämmer
   med någon av dem, efter reduktion enligt 12 kap. 8 a §.
-- Vilande enligt 9 kap. 102 § finns inte i motorn. Lägg tidslinjen så att beslutet fattas inom
-  fristen, som i A003.
+- Vilande enligt 9 kap. 102 §: `vilande: strandskydd` (eller `expropriation`, `planarbete`,
+  första stycket 1–3) på ett steg förklarar ärendet vilande den dag steget görs, men bara om
+  steget besvaras rätt (hon valde att låta ärendet vila). Samma fält finns som effekt på en
+  händelse. `vilande_upphor: true` på en händelse avslutar vilandet den dag händelsen
+  inträffar, t.ex. när dispensbeslutet kommer in. Diariet visar "Ärendet förklaras vilande …"
+  och "Vilandeförklaringen upphör …". Medan ärendet vilar löper inte tioveckorsfristen, och
+  dagarna det vilat efter att fristen började räknas inte in, eftersom avgiften inte
+  reduceras när fristen överskrids på grund av vilandebeslutet (12 kap. 8 a §). Se A003.
+
+### Mallvariabler i texter
+
+Datum som beror på när hon gör något, främst efter beslutet, skrivs som mallvariabler. De
+fungerar i stegens texter (även steg som skjuts in), i händelsernas `meddelande` och i
+Markdown-handlingar (även modelltexter). Motorn fyller i meddelandet när händelsen inträffar,
+och appen fyller i steg och handlingar när de visas.
+
+| Variabel | Värde |
+| --- | --- |
+| `{{simdatum}}` | Dagens datum i ärendets kalender (i ett meddelande: dagen då händelsen inträffar, efter `tid_framat_dagar`) |
+| `{{ansokningsdatum}}` | Ansökningsdagen (`startdatum`) |
+| `{{beslutsdatum}}` | Dagen då beslutet fattades |
+| `{{kungorelsedatum}}` | Dagen då beslutet kungjordes på anslagstavlan; i simuleringen två dagar efter beslutet |
+| `{{frist}}` | Sista dagen för beslut enligt 9 kap. 99 § som den ser ut just nu |
+| `{{inkomdatum}}` | Dagen då handlingen kom in (bara i handlingar och meddelanden) |
+
+- `{{kungorelsedatum+19}}` och `{{simdatum-14}}` lägger till eller drar ifrån dagar.
+- `|iso` ger `2026-10-14` i stället för `14 oktober 2026`, t.ex. `{{inkomdatum|iso}}`. I en
+  Markdown-tabell skriver du `{{beslutsdatum\|iso}}`.
+- `|vardag` flyttar en lördag, söndag, helgdag, midsommarafton, julafton eller nyårsafton till
+  nästa vardag, som för sista dagen för en frist (2 § lagen (1930:173) om beräkning av
+  lagstadgad tid): `{{kungorelsedatum+28|vardag}}`.
+- Kontrollen säger till om en okänd variabel eller ett okänt filter i `arende.yaml`. Skriv inte
+  variabler i front matter (`datum` ska vara ett fast datum); lämna då bort `datum` och skriv
+  datumet i texten i stället.
+
+Exempel från A003, där överklagandet alltid kommer 19 dagar efter kungörelsen:
+
+```yaml
+- id: E3
+  utlosare: { efter_steg: S7, vid_beslut: bevilja }
+  effekt:
+    tid_framat_dagar: 21 # kungörelsen två dagar efter beslutet + 19 dagar
+    meddelande: >
+      Beslutet kungjordes på kommunens anslagstavla den {{kungorelsedatum}}. I dag, 19 dagar
+      senare, har ett överklagande kommit in …
+```
 
 Kontrollen säger till om ett steg, en handling eller en händelse som refereras inte finns,
 om ett id används två gånger och om `dold_tills` pekar på en händelse som saknas. Filer som

@@ -119,7 +119,9 @@ describe('glossary schema', () => {
   });
 
   it('needs a module id and a definition', () => {
-    const issues = issuesOf(parseGlossaryFile({ begrepp: [{ id: 'x', term: 'X', modul: 'lovplikt' }] }));
+    const issues = issuesOf(
+      parseGlossaryFile({ begrepp: [{ id: 'x', term: 'X', modul: 'lovplikt' }] }),
+    );
     expect(issues).toEqual(
       expect.arrayContaining([
         expect.stringMatching(/^begrepp\[x\]\.definition: Fältet saknas/),
@@ -132,7 +134,13 @@ describe('glossary schema', () => {
 describe('process schema', () => {
   it('lays out rows from forward arrows and keeps loops out of the ranking', () => {
     const steg = [
-      step('A', { fraga: 'Komplett?', nasta: [{ till: 'C', etikett: 'Ja' }, { till: 'B', etikett: 'Nej' }] }),
+      step('A', {
+        fraga: 'Komplett?',
+        nasta: [
+          { till: 'C', etikett: 'Ja' },
+          { till: 'B', etikett: 'Nej' },
+        ],
+      }),
       step('B', { spar: 1 }),
       step('C', { nasta: [{ till: 'D' }] }),
       step('D', { spar: 1, nasta: [{ till: 'C', etikett: 'Igen' }] }),
@@ -182,7 +190,13 @@ describe('process schema', () => {
     const issues = issuesOf(
       parseProcessFile(
         processFile([
-          step('A', { fraga: 'Vilken väg?', nasta: [{ till: 'B', etikett: 'Ett' }, { till: 'C', etikett: 'Två' }] }),
+          step('A', {
+            fraga: 'Vilken väg?',
+            nasta: [
+              { till: 'B', etikett: 'Ett' },
+              { till: 'C', etikett: 'Två' },
+            ],
+          }),
           step('B', { slut: true }),
           step('C', { slut: true, se_process: 'saknas' }),
           step('D'),
@@ -199,8 +213,12 @@ describe('process schema', () => {
   });
 
   it('limits step titles so they fit the map', () => {
-    const issues = issuesOf(parseProcessFile(processFile([step('A', { titel: 'x'.repeat(57) }), step('B')])));
-    expect(issues).toEqual([expect.stringMatching(/steg\[A\]\.titel: titel får vara högst 56 tecken/)]);
+    const issues = issuesOf(
+      parseProcessFile(processFile([step('A', { titel: 'x'.repeat(57) }), step('B')])),
+    );
+    expect(issues).toEqual([
+      expect.stringMatching(/steg\[A\]\.titel: titel får vara högst 56 tecken/),
+    ]);
   });
 });
 

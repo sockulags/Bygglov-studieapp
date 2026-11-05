@@ -222,7 +222,11 @@ export function QuizView({ run }: { run: StudyRun }) {
 
       {reveal && item.response && (
         <div ref={explanation}>
-          <ExplanationPanel question={question} result={item.response.result} />
+          <ExplanationPanel
+            question={question}
+            result={item.response.result}
+            answer={item.response.answer}
+          />
         </div>
       )}
 

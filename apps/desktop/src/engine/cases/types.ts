@@ -1,4 +1,4 @@
-import type { DecisionOutcome, StepType } from '@bygglov/content-schema';
+import type { DecisionOutcome, StepType, SuspensionReason } from '@bygglov/content-schema';
 import type { GradeOutcome, ItemFeedback, QuizAnswer } from '../quiz/types';
 
 /**
@@ -103,6 +103,18 @@ export interface Injunction {
   stepId: string;
 }
 
+/** A period the case rested (vilande) under 9 kap. 102 §. */
+export interface Suspension {
+  reason: SuspensionReason;
+  /** Simulated day the case was declared resting. */
+  from: string;
+  /** Day the resting ended, null while it lasts. */
+  to: string | null;
+  /** The step or event that declared it. */
+  stepId?: string;
+  eventId?: string;
+}
+
 export type DiaryKind =
   | 'registrering' // case registered
   | 'handling' // a document arrived
@@ -153,7 +165,14 @@ export interface CaseState {
   amendmentDates: string[];
   /** Weeks the 99 § deadline has been extended (0 = not extended, at most 10). */
   extensionWeeks: number;
-  /** Decision deadline under 9 kap. 99 §, null while waiting for a requested completion. */
+  /** Why the deadline was extended (shown in the diary), null when not extended. */
+  extensionReason: string | null;
+  /** Periods the case rested under 9 kap. 102 §, oldest first. */
+  suspensions: Suspension[];
+  /**
+   * Decision deadline under 9 kap. 99 §, null while waiting for a requested completion or
+   * while the case rests (102 §).
+   */
   deadlineDate: string | null;
   /** Step ids in order: the ordinary steps plus steps inserted by events. */
   queue: string[];
@@ -256,7 +275,11 @@ export interface CaseDeadline {
    */
   injunctionInTime: boolean | null;
   extensionWeeks: number;
-  /** Last day for a timely decision; null while waiting for a completion. */
+  /** Start of the resting (102 §) that is still going on, null when the case does not rest. */
+  suspendedSince: string | null;
+  /** Days of finished resting periods after the start that do not count (102 §). */
+  suspendedDays: number;
+  /** Last day for a timely decision; null while waiting for a completion or resting. */
   deadlineDate: string | null;
   /** Swedish explanation with law references. */
   explanation: string;

@@ -1,10 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { parseCaseFile, type CaseFile } from '@bygglov/content-schema';
-import { startCase, submitStep } from '@/engine';
+import { extendDeadline, startCase, submitStep } from '@/engine';
 import {
   caseLawRefs,
   caseProgress,
   deadlineSummary,
+  extensionAvailability,
   factLabel,
   factValue,
   listStatusOf,
@@ -43,6 +44,7 @@ function caseFile(): CaseFile {
         id: 'S1',
         typ: 'skrivelse',
         rubrik: 'Skriv föreläggande om komplettering',
+        ar_forelaggande: true,
         bedomningspunkter: ['Konkret'],
         lagrum: ['PBL 9 kap. 91 §', 'PBL 9 kap. 99 §'],
       },
@@ -159,6 +161,38 @@ describe('case model helpers', () => {
       total: 3,
       currentStepTitle: 'Skriv föreläggande om komplettering',
     });
+  });
+});
+
+describe('vilande and extension in the header', () => {
+  it('shows a resting case as paused and counts the resting days afterwards', () => {
+    const state = startCase(caseFile(), { seed: 1 });
+    const resting = {
+      ...state,
+      simDate: '2026-03-20',
+      suspensions: [{ reason: 'strandskydd' as const, from: '2026-03-10', to: null }],
+    };
+    expect(deadlineSummary(resting)).toMatchObject({ label: 'Vilande', tone: 'paused' });
+    expect(deadlineSummary(resting).detail).toContain('9 kap. 102 §');
+    const ended = {
+      ...resting,
+      suspensions: [{ reason: 'strandskydd' as const, from: '2026-03-10', to: '2026-03-20' }],
+    };
+    // 2026-05-11 + 10 resting days = 2026-05-21, 62 days after 2026-03-20.
+    expect(deadlineSummary(ended)).toMatchObject({ label: '62 dagar kvar', tone: 'normal' });
+    expect(deadlineSummary(ended).detail).toContain('10 dagar som vilande (102 §) räknas inte.');
+  });
+
+  it('allows one extension before the deadline has run out and before the decision', () => {
+    const state = startCase(caseFile(), { seed: 1 });
+    expect(extensionAvailability(state)).toEqual({ allowed: true });
+    const extended = extendDeadline(state, 3, 'Remiss');
+    expect(extensionAvailability(extended)).toMatchObject({ allowed: false });
+    expect(deadlineSummary(extended).detail).toContain('Förlängd med 3 veckor');
+    const late = { ...state, simDate: '2026-05-20' };
+    const why = extensionAvailability(late);
+    expect(why.allowed).toBe(false);
+    expect(!why.allowed && why.reason).toContain('100 § 3');
   });
 });
 

@@ -3,7 +3,11 @@
 # 105 § i lydelse 2026:712). PBL 2, 3, 4, 10, 12 och 13 kap., FL, MB 7, 16 och 19 kap.,
 # väglagen, förordningen (1998:899) om miljöfarlig verksamhet och hälsoskydd och
 # trafikbullerförordningen (2015:216) är kontrollerade mot riksdagen.se (hämtade 2026-11-04).
+# 12 kap. 8 a § PBL och 2 § lagen (1930:173) om beräkning av lagstadgad tid är kontrollerade
+# mot riksdagen.se 2026-11-05.
 # Ärendet utspelar sig efter 2026-07-01 så att 9 kap. 105 § i nu gällande lydelse gäller.
+# Datum efter beslutet skrivs som mallvariabler ({{beslutsdatum}}, {{kungorelsedatum+19}} …,
+# se content/README.md), så att de stämmer oavsett vilken dag beslutet fattas.
 id: A003
 titel: Nybyggnad av enbostadshus utanför detaljplan nära strand
 niva: 3
@@ -256,7 +260,7 @@ handlingar:
     titel: Överklagande från ägarna till Strandvik 1:5
     fil: handlingar/overklagande-strandvik-1-5.md
     dold_tills: E3
-    fakta: { fastighet: Strandvik 1:5, inkom: 2026-11-02, kungjort: 2026-10-14 }
+    fakta: { fastighet: Strandvik 1:5 }
   - id: H13
     typ: skrivelse
     titel: Länsstyrelsens begäran om yttrande
@@ -347,6 +351,8 @@ steg:
       villkorade lov finns bara i väntan på planbeslut (9 kap. 81 §). Att avslå eller avvisa
       vore fel, eftersom dispensfrågan ännu inte är avgjord.
     lagrum: [PBL 9 kap. 102 §, PBL 9 kap. 99 §, PBL 12 kap. 8 a §, PBL 9 kap. 81 §]
+    # Rätt svar förklarar ärendet vilande från i dag; vilandet upphör med dispensbeslutet (E2).
+    vilande: strandskydd
 
   - id: S4
     typ: urval
@@ -450,8 +456,8 @@ steg:
       - Har upplysningarna i 105 § första stycket, giltighetstid (115 §), kontrollansvarig, att byggbedömare inte används, att åtgärden inte får påbörjas förrän startbesked getts, och risken med att påbörja innan beslutet fått laga kraft
       - Tar ställning till om lovet ska gälla först när det fått laga kraft (114 § andra stycket) och motiverar varför det inte behövs
       - Upplyser om andra tillstånd och villkor (92 §), Trafikverkets anslutningstillstånd, villkoren i strandskyddsdispensen och avloppstillståndet, utan att förena lovet med villkor som saknar stöd i lag (gatukostnadsvillkor enligt 82 § är inte aktuella utanför detaljplan)
-      - Avgiften är 31 800 kr enligt taxan och redovisas, utan reduktion eftersom beslutet fattas inom tidsfristen, som efter den ändrade situationsplanen räknas från den 10 september och löper ut den 19 november 2026 (9 kap. 99 § första stycket 2, 12 kap. 8 a §, 9 kap. 107 §)
-      - Redovisar i handläggningen att sökandena skriftligen informerats om att tidsfristen räknas från den 10 september, när den ändrade situationsplanen kom in (9 kap. 100 § 2)
+      - Avgiften är 31 800 kr enligt taxan och redovisas, utan reduktion eftersom beslutet fattas inom tidsfristen, som efter den ändrade situationsplanen räknas från den 10 september (9 kap. 99 § första stycket 2) och, eftersom ärendet var vilande till den 24 september (9 kap. 102 §), inte medför reduktion före den 3 december 2026 (12 kap. 8 a §, 9 kap. 107 §)
+      - Redovisar i handläggningen att ärendet var vilande i väntan på strandskyddsdispensen (9 kap. 102 §) och att sökandena skriftligen informerats om att tidsfristen räknas från den 10 september, när den ändrade situationsplanen kom in (9 kap. 100 § 2)
       - Överklagandehänvisningen anger att tiden för den som inte delges räknas från en vecka efter kungörelsen (13 kap. 16 §)
       - Beslutet delges sökandena, fastighetsägaren och ägarna till Strandvik 1:12 (108 §), kungörs på kommunens anslagstavla (109 §) och meddelande skickas till Strandvik 1:5, 1:3 och 1:1 (110 §)
     modellbeslut: handlingar/modell-beslut.md
@@ -494,9 +500,12 @@ handelser:
           (9 kap. 94 § tredje stycket). Ägarna till Strandvik 1:12 får en vecka på sig. Den
           nya utfarten ligger dessutom närmare deras fastighet. Ändringen påverkar också
           tidsfristen: den reviderade situationsplanen kom in den 10 september på sökandenas
-          eget initiativ, så tioveckorsfristen räknas från den dagen och löper ut den
-          19 november 2026 i stället för den 26 oktober (9 kap. 99 § första stycket 2).
-          Sökandena ska skriftligen informeras om den ändrade tidpunkten (100 § 2).
+          eget initiativ, så tioveckorsfristen räknas från den dagen i stället för från
+          ansökningsdagen (9 kap. 99 § första stycket 2). Om ärendet förklarades vilande i
+          väntan på strandskyddsdispensen (9 kap. 102 §) räknas inte heller dagarna fram till att
+          dispensbeslutet kom in den 24 september. Fristen löper nu ut den {{frist}}; diariet
+          visar uträkningen. Sökandena ska skriftligen informeras om den ändrade tidpunkten
+          (100 § 2).
         lagrum: [PBL 9 kap. 94 §, PBL 9 kap. 99 §, PBL 9 kap. 100 §]
         tid_framat_dagar: 7
 
@@ -511,16 +520,20 @@ handelser:
         tillstånd till avloppsanordningen. Dispensbeslutet har skickats till länsstyrelsen, som
         i går meddelade att den inte kommer att pröva beslutet (19 kap. 3 b § miljöbalken).
         Dispensfrågan är avgjord och bygglovsärendet kan avgöras.
+      # Dispensfrågan är avgjord: vilandet enligt 9 kap. 102 § upphör i dag (om ärendet vilade).
+      vilande_upphor: true
       andrade_fakta: { strandskyddsdispens: true, avloppstillstand: true }
 
   - id: E3
     namn: Överklagande från Strandvik 1:5
     utlosare: { efter_steg: S7, vid_beslut: bevilja }
     effekt:
+      # Kungörelsen sker två dagar efter beslutet ({{kungorelsedatum}}), och överklagandet
+      # kommer 19 dagar efter kungörelsen: 2 + 19 = 21 dagar efter beslutet.
       tid_framat_dagar: 21
       visa_handlingar: [H12]
       meddelande: >
-        Beslutet kungjordes på kommunens anslagstavla den 14 oktober 2026. I dag, 19 dagar
+        Beslutet kungjordes på kommunens anslagstavla den {{kungorelsedatum}}. I dag, 19 dagar
         senare, har ett överklagande kommit in från ägarna till Strandvik 1:5. De fick
         meddelande om kungörelsen men har inte delgetts beslutet.
       nytt_steg:
@@ -529,22 +542,26 @@ handelser:
         rubrik: Har överklagandet kommit in i rätt tid?
         fragetyp: flerval
         fraga: >
-          Beslutet kungjordes den 14 oktober 2026. Ägarna till Strandvik 1:5 delgavs inte
-          beslutet. Deras överklagande kom in till nämnden den 2 november 2026. Vad gäller?
+          Beslutet kungjordes den {{kungorelsedatum}}. Ägarna till Strandvik 1:5 delgavs inte
+          beslutet. Deras överklagande kom in till nämnden den {{kungorelsedatum+19}}. Vad gäller?
         alternativ:
           - text: >-
-              Det har kommit in i rätt tid. Tiden räknas från den 21 oktober, en vecka efter
-              kungörelsen, och går ut den 11 november. Nämnden ska skyndsamt överlämna
-              överklagandet och handlingarna till länsstyrelsen.
+              Det har kommit in i rätt tid. Tiden räknas från den {{kungorelsedatum+7}}, en vecka
+              efter kungörelsen, och går ut den {{kungorelsedatum+28|vardag}}. Nämnden ska
+              skyndsamt överlämna överklagandet och handlingarna till länsstyrelsen.
             ratt: true
-          - text: Det har kommit in i rätt tid, eftersom tre veckor från kungörelsen löper ut den 4 november.
+          - text: Det har kommit in i rätt tid, eftersom tre veckor från kungörelsen löper ut den {{kungorelsedatum+21}}.
           - text: Det ska avvisas, eftersom de inte lämnade några synpunkter när de underrättades.
           - text: Det har kommit in i rätt tid, men nämnden ska avvisa det eftersom de inte är sakägare.
         forklaring: >
           Den som inte ska delges beslutet enligt 9 kap. 108 § har tre veckor på sig räknat från
           dagen en vecka efter kungörelsen på anslagstavlan (13 kap. 16 § tredje stycket PBL och
-          44 § förvaltningslagen). Kungörelse den 14 oktober ger den 21 oktober och sista dag
-          den 11 november. Svaret "4 november" ger rätt slutsats av fel skäl. Nämnden prövar
+          44 § förvaltningslagen). Kungörelse den {{kungorelsedatum}} ger den
+          {{kungorelsedatum+7}} och sista dag den {{kungorelsedatum+28|vardag}}. Infaller sista
+          dagen på en lördag, söndag eller helgdag får överklagandet komma in nästa vardag
+          (2 § lagen (1930:173) om beräkning av lagstadgad tid). Överklagandet kom in 19 dagar
+          efter kungörelsen. Svaret med tre veckor från kungörelsen ger rätt slutsats av fel
+          skäl. Nämnden prövar
           bara om överklagandet kommit in i rätt tid (45 § FL) och ska sedan skyndsamt
           överlämna det till länsstyrelsen (46 § FL, 13 kap. 3 § PBL). Frågan om klagorätt
           prövas av länsstyrelsen (47 § FL). Att inte ha yttrat sig under underrättelsen tar
@@ -560,7 +577,7 @@ handelser:
       tid_framat_dagar: 14
       visa_handlingar: [H13]
       meddelande: >
-        Överklagandet och handlingarna överlämnades till länsstyrelsen den 3 november.
+        Överklagandet och handlingarna överlämnades till länsstyrelsen den {{simdatum-14}}.
         Länsstyrelsen har nu begärt att nämnden yttrar sig över överklagandet.
       nytt_steg:
         id: S9

@@ -3,6 +3,7 @@ import { Sidebar } from '@/components/layout/sidebar';
 import { UpdatePrompt, WhatsNewDialog } from '@/features/updates';
 import { useUiStore } from '@/store/ui';
 import { cn } from '@/lib/cn';
+import { isTauri } from '@/lib/tauri';
 
 export function RootLayout() {
   const collapsed = useUiStore((s) => s.sidebarCollapsed);
@@ -29,6 +30,22 @@ export function RootLayout() {
         </div>
       </main>
       <WhatsNewDialog />
+      {!isTauri() && <BrowserModeBanner />}
     </div>
+  );
+}
+
+/**
+ * In the browser (pnpm dev) the data layer falls back to an in-memory store, so nothing is
+ * kept after a reload. A discreet strip at the bottom says so.
+ */
+function BrowserModeBanner() {
+  return (
+    <p
+      role="note"
+      className="pointer-events-none fixed right-3 bottom-3 z-40 rounded-full border border-line-strong bg-paper px-3 py-1 text-xs text-ink shadow-paper"
+    >
+      Testläge i webbläsaren: inget sparas
+    </p>
   );
 }

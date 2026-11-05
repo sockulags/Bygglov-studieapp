@@ -1,7 +1,6 @@
 ---
 rubrik: Överklagande av bygglov för Strandvik 1:9
 avsandare: Birgitta och Anders Nordin, Strandvik 1:5
-datum: 2026-10-30
 diarienummer: BN 2026-000655
 ---
 
@@ -10,7 +9,7 @@ genom Bygg- och miljönämnden i Åkerslunda kommun
 
 # Överklagande av beslut om bygglov för nytt bostadshus på Strandvik 1:9
 
-Vi överklagar bygg- och miljönämndens beslut den 12 oktober 2026 om bygglov för ett
+Vi överklagar bygg- och miljönämndens beslut den {{beslutsdatum}} om bygglov för ett
 enbostadshus på Strandvik 1:9 (diarienummer BN 2026-000655). Vi äger Strandvik 1:5, som
 gränsar till Strandvik 1:9 i väster. Vi fick ett brev om att beslutet satts upp på kommunens
 anslagstavla.
@@ -37,7 +36,7 @@ hade fått lämna synpunkter.
 bor inte på fastigheten sedan 2024, eftersom vi hyr ut huset. Om vi hade fått veta hade vi
 protesterat i tid.
 
-Strandvik den 30 oktober 2026
+Strandvik den {{inkomdatum-3}}
 
 *Birgitta Nordin*                *Anders Nordin*
 
@@ -45,5 +44,5 @@ Storgatan 8, 999 99 Åkerslunda · 070-174 06 91
 
 ---
 
-*Inkom till bygg- och miljönämnden 2026-11-02. Fiktiv handling för utbildning. Alla namn,
+*Inkom till bygg- och miljönämnden {{inkomdatum|iso}}. Fiktiv handling för utbildning. Alla namn,
 nummer och fastigheter är fiktiva.*

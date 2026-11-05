@@ -267,7 +267,13 @@ steg:
       - Avgiften är 1 300 kr enligt taxan för nedlagd handläggning, och det framgår hur den bestämts (9 kap. 107 §, 12 kap. 8 § 9)
       - Överklagandehänvisning finns (avgiftsbeslutet kan överklagas till länsstyrelsen, 13 kap. 3 §)
       - Beslutet delges sökandena, som också är fastighetsägare; det kungörs inte, eftersom det inte är ett beslut om att ge lov (9 kap. 109 §)
-      - "Godtagbar alternativ lösning: om du i stället beviljar frivilligt lov ska beslutet bygga på 9 kap. 52 och 79 §§, motivera varför sökandena ändå vill ha ett beslut, och innehålla upplysningar och kungörelse som för ett lov (avgift 6 500 kr). Appens kontroll av utfallet markerar det ändå som avvikande."
+      - "Godtagbar alternativ lösning: om du i stället beviljar frivilligt lov ska beslutet bygga på 9 kap. 52 och 79 §§, motivera varför sökandena ändå vill ha ett beslut, och innehålla upplysningar och kungörelse som för ett lov (avgift 6 500 kr)"
+    godtagbara_utfall:
+      - utfall: bevilja
+        motivering: >
+          Om sökandena ändå vill ha ett beslut kan ansökan prövas som frivilligt lov (9 kap. 52
+          och 79 §§). Då ska beslutet ha upplysningarna i 105 §, kungöras och ha avgiften för
+          lov enligt taxan, 6 500 kr.
     modellbeslut: handlingar/modell-beslut.md
 
 handelser:

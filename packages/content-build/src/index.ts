@@ -69,7 +69,12 @@ function parseArgs(argv: string[]): { command: string | undefined; root: string 
 
 export function main(argv: string[]): number {
   const { command, root } = parseArgs(argv);
-  if (command !== 'check' && command !== 'build' && command !== 'drawings' && command !== 'lagtext') {
+  if (
+    command !== 'check' &&
+    command !== 'build' &&
+    command !== 'drawings' &&
+    command !== 'lagtext'
+  ) {
     console.error(USAGE);
     return 2;
   }
@@ -126,7 +131,11 @@ function syncLawText(contentRoot: string): number {
   for (const { file } of tree.lookup.chapters) {
     const target = join(contentRoot, file);
     const source = chapterSourcePath(contentRoot, file);
-    const { source: yaml, changed, added } = syncChapterYaml(
+    const {
+      source: yaml,
+      changed,
+      added,
+    } = syncChapterYaml(
       readFileSync(target, 'utf8'),
       parseLawChapterText(readFileSync(source, 'utf8')),
     );

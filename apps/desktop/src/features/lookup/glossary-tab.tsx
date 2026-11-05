@@ -12,7 +12,13 @@ function initial(term: string): string {
 
 const letterId = (letter: string) => `bokstav-${letter.charCodeAt(0)}`;
 
-export function GlossaryTab({ lookup, modules }: { lookup: LookupContent; modules: readonly Module[] }) {
+export function GlossaryTab({
+  lookup,
+  modules,
+}: {
+  lookup: LookupContent;
+  modules: readonly Module[];
+}) {
   const nav = useLookupNav();
   const byLetter = useMemo(() => {
     const groups = new Map<string, GlossaryTerm[]>();
@@ -141,7 +147,13 @@ export function GlossaryTab({ lookup, modules }: { lookup: LookupContent; module
                           <button
                             key={`${s.processId}-${s.stepId}`}
                             type="button"
-                            onClick={() => nav.open({ kind: 'process', processId: s.processId, stepId: s.stepId })}
+                            onClick={() =>
+                              nav.open({
+                                kind: 'process',
+                                processId: s.processId,
+                                stepId: s.stepId,
+                              })
+                            }
                             className="rounded-sm underline-offset-2 hover:text-ink hover:underline"
                           >
                             {s.label}

@@ -1,7 +1,6 @@
 ---
 rubrik: Föreläggande att yttra sig
 avsandare: Länsstyrelsen, rättsenheten
-datum: 2026-11-16
 diarienummer: LST 403-28817-2026
 ---
 
@@ -10,15 +9,16 @@ Bygg- och miljönämnden\
 Box 100\
 999 99 Åkerslunda
 
-Er beteckning: BN 2026-000655
+Er beteckning: BN 2026-000655\
+Vår dag: {{inkomdatum-1}}
 
 # Överklagande av beslut om bygglov för nybyggnad av enbostadshus på Strandvik 1:9
 
 Länsstyrelsen har tagit emot överklagandet från Birgitta och Anders Nordin, Strandvik 1:5,
-som nämnden överlämnade den 3 november 2026 tillsammans med handlingarna i ärendet.
+som nämnden överlämnade den {{inkomdatum-14}} tillsammans med handlingarna i ärendet.
 
 Länsstyrelsen förelägger bygg- och miljönämnden att **yttra sig över överklagandet senast den
-7 december 2026**.
+{{inkomdatum+20|vardag}}**.
 
 Nämnden ombeds särskilt att
 

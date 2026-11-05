@@ -14,7 +14,11 @@ import {
   type DecisionDraft,
   type StepAnswer,
 } from '@/engine';
+import { createMemoryDataStore, setDataStore } from '@/data';
+import { extensionAvailability } from './case-model';
+import { flushCaseWrites, startNewCase, useCaseStore } from './case-store';
 import { DecisionForm } from './decision/decision-form';
+import { ExtendDeadlineDialog } from './extend-deadline-dialog';
 import { ChecklistStep } from './steps/checklist-step';
 
 function testCase(): CaseFile {
@@ -196,5 +200,58 @@ describe('DecisionForm', () => {
     expect(onChange).toHaveBeenLastCalledWith(
       expect.objectContaining({ lagstod: ['PBL 9 kap. 60 §'] }),
     );
+  });
+});
+
+describe('ExtendDeadlineDialog', () => {
+  it('extends the deadline with weeks and a reason that reach the diary', async () => {
+    setDataStore(createMemoryDataStore());
+    const c = testCase();
+    const { state } = startNewCase(c, { seed: 1 });
+    const user = userEvent.setup();
+    const onOpenChange = vi.fn();
+    render(
+      <ExtendDeadlineDialog
+        caseFile={c}
+        state={state}
+        availability={extensionAvailability(state)}
+        open
+        onOpenChange={onOpenChange}
+      />,
+    );
+    const dialog = screen.getByRole('dialog', { name: 'Förläng tidsfristen' });
+    // Without a reason nothing happens and the field says why.
+    await user.click(within(dialog).getByRole('button', { name: 'Förläng fristen' }));
+    expect(within(dialog).getByLabelText('Skäl till förlängningen')).toHaveAttribute(
+      'aria-invalid',
+      'true',
+    );
+    const weeks = within(dialog).getByLabelText(/Antal veckor/);
+    await user.clear(weeks);
+    await user.type(weeks, '3');
+    expect(within(dialog).getByText('Ny sista dag för beslut: 2026-06-01.')).toBeInTheDocument();
+    await user.type(within(dialog).getByLabelText('Skäl till förlängningen'), 'Remissvar saknas');
+    await user.click(within(dialog).getByRole('button', { name: 'Förläng fristen' }));
+    expect(onOpenChange).toHaveBeenCalledWith(false);
+    const next = useCaseStore.getState().active?.state;
+    expect(next?.extensionWeeks).toBe(3);
+    expect(next?.diary.at(-2)?.text).toContain('Skäl: Remissvar saknas.');
+    await flushCaseWrites();
+  });
+
+  it('explains why the deadline cannot be extended', () => {
+    const c = testCase();
+    const state = startCase(c, { seed: 1 });
+    render(
+      <ExtendDeadlineDialog
+        caseFile={c}
+        state={state}
+        availability={{ allowed: false, reason: 'Fristen är redan förlängd.' }}
+        open
+        onOpenChange={() => {}}
+      />,
+    );
+    const dialog = screen.getByRole('dialog', { name: 'Fristen kan inte förlängas' });
+    expect(within(dialog).getByText('Fristen är redan förlängd.')).toBeInTheDocument();
   });
 });

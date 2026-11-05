@@ -2,7 +2,7 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import { currentStep } from '@/engine';
-import { buildCaseContext, buildQuestionContext } from './context';
+import { buildCaseContext, buildGeneralContext, buildQuestionContext } from './context';
 import {
   buildTutorRequest,
   buildTutorSystem,
@@ -58,6 +58,15 @@ describe('system prompt', () => {
     const answer = { type: 'flerval', selected: 1 } as const;
     const after = buildTutorSystem(buildQuestionContext(multipleChoice, answer))[2]?.text ?? '';
     expect(after).toContain('HAR besvarat');
+  });
+
+  it('gives a general context (Hem) its own instruction instead of the answer status', () => {
+    const general = buildGeneralContext({ modules: [], streakDays: 0, ongoingCase: null });
+    const block = buildTutorSystem(general)[2]?.text ?? '';
+    expect(block).toContain('Dina studier');
+    expect(block).toContain('ingen quizfråga eller något ärende');
+    expect(block).not.toContain('INTE besvarat');
+    expect(block).not.toContain('HAR besvarat');
   });
 
   it('holds no answer key for a case when includeModelAnswers is false', () => {

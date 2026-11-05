@@ -74,9 +74,17 @@ export const GlossaryFileSchema = z
       term.relaterade?.forEach((ref, refIndex) => {
         const path = ['begrepp', index, 'relaterade', refIndex];
         if (ref === term.id) {
-          ctx.addIssue({ code: 'custom', path, message: 'Ett begrepp kan inte vara relaterat till sig självt.' });
+          ctx.addIssue({
+            code: 'custom',
+            path,
+            message: 'Ett begrepp kan inte vara relaterat till sig självt.',
+          });
         } else if (!ids.has(ref)) {
-          ctx.addIssue({ code: 'custom', path, message: `Begreppet "${ref}" finns inte i begrepp.yaml.` });
+          ctx.addIssue({
+            code: 'custom',
+            path,
+            message: `Begreppet "${ref}" finns inte i begrepp.yaml.`,
+          });
         } else if (seen.has(ref)) {
           ctx.addIssue({ code: 'custom', path, message: `"${ref}" står två gånger i relaterade.` });
         }
@@ -105,7 +113,9 @@ export const ProcessBranchSchema = z.strictObject({
 export const ProcessStepSchema = z.strictObject({
   id: identifier,
   titel: text.max(PROCESS_TITLE_MAX, {
-    error: fieldError(`titel får vara högst ${PROCESS_TITLE_MAX} tecken så att den får plats i rutan.`),
+    error: fieldError(
+      `titel får vara högst ${PROCESS_TITLE_MAX} tecken så att den får plats i rutan.`,
+    ),
   }),
   beskrivning: text,
   lagrum: lawRefs.default([]),
@@ -118,7 +128,9 @@ export const ProcessStepSchema = z.strictObject({
    * is the last one or has `slut: true`.
    */
   nasta: z
-    .array(ProcessBranchSchema, { error: fieldError('nasta ska vara en lista, t.ex. [{ till: S4 }].') })
+    .array(ProcessBranchSchema, {
+      error: fieldError('nasta ska vara en lista, t.ex. [{ till: S4 }].'),
+    })
     .min(1, { error: fieldError('nasta behöver minst en rad; ta bort fältet annars.') })
     .optional(),
   /** The process ends here (no arrow to the next step in the list). */
@@ -224,7 +236,13 @@ export function layoutProcessGraph(process: GraphInput): ProcessGraph {
     else cells.set(key, node.id);
   }
   const rows = nodes.reduce((max, n) => Math.max(max, n.rank + 1), 0);
-  return { nodes, edges: edges.filter((e) => rank.has(e.from) && rank.has(e.to)), unreachable, collisions, rows };
+  return {
+    nodes,
+    edges: edges.filter((e) => rank.has(e.from) && rank.has(e.to)),
+    unreachable,
+    collisions,
+    rows,
+  };
 }
 
 export const ProcessSchema = z
@@ -273,7 +291,8 @@ export const ProcessSchema = z
           ctx.addIssue({
             code: 'custom',
             path: [...path, 'nasta', branchIndex],
-            message: 'När ett steg har flera vägar behöver varje väg en etikett, t.ex. "Ja" eller "Nej".',
+            message:
+              'När ett steg har flera vägar behöver varje väg en etikett, t.ex. "Ja" eller "Nej".',
           });
         }
       });
@@ -356,7 +375,9 @@ export const lawCode = z
 
 const httpsUrl = z
   .string({ error: fieldError('lank ska vara en adress som börjar med https://.') })
-  .regex(/^https:\/\/\S+$/, { error: fieldError('lank ska vara en adress som börjar med https://.') });
+  .regex(/^https:\/\/\S+$/, {
+    error: fieldError('lank ska vara en adress som börjar med https://.'),
+  });
 
 export const LawSchema = z.strictObject({
   kod: lawCode,
@@ -535,7 +556,9 @@ export function parseLawRef(reference: string): ParsedLawRef {
   const code = trimmed.split(/\s+/)[0] ?? trimmed;
   const rest = trimmed.slice(code.length);
   const chapterMatch = /(\d+)\s*kap\./.exec(rest);
-  const afterChapter = chapterMatch ? rest.slice(chapterMatch.index + chapterMatch[0].length) : rest;
+  const afterChapter = chapterMatch
+    ? rest.slice(chapterMatch.index + chapterMatch[0].length)
+    : rest;
   const sectionMatch = /^\s*(\d+)(?:\s([a-z]))?(?=\s*(?:§|[–-]|,|och\b))/.exec(afterChapter);
   return {
     code,

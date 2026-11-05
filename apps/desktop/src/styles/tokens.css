@@ -12,7 +12,8 @@
   --bg: #f7f5f0;
   --paper: #ffffff;
   --ink: #1b1f24;
-  --muted: #6b7280;
+  /* #5f6673: 5.3:1 on --bg and 4.8:1 on --accent-soft (WCAG AA for small text). */
+  --muted: #5f6673;
   --accent: #2f5d50;
   --accent-ink: #ffffff;
   --accent-soft: #e4ede9;

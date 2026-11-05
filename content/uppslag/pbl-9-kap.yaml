@@ -12,7 +12,7 @@ kalla: riksdagen.se, Plan- och bygglag (2010:900), sparad i docs/rattslage/pbl-9
 andrad_tom: SFS 2026:1583
 hamtad: 2026-11-04
 status: utkast
-rattslage: 2025-12-01
+rattslage: "2025-12-01"
 paragrafer:
   - paragraf: "1"
     sammanfattning: Kapitlet innehåller reglerna om bygglov, rivningslov, marklov, förhandsbesked och
@@ -170,8 +170,8 @@ paragrafer:
       2. för att ändra en komplementbyggnad till ett komplementbostadshus som enligt 4 eller 5 § inte kräver lov.
   - paragraf: "17"
     rubrik: Bygglov för annan ändring av en byggnad än tillbyggnad
-    sammanfattning: Det krävs inte bygglov för att inreda ytterligare en bostad i ett enbostadshus,
-      eller bostäder i en ekonomibyggnad utanför detaljplan.
+    sammanfattning: Det krävs inte bygglov för att inreda ytterligare en bostad i ett enbostadshus
+      som inte är ett komplementbostadshus, eller bostäder i en ekonomibyggnad utanför detaljplan.
     andrad_genom: Lag (2025:974)
     lagtext: |-
       Trots 15 § 2 krävs det inte bygglov för att inreda

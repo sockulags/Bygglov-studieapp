@@ -80,17 +80,22 @@ export function assessDecision(
     checks.push({ details: [], ...check });
   const grant = isGrant(draft.utfall);
 
-  // 1. Outcome.
+  // 1. Outcome: the expected one, or one of the outcomes the case also accepts.
   const expected = step.forvantat_beslut;
   const outcomeRight = draft.utfall === expected;
+  const alternative = outcomeRight
+    ? undefined
+    : step.godtagbara_utfall?.find((a) => a.utfall === draft.utfall);
   add({
     id: 'utfall',
     title: 'Beslut',
-    passed: outcomeRight,
+    passed: outcomeRight || alternative !== undefined,
     severity: 'error',
     message: outcomeRight
       ? `Rätt utfall: ${DECISION_OUTCOME_LABELS[expected]}.`
-      : `Förväntat utfall var "${DECISION_OUTCOME_LABELS[expected]}", ditt beslut är "${DECISION_OUTCOME_LABELS[draft.utfall]}".`,
+      : alternative
+        ? `Godtagbart utfall: ${DECISION_OUTCOME_LABELS[draft.utfall]}. Det förväntade var "${DECISION_OUTCOME_LABELS[expected]}". ${alternative.motivering}`
+        : `Förväntat utfall var "${DECISION_OUTCOME_LABELS[expected]}", ditt beslut är "${DECISION_OUTCOME_LABELS[draft.utfall]}".`,
     lawRefs: step.lagrum ?? [],
   });
 

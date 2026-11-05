@@ -2,47 +2,27 @@ import { ChevronDown, Scale } from 'lucide-react';
 import { useId, useMemo, useState } from 'react';
 import { EmptyState } from '@/components/layout/page-header';
 import { LawRefChip } from '@/components/ui/law-ref-chip';
-import type { LawChapterFile, LawSection, LookupContent, Module } from '@/content';
+import type { LawChapterFile, LookupContent, Module } from '@/content';
 import { cn } from '@/lib/cn';
-import { pluralQuestions } from '@/lib/format';
 import { ExternalLink } from './external-link';
 import {
   chapterSections,
   type LawGroup,
   type LawRefEntry,
   type SectionEntry,
+  usageText,
 } from './law-register';
 import { sectionElementId, useLookupNav } from './lookup-nav';
 
 const isoDay = new Intl.DateTimeFormat('sv-SE', { day: 'numeric', month: 'long', year: 'numeric' });
 const formatDay = (iso: string) => isoDay.format(new Date(`${iso}T00:00:00`));
 
-/** "3 frågor (Lovplikt) · ärende A002 · 2 begrepp · processkarta". */
-export function usageText(
-  entries: readonly LawRefEntry[],
-  moduleTitles: ReadonlyMap<string, string>,
-): string {
-  const questions = entries.reduce((sum, e) => sum + e.questionCount, 0);
-  const modules = [...new Set(entries.flatMap((e) => e.moduleIds))];
-  const cases = [...new Set(entries.flatMap((e) => e.caseIds))].sort();
-  const terms = new Set(entries.flatMap((e) => e.termIds)).size;
-  const processes = new Set(entries.flatMap((e) => e.processIds)).size;
-  const parts: string[] = [];
-  if (questions > 0) {
-    parts.push(
-      `${pluralQuestions(questions)} (${modules.map((id) => moduleTitles.get(id) ?? id).join(', ')})`,
-    );
-  }
-  if (cases.length > 0) parts.push(`${cases.length === 1 ? 'ärende' : 'ärenden'} ${cases.join(', ')}`);
-  if (terms > 0) parts.push(`${terms} ${terms === 1 ? 'begrepp' : 'begrepp'}`);
-  if (processes > 0) parts.push(processes === 1 ? 'processkarta' : `${processes} processkartor`);
-  return parts.join(' · ');
-}
-
 /** Law text with one paragraph or list item per line; list items are indented. */
 export function LawText({ text, className }: { text: string; className?: string }) {
   return (
-    <div className={cn('flex flex-col gap-1.5 font-serif text-[0.9375rem] leading-relaxed', className)}>
+    <div
+      className={cn('flex flex-col gap-1.5 font-serif text-[0.9375rem] leading-relaxed', className)}
+    >
       {text.split('\n').map((line, index) => (
         <p
           key={index}
@@ -58,9 +38,12 @@ export function LawText({ text, className }: { text: string; className?: string 
 function SectionRow({
   entry,
   moduleTitles,
+  showRubrik,
 }: {
   entry: SectionEntry;
   moduleTitles: ReadonlyMap<string, string>;
+  /** Repeat the heading in the row (for rows that are not directly under it). */
+  showRubrik: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const [showComing, setShowComing] = useState(false);
@@ -78,6 +61,9 @@ function SectionRow({
           {section.paragraf} §
         </span>
         <div className="flex min-w-0 flex-1 flex-col gap-1">
+          {showRubrik && section.rubrik && (
+            <p className="text-xs font-medium text-muted">{section.rubrik}</p>
+          )}
           <p className={cn('text-[0.9375rem]', section.upphavd && 'text-muted')}>
             {section.sammanfattning}
           </p>
@@ -111,7 +97,9 @@ function SectionRow({
       {open && section.lagtext && (
         <div id={textId} className="mt-3 border-t border-line pt-3 sm:ml-18">
           <LawText text={section.lagtext} />
-          <p className="mt-2 text-xs text-muted">{section.andrad_genom ?? 'Lagtext'} · riksdagen.se</p>
+          <p className="mt-2 text-xs text-muted">
+            {section.andrad_genom ?? 'Lagtext'} · riksdagen.se
+          </p>
           {section.kommande && (
             <div className="mt-3">
               <button
@@ -158,7 +146,10 @@ function ChapterBlock({
     else headings.push({ rubrik: entry.section.rubrik, entries: [entry] });
   }
   return (
-    <section aria-labelledby={`kapitel-${chapter.lag}-${chapter.kapitel}`} className="flex flex-col gap-3">
+    <section
+      aria-labelledby={`kapitel-${chapter.lag}-${chapter.kapitel}`}
+      className="flex flex-col gap-3"
+    >
       <header className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <p className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">{lawName}</p>
@@ -166,7 +157,8 @@ function ChapterBlock({
             {chapter.lag} {chapter.kapitel} kap. {chapter.rubrik}
           </h3>
           <p className="mt-1 text-sm text-muted">
-            En mening per paragraf, skriven för appen. Lagtexten är {chapter.andrad_tom.replace('SFS', 'ändrad t.o.m. SFS')}, hämtad{' '}
+            En mening per paragraf, skriven för appen. Lagtexten är{' '}
+            {chapter.andrad_tom.replace('SFS', 'ändrad t.o.m. SFS')}, hämtad{' '}
             {formatDay(chapter.hamtad)}.
           </p>
         </div>
@@ -178,8 +170,13 @@ function ChapterBlock({
             {group.rubrik ?? 'Inledande bestämmelser'}
           </h4>
           <ul className="flex flex-col gap-2">
-            {group.entries.map((entry) => (
-              <SectionRow key={entry.key} entry={entry} moduleTitles={moduleTitles} />
+            {group.entries.map((entry, i) => (
+              <SectionRow
+                key={entry.key}
+                entry={entry}
+                moduleTitles={moduleTitles}
+                showRubrik={i > 0}
+              />
             ))}
           </ul>
         </div>
@@ -201,7 +198,8 @@ export function LawTab({
   const [caseOnly, setCaseOnly] = useState(false);
   const moduleTitles = useMemo(() => new Map(modules.map((m) => [m.id, m.titel])), [modules]);
   const chapters = useMemo(
-    () => lookup.chapters.map((chapter) => ({ chapter, sections: chapterSections(chapter, register) })),
+    () =>
+      lookup.chapters.map((chapter) => ({ chapter, sections: chapterSections(chapter, register) })),
     [lookup.chapters, register],
   );
   const withChapterFile = (entry: LawRefEntry, code: string) =>
@@ -252,7 +250,9 @@ export function LawTab({
 
       {chapters.map(({ chapter, sections }) => {
         const law = lookup.laws.find((l) => l.kod === chapter.lag);
-        const visible = caseOnly ? sections.filter((s) => s.usage.some((u) => u.caseIds.length > 0)) : sections;
+        const visible = caseOnly
+          ? sections.filter((s) => s.usage.some((u) => u.caseIds.length > 0))
+          : sections;
         return (
           <ChapterBlock
             key={`${chapter.lag}-${chapter.kapitel}`}
@@ -275,7 +275,11 @@ export function LawTab({
           </p>
         </div>
         {otherGroups.map((group) => (
-          <section key={group.code} aria-labelledby={`lag-${group.code}`} className="flex flex-col gap-3">
+          <section
+            key={group.code}
+            aria-labelledby={`lag-${group.code}`}
+            className="flex flex-col gap-3"
+          >
             <header className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-1">
               <h4 id={`lag-${group.code}`} className="font-semibold">
                 {group.name}
@@ -332,5 +336,3 @@ export function LawTab({
     </div>
   );
 }
-
-export type { LawSection };

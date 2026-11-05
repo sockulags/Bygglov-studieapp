@@ -39,8 +39,10 @@ Ni har tidigare fått Trafikverkets yttrande. Nu skickar jag med allt underlag a
 
 Som jag skrev till er den 10 september räknas tidsfristen på tio veckor från den dag er
 ändrade situationsplan kom in, den 10 september 2026, och inte från ansökningsdagen
-(9 kap. 99 § första stycket 2 och 100 § 2 plan- och bygglagen). Nämnden ska alltså besluta
-senast den 19 november 2026.
+(9 kap. 99 § första stycket 2 och 100 § 2 plan- och bygglagen). Ärendet var vilande i väntan
+på beslutet om strandskyddsdispens från den 20 augusti till den 24 september (9 kap. 102 §
+plan- och bygglagen), och den tiden räknas inte in när nämnden bedömer om avgiften ska
+reduceras. Nämnden avser att besluta senast den 3 december 2026.
 
 ## Hur vi ser på ärendet
 

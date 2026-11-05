@@ -11,10 +11,12 @@ export { TutorPanel, type TutorPanelProps } from './tutor-panel';
 export { TutorSettingsSection } from './settings-section';
 export {
   buildCaseContext,
+  buildGeneralContext,
   buildQuestionContext,
   clipText,
   MAX_CONTEXT_CHARS,
   type CaseContextOptions,
+  type StudyStatus,
 } from './context';
 export {
   useCaseTutorContext,
@@ -25,6 +27,7 @@ export {
   CASE_SUGGESTIONS,
   caseSuggestions,
   DECISION_SUGGESTIONS,
+  GENERAL_SUGGESTIONS,
   QUESTION_SUGGESTIONS,
   questionSuggestions,
 } from './suggestions';
@@ -35,4 +38,5 @@ export {
   type TutorTransport,
 } from './transport';
 export { MockTransport, MOCK_NOTICE } from './mock-transport';
+export { useHasTutorKey } from './keys';
 export type { TutorContext } from './types';

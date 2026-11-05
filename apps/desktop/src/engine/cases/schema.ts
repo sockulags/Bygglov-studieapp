@@ -2,6 +2,7 @@ import {
   allCaseSteps,
   DECISION_OUTCOMES,
   STEP_TYPES,
+  SUSPENSION_REASONS,
   type CaseFile,
 } from '@bygglov/content-schema';
 import { z } from 'zod';
@@ -74,6 +75,9 @@ const deadlineFields = {
   injunctionDate: isoDate.nullable(),
   injunctionInTime: z.boolean().nullable(),
   extensionWeeks: z.number().int(),
+  // Missing in assessments stored before vilande (102 §) was modelled.
+  suspendedSince: isoDate.nullable().default(null),
+  suspendedDays: z.number().int().min(0).default(0),
   deadlineDate: isoDate.nullable(),
   explanation: z.string(),
 };
@@ -133,6 +137,19 @@ export const CaseStateSchema: z.ZodType<CaseState> = z.object({
   // Missing in states stored before 99 § första stycket 2 was modelled.
   amendmentDates: z.array(isoDate).default([]),
   extensionWeeks: z.number().int().min(0),
+  // Missing in states stored before the extension button and vilande (102 §) existed.
+  extensionReason: z.string().nullable().default(null),
+  suspensions: z
+    .array(
+      z.object({
+        reason: z.enum(SUSPENSION_REASONS),
+        from: isoDate,
+        to: isoDate.nullable(),
+        stepId: z.string().optional(),
+        eventId: z.string().optional(),
+      }),
+    )
+    .default([]),
   deadlineDate: isoDate.nullable(),
   queue: z.array(z.string()),
   currentIndex: z.number().int().min(0),

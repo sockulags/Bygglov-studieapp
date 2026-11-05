@@ -171,11 +171,11 @@ export async function seedResultsDemo(
 function goodDraft(): DecisionDraft {
   return {
     utfall: 'bevilja',
-    lagstod: ['PBL 9 kap. 30 §'],
+    lagstod: ['PBL 9 kap. 56 §', 'PBL 9 kap. 115 §'],
     motivering:
-      'Åtgärden är förenlig med detaljplanen och uppfyller kraven i 9 kap. 30 § PBL. Grannarnas synpunkter har beaktats.',
+      'Åtgärden är förenlig med detaljplanen och uppfyller förutsättningarna för bygglov i 9 kap. 56 § PBL. Grannarnas synpunkter har beaktats.',
     villkor_upplysningar:
-      'Åtgärden får inte påbörjas förrän startbesked getts. Lovet upphör att gälla om åtgärden inte påbörjats inom två år och avslutats inom fem år. Beslutet kan överklagas; påbörjas arbetet innan beslutet fått laga kraft sker det på egen risk. Kontrollansvarig behövs inte.',
+      'Åtgärden får inte påbörjas förrän startbesked getts. Lovet upphör att gälla om åtgärden inte påbörjats inom två år och avslutats inom fem år från den dag då beslutet fick laga kraft (9 kap. 115 § PBL). Beslutet kan överklagas; påbörjas arbetet innan beslutet fått laga kraft sker det på egen risk. Kontrollansvarig behövs inte.',
     avgift: null,
     overklagandehanvisning: true,
     expediering: [

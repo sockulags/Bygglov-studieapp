@@ -87,11 +87,15 @@ export function DiaryPanel({
                 <Icon className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
                 <span className="min-w-0 flex-1">
                   <span className="block font-medium leading-snug text-ink">{document.titel}</span>
-                  <span className="text-xs text-muted">{document.id}</span>
+                  <span className="text-xs text-muted">
+                    <span className="sr-only">, </span>
+                    {document.id}
+                  </span>
                 </span>
                 {unseen.has(document.id) && (
                   <span className="fade-in-up mt-0.5 shrink-0 rounded-sm bg-brick px-1.5 py-0.5 text-[0.625rem] font-bold tracking-[0.1em] text-paper">
-                    NY<span className="sr-only"> handling, inte öppnad</span>
+                    <span className="sr-only">, </span>NY
+                    <span className="sr-only"> handling, inte öppnad</span>
                   </span>
                 )}
               </button>
@@ -112,6 +116,7 @@ export function DiaryPanel({
                       ? 'text-brick'
                       : 'text-muted',
                   )}
+                  role="img"
                   aria-label={kind.label}
                 />
                 <span className="min-w-0 flex-1">{entry.text}</span>

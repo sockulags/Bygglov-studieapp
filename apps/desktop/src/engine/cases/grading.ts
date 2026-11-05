@@ -96,7 +96,7 @@ export function criteriaOf(step: CaseStep): string[] {
 /**
  * Whether a step counts as missed for `om_missat`: it was skipped, or answered wrongly.
  * "Wrongly" means: urval that left out someone who should be chosen (recall < 1); beslut
- * with another outcome than expected; any other automatically graded step that is not
+ * with an outcome that is neither expected nor in `godtagbara_utfall`; any other automatically graded step that is not
  * fully right. Self-assessed steps are never missed once submitted.
  */
 export function isMissedResult(step: CaseStep, result: StepResult): boolean {
@@ -105,7 +105,11 @@ export function isMissedResult(step: CaseStep, result: StepResult): boolean {
     return selectionStats(step, result.answer.selected).recall < 1;
   }
   if (step.typ === 'beslut' && result.answer.type === 'beslut') {
-    return result.answer.draft.utfall !== step.forvantat_beslut;
+    const outcome = result.answer.draft.utfall;
+    return (
+      outcome !== step.forvantat_beslut &&
+      !(step.godtagbara_utfall ?? []).some((a) => a.utfall === outcome)
+    );
   }
   if (isSelfAssessedStep(step)) return false;
   return result.outcome !== 'correct';

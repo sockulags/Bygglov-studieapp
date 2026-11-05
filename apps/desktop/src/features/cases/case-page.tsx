@@ -2,6 +2,7 @@ import { Link, useParams } from '@tanstack/react-router';
 import {
   ArrowLeft,
   CalendarDays,
+  CalendarPlus,
   FolderX,
   Hourglass,
   Keyboard,
@@ -9,7 +10,7 @@ import {
   Play,
   RotateCcw,
 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import type { CaseFile } from '@bygglov/content-schema';
 import { EmptyState } from '@/components/layout/page-header';
 import { Button } from '@/components/ui/button';
@@ -28,17 +29,20 @@ import { getCase, loadContent } from '@/content';
 import {
   currentStep,
   formatSwedishDate,
+  renderCaseTexts,
   stepById,
   stepFeedback,
   visibleDocuments,
   type DecisionDraft,
 } from '@/engine';
+import { AskTutorButton, DECISION_SUGGESTIONS, useCaseTutorContext } from '@/features/tutor';
 import { cn } from '@/lib/cn';
 import { useKeydown } from '@/lib/use-keydown';
 import { useUiStore } from '@/store/ui';
 import {
   CASE_LIST_STATUS_LABELS,
   deadlineSummary,
+  extensionAvailability,
   PROGRESS_STATUS,
   propertyName,
   type CaseListStatus,
@@ -61,6 +65,7 @@ import { DecisionScreen } from './decision/decision-screen';
 import { ExportSlot } from './decision/export-slot';
 import { DiaryPanel } from './diary-panel';
 import { DocumentViewer } from './documents/document-viewer';
+import { ExtendDeadlineDialog } from './extend-deadline-dialog';
 import { useCaseText } from './documents/use-document-text';
 import { FullScreen } from './full-screen';
 import { KeyboardHelp } from './keyboard-help';
@@ -184,19 +189,22 @@ const PANELS: { id: PanelId; label: string }[] = [
   { id: 'arbete', label: 'Arbetsyta' },
 ];
 
+// Success and brick text on their soft backgrounds is mixed towards ink so small chip text
+// reaches 4.5:1 in both themes (plain --success on --success-soft gives 4.2:1).
 const STATUS_TONE: Record<CaseListStatus, string> = {
   ny: 'border-line-strong text-muted',
   pagar: 'border-accent/40 bg-accent-soft text-accent',
-  inlamnat: 'border-brick/40 bg-brick-soft text-brick',
-  bedomt: 'border-success/40 bg-success-soft text-success',
+  inlamnat: 'border-brick/40 bg-brick-soft text-[color-mix(in_srgb,var(--brick)_70%,var(--ink))]',
+  bedomt:
+    'border-success/40 bg-success-soft text-[color-mix(in_srgb,var(--success)_70%,var(--ink))]',
 };
 
 const DEADLINE_TONE = {
   normal: 'border-line-strong bg-paper text-ink',
   warning: 'border-plan-yellow bg-plan-yellow-soft text-ink',
-  overdue: 'border-brick/50 bg-brick-soft text-brick',
+  overdue: 'border-brick/50 bg-brick-soft text-[color-mix(in_srgb,var(--brick)_70%,var(--ink))]',
   paused: 'border-line-strong bg-bg text-muted',
-  done: 'border-success/40 bg-success-soft text-success',
+  done: 'border-success/40 bg-success-soft text-[color-mix(in_srgb,var(--success)_70%,var(--ink))]',
 } as const;
 
 function useDiaryNumber(caseFile: CaseFile): string | undefined {
@@ -206,8 +214,16 @@ function useDiaryNumber(caseFile: CaseFile): string | undefined {
   return useCaseText(caseFile.id, application?.fil ?? null).data?.meta.diarienummer;
 }
 
-function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: ActiveCase }) {
+function CaseWorkspace({
+  caseFile: sourceCase,
+  active,
+}: {
+  caseFile: CaseFile;
+  active: ActiveCase;
+}) {
   const { state, lastOutcome } = active;
+  // Step texts with the template variables ({{kungorelsedatum}} …) filled in for this state.
+  const caseFile = useMemo(() => renderCaseTexts(sourceCase, state), [sourceCase, state]);
   const collapsed = useUiStore((s) => s.sidebarCollapsed);
   const wide = useMediaQuery(WIDE_QUERY);
   const saveError = useCaseStore((s) => s.saveError);
@@ -223,7 +239,9 @@ function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: Activ
   const [writingStepId, setWritingStepId] = useState<string | null>(null);
   const [helpOpen, setHelpOpen] = useState(false);
   const [restartOpen, setRestartOpen] = useState(false);
-  const overlayOpen = decisionOpen || comparisonOpen || writingStepId !== null || restartOpen;
+  const [extendOpen, setExtendOpen] = useState(false);
+  const overlayOpen =
+    decisionOpen || comparisonOpen || writingStepId !== null || restartOpen || extendOpen;
 
   // The document shown first counts as read.
   useEffect(() => {
@@ -256,6 +274,7 @@ function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: Activ
   const writingStep = writingStepId ? stepById(caseFile, writingStepId) : null;
   const writingAnswer = writingStepId ? state.stepResults[writingStepId]?.answer : undefined;
   const deadline = deadlineSummary(state);
+  const extension = extensionAvailability(state);
   const status = PROGRESS_STATUS[state.status];
 
   const submitDecision = (draft: DecisionDraft) => {
@@ -271,7 +290,7 @@ function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: Activ
 
   return (
     <div
-      className="fixed inset-y-0 right-0 z-10 flex flex-col bg-bg transition-[left] duration-[var(--duration-base)] ease-[var(--ease-out)]"
+      className="case-workspace fixed inset-y-0 right-0 z-10 flex flex-col bg-bg transition-[left] duration-[var(--duration-base)] ease-[var(--ease-out)]"
       style={{ left: collapsed ? 'var(--sidebar-width-collapsed)' : 'var(--sidebar-width)' }}
     >
       <header className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-line bg-paper px-4 py-2.5">
@@ -333,6 +352,21 @@ function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: Activ
           {latestDecision && (
             <Button variant="secondary" size="sm" onClick={() => setComparisonOpen(true)}>
               Jämförelse
+            </Button>
+          )}
+          {!latestDecision && (
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setExtendOpen(true)}
+              title={
+                extension.allowed
+                  ? 'Förläng tidsfristen en gång med högst tio veckor (9 kap. 99 § andra stycket)'
+                  : extension.reason
+              }
+            >
+              <CalendarPlus aria-hidden="true" />
+              Förläng fristen
             </Button>
           )}
           <Button
@@ -493,7 +527,10 @@ function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: Activ
           eyebrow={`${caseFile.id} · beslut ${latestDecision.date}`}
           title="Jämförelse med modellbeslutet"
           actions={
-            <ExportSlot decisionId={active.decisionIds.at(-1) ?? null} caseId={caseFile.id} />
+            <>
+              <DecisionTutorButton caseFile={caseFile} active={active} />
+              <ExportSlot decisionId={active.decisionIds.at(-1) ?? null} caseId={caseFile.id} />
+            </>
           }
         >
           <DecisionComparison
@@ -524,6 +561,14 @@ function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: Activ
 
       <KeyboardHelp open={helpOpen} onOpenChange={setHelpOpen} />
 
+      <ExtendDeadlineDialog
+        caseFile={caseFile}
+        state={state}
+        availability={extension}
+        open={extendOpen}
+        onOpenChange={setExtendOpen}
+      />
+
       <Dialog open={restartOpen} onOpenChange={setRestartOpen}>
         <DialogContent>
           <DialogHeader>
@@ -541,7 +586,7 @@ function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: Activ
               variant="danger"
               onClick={() => {
                 setRestartOpen(false);
-                const started = startNewCase(caseFile);
+                const started = startNewCase(sourceCase);
                 setSelectedId(started.state.visibleDocuments[0]?.documentId ?? null);
               }}
             >
@@ -551,5 +596,21 @@ function CaseWorkspace({ caseFile, active }: { caseFile: CaseFile; active: Activ
         </DialogContent>
       </Dialog>
     </div>
+  );
+}
+
+/**
+ * "Första återkoppling på mitt beslut" in the comparison view. Mounted only while the
+ * comparison is open; the tutor gets the model decision and the assessment points here,
+ * after her decision has been submitted (never before).
+ */
+function DecisionTutorButton({ caseFile, active }: { caseFile: CaseFile; active: ActiveCase }) {
+  const context = useCaseTutorContext(caseFile, active, { includeModelAnswers: true });
+  return (
+    <AskTutorButton
+      context={context}
+      suggestions={DECISION_SUGGESTIONS}
+      label="Första återkoppling på mitt beslut"
+    />
   );
 }

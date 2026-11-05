@@ -12,7 +12,7 @@ export function SettingsSection({ id, title, description, children }: SectionPro
   return (
     <section aria-labelledby={id} className="grid gap-4 md:grid-cols-[240px_1fr] md:gap-8">
       <div>
-        <h2 id={id} className="text-lg">
+        <h2 id={id} className="scroll-mt-8 text-lg">
           {title}
         </h2>
         <p className="mt-1 text-sm text-muted">{description}</p>

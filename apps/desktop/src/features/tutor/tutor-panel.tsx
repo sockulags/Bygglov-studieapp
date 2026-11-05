@@ -12,7 +12,15 @@ import {
   RotateCcw,
   X,
 } from 'lucide-react';
-import { useEffect, useId, useRef, useState, type FormEvent, type KeyboardEvent } from 'react';
+import {
+  useEffect,
+  useId,
+  useRef,
+  useState,
+  type FormEvent,
+  type KeyboardEvent,
+  type RefObject,
+} from 'react';
 import { Button } from '@/components/ui/button';
 import { buttonVariants } from '@/components/ui/button-variants';
 import { DialogOverlay } from '@/components/ui/dialog';
@@ -43,6 +51,11 @@ export interface TutorPanelProps {
   suggestions: readonly string[];
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  /**
+   * Where focus goes when the panel closes, normally the button that opened it. The panel is
+   * opened without a Radix Trigger, so Radix itself has nothing to return focus to.
+   */
+  returnFocusRef?: RefObject<HTMLElement | null>;
 }
 
 /** Copies text, with a fallback for webviews without the async clipboard API. */
@@ -154,7 +167,13 @@ function NoKeyNotice({ onNavigate }: { onNavigate: () => void }) {
  * app is open. The context is read when a question is sent, so an answer she gives while the
  * panel is open is included in the next question.
  */
-export function TutorPanel({ context, suggestions, open, onOpenChange }: TutorPanelProps) {
+export function TutorPanel({
+  context,
+  suggestions,
+  open,
+  onOpenChange,
+  returnFocusRef,
+}: TutorPanelProps) {
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
@@ -167,8 +186,23 @@ export function TutorPanel({ context, suggestions, open, onOpenChange }: TutorPa
           // Shortcuts of the view behind (Enter = next question, digits = answers) must not
           // react to key presses inside the panel.
           onKeyDown={(event) => event.stopPropagation()}
-          // PanelBody focuses the question field itself.
-          onOpenAutoFocus={(event) => event.preventDefault()}
+          // Start in the question field. Done here rather than in PanelBody: inside another
+          // modal (the decision comparison) its focus trap would pull an earlier focus() back
+          // out before this panel's own trap has taken over.
+          onOpenAutoFocus={(event) => {
+            const field = (event.currentTarget as HTMLElement | null)?.querySelector('textarea');
+            if (field) {
+              event.preventDefault();
+              field.focus();
+            }
+          }}
+          onCloseAutoFocus={(event) => {
+            const target = returnFocusRef?.current;
+            if (target?.isConnected) {
+              event.preventDefault();
+              target.focus();
+            }
+          }}
         >
           <PanelBody
             context={context}
@@ -185,6 +219,22 @@ export function TutorPanel({ context, suggestions, open, onOpenChange }: TutorPa
  * The panel's content. Mounted only while the panel is open, so the key and usage queries
  * do not run for every view that merely has the button.
  */
+/** What the tutor sees, in her words, before the first question. */
+function introText(context: TutorContext): string {
+  switch (context.kind) {
+    case 'general':
+      return 'Fråga om plan- och bygglagen eller om dina studier. Handledaren ser hur det går i modulerna och kan föreslå vad du ska repetera, eller förhöra dig.';
+    case 'decision':
+      return 'Handledaren ser ärendet, ditt beslut, modellbeslutet och bedömningspunkterna, och kan ge dig en första återkoppling innan du skickar beslutet till din handledare.';
+    case 'question':
+      return context.answered
+        ? 'Fråga om det du har framför dig. Handledaren ser frågan och ditt svar, och kan gå igenom facit med dig.'
+        : 'Fråga om det du har framför dig. Handledaren ser frågan, men avslöjar inte facit innan du svarat.';
+    case 'case':
+      return 'Fråga om det du har framför dig. Handledaren ser ärendet och var du är, men avslöjar inte facit innan du lämnat in beslutet.';
+  }
+}
+
 function PanelBody({
   context,
   suggestions,
@@ -238,8 +288,6 @@ function PanelBody({
 
   const blocked = noKey || capReached;
 
-  useEffect(() => input.current?.focus(), []);
-
   return (
     <>
       <header className="flex items-start gap-3 border-b border-line bg-paper px-5 py-4">
@@ -285,13 +333,7 @@ function PanelBody({
           <NoKeyNotice onNavigate={onClose} />
         ) : messages.length === 0 ? (
           <div className="flex flex-col gap-2 text-[0.9375rem] leading-relaxed">
-            <p>
-              Fråga om det du har framför dig. Handledaren ser{' '}
-              {context.kind === 'question' ? 'frågan' : 'ärendet'} och{' '}
-              {context.answered
-                ? 'ditt svar, och kan gå igenom facit med dig.'
-                : 'var du är, men avslöjar inte facit innan du svarat.'}
-            </p>
+            <p>{introText(context)}</p>
             <p className="text-sm text-muted">
               Svaren anger lagrum men kan vara fel. Kontrollera mot lagtexten och ta
               bedömningsfrågor med din handledare.

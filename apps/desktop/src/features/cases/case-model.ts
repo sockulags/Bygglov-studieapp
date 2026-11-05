@@ -118,6 +118,13 @@ export function deadlineSummary(state: CaseState): DeadlineSummary {
     }
   }
   const status = deadlineStatus(state);
+  if (status.suspendedSince !== null) {
+    return {
+      label: 'Vilande',
+      detail: `Ärendet är vilande sedan ${status.suspendedSince} (9 kap. 102 §). Tioveckorsfristen löper inte förrän vilandeförklaringen upphör, och avgiften reduceras inte för den tiden (12 kap. 8 a §).`,
+      tone: 'paused',
+    };
+  }
   if (status.deadlineDate === null || status.daysLeft === null) {
     return {
       label: 'Fristen väntar',
@@ -139,11 +146,46 @@ export function deadlineSummary(state: CaseState): DeadlineSummary {
       tone: 'overdue',
     };
   }
+  const notes = [
+    status.suspendedDays > 0
+      ? ` ${status.suspendedDays} ${status.suspendedDays === 1 ? 'dag' : 'dagar'} som vilande (102 §) räknas inte.`
+      : '',
+    status.extensionWeeks > 0
+      ? ` Förlängd med ${status.extensionWeeks} ${status.extensionWeeks === 1 ? 'vecka' : 'veckor'} (99 § andra stycket).`
+      : '',
+  ].join('');
   return {
     label: days === 0 ? 'Sista dagen i dag' : `${days} ${days === 1 ? 'dag' : 'dagar'} kvar`,
-    detail: `Beslut senast ${status.deadlineDate} (9 kap. 99 §).${elapsed}`,
+    detail: `Beslut senast ${status.deadlineDate} (9 kap. 99 §).${elapsed}${notes}`,
     tone: days <= 14 ? 'warning' : 'normal',
   };
+}
+
+/* ---------------------------------------------------------------- extension */
+
+export type ExtensionAvailability = { allowed: true } | { allowed: false; reason: string };
+
+/**
+ * Whether "Förläng fristen" can be used now: once, before the decision, while the deadline
+ * runs and has not run out (9 kap. 99 § andra stycket, 100 § 3). The engine checks the same.
+ */
+export function extensionAvailability(state: CaseState): ExtensionAvailability {
+  if (state.decisions.length > 0) {
+    return { allowed: false, reason: 'Beslutet är fattat, så fristen kan inte förlängas.' };
+  }
+  if (state.extensionWeeks > 0) {
+    return {
+      allowed: false,
+      reason: `Fristen är redan förlängd med ${state.extensionWeeks} ${state.extensionWeeks === 1 ? 'vecka' : 'veckor'}. Den får förlängas en gång (9 kap. 99 § andra stycket).`,
+    };
+  }
+  if (state.deadlineDate !== null && state.simDate > state.deadlineDate) {
+    return {
+      allowed: false,
+      reason: `Fristen löpte ut ${state.deadlineDate}. Förlängningen ska meddelas sökanden innan den ursprungliga fristen gått ut (9 kap. 100 § 3).`,
+    };
+  }
+  return { allowed: true };
 }
 
 /* ---------------------------------------------------------------------- units */

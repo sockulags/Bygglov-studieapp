@@ -139,8 +139,15 @@ export function tutorTestKey(model: string): Promise<TutorKeyTestResult> {
 }
 
 /**
+ * How long to wait for the final channel event after the command has returned. Channel
+ * messages and the command's response travel separately, so the last events (and `done`
+ * with the stop reason) can arrive just after the promise has resolved.
+ */
+const FINAL_EVENT_GRACE_MS = 2000;
+
+/**
  * Streams an answer: `onEvent` receives text deltas and finally `done` or `error`.
- * Resolves with the usage when the stream has ended.
+ * Resolves with the usage when the stream has ended and its final event has been delivered.
  */
 export async function tutorAsk(
   request: TutorRequest,
@@ -148,6 +155,28 @@ export async function tutorAsk(
 ): Promise<TutorUsage> {
   const { Channel } = await import('@tauri-apps/api/core');
   const channel = new Channel<TutorEvent>();
-  channel.onmessage = onEvent;
-  return tutorCommand<TutorUsage>('tutor_ask', { request, onEvent: channel });
+  let finished = false;
+  let onFinished: () => void = () => {};
+  const finalEvent = new Promise<void>((resolve) => {
+    onFinished = resolve;
+  });
+  channel.onmessage = (event) => {
+    onEvent(event);
+    if (event.type !== 'text') {
+      finished = true;
+      onFinished();
+    }
+  };
+  const usage = await tutorCommand<TutorUsage>('tutor_ask', { request, onEvent: channel });
+  if (!finished) {
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    await Promise.race([
+      finalEvent,
+      new Promise<void>((resolve) => {
+        timer = setTimeout(resolve, FINAL_EVENT_GRACE_MS);
+      }),
+    ]);
+    clearTimeout(timer);
+  }
+  return usage;
 }

@@ -12,10 +12,6 @@
     "dialog:default",
     "fs:allow-read-text-file",
     "fs:allow-write-text-file",
-    "opener:default",
-    {
-      "identifier": "http:default",
-      "allow": [{ "url": "https://api.anthropic.com/*" }]
-    }
+    "opener:default"
   ]
 }

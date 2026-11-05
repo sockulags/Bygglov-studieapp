@@ -53,10 +53,22 @@ export {
   formatKronor,
   INJUNCTION_WINDOW_DAYS,
   MAX_EXTENSION_WEEKS,
+  suspensionLawRef,
+  SUSPENSION_REASON_TEXT,
   type DeadlineInput,
 } from './deadline';
+export {
+  ANNOUNCEMENT_DELAY_DAYS,
+  caseTemplateValues,
+  hasTemplateVariables,
+  renderCaseTexts,
+  renderDocumentText,
+  renderStep,
+  renderTemplate,
+  type TemplateValues,
+} from './templates';
 export { chapterNineRefs, sectionExistsInChapterNine, type ChapterNineRef } from './law';
-export { addDays, daysBetween, formatSwedishDate } from './dates';
+export { addDays, daysBetween, formatSwedishDate, isNonWorkingDay, nextWorkingDay } from './dates';
 export {
   CaseStateSchema,
   DecisionDraftSchema,

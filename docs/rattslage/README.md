@@ -21,7 +21,8 @@ Förvaltningslagen (2017:900) och kommunallagen är oförändrade i de delar som
   högst 4 m, mindre än huvudbyggnaden, inom tomten, sammanlagt högst 45 kvm per tomt; 5 § utanför
   plan: 50 kvm, 4,5 m, sammanlagt 65 kvm). Äldre lovbefriade byggnader räknas in i potten.
 - **Bygglovsbefriad tillbyggnad** 30 kvm bruttoarea/öppenarea per byggnad, får inte överstiga
-  taknocken, tidigare lovfria tillbyggnader räknas in (9 kap. 10 §). Gäller alla byggnader.
+  taknocken, tidigare lovfria tillbyggnader räknas in (9 kap. 10 §). Gäller alla byggnader utom
+  komplementbyggnader och komplementbostadshus, som har egna regler (9 kap. 11–12 §§).
 - **Utökad lovplikt nära gräns (4,5 m) och järnväg (30 m)** för annars lovfria åtgärder
   (9 kap. 34 §), med undantag vid grannars **skriftliga** medgivande (35 §).
 - **Anmälningsplikten** för själva komplementbyggnaden/tillbyggnaden är borta; anmälan kan

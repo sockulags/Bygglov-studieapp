@@ -12,6 +12,6 @@ describe('Button', () => {
 
   it('applies the variant class', () => {
     render(<Button variant="danger">Ta bort</Button>);
-    expect(screen.getByRole('button', { name: 'Ta bort' }).className).toContain('text-brick');
+    expect(screen.getByRole('button', { name: 'Ta bort' }).className).toContain('bg-brick-soft');
   });
 });

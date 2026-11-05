@@ -59,7 +59,11 @@ function simplify(points: Point[]): Point[] {
     const last = out[out.length - 1];
     if (last && last.x === p.x && last.y === p.y) continue;
     const before = out[out.length - 2];
-    if (before && last && ((before.x === last.x && last.x === p.x) || (before.y === last.y && last.y === p.y))) {
+    if (
+      before &&
+      last &&
+      ((before.x === last.x && last.x === p.x) || (before.y === last.y && last.y === p.y))
+    ) {
       out[out.length - 1] = p;
       continue;
     }
@@ -118,7 +122,13 @@ export function layoutProcess(process: Pick<Process, 'steg'>): ProcessLayout {
     const tgt = byId.get(edge.to);
     if (!src || !tgt) return [];
     const id = `${edge.from}->${edge.to}-${i}`;
-    const base = { id, from: edge.from, to: edge.to, back: edge.back, ...(edge.label ? { label: edge.label } : {}) };
+    const base = {
+      id,
+      from: edge.from,
+      to: edge.to,
+      back: edge.back,
+      ...(edge.label ? { label: edge.label } : {}),
+    };
     const tx = tgt.x + tgt.width / 2;
 
     const exits = outgoing.get(edge.from) ?? [];
@@ -178,7 +188,14 @@ export function layoutProcess(process: Pick<Process, 'steg'>): ProcessLayout {
   });
 
   nodes.sort((a, b) => a.index - b.index);
-  return { width, height, nodes, edges };
+  // Loops that leave the last row, and detours through the right gutter, may reach past the
+  // boxes; grow the canvas so no arrow is cut off.
+  const points = edges.flatMap((e) => e.points);
+  const extent = {
+    width: Math.max(width, ...points.map((p) => p.x + PADDING)),
+    height: Math.max(height, ...points.map((p) => p.y + PADDING)),
+  };
+  return { ...extent, nodes, edges };
 }
 
 /** SVG path data for a polyline with slightly rounded corners. */
@@ -198,10 +215,10 @@ export function pathData(points: readonly Point[], radius = 6): string {
     const inLen = Math.hypot(p.x - prev.x, p.y - prev.y);
     const outLen = Math.hypot(next.x - p.x, next.y - p.y);
     const r = Math.min(radius, inLen / 2, outLen / 2);
-    const ax = p.x - (Math.sign(p.x - prev.x) * r);
-    const ay = p.y - (Math.sign(p.y - prev.y) * r);
-    const bx = p.x + (Math.sign(next.x - p.x) * r);
-    const by = p.y + (Math.sign(next.y - p.y) * r);
+    const ax = p.x - Math.sign(p.x - prev.x) * r;
+    const ay = p.y - Math.sign(p.y - prev.y) * r;
+    const bx = p.x + Math.sign(next.x - p.x) * r;
+    const by = p.y + Math.sign(next.y - p.y) * r;
     d += ` L ${ax} ${ay} Q ${p.x} ${p.y} ${bx} ${by}`;
   }
   return d;

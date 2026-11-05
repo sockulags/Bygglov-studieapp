@@ -7,6 +7,7 @@ import {
   type LawSection,
 } from '@bygglov/content-schema';
 import type { LookupContent, StudyContent } from '@/content';
+import { pluralQuestions } from '@/lib/format';
 
 /**
  * Law register for Uppslag. It collects every lagrum used in the bundled questions, the case
@@ -112,7 +113,8 @@ export function buildLawRegister(content: RegisterInput): LawGroup[] {
   }
   for (const caseFile of content.cases) {
     for (const step of allCaseSteps(caseFile)) {
-      for (const reference of step.lagrum ?? []) addUnique(entryFor(reference).caseIds, caseFile.id);
+      for (const reference of step.lagrum ?? [])
+        addUnique(entryFor(reference).caseIds, caseFile.id);
     }
   }
   for (const term of content.lookup?.glossary ?? []) {
@@ -210,8 +212,12 @@ export function sectionsCovered(reference: string, available: readonly string[])
     const hi = sectionSortKey(to);
     for (const paragraf of available) {
       const key = sectionSortKey(paragraf);
-      const afterLo = (key[0] ?? 0) > (lo[0] ?? 0) || ((key[0] ?? 0) === (lo[0] ?? 0) && (key[1] ?? 0) >= (lo[1] ?? 0));
-      const beforeHi = (key[0] ?? 0) < (hi[0] ?? 0) || ((key[0] ?? 0) === (hi[0] ?? 0) && (key[1] ?? 0) <= (hi[1] ?? 0));
+      const afterLo =
+        (key[0] ?? 0) > (lo[0] ?? 0) ||
+        ((key[0] ?? 0) === (lo[0] ?? 0) && (key[1] ?? 0) >= (lo[1] ?? 0));
+      const beforeHi =
+        (key[0] ?? 0) < (hi[0] ?? 0) ||
+        ((key[0] ?? 0) === (hi[0] ?? 0) && (key[1] ?? 0) <= (hi[1] ?? 0));
       if (afterLo && beforeHi) result.add(paragraf);
     }
   }
@@ -219,13 +225,17 @@ export function sectionsCovered(reference: string, available: readonly string[])
 }
 
 /** Sections of a chapter file, each with the content references that cite it. */
-export function chapterSections(chapter: LawChapterFile, register: readonly LawGroup[]): SectionEntry[] {
+export function chapterSections(
+  chapter: LawChapterFile,
+  register: readonly LawGroup[],
+): SectionEntry[] {
   const available = chapter.paragrafer.map((s) => s.paragraf);
   const usage = new Map<string, LawRefEntry[]>(available.map((p) => [p, []]));
   const group = register.find((g) => g.code === chapter.lag);
   for (const entry of group?.entries ?? []) {
     if (entry.chapter !== chapter.kapitel) continue;
-    for (const paragraf of sectionsCovered(entry.reference, available)) usage.get(paragraf)?.push(entry);
+    for (const paragraf of sectionsCovered(entry.reference, available))
+      usage.get(paragraf)?.push(entry);
   }
   return chapter.paragrafer.map((section) => ({
     key: sectionKey(chapter.lag, chapter.kapitel, section.paragraf),
@@ -253,4 +263,27 @@ export function matchesQuery(reference: string, query: string): boolean {
   const normalize = (s: string) => s.toLowerCase().replace(/[.§]/g, '').replace(/\s+/g, ' ').trim();
   const q = normalize(query);
   return q === '' || normalize(reference).includes(q);
+}
+
+/** "3 frågor (Lovplikt) · ärende A002 · 2 begrepp · processkarta". */
+export function usageText(
+  entries: readonly LawRefEntry[],
+  moduleTitles: ReadonlyMap<string, string>,
+): string {
+  const questions = entries.reduce((sum, e) => sum + e.questionCount, 0);
+  const modules = [...new Set(entries.flatMap((e) => e.moduleIds))];
+  const cases = [...new Set(entries.flatMap((e) => e.caseIds))].sort();
+  const terms = new Set(entries.flatMap((e) => e.termIds)).size;
+  const processes = new Set(entries.flatMap((e) => e.processIds)).size;
+  const parts: string[] = [];
+  if (questions > 0) {
+    parts.push(
+      `${pluralQuestions(questions)} (${modules.map((id) => moduleTitles.get(id) ?? id).join(', ')})`,
+    );
+  }
+  if (cases.length > 0)
+    parts.push(`${cases.length === 1 ? 'ärende' : 'ärenden'} ${cases.join(', ')}`);
+  if (terms > 0) parts.push(`${terms} begrepp`);
+  if (processes > 0) parts.push(processes === 1 ? 'processkarta' : `${processes} processkartor`);
+  return parts.join(' · ');
 }

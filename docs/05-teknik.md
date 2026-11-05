@@ -95,8 +95,11 @@ beslut          (id, arende_id, beslut_json, inlamnad, export_tidpunkt)
 handledar_svar  (id, beslut_id, text, betyg, tidpunkt)          -- fylls manuellt eller via portal
 case_state      (case_id PK, state_json, notes, reflection)     -- motorns hela tillstånd (migration 2)
 
+-- Studiehjälp (migration 3); bara siffror, aldrig frågor eller svar
+ai_usage        (id, ts, model, input_tokens, output_tokens, cache_read, cache_write, cost_sek, context_kind)
+
 -- Övrigt
-installning     (nyckel PK, varde)
+installning     (nyckel PK, varde)   -- även studiehjalp.modell, .vaxelkurs, .dagligt_tak_kr
 ```
 
 Innehållet (frågor, ärenden) ligger *inte* i databasen utan bundlas med appen. Databasen
@@ -138,8 +141,8 @@ FSRS (via `ts-fsrs`) med standardparametrar. Varje besvarad fråga ger ett betyg
   månadstak) och ger den till henne. Hon klistrar in den en gång under Inställningar →
   Studiehjälp. Nyckeln sparas i Windows Credential Manager via Rust-sidan (`keyring`), aldrig
   i klartext på disk eller i databasen. Ingen egen server behövs.
-- **Anrop**: från Rust-sidan (Tauri-kommando) eller `@tauri-apps/plugin-http`, inte från
-  webbvyn direkt, så att nyckeln inte exponeras i JavaScript och CORS inte blir ett problem.
+- **Anrop**: från Rust-sidan (Tauri-kommandot `tutor_ask`), inte från webbvyn, så att
+  nyckeln inte exponeras i JavaScript och CORS inte blir ett problem.
   Strömmande svar så att texten dyker upp medan den skrivs.
 - **Modell**: `claude-opus-5-5` som standard (bäst resonemang kring juridik och motiveringar).
   Vid mycket användning kan enkla förklaringar gå på `claude-haiku-5-5`.
@@ -181,6 +184,35 @@ Så blev Rust-sidan (fas 3):
   stopReason }` eller `{ type: 'error', message }`. `stopReason: 'refusal'` betyder att
   säkerhetsfiltret avböjde; webbvyn visar då ett eget meddelande. Egna kommandon och
   kanaler kräver ingen extra capability i Tauri 2 så länge appen saknar eget ACL-manifest.
+
+Så blev webbvyn (fas 3), `features/tutor`:
+
+- **Var den finns**: `AskTutorButton` i förklaringen efter varje svar (quiz och avslutsvy, inte
+  under tentan), i arbetsytans stegflik, i jämförelsevyn ("Första återkoppling på mitt
+  beslut", den enda platsen med `includeModelAnswers: true`) och som kort på Hem. Varje knapp
+  öppnar sin egen `TutorPanel`; varje kontext (`question:<id>`, `case:<id>`, `decision:<id>`,
+  `general:home`) har sitt eget samtal. Hem visar kortet när en nyckel finns, annars en rad om
+  Inställningar → Studiehjälp.
+- **Systemprompten** har tre block: roll och regler, hela `docs/rattslage/README.md` (det
+  blocket bär `cache: true`, så att båda de stabila blocken cachas) och sist kontexten utan
+  cache. Kontexten för ett ärende har mallvariablerna ifyllda som i ärendevyn och är högst
+  12 000 tecken.
+- **I webbläsaren** (`pnpm dev`) används `MockTransport`, som strömmar ett inspelat svar märkt
+  "Testläge, inget AI-anrop görs" och räknar en låtsaskostnad. `isTauri()` väljer transport.
+- **Förbrukning** sparas per svar i `ai_usage` och räknas om till kronor med växelkursen.
+  Dagligt tak (standard 20 kr, räknat från lokal midnatt) stoppar nya frågor.
+- **Avbryt** stoppar bara visningen: kontraktet har inget avbrytkommando, så anropet körs
+  klart på Rust-sidan och räknas i förbrukningen.
+- **Kanalens sista händelse**: kanalmeddelanden och kommandots svar går olika vägar, så
+  `tutorAsk` i `lib/tauri.ts` väntar (högst två sekunder) på `done` eller `error` efter att
+  `tutor_ask` har svarat. Annars kan `stopReason: "refusal"` och de sista textbitarna komma
+  efter att svaret redan markerats som klart.
+- **Fokus**: panelen öppnas utan Radix `Trigger`, så `AskTutorButton` skickar en ref och
+  fokus går tillbaka till knappen när panelen stängs (Esc eller Stäng). Frågefältet får fokus
+  i `onOpenAutoFocus`, så att det fungerar även ovanpå jämförelsevyns egen dialog.
+- **Capabilities**: `http:default` för `api.anthropic.com` är borttagen ur
+  `capabilities/default.json`, eftersom webbvyn aldrig anropar Anthropic. Plugin-http är kvar
+  i appen men saknar tillstånd.
 
 ## Handledarportal (fas 3, valfri)
 

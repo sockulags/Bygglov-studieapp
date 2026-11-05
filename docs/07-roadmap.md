@@ -60,12 +60,14 @@ Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men
 
 Kvar i fas 2:
 
-- [ ] Knapp för att förlänga tidsfristen (motorn kan, 9 kap. 99 § andra stycket)
-- [ ] Vilande enligt 9 kap. 102 § i motorn (A003 frågar om det men tiden räknas ändå)
-- [ ] Ett fält för godtagbara alternativa beslut (t.ex. frivilligt lov i A001), i dag bara
-  som bedömningspunkt
-- [ ] Ett eget fält för föreläggande på skrivelsesteg i stället för att motorn letar efter
-  ordet "förelägg"
+- [x] Knapp för att förlänga tidsfristen med skäl (9 kap. 99 § andra stycket, 100 § 3)
+- [x] Vilande enligt 9 kap. 102 § i motorn: stegeffekten `vilande` och händelseeffekten
+  `vilande_upphor`; fristen står still medan ärendet vilar (A003)
+- [x] Fältet `godtagbara_utfall` på beslutssteg (frivilligt lov i A001 räknas inte som missat)
+- [x] Fältet `ar_forelaggande` på skrivelsesteg i stället för att motorn letar efter ordet
+  "förelägg"
+- [x] Mallvariabler i texterna (`{{beslutsdatum}}`, `{{kungorelsedatum+19|vardag}}` …) så att
+  datum följer hennes egen tidslinje
 - [ ] PDF-handlingar med pdf.js (i dag visas en PDF med webbläsarens visare)
 - [ ] Fler ärenden per nivå
 
@@ -73,13 +75,29 @@ Kvar i fas 2:
 
 ## Fas 3 · Studiehjälp och handledare (v0.5–v0.7)
 
-- Inställning för API-nyckel (sparas i Windows Credential Manager), anrop från Rust-sidan,
-  prompt caching, förbrukningsvisning
-- "Fråga handledaren" i frågevyn och ärendevyn; första återkoppling på beslutsutkast
-- Tentaläge
-- Uppslag: lagrumsregister, ordlista, processkartor
-- Mina resultat med mastery över tid och svaga taggar
-- Valfritt: handledarportal (Supabase) där pappa kommenterar direkt
+- [x] Inställning för API-nyckel (sparas i Windows Credential Manager via `keyring`), anrop
+  från Rust-sidan med strömmande svar, prompt caching av rättslägesavsnittet,
+  förbrukningsvisning i kronor och dagligt kostnadstak
+- [x] "Fråga handledaren" i förklaringen efter varje svar, i ärendets arbetsyta och på Hem;
+  första återkoppling på beslutet i jämförelsevyn (facit först efter inlämnat beslut)
+- [x] Tentaläge (kom redan i fas 1)
+- [x] Uppslag: lagrumsregister med 9 kap. paragraf för paragraf och lagtext, ordlista
+  (140 begrepp), fyra processkartor, sök med `/`
+- [x] Mina resultat med behärskning över tid, svar per dag, svaga taggar, ärenden per status
+  och kontroller per beslut, med tabellvy
+- [x] Tillgänglighetsgenomgång av ärendevyn, uppslag, resultat och handledarpanelen med axe
+  (WCAG 2.1 AA, ljust och mörkt läge); `--muted` mörkare i hela appen
+- [ ] Studiehjälpen provad med en riktig nyckel i Windows-bygget (nyckellagret, strömningen
+  och kostnadsraden kan bara provas där)
+- [ ] Uppslaget och ordlistan granskade med pappa (allt är `utkast`)
+- [ ] Avbryt som stoppar anropet på Rust-sidan (i dag slutar bara panelen visa svaret; svaret
+  körs klart och räknas i förbrukningen)
+- [ ] Handledaren föreslår repetition utifrån svaga taggar (i dag ser den bara behärskning per
+  modul)
+- [ ] Valfritt: handledarportal (Supabase) där pappa kommenterar direkt
+
+**Klart när**: hon har använt handledaren i ett riktigt pass och pappa har läst en första
+återkoppling på ett beslut och tyckt att den hjälper.
 
 ## Fas 4 · Bredd och finish (v0.8 → 1.0)
 

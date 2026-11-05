@@ -9,6 +9,9 @@ const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 
   version: string;
 };
 
+const MARKDOWN_PACKAGES =
+  /node_modules\/\.pnpm\/(react-markdown|remark-|rehype-|micromark|mdast-|hast-|unist-|unified|vfile|bail|trough|devlop|property-information|space-separated-tokens|comma-separated-tokens|html-url-attributes|zwitch|longest-streak|markdown-table|ccount|character-entities|decode-named-character-reference|estree-util-|style-to-|inline-style-parser|trim-lines|is-plain-obj|extend|escape-string-regexp)/;
+
 // Tauri sets TAURI_ENV_* while running `tauri dev` / `tauri build`.
 const host = process.env.TAURI_DEV_HOST;
 
@@ -48,6 +51,9 @@ export default defineConfig({
           if (/node_modules\/\.pnpm\/(react|react-dom|scheduler)@/.test(id)) return 'react';
           if (id.includes('node_modules/.pnpm/@tanstack+')) return 'tanstack';
           if (id.includes('node_modules/.pnpm/@radix-ui+')) return 'radix';
+          // Markdown rendering (case documents, tutor answers): react-markdown and the
+          // unified/remark/micromark ecosystem it pulls in.
+          if (MARKDOWN_PACKAGES.test(id)) return 'markdown';
           return undefined;
         },
       },

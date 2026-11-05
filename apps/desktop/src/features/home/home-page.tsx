@@ -4,20 +4,27 @@ import {
   FilePlus2,
   FolderOpen,
   Flame,
+  GraduationCap,
   PlayCircle,
   RotateCcw,
   type LucideIcon,
 } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { useMemo, type ReactNode } from 'react';
 import { PageHeader, SectionTitle } from '@/components/layout/page-header';
 import { buttonVariants } from '@/components/ui/button-variants';
 import { Card, CardContent } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { useOngoingCase, type CaseSummary } from '@/features/cases';
-import { usePassHistory, useStudyOverview } from '@/features/progress/hooks';
+import { usePassHistory, useStudyOverview, type StudyOverview } from '@/features/progress/hooks';
 import { studyModeLabel } from '@/features/study/modes';
 import { useStudyStore, type StartRequest } from '@/features/study/study-store';
 import { useStartRun } from '@/features/study/use-start-run';
+import {
+  AskTutorButton,
+  buildGeneralContext,
+  GENERAL_SUGGESTIONS,
+  useHasTutorKey,
+} from '@/features/tutor';
 import { cn } from '@/lib/cn';
 import { formatDueDay, formatWhen, pluralQuestions } from '@/lib/format';
 
@@ -85,6 +92,58 @@ function caseProgressText(summary: CaseSummary): string {
   return summary.currentStepTitle
     ? `Nästa steg: ${summary.currentStepTitle} (${done}).`
     : `Alla steg är gjorda (${done}).`;
+}
+
+/**
+ * "Fråga handledaren" on Hem: a small card when an API key is stored (in a browser the
+ * test transport counts as one), otherwise a line about where the study assistant is
+ * switched on.
+ */
+function TutorCard({
+  overview,
+  streakDays,
+  ongoingCase,
+}: {
+  overview: StudyOverview;
+  streakDays: number;
+  ongoingCase: string | null;
+}) {
+  const hasKey = useHasTutorKey();
+  const context = useMemo(
+    () => buildGeneralContext({ modules: overview.modules, streakDays, ongoingCase }),
+    [overview.modules, streakDays, ongoingCase],
+  );
+  if (hasKey.data === undefined) return null;
+  if (!hasKey.data) {
+    return (
+      <p className="flex items-start gap-2 text-sm text-muted">
+        <GraduationCap className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
+        <span>
+          Studiehjälpen med AI aktiveras under{' '}
+          <Link to="/settings" hash="settings-assistant" className="font-medium text-accent">
+            Inställningar → Studiehjälp
+          </Link>
+          .
+        </span>
+      </p>
+    );
+  }
+  return (
+    <section aria-labelledby="home-tutor">
+      <SectionTitle>
+        <span id="home-tutor">Fråga handledaren</span>
+      </SectionTitle>
+      <Card>
+        <CardContent className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+          <p className="max-w-prose min-w-0 flex-1 basis-64 text-sm text-muted">
+            Undrar du över något i plan- och bygglagen, vill bli förhörd eller vet inte vad du ska
+            repetera? Handledaren ser hur det går i modulerna.
+          </p>
+          <AskTutorButton context={context} suggestions={GENERAL_SUGGESTIONS} />
+        </CardContent>
+      </Card>
+    </section>
+  );
 }
 
 /** Default first step: module 3 is the foundation (docs/07). */
@@ -286,40 +345,49 @@ export function HomePage() {
       </section>
 
       <div className="grid gap-6 lg:grid-cols-[2fr_1fr]">
-        <section aria-labelledby="home-mastery">
-          <SectionTitle>
-            <span id="home-mastery">Behärskning per modul</span>
-          </SectionTitle>
-          <Card>
-            <CardContent className="flex flex-col gap-4">
-              {modulesWithQuestions.map((module) => (
-                <div
-                  key={module.moduleId}
-                  className="grid grid-cols-[2rem_1fr_3rem] items-center gap-3"
-                >
-                  <span className="text-sm tabular-nums text-muted">{module.ordning}</span>
-                  <div className="min-w-0">
-                    <p className="truncate text-sm font-medium">{module.title}</p>
-                    <Progress
-                      value={module.mastery}
-                      thin
-                      label={`Behärskning ${module.title}`}
-                      className="mt-1.5"
-                    />
+        <div className="flex flex-col gap-6">
+          <section aria-labelledby="home-mastery">
+            <SectionTitle>
+              <span id="home-mastery">Behärskning per modul</span>
+            </SectionTitle>
+            <Card>
+              <CardContent className="flex flex-col gap-4">
+                {modulesWithQuestions.map((module) => (
+                  <div
+                    key={module.moduleId}
+                    className="grid grid-cols-[2rem_1fr_3rem] items-center gap-3"
+                  >
+                    <span className="text-sm tabular-nums text-muted">{module.ordning}</span>
+                    <div className="min-w-0">
+                      <p className="truncate text-sm font-medium">{module.title}</p>
+                      <Progress
+                        value={module.mastery}
+                        thin
+                        label={`Behärskning ${module.title}`}
+                        className="mt-1.5"
+                      />
+                    </div>
+                    <span className="text-right text-sm tabular-nums text-muted">
+                      {module.seen === 0 ? '–' : `${module.mastery} %`}
+                    </span>
                   </div>
-                  <span className="text-right text-sm tabular-nums text-muted">
-                    {module.seen === 0 ? '–' : `${module.mastery} %`}
-                  </span>
-                </div>
-              ))}
-              <p className="text-xs text-muted">
-                Behärskning räknas på repetitionsdata, inte bara antal rätt: en fråga räknas fullt
-                först när du kan den flera veckor framåt. Övriga moduler fylls på i kommande
-                versioner.
-              </p>
-            </CardContent>
-          </Card>
-        </section>
+                ))}
+                <p className="text-xs text-muted">
+                  Behärskning räknas på repetitionsdata, inte bara antal rätt: en fråga räknas fullt
+                  först när du kan den flera veckor framåt. Övriga moduler fylls på i kommande
+                  versioner.
+                </p>
+              </CardContent>
+            </Card>
+          </section>
+          <TutorCard
+            overview={overview}
+            streakDays={history.streak.days}
+            ongoingCase={
+              ongoing ? `${ongoing.caseId} ${ongoing.title}. ${caseProgressText(ongoing)}` : null
+            }
+          />
+        </div>
 
         <section aria-labelledby="home-recent" className="flex flex-col gap-6">
           <div>

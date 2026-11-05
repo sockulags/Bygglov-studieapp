@@ -75,7 +75,10 @@ export interface SearchIndex {
   documents: PreparedDocument[];
 }
 
-export function buildSearchIndex(lookup: LookupContent, register: readonly LawGroup[]): SearchIndex {
+export function buildSearchIndex(
+  lookup: LookupContent,
+  register: readonly LawGroup[],
+): SearchIndex {
   const docs: SearchDocument[] = [];
   for (const term of lookup.glossary) {
     docs.push({
@@ -135,7 +138,10 @@ export function buildSearchIndex(lookup: LookupContent, register: readonly LawGr
           kind: 'lagrum',
           id: `lagrum:${entry.reference}`,
           title: entry.reference,
-          detail: [group.name, chapterGroup.title && `${chapterGroup.chapter} kap. ${chapterGroup.title}`]
+          detail: [
+            group.name,
+            chapterGroup.title && `${chapterGroup.chapter} kap. ${chapterGroup.title}`,
+          ]
             .filter(Boolean)
             .join(' · '),
           aliases: [],
@@ -203,5 +209,10 @@ export function groupHits(hits: readonly SearchHit[], limit = 8): SearchGroup[] 
   for (const hit of hits) groups.set(hit.doc.kind, [...(groups.get(hit.doc.kind) ?? []), hit]);
   return [...groups.entries()]
     .sort(([, a], [, b]) => (b[0]?.score ?? 0) - (a[0]?.score ?? 0))
-    .map(([kind, list]) => ({ kind, label: GROUP_LABELS[kind], hits: list.slice(0, limit), total: list.length }));
+    .map(([kind, list]) => ({
+      kind,
+      label: GROUP_LABELS[kind],
+      hits: list.slice(0, limit),
+      total: list.length,
+    }));
 }

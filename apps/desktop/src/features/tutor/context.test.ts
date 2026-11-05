@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { currentStep, grade } from '@/engine';
 import {
   buildCaseContext,
+  buildGeneralContext,
   buildQuestionContext,
   clipText,
   CLIP_MARKER,
@@ -136,5 +137,26 @@ describe('buildCaseContext', () => {
       maxChars: 3000,
     });
     expect(ctx.text.length).toBeLessThanOrEqual(3000);
+  });
+});
+
+describe('buildGeneralContext', () => {
+  it('describes her study status for Hem without any answer key', () => {
+    const ctx = buildGeneralContext({
+      modules: [
+        { title: 'Lovplikt', mastery: 42, questionCount: 51, seen: 20, due: 3 },
+        { title: 'Handläggningsprocessen', mastery: 0, questionCount: 47, seen: 0, due: 0 },
+        { title: 'Tom modul', mastery: 0, questionCount: 0, seen: 0, due: 0 },
+      ],
+      streakDays: 1,
+      ongoingCase: 'A002 Tillbyggnad av enbostadshus, Björken 7',
+    });
+    expect(ctx).toMatchObject({ key: 'general:home', kind: 'general', answered: false });
+    expect(ctx.text).toContain('Lovplikt: 42 %, 20 av 51 frågor besvarade, 3 väntar på repetition');
+    expect(ctx.text).toContain('Handläggningsprocessen: inte påbörjad');
+    expect(ctx.text).not.toContain('Tom modul');
+    expect(ctx.text).toContain('Frågor som väntar på repetition i dag: 3.');
+    expect(ctx.text).toContain('Streak: 1 dag');
+    expect(ctx.text).toContain('Pågående ärende: A002');
   });
 });

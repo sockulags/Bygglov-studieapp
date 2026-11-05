@@ -4,7 +4,12 @@ import { Button } from '@/components/ui/button';
 import { caseDocumentUrl } from '@/content';
 import { DrawingViewer } from './drawing-viewer';
 import { MarkdownBody, Paper } from './paper';
-import { documentFormat, MissingDocumentError, useCaseText } from './use-document-text';
+import {
+  documentFormat,
+  MissingDocumentError,
+  useCaseText,
+  useDocumentTemplate,
+} from './use-document-text';
 
 export interface DocumentViewerProps {
   caseFile: CaseFile;
@@ -123,6 +128,7 @@ function MarkdownDocument({
   isNew: boolean;
 }) {
   const text = useCaseText(caseFile.id, document.fil);
+  const render = useDocumentTemplate(caseFile.id, receivedDate);
   if (text.isPending) {
     return (
       <div className="paper animate-pulse" aria-busy="true">
@@ -138,7 +144,7 @@ function MarkdownDocument({
       animateStamp={isNew}
       aria-label={document.titel}
     >
-      <MarkdownBody>{text.data.body}</MarkdownBody>
+      <MarkdownBody>{render(text.data.body)}</MarkdownBody>
     </Paper>
   );
 }
@@ -154,6 +160,7 @@ export function ModelDocument({
   eyebrow?: string;
 }) {
   const text = useCaseText(caseFile.id, file);
+  const render = useDocumentTemplate(caseFile.id, null);
   if (text.isPending) {
     return (
       <div className="paper animate-pulse" aria-busy="true">
@@ -164,7 +171,7 @@ export function ModelDocument({
   if (text.isError) return <MissingFile file={file} missing={text.error} />;
   return (
     <Paper meta={text.data.meta} eyebrow={eyebrow} aria-label={eyebrow}>
-      <MarkdownBody>{text.data.body}</MarkdownBody>
+      <MarkdownBody>{render(text.data.body)}</MarkdownBody>
     </Paper>
   );
 }

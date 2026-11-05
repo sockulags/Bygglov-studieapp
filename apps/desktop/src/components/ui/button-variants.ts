@@ -14,7 +14,9 @@ export const buttonVariantClasses: Record<ButtonVariant, string> = {
   secondary:
     'bg-paper text-ink border border-line-strong hover:bg-accent-soft hover:border-accent/40',
   ghost: 'bg-transparent text-ink hover:bg-accent-soft',
-  danger: 'bg-brick-soft text-brick border border-brick/30 hover:bg-brick hover:text-white',
+  // Brick mixed towards ink: plain --brick on --brick-soft is 3.96:1, under WCAG AA.
+  danger:
+    'bg-brick-soft text-[color-mix(in_srgb,var(--brick)_70%,var(--ink))] border border-brick/30 hover:bg-brick hover:text-white',
 };
 
 export const buttonSizeClasses: Record<ButtonSize, string> = {

@@ -107,9 +107,11 @@ function Assessment({
         <p className="mt-1 text-sm text-muted">
           {assessment.passedChecks} av {assessment.totalChecks} godkända. Ditt beslut:{' '}
           {DECISION_OUTCOME_LABELS[decision.draft.utfall].toLowerCase()}
-          {outcomeRight
+          {decision.draft.utfall === assessment.expectedOutcome
             ? ', som förväntat.'
-            : `. Förväntat: ${DECISION_OUTCOME_LABELS[assessment.expectedOutcome].toLowerCase()}.`}
+            : outcomeRight
+              ? `, ett godtagbart alternativ. Förväntat: ${DECISION_OUTCOME_LABELS[assessment.expectedOutcome].toLowerCase()}.`
+              : `. Förväntat: ${DECISION_OUTCOME_LABELS[assessment.expectedOutcome].toLowerCase()}.`}
         </p>
         <ul className="mt-3 flex flex-col gap-2">
           {counted.map((check) => (

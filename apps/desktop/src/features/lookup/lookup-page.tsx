@@ -1,15 +1,29 @@
-import { ExternalLink, Search } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { EmptyState, PageHeader } from '@/components/layout/page-header';
+import { PageHeader } from '@/components/layout/page-header';
 import { Card, CardContent } from '@/components/ui/card';
 import { LawRefChip } from '@/components/ui/law-ref-chip';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { loadContent } from '@/content';
+import { loadContent, loadLookup, type StudyContent } from '@/content';
 import { pluralQuestions } from '@/lib/format';
-import { buildLawRegister, matchesQuery, type LawRefEntry } from './law-register';
+import { GlossaryTab } from './glossary-tab';
+import { buildLawRegister, sectionForReference } from './law-register';
+import { LawTab } from './law-tab';
+import {
+  LookupNavContext,
+  revealElement,
+  sectionElementId,
+  termElementId,
+  type LookupNav,
+} from './lookup-nav';
+import { LookupSearch } from './lookup-search';
+import { ProcessTab, type ProcessSelection } from './process-tab';
+import { buildSearchIndex, type LookupTarget } from './search';
 
-function ModulesTab() {
-  const content = loadContent();
+type LookupTabId = 'law' | 'glossary' | 'maps' | 'modules';
+
+const TAB_IDS: readonly LookupTabId[] = ['law', 'glossary', 'maps', 'modules'];
+
+function ModulesTab({ content }: { content: StudyContent }) {
   return (
     <div className="flex flex-col gap-4">
       <p className="max-w-2xl text-[0.9375rem] text-muted">
@@ -54,148 +68,86 @@ function ModulesTab() {
   );
 }
 
-function RegisterTab() {
-  const content = loadContent();
-  const groups = useMemo(() => buildLawRegister(content), [content]);
-  const moduleTitles = new Map(content.modules.map((m) => [m.id, m.titel]));
-  const usage = (entry: LawRefEntry) => {
-    const parts: string[] = [];
-    if (entry.questionCount > 0) {
-      parts.push(
-        `${pluralQuestions(entry.questionCount)} (${entry.moduleIds.map((id) => moduleTitles.get(id) ?? id).join(', ')})`,
-      );
-    }
-    if (entry.caseIds.length > 0) {
-      parts.push(
-        `${entry.caseIds.length === 1 ? 'ärende' : 'ärenden'} ${entry.caseIds.join(', ')}`,
-      );
-    }
-    return parts.join(' · ');
-  };
-  const [caseOnly, setCaseOnly] = useState(false);
-  const [query, setQuery] = useState('');
-  const filtered = groups
-    .map((group) => ({
-      ...group,
-      entries: group.entries.filter(
-        (e) => matchesQuery(e.reference, query) && (!caseOnly || e.caseIds.length > 0),
-      ),
-    }))
-    .filter((group) => group.entries.length > 0);
-
-  return (
-    <div className="flex flex-col gap-6">
-      <div className="flex flex-wrap items-end justify-between gap-4">
-        <p className="max-w-2xl text-[0.9375rem] text-muted">
-          Alla paragrafer som frågorna och ärendena hänvisar till. Lagtexten finns på riksdagen.se
-          och i <em>Lagtextens byggregler</em>.
-        </p>
-        <label className="inline-flex items-center gap-2 text-sm">
-          <input
-            type="checkbox"
-            checked={caseOnly}
-            onChange={(event) => setCaseOnly(event.target.checked)}
-            className="size-4 accent-[var(--accent)]"
-          />
-          Bara lagrum i ärendena
-        </label>
-        <label className="relative w-full max-w-xs">
-          <span className="sr-only">Sök lagrum</span>
-          <Search
-            className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted"
-            aria-hidden="true"
-          />
-          <input
-            type="search"
-            value={query}
-            onChange={(event) => setQuery(event.target.value)}
-            placeholder="Sök, t.ex. 9 kap 99"
-            className="h-10 w-full rounded-md border border-line-strong bg-paper pr-3 pl-9 text-sm placeholder:text-muted focus-visible:border-accent"
-          />
-        </label>
-      </div>
-      {filtered.length === 0 ? (
-        <EmptyState
-          icon={<Search />}
-          title={groups.length === 0 ? 'Inga lagrum ännu' : 'Inget lagrum matchar'}
-          description={
-            groups.length === 0
-              ? 'Registret fylls på när det finns frågor med lagrum.'
-              : 'Pröva med bara kapitel och paragraf, t.ex. "9 kap 4".'
-          }
-        />
-      ) : (
-        filtered.map((group) => (
-          <section key={group.code} aria-labelledby={`law-${group.code}`}>
-            <h3 id={`law-${group.code}`} className="mb-2 font-semibold">
-              {group.name}
-            </h3>
-            <ul className="grid gap-2 sm:grid-cols-2 xl:grid-cols-3">
-              {group.entries.map((entry) => (
-                <li
-                  key={entry.reference}
-                  className="flex flex-col gap-1.5 rounded-md border border-line bg-paper px-3 py-2.5"
-                >
-                  <LawRefChip
-                    reference={entry.reference}
-                    uncertain={entry.uncertain}
-                    className="self-start"
-                  />
-                  <span className="text-xs text-muted">{usage(entry)}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ))
-      )}
-      <p className="inline-flex items-center gap-1.5 text-sm text-muted">
-        <ExternalLink className="size-4" aria-hidden="true" />
-        Länkar till riksdagen.se och Boverket kommer i en senare version.
-      </p>
-    </div>
-  );
-}
-
 export function LookupPage() {
+  const content = loadContent();
+  const lookup = loadLookup();
+  const register = useMemo(() => buildLawRegister({ ...content, lookup }), [content, lookup]);
+  const searchIndex = useMemo(() => buildSearchIndex(lookup, register), [lookup, register]);
+  const [tab, setTab] = useState<LookupTabId>('law');
+  const [processSelection, setProcessSelection] = useState<ProcessSelection | undefined>();
+
+  const nav: LookupNav = useMemo(
+    () => ({
+      open: (target: LookupTarget) => {
+        if (target.kind === 'process') {
+          setTab('maps');
+          setProcessSelection({
+            processId: target.processId,
+            ...(target.stepId ? { stepId: target.stepId } : {}),
+          });
+          return;
+        }
+        // Leaving the process maps: close an open step box but keep the chosen process.
+        setProcessSelection((current) => current && { processId: current.processId });
+        if (target.kind === 'term') {
+          setTab('glossary');
+          revealElement(termElementId(target.id));
+        } else if (target.kind === 'section') {
+          setTab('law');
+          revealElement(sectionElementId(target.key));
+        } else {
+          setTab('law');
+          const section = sectionForReference(target.reference, lookup.chapters);
+          revealElement(sectionElementId(section ? section.key : target.reference));
+        }
+      },
+    }),
+    [lookup.chapters],
+  );
+
   return (
-    <>
+    <LookupNavContext.Provider value={nav}>
       <PageHeader
         title="Uppslag"
         description="Lagrum, begrepp och processkartor på ett ställe. Allt du möter i frågor och ärenden ska gå att hitta här."
       />
 
-      <Tabs defaultValue="modules">
+      <LookupSearch index={searchIndex} onOpen={nav.open} className="mb-6" />
+
+      <Tabs
+        value={tab}
+        onValueChange={(value) => {
+          if ((TAB_IDS as readonly string[]).includes(value)) setTab(value as LookupTabId);
+        }}
+      >
         <TabsList aria-label="Uppslagsdel" className="flex-wrap">
-          <TabsTrigger value="modules">Moduler</TabsTrigger>
           <TabsTrigger value="law">Lagrumsregister</TabsTrigger>
           <TabsTrigger value="glossary">Ordlista</TabsTrigger>
           <TabsTrigger value="maps">Processkartor</TabsTrigger>
+          <TabsTrigger value="modules">Moduler</TabsTrigger>
         </TabsList>
 
-        <TabsContent value="modules">
-          <ModulesTab />
-        </TabsContent>
-
         <TabsContent value="law">
-          <RegisterTab />
+          <LawTab lookup={lookup} register={register} modules={content.modules} />
         </TabsContent>
 
         <TabsContent value="glossary">
-          <EmptyState
-            icon={<Search />}
-            title="Ordlistan kommer snart"
-            description="Begrepp som byggnadsarea, nockhöjd, komplementbostadshus och laga kraft, med sök. Tills vidare förklaras begreppen i frågornas förklaringar."
-          />
+          <GlossaryTab lookup={lookup} modules={content.modules} />
         </TabsContent>
 
         <TabsContent value="maps">
-          <EmptyState
-            icon={<Search />}
-            title="Processkartorna kommer snart"
-            description="Bygglov, anmälan, tillsyn och överklagande som klickbara diagram."
+          <ProcessTab
+            lookup={lookup}
+            modules={content.modules}
+            selection={processSelection}
+            onSelect={setProcessSelection}
           />
         </TabsContent>
+
+        <TabsContent value="modules">
+          <ModulesTab content={content} />
+        </TabsContent>
       </Tabs>
-    </>
+    </LookupNavContext.Provider>
   );
 }

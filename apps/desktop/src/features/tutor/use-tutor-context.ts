@@ -4,6 +4,8 @@ import type { CaseFile, Question } from '@bygglov/content-schema';
 import { caseDocumentUrl } from '@/content';
 import {
   currentStep,
+  renderCaseTexts,
+  renderDocumentText,
   visibleDocuments,
   type CaseState,
   type DecisionDraft,
@@ -89,18 +91,22 @@ export function useCaseTutorContext(
   }, [drafts]);
 
   return useMemo(() => {
+    // Template variables ({{beslutsdatum}} …) are rendered as in the case view, so the tutor
+    // sees the same dates as she does.
     const documentTexts: Record<string, string> = {};
-    files.documents.forEach((doc, i) => {
+    files.documents.forEach(({ document: doc, receivedDate }, i) => {
       const parsed = texts[i];
-      if (parsed) documentTexts[doc.id] = documentText(parsed);
+      if (parsed)
+        documentTexts[doc.id] = renderDocumentText(documentText(parsed), state, receivedDate);
     });
     const modelParsed = files.modelPath ? texts[files.documents.length] : undefined;
-    return buildCaseContext(caseFile, state, currentStep(caseFile, state), {
+    const rendered = renderCaseTexts(caseFile, state);
+    return buildCaseContext(rendered, state, currentStep(rendered, state), {
       includeModelAnswers,
       documentTexts,
       notes,
       draft,
-      modelDecisionText: modelParsed ? modelParsed.body : null,
+      modelDecisionText: modelParsed ? renderDocumentText(modelParsed.body, state, null) : null,
     });
   }, [caseFile, state, notes, draft, includeModelAnswers, files, texts]);
 }
@@ -112,14 +118,14 @@ function dataOf(results: { data?: ParsedDocument | undefined }[]): (ParsedDocume
 
 /** The Markdown files the case context needs: visible documents, then the model decision. */
 function caseFiles(caseFile: CaseFile, state: CaseState, includeModelAnswers: boolean) {
-  const documents = visibleDocuments(caseFile, state)
-    .map((v) => v.document)
-    .filter((d) => documentFormat(d.fil) === 'markdown');
+  const documents = visibleDocuments(caseFile, state).filter(
+    (v) => documentFormat(v.document.fil) === 'markdown',
+  );
   const decision = state.decisions.at(-1) ?? null;
   const modelPath = includeModelAnswers && decision ? decision.assessment.modelDecisionPath : null;
   return {
     documents,
     modelPath,
-    all: [...documents.map((d) => d.fil), ...(modelPath ? [modelPath] : [])],
+    all: [...documents.map((d) => d.document.fil), ...(modelPath ? [modelPath] : [])],
   };
 }

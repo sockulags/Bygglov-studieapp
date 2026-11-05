@@ -25,8 +25,8 @@ pluggar aldrig behöver göra något mer tekniskt än att trycka "Uppdatera".
 
 ## Status
 
-Fas 1 (v0.1) är släppt. Fas 2, ärendesimulatorn, är byggd och kommer i nästa version.
-Det som finns:
+Fas 1 (v0.1) och fas 2 (v0.2, ärendesimulatorn) är släppta. Fas 3, studiehjälp och
+uppslag, är byggd och kommer i nästa version. Det som finns:
 
 - **Plugga**: snabbquiz, modulgenomgång, repetition (FSRS), instudering och tentaläge med alla
   nio frågetyper, förklaring och lagrum efter varje svar, tangentbordsstyrning och avslutsvy med
@@ -34,19 +34,31 @@ Det som finns:
 - **Ärenden**: tre bygglovsärenden, ett per nivå (A001 komplementbyggnad nära gräns, A002
   tillbyggnad med liten avvikelse, A003 nybyggnad utanför plan vid strand). Ärendevyn har
   diarium, handlingsvisare med genererade ritningar, arbetsyta med sex stegtyper, simulerad tid
-  med tioveckorsfristen (9 kap. 99 § PBL), händelser som förgrenar ärendet, beslutsmall med
-  automatiska kontroller, jämförelse med modellbeslutet och export av beslutsrapporten till
-  handledaren. Se [docs/03-arendesimulator.md](docs/03-arendesimulator.md).
-- **Hem** och **Mina resultat**: fortsätt där du var (pass eller ärende), frågor som väntar på
-  repetition, streak, behärskning per modul, ärenden per status, inlämnade beslut med
-  handledarens bedömning, senaste pass och svaga taggar.
-- **Innehåll**: 98 frågor i modul 3 (Lovplikt) och modul 6 (Handläggningsprocessen) och tre
-  ärenden, allt enligt rättsläget från 2025-12-01 och med status `utkast` tills handledaren
-  granskat det.
-- **Uppslag**: modulernas lagrum och ett lagrumsregister byggt från frågorna och ärendena.
-- **Inställningar**: tema, textstorlek, uppdateringar, export/import/återställning av studiedata.
-- **Leveranskedja**: SQLite med migrationer, auto-uppdatering med "Vad är nytt", `ci.yml` och
-  `release.yml` (Windows/NSIS), se [docs/release-checklista.md](docs/release-checklista.md).
+  med tioveckorsfristen (9 kap. 99 § PBL), förlängning av fristen med skäl, vilande enligt
+  9 kap. 102 §, händelser som förgrenar ärendet, datum i texterna som följer hennes egen
+  tidslinje, beslutsmall med automatiska kontroller, jämförelse med modellbeslutet och export
+  av beslutsrapporten till handledaren. Se [docs/03-arendesimulator.md](docs/03-arendesimulator.md).
+- **Fråga handledaren** (studiehjälp med AI): i förklaringen efter varje svar, i ärendets
+  arbetsyta, som första återkoppling i jämförelsevyn och på Hem. Svaren strömmar från Claude
+  via Rust-sidan; API-nyckeln ligger i Windows Autentiseringshanteraren och lämnar aldrig
+  Rust-sidan. Prompt caching av rättslägesavsnittet, kostnad i kronor per svar och dagligt
+  kostnadstak. Facit skickas aldrig med innan hon svarat eller lämnat in beslutet. I
+  webbläsarläget svarar en inspelad testhandledare. Se [docs/05-teknik.md](docs/05-teknik.md).
+- **Uppslag**: lagrumsregister med 9 kap. PBL paragraf för paragraf (sammanfattning, lagtext och
+  ny lydelse från 2027-01-01), övriga lagrum per lag, ordlista med 140 begrepp, fyra
+  processkartor och sök med `/`.
+- **Hem** och **Mina resultat**: fortsätt där du var, repetition, streak, behärskning per modul,
+  och på resultatsidan behärskning över tid, svar per dag, svaga taggar, ärenden per status,
+  kontroller per beslut och handledarens bedömningar, med filter och tabellvy för varje
+  diagram.
+- **Innehåll**: 98 frågor i modul 3 (Lovplikt) och modul 6 (Handläggningsprocessen), tre
+  ärenden och uppslagsinnehållet, allt enligt rättsläget från 2025-12-01 och med status
+  `utkast` tills handledaren granskat det.
+- **Inställningar**: tema, textstorlek, uppdateringar, studiehjälp (nyckel, modell, växelkurs,
+  dagligt tak och förbrukning), export/import/återställning av studiedata.
+- **Leveranskedja**: SQLite med migrationer, auto-uppdatering med "Vad är nytt", `ci.yml` (även
+  `cargo test` för studiehjälpens API-klient) och `release.yml` (Windows/NSIS), se
+  [docs/release-checklista.md](docs/release-checklista.md).
 
 Se [docs/07-roadmap.md](docs/07-roadmap.md) för vad som återstår.
 
@@ -72,4 +84,5 @@ ligger den i SQLite.
 pnpm lint && pnpm format:check && pnpm typecheck && pnpm test
 pnpm content:check   # validerar allt innehåll, måste vara grönt före release
 pnpm --filter desktop build
+(cd apps/desktop/src-tauri && cargo test --locked -p tutor-client)   # studiehjälpens API-klient
 ```

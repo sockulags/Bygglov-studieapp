@@ -545,3 +545,59 @@ export function buildCaseContext(
     answered: withKey,
   };
 }
+
+/* -------------------------------------------------------------------------- general */
+
+/** What Hem knows about her studies, for a question that is not about one item. */
+export interface StudyStatus {
+  modules: readonly {
+    title: string;
+    /** 0..100 */
+    mastery: number;
+    questionCount: number;
+    /** Questions answered at least once. */
+    seen: number;
+    /** Questions due for repetition now. */
+    due: number;
+  }[];
+  streakDays: number;
+  /** The case in progress, e.g. "A002 Tillbyggnad Björken 7", or null. */
+  ongoingCase: string | null;
+}
+
+/**
+ * Context for "Fråga handledaren" on Hem: her study status, so the tutor can suggest what
+ * to repeat or quiz her on a module. Holds no answer key.
+ */
+export function buildGeneralContext(status: StudyStatus): TutorContext {
+  const modules = status.modules.filter((m) => m.questionCount > 0);
+  const due = modules.reduce((sum, m) => sum + m.due, 0);
+  const lines: string[] = [
+    'Hon är på startsidan i studieappen och har ingen särskild fråga öppen.',
+  ];
+  if (modules.length > 0) {
+    lines.push(
+      '',
+      'Behärskning per modul (räknas på repetitionsdata, 100 % = hon kan frågorna flera veckor framåt):',
+      list(
+        modules.map(
+          (m) =>
+            `${m.title}: ${m.seen === 0 ? 'inte påbörjad' : `${m.mastery} %`}, ${m.seen} av ${m.questionCount} frågor besvarade, ${m.due} väntar på repetition`,
+        ),
+      ),
+    );
+  }
+  lines.push(
+    '',
+    `Frågor som väntar på repetition i dag: ${due}.`,
+    `Streak: ${status.streakDays} ${status.streakDays === 1 ? 'dag' : 'dagar'} i rad med minst ett pass.`,
+    status.ongoingCase ? `Pågående ärende: ${status.ongoingCase}.` : 'Inget pågående ärende.',
+  );
+  return {
+    key: 'general:home',
+    kind: 'general',
+    title: 'Dina studier',
+    text: clipText(lines.join('\n'), MAX_CONTEXT_CHARS),
+    answered: false,
+  };
+}

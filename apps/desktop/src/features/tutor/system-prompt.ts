@@ -64,6 +64,9 @@ function contextBlock(context: TutorContext | null): string {
   if (!context) {
     return 'Hon har öppnat handledaren utan någon särskild fråga eller något ärende framför sig.';
   }
+  if (context.kind === 'general') {
+    return `Det här vet appen om hennes studier just nu (${context.title}):\n\n${context.text}\n\nHon har ingen quizfråga eller något ärende framför sig. Hjälp henne att välja vad hon ska plugga, förhör henne eller förklara begrepp. Ställer du en övningsfråga: vänta på hennes svar innan du ger facit.`;
+  }
   const status = context.answered
     ? 'Hon HAR besvarat frågan eller lämnat in beslutet. Du får diskutera rätt svar, facit och modellbeslut.'
     : 'Hon har INTE besvarat frågan eller lämnat in beslutet ännu. Avslöja inte rätt svar, modellsvar, modellbeslut eller bedömningspunkter (regel 7).';

@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown, { type Components } from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { cn } from '@/lib/cn';
 import type { DocumentMeta } from './front-matter';
@@ -19,6 +19,7 @@ export function ArrivalStamp({
   return (
     <span
       className={cn('arrival-stamp text-xs', animate && 'stamp-animate')}
+      role="img"
       aria-label={`${label} ${date}${diaryNumber ? `, diarienummer ${diaryNumber}` : ''}`}
     >
       <span aria-hidden="true">{label}</span>
@@ -28,11 +29,32 @@ export function ArrivalStamp({
   );
 }
 
+/**
+ * GFM task list boxes (`- [x] Bygglov`) are form fields on paper, not controls: a disabled
+ * checkbox without a name is noise for a screen reader, so they are drawn as a box with the
+ * state as its name.
+ */
+const MARKDOWN_COMPONENTS: Components = {
+  input({ type, checked }) {
+    if (type !== 'checkbox') return null;
+    return (
+      <span
+        role="img"
+        aria-label={checked ? 'Ikryssad' : 'Inte ikryssad'}
+        className="paper-checkbox"
+        data-checked={checked ? 'true' : 'false'}
+      />
+    );
+  },
+};
+
 /** Rendered Markdown in document style (headings, tables, GFM task lists). */
 export function MarkdownBody({ children, className }: { children: string; className?: string }) {
   return (
     <div className={cn('paper-body', className)}>
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>{children}</ReactMarkdown>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={MARKDOWN_COMPONENTS}>
+        {children}
+      </ReactMarkdown>
     </div>
   );
 }

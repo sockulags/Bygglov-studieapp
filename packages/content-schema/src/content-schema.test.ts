@@ -237,6 +237,44 @@ describe('broken case files', () => {
     expect(issues[0]?.message).toBe('Steg-id "S3" används mer än en gång.');
   });
 
+  it('checks vilande, godtagbara_utfall and ar_forelaggande', () => {
+    const data = fixture(CASE);
+    asList(data.steg)[0]!.vilande = 'semester';
+    asList(data.steg)[1]!.ar_forelaggande = 'ja';
+    asList(data.steg)[5]!.godtagbara_utfall = [{ utfall: 'bevilja' }];
+    (asList(data.handelser)[0]!.effekt as Record<string, unknown>).vilande_upphor = 1;
+    const issues = issuesOf(parseCaseFile(data));
+    expect(issues.map((i) => i.path)).toEqual([
+      'steg[S1].vilande',
+      'steg[S2].ar_forelaggande',
+      'steg[S6].godtagbara_utfall[1].motivering',
+      'handelser[E1].effekt.vilande_upphor',
+    ]);
+    expect(issues[0]?.message).toMatch(/strandskydd, expropriation, planarbete/);
+  });
+
+  it('accepts the new fields when they are right', () => {
+    const data = fixture(CASE);
+    asList(data.steg)[0]!.vilande = 'strandskydd';
+    asList(data.steg)[5]!.godtagbara_utfall = [{ utfall: 'avsla', motivering: 'Också rimligt.' }];
+    (asList(data.handelser)[0]!.effekt as Record<string, unknown>).vilande_upphor = true;
+    expect(parseCaseFile(data).success).toBe(true);
+  });
+
+  it('reports unknown template variables in step texts and messages', () => {
+    const data = fixture(CASE);
+    asList(data.steg)[0]!.instruktion = 'Sedan {{beslutdatum}}.';
+    (asList(data.handelser)[0]!.effekt as Record<string, unknown>).meddelande =
+      'Kom in {{inkomdatum|iso}}, beslut {{beslutsdatum+7|kort}}.';
+    const issues = issuesOf(parseCaseFile(data));
+    expect(issues.map((i) => i.path)).toEqual([
+      'steg[S1].instruktion',
+      'handelser[E1].effekt.meddelande',
+    ]);
+    expect(issues[0]?.message).toMatch(/Okänd mallvariabel \{\{beslutdatum\}\}/);
+    expect(issues[1]?.message).toMatch(/Okänt filter \|kort/);
+  });
+
   it('rejects file paths outside the case folder', () => {
     const data = fixture(CASE);
     asList(data.handlingar)[0]!.fil = '../annat/ansokan.pdf';

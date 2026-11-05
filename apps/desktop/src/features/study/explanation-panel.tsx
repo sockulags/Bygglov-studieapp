@@ -1,12 +1,16 @@
 import { CircleCheck, CircleDashed, CircleX, FileWarning, NotebookPen } from 'lucide-react';
+import { useMemo } from 'react';
 import type { Question } from '@bygglov/content-schema';
 import { LawRefChip } from '@/components/ui/law-ref-chip';
-import type { GradeResult } from '@/engine';
+import type { GradeResult, QuizAnswer } from '@/engine';
+import { AskTutorButton, buildQuestionContext, questionSuggestions } from '@/features/tutor';
 import { cn } from '@/lib/cn';
 
 export interface ExplanationPanelProps {
   question: Question;
   result: GradeResult;
+  /** Her answer; passed to the tutor so it can explain what went wrong. */
+  answer?: QuizAnswer | null;
   className?: string;
 }
 
@@ -54,7 +58,16 @@ export function ReviewStatusNote({ question }: { question: Question }) {
  * "Förklaringen är belöningen" (docs/04): result, explanation, worked solution and law
  * references after each answer.
  */
-export function ExplanationPanel({ question, result, className }: ExplanationPanelProps) {
+export function ExplanationPanel({
+  question,
+  result,
+  answer = null,
+  className,
+}: ExplanationPanelProps) {
+  const tutorContext = useMemo(
+    () => buildQuestionContext(question, answer, result),
+    [question, answer, result],
+  );
   const head = headline(result);
   const Icon = head.icon;
   const solution = result.kind === 'graded' ? result.solution : undefined;
@@ -90,8 +103,12 @@ export function ExplanationPanel({ question, result, className }: ExplanationPan
           ))}
         </div>
       )}
-      <div className="mt-5 border-t border-line pt-3">
+      <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-line pt-3">
         <ReviewStatusNote question={question} />
+        <AskTutorButton
+          context={tutorContext}
+          suggestions={questionSuggestions(question, answer)}
+        />
       </div>
     </section>
   );

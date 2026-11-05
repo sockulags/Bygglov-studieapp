@@ -30,7 +30,7 @@ export function FullScreen({
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
         <DialogPrimitive.Content
-          className="fixed inset-0 z-50 flex flex-col bg-bg text-ink outline-none data-[state=open]:animate-[fade-in_var(--duration-base)_var(--ease-out)]"
+          className="case-workspace fixed inset-0 z-50 flex flex-col bg-bg text-ink outline-none data-[state=open]:animate-[fade-in_var(--duration-base)_var(--ease-out)]"
           {...(description === undefined ? { 'aria-describedby': undefined } : {})}
         >
           <header className="flex flex-wrap items-center gap-3 border-b border-line bg-paper px-5 py-3">

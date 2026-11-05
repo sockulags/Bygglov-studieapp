@@ -34,4 +34,7 @@ export function revealElement(id: string): void {
 /** DOM id of a glossary term and of a law section, so they can be revealed. */
 export const termElementId = (id: string) => `begrepp-${id}`;
 export const sectionElementId = (key: string) =>
-  `lagrum-${key.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+  `lagrum-${key
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '')}`;

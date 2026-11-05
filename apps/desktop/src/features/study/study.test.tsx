@@ -130,6 +130,7 @@ describe('QuizView', () => {
     );
     expect(screen.getByText('Fråga 1 av 4')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Vilken?' })).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: 'Fråga handledaren' })).not.toBeInTheDocument();
 
     await user.keyboard('2');
     expect(await screen.findByRole('heading', { name: 'Rätt' })).toBeInTheDocument();
@@ -138,6 +139,8 @@ describe('QuizView', () => {
     expect(screen.getByText('Utkast, ej granskad av handledare')).toBeInTheDocument();
     expect(screen.getByText('Rättsläge 2025-12-01')).toBeInTheDocument();
     expect(screen.getByText('PBL 9 kap. 4 §')).toBeInTheDocument();
+    // The tutor is offered once the question is answered.
+    expect(screen.getByRole('button', { name: 'Fråga handledaren' })).toBeInTheDocument();
 
     await user.keyboard('{Enter}');
     expect(screen.getByText('Fråga 2 av 4')).toBeInTheDocument();

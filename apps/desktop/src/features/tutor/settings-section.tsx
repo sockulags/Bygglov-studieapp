@@ -68,9 +68,8 @@ function KeyRow() {
     onSuccess: (result) =>
       setMessage({
         tone: result.ok ? 'ok' : 'error',
-        text: result.ok
-          ? `Nyckeln fungerar (${TUTOR_MODEL_INFO[model.value].name}). ${result.message}`.trim()
-          : result.message,
+        // The Rust side words the whole message ("Nyckeln fungerar. Modellen … svarade.").
+        text: result.message,
       }),
     onError: (error) => setMessage({ tone: 'error', text: errorText(error) }),
   });

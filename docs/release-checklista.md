@@ -89,7 +89,8 @@ Exemplet släpper `0.2.0`. Byt mot rätt version.
 ### 1. Kontrollera att `master` är grön
 
 - [ ] Senaste CI-körningen på `master` är grön (fliken **Actions** på GitHub).
-- [ ] Lokalt: `pnpm lint && pnpm typecheck && pnpm test && pnpm content:check`.
+- [ ] Lokalt: `pnpm lint && pnpm typecheck && pnpm test && pnpm content:check` och
+      `cargo test --locked -p tutor-client` i `apps/desktop/src-tauri`.
 
 ### 2. Uppdatera CHANGELOG.md
 
@@ -167,6 +168,18 @@ På **<https://github.com/sockulags/Bygglov-studieapp/releases>**:
 - [ ] Prova på en dator med den förra versionen installerad: starta appen, vänta några
       sekunder, klicka **Uppdatera nu**. Appen ska starta om i den nya versionen och visa
       *Vad är nytt*.
+- [ ] Studiehjälpen (från den första versionen med fas 3; den kan bara provas i Windows-bygget):
+  - Inställningar → Studiehjälp: klistra in nyckeln och tryck **Testa nyckeln**. Svaret ska
+    vara "Nyckeln fungerar. Modellen … svarade." En nyckel som inte börjar med `sk-ant-` ska
+    ge ett svenskt felmeddelande.
+  - Starta om appen: nyckeln ska fortfarande vara sparad. I Windows syns den under
+    *Autentiseringshanteraren → Windows-autentiseringsuppgifter → Allmänna
+    autentiseringsuppgifter* som
+    `anthropic-api-key@se.bygglovstudieapp.app`.
+  - Svara på en quizfråga och tryck **Fråga handledaren**: svaret ska strömma fram, och
+    kostnadsraden under ska visa kronor. Fråga en gång till och kontrollera att raden nämner
+    cache ("varav … från cache").
+  - Förbrukningen under Inställningar → Studiehjälp ska ha ökat.
 
 ## Om releasen misslyckas
 

@@ -1,7 +1,6 @@
 ---
 rubrik: Yttrande till länsstyrelsen
 avsandare: Bygg- och miljönämnden, Åkerslunda kommun
-datum: 2026-11-17
 diarienummer: BN 2026-000655
 ---
 
@@ -13,17 +12,18 @@ Er beteckning: 403-28817-2026
 # Yttrande över överklagande av bygglov för nybyggnad av enbostadshus på Strandvik 1:9
 
 Bygg- och miljönämnden har förelagts att yttra sig över Birgitta och Anders Nordins
-överklagande av nämndens beslut den 12 oktober 2026 om bygglov för ett enbostadshus på
+överklagande av nämndens beslut den {{beslutsdatum}} om bygglov för ett enbostadshus på
 Strandvik 1:9.
 
 ## Nämndens inställning
 
 Nämnden vidhåller beslutet och anser att överklagandet ska avslås.
 
-Överklagandet kom in den 2 november 2026. De klagande har inte delgetts beslutet. Beslutet
-kungjordes på kommunens anslagstavla den 14 oktober 2026, så överklagandetiden för dem löpte
-ut den 11 november 2026 (13 kap. 16 § tredje stycket PBL och 44 § förvaltningslagen).
-Överklagandet har alltså kommit in i rätt tid och överlämnades den 3 november 2026.
+Överklagandet kom in den {{kungorelsedatum+19}}. De klagande har inte delgetts beslutet.
+Beslutet kungjordes på kommunens anslagstavla den {{kungorelsedatum}}, så överklagandetiden
+för dem löpte ut den {{kungorelsedatum+28|vardag}} (13 kap. 16 § tredje stycket PBL och 44 §
+förvaltningslagen). Överklagandet har alltså kommit in i rätt tid och överlämnades den
+{{kungorelsedatum+20}}.
 
 ## Handläggningen i korthet
 
@@ -33,9 +33,10 @@ ut den 11 november 2026 (13 kap. 16 § tredje stycket PBL och 44 § förvaltning
 | 2026-08-20 | Underrättelse till ägarna av Strandvik 1:5, 1:12, 1:3 och 1:1 och kungörelse på anslagstavlan (9 kap. 94–96 §§ PBL). Remisser till Trafikverket och miljöenheten. Beslut om att ärendet vilar i väntan på strandskyddsdispens (9 kap. 102 §) |
 | 2026-09-02 | Strandskyddsdispens och tillstånd till avloppsanordning. Dispensbeslutet skickades till klagandena för kännedom den 3 september |
 | 2026-09-10 | Reviderad situationsplan med flyttad utfart efter Trafikverkets yttrande |
+| 2026-09-24 | Länsstyrelsen har meddelat att den inte prövar dispensbeslutet. Frågan om strandskyddsdispens är avgjord och vilandeförklaringen upphör |
 | 2026-10-01 | Kommunicering med sökandena och fastighetsägaren (9 kap. 98 §) |
-| 2026-10-12 | Beslut om bygglov |
-| 2026-10-14 | Kungörelse på anslagstavlan och meddelande till klagandena (9 kap. 109 och 110 §§) |
+| {{beslutsdatum\|iso}} | Beslut om bygglov |
+| {{kungorelsedatum\|iso}} | Kungörelse på anslagstavlan och meddelande till klagandena (9 kap. 109 och 110 §§) |
 
 Handlingarna finns i den akt som överlämnats.
 
@@ -74,7 +75,7 @@ kommunens anslagstavla (9 kap. 96 § PBL). Nämnden har därmed uppfyllt kraven 
 Nämnden har inget ytterligare att anföra. Frågan om de klagandes rätt att överklaga
 överlämnas till länsstyrelsens bedömning.
 
-Åkerslunda den 17 november 2026
+Åkerslunda den {{kungorelsedatum+34}}
 
 Karin Sjöholm\
 Bygglovshandläggare, på delegation från bygg- och miljönämnden

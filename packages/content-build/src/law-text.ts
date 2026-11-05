@@ -34,7 +34,6 @@ function clean(line: string): string {
   return line.replace(/\s+/g, ' ').replace(/ \)/g, ')').trim();
 }
 
-
 /**
  * Joins the raw lines of one section into paragraphs and list items. In the source, a new
  * paragraph or list item is indented; unindented lines continue the previous line, except
@@ -120,7 +119,10 @@ export function parseLawChapterText(source: string): ParsedLawSection[] {
     const endsOn = /Upphör att gälla U:(\d{4}-\d{2}-\d{2})/.exec(version.marker)?.[1];
     let section = sections.get(version.paragraf);
     if (!section) {
-      section = { paragraf: version.paragraf, ...(version.rubrik ? { rubrik: version.rubrik } : {}) };
+      section = {
+        paragraf: version.paragraf,
+        ...(version.rubrik ? { rubrik: version.rubrik } : {}),
+      };
       sections.set(version.paragraf, section);
       order.push(version.paragraf);
     }

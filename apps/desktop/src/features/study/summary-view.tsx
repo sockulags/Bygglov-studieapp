@@ -191,6 +191,7 @@ export function SummaryView({ run }: { run: StudyRun }) {
                         <ExplanationPanel
                           question={item.question}
                           result={item.response.result}
+                          answer={item.response.answer}
                           className="border-l-4"
                         />
                       </>

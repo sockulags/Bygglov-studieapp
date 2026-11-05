@@ -4,11 +4,18 @@ import {
   type CaseFile,
   type CaseStep,
   type DecisionStep,
+  type SuspensionReason,
 } from '@bygglov/content-schema';
 import { outcomeFor } from '../quiz/grade';
 import { hashSeed, type Seed } from '../session/random';
-import { addDays } from './dates';
-import { caseDeadline, formatKronor, MAX_EXTENSION_WEEKS } from './deadline';
+import { addDays, daysBetween } from './dates';
+import {
+  caseDeadline,
+  formatKronor,
+  MAX_EXTENSION_WEEKS,
+  suspensionLawRef,
+  SUSPENSION_REASON_TEXT,
+} from './deadline';
 import { assessDecision, assessmentScore, DECISION_OUTCOME_LABELS } from './decision';
 import { CaseEngineError } from './errors';
 import {
@@ -18,6 +25,7 @@ import {
   isSelfAssessedStep,
   validIndices,
 } from './grading';
+import { renderTemplate, caseTemplateValues } from './templates';
 import { evaluateTriggers, findStep, injunctionKind } from './triggers';
 import {
   CASE_STATE_VERSION,
@@ -65,6 +73,8 @@ export function startCase(caseFile: CaseFile, options: StartCaseOptions): CaseSt
     completionDate: null,
     amendmentDates: [],
     extensionWeeks: 0,
+    extensionReason: null,
+    suspensions: [],
     deadlineDate: null,
     queue: caseFile.steg.map((s) => s.id),
     currentIndex: 0,
@@ -217,6 +227,10 @@ export function submitStep(
   } else {
     log(s, { kind: 'steg', stepId: step.id, text: sentence(`Klart: ${step.rubrik}`) });
   }
+  // A step that asks whether to let the case rest declares it resting when answered right.
+  if (step.vilande && !isMissedResult(step, result)) {
+    suspend(s, step.vilande, { stepId: step.id });
+  }
   updateDeadline(s);
   if (step.tid_framat_dagar) moveTime(s, step.tid_framat_dagar);
 
@@ -358,9 +372,11 @@ export function advanceDays(state: CaseState, days: number): CaseState {
 
 /**
  * Extends the 99 § deadline once, by at most ten weeks, before it has run out. The
- * applicant is to be told before the original deadline expires (9 kap. 100 § 3).
+ * extension must be necessary because of the handling or investigation (99 § andra
+ * stycket), and the applicant is to be told about it and the reasons before the original
+ * deadline expires (9 kap. 100 § 3). `reason` is logged in the diary.
  */
-export function extendDeadline(state: CaseState, weeks: number): CaseState {
+export function extendDeadline(state: CaseState, weeks: number, reason?: string): CaseState {
   if (state.extensionWeeks > 0) {
     throw new CaseEngineError(
       'invalid_extension',
@@ -379,11 +395,22 @@ export function extendDeadline(state: CaseState, weeks: number): CaseState {
       `Tidsfristen löpte ut ${state.deadlineDate}. Förlängningen ska beslutas och meddelas sökanden innan den ursprungliga fristen gått ut (9 kap. 100 § 3).`,
     );
   }
+  if (state.decisions.length > 0) {
+    throw new CaseEngineError(
+      'invalid_extension',
+      'Beslutet är redan fattat, så tidsfristen kan inte förlängas.',
+    );
+  }
+  const why = reason?.trim() ?? '';
   const s = clone(state);
   s.extensionWeeks = weeks;
+  s.extensionReason = why === '' ? null : why;
   log(s, {
     kind: 'frist',
-    text: `Tidsfristen förlängs med ${weeks} ${weeks === 1 ? 'vecka' : 'veckor'} (9 kap. 99 § andra stycket). Sökanden informeras om förlängningen och skälen (9 kap. 100 § 3).`,
+    text:
+      `Tidsfristen förlängs med ${weeks} ${weeks === 1 ? 'vecka' : 'veckor'} (9 kap. 99 § andra stycket).` +
+      (why === '' ? '' : ` Skäl: ${sentence(why)}`) +
+      ' Sökanden informeras skriftligen om förlängningen och skälen för den innan den ursprungliga fristen gått ut (9 kap. 100 § 3).',
   });
   updateDeadline(s);
   return s;
@@ -483,14 +510,51 @@ function moveTime(state: CaseState, days: number): void {
   });
 }
 
-/** Recomputes `deadlineDate`; notes a changed basis or date in the diary. */
-function updateDeadline(state: CaseState, always = false): void {
+/**
+ * Recomputes `deadlineDate`; notes a changed date in the diary (`always`: log anyway,
+ * `quiet`: never, when the caller has already explained the change).
+ */
+function updateDeadline(state: CaseState, always = false, quiet = false): void {
   const before = state.deadlineDate;
   const deadline = caseDeadline(state);
   state.deadlineDate = deadline.deadlineDate;
-  if (always || before !== deadline.deadlineDate) {
+  if (!quiet && (always || before !== deadline.deadlineDate)) {
     log(state, { kind: 'frist', text: deadline.explanation });
   }
+}
+
+/** Declares the case resting under 9 kap. 102 § from today, unless it already rests. */
+function suspend(
+  state: CaseState,
+  reason: SuspensionReason,
+  source: { stepId?: string; eventId?: string },
+): void {
+  if (state.suspensions.some((r) => r.to === null)) return;
+  state.suspensions.push({ reason, from: state.simDate, to: null, ...source });
+  log(state, {
+    kind: 'frist',
+    ...source,
+    text:
+      `Ärendet förklaras vilande: det ska inte avgöras förrän ${SUSPENSION_REASON_TEXT[reason]} (${suspensionLawRef(reason)}). ` +
+      'Tioveckorsfristen löper inte medan ärendet vilar, och avgiften reduceras inte när fristen överskrids på grund av vilandebeslutet (12 kap. 8 a §). Handläggningen i övrigt fortsätter.',
+  });
+  updateDeadline(state, false, true);
+}
+
+/** Ends the resting that is going on (the question it waited for has been decided). */
+function resume(state: CaseState, eventId: string): void {
+  const open = state.suspensions.find((r) => r.to === null);
+  if (!open) return;
+  open.to = state.simDate;
+  const days = daysBetween(open.from, open.to);
+  log(state, {
+    kind: 'frist',
+    eventId,
+    text:
+      `Vilandeförklaringen upphör ${state.simDate}: ${SUSPENSION_REASON_TEXT[open.reason]}. ` +
+      `Ärendet var vilande i ${days} ${days === 1 ? 'dag' : 'dagar'} sedan ${open.from} (${suspensionLawRef(open.reason)}), och tioveckorsfristen löper igen.`,
+  });
+  updateDeadline(state, true);
 }
 
 /** Fires every event whose trigger holds, in file order, applying their effects. */
@@ -506,8 +570,8 @@ function fireEvents(caseFile: CaseFile, state: CaseState, context: TriggerContex
 
 /**
  * Applies one event's effects in this order: time passes, documents arrive, the message
- * is logged, the completion date is set, a new start of the deadline is noted, facts
- * change, a new step is inserted. Returns the queue position for the next inserted step, so
+ * is logged (template variables rendered), a resting ends or starts (102 §), the completion
+ * date is set, a new start of the deadline is noted, facts change, a new step is inserted. Returns the queue position for the next inserted step, so
  * steps from several events keep file order.
  */
 function applyEvent(
@@ -528,15 +592,24 @@ function applyEvent(
     addDocument(state, doc, state.simDate);
   }
   if (effekt.meddelande) {
-    log(state, { kind: 'handelse', eventId: event.id, text: effekt.meddelande });
+    const values = { ...caseTemplateValues(state), inkomdatum: state.simDate };
+    log(state, {
+      kind: 'handelse',
+      eventId: event.id,
+      text: renderTemplate(effekt.meddelande, values),
+    });
   }
+  if (effekt.vilande_upphor) resume(state, event.id);
+  if (effekt.vilande) suspend(state, effekt.vilande, { eventId: event.id });
   if (effekt.satt_komplett_datum) {
     state.completionDate = state.simDate;
     updateDeadline(state);
   }
   if (effekt.ny_fristdag === 'sokandens_initiativ') {
     if (!state.amendmentDates.includes(state.simDate)) state.amendmentDates.push(state.simDate);
-    updateDeadline(state);
+    // Logged even when the date stays the same (e.g. while the case rests): the applicant
+    // is to be told about the new start (100 § 2).
+    updateDeadline(state, true);
   }
   if (effekt.andrade_fakta) Object.assign(state.facts, effekt.andrade_fakta);
   if (effekt.nytt_steg && !state.queue.includes(effekt.nytt_steg.id)) {

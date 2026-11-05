@@ -73,10 +73,29 @@
   margin-left: -1.4em;
 }
 
-.paper-body li.task-list-item input {
+/* Drawn box (paper.tsx), so it reads as ink on paper and has a name for screen readers. */
+.paper-body .paper-checkbox {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0.85em;
+  height: 0.85em;
   margin: 0 0.5em 0 0;
-  vertical-align: -0.1em;
-  accent-color: var(--ink);
+  vertical-align: -0.05em;
+  border: 1.5px solid var(--ink);
+  border-radius: 2px;
+  position: relative;
+}
+
+.paper-body .paper-checkbox[data-checked='true']::after {
+  content: '';
+  position: absolute;
+  left: 0.22em;
+  top: 0.04em;
+  width: 0.22em;
+  height: 0.45em;
+  border: solid var(--ink);
+  border-width: 0 0.12em 0.12em 0;
+  transform: rotate(45deg);
 }
 
 .paper-body table {
@@ -119,6 +138,9 @@
 
 .paper-body a {
   color: var(--accent);
+  /* Links in running text need more than colour to stand out (WCAG 1.4.1). */
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .paper-body strong {
@@ -141,7 +163,6 @@
   text-transform: uppercase;
   line-height: 1.2;
   transform: rotate(-4deg);
-  opacity: 0.92;
   user-select: none;
 }
 

@@ -1,5 +1,5 @@
 import { GraduationCap } from 'lucide-react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Button, type ButtonSize, type ButtonVariant } from '@/components/ui/button';
 import { TutorPanel } from './tutor-panel';
 import type { TutorContext } from './types';
@@ -24,9 +24,11 @@ export function AskTutorButton({
   className,
 }: AskTutorButtonProps) {
   const [open, setOpen] = useState(false);
+  const button = useRef<HTMLButtonElement>(null);
   return (
     <>
       <Button
+        ref={button}
         variant={variant}
         size={size}
         className={className}
@@ -36,7 +38,13 @@ export function AskTutorButton({
         <GraduationCap aria-hidden="true" />
         {label}
       </Button>
-      <TutorPanel context={context} suggestions={suggestions} open={open} onOpenChange={setOpen} />
+      <TutorPanel
+        context={context}
+        suggestions={suggestions}
+        open={open}
+        onOpenChange={setOpen}
+        returnFocusRef={button}
+      />
     </>
   );
 }

@@ -5,6 +5,7 @@ import { dataKeys, getDataStore } from '@/data';
 import {
   CaseEngineError,
   DecisionDraftSchema,
+  extendDeadline,
   randomSeed,
   restoreCaseState,
   selfAssessStep,
@@ -393,6 +394,18 @@ export function selfAssessCaseStep(
     }
   }
   return feedback;
+}
+
+/**
+ * Extends the 99 § deadline once by 1–10 weeks with a reason that goes to the diary
+ * (9 kap. 99 § andra stycket, 100 § 3). Returns false when the engine refused it; the
+ * reason is then in `actionError`.
+ */
+export function extendCaseDeadline(caseFile: CaseFile, weeks: number, reason: string): boolean {
+  const before = requireActive(caseFile)?.state;
+  apply(caseFile, (state) => ({ state: extendDeadline(state, weeks, reason) }));
+  const after = useCaseStore.getState().active?.state;
+  return before !== undefined && after !== undefined && after !== before;
 }
 
 /** Removes the "NY" marker when a document is opened. */

@@ -24,6 +24,7 @@ import {
   visibleDocuments,
   type StepAnswer,
 } from '@/engine';
+import { AskTutorButton, caseSuggestions, useCaseTutorContext } from '@/features/tutor';
 import { cn } from '@/lib/cn';
 import { isActivatableTarget, useKeydown } from '@/lib/use-keydown';
 import { caseLawRefs, factLabel, factValue } from './case-model';
@@ -50,6 +51,13 @@ export interface WorkPanelProps {
 
 export type WorkTab = 'steg' | 'fakta' | 'uppslag';
 
+/**
+ * The tab panels are focusable (Radix gives them tabIndex 0 so the content can be scrolled
+ * with the keyboard); show where focus is, inside the panel's edge.
+ */
+const PANEL_FOCUS =
+  'focus-visible:[outline:2px_solid_var(--ring)] focus-visible:[outline-offset:-2px]';
+
 /** Arbetsytan: the current step, facts and law references, and her notes. */
 export function WorkPanel(props: WorkPanelProps) {
   const [tab, setTab] = useState<WorkTab>('steg');
@@ -65,13 +73,22 @@ export function WorkPanel(props: WorkPanelProps) {
           <TabsTrigger value="fakta">Planbestämmelser och fakta</TabsTrigger>
           <TabsTrigger value="uppslag">Uppslag</TabsTrigger>
         </TabsList>
-        <TabsContent value="steg" className="mt-0 min-h-0 flex-1 overflow-auto p-4">
+        <TabsContent
+          value="steg"
+          className={cn('mt-0 min-h-0 flex-1 overflow-auto p-4', PANEL_FOCUS)}
+        >
           <StepTab {...props} />
         </TabsContent>
-        <TabsContent value="fakta" className="mt-0 min-h-0 flex-1 overflow-auto p-4">
+        <TabsContent
+          value="fakta"
+          className={cn('mt-0 min-h-0 flex-1 overflow-auto p-4', PANEL_FOCUS)}
+        >
           <FactsTab caseFile={props.caseFile} active={props.active} />
         </TabsContent>
-        <TabsContent value="uppslag" className="mt-0 min-h-0 flex-1 overflow-auto p-4">
+        <TabsContent
+          value="uppslag"
+          className={cn('mt-0 min-h-0 flex-1 overflow-auto p-4', PANEL_FOCUS)}
+        >
           <LookupTab caseFile={props.caseFile} active={props.active} />
         </TabsContent>
       </Tabs>
@@ -100,6 +117,10 @@ function StepTab({
 
   const top = useRef<HTMLDivElement>(null);
   const feedbackRef = useRef<HTMLDivElement>(null);
+
+  // "Fråga handledaren" about the case so far; no answer key before the decision.
+  const tutorContext = useCaseTutorContext(caseFile, active, { includeModelAnswers: false });
+  const hasDecisionDraft = Object.values(active.drafts).some((d) => 'decision' in d);
 
   // After an answer: bring the feedback into view and focus "Nästa steg".
   useEffect(() => {
@@ -133,11 +154,17 @@ function StepTab({
   return (
     <div ref={top} className="flex scroll-mt-4 flex-col gap-5">
       <div className="flex flex-col gap-1.5">
-        <p className="text-sm text-muted tabular-nums" aria-live="polite">
-          {step || lastOutcome
-            ? `Steg ${Math.max(position, 1)} av ${state.queue.length}`
-            : `Alla ${state.queue.length} steg klara`}
-        </p>
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2">
+          <p className="text-sm text-muted tabular-nums" aria-live="polite">
+            {step || lastOutcome
+              ? `Steg ${Math.max(position, 1)} av ${state.queue.length}`
+              : `Alla ${state.queue.length} steg klara`}
+          </p>
+          <AskTutorButton
+            context={tutorContext}
+            suggestions={caseSuggestions({ hasDecisionDraft })}
+          />
+        </div>
         <Progress
           value={(state.currentIndex / Math.max(state.queue.length, 1)) * 100}
           label={`${state.currentIndex} av ${state.queue.length} steg klara`}

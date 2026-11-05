@@ -154,4 +154,12 @@ describe('TutorPanel with MockTransport', () => {
     }
     expect(reached).toBe(0);
   });
+  it('returns focus to the button that opened it when Esc closes the panel', async () => {
+    const { user } = await openPanel();
+    await user.keyboard('{Escape}');
+    await waitFor(() =>
+      expect(screen.queryByRole('dialog', { name: 'Fråga handledaren' })).not.toBeInTheDocument(),
+    );
+    expect(screen.getByRole('button', { name: 'Fråga handledaren' })).toHaveFocus();
+  });
 });

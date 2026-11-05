@@ -44,12 +44,13 @@ Avgiften för bygglovet är **31 800 kronor**.
 Avgiften har bestämts enligt kommunens taxa, post *bygglov för nybyggnad av enbostadshus
 utanför detaljplan*, som omfattar lovprövningen, underrättelse av grannar, remisser och
 kungörelse. Sökandena kom den 10 september 2026 på eget initiativ in med en ändrad
-situationsplan. Tidsfristen på tio veckor räknas därför från den dagen och löper ut den
-19 november 2026 (9 kap. 99 § första stycket 2 PBL). Beslutet den 12 oktober 2026 fattas
-inom fristen, så avgiften reduceras inte (12 kap. 8 a § PBL). Ärendet har dessutom varit vilande
-i väntan på strandskyddsdispens enligt 9 kap. 102 § PBL; en försening av det skälet hade
-inte heller gett reduktion. Redovisningen lämnas enligt 9 kap. 107 § PBL. Faktura skickas
-separat.
+situationsplan. Tidsfristen på tio veckor räknas därför från den dagen (9 kap. 99 § första
+stycket 2 PBL). Ärendet var vilande i väntan på strandskyddsdispens från den 20 augusti till
+den 24 september 2026 (9 kap. 102 § PBL). Avgiften reduceras inte om fristen överskrids på
+grund av vilandebeslutet (12 kap. 8 a § PBL), så de 14 dagar av fristen som ärendet vilade
+räknas inte, och reduktion hade kunnat bli aktuell först efter den 3 december 2026. Beslutet
+den 12 oktober 2026 fattas inom fristen, så avgiften reduceras inte. Redovisningen lämnas
+enligt 9 kap. 107 § PBL. Faktura skickas separat.
 
 ## Skäl för beslutet
 
@@ -78,7 +79,8 @@ riksintressen. Den södra delen av fastigheten ligger inom strandskyddsområdet 
 - Ansökan remitterades till Trafikverket och till miljöenheten.
 - Nämnden beslutade den 20 augusti 2026 att ärendet inte skulle avgöras förrän frågan om
   strandskyddsdispens hade avgjorts (9 kap. 102 § första stycket 1 PBL). Dispens gavs den
-  2 september 2026. Länsstyrelsen har meddelat att den inte prövar dispensbeslutet.
+  2 september 2026. Den 24 september 2026 kom beskedet att länsstyrelsen inte prövar
+  dispensbeslutet. Dispensfrågan var då avgjord och vilandeförklaringen upphörde.
 - Efter Trafikverkets yttrande ändrade sökandena utfartens läge. Ändringen strider inte mot
   någon plan, så ny underrättelse behövdes inte, men ägarna till Strandvik 1:12, som haft
   synpunkter, fick tillfälle att yttra sig över ändringen (9 kap. 94 § tredje stycket PBL).
@@ -86,6 +88,8 @@ riksintressen. Den södra delen av fastigheten ligger inom strandskyddsområdet 
 - Den ändrade situationsplanen kom in den 10 september 2026 på sökandenas initiativ.
   Tidsfristen för beslut räknas från den dagen (9 kap. 99 § första stycket 2 PBL), och
   sökandena informerades samma dag skriftligen om den nya tidpunkten (9 kap. 100 § 2 PBL).
+  Tiden fram till att vilandeförklaringen upphörde den 24 september räknas inte in i fristen
+  vid avgiftsberäkningen (12 kap. 8 a § PBL).
 - Sökandena och fastighetsägaren fick den 1 oktober 2026 ta del av underlaget och yttra sig
   till den 9 oktober (9 kap. 98 § PBL). De har inte haft något att tillägga.
 

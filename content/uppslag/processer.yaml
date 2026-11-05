@@ -190,7 +190,7 @@ processer:
         begrepp: [anmalningsplikt, startbesked]
 
       - id: behov-samrad
-        titel: Behövs tekniskt samråd?
+        titel: Bedöm behovet av tekniskt samråd
         beskrivning: >-
           Tekniskt samråd krävs när det behövs en kontrollansvarig, när byggherren begär det och
           annars om det inte är uppenbart obehövligt. Behövs det inte ger nämnden startbesked
@@ -234,9 +234,9 @@ processer:
       - id: slutsamrad
         titel: Slutsamråd
         beskrivning: >-
-          När arbetet är klart kallar nämnden till slutsamråd om det har varit tekniskt samråd,
-          om det inte är uppenbart obehövligt. Där går man igenom kontrollerna och underlaget för
-          slutbesked.
+          När arbetet är klart kallar nämnden till slutsamråd om det har varit tekniskt samråd
+          eller om en byggbedömare används, om det inte är uppenbart obehövligt. Där går man
+          igenom kontrollerna och underlaget för slutbesked.
         lagrum: [PBL 10 kap. 30 §]
         begrepp: [slutsamrad]
 

@@ -70,13 +70,21 @@ export function ProcessMap({
           selectedStepId={selectedStepId}
         />
       ) : (
-        <ProcessList process={process} onSelectStep={onSelectStep} selectedStepId={selectedStepId} />
+        <ProcessList
+          process={process}
+          onSelectStep={onSelectStep}
+          selectedStepId={selectedStepId}
+        />
       )}
     </div>
   );
 }
 
-function stepKind(step: ProcessStep, index: number, total: number): 'start' | 'question' | 'end' | 'step' {
+function stepKind(
+  step: ProcessStep,
+  index: number,
+  total: number,
+): 'start' | 'question' | 'end' | 'step' {
   if (index === 0) return 'start';
   if (step.fraga) return 'question';
   if (step.slut || (index === total - 1 && !step.nasta)) return 'end';
@@ -89,6 +97,26 @@ const KIND_LABEL: Record<ReturnType<typeof stepKind>, string> = {
   end: 'Slut',
   step: 'Steg',
 };
+
+/** The second line of a step box: the question, the time limit or where the map ends. */
+function stepMetaText(step: ProcessStep, kind: ReturnType<typeof stepKind>): string | null {
+  if (step.fraga) return step.fraga;
+  if (step.frist) return step.frist;
+  if (step.se_process) return 'Fortsätter i en annan karta';
+  if (kind === 'end') return 'Slut';
+  return null;
+}
+
+/**
+ * Accessible name of a step button: "3. Förgrening: Prövning mot detaljplanen. Följer …?".
+ * It holds all the visible text of the box (WCAG 2.5.3, label in name).
+ */
+function stepLabel(step: ProcessStep, index: number, kind: ReturnType<typeof stepKind>): string {
+  const meta = stepMetaText(step, kind);
+  // The visible text comes first and in order (the list layout shows the number too), so the
+  // name contains what is seen (WCAG 2.5.3); the kind of step follows last.
+  return `${index + 1}. ${step.titel}${meta ? `. ${meta}` : ''} (${KIND_LABEL[kind].toLowerCase()})`;
+}
 
 function ProcessDiagram({
   process,
@@ -180,7 +208,7 @@ function ProcessDiagram({
                   data-step={step.id}
                   data-kind={kind}
                   aria-current={selectedStepId === step.id ? 'step' : undefined}
-                  aria-label={`${index + 1}. ${step.titel}${step.fraga ? `. ${step.fraga}` : ''}`}
+                  aria-label={stepLabel(step, index, kind)}
                   className={cn(
                     'absolute flex flex-col justify-center gap-1 overflow-hidden rounded-md border bg-paper px-3 py-2 text-left shadow-paper',
                     'transition-colors duration-[var(--duration-fast)] hover:border-accent hover:bg-accent-soft/50',
@@ -193,7 +221,7 @@ function ProcessDiagram({
                 >
                   <span className="line-clamp-2 text-[0.8125rem] leading-snug font-semibold">
                     {step.titel}
-                  </span>
+                  </span>{' '}
                   <StepMeta step={step} kind={kind} />
                 </button>
               </li>
@@ -226,7 +254,7 @@ function StepMeta({ step, kind }: { step: ProcessStep; kind: ReturnType<typeof s
     return (
       <span className="inline-flex items-center gap-1 text-[0.75rem] text-muted">
         <Flag className="size-3.5 shrink-0" aria-hidden="true" />
-        {step.se_process ? 'Fortsätter i en annan karta' : 'Slut'}
+        {stepMetaText(step, kind)}
       </span>
     );
   }
@@ -245,7 +273,11 @@ function ProcessList({
   const edges = processEdges(process);
   const titles = new Map(process.steg.map((s) => [s.id, s.titel]));
   return (
-    <ol className="flex flex-col gap-2" aria-label={`Processkarta: ${process.titel}`} data-testid="process-list">
+    <ol
+      className="flex flex-col gap-2"
+      aria-label={`Processkarta: ${process.titel}`}
+      data-testid="process-list"
+    >
       {process.steg.map((step, index) => {
         const kind = stepKind(step, index, process.steg.length);
         const out = edges.filter((e) => e.from === step.id);
@@ -255,7 +287,9 @@ function ProcessList({
             key={step.id}
             className={cn(
               'rounded-md border bg-paper',
-              kind === 'question' ? 'border-l-4 border-line-strong border-l-plan-yellow' : 'border-line',
+              kind === 'question'
+                ? 'border-l-4 border-line-strong border-l-plan-yellow'
+                : 'border-line',
               selectedStepId === step.id && 'border-accent',
             )}
           >
@@ -264,6 +298,7 @@ function ProcessList({
               onClick={() => onSelectStep(step.id)}
               data-step={step.id}
               aria-current={selectedStepId === step.id ? 'step' : undefined}
+              aria-label={stepLabel(step, index, kind)}
               className="flex w-full items-start gap-3 rounded-md px-3 py-2.5 text-left hover:bg-accent-soft/50"
             >
               <span
@@ -271,9 +306,9 @@ function ProcessList({
                 aria-hidden="true"
               >
                 {index + 1}
-              </span>
+              </span>{' '}
               <span className="flex min-w-0 flex-col gap-0.5">
-                <span className="font-medium">{step.titel}</span>
+                <span className="font-medium">{step.titel}</span>{' '}
                 <StepMeta step={step} kind={kind} />
               </span>
             </button>

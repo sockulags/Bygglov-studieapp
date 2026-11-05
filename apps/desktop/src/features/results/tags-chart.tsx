@@ -1,5 +1,5 @@
 import type { TagStat } from '@/features/progress/progress';
-import { tagLabel } from '@/features/progress/progress';
+import { tagName } from './tag-labels';
 import { ChartCard, DataTable } from './chart-kit';
 
 function percent(value: number): number {
@@ -29,7 +29,7 @@ export function TagsChart({ tags, hasAnswers }: { tags: readonly TagStat[]; hasA
           ]}
           rows={tags.map((t) => ({
             key: t.tag,
-            cells: [tagLabel(t.tag), `${percent(t.accuracy)} %`, t.answered],
+            cells: [tagName(t.tag), `${percent(t.accuracy)} %`, t.answered],
           }))}
         />
       }
@@ -50,10 +50,10 @@ export function TagsChart({ tags, hasAnswers }: { tags: readonly TagStat[]; hasA
                 className="grid grid-cols-[minmax(6rem,10rem)_1fr] items-center gap-3"
               >
                 <span className="sr-only">
-                  {`${tagLabel(t.tag)}: ${pct} % rätt av ${answeredLabel(t.answered)}`}
+                  {`${tagName(t.tag)}: ${pct} % rätt av ${answeredLabel(t.answered)}`}
                 </span>
                 <span className="flex min-w-0 flex-col" aria-hidden="true">
-                  <span className="truncate text-sm">{tagLabel(t.tag)}</span>
+                  <span className="truncate text-sm">{tagName(t.tag)}</span>
                   <span className="text-xs text-muted">{answeredLabel(t.answered)}</span>
                 </span>
                 <div className="mr-12 border-l border-[var(--chart-axis)]" aria-hidden="true">

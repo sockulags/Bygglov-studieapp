@@ -11,7 +11,39 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
-Inget ännu.
+### Nytt
+
+- Fråga handledaren: en AI-handledare som kan plan- och bygglagen som den gäller från den
+  1 december 2025. Efter varje svar i Plugga kan du be den förklara djupare, förklara varför ett
+  alternativ är fel eller ge dig en liknande fråga. Den anger lagrum, säger när den är osäker
+  och skickar bedömningsfrågor vidare till pappa.
+- I ärendet kan du fråga handledaren om det du har framför dig, till exempel vad den hade
+  tittat på först. Den ser handlingarna och var du är, men avslöjar inte facit innan du lämnat
+  in beslutet.
+- Första återkoppling på ditt beslut: i jämförelsen med modellbeslutet går handledaren igenom
+  ditt beslut mot modellbeslutet och bedömningspunkterna, innan du skickar det till pappa.
+- På Hem kan du fråga handledaren vad du borde repetera, eller be den förhöra dig.
+- Inställningar → Studiehjälp: klistra in API-nyckeln du fått av storebror och testa att den
+  fungerar. Nyckeln sparas i Windows och syns aldrig igen. Där väljer du också modell, ser vad
+  frågorna har kostat och sätter ett dagligt tak (20 kr från början).
+- Uppslag på riktigt: alla paragrafer i 9 kap. PBL med en mening om vad de säger och lagtexten
+  ett klick bort, en ordlista med 140 begrepp och fyra processkartor där du klickar på ett steg
+  för att se vad som händer, vilka frister som gäller och vilka lagrum steget bygger på. Tryck
+  `/` för att söka, till exempel "9:60" eller "nockhöjd".
+- Mina resultat visar hur det går över tid: hur väl du kan varje modul dag för dag, hur många
+  svar du ger per dag, vilka ämnen du oftast missar och hur dina beslut klarat kontrollerna.
+  Varje diagram kan visas som tabell.
+- Ärenden: du kan förlänga tidsfristen en gång, med skäl, som 9 kap. 99 § andra stycket
+  tillåter.
+- Ärenden: ett ärende kan förklaras vilande i väntan på till exempel strandskyddsdispens
+  (9 kap. 102 §). Då står fristen still. Ärendet vid Långsjön visar hur det går till.
+- Datumen i ärendenas texter följer ditt eget ärende: kungörelsedag, sista dag att överklaga
+  och liknande räknas från dagen du fattade beslutet.
+
+### Ändrat
+
+- Ett frivilligt lov räknas som ett godtagbart beslut i ärendet på Lärken 4, inte som ett fel.
+- Grå text är lite mörkare överallt, så att den blir lättare att läsa.
 
 ## [0.2.0] - 2026-11-04
 

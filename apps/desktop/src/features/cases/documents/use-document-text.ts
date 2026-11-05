@@ -1,5 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
+import { useCallback } from 'react';
 import { caseDocumentUrl } from '@/content';
+import { renderDocumentText } from '@/engine';
+import { useCaseStore } from '../case-store';
 import { parseFrontMatter, type ParsedDocument } from './front-matter';
 
 /** Kind of viewer a case file needs, from its extension. */
@@ -40,4 +43,20 @@ export function useCaseText(caseId: string, file: string | null) {
     staleTime: Infinity,
     retry: false,
   });
+}
+
+/**
+ * Renders the template variables ({{beslutsdatum}}, {{kungorelsedatum+19}} …, see
+ * content/README.md) of a document of the open case. `receivedDate` is `{{inkomdatum}}`.
+ * Texts of another case than the open one are returned unchanged.
+ */
+export function useDocumentTemplate(
+  caseId: string,
+  receivedDate: string | null,
+): (text: string) => string {
+  const state = useCaseStore((s) => (s.active?.caseId === caseId ? s.active.state : null));
+  return useCallback(
+    (text: string) => (state ? renderDocumentText(text, state, receivedDate) : text),
+    [state, receivedDate],
+  );
 }

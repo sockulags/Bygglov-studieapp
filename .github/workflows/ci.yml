@@ -1,5 +1,6 @@
-# Fast checks on every push and pull request. No Tauri/Rust compilation here:
-# that only happens in release.yml on tags (it takes 10-20 min on the Windows runner).
+# Fast checks on every push and pull request. No Tauri compilation here: that only happens
+# in release.yml on tags (it takes 10-20 min on the Windows runner). The study assistant's
+# API client (crates/tutor-client) has no Tauri dependency, so its tests run here.
 name: CI
 
 on:
@@ -56,3 +57,7 @@ jobs:
 
       - name: Vite-bygge av desktop
         run: pnpm --filter desktop build
+
+      - name: Rust-test av studiehjälpens API-klient
+        working-directory: apps/desktop/src-tauri
+        run: cargo test --locked -p tutor-client

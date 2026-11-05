@@ -57,14 +57,14 @@ export function injunctionMatches(issued: string, wanted: string): boolean {
 }
 
 /**
- * The kind of injunction a step issues, or null. A writing step whose heading or
- * instruction speaks of a föreläggande issues one; the kind is the word after "om"
- * ("Skriv föreläggande om komplettering" → "komplettering").
+ * The kind of injunction a step issues, or null. A writing step marked
+ * `ar_forelaggande: true` issues one; the kind is the word after "om" in its heading or
+ * instruction ("Skriv föreläggande om komplettering" → "komplettering"), otherwise
+ * "föreläggande". The text is not searched for the word "förelägg" any more.
  */
 export function injunctionKind(step: CaseStep): string | null {
-  if (step.typ !== 'skrivelse') return null;
+  if (step.typ !== 'skrivelse' || step.ar_forelaggande !== true) return null;
   const text = `${step.rubrik} ${step.instruktion ?? ''}`;
-  if (!/förel[äa]gg/iu.test(text)) return null;
   const match = /förel[äa]gg\p{L}*\s+om\s+(\p{L}+)/iu.exec(text);
   return normaliseKind(match?.[1] ?? 'föreläggande');
 }

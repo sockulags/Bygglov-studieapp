@@ -3,11 +3,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import {
-  parseGlossaryFile,
-  parseLawChapterFile,
-  parseProcessFile,
-} from '@bygglov/content-schema';
+import { parseGlossaryFile, parseLawChapterFile, parseProcessFile } from '@bygglov/content-schema';
 import { buildContent, loadContentTree, main, parseLawChapterText, syncChapterYaml } from './index';
 
 const repoRoot = fileURLToPath(new URL('../../../', import.meta.url));
@@ -49,7 +45,10 @@ describe('law text parser', () => {
     expect(by('4')?.lagtext?.split('\n')).toHaveLength(7);
     expect(by('17 a')?.andrad_genom).toBe('Lag (2026:406)');
     expect(by('31')?.andrad_genom).toBeUndefined();
-    expect(by('56')?.kommande).toMatchObject({ fran: '2027-01-01', andrad_genom: 'Lag (2026:746)' });
+    expect(by('56')?.kommande).toMatchObject({
+      fran: '2027-01-01',
+      andrad_genom: 'Lag (2026:746)',
+    });
     expect(by('56')?.lagtext).toContain('8 kap. 1 §, 2 § första stycket');
     expect(by('56')?.kommande?.lagtext).toContain('8 kap. 1-2 a, 2 c');
     expect(by('67')).toMatchObject({ upphavd: 'Har upphävts genom lag (2026:712)' });
@@ -73,16 +72,26 @@ describe('check of uppslag', () => {
 
   it('reports unknown modules, glossary references and invented sections', () => {
     edit('uppslag/begrepp.yaml', 'modul: 09-genomforande', 'modul: 99-saknas');
-    edit('uppslag/begrepp.yaml', 'lagrum: [PBL 9 kap. 102 §, PBL 12 kap. 8 a §]', 'lagrum: [PBL 9 kap. 200 §, XYZ 3 §]');
+    edit(
+      'uppslag/begrepp.yaml',
+      'lagrum: [PBL 9 kap. 102 §, PBL 12 kap. 8 a §]',
+      'lagrum: [PBL 9 kap. 200 §, XYZ 3 §]',
+    );
     edit('uppslag/processer.yaml', 'begrepp: [fullstandighetsgranskning]', 'begrepp: [finns-inte]');
     edit('uppslag/processer.yaml', 'lagrum: [PBL 9 kap. 84 §]', 'lagrum: [PBL 9 kap. 67 §]');
     const errors = messages(loadContentTree(content).errors);
     expect(errors).toEqual(
       expect.arrayContaining([
-        expect.stringMatching(/^uppslag\/begrepp\.yaml begrepp\[.*\]\.modul: Modulen "99-saknas" finns inte/),
-        expect.stringMatching(/begrepp\[vilande-arende\]\.lagrum\[1\]: "PBL 9 kap\. 200 §": PBL 9 kap\. har ingen 200 §/),
+        expect.stringMatching(
+          /^uppslag\/begrepp\.yaml begrepp\[.*\]\.modul: Modulen "99-saknas" finns inte/,
+        ),
+        expect.stringMatching(
+          /begrepp\[vilande-arende\]\.lagrum\[1\]: "PBL 9 kap\. 200 §": PBL 9 kap\. har ingen 200 §/,
+        ),
         expect.stringMatching(/begrepp\[vilande-arende\]\.lagrum\[2\]: Lagkoden "XYZ"/),
-        expect.stringMatching(/steg\[fullstandighet\]\.begrepp\[1\]: Begreppet "finns-inte" finns inte/),
+        expect.stringMatching(
+          /steg\[fullstandighet\]\.begrepp\[1\]: Begreppet "finns-inte" finns inte/,
+        ),
         expect.stringMatching(/steg\[lov-i-efterhand\]\.lagrum\[1\]: .*67 § är upphävd/),
       ]),
     );
@@ -93,7 +102,9 @@ describe('check of uppslag', () => {
     const tree = loadContentTree(content);
     expect(tree.errors).toEqual([]);
     expect(messages(tree.warnings)).toEqual([
-      expect.stringMatching(/^fragor\/06-handlaggning\.yaml fragor\[.*\]\.lagrum\[\d\]: "PBL 9 kap\. 199 §"/),
+      expect.stringMatching(
+        /^fragor\/06-handlaggning\.yaml fragor\[.*\]\.lagrum\[\d\]: "PBL 9 kap\. 199 §"/,
+      ),
     ]);
   });
 
@@ -104,7 +115,9 @@ describe('check of uppslag', () => {
 
     edit('uppslag/pbl-9-kap.yaml', 'Det krävs bygglov för nybyggnad.', 'Det krävs inte bygglov.');
     expect(messages(loadContentTree(content).warnings)).toEqual([
-      expect.stringMatching(/^uppslag\/pbl-9-kap\.yaml : Lagtexten i 3 § skiljer sig från källtexten/),
+      expect.stringMatching(
+        /^uppslag\/pbl-9-kap\.yaml : Lagtexten i 3 § skiljer sig från källtexten/,
+      ),
     ]);
 
     expect(main(['lagtext', '--root', root])).toBe(0);

@@ -24,6 +24,13 @@ export const DECISION_SUGGESTIONS: readonly string[] = [
   SUGGESTION_EXPLAIN_DEEPER,
 ];
 
+/** Suggestions on Hem, where no question or case is open. */
+export const GENERAL_SUGGESTIONS: readonly string[] = [
+  'Vad borde jag repetera nu?',
+  'Förhör mig med tre frågor om lovplikt',
+  'Förklara skillnaden mellan bygglov och anmälan',
+];
+
 /**
  * Suggestions for a quiz question. "Varför är alternativ N fel?" names a wrong alternative:
  * the one she chose if it was wrong, otherwise the first wrong one. Before she has answered
