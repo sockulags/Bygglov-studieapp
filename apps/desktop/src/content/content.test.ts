@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { assembleContent, ContentLoadError, findQuestion, getQuestions } from './assemble';
-import { caseDocumentUrl, loadContent } from './index';
+import { caseDocumentUrl, loadContent, questionDrawingUrl } from './index';
 
 const moduleFile = {
   moduler: [
@@ -46,5 +46,11 @@ describe('loadContent', () => {
 
   it('builds document URLs under public/content', () => {
     expect(caseDocumentUrl('A002', 'handlingar/ansokan.pdf')).toBe('/content/arenden/A002/handlingar/ansokan.pdf');
+    expect(
+      questionDrawingUrl('08-ritning-berakning', {
+        id: 'rit-040',
+        fil: 'arenden/A001-komplementbyggnad-larken-4/handlingar/situationsplan.SVG',
+      }),
+    ).toBe('/content/fragor/08-ritning-berakning/rit-040.svg');
   });
 });

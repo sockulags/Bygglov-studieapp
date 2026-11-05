@@ -18,6 +18,7 @@ import { formatClock } from '@/lib/format';
 import { isActivatableTarget, useKeydown } from '@/lib/use-keydown';
 import { AnswerInput } from './answer-input';
 import { ExplanationPanel } from './explanation-panel';
+import { QuestionDrawing } from './question-drawing';
 import {
   endStudyRun,
   expireStudyRunIfNeeded,
@@ -203,10 +204,8 @@ export function QuizView({ run }: { run: StudyRun }) {
             {question.fraga}
           </h2>
         )}
-        {question.typ === 'ritning' && question.bild_text && (
-          <p className="mb-6 rounded-md border border-dashed border-line-strong bg-bg p-4 text-sm text-muted">
-            {question.bild_text}
-          </p>
+        {question.typ === 'ritning' && (
+          <QuestionDrawing question={question} moduleId={item.moduleId} className="mb-6" />
         )}
         <AnswerInput
           key={`${run.key}-${session.index}`}
@@ -234,7 +233,9 @@ export function QuizView({ run }: { run: StudyRun }) {
         <p className="inline-flex items-center gap-2 text-sm text-muted">
           <Keyboard className="size-4" aria-hidden="true" />
           {showHelp
-            ? 'Siffertangenterna 1–9 väljer svar, S och F svarar sant eller falskt, Enter går vidare, ? döljer hjälpen.'
+            ? `Siffertangenterna 1–9 väljer svar, S och F svarar sant eller falskt, Enter går vidare${
+                question.typ === 'ritning' ? ', M mäter på ritningen' : ''
+              }, ? döljer hjälpen.`
             : 'Tryck ? för tangentbordet.'}
         </p>
         {canContinue && reveal && (

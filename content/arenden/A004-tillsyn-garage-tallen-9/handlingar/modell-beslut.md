@@ -160,7 +160,7 @@ skriftligt och skickas till **Bygg- och miljönämnden, Åkerslunda kommun, Box 
 Överklagandet måste ha kommit in **inom tre veckor** från den dag ni fick del av beslutet
 (44 § förvaltningslagen). Skriv vilket beslut det gäller (BN 2026-000873), vilken punkt i
 beslutet ni överklagar, varför ni anser att beslutet är fel och vilken ändring ni vill ha.
-Ange namn, adress och telefonnummer och underteckna skrivelsen.
+Ange också namn, adress och telefonnummer.
 
 ## Beslutet expedieras till
 

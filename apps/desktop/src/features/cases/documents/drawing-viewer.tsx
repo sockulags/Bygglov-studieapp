@@ -8,6 +8,7 @@ import {
   useState,
   type KeyboardEvent,
   type PointerEvent,
+  type ReactNode,
 } from 'react';
 import { Button } from '@/components/ui/button';
 import { isTypingTarget } from '@/lib/use-keydown';
@@ -93,7 +94,27 @@ function useMeasurableSvg(src: string) {
  * distances between two clicks and areas of polygons (double-click or Enter closes), snapping
  * to the drawing's corners and lines.
  */
-export function DrawingViewer({ src, title }: { src: string; title: string }) {
+export interface DrawingViewerProps {
+  src: string;
+  title: string;
+  /**
+   * How the drawing starts: `width` fills the panel width (the case view), `page` shows the
+   * whole sheet (the quiz, where the drawing sits above the answer).
+   */
+  fit?: 'width' | 'page';
+  /** Classes for the drawing frame, e.g. a fixed height when the parent has none. */
+  frameClassName?: string;
+  /** Shown instead of the default text when the file cannot be loaded. */
+  missing?: ReactNode;
+}
+
+export function DrawingViewer({
+  src,
+  title,
+  fit: initialFit = 'width',
+  frameClassName,
+  missing,
+}: DrawingViewerProps) {
   const frame = useRef<HTMLDivElement>(null);
   const [natural, setNatural] = useState<{ width: number; height: number } | null>(null);
   const [view, setView] = useState<View>({ scale: 1, x: 0, y: 0 });
@@ -123,10 +144,13 @@ export function DrawingViewer({ src, title }: { src: string; title: string }) {
     [placement, view],
   );
 
-  /** The view that shows the whole width of a drawing of `size`. */
+  /** The view that shows the whole width (or, for `page`, the whole sheet) of `size`. */
   const fitted = (size: { width: number; height: number }): View => {
     const width = frame.current?.clientWidth ?? size.width;
-    const scale = clamp((width - 32) / size.width, MIN_SCALE, MAX_SCALE);
+    const height = frame.current?.clientHeight ?? 0;
+    const byWidth = (width - 32) / size.width;
+    const byHeight = initialFit === 'page' && height > 0 ? (height - 32) / size.height : byWidth;
+    const scale = clamp(Math.min(byWidth, byHeight), MIN_SCALE, MAX_SCALE);
     return { scale, x: (width - size.width * scale) / 2, y: 16 };
   };
   const fit = () => {
@@ -223,7 +247,7 @@ export function DrawingViewer({ src, title }: { src: string; title: string }) {
     setHover(null);
   };
 
-  // M and Esc work wherever focus is in the case view (but not while typing or in a dialog
+  // M and Esc work wherever focus is in the case view or quiz (but not while typing or in a dialog
   // on top). Capture phase, so Esc cancels a measurement before it closes the document.
   const onWindowKey = useEffectEvent((event: globalThis.KeyboardEvent) => {
     if (!canMeasure || event.ctrlKey || event.metaKey || event.altKey) return;
@@ -324,7 +348,7 @@ export function DrawingViewer({ src, title }: { src: string; title: string }) {
       <div className="flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-line-strong p-10 text-center text-sm text-muted">
         <ImageOff className="size-6" aria-hidden="true" />
         <p className="font-medium text-ink">Ritningen finns inte i den här versionen av appen</p>
-        <p>Uppgifterna ur handlingen finns under fliken Planbestämmelser och fakta.</p>
+        {missing ?? <p>Uppgifterna ur handlingen finns under fliken Planbestämmelser och fakta.</p>}
       </div>
     );
   }
@@ -415,6 +439,7 @@ export function DrawingViewer({ src, title }: { src: string; title: string }) {
         className={cn(
           'relative min-h-0 flex-1 touch-none overflow-hidden rounded-md border border-line bg-bg',
           measuring ? 'cursor-crosshair' : 'cursor-grab active:cursor-grabbing',
+          frameClassName,
         )}
       >
         <img

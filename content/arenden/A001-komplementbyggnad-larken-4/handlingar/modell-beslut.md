@@ -95,8 +95,7 @@ vara skriftligt och skickas till **Bygg- och miljönämnden, Åkerslunda kommun,
 (44 § förvaltningslagen).
 
 Skriv i överklagandet vilket beslut det gäller (diarienummer BN 2026-000318), varför ni
-anser att beslutet är fel och vilken ändring ni vill ha. Ange namn, adress och telefonnummer
-och underteckna skrivelsen.
+anser att beslutet är fel och vilken ändring ni vill ha. Ange också namn, adress och telefonnummer.
 
 ## Beslutet expedieras till
 

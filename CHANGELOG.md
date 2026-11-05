@@ -15,7 +15,9 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 - 96 nya frågor, så att det nu finns 622. Varje modul har fått mellan fyra och åtta nya, med fler
   vardagliga "vad gör du?"-situationer, para ihop- och ordningsfrågor. I Ritningsläsning och
-  beräkning finns de två första frågorna där du mäter direkt i en ritning.
+  beräkning finns de två första frågorna där du mäter direkt i en ritning: ritningen visas
+  ovanför svarsfältet med zoom och mätverktyget (tryck M), och den finns kvar när du går igenom
+  frågorna efter passet.
 - Tre nya ärenden, så att det nu finns nio. På Rönnen 11 vill ägarna installera en braskamin och
   ansluta huset till kommunalt vatten och avlopp. Det är en anmälan, inte en ansökan om lov, och
   ärendet slutar med att du ger ett startbesked. På Eken 2 ska en pool grävas ner och tre ekar
@@ -40,6 +42,11 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ### Rättat
 
+- Överklagandehänvisningen i besluten ber inte längre klaganden att underteckna skrivelsen.
+  Förvaltningslagen kräver ingen underskrift (43 §); det räcker att ange beslutet, ändringen
+  man vill ha och namn, adress och telefonnummer.
+- Ordningslagen finns i lagregistret, så att hänvisningen om poolens säkerhet på Eken 2
+  (3 kap. 5 §) går att slå upp.
 - Ett meddelande i diariet som anger sista dag för beslut visar nu datumet även när samma
   händelse gör ansökan komplett. Tidigare kunde det stå en kod i stället för datumet.
 

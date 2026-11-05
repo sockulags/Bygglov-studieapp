@@ -20,6 +20,7 @@ import { cn } from '@/lib/cn';
 import { formatDuration, pluralQuestions } from '@/lib/format';
 import { AnswerRecap } from './answer-recap';
 import { ExplanationPanel } from './explanation-panel';
+import { QuestionDrawing } from './question-drawing';
 import { clearStudyRun, startStudyRun, type StudyRun } from './study-store';
 
 const outcomeView: Record<
@@ -185,6 +186,13 @@ export function SummaryView({ run }: { run: StudyRun }) {
                 </button>
                 {open && (
                   <div className="border-t border-line px-4 py-4">
+                    {item.question.typ === 'ritning' && (
+                      <QuestionDrawing
+                        question={item.question}
+                        moduleId={item.moduleId}
+                        className="mb-4"
+                      />
+                    )}
                     {item.response ? (
                       <>
                         <AnswerRecap item={item} />

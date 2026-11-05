@@ -193,7 +193,7 @@ export function appealText(
         : ''),
     `Skriv i överklagandet vilket beslut det gäller${
       options.diaryNumber ? ` (diarienummer ${options.diaryNumber})` : ''
-    }, varför ni anser att beslutet är fel och vilken ändring ni vill ha. Ange namn, adress och telefonnummer och underteckna skrivelsen.`,
+    }, varför ni anser att beslutet är fel och vilken ändring ni vill ha. Ange också namn, adress och telefonnummer.`,
   ];
   if (options.outcome === 'startbesked') {
     paragraphs.splice(

@@ -180,8 +180,7 @@ För den som inte ska delges beslutet räknas tiden från den dag som infaller e
 att beslutet kungjorts på kommunens anslagstavla (13 kap. 16 § PBL).
 
 Skriv i överklagandet vilket beslut det gäller (diarienummer BN 2026-000731), varför ni
-anser att beslutet är fel och vilken ändring ni vill ha. Ange namn, adress och telefonnummer
-och underteckna skrivelsen.
+anser att beslutet är fel och vilken ändring ni vill ha. Ange också namn, adress och telefonnummer.
 
 ## Beslutet expedieras till
 

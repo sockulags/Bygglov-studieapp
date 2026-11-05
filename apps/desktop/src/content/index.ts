@@ -5,6 +5,7 @@
  * `src/content-dist/` and copies case documents to `public/content/`. Without a build the
  * content is simply empty.
  */
+import { questionDrawingPath, type DrawingQuestion } from '@bygglov/content-schema';
 import { assembleContent, type StudyContent } from './assemble';
 
 export {
@@ -65,6 +66,20 @@ export function loadContent(): StudyContent {
  */
 export function caseDocumentUrl(caseId: string, file: string): string {
   return `${import.meta.env.BASE_URL}content/arenden/${encodeURIComponent(caseId)}/${file
+    .split('/')
+    .map(encodeURIComponent)
+    .join('/')}`;
+}
+
+/**
+ * URL of the drawing a `ritning` question shows. `content:build` publishes it per question
+ * under `public/content/fragor/<modul>/`, whichever case folder the file comes from.
+ */
+export function questionDrawingUrl(
+  moduleId: string,
+  question: Pick<DrawingQuestion, 'id' | 'fil'>,
+): string {
+  return `${import.meta.env.BASE_URL}content/${questionDrawingPath(moduleId, question)
     .split('/')
     .map(encodeURIComponent)
     .join('/')}`;

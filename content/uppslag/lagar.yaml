@@ -116,6 +116,12 @@ lagar:
     namn: Jordabalken (1970:994)
     lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/jordabalk-1970994_sfs-1970-994/
 
+  - kod: OL
+    namn: Ordningslagen (1993:1617)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/ordningslag-19931617_sfs-1993-1617/
+    kapitel:
+      - { nr: 3, rubrik: Allmän ordning och säkerhet }
+
   - kod: AL
     namn: Anläggningslagen (1973:1149)
     lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/anlaggningslag-19731149_sfs-1973-1149/

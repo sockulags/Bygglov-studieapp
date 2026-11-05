@@ -43,7 +43,8 @@ const USAGE = `Användning: content-build <check|build|drawings|lagtext> [--root
 
   check     Validerar content/ och skriver en rapport. Avslutar med kod 1 vid fel.
   build     Validerar och skriver JSON till apps/desktop/src/content-dist/ samt kopierar
-            handlingar och genererade ritningar till apps/desktop/public/content/.
+            handlingar, genererade ritningar och ritningsfrågornas ritningar till
+            apps/desktop/public/content/. Båda utdatamapparna töms först.
   drawings  Genererar ritningarna (handlingar med parametrar och .svg-fil) in i content/,
             så att de kan granskas och committas.
   lagtext   Uppdaterar lagtexten i content/uppslag/<lag>-<nr>-kap.yaml från
@@ -116,6 +117,10 @@ export function main(argv: string[]): number {
     if (result.drawings.length > 0) {
       console.log(`Ritningar genererade:`);
       for (const file of result.drawings) console.log(`  ${file}`);
+    }
+    if (result.questionDrawings.length > 0) {
+      console.log(`Ritningar till ritningsfrågor:`);
+      for (const file of result.questionDrawings) console.log(`  ${file}`);
     }
   }
   return 0;

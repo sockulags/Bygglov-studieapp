@@ -229,3 +229,16 @@ export type DrawingQuestion = z.output<typeof DrawingQuestionSchema>;
 export type Question = z.output<typeof QuestionSchema>;
 export type QuestionFile = z.output<typeof QuestionFileSchema>;
 export type QuestionFileInput = z.input<typeof QuestionFileSchema>;
+
+/**
+ * Where `content:build` publishes the drawing of a `ritning` question, relative to the app's
+ * `public/content/`: `fragor/<modul>/<fråge-id>.<ändelse>`. The question id is unique across
+ * all content, so two questions that show different files with the same name never collide.
+ */
+export function questionDrawingPath(
+  moduleId: string,
+  question: Pick<DrawingQuestion, 'id' | 'fil'>,
+): string {
+  const extension = /\.[a-z0-9]+$/i.exec(question.fil)?.[0].toLowerCase() ?? '';
+  return `fragor/${moduleId}/${question.id}${extension}`;
+}

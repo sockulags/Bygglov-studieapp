@@ -222,12 +222,15 @@ export function loadContentTree(contentRoot: string): ContentTree {
       } else {
         questionIds.set(question.id, file);
       }
-      if (question.typ === 'ritning' && !fileExists(question.fil)) {
-        warn(
-          file,
-          `Ritningen ${question.fil} finns inte ännu (sökväg relativt content/).`,
-          `${path}.fil`,
-        );
+      if (question.typ === 'ritning') {
+        const outside = question.fil.startsWith('/') || question.fil.split(/[\\/]/).includes('..');
+        if (outside || !fileExists(question.fil)) {
+          warn(
+            file,
+            `Ritningen ${question.fil} finns inte (sökvägen ska vara relativ till content/, t.ex. arenden/A001-…/handlingar/situationsplan.svg). Frågan visas utan ritning.`,
+            `${path}.fil`,
+          );
+        }
       }
     });
     questionFiles.push({ file: toPosix(file), data });

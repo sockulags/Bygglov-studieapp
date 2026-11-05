@@ -94,11 +94,14 @@ export function AnswerInput({ item, revealFeedback, onSubmit, onSelfAssess }: An
           unit={question.enhet}
           result={shown}
           answered={result !== null}
+          // Focus stays off the field so M reaches the drawing's measuring tool at once.
+          autoFocus={false}
           onSubmit={(value) => onSubmit({ type: 'ritning', value })}
         />
       ) : (
         <OpenAnswer
           result={result}
+          autoFocus={false}
           onSubmit={(answer) =>
             onSubmit({ type: 'ritning', text: answer.type === 'oppen' ? answer.text : '' })
           }
@@ -376,17 +379,21 @@ function NumericAnswer({
   unit,
   result,
   answered,
+  autoFocus = true,
   onSubmit,
 }: {
   unit: string | undefined;
   result: GradeResult | null;
   answered: boolean;
+  autoFocus?: boolean;
   onSubmit: (value: string) => void;
 }) {
   const id = useId();
   const [value, setValue] = useState('');
   const input = useRef<HTMLInputElement>(null);
-  useEffect(() => input.current?.focus(), []);
+  useEffect(() => {
+    if (autoFocus) input.current?.focus();
+  }, [autoFocus]);
   const item = result?.kind === 'graded' ? result.items[0] : undefined;
 
   return (
@@ -629,10 +636,12 @@ function Ordering({
 
 function OpenAnswer({
   result,
+  autoFocus = true,
   onSubmit,
   onSelfAssess,
 }: {
   result: GradeResult | null;
+  autoFocus?: boolean;
   onSubmit: (answer: QuizAnswer) => void;
   onSelfAssess: (checked: number[]) => void;
 }) {
@@ -640,7 +649,9 @@ function OpenAnswer({
   const [text, setText] = useState('');
   const [checked, setChecked] = useState<number[]>([]);
   const textarea = useRef<HTMLTextAreaElement>(null);
-  useEffect(() => textarea.current?.focus(), []);
+  useEffect(() => {
+    if (autoFocus) textarea.current?.focus();
+  }, [autoFocus]);
   const answered = result !== null;
 
   return (

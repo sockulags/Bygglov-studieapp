@@ -1,6 +1,6 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import type { ContentIndex } from '@bygglov/content-schema';
+import { questionDrawingPath, type ContentIndex } from '@bygglov/content-schema';
 import type { ContentTree } from './load';
 import { lookupOutputs } from './lookup';
 
@@ -16,6 +16,8 @@ export interface BuildResult {
   copiedDirs: string[];
   /** Generated drawings, relative to the public folder. */
   drawings: string[];
+  /** Drawings of `ritning` questions, relative to the public folder. */
+  questionDrawings: string[];
 }
 
 function writeJson(path: string, value: unknown) {
@@ -105,17 +107,30 @@ export function buildContent(tree: ContentTree, targets: BuildTargets): BuildRes
       drawings.push(relativePath);
     }
   }
+  // Drawings shown by `ritning` questions get a stable path per question, independent of
+  // which case folder they come from. A generated drawing is taken from its parameters, like
+  // above; other files are copied. Missing files are reported as warnings by content:check.
+  const generated = new Map<string, string>(
+    tree.cases.flatMap(({ dir, drawings: planned }) =>
+      planned.map((d) => [`${dir}/${d.fil}`, d.svg] as const),
+    ),
+  );
+  const questionDrawings: string[] = [];
   for (const { data } of tree.questionFiles) {
     for (const q of data.fragor) {
       if (q.typ !== 'ritning') continue;
+      const relativePath = questionDrawingPath(data.modul, q);
+      const target = join(targets.publicDir, relativePath);
+      const svg = generated.get(q.fil);
       const source = join(tree.root, q.fil);
-      if (!existsSync(source)) continue;
-      const target = join(targets.publicDir, q.fil);
+      if (svg === undefined && !existsSync(source)) continue;
       mkdirSync(dirname(target), { recursive: true });
-      cpSync(source, target);
+      if (svg !== undefined) writeFileSync(target, svg, 'utf8');
+      else cpSync(source, target);
+      questionDrawings.push(relativePath);
     }
   }
-  return { jsonFiles, copiedDirs, drawings };
+  return { jsonFiles, copiedDirs, drawings, questionDrawings };
 }
 
 /**

@@ -253,6 +253,71 @@ describe('build', () => {
     );
   });
 
+  it('publishes the drawings of ritning questions under fragor/<modul>/<id>', () => {
+    const tree = loadContentTree(content);
+    const publicDir = join(root, 'public');
+    const result = buildContent(tree, { distDir: join(root, 'dist'), publicDir });
+    expect(result.questionDrawings).toEqual(
+      expect.arrayContaining([
+        'fragor/08-ritning-berakning/rit-040.svg',
+        'fragor/08-ritning-berakning/rit-041.svg',
+      ]),
+    );
+    // rit-041 shows the generated situationsplan of A002, written from its parameters.
+    expect(readFileSync(join(publicDir, 'fragor/08-ritning-berakning/rit-041.svg'), 'utf8')).toBe(
+      byId(tree, 'A002')?.drawings[0]?.svg,
+    );
+    // Nothing is published under the case folder names, only under the case ids.
+    expect(existsSync(join(publicDir, 'arenden/A001-komplementbyggnad-larken-4'))).toBe(false);
+  });
+
+  it('warns about a ritning question whose file does not exist and builds without it', () => {
+    const file = join(content, 'fragor/08-ritning-berakning.yaml');
+    const source = readFileSync(file, 'utf8');
+    const from = 'fil: arenden/A001-komplementbyggnad-larken-4/handlingar/situationsplan.svg';
+    expect(source).toContain(from);
+    writeFileSync(file, source.replace(from, 'fil: arenden/A001-saknas/plan.svg'), 'utf8');
+    writeFileSync(
+      file,
+      readFileSync(file, 'utf8').replace(
+        'fil: arenden/A002-tillbyggnad-bjorken-7/handlingar/situationsplan.svg',
+        'fil: ../utanfor/situationsplan.svg',
+      ),
+      'utf8',
+    );
+    const tree = loadContentTree(content);
+    expect(tree.errors).toEqual([]);
+    expect(tree.warnings.map((w) => `${w.file} ${w.path}`)).toEqual([
+      'fragor/08-ritning-berakning.yaml fragor[rit-040].fil',
+      'fragor/08-ritning-berakning.yaml fragor[rit-041].fil',
+    ]);
+    expect(tree.warnings[0]?.message).toMatch(
+      /^Ritningen arenden\/A001-saknas\/plan\.svg finns inte \(sökvägen ska vara relativ till content\//,
+    );
+    const publicDir = join(root, 'public');
+    const result = buildContent(tree, { distDir: join(root, 'dist'), publicDir });
+    expect(result.questionDrawings).not.toContain('fragor/08-ritning-berakning/rit-040.svg');
+    expect(existsSync(join(publicDir, 'fragor/08-ritning-berakning/rit-040.svg'))).toBe(false);
+  });
+
+  it('empties both output folders before writing', () => {
+    const distDir = join(root, 'apps/desktop/src/content-dist');
+    const publicDir = join(root, 'apps/desktop/public/content');
+    for (const stale of ['arenden/A001-komplementbyggnad-larken-4/handlingar', 'arenden/A099']) {
+      mkdirSync(join(publicDir, stale), { recursive: true });
+      writeFileSync(join(publicDir, stale, 'gammal.md'), '# Gammal', 'utf8');
+    }
+    mkdirSync(join(distDir, 'arenden'), { recursive: true });
+    writeFileSync(join(distDir, 'arenden/A099.json'), '{}', 'utf8');
+
+    expect(main(['build', '--root', root])).toBe(0);
+    expect(existsSync(join(publicDir, 'arenden/A001-komplementbyggnad-larken-4'))).toBe(false);
+    expect(existsSync(join(publicDir, 'arenden/A099'))).toBe(false);
+    expect(existsSync(join(distDir, 'arenden/A099.json'))).toBe(false);
+    expect(existsSync(join(publicDir, 'arenden/A001/handlingar'))).toBe(true);
+    expect(existsSync(join(distDir, 'arenden/A001.json'))).toBe(true);
+  });
+
   it('refuses to build content with errors', () => {
     write('moduler.yaml', 'moduler: []\n');
     expect(main(['build', '--root', root])).toBe(1);

@@ -57,7 +57,18 @@ Lägg frågan sist i listan `fragor:` i rätt modulfil. Id ska vara unikt i allt
 | `ordning` | `poster:` i rätt ordning (appen blandar) |
 | `berakning` | `svar:` tal (punkt som decimaltecken), `tolerans`, `enhet`, valfritt `losning` |
 | `oppen` | `bedomningspunkter:` lista, valfritt `modellsvar`; `forklaring` är valfri |
-| `ritning` | `fil:` sökväg relativt `content/`, och `svar` (tal) eller `bedomningspunkter` |
+| `ritning` | `fil:` sökväg relativt `content/`, valfritt `bild_text`, och `svar` (tal) eller `bedomningspunkter` |
+
+En ritningsfråga visar ritningen i samma visare som i ärendena, med zoom, panorering och
+mätverktyget (tangenten M), ovanför svarsfältet. `fil` är sökvägen relativt `content/`, t.ex.
+`arenden/A001-komplementbyggnad-larken-4/handlingar/situationsplan.svg`; peka gärna på en
+ritning som redan finns i ett ärende. `content:build` publicerar ritningen per fråga som
+`apps/desktop/public/content/fragor/<modul>/<fråge-id>.svg` (samma ändelse som filen), så appen
+behöver inte veta vilket ärende den kommer från, och två frågor som visar olika filer med samma
+namn krockar inte. En genererad ritning skrivs från ärendets `parametrar`, precis som i ärendet.
+`content:check` varnar om filen inte finns eller om sökvägen pekar utanför `content/`; då visas
+frågan utan ritning. `bild_text` är bildtexten under ritningen och det som står kvar om
+ritningen saknas.
 
 Tips: sätt texten inom citattecken om den innehåller `: ` (kolon och mellanslag), annars
 läser YAML den som ett objekt.
@@ -375,6 +386,7 @@ pnpm content:build     # validerar och skriver JSON till apps/desktop/src/conten
 ```
 
 `content:build` kopierar också `handlingar/` till `apps/desktop/public/content/arenden/<id>/`
-och skriver de genererade ritningarna dit. Båda målmapparna är genererade och ignoreras av
-git. SVG-filerna i `content/` är däremot genererade *och* committade, så att ändringar syns i
+och skriver de genererade ritningarna dit, och ritningsfrågornas ritningar till
+`apps/desktop/public/content/fragor/<modul>/<fråge-id>.svg`. Båda målmapparna är genererade och
+ignoreras av git, och bygget tömmer dem först, så att inget gammalt ligger kvar. SVG-filerna i `content/` är däremot genererade *och* committade, så att ändringar syns i
 granskningen.

@@ -219,7 +219,7 @@ steg:
       bygglov. Att poolen är lovfri betyder inte att den saknar krav: ordningslagen kräver
       säkerhetsanordningar, särskilt med tanke på barn, och tomten ska ordnas så att risken
       för olycksfall begränsas (8 kap. 9 § första stycket 6 PBL).
-    lagrum: [PBL 9 kap. 47 §, PBL 4 kap. 10 §, PBL 9 kap. 19 §, PBL 9 kap. 50 §, PBL 8 kap. 9 §]
+    lagrum: [PBL 9 kap. 47 §, PBL 4 kap. 10 §, PBL 9 kap. 19 §, PBL 9 kap. 50 §, PBL 8 kap. 9 §, OL 3 kap. 5 §]
     tid_framat_dagar: 3
 
   - id: S4
@@ -307,7 +307,7 @@ steg:
           Lov utan särskilda villkor godtas om ersättningseken och rotskyddet i stället är låsta i
           en reviderad markplanering som beslutet hänvisar till. Avslaget för ek 2 och ek 3
           ska ändå framgå av beslutet.
-    lagrum: [PBL 9 kap. 47 §, PBL 9 kap. 77 §, PBL 9 kap. 78 §, PBL 9 kap. 105 §]
+    lagrum: [PBL 9 kap. 47 §, PBL 9 kap. 77 §, PBL 9 kap. 78 §, PBL 9 kap. 105 §, OL 3 kap. 5 §]
     bedomningspunkter:
       - Beviljar marklov för schaktning och fyllning för pooldäcket och för fällning av ek 1, med stöd av 9 kap. 47, 77 och 78 §§ PBL
       - Avslår ansökan i den del den avser fällning av ek 2 och ek 3, med stöd av 9 kap. 77 § 1 och 78 §, och motiverar det med planbestämmelsen n1 och arboristutlåtandet
