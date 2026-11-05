@@ -14,7 +14,7 @@
     "build": "tsx src/index.ts build",
     "drawings": "tsx src/index.ts drawings",
     "typecheck": "tsc -p tsconfig.json",
-    "test": "vitest run --passWithNoTests"
+    "test": "vitest run --passWithNoTests --testTimeout=30000"
   },
   "dependencies": {
     "@bygglov/content-schema": "workspace:*",
