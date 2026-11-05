@@ -2,23 +2,23 @@
 
 ## Grundregel
 
-**Auto-uppdateringen ska finnas i den allra första versionen hon installerar.** Allt annat kan
-komma senare. Första installationen är det enda tillfället vi behöver hennes (eller pappas)
+**Auto-uppdateringen ska finnas i den allra första versionen studenten installerar.** Allt annat kan
+komma senare. Första installationen är det enda tillfället vi behöver studentens (eller handledarens)
 händer. Därför är fas 1 liten i funktioner men komplett i leveranskedja.
 
 ## Fas 0 · Planering (nu)
 
 - [x] Vision, innehållsplan, simulator-design, design, teknik, release-plan (dessa dokument)
-- [ ] Pappa får 02 och 03 upplästa/förklarade och justerar modullistan och ärendeidéerna
+- [ ] Handledaren får 02 och 03 upplästa/förklarade och justerar modullistan och ärendeidéerna
 - [x] OS: **Windows**. Bygg bara Windows, ingen kodsignering, installationsguide med skärmbilder
 - [x] Repo: **publikt**. Uppdateringslänken pekar direkt på GitHub Releases
-- [x] AI: hon får en **API-nyckel av storebror** och klistrar in den i appen. Ingen proxy
-- [x] Innehåll: **pappa bidrar muntligt**. Storebror/AI strukturerar till YAML, pappa granskar facit
+- [x] AI: studenten får en **API-nyckel av utvecklaren** och klistrar in den i appen. Ingen proxy
+- [x] Innehåll: **handledaren bidrar muntligt**. Utvecklaren/AI strukturerar till YAML, handledaren granskar facit
 - [ ] Namn på appen (arbetsnamn "Bygglov-studieapp"; något kortare vore trevligt)
 
 ## Fas 1 · Skelett som uppdaterar sig själv (v0.1)
 
-Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men riktigt.
+Mål: studenten har appen installerad och den uppdaterar sig. Innehållet är tunt men riktigt.
 
 - [x] Monorepo, Tauri 2 + React + Vite + Tailwind, design tokens, ljust/mörkt läge
 - [x] Navigation och alla huvudvyer som skal (Hem, Plugga, Ärenden, Uppslag, Resultat, Inställningar)
@@ -36,7 +36,7 @@ Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men
 - [ ] `docs/installera.md` med skärmbilder (Windows, SmartScreen)
   (texten klar; skärmbilderna tas vid första installationen)
 
-**Klart när**: hon installerat v0.1.0 och fått v0.1.1 via uppdateringsdialogen utan hjälp.
+**Klart när**: studenten installerat v0.1.0 och fått v0.1.1 via uppdateringsdialogen utan hjälp.
 
 ## Fas 2 · Ärendesimulatorn (v0.2–v0.4)
 
@@ -51,7 +51,7 @@ Mål: hon har appen installerad och den uppdaterar sig. Innehållet är tunt men
   registrering av handledarens bedömning (ärendet blir "Bedömt")
 - [x] Tre ärenden, ett per nivå 1–3: A001 komplementbyggnad nära gräns, A002 tillbyggnad med
   liten avvikelse, A003 nybyggnad utanför plan vid strand (status utkast)
-- [ ] Ärendena granskade tillsammans med pappa (status `granskad`)
+- [ ] Ärendena granskade tillsammans med handledaren (status `granskad`)
 - [x] SVG-ritningsgenerator: situationsplan (även nybyggnad, utfart, strandlinje och
   strandskyddsgräns), fasader, planritning med sektion och plankarta
 - [x] Hem föreslår ärendet att fortsätta eller nästa ärende, Mina resultat visar ärenden per
@@ -67,11 +67,11 @@ Kvar i fas 2:
 - [x] Fältet `ar_forelaggande` på skrivelsesteg i stället för att motorn letar efter ordet
   "förelägg"
 - [x] Mallvariabler i texterna (`{{beslutsdatum}}`, `{{kungorelsedatum+19|vardag}}` …) så att
-  datum följer hennes egen tidslinje
+  datum följer studentens egen tidslinje
 - [ ] PDF-handlingar med pdf.js (i dag visas en PDF med webbläsarens visare)
 - [ ] Fler ärenden per nivå
 
-**Klart när**: pappa bedömt hennes första exporterade beslut och sagt att case-flödet känns rimligt.
+**Klart när**: handledaren bedömt studentens första exporterade beslut och sagt att case-flödet känns rimligt.
 
 ## Fas 3 · Studiehjälp och handledare (v0.5–v0.7)
 
@@ -89,14 +89,14 @@ Kvar i fas 2:
   (WCAG 2.1 AA, ljust och mörkt läge); `--muted` mörkare i hela appen
 - [ ] Studiehjälpen provad med en riktig nyckel i Windows-bygget (nyckellagret, strömningen
   och kostnadsraden kan bara provas där)
-- [ ] Uppslaget och ordlistan granskade med pappa (allt är `utkast`)
+- [ ] Uppslaget och ordlistan granskade med handledaren (allt är `utkast`)
 - [ ] Avbryt som stoppar anropet på Rust-sidan (i dag slutar bara panelen visa svaret; svaret
   körs klart och räknas i förbrukningen)
 - [ ] Handledaren föreslår repetition utifrån svaga taggar (i dag ser den bara behärskning per
   modul)
-- [ ] Valfritt: handledarportal (Supabase) där pappa kommenterar direkt
+- [ ] Valfritt: handledarportal (Supabase) där handledaren kommenterar direkt
 
-**Klart när**: hon har använt handledaren i ett riktigt pass och pappa har läst en första
+**Klart när**: studenten har använt handledaren i ett riktigt pass och handledaren har läst en första
 återkoppling på ett beslut och tyckt att den hjälper.
 
 ## Fas 4 · Bredd och finish (v0.8 → 1.0)
@@ -133,7 +133,7 @@ Kvar i fas 2:
 
 Kvar till 1.0:
 
-- [ ] **Handledarens granskning.** Pappa går igenom de 622 frågorna, de nio ärendena och
+- [ ] **Handledarens granskning.** Handledaren går igenom de 622 frågorna, de nio ärendena och
   ordlistan mot *Lagtextens byggregler 2026-01-01* och sätter `status: granskad`. Börja med det
   agenterna själva flaggade: avgiftsberäkningen i A004 (sanktionsarea för den avvikande delen,
   ibruktagande och rättelse), måtten enligt SS 21054:2020 i modul 8 (`lagrum_osaker`), praxis om
@@ -144,8 +144,8 @@ Kvar till 1.0:
 - [ ] Ärlig lägesbild mot målen i [02-innehall.md](02-innehall.md) (15–20 ärenden och 600+
   frågor efter ett halvår): frågemålet är nått, ärendemålet till drygt hälften. Ingenting är
   granskat än; all text har status `utkast`.
-- [ ] 1.0 när pappa säger att ett case känns "på riktigt"
-- [ ] Fler ärenden (mål 15+), helst efter hans muntliga berättelser
+- [ ] 1.0 när handledaren säger att ett case känns "på riktigt"
+- [ ] Fler ärenden (mål 15+), helst efter handledarens muntliga berättelser
 - [ ] Ett eget beslutsutfall för ingripande i tillsynsärenden (i dag skrivs avgift och
   föreläggande i motiveringen)
 - [ ] Frågetypen `ritning` med egna ritningsparametrar på frågan, så att modul 8 kan mäta i
@@ -157,14 +157,14 @@ Kvar till 1.0:
 | --- | --- | --- |
 | Windows eller Mac? | Windows | Bara Windows-bygge i CI, ingen kodsignering, SmartScreen-guide |
 | Publikt repo? | Ja | Uppdateringslänk direkt mot `releases/latest/download/latest.json` |
-| Hur får appen AI-tillgång? | Hon får en API-nyckel av storebror | Nyckel klistras in i Inställningar, sparas i Credential Manager, ingen server |
-| Hur bidrar pappa med innehåll? | Muntligt | Inga innehållsverktyg för honom; storebror/AI skriver YAML, han granskar |
+| Hur får appen AI-tillgång? | Studenten får en API-nyckel av utvecklaren | Nyckel klistras in i Inställningar, sparas i Credential Manager, ingen server |
+| Hur bidrar handledaren med innehåll? | Muntligt | Inga innehållsverktyg för handledaren; utvecklaren/AI skriver YAML, handledaren granskar |
 
 ## Kvarvarande öppna frågor
 
 | Fråga | Varför det spelar roll | Förslag om inget svar |
 | --- | --- | --- |
-| Vilken utbildning/skola går hon? | Vi kan matcha modulerna mot deras faktiska kursplan | Utgå från listan i 02 |
+| Vilken utbildning/skola går studenten? | Vi kan matcha modulerna mot deras faktiska kursplan | Utgå från listan i 02 |
 | Namn på appen? | Visas i installern, startmenyn och fönstertiteln | "Bygglov-studieapp" tills vidare |
 
 ## Förslag på arbetsflöde för fas 1

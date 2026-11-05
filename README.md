@@ -1,6 +1,6 @@
 # Bygglov-studieapp
 
-Studieapp för blivande bygglovshandläggare. Byggd för en person (och hennes pappa som handledare),
+Studieapp för blivande bygglovshandläggare. Byggd för en enskild student med en erfaren handledare vid sidan om,
 men gjord ordentligt: quiz, instuderingsfrågor och realistiska bygglovsärenden med handlingar,
 beslut och överraskningar på vägen.
 
@@ -44,14 +44,14 @@ Fas 1 (v0.1), fas 2 (v0.2, ärendesimulatorn), fas 3 (v0.3, studiehjälp och upp
   (9 kap. 99 §; fyra veckor för en anmälan enligt 6 kap. 5 § PBF; tillsynsärenden har ingen
   frist förrän en ansökan om lov i efterhand kommer in), förlängning av fristen, vilande enligt
   9 kap. 102 §, händelser som
-  förgrenar ärendet, datum som följer hennes egen tidslinje, beslutsmall med automatiska
+  förgrenar ärendet, datum som följer studentens egen tidslinje, beslutsmall med automatiska
   kontroller (beslut om bygglov, marklov, förhandsbesked och startbesked), jämförelse med
   modellbeslutet och export av beslutsrapporten till handledaren.
   Se [docs/03-arendesimulator.md](docs/03-arendesimulator.md).
 - **Fråga handledaren** (studiehjälp med AI): i förklaringen efter varje svar, i ärendets
   arbetsyta, som första återkoppling i jämförelsevyn och på Hem. Svaren strömmar från Claude
   via Rust-sidan; API-nyckeln ligger i Windows Autentiseringshanteraren och lämnar aldrig
-  Rust-sidan. Facit skickas aldrig med innan hon svarat eller lämnat in beslutet. I
+  Rust-sidan. Facit skickas aldrig med innan studenten svarat eller lämnat in beslutet. I
   webbläsarläget svarar en inspelad testhandledare. Se [docs/05-teknik.md](docs/05-teknik.md).
 - **Uppslag**: lagrumsregister med 9 kap. PBL paragraf för paragraf, övriga lagrum per lag
   (22 lagar), ordlista med 148 begrepp, fyra processkartor och sök med `/`.

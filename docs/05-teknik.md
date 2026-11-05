@@ -10,7 +10,7 @@
 | Routing | **TanStack Router** | Typsäkra rutter, bra för en app med många vyer. |
 | State | **Zustand** för UI-state, **TanStack Query** mot lokal databas | Enkelt, lite boilerplate. |
 | Lokal lagring | **SQLite** via `@tauri-apps/plugin-sql`, migrationer i repo | Repetitionsdata och ärendehistorik kräver riktiga frågor, inte en JSON-fil. |
-| Innehåll | YAML i `content/`, valideras med **zod**, kompileras till JSON vid bygge | Pappa och storebror kan skriva innehåll utan att röra kod. Fel upptäcks vid bygge. |
+| Innehåll | YAML i `content/`, valideras med **zod**, kompileras till JSON vid bygge | Handledaren och utvecklaren kan skriva innehåll utan att röra kod. Fel upptäcks vid bygge. |
 | Ritningar | SVG genererade från parametrar + statiska PDF/PNG | Lätt att variera ett ärende ("samma hus, 0,5 m högre"). |
 | PDF-visning | `pdf.js` | Standard, fungerar offline. |
 | Export | HTML → PDF via Tauri-webbvy (print) | Beslutsrapport till handledaren utan extra beroenden. |
@@ -26,10 +26,10 @@ på någon plattform är bytet till Electron en begränsad insats eftersom hela 
 
 ### Varför inte bara en webbapp?
 
-En webbapp på Vercel vore faktiskt ännu enklare för henne: en länk, inga uppdateringar alls.
+En webbapp på Vercel vore faktiskt ännu enklare för studenten: en länk, inga uppdateringar alls.
 Det går att göra senare, eftersom appen är ren webbkod. Desktop väljs nu för att den ska
 fungera offline, kännas som ett "riktigt program" och inte kräva konto, inloggning eller
-molnlagring av hennes studiedata. Beslutet kan omprövas efter fas 1.
+molnlagring av studentens studiedata. Beslutet kan omprövas efter fas 1.
 
 ## Övergripande arkitektur
 
@@ -53,7 +53,7 @@ molnlagring av hennes studiedata. Beslutet kan omprövas efter fas 1.
 └──────────────────────────────────────────────────────────┘
           │ (fas 3)
           ▼
-   Claude API direkt från appen (nyckel som hon klistrar in en gång)
+   Claude API direkt från appen (nyckel som studenten klistrar in en gång)
    Handledarportal (Supabase, valfritt)
 ```
 
@@ -82,7 +82,7 @@ molnlagring av hennes studiedata. Beslutet kan omprövas efter fas 1.
 ## Datamodell (lokal SQLite)
 
 ```sql
--- Vad hon har gjort
+-- Vad studenten har gjort
 svar            (id, fraga_id, tidpunkt, ratt, svar_json, svarstid_ms, lage)
 repetition      (fraga_id PK, stabilitet, svarighet, nasta_datum, antal, senast)   -- FSRS-fält
 pass            (id, start, slut, lage, moduler_json, resultat_json)
@@ -104,7 +104,7 @@ installning     (nyckel PK, varde)   -- även studiehjalp.modell, .vaxelkurs, .d
 
 Innehållet (frågor, ärenden) ligger *inte* i databasen utan bundlas med appen. Databasen
 refererar till innehålls-id:n. Det gör att nytt innehåll kommer med varje release utan
-migrering, och att hennes historik överlever även om en fråga ändras.
+migrering, och att studentens historik överlever även om en fråga ändras.
 
 ## Ärendemotorn
 
@@ -133,12 +133,12 @@ och hur står i [03-arendesimulator.md](03-arendesimulator.md#så-fungerar-det-i
 
 FSRS (via `ts-fsrs`) med standardparametrar. Varje besvarad fråga ger ett betyg
 (igen/svårt/bra/lätt) härlett från rätt/fel och svarstid. Repetitionsläget hämtar frågor med
-`nasta_datum <= idag`, prioriterat efter modul hon valt.
+`nasta_datum <= idag`, prioriterat efter modul studenten valt.
 
 ## Studiehjälp med AI (fas 3)
 
-- **Nyckel**: storebror skapar en API-nyckel i Anthropic Console (eget workspace med
-  månadstak) och ger den till henne. Hon klistrar in den en gång under Inställningar →
+- **Nyckel**: utvecklaren skapar en API-nyckel i Anthropic Console (eget workspace med
+  månadstak) och ger den till studenten. Studenten klistrar in den en gång under Inställningar →
   Studiehjälp. Nyckeln sparas i Windows Credential Manager via Rust-sidan (`keyring`), aldrig
   i klartext på disk eller i databasen. Ingen egen server behövs.
 - **Anrop**: från Rust-sidan (Tauri-kommandot `tutor_ask`), inte från webbvyn, så att
@@ -147,7 +147,7 @@ FSRS (via `ts-fsrs`) med standardparametrar. Varje besvarad fråga ger ett betyg
 - **Modell**: `claude-opus-5-5` som standard (bäst resonemang kring juridik och motiveringar).
   Vid mycket användning kan enkla förklaringar gå på `claude-haiku-5-5`.
 - **Vad den gör**: förklarar ett svar djupare, förhör i en modul, ger första återkoppling på
-  ett beslutsutkast mot bedömningspunkterna, föreslår vad hon bör repetera.
+  ett beslutsutkast mot bedömningspunkterna, föreslår vad studenten bör repetera.
 - **Vad den inte gör**: hittar på lagrum. Systemprompten kräver att den anger lagrum, säger
   när den är osäker och hänvisar till handledaren vid bedömningsfrågor. Kontext (modulens
   lagrumssammanfattningar, ärendets facit) skickas med så att svaren förankras.
@@ -217,7 +217,7 @@ Så blev webbvyn (fas 3), `features/tutor`:
 ## Handledarportal (fas 3, valfri)
 
 Om export av PDF känns för klumpigt: en liten webbsida (Vercel + Supabase) där appen laddar
-upp inlämnade beslut och pappa läser och kommenterar. Appen hämtar hans svar. Kräver att hon
+upp inlämnade beslut och handledaren läser och kommenterar. Appen hämtar handledarens svar. Kräver att studenten
 loggar in en gång (magisk länk via e-post). Beslutas efter att PDF-exporten testats i praktiken.
 
 ## Kodkvalitet

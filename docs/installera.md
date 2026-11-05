@@ -118,7 +118,7 @@ Dina svar, resultat och ärenden finns kvar efter en uppdatering.
 | Det finns ingen knapp *Kör ändå* i SmartScreen-rutan | Datorn har låsta inställningar (vanligt på jobb- och skoldatorer). Installera på en privat dator, eller be den som sköter datorn om hjälp. |
 | Webbläsaren tar bort filen direkt | Följ stegen under *Om webbläsaren varnar för filen*. Fungerar det inte, prova en annan webbläsare. |
 | Uppdateringen säger *Uppdateringen gick inte att hämta* | Kontrollera internet och klicka **Försök igen**. Hjälper inte det: ladda ner den senaste installationsfilen från release-sidan och installera den ovanpå. Inget försvinner. |
-| Appen startar inte efter installationen | Starta om datorn och försök igen från Start-menyn. Hör av dig till storebror med en bild på eventuellt felmeddelande. |
+| Appen startar inte efter installationen | Starta om datorn och försök igen från Start-menyn. Hör av dig till den som gav dig appen med en bild på eventuellt felmeddelande. |
 
 ## Avinstallera
 

@@ -28,7 +28,7 @@ describe('buildQuestionContext', () => {
     expect(ctx).toMatchObject({ key: 'question:lov-042', kind: 'question', answered: false });
     expect(ctx.text).toContain('Hur stor får en bygglovsbefriad komplementbyggnad');
     expect(ctx.text).toContain('2. 30 kvm');
-    expect(ctx.text).toContain('Hon har inte svarat');
+    expect(ctx.text).toContain('Studenten har inte svarat');
     expect(ctx.text).not.toContain('Rätt svar');
     expect(ctx.text).not.toContain('Högst 30 kvm byggnadsarea'); // the explanation
     expect(ctx.text).not.toContain('friggebodens gamla gräns'); // per-alternative comment
@@ -39,7 +39,7 @@ describe('buildQuestionContext', () => {
     const answer = { type: 'flerval', selected: 0 } as const;
     const ctx = buildQuestionContext(multipleChoice, answer, grade(multipleChoice, answer));
     expect(ctx.answered).toBe(true);
-    expect(ctx.text).toContain('Hennes svar: alternativ 1 ("15 kvm")');
+    expect(ctx.text).toContain('Studentens svar: alternativ 1 ("15 kvm")');
     expect(ctx.text).toContain('Resultat: Inte rätt');
     expect(ctx.text).toContain('Rätt svar: alternativ 2');
     expect(ctx.text).toContain('Alternativ 1: Det var friggebodens gamla gräns.');
@@ -76,7 +76,7 @@ describe('buildCaseContext', () => {
     expect(ctx.text).toContain('Aktuellt steg');
     expect(ctx.text).toContain('Fatta beslut');
     expect(ctx.text).toContain('Kolla höjden mot planen.');
-    expect(ctx.text).toContain('Hennes beslutsutkast (inte inlämnat)');
+    expect(ctx.text).toContain('Studentens beslutsutkast (inte inlämnat)');
     expect(ctx.text).toContain('Min egen motivering om höjden.');
     expect(ctx.text).toContain('Ansökan om bygglov för tillbyggnad.');
     for (const secret of facitStrings()) expect(ctx.text).not.toContain(secret);
@@ -101,7 +101,7 @@ describe('buildCaseContext', () => {
       modelDecisionText: 'MODELLBESLUTETS TEXT',
     });
     expect(ctx).toMatchObject({ key: 'decision:A002', kind: 'decision', answered: true });
-    expect(ctx.text).toContain('Hennes inlämnade beslut');
+    expect(ctx.text).toContain('Studentens inlämnade beslut');
     expect(ctx.text).toContain('Förväntat utfall: Bevilja bygglov');
     expect(ctx.text).toContain('Automatiska kontroller');
     expect(ctx.text).toContain('MODELLBESLUTETS TEXT');

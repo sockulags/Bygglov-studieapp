@@ -3,7 +3,7 @@
 ## Känsla
 
 "Ett vackert kontor på stadsbyggnadskontoret." Lugnt, ljust, pappersnära. Inte en lekfull
-quizapp med konfetti, inte heller ett grått myndighetssystem. Målet är att hon ska *vilja*
+quizapp med konfetti, inte heller ett grått myndighetssystem. Målet är att studenten ska *vilja*
 öppna den en tisdagkväll och känna sig som en handläggare, inte som en elev.
 
 Referenspunkter: svenska kommuners nyare designsystem (luftiga, tydliga), Boverkets
@@ -27,7 +27,7 @@ och stämplar (textur och allvar).
 
 **Typografi**: en humanistisk sans för gränssnittet (Inter eller Source Sans 3) och en
 läsvänlig serif för handlingar och beslutstexter (Source Serif 4 eller Newsreader), så att
-"dokument" känns som dokument. Minsta brödtext 16 px. Generös radhöjd. Hon kommer läsa mycket.
+"dokument" känns som dokument. Minsta brödtext 16 px. Generös radhöjd. Studenten kommer läsa mycket.
 
 **Form**: 8 px-rutnät, mjukt rundade hörn (6–10 px), tunna linjer snarare än skuggor.
 Handlingar renderas som A4-kort med svag skugga och en röd "INKOM 2026-03-02" ankomststämpel.
@@ -42,15 +42,15 @@ stämpelanimation när beslut lämnas in. Inget som stjäl fokus.
 
 1. **En sak i taget.** Varje skärm har ett tydligt primärt val. Startsidan föreslår alltid
    nästa pass.
-2. **Alltid en väg tillbaka.** Allt sparas automatiskt. Hon kan stänga mitt i ett ärende och
+2. **Alltid en väg tillbaka.** Allt sparas automatiskt. Studenten kan stänga mitt i ett ärende och
    fortsätta nästa dag.
 3. **Förklaringen är belöningen.** Efter varje svar: kort förklaring, lagrum, länk till
-   uppslag. Rätt eller fel spelar mindre roll än att hon läser förklaringen.
+   uppslag. Rätt eller fel spelar mindre roll än att studenten läser förklaringen.
 4. **Tangentbordet först i quiz.** 1–4 för svar, Enter för nästa, ? för hjälp.
 5. **Ingen teknisk jargong.** Uppdateringsdialogen säger "En ny version finns. Uppdatera nu?"
    med en knapp. Inga versionsnummer i ansiktet (men i Inställningar).
 6. **Tillgänglighet**: fullt tangentbordsstöd, synlig fokusmarkering, WCAG AA-kontrast,
-   respekt för systemets reducerad rörelse-inställning. Hon pluggar till en yrkesroll där
+   respekt för systemets reducerad rörelse-inställning. Studenten pluggar till en yrkesroll där
    tillgänglighet är lag (8 kap PBL), appen ska leva som den lär.
 
 ## Navigation
@@ -89,7 +89,7 @@ Globalt: `Cmd/Ctrl+K` öppnar sök över frågor, ärenden, begrepp och lagrum.
   "Tillbyggnad av enbostadshus, Björken 7".
 - Ärendevyn: tre paneler (se 03). På smal skärm staplas panelerna med flikar.
 - Beslutsformuläret öppnas som en helskärmsvy med A4-förhandsvisning av beslutet bredvid
-  formuläret, som uppdateras medan hon skriver.
+  formuläret, som uppdateras medan studenten skriver.
 - Efter inlämning: jämförelse sida vid sida med modellbeslutet och bedömningspunkterna.
 
 ### Uppslag

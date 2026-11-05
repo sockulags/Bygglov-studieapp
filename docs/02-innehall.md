@@ -21,8 +21,8 @@ instuderingsfrågor, quiz och kopplade ärenden. Ordningen är ungefärlig svår
 | 12 | Överklagande och prövningskedjan | Vem får överklaga, tidsfrister, rättidsprövning, länsstyrelse, mark- och miljödomstol, verkställbarhet | PBL 13 kap, FL 40–47 §§ |
 | 13 | Kommunikation och bemötande | Skriva begripliga beslut, svåra samtal, förväntanshantering, service kontra myndighetsutövning | Klarspråk, FL 6 § |
 
-Modullistan är ett utkast. Pappa bör gå igenom den och justera mot vad utbildningen faktiskt
-täcker och vad han vet att handläggare snubblar på i praktiken. Lagrummen per modul i den
+Modullistan är ett utkast. Handledaren bör gå igenom den och justera mot vad utbildningen faktiskt
+täcker och vad handledaren vet att handläggare snubblar på i praktiken. Lagrummen per modul i den
 gällande numreringen står i `content/moduler.yaml` (`lagrum_sammanfattning`).
 
 ## Frågetyper
@@ -40,16 +40,16 @@ gällande numreringen står i `content/moduler.yaml` (`lagrum_sammanfattning`).
 | `ritning` | Läs av värden i en bifogad ritning | Automatisk eller självrättning |
 
 Varje fråga har: id, modul, svårighet (1–3), frågetext, svar, **förklaring**, **lagrum** och
-taggar. Förklaringen är det viktigaste fältet. Där lär hon sig något även när hon svarar rätt.
+taggar. Förklaringen är det viktigaste fältet. Där lär sig studenten något även vid rätt svar.
 
 ## Studielägen
 
 - **Snabbquiz**: 10 slumpade frågor ur valda moduler. Resultat direkt.
 - **Modulgenomgång**: alla frågor i en modul i pedagogisk ordning, med förklaringar.
-- **Repetition**: appen väljer frågor hon haft fel på eller inte sett på länge. Bygger på
+- **Repetition**: appen väljer frågor studenten haft fel på eller inte sett på länge. Bygger på
   spaced repetition (FSRS eller förenklad SM-2). Det här är läget som gör skillnad över tid.
-- **Instudering**: öppna frågor hon besvarar skriftligt, jämför mot facit och markerar själv
-  vad hon hade med. Svaren sparas så pappa kan läsa dem.
+- **Instudering**: öppna frågor studenten besvarar skriftligt, jämför mot facit och markerar själv
+  vad studenten hade med. Svaren sparas så handledaren kan läsa dem.
 - **Tentaläge**: tidsbegränsat, blandade typer, ingen hjälp, resultat i slutet. Tränar inför
   riktiga tentor.
 - **Ärenden**: se [03-arendesimulator.md](03-arendesimulator.md).
@@ -89,9 +89,9 @@ Se [content/README.md](../content/README.md) för hur frågor och ärenden skriv
 ## Källor och rättsläge
 
 **Normkälla är boken *Lagtextens byggregler 2026-01-01* (Svensk Byggtjänst)**, som den
-studerande använder i utbildningen och som pappa tipsade om. Den samlar PBL, PBF, Boverkets
+studerande använder i utbildningen och som handledaren tipsade om. Den samlar PBL, PBF, Boverkets
 författningar och angränsande regler med sakregister. Alla lagrum i appen ska gå att slå upp
-där, och Uppslag-vyn bör följa bokens indelning så att hon hittar snabbt i båda.
+där, och Uppslag-vyn bör följa bokens indelning så att studenten hittar snabbt i båda.
 
 Två saker gör rättsläget extra viktigt just nu:
 
@@ -106,30 +106,30 @@ Två saker gör rättsläget extra viktigt just nu:
 Konsekvenser för innehållet:
 
 - Varje fråga och ärende har `rattslage` (vilket rättsläge det skrevs mot) och `status`
-  (`utkast` tills pappa granskat mot boken, därefter `granskad`). Appen visar en diskret
+  (`utkast` tills handledaren granskat mot boken, därefter `granskad`). Appen visar en diskret
   markering på utkast.
 - Lagrum där paragrafnumret inte är kontrollerat efter omskrivningen märks `lagrum_osaker`
   och visas med ett frågetecken. Hellre "PBL 9 kap." än ett gissat paragrafnummer.
 - AI-genererat innehåll (inklusive det som skrivs under fas 1) är alltid `utkast`. Modellernas
   träningsdata kan vara äldre än lagändringen.
 - Äldre begrepp (friggebod, attefall) får förekomma i frågor som uttryckligen kontrasterar
-  "före" och "nu", eftersom hon kommer möta dem i äldre kurslitteratur och i verkligheten.
-- Granskningsrunda med pappa och boken är ett eget steg i varje innehållsleverans.
+  "före" och "nu", eftersom studenten kommer möta dem i äldre kurslitteratur och i verkligheten.
+- Granskningsrunda med handledaren och boken är ett eget steg i varje innehållsleverans.
 
 ## Att producera innehåll
 
 Realistiskt arbetsflöde för att få fram bra material:
 
-1. Pappa berättar ett verkligt (anonymiserat) ärende muntligt. Spela gärna in eller
-   anteckna i punktform; han ska inte behöva skriva något själv.
-2. Storebror eller en AI-assistent strukturerar det till `arende.yaml` med steg, handlingar
-   och facit enligt mallen. En bra fråga att ställa honom per ärende: "Vad gjorde
+1. Handledaren berättar ett verkligt (anonymiserat) ärende muntligt. Spela gärna in eller
+   anteckna i punktform; handledaren ska inte behöva skriva något själv.
+2. Utvecklaren eller en AI-assistent strukturerar det till `arende.yaml` med steg, handlingar
+   och facit enligt mallen. En bra fråga att ställa handledaren per ärende: "Vad gjorde
    handläggaren fel första gången?" Det blir händelserna.
 3. Handlingar tas fram: enkla ritningar kan genereras som SVG från parametrar (mått, höjder,
    avstånd), ansökningsblanketter och plankartor som PDF/PNG. Riktiga offentliga handlingar
    ska inte användas rakt av.
-4. Pappa läser igenom facit och bedömningspunkter. Hans namn står inte i appen, men hans
-   erfarenhet står i facit.
+4. Handledaren läser igenom facit och bedömningspunkter. Handledarens namn står inte i appen,
+   men erfarenheten står i facit.
 
 Mål för första versionen: 1 ärende per nivå (3 st) och ca 150 frågor fördelade på modul 1–6.
 Mål efter ett halvår: 15–20 ärenden och 600+ frågor.

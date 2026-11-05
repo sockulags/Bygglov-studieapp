@@ -47,7 +47,8 @@ describe('system prompt', () => {
     expect(TUTOR_ROLE).toContain('osäker');
     expect(TUTOR_ROLE).toContain('2025-12-01');
     expect(TUTOR_ROLE).toContain('Lagtextens byggregler 2026-01-01');
-    expect(TUTOR_ROLE).toContain('pappa');
+    expect(TUTOR_ROLE).toContain('handledaren');
+    expect(TUTOR_ROLE).not.toMatch(/pappa|\bhon\b|\bhennes\b|\bhenne\b|\bhonom\b/i);
     expect(TUTOR_ROLE).toContain('Avslöja aldrig facit');
     expect(TUTOR_ROLE).toContain('motfråga');
   });

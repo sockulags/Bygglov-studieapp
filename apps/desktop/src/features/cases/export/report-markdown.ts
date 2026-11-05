@@ -53,7 +53,7 @@ export function renderDecisionReportMarkdown(
   }
   push('', inline(report.deadline.summary), '');
 
-  push('## Hennes beslut', '');
+  push('## Studentens beslut', '');
   push(`**${d.outcomeLabel}**`);
   push(`- Lagstöd: ${d.lawRefs.length > 0 ? d.lawRefs.map(inline).join(', ') : 'inget angivet'}`);
   push(
@@ -88,7 +88,7 @@ export function renderDecisionReportMarkdown(
   if (report.criteria.length === 0) push('_Inga bedömningspunkter._');
   push('');
 
-  push('## Hennes anteckningar', '', quote(report.notes ?? '', 'Inga anteckningar.'), '');
+  push('## Studentens anteckningar', '', quote(report.notes ?? '', 'Inga anteckningar.'), '');
   for (const w of report.writings) {
     push(`**${inline(w.title)}**`, '', quote(w.text, ''), '');
   }

@@ -180,6 +180,6 @@ Kolumnen "före" är ungefärlig och finns bara för igenkänning i äldre kursl
 
 1. Skriv lagrum med numreringen i kolumnen "nu". Då behövs inte `lagrum_osaker`.
 2. Vid tveksamhet: sök i `pbl-9-kap.txt` efter nyckelord i stället för att minnas.
-3. Pappa granskar mot Lagtextens byggregler 2026-01-01 och sätter `status: granskad`.
+3. Handledaren granskar mot Lagtextens byggregler 2026-01-01 och sätter `status: granskad`.
 4. Nya ändringar: riksdagen.se visar "Ändrad t.o.m." högst upp. Uppdatera filerna här när
    den uppgiften ändras.

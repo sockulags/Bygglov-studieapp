@@ -4,9 +4,9 @@ Det här är appens hjärta och det som skiljer den från ett vanligt quizverkty
 
 ## Idé
 
-Hon får ett bygglovsärende precis som det landar hos en handläggare: en ansökan med bilagor i
-ett diarium. Hon arbetar sig igenom ärendet steg för steg, fattar beslut och skriver motivering.
-Men ärendet är inte statiskt. Beroende på vad hon gör, och ibland oavsett, händer saker:
+Studenten får ett bygglovsärende precis som det landar hos en handläggare: en ansökan med bilagor i
+ett diarium. Studenten arbetar sig igenom ärendet steg för steg, fattar beslut och skriver motivering.
+Men ärendet är inte statiskt. Beroende på vad studenten gör, och ibland oavsett, händer saker:
 kompletteringar droppar in, en granne hör av sig, en remissinstans svarar, någon överklagar.
 Precis som i verkligheten är den första ansökan sällan den sista versionen.
 
@@ -59,20 +59,20 @@ Tre paneler, som ett ärendehanteringssystem fast snyggare:
 
 Ovanför: ärendets rubrik, fastighetsbeteckning, dagens datum i simuleringen, dagar sedan
 ansökningsdagen (räknar mot tioveckorsgränsen i 9 kap. 99 §; efter ett föreläggande inom tre
-veckor i stället från kompletteringen), och hennes "att göra".
+veckor i stället från kompletteringen), och studentens "att göra".
 
 ## Simulerad tid
 
-Varje ärende har en intern kalender. När hon slutför ett steg eller väntar på svar går tiden
+Varje ärende har en intern kalender. När studenten slutför ett steg eller väntar på svar går tiden
 framåt. Grannehörande tar två veckor. Komplettering tar den tid sökanden behöver. Det gör
-handläggningstid (9 kap. 99 §) och avgiftsreduktion (12 kap. 8 a §) till något hon känner av,
+handläggningstid (9 kap. 99 §) och avgiftsreduktion (12 kap. 8 a §) till något studenten känner av,
 inte bara läser om.
 
 ## Steg och uppgifter
 
 Varje steg definieras i `arende.yaml` med en typ:
 
-| Stegtyp | Vad hon gör | Rättning |
+| Stegtyp | Vad studenten gör | Rättning |
 | --- | --- | --- |
 | `checklista` | Bocka av vad som finns/saknas i ansökan | Automatisk mot facit |
 | `fraga` | Flerval eller öppen fråga i kontext ("Kräver åtgärden lov?") | Automatisk/själv |
@@ -83,7 +83,7 @@ Varje steg definieras i `arende.yaml` med en typ:
 
 ## Beslutsmallen
 
-Formuläret följer hur ett riktigt beslut ser ut, så att hon tränar rätt form:
+Formuläret följer hur ett riktigt beslut ser ut, så att studenten tränar rätt form:
 
 1. **Beslut** (bevilja / bevilja med villkor / avslå / avvisa / avskriva)
 2. **Lagstöd för beslutet** (välj lagrum ur lista + fritext)
@@ -103,8 +103,8 @@ Utlösare kan vara:
 
 - `efter_steg: S3` (tiden går, något inkommer)
 - `vid_beslut: bevilja` / `vid_beslut: avsla`
-- `om_missat: S5` (hon beviljade utan att höra grannar → överklagande)
-- `om_forelagt: komplettering` (hon begärde komplettering → handlingar inkommer, delvis)
+- `om_missat: S5` (studenten beviljade utan att höra grannar → överklagande)
+- `om_forelagt: komplettering` (studenten begärde komplettering → handlingar inkommer, delvis)
 - `slump: 0.3` (ibland händer saker utan anledning, precis som i verkligheten)
 
 Effekter kan vara:
@@ -113,16 +113,16 @@ Effekter kan vara:
 - ändrade fakta ("sökanden har reviderat ritningarna, byggnadshöjden är nu 4,2 m")
 - nytt steg som skjuts in ("Yttrande från granne, ta ställning")
 - tiden går framåt
-- ärendet tar en ny väg (överklagande → hon skriver nämndens yttrande till länsstyrelsen)
+- ärendet tar en ny väg (överklagande → studenten skriver nämndens yttrande till länsstyrelsen)
 
-Exempel på klassiska händelser som pappa säkert känner igen:
+Exempel på klassiska händelser som en erfaren handläggare säkert känner igen:
 
 - Sökanden skickade in situationsplan på ett gammalt kartunderlag; den nya visar en ledning.
 - Kontrollansvarig saknas i ansökan, dyker upp först efter föreläggande.
 - Grannen som "inte hade något emot det" muntligt skickar ett skriftligt yttrande dag 13.
 - Räddningstjänstens remissvar kräver ändrad utrymningsväg.
 - Byggherren började bygga innan startbesked. Nu är det ett tillsynsärende också.
-- Efter beviljat lov inkommer överklagande från en granne som inte hördes. Var hon sakägare?
+- Efter beviljat lov inkommer överklagande från en granne som inte hördes. Var grannen sakägare?
 
 ## Bedömning och facit
 
@@ -136,12 +136,12 @@ Varje ärende har ett **facit** och en **bedömningsmall**:
   - "Överklagandehänvisning finns"
   - "Anger lagrum korrekt"
 - Ett **modellbeslut**, skrivet som en erfaren handläggare skulle skriva det, som visas efter
-  att hon lämnat in sitt.
+  att studenten lämnat in sitt.
 - **Vanliga fel** som appen kan påpeka direkt om de syns i strukturerade fält (t.ex. beviljat
   utan att ha kört grannehörande när planavvikelse föreligger).
 
-Hennes beslut och appens bedömningspunkter kan sedan exporteras som en **beslutsrapport**
-(PDF eller delbar text) som hon skickar till pappa. Han svarar med sin bedömning, antingen
+Studentens beslut och appens bedömningspunkter kan sedan exporteras som en **beslutsrapport**
+(PDF eller delbar text) som studenten skickar till handledaren. Handledaren svarar med sin bedömning, antingen
 muntligt eller via handledarvyn (fas 3).
 
 ## Svårighetsnivåer
@@ -175,7 +175,7 @@ Planen ovan är byggd. Det här är hur den faktiskt fungerar och var den avvike
   fel svar och steg som aldrig gjordes före beslutet. Ett `urval`-steg räknas som underrättelse
   av grannar.
 - **Simulerad tid och frist**: tioveckorsfristen i 9 kap. 99 § räknas från ansökningsdagen.
-  Förelägger hon om komplettering inom tre veckor räknas den i stället från den dag
+  Förelägger studenten om komplettering inom tre veckor räknas den i stället från den dag
   kompletteringen kommer in; fram till dess står fristen still. Avgiften reduceras med en
   femtedel per påbörjad vecka (12 kap. 8 a §). När beslutet är fattat visar rubrikraden om det
   kom i tid. Motorn kan förlänga fristen en gång (99 § andra stycket), men ärendevyn har ingen
@@ -184,18 +184,18 @@ Planen ovan är byggd. Det här är hur den faktiskt fungerar och var den avvike
 - **Beslutsmallen** har de sju delarna ovan med levande A4-förhandsvisning. Bedömningspunkterna
   visas först efter inlämning, eftersom de i praktiken avslöjar svaret; formuläret ger bara
   allmänna ledtrådar (lagrum, taxa, reduktionsregeln). Saknas överklagandehänvisning eller
-  annat säger formuläret till, men hon kan lämna in ändå och få det underkänt.
+  annat säger formuläret till, men studenten kan lämna in ändå och få det underkänt.
 - **Kontrollerna** efter inlämning: utfall, lagstöd (med varning för gammal numrering),
   motivering, överklagandehänvisning, underrättelse, avgift och expediering (delgivning av
   sökanden, fastighetsägaren och grannar som yttrat sig, meddelande till övriga), med lagrum.
   Upplysningar enligt 105 § (startbesked, giltighetstid, kontrollansvarig) ges som tips.
   Utfallskontrollen godtar bara `forvantat_beslut`; godtagbara alternativ (som frivilligt lov
   i A001) står bland bedömningspunkterna.
-- **Jämförelsevyn** visar hennes beslut, modellbeslutet och kontrollerna sida vid sida, med
+- **Jämförelsevyn** visar studentens beslut, modellbeslutet och kontrollerna sida vid sida, med
   bedömningspunkter att bocka av, vanliga fel och "Egna reflektioner".
 - **Export och handledare**: "Exportera till handledare" ger beslutsrapporten som PDF (via
-  utskrift), HTML-fil eller text att klistra in i sms eller mejl. Hennes reflektioner följer
-  med. Pappas bedömning (Godkänt, Komplettera eller Gör om, med kommentar) skrivs in i appen
+  utskrift), HTML-fil eller text att klistra in i sms eller mejl. Studentens reflektioner följer
+  med. Handledarens bedömning (Godkänt, Komplettera eller Gör om, med kommentar) skrivs in i appen
   under "Handledarens bedömning", i jämförelsevyn eller under Mina resultat. Då blir ärendet
   "Bedömt". Handledarportalen är fortfarande fas 3.
 - **Handlingar** är Markdown (visas som A4-papper med INKOM-stämpel) och SVG-ritningar som
@@ -220,7 +220,7 @@ Planen ovan är byggd. Det här är hur den faktiskt fungerar och var den avvike
   ingen förlängning dessförinnan, och beslutet heter "Beslut i tillsynsärende om …". Ett eget
   beslutsutfall för ingripande finns inte än; avgiften och föreläggandet skrivs i motiveringen.
 - **Mätverktyget.** Generatorn skriver skala och koordinatsystem i varje ritning. I visaren mäter
-  hon avstånd (Mät, tangenten M) och ytor (Yta) i meter och kvadratmeter, med snäppning till
+  studenten avstånd (Mät, tangenten M) och ytor (Yta) i meter och kvadratmeter, med snäppning till
   hörn och linjer, även när ritningen är zoomad.
 - **Ritningsgeneratorn** kan visa avvikelse mot lov och lovets kontur (situationsplan),
   parkering med platser, balkonger, öppningar som är nya eller ska bort, skyltar,

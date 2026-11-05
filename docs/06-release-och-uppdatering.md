@@ -1,6 +1,6 @@
 # 06 · Release och automatisk uppdatering
 
-Målet: hon installerar appen **en gång**. Därefter får hon en dialog "Ny version finns" när vi
+Målet: studenten installerar appen **en gång**. Därefter får studenten en dialog "Ny version finns" när vi
 släppt något, trycker en knapp, och appen startar om uppdaterad.
 
 ## Flöde
@@ -47,26 +47,26 @@ släppt något, trycker en knapp, och appen startar om uppdaterad.
 
 ## Kodsignering
 
-**Beslut: hon har Windows. Vi bygger bara för Windows och signerar inte.** SmartScreen
+**Beslut: studenten har Windows. Vi bygger bara för Windows och signerar inte.** SmartScreen
 varnar vid första installationen, därefter sköter Tauris uppdaterare resten utan varningar.
-Installationsguiden visar exakt vad hon ska klicka på. Tabellen nedan sparas som referens
+Installationsguiden visar exakt vad studenten ska klicka på. Tabellen nedan sparas som referens
 om en Mac dyker upp i framtiden.
 
 | OS | Utan signering | Med signering |
 | --- | --- | --- |
 | **Windows** | Fungerar. SmartScreen varnar vid första installationen ("Mer info" → "Kör ändå"). Uppdateringar via Tauri fungerar därefter. | Certifikat kostar ca 2 000–4 000 kr/år. Inte värt det för en användare. |
-| **macOS** | Gatekeeper blockerar osignerade appar. Går runt med högerklick → Öppna första gången, men uppdateraren kan strula med osignerade/icke-notariserade paket. | Apple Developer Program 99 USD/år. Signering + notarisering i CI gör allt smärtfritt. Rekommenderas om hon har Mac. |
+| **macOS** | Gatekeeper blockerar osignerade appar. Går runt med högerklick → Öppna första gången, men uppdateraren kan strula med osignerade/icke-notariserade paket. | Apple Developer Program 99 USD/år. Signering + notarisering i CI gör allt smärtfritt. Rekommenderas om studenten har Mac. |
 
 NSIS-installern väljs framför MSI: den kan installeras per användare utan adminrättigheter
 och uppdateraren hanterar den smidigast.
 
 ## Versionshantering
 
-- Semver. `0.x` tills ärendesimulatorn är stabil, `1.0` när pappa säger att ett case känns
+- Semver. `0.x` tills ärendesimulatorn är stabil, `1.0` när handledaren säger att ett case känns
   "på riktigt".
 - Versionen sätts på ett ställe (`package.json`) och synkas till `tauri.conf.json` och
   `Cargo.toml` av ett skript, så det inte glöms.
-- Release notes skrivs på svenska och i hennes språk: "Nytt ärende: Tillbyggnad på prickmark.
+- Release notes skrivs på svenska och på vardagsspråk: "Nytt ärende: Tillbyggnad på prickmark.
   40 nya frågor om tillsyn. Fixat att repetitionen ibland visade samma fråga två gånger."
   Dessa visas i appen under "Vad är nytt" efter uppdatering.
 
@@ -74,7 +74,7 @@ och uppdateraren hanterar den smidigast.
 
 Skriv `docs/installera.md` med skärmbilder när första releasen finns:
 
-1. Gå till release-sidan (eller få länken av storebror).
+1. Gå till release-sidan (eller få länken av utvecklaren).
 2. Ladda ner `Bygglov-studieapp_x.y.z_x64-setup.exe`.
 3. Klicka "Mer info" och sedan "Kör ändå" i SmartScreen-rutan (bild i guiden).
 4. Klart. Appen sköter resten.

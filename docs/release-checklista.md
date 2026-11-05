@@ -2,7 +2,7 @@
 
 > **Läget 2026-11-04.** Steg 1 och 2 är redan gjorda: nyckelparet skapades i Claude-sessionen
 > utan lösenord, den publika nyckeln ligger i `tauri.conf.json` och den privata lämnades över till
-> storebror för att läggas in som secret och i lösenordshanteraren. Det som återstår är steg 3
+> utvecklaren för att läggas in som secret och i lösenordshanteraren. Det som återstår är steg 3
 > (en enda secret, `TAURI_SIGNING_PRIVATE_KEY`) och sedan första taggen. Workflowet
 > `Bygg-kontroll (Windows)` kan köras när som helst från fliken Actions för att testa bygget utan
 > att publicera något; det ger en installer som artefakt.
@@ -11,13 +11,13 @@
 > Workflowet taggar då själv `v<version i package.json>` på senaste commiten och publicerar.
 > Det är så releaser startas från Claude-sessionen, vars git-proxy inte tillåter tagg-pushar.
 
-Så släpper storebror en ny version av Bygglov-studieapp. Bakgrunden står i
-[06-release-och-uppdatering.md](06-release-och-uppdatering.md); hur hon installerar första
+Så släpper utvecklaren en ny version av Bygglov-studieapp. Bakgrunden står i
+[06-release-och-uppdatering.md](06-release-och-uppdatering.md); hur studenten installerar första
 gången står i [installera.md](installera.md).
 
 Kort version: **CHANGELOG → `pnpm version:sync` → commit → tagg `vX.Y.Z` → push → vänta på
-Actions → kontrollera releasen.** Appen hos henne hittar den nya versionen inom sex timmar,
-eller direkt när hon startar appen.
+Actions → kontrollera releasen.** Appen hos studenten hittar den nya versionen inom sex timmar,
+eller direkt när studenten startar appen.
 
 ## Engångsförberedelser (före första releasen)
 
@@ -44,7 +44,7 @@ skapar två filer:
 > **VARNING: Säkerhetskopiera den privata nyckeln och lösenordet.** Lägg innehållet i
 > `bygglov.key` och lösenordet i lösenordshanteraren (till exempel som en säker anteckning)
 > innan du går vidare. **Förloras nyckeln kan de installationer som redan finns aldrig mer
-> uppdateras automatiskt.** Då måste hon ladda ner och installera en ny version för hand, med
+> uppdateras automatiskt.** Då måste studenten ladda ner och installera en ny version för hand, med
 > SmartScreen och allt. Det finns inget sätt att återskapa nyckeln.
 
 ### 2. Klistra in den publika nyckeln i appen
@@ -111,7 +111,7 @@ Exemplet släpper `0.2.0`. Byt mot rätt version.
   - Repetitionen visade ibland samma fråga två gånger.
   ```
 
-- [ ] Skriv för henne, inte för en programmerare. Texten blir både beskrivningen på
+- [ ] Skriv för studenten, inte för en programmerare. Texten blir både beskrivningen på
       GitHub-releasen, rutan *Vad är nytt i version …* i uppdateringsbannern och dialogen
       *Vad är nytt* efter uppdateringen.
 - [ ] Lämna `## [Oförsläppt]` kvar, tom, överst.
@@ -194,7 +194,7 @@ På **<https://github.com/sockulags/Bygglov-studieapp/releases>**:
   ```
 
 - **En release skapades men är trasig:** ta bort releasen på GitHub och taggen enligt ovan,
-  rätta och släpp igen. Har hon hunnit uppdatera till en trasig version går det inte att
+  rätta och släpp igen. Har studenten hunnit uppdatera till en trasig version går det inte att
   backa via uppdateraren; släpp i stället en ny patchversion (`0.2.1`) med rättelsen.
 - **Fel om signering eller nyckeln i loggen:** `TAURI_SIGNING_PRIVATE_KEY` ska innehålla
   filens innehåll, inte sökvägen, och `TAURI_SIGNING_PRIVATE_KEY_PASSWORD` ska stämma.
@@ -203,4 +203,4 @@ På **<https://github.com/sockulags/Bygglov-studieapp/releases>**:
 
 Semver: `0.x` tills ärendesimulatorn är stabil. Höj **patch** (`0.2.0 → 0.2.1`) för
 rättelser, **minor** (`0.2.1 → 0.3.0`) för nytt innehåll eller nya funktioner. `1.0.0` när
-pappa säger att ett case känns "på riktigt".
+handledaren säger att ett case känns "på riktigt".

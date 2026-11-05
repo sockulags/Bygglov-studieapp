@@ -143,7 +143,7 @@ describe('case store', () => {
       marks: [true, true, true, false, false, false, false],
     });
     markCaseDocumentSeen(a002, 'H2');
-    setCaseNotes(a002, 'Fråga pappa om prickmarken.');
+    setCaseNotes(a002, 'Fråga handledaren om prickmarken.');
     saveStepDraft(a002, 'S2', { text: 'Halvfärdigt föreläggande' });
     await flushCaseWrites();
     const before = active().state;
@@ -154,7 +154,7 @@ describe('case store', () => {
     const restored = active();
     expect(restored.state).toEqual(before);
     expect(restored.state.visibleDocuments.find((d) => d.documentId === 'H2')?.unseen).toBe(false);
-    expect(restored.notes).toBe('Fråga pappa om prickmarken.');
+    expect(restored.notes).toBe('Fråga handledaren om prickmarken.');
     expect(restored.drafts).toEqual({ S2: { text: 'Halvfärdigt föreläggande' } });
     expect(restored.lastOutcome).toBeNull();
   });

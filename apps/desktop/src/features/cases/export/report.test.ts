@@ -182,10 +182,10 @@ describe('renderDecisionReportHtml', () => {
   it('has every section, in order, with the model decision last', () => {
     const headings = [
       'Datumlinje',
-      'Hennes beslut',
+      'Studentens beslut',
       'Automatiska kontroller',
       'Bedömningspunkter',
-      'Hennes anteckningar och reflektioner',
+      'Studentens anteckningar och reflektioner',
       'Handledarens bedömning',
       'Bilaga: Modellbeslut',
     ];
@@ -208,7 +208,7 @@ describe('renderDecisionReportHtml', () => {
 
   it('shows the self-assessment marks', () => {
     expect(html).toContain('☑');
-    expect(html).toContain('(inte uppfyllt enligt henne)');
+    expect(html).toContain('(inte uppfyllt enligt studenten)');
   });
 
   it('escapes her text and drops raw HTML from the model decision', () => {
@@ -248,10 +248,10 @@ describe('renderDecisionReportMarkdown', () => {
     for (const heading of [
       '# Beslutsrapport:',
       '## Datumlinje',
-      '## Hennes beslut',
+      '## Studentens beslut',
       '## Automatiska kontroller',
       '## Bedömningspunkter',
-      '## Hennes anteckningar',
+      '## Studentens anteckningar',
       '## Handledarens bedömning',
     ]) {
       expect(md).toContain(heading);

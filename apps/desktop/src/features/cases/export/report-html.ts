@@ -135,7 +135,7 @@ function sectionDecision(report: DecisionReport): string {
           .join('')}</tbody></table>`
       : '<p class="empty">Ingen expediering angiven.</p>';
   return `<section>
-<h2>Hennes beslut</h2>
+<h2>Studentens beslut</h2>
 <div class="decision">
 <p class="meta">${escapeHtml(report.property)} · Beslutsdatum ${escapeHtml(date(report.decisionDate))}</p>
 <h3>Beslut</h3>
@@ -171,8 +171,8 @@ ${report.checks.items.map(checkRow).join('\n')}
 
 function sectionCriteria(report: DecisionReport): string {
   const intro = report.selfAssessed
-    ? 'Så här bockade hon själv av bedömningspunkterna.'
-    : 'Hon har inte bedömt sig själv mot bedömningspunkterna ännu.';
+    ? 'Så här bockade studenten själv av bedömningspunkterna.'
+    : 'Studenten har inte bedömt sig själv mot bedömningspunkterna ännu.';
   const items =
     report.criteria.length > 0
       ? `<ul class="criteria">${report.criteria
@@ -182,8 +182,8 @@ function sectionCriteria(report: DecisionReport): string {
               c.checked === null
                 ? ''
                 : c.checked
-                  ? ' <span class="small">(uppfyllt enligt henne)</span>'
-                  : ' <span class="small">(inte uppfyllt enligt henne)</span>';
+                  ? ' <span class="small">(uppfyllt enligt studenten)</span>'
+                  : ' <span class="small">(inte uppfyllt enligt studenten)</span>';
             return `<li><span class="mark">${mark}</span> ${escapeHtml(c.text)}${label}</li>`;
           })
           .join('')}</ul>`
@@ -220,7 +220,7 @@ function sectionNotes(report: DecisionReport): string {
       (w) => `<div class="writing"><h4>${escapeHtml(w.title)}</h4>${paragraphs(w.text, '')}</div>`,
     )
     .join('');
-  return `<section><h2>Hennes anteckningar och reflektioner</h2>${paragraphs(report.notes ?? '', 'Inga anteckningar.')}${
+  return `<section><h2>Studentens anteckningar och reflektioner</h2>${paragraphs(report.notes ?? '', 'Inga anteckningar.')}${
     writings ? `<h3>Skrivelser och svar under handläggningen</h3>${writings}` : ''
   }</section>`;
 }
@@ -252,7 +252,7 @@ function sectionAppendix(report: DecisionReport, render: (md: string) => string)
     report.appendix.commonMistakes.length > 0
       ? `<h3>Vanliga fel i ärendet</h3><ul>${report.appendix.commonMistakes.map((m) => `<li>${escapeHtml(m)}</li>`).join('')}</ul>`
       : '';
-  return `<section class="appendix"><h2>${escapeHtml(report.appendix.title)}</h2><p class="small">Modellbeslutet är ett facit skrivet för övningen. Det visades för henne först efter att hon lämnat in sitt beslut.</p>${body}${mistakes}</section>`;
+  return `<section class="appendix"><h2>${escapeHtml(report.appendix.title)}</h2><p class="small">Modellbeslutet är ett facit skrivet för övningen. Det visades för studenten först efter att beslutet lämnats in.</p>${body}${mistakes}</section>`;
 }
 
 export function renderDecisionReportHtml(

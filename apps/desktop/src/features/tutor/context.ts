@@ -223,7 +223,8 @@ function answerKey(question: Question): string[] {
 }
 
 function resultLine(graded: GradeResult): string {
-  if (graded.kind === 'self_graded') return 'Resultat: hon jämför själv med bedömningspunkterna.';
+  if (graded.kind === 'self_graded')
+    return 'Resultat: studenten jämför själv med bedömningspunkterna.';
   const head =
     graded.outcome === 'correct'
       ? 'Rätt'
@@ -250,9 +251,9 @@ export function buildQuestionContext(
     '',
   ];
   if (!answered) {
-    lines.push('Hon har inte svarat på frågan ännu.');
+    lines.push('Studenten har inte svarat på frågan ännu.');
   } else {
-    lines.push(`Hennes svar: ${describeAnswer(question, answer) ?? 'okänt'}`);
+    lines.push(`Studentens svar: ${describeAnswer(question, answer) ?? 'okänt'}`);
     if (graded) lines.push(resultLine(graded));
     lines.push('', ...answerKey(question));
     const explanation = graded?.explanation ?? question.forklaring ?? null;
@@ -325,7 +326,7 @@ function stepBody(step: CaseStep): string[] {
     case 'fraga':
       lines.push(`Fråga: ${step.fraga}`);
       if (step.alternativ) lines.push('Alternativ:', numbered(step.alternativ.map((a) => a.text)));
-      if (step.fragetyp === 'sant_falskt') lines.push('Hon svarar sant eller falskt.');
+      if (step.fragetyp === 'sant_falskt') lines.push('Studenten svarar sant eller falskt.');
       break;
     case 'berakning':
       lines.push(
@@ -337,11 +338,11 @@ function stepBody(step: CaseStep): string[] {
       lines.push('Välj bland:', numbered(step.alternativ.map((a) => a.text)));
       break;
     case 'skrivelse':
-      lines.push('Hon skriver en egen text.');
+      lines.push('Studenten skriver en egen text.');
       break;
     case 'beslut':
       lines.push(
-        'Hon fyller i beslutsmallen: utfall, lagstöd, motivering, villkor och upplysningar, avgift, överklagandehänvisning och expediering.',
+        'Studenten fyller i beslutsmallen: utfall, lagstöd, motivering, villkor och upplysningar, avgift, överklagandehänvisning och expediering.',
       );
       break;
   }
@@ -380,7 +381,7 @@ function describeDraft(caseFile: CaseFile, draft: DecisionDraft): string[] {
 function answerKeyForDecision(caseFile: CaseFile, decision: SubmittedDecision): string[] {
   const { assessment } = decision;
   const lines: string[] = [
-    `FACIT (hon har lämnat in beslutet ${decision.date})`,
+    `FACIT (studenten har lämnat in beslutet ${decision.date})`,
     `Förväntat utfall: ${decisionOutcomeLabel(assessment.expectedOutcome, caseFile)}`,
     `Automatiska kontroller, ${assessment.passedChecks} av ${assessment.totalChecks} godkända:`,
     list(
@@ -394,8 +395,8 @@ function answerKeyForDecision(caseFile: CaseFile, decision: SubmittedDecision): 
     const checked = new Set(decision.checkedCriteria ?? []);
     lines.push(
       decision.checkedCriteria === null
-        ? 'Bedömningspunkter (hon har inte bockat av dem ännu):'
-        : 'Bedömningspunkter (bockad = hon anser att hon uppfyller den):',
+        ? 'Bedömningspunkter (studenten har inte bockat av dem ännu):'
+        : 'Bedömningspunkter (bockad = studenten anser att punkten är uppfylld):',
       list(
         assessment.criteria.map((c, i) =>
           decision.checkedCriteria === null ? c : `${checked.has(i) ? '[x]' : '[ ]'} ${c}`,
@@ -497,18 +498,18 @@ export function buildCaseContext(
 
   if (options.draft && !decision) {
     head.push(
-      `Hennes beslutsutkast (inte inlämnat):\n${describeDraft(caseFile, options.draft).join('\n')}`,
+      `Studentens beslutsutkast (inte inlämnat):\n${describeDraft(caseFile, options.draft).join('\n')}`,
     );
   }
   if (decision) {
     head.push(
-      `Hennes inlämnade beslut (${decision.date}):\n${describeDraft(caseFile, decision.draft).join('\n')}`,
+      `Studentens inlämnade beslut (${decision.date}):\n${describeDraft(caseFile, decision.draft).join('\n')}`,
     );
   }
   if (withKey) head.push(answerKeyForDecision(caseFile, decision).join('\n'));
 
   const notes = options.notes?.trim() ?? '';
-  if (notes !== '') head.push(`Hennes anteckningar:\n${clipText(notes, 1500)}`);
+  if (notes !== '') head.push(`Studentens anteckningar:\n${clipText(notes, 1500)}`);
   if (withKey && options.modelDecisionText) {
     head.push(`Modellbeslut:\n${clipText(options.modelDecisionText, 3000)}`);
   }
@@ -533,7 +534,7 @@ export function buildCaseContext(
   );
 
   const headText = head.join('\n\n');
-  const docsTitle = '\n\nHandlingar som hon kan se:\n';
+  const docsTitle = '\n\nHandlingar som studenten kan se:\n';
   const budget = maxChars - headText.length - docsTitle.length;
   const docsText =
     docs.length > 0 && budget > 200 ? docsTitle + fitDocuments(docs, budget).join('\n\n') : '';
@@ -575,12 +576,12 @@ export function buildGeneralContext(status: StudyStatus): TutorContext {
   const modules = status.modules.filter((m) => m.questionCount > 0);
   const due = modules.reduce((sum, m) => sum + m.due, 0);
   const lines: string[] = [
-    'Hon är på startsidan i studieappen och har ingen särskild fråga öppen.',
+    'Studenten är på startsidan i studieappen och har ingen särskild fråga öppen.',
   ];
   if (modules.length > 0) {
     lines.push(
       '',
-      'Behärskning per modul (räknas på repetitionsdata, 100 % = hon kan frågorna flera veckor framåt):',
+      'Behärskning per modul (räknas på repetitionsdata, 100 % = studenten kan frågorna flera veckor framåt):',
       list(
         modules.map(
           (m) =>

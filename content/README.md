@@ -39,7 +39,7 @@ Lägg frågan sist i listan `fragor:` i rätt modulfil. Id ska vara unikt i allt
     rattslage: "2025-12-01"
     fraga: Ett beviljat bygglov gäller som huvudregel omedelbart, även innan det fått laga kraft.
     svar: true
-    forklaring: >             # det viktigaste fältet: här lär hon sig något
+    forklaring: >             # det viktigaste fältet: här lär studenten sig något
       Enligt 9 kap. 114 § PBL gäller lovet omedelbart. Fyraveckorsregeln är borta. Nämnden ska
       dock skjuta upp verkan till laga kraft vid risk för oåterkalleliga skador på t.ex.
       natur- eller kulturvärden.
@@ -155,7 +155,7 @@ Så tolkar ärendemotorn ärendet (bra att veta när du skriver):
   med någon av dem, efter reduktion enligt 12 kap. 8 a §.
 - Vilande enligt 9 kap. 102 §: `vilande: strandskydd` (eller `expropriation`, `planarbete`,
   första stycket 1–3) på ett steg förklarar ärendet vilande den dag steget görs, men bara om
-  steget besvaras rätt (hon valde att låta ärendet vila). Samma fält finns som effekt på en
+  steget besvaras rätt (studenten valde att låta ärendet vila). Samma fält finns som effekt på en
   händelse. `vilande_upphor: true` på en händelse avslutar vilandet den dag händelsen
   inträffar, t.ex. när dispensbeslutet kommer in. Diariet visar "Ärendet förklaras vilande …"
   och "Vilandeförklaringen upphör …". Medan ärendet vilar löper inte tioveckorsfristen, och
@@ -164,7 +164,7 @@ Så tolkar ärendemotorn ärendet (bra att veta när du skriver):
 
 ### Mallvariabler i texter
 
-Datum som beror på när hon gör något, främst efter beslutet, skrivs som mallvariabler. De
+Datum som beror på när studenten gör något, främst efter beslutet, skrivs som mallvariabler. De
 fungerar i stegens texter (även steg som skjuts in), i händelsernas `meddelande` och i
 Markdown-handlingar (även modelltexter). Motorn fyller i meddelandet när händelsen inträffar,
 och appen fyller i steg och handlingar när de visas.
@@ -310,7 +310,7 @@ Gemensamt för alla ritningstyper:
 | `grannar` | Fastighetsbeteckningar per sida: `{ norr, oster, soder, vaster }` |
 | `grannhus` | Grannarnas hus i samma koordinater (får ligga utanför tomten): en rektangel, eller `{ rektangel, namn }` som får etikett, t.ex. "Kvarnen" |
 | `norr_vinkel` | Norrpilens vridning i grader (0 = norr uppåt) |
-| `visa_areor` | `true` skriver ut tomtarea och byggnadsareor (av som standard, hon ska mäta själv) |
+| `visa_areor` | `true` skriver ut tomtarea och byggnadsareor (av som standard, studenten ska mäta själv) |
 
 Måttkedjor ritas automatiskt: tomtens mått, husets och de nya delarnas läge mot gränserna,
 utfartens läge och prickmarkens djup. Generatorn flyttar måttkedjor och fastighetsnamnet så
