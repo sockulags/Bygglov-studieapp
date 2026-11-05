@@ -6,6 +6,7 @@ import {
   FolderX,
   Hourglass,
   Keyboard,
+  LayoutList,
   MapPin,
   Play,
   RotateCcw,
@@ -39,6 +40,7 @@ import {
 import { AskTutorButton, DECISION_SUGGESTIONS, useCaseTutorContext } from '@/features/tutor';
 import { cn } from '@/lib/cn';
 import { useKeydown } from '@/lib/use-keydown';
+import { setCaseReturn } from '@/store/case-return';
 import { useUiStore } from '@/store/ui';
 import {
   CASE_LIST_STATUS_LABELS,
@@ -61,6 +63,7 @@ import {
   useCaseStore,
   type ActiveCase,
 } from './case-store';
+import { CaseOverview } from './case-overview';
 import { DecisionComparison } from './decision/decision-comparison';
 import { DecisionScreen } from './decision/decision-screen';
 import { ExportSlot } from './decision/export-slot';
@@ -232,9 +235,13 @@ function CaseWorkspace({
   const actionError = useCaseStore((s) => s.actionError);
   const diaryNumber = useDiaryNumber(caseFile);
 
-  const [selectedId, setSelectedId] = useState<string | null>(
-    () => state.visibleDocuments[0]?.documentId ?? null,
-  );
+  // Uppslag links back here after a detour to a lagrum or a term.
+  useEffect(() => {
+    setCaseReturn({ caseId: sourceCase.id, label: `${sourceCase.id} · ${sourceCase.titel}` });
+  }, [sourceCase.id, sourceCase.titel]);
+
+  // The case opens on its overview; a document takes the middle once it is opened.
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [panel, setPanel] = useState<PanelId>('arbete');
   const [decisionOpen, setDecisionOpen] = useState(false);
   const [comparisonOpen, setComparisonOpen] = useState(false);
@@ -245,14 +252,14 @@ function CaseWorkspace({
   const overlayOpen =
     decisionOpen || comparisonOpen || writingStepId !== null || restartOpen || extendOpen;
 
-  // The document shown first counts as read.
-  useEffect(() => {
-    if (selectedId) markCaseDocumentSeen(caseFile, selectedId);
-  }, [caseFile, selectedId]);
-
   const openDocument = (documentId: string) => {
     setSelectedId(documentId);
     markCaseDocumentSeen(caseFile, documentId);
+    if (!wide) setPanel('handling');
+  };
+
+  const showOverview = () => {
+    setSelectedId(null);
     if (!wide) setPanel('handling');
   };
 
@@ -262,8 +269,7 @@ function CaseWorkspace({
       setHelpOpen((v) => !v);
     } else if (event.key === 'Escape' && selectedId !== null) {
       event.preventDefault();
-      setSelectedId(null);
-      if (!wide) setPanel('arbete');
+      showOverview();
     }
   }, !overlayOpen && !helpOpen);
 
@@ -427,7 +433,7 @@ function CaseWorkspace({
                   panel === p.id ? 'bg-accent-soft text-ink' : 'text-muted hover:text-ink',
                 )}
               >
-                {p.label}
+                {p.id === 'handling' && selectedId === null ? 'Översikt' : p.label}
                 {unseen && (
                   <span
                     className="ml-1.5 inline-block size-2 rounded-full bg-brick"
@@ -458,6 +464,22 @@ function CaseWorkspace({
             </h2>
           )}
           <div className="min-h-0 flex-1 overflow-auto">
+            <div className="px-3 pt-3">
+              <button
+                type="button"
+                onClick={showOverview}
+                aria-current={selectedId === null ? 'page' : undefined}
+                className={cn(
+                  'flex w-full items-center gap-2 rounded-md border px-2.5 py-2 text-left text-sm font-medium',
+                  selectedId === null
+                    ? 'border-accent/40 bg-accent-soft text-ink'
+                    : 'border-transparent text-muted hover:bg-accent-soft hover:text-ink',
+                )}
+              >
+                <LayoutList className="size-4 shrink-0" aria-hidden="true" />
+                Ärendeöversikt
+              </button>
+            </div>
             <DiaryPanel
               caseFile={caseFile}
               state={state}
@@ -475,20 +497,19 @@ function CaseWorkspace({
             'h-full bg-[color-mix(in_srgb,var(--bg)_70%,var(--line))]',
           )}
         >
-          <DocumentViewer
-            caseFile={caseFile}
-            document={selected?.document ?? null}
-            receivedDate={selected?.receivedDate ?? null}
-            isNew={
-              selected
-                ? (lastOutcome?.newDocumentIds.includes(selected.document.id) ?? false)
-                : false
-            }
-            onClose={() => {
-              setSelectedId(null);
-              if (!wide) setPanel('arbete');
-            }}
-          />
+          {selected ? (
+            <DocumentViewer
+              caseFile={caseFile}
+              document={selected.document}
+              receivedDate={selected.receivedDate}
+              isNew={lastOutcome?.newDocumentIds.includes(selected.document.id) ?? false}
+              onClose={showOverview}
+            />
+          ) : (
+            <div className="min-h-0 flex-1 overflow-auto p-4 sm:p-6">
+              <CaseOverview caseFile={caseFile} active={active} />
+            </div>
+          )}
         </section>
         <section
           id="panel-arbete"
@@ -592,8 +613,8 @@ function CaseWorkspace({
               variant="danger"
               onClick={() => {
                 setRestartOpen(false);
-                const started = startNewCase(sourceCase);
-                setSelectedId(started.state.visibleDocuments[0]?.documentId ?? null);
+                startNewCase(sourceCase);
+                setSelectedId(null);
               }}
             >
               Börja om

@@ -1,4 +1,4 @@
-import { Link } from '@tanstack/react-router';
+import { Link, useNavigate } from '@tanstack/react-router';
 import {
   ArrowRight,
   BookMarked,
@@ -21,13 +21,13 @@ import {
   stepById,
   stepFeedback,
   stepOverview,
-  visibleDocuments,
   type StepAnswer,
 } from '@/engine';
+import { requestLookup } from '@/features/command-palette/palette-store';
 import { AskTutorButton, caseSuggestions, useCaseTutorContext } from '@/features/tutor';
 import { cn } from '@/lib/cn';
 import { isActivatableTarget, useKeydown } from '@/lib/use-keydown';
-import { caseLawRefs, factLabel, factValue } from './case-model';
+import { caseLawRefs } from './case-model';
 import {
   dismissCaseOutcome,
   saveStepDraft,
@@ -49,7 +49,7 @@ export interface WorkPanelProps {
   onCompareWriting: (stepId: string) => void;
 }
 
-export type WorkTab = 'steg' | 'fakta' | 'uppslag';
+export type WorkTab = 'steg' | 'uppslag';
 
 /**
  * The tab panels are focusable (Radix gives them tabIndex 0 so the content can be scrolled
@@ -58,7 +58,7 @@ export type WorkTab = 'steg' | 'fakta' | 'uppslag';
 const PANEL_FOCUS =
   'focus-visible:[outline:2px_solid_var(--ring)] focus-visible:[outline-offset:-2px]';
 
-/** Arbetsytan: the current step, facts and law references, and her notes. */
+/** Arbetsytan: the current step, law references and her notes (facts are in the overview). */
 export function WorkPanel(props: WorkPanelProps) {
   const [tab, setTab] = useState<WorkTab>('steg');
   return (
@@ -70,7 +70,6 @@ export function WorkPanel(props: WorkPanelProps) {
       >
         <TabsList className="mx-3 mt-3 self-start" aria-label="Arbetsytan">
           <TabsTrigger value="steg">Steg</TabsTrigger>
-          <TabsTrigger value="fakta">Planbestämmelser och fakta</TabsTrigger>
           <TabsTrigger value="uppslag">Uppslag</TabsTrigger>
         </TabsList>
         <TabsContent
@@ -78,12 +77,6 @@ export function WorkPanel(props: WorkPanelProps) {
           className={cn('mt-0 min-h-0 flex-1 overflow-auto p-4', PANEL_FOCUS)}
         >
           <StepTab {...props} />
-        </TabsContent>
-        <TabsContent
-          value="fakta"
-          className={cn('mt-0 min-h-0 flex-1 overflow-auto p-4', PANEL_FOCUS)}
-        >
-          <FactsTab caseFile={props.caseFile} active={props.active} />
         </TabsContent>
         <TabsContent
           value="uppslag"
@@ -317,64 +310,11 @@ function StepTab({
   );
 }
 
-/* --------------------------------------------------------------------------- facts */
-
-function FactList({ facts }: { facts: Record<string, unknown> }) {
-  return (
-    <dl className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-1.5 text-sm">
-      {Object.entries(facts).map(([key, value]) => (
-        <div key={key} className="contents">
-          <dt className="text-muted">{factLabel(key)}</dt>
-          <dd className="text-right font-medium tabular-nums">{factValue(value)}</dd>
-        </div>
-      ))}
-    </dl>
-  );
-}
-
-function FactsTab({ caseFile, active }: { caseFile: CaseFile; active: ActiveCase }) {
-  const documents = visibleDocuments(caseFile, active.state).filter(
-    ({ document }) => document.fakta && Object.keys(document.fakta).length > 0,
-  );
-  const changed = active.state.facts;
-  return (
-    <div className="flex flex-col gap-5">
-      <p className="text-sm text-muted">
-        Uppgifter ur handlingarna i diariet: planbestämmelser, mått och annat som ärendet bygger på.
-      </p>
-      {documents.length === 0 && Object.keys(changed).length === 0 && (
-        <p className="text-sm">Inga uppgifter ännu.</p>
-      )}
-      {documents.map(({ document }) => (
-        <section
-          key={document.id}
-          aria-label={document.titel}
-          className={cn(
-            'rounded-lg border bg-paper p-4',
-            document.typ === 'planbestammelser' ? 'border-plan-yellow' : 'border-line',
-          )}
-        >
-          <h3 className="mb-2 font-semibold">
-            {document.titel}
-            <span className="ml-1.5 text-xs font-normal text-muted">{document.id}</span>
-          </h3>
-          <FactList facts={document.fakta ?? {}} />
-        </section>
-      ))}
-      {Object.keys(changed).length > 0 && (
-        <section className="rounded-lg border border-brick/40 bg-brick-soft/50 p-4">
-          <h3 className="mb-2 font-semibold">Ändrade uppgifter under ärendet</h3>
-          <FactList facts={changed} />
-        </section>
-      )}
-    </div>
-  );
-}
-
 /* -------------------------------------------------------------------------- lookup */
 
 function LookupTab({ caseFile, active }: { caseFile: CaseFile; active: ActiveCase }) {
   const refs = caseLawRefs(caseFile, active.state);
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col gap-5">
       <section>
@@ -384,7 +324,15 @@ function LookupTab({ caseFile, active }: { caseFile: CaseFile; active: ActiveCas
         ) : (
           <div className="flex flex-wrap gap-1.5">
             {refs.map((ref) => (
-              <LawRefChip key={ref} reference={ref} />
+              <LawRefChip
+                key={ref}
+                reference={ref}
+                title={`Slå upp ${ref} i Uppslag`}
+                onClick={() => {
+                  requestLookup({ kind: 'reference', reference: ref });
+                  void navigate({ to: '/lookup' });
+                }}
+              />
             ))}
           </div>
         )}

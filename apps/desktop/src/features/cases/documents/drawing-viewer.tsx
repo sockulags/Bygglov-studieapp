@@ -348,7 +348,7 @@ export function DrawingViewer({
       <div className="flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-line-strong p-10 text-center text-sm text-muted">
         <ImageOff className="size-6" aria-hidden="true" />
         <p className="font-medium text-ink">Ritningen finns inte i den här versionen av appen</p>
-        {missing ?? <p>Uppgifterna ur handlingen finns under fliken Planbestämmelser och fakta.</p>}
+        {missing ?? <p>Uppgifterna ur handlingen finns i ärendeöversikten.</p>}
       </div>
     );
   }

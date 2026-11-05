@@ -1,4 +1,5 @@
-import { Outlet } from '@tanstack/react-router';
+import { Outlet, useRouterState } from '@tanstack/react-router';
+import { useEffect } from 'react';
 import { Sidebar } from '@/components/layout/sidebar';
 import {
   CommandPalette,
@@ -7,12 +8,15 @@ import {
   useGlobalShortcuts,
 } from '@/features/command-palette';
 import { UpdatePrompt, WhatsNewDialog } from '@/features/updates';
+import { syncCaseReturn } from '@/store/case-return';
 import { useUiStore } from '@/store/ui';
 import { cn } from '@/lib/cn';
 import { isTauri } from '@/lib/tauri';
 
 export function RootLayout() {
   const collapsed = useUiStore((s) => s.sidebarCollapsed);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  useEffect(() => syncCaseReturn(pathname), [pathname]);
   useGlobalShortcuts();
   return (
     <div className="flex min-h-screen bg-bg text-ink">

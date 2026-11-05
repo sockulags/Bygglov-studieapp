@@ -1,3 +1,5 @@
+import { Link } from '@tanstack/react-router';
+import { ArrowLeft } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
 import { PageHeader } from '@/components/layout/page-header';
 import { Card, CardContent } from '@/components/ui/card';
@@ -6,6 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { loadContent, loadLookup, type StudyContent } from '@/content';
 import { takeLookupRequest, usePaletteStore } from '@/features/command-palette/palette-store';
 import { pluralQuestions } from '@/lib/format';
+import { useCaseReturnStore } from '@/store/case-return';
 import { GlossaryTab } from './glossary-tab';
 import { buildLawRegister, sectionForReference } from './law-register';
 import { LawTab } from './law-tab';
@@ -106,7 +109,9 @@ export function LookupPage() {
     [lookup.chapters],
   );
 
-  // A term or lagrum chosen in the command palette (Ctrl/Cmd+K).
+  const caseReturn = useCaseReturnStore((s) => s.caseReturn);
+
+  // A term or lagrum chosen in the command palette (Ctrl/Cmd+K) or in a case.
   const lookupRequest = usePaletteStore((s) => s.lookupRequest);
   useEffect(() => {
     if (!lookupRequest) return;
@@ -116,6 +121,16 @@ export function LookupPage() {
 
   return (
     <LookupNavContext.Provider value={nav}>
+      {caseReturn && (
+        <Link
+          to="/cases/$caseId"
+          params={{ caseId: caseReturn.caseId }}
+          className="sticky top-3 z-20 mb-4 inline-flex max-w-full items-center gap-1.5 rounded-full border border-line-strong bg-paper px-3 py-1.5 text-sm font-medium shadow-paper"
+        >
+          <ArrowLeft className="size-4" aria-hidden="true" />
+          Tillbaka till ärendet {caseReturn.label}
+        </Link>
+      )}
       <PageHeader
         title="Uppslag"
         description="Lagrum, begrepp och processkartor på ett ställe. Allt du möter i frågor och ärenden ska gå att hitta här."
