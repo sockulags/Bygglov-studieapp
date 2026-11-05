@@ -13,6 +13,32 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 Inget ännu.
 
+## [0.6.0] - 2026-11-05
+
+### Nytt
+
+- Ett ärende öppnar nu på en ärendeöversikt i mitten: vad ärendet gäller, vad du ska göra nu och
+  alla planbestämmelser och fakta ur handlingarna. När du öppnar en handling i diariet tar den
+  platsen i mitten, och du kommer tillbaka till översikten överst i diariet eller med Esc.
+- Lagrummen under fliken Uppslag i ärendet går att klicka på och öppnar paragrafen i Uppslag.
+- När du går från ett ärende till Uppslag finns en knapp högst upp som tar dig tillbaka till
+  ärendet.
+
+### Ändrat
+
+- Planbestämmelser och fakta är inte längre en egen flik i arbetsytan, utan finns i
+  ärendeöversikten. Långa värden, som prickmarkens beskrivning, krockar inte längre med texten
+  bredvid.
+- Handledaren svarar kortare och kommer till saken direkt, och ställer bara en motfråga när den
+  hjälper dig vidare.
+- Handledaren och beslutsrapporten talar om "studenten" och "handledaren" i stället för
+  personliga namn och roller.
+
+### Rättat
+
+- Handlingarna i ärendena gick inte att läsa i den installerade appen ("Handlingen kunde inte
+  läsas"). Nu visas de igen, och handledaren kan läsa dem också.
+
 ## [0.5.0] - 2026-11-05
 
 ### Nytt
@@ -183,7 +209,8 @@ Inget ännu.
 - Appen uppdaterar sig själv. När en ny version finns visas en ruta överst, och efter
   uppdateringen ser du vad som är nytt.
 
-[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.5.0...master
+[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.6.0...master
+[0.6.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.6.0
 [0.5.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.5.0
 [0.4.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.4.0
 [0.3.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.3.0
