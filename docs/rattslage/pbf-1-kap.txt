@@ -1,0 +1,149 @@
+PLAN- OCH BYGGFÖRORDNING (2011:338) 1 KAP. INNEHÅLL OCH TILLÄMPNING
+Lydelse enligt riksdagen.se, ändrad t.o.m. SFS 2026:1722. Hämtad 2026-11-05 från
+https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/plan-och-byggforordning-2011338_sfs-2011-338/
+Lagtext är fri att återge. Paragrafer markerade /Upphör att gälla .../ och /Träder i kraft .../ finns i två versioner.
+
+1 kap. Innehåll och tillämpning
+1 §
+/Upphör att gälla U:2027-01-01/
+Denna förordning innehåller bestämmelser om
+   1. innehåll och definitioner (1 kap.),
+   2. planer och områdesbestämmelser (2 kap.),
+   3. krav på byggnadsverk (3 kap.),
+   4. krav på byggprodukter m.m. (4 kap.),
+   5. funktions- och säkerhetsåtgärder (5 kap.),
+   6. anmälan (6 kap.),
+   7. kontrollplan, avfallshanteringsplan, byggbedömare,  kontrollansvariga, sakkunniga och funktionskontrollanter
+(7 kap.),
+   8. tillsyn, vägledning och uppföljning (8 kap.),
+   9. byggsanktionsavgifter (9 kap.), och
+   10. bemyndiganden (10 kap.).
+Förordning (2026:709)
+.
+1 §
+/Träder i kraft I:2027-01-01/
+Denna förordning kompletterar plan- och bygglagen
+(2010:900) och är indelad i tio kapitel enligt följande:
+   1. innehåll och tillämpning (1 kap.),
+   2. planer och områdesbestämmelser (2 kap.),
+   3. krav på byggnadsverk (3 kap.),
+   4. krav på byggprodukter m.m. (4 kap.),
+   5. funktions- och säkerhetsåtgärder (5 kap.),
+   6. anmälan (6 kap.),
+   7. byggbedömare, kontrollansvariga, sakkunniga och  funktionskontrollanter (7 kap.),
+   8. tillsyn, vägledning och uppföljning (8 kap.),
+   9. byggsanktionsavgifter (9 kap.), och
+   10. bemyndiganden (10 kap.).
+Förordning (2026:1265)
+.
+2 §
+   I denna förordning avses med EU:s byggproduktförordning
+   1. Europaparlamentets och rådets förordning (EU) 2024/3110 av  den 27 november 2024 om fastställande av harmoniserade regler  för saluföring av byggprodukter och om upphävande av  förordning (EU) nr 305/2011, och
+   2. Europaparlamentets och rådets förordning (EU) nr 305/2011  av den 9 mars 2011 om fastställande av harmoniserade villkor  för saluföring av byggprodukter och om upphävande av rådets  direktiv 89/106/EEG, i den utsträckning som följer av  artikel 94 i förordning (EU) 2024/3110.
+När det i denna förordning hänvisas till en bestämmelse i EU:s  byggproduktförordning avses förordning (EU) 2024/3110, om det  inte särskilt anges att hänvisningen avser förordning (EU)  nr 305/2011.
+Förordning (2026:197)
+.
+2 a §
+   I denna förordning avses med
+EU:s ackrediteringsförordning: Europaparlamentets och rådets  förordning (EG) nr 765/2008 av den 9 juli 2008 om krav för  ackreditering och marknadskontroll i samband med saluföring av  produkter och upphävande av förordning (EEG) nr 339/93,
+EU:s hissdirektiv: Europaparlamentets och rådets direktiv
+2014/33/EU av den 26 februari 2014 om harmonisering av  medlemsstaternas lagstiftning om hissar och  säkerhetskomponenter till hissar, i den ursprungliga lydelsen,
+EU:s linbaneförordning: Europaparlamentets och rådets  förordning (EU) 2016/424 av den 9 mars 2016 om  linbaneanläggningar och om upphävande av direktiv 2000/9/EG,  och
+EU:s marknadskontrollförordning: Europaparlamentets och rådets  förordning (EU) 2019/1020 av den 20 juni 2019 om  marknadskontroll och överensstämmelse för produkter och om  ändring av direktiv 2004/42/EG och förordningarna (EG)  nr 765/2008 och (EU) nr 305/2011.
+Förordning (2026:197)
+.
+3 §
+   Med byggnadshöjd avses i denna förordning den höjd som byggnaden har enligt andra och tredje styckena. Vid beräkningen får byggnaden delas upp i flera byggnadskroppar och höjden beräknas för varje del för sig, om det finns särskilda skäl.
+Byggnadshöjden ska räknas från den medelnivå som marken har invid byggnaden. Om byggnaden ligger mindre än sex meter från allmän plats, ska dock beräkningen utgå från den allmänna platsens medelnivå invid tomten, om inte särskilda skäl föranleder annat.
+Byggnadshöjden ska räknas upp till skärningen mellan fasadplanet och ett plan som med 45 graders lutning inåt byggnaden berör byggnadens tak.
+3 a §
+   Med klimatskärm avses i denna förordning de delar av en  byggnad som avskiljer dess inomhusmiljö från utomhusmiljön.
+Förordning (2026:870)
+.
+3 b §
+   Med tillfälligt anläggningsboende avses i denna  förordning en byggnad eller en del av en byggnad som under en  begränsad tid används som ett sådant asylboende som avses i
+2 kap. 2 § mottagandelagen (2026:999).
+Förordning (2026:1722)
+.
+4 §
+   Med våning avses i denna förordning ett utrymme i en byggnad där utrymmet avgränsas åt sidorna av byggnadens ytterväggar, uppåt av ett tak eller bjälklag och nedåt av ett golv.
+En vind ska anses vara en våning endast om
+   1. ett bostadsrum eller en arbetslokal kan inredas i utrymmet, och
+   2. byggnadshöjden är mer än 0,7 meter högre än nivån för vindsbjälklagets översida.
+En källare ska anses vara en våning endast om golvets översida i våningen närmast ovanför källaren ligger mer än 1,5 meter över markens medelnivå invid byggnaden.
+5 §
+   Med motordrivna anordningar avses i denna förordning motordrivna
+   1. hissar med tillhörande säkerhetskomponenter och andra motordrivna anordningar som är avsedda för transport av personer eller gods, med undantag för sådana anordningar som avses i 2 kap. 13 § ordningslagen (1993:1617),
+   2. portar, dörrar, galler, grindar och liknande anordningar som är avsedda för passage av personer eller av mark- eller spårbundna fordon, och
+   3. anordningar som är avsedda att ta hand om och forsla bort avfall från byggnader som har försetts med en sådan anordning.
+Med motordrivna anordningar avses i denna förordning inte anordningar som är avsedda att användas endast yrkesmässigt av särskilt instruerad personal.
+6 §
+   Med tillsyn avses i denna förordning
+   1. tillsyn som utövas
+      a) direkt gentemot den som bedriver en verksamhet eller vidtar  en åtgärd, eller
+      b) i enlighet med bestämmelserna om tillsyn över kommunala  beslut och planförelägganden i 11 kap. 10-12, 15 och 16 §§  plan- och bygglagen (2010:900), eller
+   2. marknadskontroll enligt EU:s marknadskontrollförordning,  EU:s byggproduktförordning eller EU:s linbaneförordning.
+Förordning (2026:197)
+.
+7 §
+   Med sanktionsarea avses i denna förordning den area som i fråga om
+   1. en lov- eller anmälningspliktig åtgärd motsvarar brutto-
+eller öppenarean eller en kombination av dessa minskad med 15 kvadratmeter, eller
+   2. en markåtgärd motsvarar den area som åtgärden avser.
+Förordning (2013:308)
+.
+7 a §
+   Vid tillämpning av 4 kap. 11-11 f §§, 9 kap. 25 § andra  stycket och 10 kap. 26 § 3-5 avses med:
+hiss: en lyftanordning som betjänar fasta stannplan och som  har en lastbärare som styrs längs fasta gejder med en lutning  större än 15 grader mot horisontalplanet, eller en  lyftanordning som rör sig längs en fast rörelsebana trots att  den inte är styrd längs fasta gejder,
+tillhandahållande på marknaden: leverans av  säkerhetskomponenter till hissar för distribution eller  användning på unionsmarknaden i samband med kommersiell  verksamhet, mot betalning eller kostnadsfritt,
+utsläppande på marknaden: första gången en säkerhetskomponent  till hissar tillhandahålls på marknaden, eller  tillhandahållande av en hiss för användning på  unionsmarknaden i samband med kommersiell verksamhet, mot  betalning eller kostnadsfritt,
+installatör: fysisk eller juridisk person som åtar sig  ansvaret för konstruktion, tillverkning, installation och  utsläppande på marknaden av en hiss,
+tillverkare: fysisk eller juridisk person som tillverkar  eller som låter konstruera eller tillverka en  säkerhetskomponent till hissar och saluför denna produkt, i  eget namn eller under eget varumärke,
+tillverkarens representant: fysisk eller juridisk person som  är etablerad inom unionen och som enligt skriftlig fullmakt  från installatören eller tillverkaren har rätt att i dennes  ställe utföra särskilda uppgifter,
+importör: fysisk eller juridisk person som är etablerad inom  unionen och släpper ut en säkerhetskomponent till hissar från  tredjeland på unionsmarknaden,
+distributör: fysisk eller juridisk person i leveranskedjan,  förutom tillverkaren eller importören, som tillhandahåller en  säkerhetskomponent till hissar på marknaden,
+ekonomisk aktör: installatör, tillverkare, tillverkarens  representant, importör och distributör,
+bedömning av överensstämmelse: process där det visas om de  grundläggande hälso- och säkerhetskraven som följer av  föreskrifter meddelade med stöd av 10 kap. 15 § 3 för en hiss  eller en säkerhetskomponent till hissar har uppfyllts,
+återkallelse av en hiss: åtgärd för att montera ner en hiss  och forsla bort den under säkra former,
+återkallelse av en säkerhetskomponent till hissar: åtgärd för  att dra tillbaka en säkerhetskomponent till hissar som redan  har tillhandahållits en installatör eller en slutanvändare,
+tillbakadragande: åtgärd för att förhindra att en  säkerhetskomponent till hissar i leveranskedjan  tillhandahålls på marknaden, och
+CE-märkning: märkning genom vilken installatören eller  tillverkaren visar att hissen eller säkerhetskomponenten till  hissar överensstämmer med de till-lämpliga kraven i  harmoniserad unionslagstiftning som föreskriver  CE-märkning.
+Förordning (2016:141)
+.
+7 b §
+   Har upphävts genom förordning (2025:979).
+7 b §
+/Träder i kraft I:2026-12-31/
+Vid tillämpning av 4 kap. 12-14 §§ har termer och  uttryck samma betydelse som i kommissionens delegerade  förordning (EU) 2024/370 av den 23 januari 2024 om  komplettering av Europaparlamentets och rådets direktiv (EU)
+2020/2184 genom fastställande av förfaranden för bedömning av  överensstämmelse för produkter som kommer i kontakt med  dricksvatten och regler för utseende av organ för bedömning av  överensstämmelse som deltar i dessa förfaranden.
+Förordning (2026:22)
+.
+8 §
+   Med prisbasbelopp avses prisbasbeloppet enligt 2 kap. 6 och 7 §§ socialförsäkringsbalken.
+9 §
+   När det i beslut som meddelas med stöd av plan- och bygglagen (2010:900) eller denna förordning eller i föreskrifter som meddelas med stöd av denna förordning används termer och uttryck som definieras i 3-7 §§, ska dessa ha samma betydelse som i denna förordning om inte annat är särskilt angivet.
+10 §
+   I övrigt har ord och uttryck i denna förordning samma  betydelse som i plan- och bygglagen (2010:900).
+Förordning (2026:197)
+.
+11 §
+/Ny beteckning 1 kap. 12 § U:2027-01-01/
+Bestämmelser om riktvärden för buller utomhus för spårtrafik, vägar och flygplatser vid bostadsbyggnader och bestämmelser om beräkning av bullervärden vid bostadsbyggnader finns i förordningen (2015:216) om trafikbuller vid bostadsbyggnader.
+Förordning (2026:197)
+.
+11 §
+/Träder i kraft I:2027-01-01/
+Vid tillämpningen av bestämmelserna om större  byggnadsändring i plan- och bygglagen (2010:900) och denna  förordning ska den bedömning som görs av om åtgärderna är så  omfattande att hela eller en betydande och avgränsbar del av  byggnaden förnyas utgå från en samlad bedömning av åtgärdernas  innebörd. För att åtgärderna sammantagna ska anses innebära en  sådan förnyelse, ska någon eller några av följande åtgärder  ingå i ändringen:
+   1. större ingrepp i stomme,
+   2. större ändring av planlösningen,
+   3. att byggnaden eller en betydande och avgränsbar del av  byggnaden tas i anspråk eller inreds för ett väsentligt annat  ändamål, eller
+   4. att merparten av de tekniska systemen byts ut.
+Om en ändring endast innefattar åtgärder enligt första stycket
+3 och 4, ska åtgärderna dock inte anses vara så omfattande att  byggnaden förnyas.
+Förordning (2026:1265)
+.
+12 §
+/Träder i kraft I:2027-01-01/
+Bestämmelser om riktvärden för buller utomhus för spårtrafik, vägar och flygplatser vid bostadsbyggnader och bestämmelser om beräkning av bullervärden vid bostadsbyggnader finns i förordningen (2015:216) om trafikbuller vid bostadsbyggnader.
+Förordning (2026:1265)
+.

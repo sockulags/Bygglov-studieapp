@@ -1,0 +1,32 @@
+BYGGNADSSTADGA (1959:612), UTDRAG: 39 och 40 §§ (UPPHÄVD 1987-07-01)
+Lydelse efter ändringar t.o.m. SFS 1981. Hämtad 2026-11-05 från Boverkets sida "Äldre lagar om
+planering och byggande", PDF:erna 1959-byggnadsstadga.pdf och andring-byggnadsstadga-1959-1981.pdf
+https://www.boverket.se/sv/lag--ratt/aldre-lagar-regler--handbocker/aldre-lagar-om-planering-och-byggande/
+Texten är OCR-läst ur en skannad SFS och rättad för hand. Stavningen är originalets.
+Varför den behövs: enligt övergångsbestämmelserna till ÄPBL (17 kap. 4 §), som fortfarande gäller
+genom punkt 5 i övergångsbestämmelserna till PBL (2010:900), ska 39 § byggnadsstadgan tillämpas
+som bestämmelse i äldre stads- och byggnadsplaner, om inte annat är föreskrivet i planen.
+
+39 §
+   Byggnad skall förläggas till sådant ställe å tomten som är lämpligt med hänsyn till landskapsbilden och så att den på lämpligt sätt ansluter till övrig bebyggelse å tomten och å närbelägen mark. Byggnad inom område med stadsplan eller byggnadsplan skall, såvida annat ej föreskrivits i planen eller medgives av byggnadsnämnden, läggas i gatulinjen eller, om förgård finnes, i inre förgårdslinjen.
+   I övrigt skall, där ej annat är föreskrivet, vid val av plats för byggnad iakttagas
+   a) att byggnad, som ej sammanbygges eller kan förväntas komma att sammanbyggas med byggnad på granntomt, icke må läggas på mindre avstånd från gränsen mot denna än som motsvarar hälften av den för byggnaden tillåtna största höjden och ej närmare gränsen än 4,5 meter; samt
+   b) att avståndet mellan byggnader å samma tomt ej må vara mindre än den för någondera byggnaden tillåtna största höjden.
+   Byggnadsnämnden äger medgiva undantag från bestämmelserna i andra stycket, om det finnes påkallat av särskilda skäl samt kan ske utan men för granne eller fara för sundhet, brandsäkerhet eller trafiksäkerhet och utan att ett lämpligt bebyggande av området försvåras. Kan åtgärden inverka på förhållandena å angränsande tomt, skall dess ägare höras i saken.
+
+40 §
+   Byggnads tak må icke skjuta över ett plan, som skär närmaste fasadplan på den för byggnaden tillåtna högsta höjden och höjer sig inåt byggnaden med en lutning av 45°. Byggnadsnämnden äger dock medgiva, att takkupor och andra anordningar, som kunna anses påkallade med hänsyn till byggnadens utseende eller av praktiska skäl, skjuta över detta plan.
+
+Ur övergångsbestämmelserna (citerade på Boverkets sida "Äldre planer och deras giltighet",
+https://www.boverket.se/sv/PBL-kunskapsbanken/detaljplan/detaljplaneinstrumentet/aldre-planer/aldre-planer-och-deras-giltighet/):
+- PBL (2010:900) övergångsbestämmelser punkt 5: stadsplaner, byggnadsplaner, avstyckningsplaner
+  och andra planer som enligt 17 kap. 4 § ÄPBL ska anses antagna med stöd av ÄPBL ska även i
+  fortsättningen anses antagna med stöd av den lagen. 17 kap. 4 § sista stycket ÄPBL gäller
+  fortfarande för sådana planer.
+- 17 kap. 4 § ÄPBL (lydelse 1991:604): stads- och byggnadsplaner fastställda efter utgången av år
+  1978 fick genomförandetid fem år från ikraftträdandet (1987-07-01); för övriga äldre planer ska
+  genomförandetiden anses ha gått ut. "Om inte annat är föreskrivet i sådan plan eller bestämmelse
+  som enligt första stycket skall gälla som detaljplan enligt denna lag, skall 39 § byggnadsstadgan
+  (1959:612) tillämpas som bestämmelse i planen."
+- Övergångsbestämmelser till lag (2025:974) punkt 4: 9 kap. 65 § PBL (kvartersmark för allmänt
+  ändamål) gäller inte inom stadsplan eller byggnadsplan enligt punkt 5 ovan.

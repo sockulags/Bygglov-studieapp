@@ -1,0 +1,67 @@
+BOVERKET, PBL KUNSKAPSBANKEN: UTDRAG OM MÄTREGLER, PLANBESTÄMMELSER OCH LITEN AVVIKELSE
+Hämtad 2026-11-05. Sammanfattning och korta citat, inte fullständig text. Boverkets sidor kan
+fortfarande använda 9 kap. PBL:s numrering från före 2025-12-01 (t.ex. 9 kap. 31 b §, som nu är
+9 kap. 60 §). Se docs/rattslage/README.md för översättningen.
+
+1. Höjd på byggnadsverk (Boverkets föreskrifter och allmänna råd om detaljplan)
+https://www.boverket.se/sv/PBL-kunskapsbanken/detaljplan/planbestammelser/egenskapsbestammelser_/hojd-pa-byggnadsverk/
+- Definitioner i föreskrifterna om detaljplan:
+  "nockhöjd: avstånd från den medelnivå som marken har invid byggnaden, eller i planbestämmelsen
+  angivet plan, till yttertakets högsta del" och "totalhöjd: avstånd från den medelnivå som marken
+  har invid byggnadsverket, eller i planbestämmelsen angivet plan, till högsta punkten på
+  byggnadsverket".
+- Nockhöjd: skorstenar och ventilationstrummor räknas inte in. Nockhöjd avser yttertakets högsta
+  punkt och kan därför användas även för pulpettak.
+- Totalhöjd: inkluderar skorstenar, antenner, master och hisschakt. Lämplig för master, cisterner
+  m.m. som saknar tak.
+- Anger planbestämmelsen inte varifrån höjden mäts, mäts den från medelnivån invid byggnaden, och
+  då från färdig marknivå.
+- Föreskrifterna om detaljplan har inte PBF:s regel om att mäta från den allmänna platsens
+  medelnivå när byggnaden ligger närmare än sex meter från allmän plats. Den regeln gäller bara
+  byggnadshöjd enligt 1 kap. 3 § PBF.
+- Byggnadshöjd är definierad i PBF men "har även tolkats mer långtgående genom omfattande
+  rättspraxis" och kan som planbestämmelse "leda till svårförutsedda resultat".
+
+2. Utnyttjandegrad
+https://www.boverket.se/sv/PBL-kunskapsbanken/detaljplan/planbestammelser/egenskapsbestammelser_/utnyttjandegrad/
+- Utnyttjandegrad kan anges i procent (t.ex. "Största byggnadsarea är 25 procent av
+  fastighetsarean inom användningsområdet") eller i fasta tal i kvadratmeter. Beteckning e1, e2 ...
+- Vanligen används areamått från SS 21054:2020, Area och volym för byggnader – Terminologi och
+  mätning. Föreskrifterna om detaljplan rekommenderar byggnadsarea eller bruttoarea.
+- "Byggnadsarea förkortas BYA och kan kort beskrivas som den yta som en byggnad upptar på marken
+  ... Observera att viss öppenarea ingår vid beräkning av byggnadsarea."
+- "Bruttoarea förkortas BTA och kan förenklat beskrivas som den sammanlagda ytan av alla
+  våningsplan ... Observera att öppenarea inte ingår vid beräkning av bruttoarea till skillnad
+  från byggnadsarea."
+- "Öppenarea kan förenklat beskrivas som en helt eller delvis öppen yta för vistelse eller
+  förvaring, som ligger i anslutning till en byggnad."
+- Om bestämmelsen bara relaterar till "fastighetsarean" och fastigheten sträcker sig utanför
+  användningsområdet kan hela fastighetens area komma att räknas; därför bör bestämmelsen
+  relateras till användnings- eller egenskapsområdet.
+
+3. Begränsning av markens utnyttjande (tidigare prickmark, korsmark, ringmark)
+https://www.boverket.se/sv/PBL-kunskapsbanken/detaljplan/planbestammelser/egenskapsbestammelser_/begransning/
+- "Bestämmelser om begränsning av markens utnyttjande har tidigare benämnts prickmark, korsmark
+  och ringmark."
+- "marken får inte förses med byggnadsverk" omfattar alla byggnadsverk; byggnadsverken får
+  varken uppföras, byggas till eller flyttas dit. Bestämmelseområdet sträcker sig både nedåt och
+  uppåt, så även underjordiska byggnader och utkragande byggnadsdelar kan omfattas.
+- "Marken får endast förses med ..." (i äldre planer ofta korsmark) anger vilken typ av byggnadsverk som får
+  placeras, t.ex. komplementbyggnader, garage eller uthus.
+- Lovfria åtgärder som inte omfattas av 10 kap. 2 a § PBL, t.ex. små parkeringsplatser, måste
+  följa planen och kan alltså omfattas av en sådan bestämmelse.
+
+4. Liten avvikelse – area och byggnadshöjd (praxis från Mark- och miljööverdomstolen)
+https://www.boverket.se/sv/PBL-kunskapsbanken/lov--byggande/provning_lov_fb/bygglov_inom_dp/planenlighet/atgardens-planenlighet/liten/liten-avvikelse---area/
+- "Enligt rättspraxis går det inte att säga att en viss procents överskridande av arean alltid
+  är en liten avvikelse." Omgivningens skala och karaktär och om avvikelsen behövts för bättre
+  planlösning eller av byggnadstekniska skäl har haft betydelse.
+- MÖD 2018:4 (P 11778-17): nybyggnad av flerbostadshus, 154 m² mot tillåtna 140 m² (10 %), inte
+  liten avvikelse; "inte förenligt med gällande praxis att schablonmässigt bedöma överskridande av
+  byggnadsarean med 10 procent som en liten avvikelse". Vid nybyggnad är möjligheterna att anpassa
+  byggnaden efter planen stora.
+- MÖD 2019:16 (P 1257-19): uterum, ca 5 % över byggrätten, inte liten bl.a. på grund av
+  prejudicerande effekt och att nämnden ansåg att planen skulle följas.
+- MÖD 2013-11-21 (P 4390-13): tillbyggnad 10 m² (ca 5,7 %) över, liten avvikelse.
+- MÖD 2017-09-28 (P 1054-17): 88 m² mot 80 m² (10 %) i en plan som skilde mellan
+  permanent- och fritidsboende, inte liten.

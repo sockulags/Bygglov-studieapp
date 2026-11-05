@@ -1,0 +1,423 @@
+PLAN- OCH BYGGLAG (2010:900) 10 KAP. GENOMFÖRANDET AV BYGG-, RIVNINGS- OCH MARKÅTGÄRDER
+Lydelse enligt riksdagen.se, ändrad t.o.m. SFS 2026:1583. Hämtad 2026-11-05 från
+https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/plan-och-bygglag-2010900_sfs-2010-900/
+Lagtext är fri att återge. Paragrafer markerade /Upphör att gälla .../ och /Träder i kraft .../ finns i två versioner.
+
+10 kap. Genomförandet av bygg-, rivnings- och markåtgärder
+1 §
+   Detta kapitel innehåller bestämmelser om
+   1. förutsättningar för att få påbörja vissa åtgärder och ta  ett byggnadsverk i bruk,
+   2. aktsamhet vid bygg-, rivnings- och markåtgärder,
+   3. byggherrens ansvar,
+   4. kontrollplan, avfallshanteringsplan, kontrollansvariga och  deras uppgifter,
+   5. sakkunniga och deras uppgifter,
+   6. byggbedömare och deras uppgifter,
+   7. tekniskt samråd och startbesked innan åtgärderna påbörjas,
+   8. utstakning av en planerad byggnad, tillbyggnad eller  anläggning,
+   9. byggnadsnämndens arbetsplatsbesök, och
+   10. slutsamråd och slutbesked i samband med att åtgärderna  avslutas.
+Lag (2026:712)
+.
+2 §
+   Om annat inte särskilt anges i denna lag eller i  föreskrifter som meddelats med stöd av lagen, ska en åtgärd  som avser ett byggnadsverk, en tomt eller en allmän plats  genomföras så att åtgärden inte strider mot
+   1. det lov som har getts för åtgärden, eller
+   2. om åtgärden inte kräver lov, den detaljplan eller de  områdesbestämmelser som gäller för området.
+Lag (2025:974)
+.
+2 a §
+   Trots 2 § 2 får en åtgärd strida mot en detaljplan eller  områdesbestämmelser, förutom sådana bestämmelser om  skyddsåtgärder som avses i 4 kap. 12 § 1 eller 42 § första  stycket 4 b, om åtgärden är
+   1. nybyggnad av
+      a) en komplementbyggnad till ett en- eller tvåbostadshus,  eller
+      b) ett komplementbostadshus,
+   2. tillbyggnad av
+      a) ett en- eller tvåbostadshus,
+      b) en komplementbyggnad till ett en- eller tvåbostadshus,  eller
+      c) ett komplementbostadshus,
+   3. inredning av ytterligare en bostad i ett enbostadshus,
+   4. uppförande, flytt eller utökning av en mur eller ett plank,  eller
+   5. uppförande, flytt eller utökning av en altan som  tillsammans med övriga altaner på tomten inte upptar en  markyta som är större än 50,0 kvadratmeter.
+Lag (2025:974)
+.
+2 b §
+   Trots 2 § 2 får andra åtgärder än de som avses i 2 a §  genomföras med en avvikelse från detaljplanen eller  områdesbestämmelserna, om avvikelsen är liten och inte  motverkar syftet med planen eller bestämmelserna.
+Lag (2025:974)
+.
+Aktsamhet vid bygg-, rivnings- och markåtgärder
+2 c §
+   Bygg-, rivnings- och markåtgärder ska planeras och  utföras med aktsamhet. Vad som krävs för att uppfylla kravet  på aktsamhet framgår av föreskrifter som har meddelats med  stöd av 16 kap. 10 a §.
+Lag (2025:974)
+.
+Startbesked och slutbesked
+3 §
+   En åtgärd får inte påbörjas innan byggnadsnämnden har gett  ett startbesked, om åtgärden omfattas av krav på
+   1. bygglov, rivningslov eller marklov, eller
+   2. en anmälan enligt föreskrifter som har meddelats med stöd  av 16 kap. 8 §.
+Kravet på startbesked gäller även för en åtgärd med frivilligt  lov enligt 9 kap. 52-54 §§, om sökanden har begärt ett  startbesked för åtgärden.
+Lag (2025:974)
+.
+3 a §
+   Om byggnadsnämnden har gett ett startbesked enligt 3 §  för en viss del av en åtgärd, får en annan del av åtgärden  inte påbörjas innan byggnadsnämnden har gett ett startbesked  som omfattar den delen.
+Lag (2022:909)
+.
+4 §
+   Ett byggnadsverk får inte tas i bruk i de delar som omfattas av ett startbesked för byggåtgärder förrän byggnadsnämnden har gett ett slutbesked, om nämnden inte beslutar annat.
+Byggherrens ansvar
+5 §
+   Byggherren ansvarar för att varje bygg-, rivnings- och  markåtgärd som byggherren utför eller låter utföra, och den  projektering som ligger till grund för åtgärden, uppfyller de  krav som gäller för åtgärden enligt denna lag eller föreskrif-
+ter eller beslut som har meddelats med stöd av lagen.
+Lag (2026:712)
+.
+5 a §
+   Byggherren ska se till att en åtgärd som är lov- eller  anmälningspliktig kontrolleras enligt den kontrollplan och den  avfallshanteringsplan som byggnadsnämnden fastställer i start-
+beskedet.
+Lag (2026:712)
+.
+5 b §
+   Om det är uppenbart för byggherren att en byggbedömare  som använts för lovprövningen har åsidosatt sina uppgifter  enligt denna lag eller enligt föreskrifter som har meddelats  med stöd av 16 kap. 9 §, ska byggherren meddela det till bygg-
+nadsnämnden.
+Lag (2026:712)
+.
+5 c §
+   Om sådana uppgifter om byggherren, byggbedömare,  kontrollansvariga eller certifierare som avses i 9 kap. 86 §
+2-4 ändras eller kompletteras efter att ansökan kommit in till  byggnadsnämnden, ska byggherren utan dröjsmål se till att de  ändrade eller nya uppgifterna lämnas till nämnden.
+Lag (2026:712)
+.
+Kontrollplan
+6 §
+   I fråga om en sådan åtgärd som avses i 3 § ska byggherren  se till att det finns en plan för att kontrollera utförandet  av åtgärden. Kravet på kontrollplan gäller inte utförande som  omfattas av en byggbedömares kontroll.
+Kontrollplanen ska innehålla uppgifter om
+   1. vilka kontroller som ska göras och vilka krav som  kontrollerna ska avse,
+   2. vem som ska göra kontrollerna och hur de ska utföras,
+   3. vilka anmälningar som ska göras till byggnadsnämnden, och
+   4. vilka arbetsplatsbesök som byggnadsnämnden bör göra och när  besöken bör ske.
+Lag (2026:712)
+.
+6 a §
+   Byggnadsnämnden får i det enskilda fallet besluta att en  kontrollplan inte behövs för enklare åtgärder.
+Lag (2025:974)
+.
+7 §
+   Kontrollplanen ska vara anpassad till omständigheterna i det enskilda fallet och ha den utformning och detaljeringsgrad som behövs för att på ett ändamålsenligt sätt säkerställa att
+   1. alla väsentliga krav som avses i 8 kap. 4 § uppfylls,
+   2. förbudet mot förvanskning enligt 8 kap. 13 § följs, och
+   3. kraven på varsamhet enligt 8 kap. 17 och 18 §§ uppfylls.
+Lag (2011:335)
+.
+8 §
+   Av kontrollplanen ska det framgå i vilken omfattning  kontrollen ska utföras
+   1. inom ramen för byggherrens dokumenterade egenkontroll,  eller
+   2. av en sakkunnig.
+Vid bedömningen av behovet av sakkunnigkontroll ska särskild  hänsyn tas till risken för att allvarliga personskador eller  störningar för samhället eller miljön kan uppkomma om åtgärden  eller byggnadsverket inte uppfyller föreskrivna krav.
+Regeringen eller den myndighet som regeringen bestämmer kan  med stöd av 16 kap. 11 § 3 meddela föreskrifter om att en  åtgärd ska kontrolleras av en sakkunnig (obligatorisk  sakkunnigkontroll).
+Lag (2026:712)
+.
+Avfallshanteringsplan
+8 a §
+   Byggherren ska se till att det finns en plan för  kontrollen av det avfall som uppkommer vid en åtgärd som avses  i 3 § (avfallshanteringsplan) med uppgifter om
+   1. vilka byggprodukter som kan återanvändas och hur dessa ska  tas om hand, och
+   2. vilket avfall som åtgärden kan ge upphov till och hur  avfallet ska tas om hand, särskilt hur byggherren avser att  möjliggöra
+      a) materialåtervinning av hög kvalitet, och
+      b) att farliga ämnen hanteras och avlägsnas på ett säkert  sätt.
+Kravet på avfallshanteringsplan gäller inte om det är  uppenbart att det saknas behov av en sådan plan.
+Lag (2026:712)
+.
+Kontrollansvariga
+9 §
+   För den kontroll som omfattas av en kontrollplan eller  avfallshanteringsplan ska det finnas en eller flera kontroll-
+ansvariga.
+Om det finns flera kontrollansvariga, ska byggherren se till  att någon av dem samordnar de kontrollansvarigas uppgifter.
+Lag (2026:712)
+.
+10 §
+   Trots 9 § krävs det inte någon kontrollansvarig i fråga om
+   1. små ändringar av en- eller tvåbostadshus, om byggnadsnämnden inte beslutar annat, eller
+   2. andra små åtgärder enligt föreskrifter som har meddelats med stöd av 16 kap. 10 §.
+11 §
+   En kontrollansvarig ska
+   1. biträda byggherren med att upprätta förslag till den  kontrollplan som krävs enligt 6 §, och med att identifiera  avfall och återanvändbara byggprodukter som bygg- och  rivningsåtgärderna kan ge upphov till,
+   2. se till att kontrollplanen och gällande bestämmelser och  villkor för åtgärderna följs samt att nödvändiga kontroller  utförs,
+   3. vid avvikelser från föreskrifter och villkor som avses i 2  informera byggherren och vid behov meddela byggnadsnämnden,
+   4. närvara vid tekniska samråd, besiktningar och andra  kontroller samt vid byggnadsnämndens arbetsplatsbesök,
+   5. överlämna protokoll från arbetsplatsbesök till den eller de  sakkunniga,
+   6. dokumentera sina byggplatsbesök och notera iakttagelser som  kan vara av värde vid utvärderingen inför slutbeskedet,
+   7. lämna ett eget utlåtande, tillsammans med eventuella  sakkunnigutlåtanden, till byggherren och byggnadsnämnden som  underlag för slutbesked, och
+   8. om den kontrollansvarige lämnar sitt uppdrag, meddela detta  till byggnadsnämnden.
+Lag (2026:712)
+.
+11 a §
+   En kontrollansvarig får inte användas för kontroll av  en åtgärd som omfattas av obligatorisk sakkunnigkontroll, om  han eller hon tidigare har varit delaktig i projektet.
+Lag (2026:712)
+.
+11 b §
+   Om en kontrollansvarig inte utför sina uppgifter enligt
+11 §, ska byggherren omedelbart meddela det till  byggnadsnämnden.
+Lag (2026:712)
+.
+11 c §
+   Om en kontrollansvarig har lämnat sitt uppdrag, ska  byggherren föreslå och byggnadsnämnden utse en ny.
+Lag (2026:712)
+.
+Sakkunniga
+12 §
+   En sakkunnig ska
+   1. kontrollera ett arbete utifrån de krav som gäller för  åtgärden,
+   2. utan dröjsmål meddela den som är kontrollansvarig om en  åtgärd på ett betydande sätt avviker från de krav som gäller  för åtgärden, och
+   3. efter slutförd kontroll upprätta ett utlåtande och lämna  det till den som är kontrollansvarig.
+Lag (2026:712)
+.
+12 a §
+   En sakkunnig får inte kontrollera ett arbete som han  eller hon själv har varit delaktig i. I fråga om kontroll av  sådana egenskapskrav som avses i 8 kap. 4 § första stycket 1,
+2 och 4 får den sakkunnige inte vara anställd hos, närstående  till eller i beroendeställning till byggherren, den som pro-
+jekterar eller den som utför de åtgärder som kontrollen avser.
+Lag (2026:712)
+.
+12 b §
+   En sakkunnig som lämnar sitt uppdrag ska meddela det  till byggherren, till den som är kontrollansvarig och till  byggnadsnämnden.
+Lag (2026:712)
+.
+12 c §
+   Om en sakkunnig åsidosätter sina skyldigheter, ska  byggherren omedelbart meddela det till byggnadsnämnden.
+Lag (2026:712)
+.
+12 d §
+   Om en sakkunnig har lämnat sitt uppdrag, ska byggherren  föreslå och byggnadsnämnden utse en ny.
+Lag (2026:712)
+.
+Byggbedömare för kontroll vid genomförandet
+13 §
+   En byggbedömare får användas för kontroll vid  genomförandet av nybyggnad som omfattas av föreskrifter som  meddelats med stöd av 16 kap. 9 § 2. En byggbedömare får dock  inte användas om någon åtgärd vid genomförandet omfattas av  obligatorisk sakkunnigkontroll.
+Lag (2026:712)
+.
+13 a §
+   En byggbedömare som används för kontroll vid  genomförandet ska
+   1. mot bakgrund av en riskbedömning ta fram en skriftlig be-
+skrivning av vad som ska kontrolleras, vilka besök och andra  kontroller som ska genomföras och vem som ska utföra  kontrollerna,
+   2. se till att kontrollerna utförs av någon som har kompetens  för uppgiften och är självständig i förhållande till den som  utför åtgärden,
+   3. dokumentera de besök och andra kontroller som byggbedömaren  ansvarar för,
+   4. informera byggherren om avvikelser från de krav som gäller  för åtgärden och vid behov meddela byggnadsnämnden det,
+   5. delta vid tekniskt samråd och slutsamråd, och
+   6. som underlag för slutbesked lämna en skriftlig redogörelse  för de kontroller som byggbedömaren har ansvarat för och ett  intyg om att utformningskraven enligt 8 kap. 1 § 1 och 3 och  de tekniska egenskapskraven enligt 8 kap. 4 § är uppfyllda.
+Lag (2026:712)
+.
+13 b §
+   Om byggbedömaren får kännedom om sådana förhållanden  som kan föranleda förbud enligt 11 kap. 30 §, ska  byggbedömaren utan dröjsmål meddela det till byggnadsnämnden.
+Lag (2026:712)
+.
+13 c §
+   Om byggbedömaren avsäger sig sitt uppdrag eller upphör  att vara certifierad, ska byggbedömaren omedelbart meddela det  till byggherren och byggnadsnämnden och ange skälen för detta.
+Lag (2026:712)
+.
+13 d §
+   Om byggbedömarens uppdrag avbryts eller byggbedömaren  inte utför sina uppgifter, ska byggherren omedelbart meddela  det till byggnadsnämnden.
+Lag (2026:712)
+.
+13 e §
+   Om det till följd av en sådan omständighet som avses i
+13 c eller 13 d § inte finns en byggbedömare vid genomförandet  av en åtgärd, ska byggnadsnämnden kalla till det samråd som  behövs för det fortsatta genomförandet.
+Lag (2026:712)
+.
+Tekniskt samråd
+14 §
+   I fråga om sådana åtgärder som avses i 3 § ska  byggnadsnämnden utan dröjsmål efter att lov har getts eller  anmälan har kommit in kalla till ett sammanträde för tekniskt  samråd, om
+   1. det krävs en kontrollansvarig enligt det som följer av
+9 och 10 §§,
+   2. ett sådant samråd inte är uppenbart obehövligt, eller
+   3. byggherren har begärt ett sådant samråd.
+Kallelsen ska vara skriftlig och skickas till byggherren och  den eller dem som är kontrollansvariga eller byggbedömare.  Kallelsen ska också skickas till dem i övrigt som enligt detta  kapitel ska ges tillfälle att delta i samrådet eller som  enligt byggnadsnämndens bedömning bör ges tillfälle att delta.
+Lag (2026:712)
+.
+15 §
+   Om samrådet rör byggåtgärder som avser en arbetslokal eller ett personalrum för arbetstagare som ska utföra arbete för en arbetsgivares räkning, ska byggnadsnämnden ge den myndighet som ansvarar för arbetsmiljöfrågor
+(arbetsmiljömyndigheten) och en representant för arbetstagarna tillfälle att delta i samrådet. Om det behövs, ska nämnden även i andra fall ge arbetsmiljömyndigheten tillfälle att delta i samrådet.
+Om samrådet rör byggåtgärder som avser tillfälliga personalbostäder för sammanlagt minst tio boende ska byggnadsnämnden ge en representant för arbetstagarna tillfälle att delta i samrådet.
+Vid tillämpningen av denna paragraf ska det som gäller i fråga om arbetstagare också gälla andra som enligt arbetsmiljölagen (1977:1160) ska likställas med arbetstagare.
+16 §
+   Om samrådet avser en åtgärd för vilken det krävs ett färdigställandeskydd enligt lagen (2014:227) om färdigställandeskydd, ska byggnadsnämnden ge den som svarar för skyddet tillfälle att delta i samrådet.
+Lag (2014:228)
+.
+17 §
+   Om samrådet avser en byggnad som innehåller ett skyddsrum  eller en ny byggnad som ska innehålla ett skyddsrum, eller om  samrådet avser en åtgärd som av särskild anledning kan antas  påverka en sådan byggnad, ska byggnadsnämnden ge följande  myndigheter tillfälle att yttra sig:
+   1. den myndighet som avses i 3 kap. 1 § första stycket lagen
+(2026:440) om skyddsrum och skyddade utrymmen, och
+   2. den myndighet som ansvarar för kontroll av skyddsrummet  enligt 7 kap. 1 § lagen om skyddsrum och skyddade utrymmen.
+Lag (2026:442)
+.
+18 §
+   Byggherren ska senast fem arbetsdagar före det tekniska  samrådet, eller inom den tidsfrist som byggnadsnämnden  bestämmer, till nämnden lämna
+   1. förslag till den kontrollplan och avfallshanteringsplan som  krävs enligt detta kapitel, och
+   2. de tekniska handlingar som, utöver ansökningshandlingarna  enligt 9 kap. 86 §, krävs för att byggnadsnämnden ska kunna  pröva frågan om startbesked.
+Lag (2026:712)
+.
+19 §
+   Det tekniska samrådet ska behandla följande frågor:
+   1. arbetets planering och organisation och användning av bygg-
+bedömare,
+   2. byggherrens förslag till kontrollplan och  avfallshanteringsplan och de handlingar i övrigt som bygg-
+herren har lämnat,
+   3. behovet av sakkunnigkontroll,
+   4. hur identifieringen av avfall och återanvändbara  byggprodukter har gjorts,
+   5. behovet av att byggnadsnämnden gör arbetsplatsbesök eller  av andra tillsynsåtgärder,
+   6. behovet av ett färdigställandeskydd,
+   7. behovet av utstakning,
+   8. byggnadsnämndens behov av ytterligare handlingar inför  beslut om kontrollplan, avfallshanteringsplan eller  startbesked, och
+   9. behovet av ytterligare sammanträden.
+Om en byggbedömare används och byggnadsnämnden anser det lämp-
+ligt, får nämnden bestämma att det tekniska samrådet inte ska  behandla frågor som omfattas av byggbedömarens ansvar eller  att samrådet i de frågorna ska ersättas av en skriftlig  kommunikation.
+Lag (2026:712)
+.
+19 a §
+   Om det tekniska samrådet avser en ny byggnad som ska  innehålla ett skyddsrum, ska samrådet också behandla behovet  av åtgärder för att uppfylla de krav som följer av  föreskrifter som har meddelats med stöd av 2 kap. 5 § lagen
+(2026:440) om skyddsrum och skyddade utrymmen.
+Lag (2026:442)
+.
+20 §
+   Om byggnadsnämnden finner att de åtgärder som det tekniska samrådet avser kräver tillstånd av eller anmälan till någon annan myndighet, ska nämnden upplysa byggherren om detta under samrådet.
+21 §
+   Byggnadsnämnden ska föra protokoll över det tekniska samrådet.
+Förfarandet när det inte behövs något tekniskt samråd
+22 §
+   Om det enligt 14 § inte behövs något tekniskt samråd, ska byggnadsnämnden i beslutet om lov eller snarast möjligt därefter eller efter det att anmälan har kommit in
+   1. ge startbesked, eller
+   2. förelägga byggherren att ge in de ytterligare handlingar som behövs för nämndens prövning i frågan om startbesked.
+Om byggnadsnämnden finner att de åtgärder som lovet eller anmälan avser kräver tillstånd av någon annan myndighet, ska nämnden upplysa byggherren om detta.
+Byggnadsnämndens startbesked
+23 §
+   Byggnadsnämnden ska med ett skriftligt startbesked god-
+känna att en åtgärd som avses i 3 § får påbörjas. Startbesked  får ges endast efter prövning av byggherrens förslag till  kontrollplan och avfallshanteringsplan, behovet av sakkunnig-
+kontroll och det som har framkommit vid det tekniska samrådet  eller annars vid handläggningen av ärendet.
+Startbesked ska ges om
+   1. åtgärden kan antas komma att uppfylla de krav som gäller  enligt denna lag eller föreskrifter som har meddelats med stöd  av lagen,
+   2. ett bevis om att det finns ett färdigställandeskydd som  avses i 16 § har visats upp för nämnden, om det krävs ett  sådant skydd,
+   3. en kopia av ett beslut om skyddsrum enligt 3 kap. 1 §  första stycket lagen (2026:440) om skyddsrum och skyddade  utrymmen har visats upp för nämnden, om en underrättelse krävs  enligt 3 kap. 2 § samma lag och ett sådant beslut inte har  visats upp tidigare,
+   4. en redovisning av alternativa energiförsörjningssystem har  visats upp för nämnden, om en sådan redovisning krävs enligt
+23 § lagen (2006:985) om energideklaration för byggnader, och
+   5. de villkor som har ställts enligt 4 kap. 14 § eller 9 kap.
+83 § är uppfyllda.
+Lag (2026:712)
+.
+23 a §
+   Om en byggbedömare har använts för prövningen av lov  eller för kontroll vid genomförandet av en åtgärd som avser en  sådan nybyggnad som avses i föreskrifter som har meddelats med  stöd av 16 kap. 9 § 2, ska startbeskedet i frågor som omfattas  av byggbedömarens ansvar ges utan prövning av om kraven i
+8 kap. 1 § 1 och 3 och 4 § är uppfyllda.
+Lag (2026:712)
+.
+23 b §
+   När byggnadsnämnden ger startbesked enligt 23 § för  nybyggnad av ett en- eller tvåbostadshus, får nämnden  samtidigt ge startbesked för en tillbyggnad efter en ansökan  enligt 9 kap. 53 § eller för inredning av ytterligare en  bostad efter en ansökan enligt 9 kap. 54 §.
+Lag (2025:974)
+.
+23 c §
+   Byggnadsnämnden ska med ett skriftligt startbesked  godkänna att en åtgärd som avses i 3 § 2 får påbörjas om  åtgärden kan antas komma att uppfylla de tekniska  egenskapskrav som gäller enligt 8 kap. 4-7 §§ och föreskrifter  om tekniska egenskapskrav som har meddelats med stöd av denna  lag.
+Lag (2026:442)
+.
+24 §
+   I ett startbesked ska byggnadsnämnden
+   1. fastställa den kontrollplan och den avfallshanteringsplan  som ska gälla för åtgärderna, med uppgift om vem eller vilka  som är sakkunniga eller kontrollansvariga,
+   2. bestämma villkor för att få påbörja åtgärderna, om sådana  villkor behövs,
+   3. bestämma villkor och ungefärlig tidpunkt för utstakning, om  utstakning behövs,
+   4. bestämma vilka handlingar som ska lämnas till nämnden inför  beslut om slutbesked,
+   5. ge upplysningar om krav enligt annan lagstiftning, i den  mån sådana upplysningar behövs, och
+   6. ange vid vilken tidpunkt som åtgärderna får påbörjas om de  enligt 9 kap. 81 eller 82 § inte får påbörjas direkt eller om  beslutet om lov för åtgärderna enligt 9 kap. 114 § ska gälla  först när det har fått laga kraft.
+Om en byggbedömare används för kontroll vid genomförandet, ska  det i startbeskedet inte fastställas någon kontrollplan för  kontroll som omfattas av byggbedömarens ansvar.
+Lag (2026:712)
+.
+24 a §
+   Ett startbesked gäller omedelbart.
+Lag (2025:974)
+.
+25 §
+   Ett startbesked för lovpliktiga åtgärder upphör att gälla den dag då beslutet om lov upphör att gälla.
+Ett startbesked för anmälningspliktiga åtgärder upphör att gälla två år efter att startbeskedet gavs. Om arbetena då har påbörjats men inte avslutats och ett nytt tekniskt samråd behövs, ska byggnadsnämnden kalla till ett nytt sammanträde för tekniskt samråd. Om det finns förutsättningar för slutsamråd enligt 30 § får byggnadsnämnden i stället kalla till slutsamråd.
+Det som sägs om slutsamråd i andra stycket gäller även när startbesked enligt första stycket upphör att gälla.
+25 a §
+   Har betecknats 23 a §
+Utstakning
+26 §
+   När byggnadsnämnden har gett ett startbesked enligt 23 §, ska nämnden skyndsamt och inom den tid som anges i beskedet låta staka ut byggnaden, tillbyggnaden eller anläggningen och märka ut dess höjdläge, om det behövs med hänsyn till förhållandena på platsen och omständigheterna i övrigt.
+Om byggnaden eller anläggningen till sitt läge är direkt beroende av gränsen mot en grannes fastighet, ska grannen kallas till utstakningen.
+Arbetsplatsbesök
+27 §
+   Efter ett startbesked enligt 23 eller 23 c § ska  byggnadsnämnden minst en gång under arbetets gång besöka den  plats där åtgärderna genomförs, om
+   1. startbeskedet har föregåtts av ett tekniskt samråd, och
+   2. ett arbetsplatsbesök inte kan anses obehövligt.
+Ett arbetsplatsbesök ska alltid göras, om startbeskedet avser  ett stort eller komplicerat byggprojekt eller om  byggnadsnämnden och byggherren vid det tekniska samrådet har  kommit överens om ett arbetsplatsbesök.
+Om en byggbedömare används för kontroll vid genomförandet  krävs dock inte att byggnadsnämnden gör något arbetsplatsbesök.
+Lag (2026:712)
+.
+28 §
+   Byggnadsnämnden ska vid ett arbetsplatsbesök gå igenom  hur genomförda åtgärder förhåller sig till de krav som gäller  enligt lovet, kontrollplanen, avfallshanteringsplanen,  startbeskedet och de villkor som har beslutats.
+Byggnadsnämnden ska föra protokoll över arbetsplatsbesöket.  Protokollet ska skickas till byggherren och den  kontrollansvarige.
+Lag (2026:712)
+.
+Kompletterande villkor
+29 §
+   Byggnadsnämnden får besluta om kompletterande villkor för  bygg- eller rivningsåtgärderna eller för kontrollen, om
+   1. sådana villkor behövs för att uppfylla kraven enligt denna  lag eller föreskrifter som har meddelats med stöd av lagen,  och
+   2. behovet av villkoren inte kunde förutses när startbeskedet  gavs.
+Om en byggbedömare används får kompletterande villkor inte  avse utformningskrav enligt 8 kap. 1 § 1 och 3 eller tekniska  egenskapskrav enligt 8 kap. 4 §.
+Lag (2026:712)
+.
+Slutsamråd
+30 §
+   Byggnadsnämnden ska i samband med att byggåtgärder  avslutas kalla till ett slutsamråd, om
+   1. åtgärden har omfattats av ett tekniskt samråd, eller
+   2. en byggbedömare används.
+Slutsamråd behövs inte om det är uppenbart obehövligt.
+Lag (2026:712)
+.
+31 §
+   En kallelse enligt 30 § ska vara skriftlig och skickas  till
+   1. byggherren,
+   2. den eller dem som är kontrollansvariga, sakkunniga eller  byggbedömare, och
+   3. övriga som enligt byggnadsnämnden bör ges tillfälle att  delta.
+Lag (2026:712)
+.
+32 §
+   Slutsamrådet ska normalt hållas på den plats där  byggåtgärderna har genomförts. Slutsamrådet ska behandla
+   1. hur kontrollplanen, avfallshanteringsplanen och andra  villkor som fastställts i startbeskedet har följts och hur  kompletterande villkor har följts,
+   2. avvikelser från de krav som gäller för åtgärderna,
+   3. utlåtanden från kontrollansvariga och sakkunniga och  byggbedömarens redogörelse för genomförda kontroller,
+   4. den kontrollansvariges och byggnadsnämndens dokumentation  över besök på byggarbetsplatsen och annan dokumentation över  arbetets utförande,
+   5. behov av avslutande besiktning eller andra åtgärder, och
+   6. förutsättningarna för ett slutbesked, inklusive  byggbedömarens intyg om att utformningskraven enligt 8 kap.
+1 § 1 och 3 och de tekniska egenskapskraven enligt 8 kap. 4 §  är uppfyllda.
+Lag (2026:712)
+.
+33 §
+   Byggnadsnämnden ska föra protokoll över slutsamrådet.
+Byggnadsnämndens slutbesked
+34 §
+   Byggnadsnämnden ska med ett skriftligt slutbesked  godkänna att en eller flera åtgärder som avses i 3 § ska anses  vara slutförda och, i fråga om byggåtgärder, att  byggnadsverket får tas i bruk, om byggherren har
+   1. visat att alla krav som gäller för åtgärderna enligt lovet,  kontrollplanen, avfallshanteringsplanen, startbeskedet och  kompletterande villkor är uppfyllda,
+   2. visat att en klimatdeklaration för byggnadsverket har  lämnats in enligt lagen (2021:787) om klimatdeklaration för  byggnader eller gjort sannolikt att det inte krävs en  klimatdeklaration, och
+   3. lämnat in byggbedömarens redogörelse för genomförda  kontroller och ett intyg om att utformningskraven enligt
+8 kap. 1 § 1 och 3 och de tekniska egenskapskraven enligt
+8 kap. 4 § är uppfyllda.
+Om en byggbedömare används ska byggnadsnämnden inte pröva om  utformningskraven enligt 8 kap. 1 § 1 och 3 och de tekniska  egenskapskraven enligt 8 kap. 4 § är uppfyllda.
+Byggnadsnämnden ska inte ge slutbesked om nämnden har funnit  skäl att ingripa enligt 11 kap. och den brist som föranlett  ingripandet inte är åtgärdad.
+Lag (2026:712)
+.
+35 §
+   Trots 34 § 1 får ett slutbesked ges om det finns brister i uppfyllandet som är försumbara.
+Byggnadsnämnden ska i slutbeskedet göra de anmärkningar som behövs med anledning av bristerna.
+36 §
+   Om ett slutbesked inte kan ges på grund av att en brist som inte är försumbar behöver avhjälpas eller på grund av att en kontroll behöver göras i ett senare skede, får byggnadsnämnden ge ett slutbesked som är beroende av att bristen avhjälps eller att kontrollen görs (interimistiskt slutbesked). Ett interimistiskt slutbesked får avse etapper i ett projekt.
+Om det behövs, ska nämnden i ett interimistiskt slutbesked ange vad som gäller i fråga om möjligheterna att ta ett byggnadsverk i bruk.
+När bristen är avhjälpt eller kontrollen är gjord ska nämnden slutligt pröva frågan om slutbesked enligt 34 §.
+Lag (2014:900)
+.
+37 §
+   Byggnadsnämnden ska pröva frågan om slutbesked så snart nämnden har fått in eller skaffat sig det underlag som behövs för prövningen. Handläggningen ska ske skyndsamt.
+Om nämnden finner att det finns skäl för ett ingripande enligt
+11 kap., ska nämnden också handlägga den frågan skyndsamt.
+38 §
+   Om byggnadsnämnden enligt 23 b § har gett samtidiga  startbesked för nybyggnad och för tillbyggnad eller för  inredning av ytterligare en bostad, får nämnden även ge  samtidiga slutbesked för åtgärderna.
+Lag (2025:974)
+.
+39 §
+   Ett slutbesked gäller omedelbart.
+Lag (2025:974)
+.
+40 §
+   Ett slutbesked hindrar inte ett ingripande enligt
+11 kap. 5 §, om det senare visar sig att ett krav inte är  uppfyllt.
+Lag (2026:712)
+.

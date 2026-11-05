@@ -1,0 +1,113 @@
+PLAN- OCH BYGGLAG (2010:900) 1 KAP.
+Lydelse enligt riksdagen.se, ändrad t.o.m. SFS 2026:1583. Hämtad 2026-11-05 från
+https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/plan-och-bygglag-2010900_sfs-2010-900/
+Textutdrag (lagtext är fri att återge). Paragrafer markerade /Upphör att gälla U:.../ respektive /Träder i kraft I:.../
+finns i två versioner.
+
+1 kap. Lagens syfte, innehåll och tillämpning
+1 §   I denna lag finns bestämmelser om planläggning av mark och  vatten och om byggande, underhåll och kontroll av  byggnadsverk. Bestämmelserna syftar till att, med hänsyn till  den enskilda människans frihet, främja en samhällsutveckling  med jämlika och goda sociala levnadsförhållanden och en god  och långsiktigt hållbar livsmiljö för människorna i dagens  samhälle och för kommande generationer. Lag (2026:712).
+2 §   Det är en kommunal angelägenhet att planlägga användningen av mark och vatten enligt denna lag.
+3 §   Lagen innehåller bestämmelser om 
+   1. lagens syfte, innehåll och definitioner (1 kap.),
+   2. allmänna och enskilda intressen (2 kap.),
+   3. översiktsplan (3 kap.),
+   4. reglering med detaljplan och områdesbestämmelser (4 kap.),
+   5. att ta fram detaljplaner och områdesbestämmelser (5 kap.),
+   6. genomförandet av detaljplaner (6 kap.), 
+   7. regional fysisk planering (7 kap.),
+   8. krav på byggnadsverk, byggprodukter, tomter och allmänna  platser (8 kap.),
+   9. lov och förhandsbesked (9 kap.),
+   10. genomförandet av bygg-, rivnings- och markåtgärder (10  kap.),
+   11. tillsyn, tillträde, ingripanden och påföljder (11 kap.),
+   12. byggnadsnämnden (12 kap.),
+   13. överklagande (13 kap.),
+   14. skadeersättning och inlösen (14 kap.),
+   15. domstolsprövning m.m. (15 kap.), och
+   16. bemyndiganden (16 kap.). Lag (2025:974).
+4 §    /Upphör att gälla U:2027-01-01/ 
+I denna lag avses med
+allmän plats: en gata, en väg, en park, ett torg eller ett  annat område som enligt en detaljplan är avsett för ett  gemensamt behov,
+bebygga: att förse ett område med ett eller flera  byggnadsverk,
+bebyggelse: en samling av byggnadsverk som inte enbart består  av andra anläggningar än byggnader,
+byggherre: den som för egen räkning utför eller låter utföra  projekterings-, byggnads-, rivnings- eller markarbeten, 
+byggnad: en varaktig konstruktion som består av tak eller av  tak och väggar och som är varaktigt placerad på mark eller  helt eller delvis under mark eller är varaktigt placerad på en  viss plats i vatten samt är avsedd att vara konstruerad så att  människor kan uppehålla sig i den,
+byggnadsnämnden: den eller de nämnder som fullgör kommunens  uppgifter enligt denna lag,
+byggnadsverk: en byggnad eller annan anläggning,
+byggprodukt: en produkt som är avsedd att stadigvarande ingå i  ett byggnadsverk,
+ekonomibyggnad: en byggnad som behövs för jordbruket,  skogsbruket, vattenbruket, fisket eller renskötseln,
+exploateringsavtal: avtal om genomförande av en detaljplan och  om medfinansieringsersättning mellan en kommun och en  byggherre eller en fastighetsägare avseende mark som inte ägs  av kommunen, dock inte avtal mellan en kommun och staten om  utbyggnad av statlig transportinfrastruktur,
+fasadändring: en ändring av en byggnad som innebär att  byggnaden byter kulör, fasadbeklädnad eller  taktäckningsmaterial eller att byggnadens yttre karaktärsdrag  påverkas på annat sätt,
+genomförandetiden: den tid för genomförandet av en detaljplan  som ska bestämmas enligt 4 kap. 21-25 §§,
+komplementbostadshus: en fristående byggnad som kompletterar  ett en- eller tvåbostadshus och är inredd med en självständig  bostad,
+komplementbyggnad: en fristående byggnad som kompletterar en  byggnad och inte är inredd med en självständig bostad,
+kvartersmark: mark som enligt en detaljplan inte ska vara  allmän plats eller vattenområde,
+markanvisning: ett avtal mellan en kommun och en byggherre som  ger byggherren ensamrätt att under en begränsad tid och under  givna villkor förhandla med kommunen om överlåtelse eller  upplåtelse av ett visst av kommunen ägt markområde för  bebyggande,
+medfinansieringsersättning: ersättning som en byggherre eller  en fastighetsägare i samband med genomförande av en detaljplan  åtar sig att betala för en del av en kommuns kostnad för  bidrag till byggande av en viss väg eller järnväg som staten  eller en region ansvarar för,
+miljönämnden: den eller de nämnder som fullgör kommunens  uppgifter på miljö- och hälsoskyddsområdet,
+nybyggnad: uppförande av en ny byggnad eller flyttning av en  tidigare uppförd byggnad till en ny plats,
+ombyggnad: ändring av en byggnad som innebär att hela  byggnaden eller en betydande och avgränsbar del av byggnaden  påtagligt förnyas,
+omgivningsbuller: buller från flygplatser, industriell  verksamhet, spår-trafik och vägar,
+planläggning: arbetet med att ta fram en regionplan, en  översiktsplan, en detaljplan eller områdesbestämmelser,
+sammanhållen bebyggelse: bebyggelse på tomter som gränsar till  varandra eller skiljs åt endast av en väg, gata eller  parkmark,
+studentbostad: en bostad avsedd för studerande på universitet,  högskola, annan eftergymnasial utbildning eller  vuxenutbildning,
+tillbyggnad: ändring av en byggnad som innebär en ökning av  byggnadens volym,
+tomt: ett område som inte är en allmän plats men som omfattar  mark avsedd för en eller flera byggnader och mark som ligger i  direkt anslutning till byggnaderna och behövs för att  byggnaderna ska kunna användas för avsett ändamål,
+underhåll: en eller flera åtgärder som vidtas i syfte att  bibehålla eller återställa en byggnads konstruktion, funktion,  användningssätt, utseende eller kulturhistoriska värde, och
+ändring av en byggnad: en eller flera åtgärder som ändrar en  byggnads konstruktion, funktion, användningssätt, utseende  eller kulturhistoriska värde. Lag (2025:974).
+4 §    /Träder i kraft I:2027-01-01/ 
+I denna lag avses med 
+allmän plats: en gata, en väg, en park, ett torg eller ett  annat område som enligt en detaljplan är avsett för ett  gemensamt behov, 
+bebygga: att förse ett område med ett eller flera  byggnadsverk, 
+bebyggelse: en samling av byggnadsverk som inte enbart består  av andra anläggningar än byggnader, 
+byggherre: den som för egen räkning utför eller låter utföra  projekterings-, byggnads-, rivnings- eller markarbeten, 
+byggnad: en varaktig konstruktion som består av tak eller av  tak och väggar och som är varaktigt placerad på mark eller  helt eller delvis under mark eller är varaktigt placerad på en  viss plats i vatten samt är avsedd att vara konstruerad så att  människor kan uppehålla sig i den, 
+byggnadsnämnden: den eller de nämnder som fullgör kommunens  uppgifter enligt denna lag, 
+byggnadsverk: en byggnad eller annan anläggning, 
+byggprodukt: en produkt som är avsedd att stadigvarande ingå i  ett byggnadsverk, 
+ekonomibyggnad: en byggnad som behövs för jordbruket,  skogsbruket, vattenbruket, fisket eller renskötseln, 
+exploateringsavtal: avtal om genomförande av en detaljplan och  om medfinansieringsersättning mellan en kommun och en  byggherre eller en fastighetsägare avseende mark som inte ägs  av kommunen, dock inte avtal mellan en kommun och staten om  utbyggnad av statlig transportinfrastruktur, 
+fasadändring: en ändring av en byggnad som innebär att  byggnaden byter kulör, fasadbeklädnad eller  taktäckningsmaterial eller att byggnadens yttre karaktärsdrag  påverkas på annat sätt, 
+genomförandetiden: den tid för genomförandet av en detaljplan  som ska bestämmas enligt 4 kap. 21-25 §§, 
+komplementbostadshus: en fristående byggnad som kompletterar  ett en- eller tvåbostadshus och är inredd med en självständig  bostad, 
+komplementbyggnad: en fristående byggnad som kompletterar en  byggnad och inte är inredd med en självständig bostad, 
+kvartersmark: mark som enligt en detaljplan inte ska vara  allmän plats eller vattenområde, 
+markanvisning: ett avtal mellan en kommun och en byggherre som  ger byggherren ensamrätt att under en begränsad tid och under  givna villkor förhandla med kommunen om överlåtelse eller  upplåtelse av ett visst av kommunen ägt markområde för  bebyggande, 
+medfinansieringsersättning: ersättning som en byggherre eller  en fastighetsägare i samband med genomförande av en detaljplan  åtar sig att betala för en del av en kommuns kostnad för  bidrag till byggande av en viss väg eller järnväg som staten  eller en region ansvarar för, 
+miljönämnden: den eller de nämnder som fullgör kommunens  uppgifter på miljö- och hälsoskyddsområdet, 
+nybyggnad: uppförande av en ny byggnad eller flyttning av en  tidigare uppförd byggnad till en ny plats, 
+omgivningsbuller: buller från flygplatser, industriell  verksamhet, spår-trafik och vägar, 
+planläggning: arbetet med att ta fram en regionplan, en  översiktsplan, en detaljplan eller områdesbestämmelser, 
+sammanhållen bebyggelse: bebyggelse på tomter som gränsar till  varandra eller skiljs åt endast av en väg, gata eller  parkmark, 
+studentbostad: en bostad avsedd för studerande på universitet,  högskola, annan eftergymnasial utbildning eller  vuxenutbildning,
+större byggnadsändring: en lov- eller anmälningspliktig  ändring av en byggnad som innebär en stor ekonomisk  investering och så omfattande åtgärder att hela eller en  betydande och avgränsbar del av byggnaden förnyas, 
+tillbyggnad: ändring av en byggnad som innebär en ökning av  byggnadens volym, 
+tomt: ett område som inte är en allmän plats men som omfattar  mark avsedd för en eller flera byggnader och mark som ligger i  direkt anslutning till byggnaderna och behövs för att  byggnaderna ska kunna användas för avsett ändamål, 
+underhåll: en eller flera åtgärder som vidtas i syfte att  bibehålla eller återställa en byggnads konstruktion, funktion,  användningssätt, utseende eller kulturhistoriska värde, och 
+ändring av en byggnad: en eller flera åtgärder som ändrar en  byggnads konstruktion, funktion, användningssätt, utseende  eller kulturhistoriska värde. Lag (2026:746).
+5 §   Med certifieringsorgan eller kontrollorgan avses i denna  lag ett organ som har ackrediterats för ändamålet att  certifiera eller kontrollera enligt Europaparlamentets och  rådets förordning (EG) nr 765/2008 av den 9 juli 2008 om krav  för ackreditering och marknadskontroll i samband med  saluföring av produkter och upphävande av förordning 
+(EEG) nr 339/93 och 5 § lagen (2011:791) om ackreditering och  teknisk kontroll. Lag (2026:712).
+6 §   Med certifikat avses i denna lag ett intyg eller annan  handling som visar att en viss kvalitet eller kompetens som  krävs enligt denna lag uppfylls och som har utfärdats 
+   1. av ett certifieringsorgan, eller 
+   2. enligt motsvarande bestämmelser i ett annat land inom  Europeiska unionen eller Europeiska ekonomiska  samarbetsområdet. Lag (2026:712).
+7 §   Med byggbedömare avses i denna lag ett företag som 
+   1. har ett kvalitetsledningssystem, 
+   2. har den lämplighet och den särskilda sakkunskap och erfa-
+renhet som behövs i fråga om att uppfylla de krav som i lagen  ställs på att en byggnad ska vara lämplig för sitt ändamål,  tillgänglig och användbar och ha väsentliga tekniska egen-
+skaper, och
+   3. kan styrka sitt kvalitetsledningssystem och sin lämplighet,  sakkunskap och erfarenhet med ett certifikat. Lag (2026:712).
+8 §   Med kontrollansvarig avses i denna lag en fysisk person  som 
+   1. har den lämplighet, kunskap och erfarenhet som behövs för  att kontrollera om en byggåtgärd, rivningsåtgärd eller  markåtgärd utförs på rätt sätt, 
+   2. kan styrka sin lämplighet, kunskap och erfarenhet med ett  certifikat, och
+   3. har en självständig ställning i förhållande till den som  utför den åtgärd som ska kontrolleras. Lag (2026:712).
+9 §   Med sakkunnig avses i denna lag en fysisk person som
+   1. har den lämplighet och den särskilda sakkunskap och er-
+farenhet som behövs i fråga om att kontrollera åtgärder inom  dennes sakområde, och
+   2. kan styrka sin lämplighet, sakkunskap och erfarenhet med  ett certifikat. Lag (2026:712).
+10 §   Med funktionskontrollant avses i denna lag en sakkunnig  som har den särskilda sakkunskap och erfarenhet som behövs för  att enligt lagen kontrollera funktionen hos en teknisk  utrustning eller ett tekniskt system. Lag (2026:712).
+11 §   Regeringen eller den myndighet som regeringen bestämmer  får till ett certifieringsorgan eller ett kontrollorgan  överlämna frågor om
+   1. certifiering, och
+   2. kontroll av att föreskrifter som har meddelats med stöd av 
+16 kap. 2, 5 eller 6 § följs och att kraven enligt  Europaparlamentets och rådets förordning (EU) 2016/424 av den 
+9 mars 2016 om linbaneanläggningar och om upphävande av  direktiv 2000/9/EG uppfylls. Lag (2026:712).
+12 §   Om en fastighet har upplåtits med tomträtt, ska det som sägs i  denna lag om fastighetsägaren eller fastigheten tillämpas på  tomträttshavaren eller tomträtten. En tomträttshavare är dock  inte skyldig att bekosta anläggande av gator och andra allmänna  platser. Lag (2026:712).
+13 §   Den som innehar egendom med ständig besittningsrätt eller med fideikommissrätt eller på grund av testamentariskt förordnande  utan att äganderätten tillkommer någon ska vid tillämpning av  denna lag anses som egendomens ägare. Lag (2026:712).
