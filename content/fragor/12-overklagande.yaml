@@ -75,6 +75,7 @@ fragor:
       lagen om domstolsärenden och har inte kontrollerats här.
     lagrum:
       - PBL 13 kap. 6 §
+      - MMDL 5 kap. 1 §
     lagrum_osaker: true
     taggar: [provningstillstand, mark_och_miljooverdomstolen, provningskedja]
 
@@ -99,6 +100,7 @@ fragor:
       praxis.
     lagrum:
       - PBL 13 kap. 6 §
+      - MMDL 5 kap. 5 §
     taggar: [provningskedja, mark_och_miljooverdomstolen, prejudikat]
 
   - id: overk-005
@@ -505,6 +507,7 @@ fragor:
       ärendet även efter sitt eget beslut och kan få yttra sig i domstolen.
     lagrum:
       - PBL 13 kap. 6 §
+      - MMDL 5 kap. 2 §
     taggar: [mark_och_miljodomstol, motpart, byggnadsnamnden]
 
   - id: overk-024

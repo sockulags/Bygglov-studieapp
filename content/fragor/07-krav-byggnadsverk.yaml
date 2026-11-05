@@ -637,7 +637,7 @@ fragor:
       det inte är obehövligt. Bedömningen görs mot kravet i 2 kap. 6 a § PBL och riktvärdena i
       förordningen (2015:216) om trafikbuller vid bostadsbyggnader. Bullerskydd inomhus är ett
       tekniskt egenskapskrav (8 kap. 4 § första stycket 5) som hanteras inför startbeskedet.
-    lagrum: [PBL 9 kap. 105 §, PBL 2 kap. 6 a §, PBL 8 kap. 4 §]
+    lagrum: [PBL 9 kap. 105 §, PBL 2 kap. 6 a §, PBL 8 kap. 4 §, TbF 3 §]
     taggar: [buller, beslut, utanfor_plan]
 
   - id: krav-029
@@ -656,7 +656,7 @@ fragor:
       är riktvärdet vid fasad 65 dBA. Överskrids 60 dBA bör minst hälften av bostadsrummen vara
       vända mot en sida med högst 55 dBA ekvivalent ljudnivå (4 §). Hänsyn ska tas till framtida
       trafik (8 §).
-    lagrum: [PBL 2 kap. 6 a §]
+    lagrum: [PBL 2 kap. 6 a §, TbF 3 §, TbF 4 §, TbF 8 §]
     taggar: [buller, riktvarden, bostad]
 
   # --- Begrepp och system ---------------------------------------------------------------------
@@ -873,7 +873,7 @@ fragor:
       inomhus är ett tekniskt egenskapskrav som byggherren ska klara och som hanteras inför
       startbeskedet. Ligger huset inom 12 m från vägområdet för en allmän väg behövs ingen separat
       prövning enligt väglagen, eftersom åtgärden kräver bygglov, men Trafikverket bör få yttra sig.
-    lagrum: [PBL 2 kap. 6 a §, PBL 9 kap. 105 §, PBL 8 kap. 4 §, VägL 47 §]
+    lagrum: [PBL 2 kap. 6 a §, PBL 9 kap. 105 §, PBL 8 kap. 4 §, VägL 47 §, TbF 3 §, TbF 8 §]
     taggar: [buller, utanfor_plan, lokalisering]
 
   - id: krav-038

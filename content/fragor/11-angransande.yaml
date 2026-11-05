@@ -593,7 +593,7 @@ fragor:
       anläggningen (5 §), fördelarna ska överväga kostnaderna (6 §), och anläggningen får inte
       strida mot detaljplan (9 §). För byggnadsnämnden är det en lösning på kraven på utfart och
       avlopp i lovprövningen.
-    lagrum: [PBL 8 kap. 9 §, PBL 2 kap. 5 §]
+    lagrum: [PBL 8 kap. 9 §, PBL 2 kap. 5 §, AL 1 §, AL 4 §, AL 5 §, AL 6 §, AL 9 §]
     taggar: [fastighetsratt, gemensamhetsanlaggning]
 
   - id: angr-027
@@ -617,7 +617,7 @@ fragor:
       användning (7 kap. 1 § FBL). Servitutet följer fastigheten, till skillnad från ett personligt
       löfte. I bygglovet prövar nämnden att det finns en lämpligt belägen utfart (8 kap. 9 § 3 PBL),
       och ett servitut är ofta det som visar att utfarten är säkrad.
-    lagrum: [FBL 7 kap. 1 §, PBL 8 kap. 9 §]
+    lagrum: [FBL 7 kap. 1 §, PBL 8 kap. 9 §, JB 14 kap. 1 §]
     taggar: [fastighetsratt, servitut, utfart]
 
   - id: angr-028
@@ -635,7 +635,7 @@ fragor:
       i lovärenden bl.a. betydande olägenhet för omgivningen (2 kap. 9 § PBL) och har tillsyn över
       tomters skötsel (8 kap. 15 § PBL), men den är inte domare i grannelagsfrågor. Hänvisa vänligt
       och tydligt – det är en del av serviceskyldigheten.
-    lagrum: [PBL 2 kap. 9 §, PBL 8 kap. 15 §]
+    lagrum: [PBL 2 kap. 9 §, PBL 8 kap. 15 §, JB 3 kap. 2 §]
     taggar: [grannelag, civilratt, bemotande]
 
   - id: angr-029
@@ -658,7 +658,7 @@ fragor:
       underhållen kan grannen få bekosta särskilda skyddsåtgärder (tredje stycket). I PBL
       motsvaras frågan av byggherrens ansvar och kravet på aktsamhet vid byggåtgärder (10 kap. 2 c
       och 5 §§), som kan tas upp i kontrollplanen.
-    lagrum: [PBL 10 kap. 2 c §, PBL 10 kap. 5 §]
+    lagrum: [PBL 10 kap. 2 c §, PBL 10 kap. 5 §, JB 3 kap. 3 §]
     taggar: [grannelag, gravning, byggskede]
 
   # --- Natura 2000, artskydd, förorenad mark och radon ----------------------------------------
@@ -811,7 +811,7 @@ fragor:
       myndighet är god service och minskar risken att sökanden bygger med lov men utan nödvändigt
       tillstånd. Prövningen ska dessutom samordnas med prövning enligt annan lag när det
       lämpligen kan ske (2 kap. 11 § PBL).
-    lagrum: [PBL 9 kap. 92 §, PBL 2 kap. 11 §, MB 7 kap. 18 c §, KML 2 kap. 12 §, VägL 39 §, FMH 13 §, MB 7 kap. 29 b §]
+    lagrum: [PBL 9 kap. 92 §, PBL 2 kap. 11 §, MB 7 kap. 18 c §, KML 2 kap. 12 §, VägL 39 §, FMH 13 §, MB 7 kap. 29 b §, AL 4 §]
     taggar: [samordning, myndigheter, upplysning]
 
   - id: angr-036
@@ -940,5 +940,5 @@ fragor:
       som grannarna får lösa själva eller i domstol. Jag förklarar detta lugnt, ger henne
       hänvisningar och dokumenterar samtalet. Det är en del av serviceskyldigheten enligt
       förvaltningslagen att hjälpa henne vidare även när svaret är att nämnden inte kan ingripa.
-    lagrum: [FL 6 §, PBL 2 kap. 9 §]
+    lagrum: [FL 6 §, PBL 2 kap. 9 §, JB 3 kap. 2 §, JB 3 kap. 3 §]
     taggar: [grannelag, bemotande, civilratt]
