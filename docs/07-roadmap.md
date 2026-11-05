@@ -108,11 +108,22 @@ Kvar i fas 2:
   (byggsanktionsavgift, preskription, lov i efterhand, rättelse), A005 restaurang i en
   kulturhistoriskt värdefull byggnad och A006 flerbostadshus med överklagande till länsstyrelsen.
   Motorn behandlar nivå 4 som tillsyn utan 99 §-frist tills en ansökan om lov i efterhand kommer in.
-- [ ] 15+ ärenden (sex finns)
-- [ ] 600+ frågor (526 finns)
+- [x] 600+ frågor: 622 finns efter fas 4b (48 + 48 + 55 + 47 + 44 + 51 + 46 + 47 + 48 + 48 +
+  48 + 48 + 44). De 96 nya fyller luckor i varje modul; modul 8 har appens två första frågor av
+  typen `ritning`, som mäter i ritningar ur A001 och A002.
+- [ ] 15+ ärenden: nio finns (60 % av målet). Fas 4b lade till A007 anmälan av eldstad och
+  VA-servis (nivå 1, slutar med startbesked), A008 marklov för schakt och trädfällning (nivå 2)
+  och A009 förhandsbesked för två tomter vid en kvarnmiljö (nivå 3, med överklagande). Nivåerna
+  är nu 1: två ärenden, 2: tre, 3: tre och 4: ett; tillsyn är tunnast.
+- [x] Beslutsutfallet `startbesked` (10 kap. 23 c och 24 §§ PBL) med egna kontroller, och
+  fyraveckorsfristen för anmälan (6 kap. 5 § PBF). Beslutet heter efter lovtypen (`lovtyp`:
+  bygglov, marklov, rivningslov eller förhandsbesked), och ett förhandsbesked kontrolleras mot
+  9 kap. 104 § i stället för 105 §.
 - [x] Mätverktyg i ritningsvisaren: avstånd och yta i meter, snäppning, fungerar med zoom
 - [x] Ritningsgeneratorn: avvikelse mot lov, parkering, balkonger, ny/igensatt öppning, skylt,
-  ventilationskanal, platt tak med attika, våningsantal, nockhöjd och egna planbestämmelser
+  ventilationskanal, platt tak med attika, våningsantal, nockhöjd och egna planbestämmelser;
+  i fas 4b träd som bevaras eller fälls, pool, befintliga och nya höjder, nya tomtgränser vid
+  avstyckning, fornlämningar, namngivna grannbyggnader och eldstad och VA-servis i planritningen
 - [x] Kommandopalett (Ctrl/Cmd + K), tangentbordsgenvägar överallt och en hjälpruta (`?`), se
   [tangentbord.md](tangentbord.md)
 - [x] Tillgänglighetsgenomgång med axe (WCAG 2.2 AA, ljust och mörkt läge) av alla vyer, paletten
@@ -122,11 +133,17 @@ Kvar i fas 2:
 
 Kvar till 1.0:
 
-- [ ] **Handledarens granskning.** Pappa går igenom de 526 frågorna, de sex ärendena och
+- [ ] **Handledarens granskning.** Pappa går igenom de 622 frågorna, de nio ärendena och
   ordlistan mot *Lagtextens byggregler 2026-01-01* och sätter `status: granskad`. Börja med det
   agenterna själva flaggade: avgiftsberäkningen i A004 (sanktionsarea för den avvikande delen,
   ibruktagande och rättelse), måtten enligt SS 21054:2020 i modul 8 (`lagrum_osaker`), praxis om
-  sakägare och liten avvikelse och bemötandefrågorna i modul 13.
+  sakägare och liten avvikelse och bemötandefrågorna i modul 13. Från fas 4b: carportens area
+  i rit-045 och rit-047, cykelparkeringen i krav-044, gränsträdet och ersättningsträdet i A008,
+  kvarnmiljön och villkoren i förhandsbeskedet i A009 och skorstensfejarens förhandsbedömning i
+  A007.
+- [ ] Ärlig lägesbild mot målen i [02-innehall.md](02-innehall.md) (15–20 ärenden och 600+
+  frågor efter ett halvår): frågemålet är nått, ärendemålet till drygt hälften. Ingenting är
+  granskat än; all text har status `utkast`.
 - [ ] 1.0 när pappa säger att ett case känns "på riktigt"
 - [ ] Fler ärenden (mål 15+), helst efter hans muntliga berättelser
 - [ ] Ett eget beslutsutfall för ingripande i tillsynsärenden (i dag skrivs avgift och

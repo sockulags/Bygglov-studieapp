@@ -140,6 +140,8 @@ export const CaseStateSchema: z.ZodType<CaseState> = z.object({
   amendmentDates: z.array(isoDate).default([]),
   // Missing in states stored before supervision cases (nivå 4) existed.
   supervision: z.boolean().default(false),
+  // Missing in states stored before notification cases (anmälan, A007) existed.
+  notification: z.boolean().default(false),
   extensionWeeks: z.number().int().min(0),
   // Missing in states stored before the extension button and vilande (102 §) existed.
   extensionReason: z.string().nullable().default(null),

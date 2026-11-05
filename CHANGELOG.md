@@ -11,7 +11,37 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
-Inget ännu.
+### Nytt
+
+- 96 nya frågor, så att det nu finns 622. Varje modul har fått mellan fyra och åtta nya, med fler
+  vardagliga "vad gör du?"-situationer, para ihop- och ordningsfrågor. I Ritningsläsning och
+  beräkning finns de två första frågorna där du mäter direkt i en ritning.
+- Tre nya ärenden, så att det nu finns nio. På Rönnen 11 vill ägarna installera en braskamin och
+  ansluta huset till kommunalt vatten och avlopp. Det är en anmälan, inte en ansökan om lov, och
+  ärendet slutar med att du ger ett startbesked. På Eken 2 ska en pool grävas ner och tre ekar
+  fällas: du prövar marklov, väger in ett arboristutlåtande och en grannes synpunkter och avslår
+  fällningen av de friska ekarna. Vid Kvarnbacken söker ett par förhandsbesked för två tomter nära
+  en gammal kvarn och en fornlämning, och en granne överklagar beslutet.
+- Ritningarna kan visa träd som ska bevaras eller fällas, en pool, befintliga och nya
+  markhöjder, nya tomtgränser vid en avstyckning, fornlämningar och grannbyggnader med namn, som
+  kvarnen. Planritningen kan visa en kamin och en VA-servis.
+- Beslutsformuläret har ett nytt utfall, Ge startbesked. Kontrollen tittar då på det som ett
+  startbesked ska innehålla: att kontrollplanen fastställs, vilka handlingar som behövs inför
+  slutbeskedet, att det nya inte får användas före slutbesked och hur länge startbeskedet gäller.
+
+### Ändrat
+
+- En anmälan har fyra veckors handläggningstid i stället för tio, och fristen kan förlängas med
+  högst fyra veckor (6 kap. 5 § PBF). Rubrikraden, diariet och avgiften räknar med det.
+- Beslutet heter efter vad ansökan gäller. I ett marklovsärende väljer du "Bevilja marklov", och
+  i ett förhandsbesked "Ge positivt förhandsbesked". Ett förhandsbesked kontrolleras mot det som
+  9 kap. 104 § kräver (att det gäller i två år och inte betyder att bygget får börja), inte mot
+  reglerna för ett bygglov.
+
+### Rättat
+
+- Ett meddelande i diariet som anger sista dag för beslut visar nu datumet även när samma
+  händelse gör ansökan komplett. Tidigare kunde det stå en kod i stället för datumet.
 
 ## [0.4.0] - 2026-11-05
 

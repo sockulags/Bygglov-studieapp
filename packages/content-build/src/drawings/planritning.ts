@@ -1,6 +1,13 @@
 import { idSafe, shortProperty, titleData, type DrawingContext } from './context';
 import { levelColumn, levelLabelWidth, type LevelMark } from './fasadritning';
-import type { PlanDoor, PlanritningParams, PlanSection, PlanWindow, Side } from './schema';
+import type {
+  PlanDoor,
+  PlanInstallation,
+  PlanritningParams,
+  PlanSection,
+  PlanWindow,
+  Side,
+} from './schema';
 import {
   INK,
   LINE,
@@ -197,6 +204,69 @@ function renderPlan(p: PlanritningParams, k: number): View {
     }
   }
 
+  // Installations: symbol, and the name beside it inside the room.
+  const taken: [number, number, number, number][] = p.installationer.map(
+    ({ rektangel: [x, y, w, d] }) => [x, y, x + w, y + d],
+  );
+  for (const inst of p.installationer) {
+    parts.push(installationSymbol(inst, X, Y, k));
+    if (!inst.namn) continue;
+    const [x, y, w, d] = inst.rektangel;
+    const size = TEXT.small;
+    const tw = textWidth(inst.namn, size) / k;
+    const th = (size * 1.4) / k;
+    const gap = 1.2 / k;
+    const room = p.rum.find(
+      ({ rektangel: [rx, ry, rw, rd] }) =>
+        x >= rx - 1e-9 && y >= ry - 1e-9 && x + w <= rx + rw + 1e-9 && y + d <= ry + rd + 1e-9,
+    )?.rektangel;
+    const options: {
+      box: [number, number, number, number];
+      tx: number;
+      anchor: 'start' | 'end';
+    }[] = [
+      {
+        box: [x + w + gap, y + d / 2 - th / 2, x + w + gap + tw, y + d / 2 + th / 2],
+        tx: x + w + gap,
+        anchor: 'start',
+      },
+      {
+        box: [x - gap - tw, y + d / 2 - th / 2, x - gap, y + d / 2 + th / 2],
+        tx: x - gap,
+        anchor: 'end',
+      },
+    ];
+    const fitsRoom = (b: [number, number, number, number]) =>
+      !room ||
+      (b[0] >= room[0] &&
+        b[2] <= room[0] + room[2] &&
+        b[1] >= room[1] &&
+        b[3] <= room[1] + room[3]);
+    const free = (b: [number, number, number, number]) =>
+      !taken.some((t) => t[0] < b[2] && b[0] < t[2] && t[1] < b[3] && b[1] < t[3]);
+    const chosen = options.find((o) => fitsRoom(o.box) && free(o.box));
+    if (chosen) {
+      taken.push(chosen.box);
+      parts.push(
+        label(X(chosen.tx), Y(y + d / 2), inst.namn, {
+          anchor: chosen.anchor,
+          baseline: 'middle',
+          size,
+          halo: true,
+        }),
+      );
+    } else {
+      // No room beside it: under the symbol, centred.
+      parts.push(
+        label(X(x + w / 2), Y(y + d) + 1.2 + size, inst.namn, {
+          anchor: 'middle',
+          size,
+          halo: true,
+        }),
+      );
+    }
+  }
+
   // Dimension chains per side, from corners whose extension line is not blocked.
   const blocked = (side: Side, px: number, py: number) =>
     rects.some(([x, y, w, d]) => {
@@ -326,6 +396,73 @@ function renderPlan(p: PlanritningParams, k: number): View {
   return { width: planW + 2 * m, height: headingY + 3, svg: group(parts, { class: 'plan' }) };
 }
 
+/** A stove, chimney, service connection or other installation, in paper coordinates. */
+function installationSymbol(
+  inst: PlanInstallation,
+  X: (x: number) => number,
+  Y: (y: number) => number,
+  k: number,
+): string {
+  const [x, y, w, d] = inst.rektangel;
+  const weight = inst.ny ? LINE.heavy : LINE.normal;
+  const box = rect(X(x), Y(y), w * k, d * k, { fill: PAPER, stroke: INK, 'stroke-width': weight });
+  const cx = X(x + w / 2);
+  const cy = Y(y + d / 2);
+  const small = Math.min(w, d) * k;
+  switch (inst.typ) {
+    case 'kamin': {
+      // The stove body, the firebox inside it and the flue as a circle with a cross.
+      const inset = small * 0.18;
+      const r = small * 0.2;
+      return [
+        box,
+        rect(X(x) + inset, Y(y) + inset, w * k - 2 * inset, d * k - 2 * inset, {
+          fill: 'none',
+          stroke: INK,
+          'stroke-width': LINE.thin,
+        }),
+        el('circle', { cx, cy, r, fill: PAPER, stroke: INK, 'stroke-width': LINE.normal }),
+        line(cx - r * 0.7, cy - r * 0.7, cx + r * 0.7, cy + r * 0.7, LINE.thin),
+        line(cx - r * 0.7, cy + r * 0.7, cx + r * 0.7, cy - r * 0.7, LINE.thin),
+      ].join('');
+    }
+    case 'skorsten':
+      // A chimney cut through: filled with diagonals.
+      return [
+        box,
+        line(X(x), Y(y), X(x + w), Y(y + d), LINE.thin),
+        line(X(x), Y(y + d), X(x + w), Y(y), LINE.thin),
+      ].join('');
+    case 'servis': {
+      // Water and drainage lines entering through the wall: two circles marked V and S.
+      const r = Math.min(small * 0.22, 2);
+      const vertical = d >= w;
+      const a: [number, number] = vertical ? [cx, cy - d * k * 0.22] : [cx - w * k * 0.22, cy];
+      const b: [number, number] = vertical ? [cx, cy + d * k * 0.22] : [cx + w * k * 0.22, cy];
+      const mark = ([px, py]: [number, number], letter: string) =>
+        el('circle', { cx: px, cy: py, r, fill: PAPER, stroke: INK, 'stroke-width': LINE.normal }) +
+        label(px, py, letter, {
+          anchor: 'middle',
+          baseline: 'middle',
+          size: Math.min(TEXT.small, r * 1.3),
+          weight: 'bold',
+        });
+      return [
+        rect(X(x), Y(y), w * k, d * k, {
+          fill: PAPER,
+          stroke: INK,
+          'stroke-width': weight,
+          'stroke-dasharray': '1.2 0.6',
+        }),
+        mark(a, 'V'),
+        mark(b, 'S'),
+      ].join('');
+    }
+    default:
+      return box;
+  }
+}
+
 function renderSection(s: PlanSection, k: number, wall: number, cutId: string): View {
   const b = s.bredd;
   const tan = Math.tan((s.takvinkel * Math.PI) / 180);
@@ -406,6 +543,39 @@ function renderSection(s: PlanSection, k: number, wall: number, cutId: string): 
   return { width, height: headingY + 3, svg: group(parts, { class: 'sektion' }) };
 }
 
+const INSTALLATION_LEGEND: Record<PlanInstallation['typ'], string> = {
+  kamin: 'eldstad (kamin) med anslutning till rökkanal',
+  skorsten: 'skorsten eller rökkanal',
+  servis: 'VA-servis, V = vatten, S = spillvatten',
+  annan: 'installation',
+};
+
+/** One legend row per kind of installation on the plan, drawn with the plan's own symbol. */
+function installationLegend(list: PlanInstallation[]) {
+  const kinds = [...new Set(list.map((i) => i.typ))];
+  return kinds.map((typ) => {
+    const ny = list.some((i) => i.typ === typ && i.ny);
+    return {
+      swatch: {
+        type: 'custom' as const,
+        draw: (x: number, y: number, w: number, h: number) => {
+          // A square symbol 1 m wide (any scale) centred in the swatch.
+          const size = h;
+          const k = size;
+          const left = x + (w - size) / 2;
+          return installationSymbol(
+            { typ, ny, rektangel: [0, 0, 1, 1] },
+            (v) => left + v * k,
+            (v) => y + v * k,
+            k,
+          );
+        },
+      },
+      text: ny ? `Ny ${INSTALLATION_LEGEND[typ]}` : `Befintlig ${INSTALLATION_LEGEND[typ]}`,
+    };
+  });
+}
+
 export function renderPlanritning(p: PlanritningParams, context: DrawingContext): string {
   const k = 1000 / p.skala;
   const id = idSafe(context.idPrefix);
@@ -432,6 +602,7 @@ export function renderPlanritning(p: PlanritningParams, context: DrawingContext)
           },
         ]
       : []),
+    ...installationLegend(p.installationer),
   ];
   const notes = ['Mått i millimeter. Rumsareor är nettoareor.'];
   if (section) notes.push('FG = färdigt golv, BH = byggnadshöjd, NH = nockhöjd.');

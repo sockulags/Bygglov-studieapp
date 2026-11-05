@@ -1344,3 +1344,118 @@ fragor:
       - PBL 10 kap. 3 §
       - PBL 10 kap. 4 §
     taggar: [bygglov, anmalan, startbesked, service]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: lov-052
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På en villatomt inom detaljplan finns ett bygglovsbefriat garage på 22 kvm byggnadsarea och
+      en friggebod på 12 kvm från 2015. Ägaren vill bygga till garaget med 6 kvm, så att det får
+      28 kvm byggnadsarea och 3,8 m nockhöjd, 6 m från tomtgränsen. Huset är 130 kvm och
+      området är inte särskilt värdefullt. Krävs bygglov?
+    alternativ:
+      - text: Nej. Tillbyggnaden av komplementbyggnaden är bygglovsbefriad, eftersom garaget blir högst 30 kvm och 4 m och alla komplementbyggnader på tomten blir sammanlagt 40 kvm, alltså högst 45 kvm.
+        ratt: true
+      - text: Nej, eftersom alla tillbyggnader upp till 30 kvm bruttoarea är bygglovsbefriade enligt 9 kap. 10 §.
+      - text: Ja, eftersom tillbyggnader av komplementbyggnader alltid kräver bygglov.
+      - text: Ja, eftersom friggeboden gör att potten överskrids.
+    forklaring: >
+      Tillbyggnad av en komplementbyggnad inom detaljplan regleras i 9 kap. 11 § PBL, inte i
+      10 §, som uttryckligen inte gäller komplementbyggnader och komplementbostadshus. Efter
+      tillbyggnaden ska byggnaden ha högst 30 kvm byggnadsarea, vara mindre än huvudbyggnaden,
+      ha högst 4 m nockhöjd, ligga inom tomten och tillsammans med övriga komplementbyggnader
+      rymmas i 45 kvm. Friggeboden från 2015 räknas in: 28 + 12 = 40 kvm. Utanför plan gäller
+      motsvarande gränser 50, 4,5 och 65 (12 §). Lov kan ändå krävas nära gräns eller i
+      särskilt värdefulla miljöer (14 §).
+    lagrum:
+      - PBL 9 kap. 11 §
+      - PBL 9 kap. 10 §
+      - PBL 9 kap. 12 §
+      - PBL 9 kap. 14 §
+    taggar: [komplementbyggnad, tillbyggnad, pott, lovbefriad]
+
+  - id: lov-053
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En restaurang i Åkerslunda fick 2025 bygglov för en uteservering med väggar och tak som
+      byggs upp varje maj och monteras ned i september. Lovet avsåg ändamål av säsongskaraktär.
+      Restaurangen vill bygga upp den igen i maj 2026. Behövs ett nytt bygglov?
+    alternativ:
+      - text: Nej. Åtgärden får vidtas igen utan ny prövning, om det sker inom ett år från det att den senast avslutades.
+        ratt: true
+      - text: Ja, ett säsongslov gäller bara en säsong.
+      - text: Nej, uteserveringar kräver aldrig bygglov.
+      - text: Ja, men bara en anmälan.
+    forklaring: >
+      Enligt 9 kap. 40 § PBL får en åtgärd som omfattas av ett bygglov för ett ändamål av
+      säsongskaraktär vidtas igen utan ny prövning, om det sker inom ett år från det att åtgärden
+      senast avslutades. Uteserveringen monterades ned i september 2025 och får därför byggas upp
+      igen i maj 2026. Ett säsongslov kombineras ofta med tidsbegränsat bygglov (39 §), som kan ges
+      för högst tio år och förlängas med högst fem år i taget (72 §); den sammanlagda tiden får
+      bli längre än femton år bara för en åtgärd enligt 71 § 2 som används för ett ändamål av
+      säsongskaraktär. Rivningslov krävs inte för det som uppförts med
+      stöd av sådana lov (45 §).
+    lagrum:
+      - PBL 9 kap. 40 §
+      - PBL 9 kap. 39 §
+      - PBL 9 kap. 72 §
+      - PBL 9 kap. 45 §
+    taggar: [sasongslov, tidsbegransat_bygglov, uteservering]
+
+  - id: lov-054
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Inom detaljplan i ett område av riksintresse för totalförsvarets anläggningar krävs bygglov
+      för att sätta upp solceller på ett tak, även om anläggningen har en effekt på högst elva
+      kilowatt.
+    svar: true
+    forklaring: >
+      Normalt kräver en solenergianläggning på högst elva kilowatt inget bygglov som fasadändring
+      (9 kap. 17 a § PBL). Men inom eller i anslutning till områden av riksintresse för
+      totalförsvarets anläggningar krävs bygglov för fasadändring som innebär att en
+      solenergianläggning sätts upp eller väsentligt ändras i ett detaljplanelagt område (36 §
+      2), eftersom reflexer och störningar kan påverka t.ex. flygplatser och radar. 36 § kräver
+      också lov för komplementbostadshus och hästhållning i områden för flygplatser och
+      skjutfält. Kontrollera därför alltid om fastigheten ligger i ett sådant område.
+    lagrum:
+      - PBL 9 kap. 36 §
+      - PBL 9 kap. 17 a §
+      - PBL 9 kap. 15 §
+    taggar: [totalforsvar, solceller, lovplikt]
+
+  - id: lov-055
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Kommunen vill sätta upp en väntkur för busstrafiken på en allmän plats där kommunen äger
+      marken. Väntkuren får 6 kvm byggnadsarea och 2,8 m nockhöjd. Krävs bygglov?
+    alternativ:
+      - text: Nej, en byggnad för kollektivtrafiken eller på allmän plats där kommunen är markägare kräver inte bygglov om den är högst 15 kvm och högst 3 m hög, men lov kan ändå krävas t.ex. i särskilt värdefulla miljöer.
+        ratt: true
+      - text: Ja, alla nya byggnader kräver bygglov.
+      - text: Nej, kommunen behöver aldrig söka bygglov för sina egna byggnader.
+      - text: Ja, men bara om väntkuren har väggar.
+    forklaring: >
+      9 kap. 7 § PBL undantar byggnader som ska användas för kollektivtrafiken eller placeras inom
+      en allmän plats där kommunen är markägare, om byggnadsarean är högst 15 kvm och
+      taknockshöjden högst 3 m. Undantaget omfattar t.ex. väntkurer, mindre kiosker och
+      förrådsbodar i parker. Enligt 8 § kan lov ändå krävas enligt 34–37 §§, t.ex. nära en
+      järnväg eller i ett särskilt värdefullt område. Kommunen har som byggherre samma skyldigheter
+      som andra och är inte allmänt undantagen från lovplikt.
+    lagrum:
+      - PBL 9 kap. 7 §
+      - PBL 9 kap. 8 §
+      - PBL 9 kap. 3 §
+    taggar: [lovbefriad, kollektivtrafik, allman_plats]

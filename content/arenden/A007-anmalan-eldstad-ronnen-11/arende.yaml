@@ -1,0 +1,309 @@
+# Nivå 1-ärende: anmälan, inte lov. Fiktiv fastighet, fiktiv kommun, fiktiv detaljplan.
+# Lagrum kontrollerade mot docs/rattslage/ (hämtade från riksdagen.se 2026-11-04–05):
+# PBL 9 kap. (pbl-9-kap.txt), PBL 10 kap. i lydelsen från 2026-07-01 (pbl-10-kap.txt),
+# PBL 12 kap. 8 och 8 a §§, PBL 13 kap. 2 och 3 §§, PBF 6, 7 och 9 kap. och LSO 3 kap. 4 §.
+# Anmälan handläggs enligt PBF 6 kap. 5 §, som gör 9 kap. 85, 86, 90, 91, 99–101 och 107 §§
+# PBL tillämpliga, med en tidsfrist på fyra veckor i stället för tio. Beslutet har utfallet
+# "startbesked" (10 kap. 23 c § PBL). Då räknar ärendemotorn ärendet som en anmälan: fristen
+# är fyra veckor och kan förlängas med högst fyra (PBF 6 kap. 5 §), och beslutskontrollen
+# rättar startbeskedet efter 10 kap. 24 § och inte efter reglerna om lov.
+# Prisbasbeloppet 2026 är 59 200 kr (prisbasbelopp.txt).
+id: A007
+titel: "Anmälan: installation av eldstad och ny VA-anslutning"
+niva: 1
+status: utkast
+rattslage: "2025-12-01"
+fastighet: Rönnen 11, Åkerslunda kommun
+sammanfattning: >
+  Ägarna till ett enbostadshus inom detaljplan vill installera en braskamin med en ny
+  stålskorsten genom taket och ansluta huset till det kommunala vatten- och avloppsnätet,
+  som nyss byggts ut i området. Det är en anmälan, inte en ansökan om lov. Anmälan saknar
+  skorstensfejarens bedömning av skorstenens placering och åtkomst för sotning, men den
+  kommer in efter ett föreläggande. Ärendet slutar med ett startbesked.
+startdatum: 2026-09-14
+moduler: [03-lovplikt, 09-genomforande, 06-handlaggning, 10-tillsyn]
+larandemal:
+  - Skilja mellan lov och anmälan efter 2025-12-01, där 9 kap. 55 § PBL hänvisar till anmälningsplikten i PBF 6 kap. 1 § (eldstad, rökkanal, vatten och avlopp)
+  - Se att en fasadändring på ett enbostadshus inte kräver bygglov (9 kap. 15 § 3) och att skorstenen därför bara kräver anmälan
+  - Veta vad en anmälan ska innehålla (PBF 6 kap. 5 och 6 §§ med 9 kap. 86 § PBL) och förelägga om komplettering (9 kap. 91 §)
+  - Räkna tidsfristen för en anmälan, fyra veckor (PBF 6 kap. 5 § andra stycket), och avgiftsreduktionen (12 kap. 8 a § andra stycket PBL)
+  - Veta när kontrollansvarig och tekniskt samråd inte behövs (PBF 7 kap. 5 § 2, 10 kap. 14 och 22 §§ PBL)
+  - Ge ett skriftligt startbesked med fastställd kontrollplan och handlingar inför slutbesked (10 kap. 23 c, 24 och 24 a §§), och upplysa om slutbesked (10 kap. 4 och 34 §§) och byggsanktionsavgift (PBF 9 kap. 13 och 24 §§)
+
+parter:
+  # Sökandena är också fastighetsägare. Grannar hörs inte i ett anmälningsärende.
+  sokande: [Hanna Forsberg, Mikael Forsberg]
+  fastighetsagare: [Hanna Forsberg, Mikael Forsberg]
+
+taxa:
+  # Förenklad fiktiv taxa. Avgiften avser handläggningen av anmälan med startbesked
+  # (12 kap. 8 § 1 och 9 PBL). Reduktion med en femtedel per påbörjad vecka som
+  # fyraveckorsfristen överskrids (12 kap. 8 a § andra stycket PBL, PBF 6 kap. 5 §).
+  anmälan_eldstad_rökkanal_och_VA_med_startbesked: 4300
+  reduktion_per_vecka: 0.2
+
+handlingar:
+  - id: H1
+    typ: anmalan
+    titel: Anmälan om installation av eldstad, rökkanal och vatten och avlopp
+    fil: handlingar/anmalan.md
+    inkom: 2026-09-14
+    fakta:
+      atgard: installation av braskamin med ny rökkanal (stålskorsten) och ny anslutning av vatten och avlopp i byggnaden
+      byggnad: enbostadshus i 1½ plan, byggt 1979
+      byggnadsarea_kvm: 118
+      eldstad_effekt_kw: 6
+      skorsten_hojd_over_mark_m: 7.6
+      skorsten_over_nock_m: 0.8
+      skorsten_avstand_narmaste_grans_m: 9.0
+      kontrollansvarig: false
+      skorstensfejarens_bedomning: false
+  - id: H2
+    typ: planritning
+    titel: Planritning plan 1 med kamin och VA-servis 1:50
+    fil: handlingar/planritning.svg
+    inkom: 2026-09-14
+    fakta:
+      kaminens_placering: "vardagsrummet, mot väggen mot köket, 0,15 m från väggen"
+      va_servis: "tvättstugan, genom östra grundmuren"
+    parametrar:
+      skala: 50
+      rubrik: Plan 1, ny kamin och ny VA-servis
+      vaggtjocklek: 0.3
+      byggnader:
+        - { namn: Befintligt enbostadshus, rektangel: [0, 0, 13, 9.1] }
+      rum:
+        - { namn: Kök, rektangel: [0.3, 0.3, 5.4, 3.2] }
+        - { namn: Vardagsrum, rektangel: [0.3, 3.6, 5.4, 5.2] }
+        - { namn: Hall, rektangel: [5.8, 0.3, 2.4, 5.5] }
+        - { namn: Sovrum 1, rektangel: [8.3, 0.3, 4.4, 3.2] }
+        - { namn: Bad, rektangel: [8.3, 3.6, 2.2, 2.2] }
+        - { namn: Tvätt, rektangel: [10.6, 3.6, 2.1, 2.2] }
+        - { namn: Sovrum 2, rektangel: [5.8, 5.9, 6.9, 2.9] }
+      dorrar:
+        - { position: [6.5, 0], vagg: horisontell, bredd: 1.0, oppnas_mot: soder }
+        - { position: [0, 6.6], vagg: vertikal, bredd: 0.9, oppnas_mot: oster }
+        - { position: [12.7, 3.7], vagg: vertikal, bredd: 0.9, oppnas_mot: vaster }
+        - { position: [1.8, 3.5], vagg: horisontell, typ: oppning, tjocklek: 0.1, bredd: 1.2 }
+        - { position: [5.7, 1.4], vagg: vertikal, typ: oppning, tjocklek: 0.1, bredd: 0.9 }
+        - { position: [5.7, 4.6], vagg: vertikal, typ: oppning, tjocklek: 0.1, bredd: 1.0 }
+        - { position: [8.2, 1.8], vagg: vertikal, tjocklek: 0.1, bredd: 0.9, oppnas_mot: oster }
+        - { position: [8.2, 4.4], vagg: vertikal, tjocklek: 0.1, bredd: 0.8, oppnas_mot: oster }
+        - { position: [10.5, 4.6], vagg: vertikal, tjocklek: 0.1, bredd: 0.8, oppnas_mot: oster }
+        - { position: [6.6, 5.8], vagg: horisontell, tjocklek: 0.1, bredd: 0.9, oppnas_mot: soder }
+      fonster:
+        - { position: [1.8, 0], vagg: horisontell, bredd: 1.6 }
+        - { position: [9.6, 0], vagg: horisontell, bredd: 1.4 }
+        - { position: [1.2, 8.8], vagg: horisontell, bredd: 2.4 }
+        - { position: [8.4, 8.8], vagg: horisontell, bredd: 1.6 }
+      installationer:
+        - { typ: kamin, namn: Ny kamin med stålskorsten, rektangel: [3.9, 3.75, 0.55, 0.45] }
+        - { typ: servis, namn: Ny VA-servis, rektangel: [11.9, 4.8, 0.75, 0.9] }
+      ritningshuvud: { datum: 2026-09-06, ritad_av: Mikael Forsberg, ritningsnummer: A-01 }
+  - id: H3
+    typ: produktblad
+    titel: Produktblad och installationsanvisning, kamin och skorsten
+    fil: handlingar/produktblad-kamin.md
+    inkom: 2026-09-14
+    fakta:
+      kamin: "Glödhem K6, 6 kW, provad enligt EN 13240"
+      skorsten: "Rökväg R150, isolerad stålskorsten Ø 150 mm, temperaturklass T600"
+      avstand_brannbart_bak_m: 0.15
+      avstand_brannbart_sida_m: 0.30
+      golvplat_framfor_m: 0.30
+  - id: H4
+    typ: kontrollplan
+    titel: Förslag till kontrollplan
+    fil: handlingar/kontrollplan.md
+    inkom: 2026-09-14
+  - id: H5
+    typ: skrivelse
+    titel: Skorstensfejarens bedömning av eldstad och skorsten
+    fil: handlingar/skorstensfejarens-bedomning.md
+    dold_tills: E1
+    fakta:
+      placering_godtagbar: true
+      krav_takskydd: "takbrygga vid skorstenen, fast takstege och glidskydd"
+      besiktning_fore_ibruktagande: true
+  - id: H6
+    typ: kontrollplan
+    titel: Kompletterat förslag till kontrollplan
+    fil: handlingar/kontrollplan-rev.md
+    dold_tills: E1
+
+steg:
+  - id: S1
+    typ: checklista
+    rubrik: Är anmälan komplett?
+    instruktion: >
+      Gå igenom handlingarna och markera vad som finns. En anmälan ska innehålla det som
+      behövs för att nämnden ska kunna ge startbesked, men inte mer än så.
+    poster:
+      - { text: Ifylld och undertecknad anmälan med byggherrens uppgifter, finns: true }
+      - { text: Planritning som visar kaminens och servisens placering, finns: true }
+      - { text: "Produktblad för kaminen och skorstenen med avstånd till brännbart material", finns: true }
+      - { text: Förslag till kontrollplan, finns: true }
+      - { text: Beskrivning av VA-installationen och var huset ansluts till det kommunala nätet, finns: true, kommentar: "Finns i anmälan, punkt 2. Själva förbindelsepunkten och ledningarna i tomtmark hanteras av VA-huvudmannen." }
+      - { text: Skorstensfejarens bedömning av skorstenens placering och åtkomsten för sotning och brandskyddskontroll, finns: false, kommentar: "Nämnden behöver den för att bedöma om skorstenen kan antas uppfylla kraven på brandskydd och säkerhet vid användning, och kommunens anvisningar för anmälan av eldstad kräver den. Förelägg om komplettering." }
+      - { text: Anmälan om kontrollansvarig, finns: false, kommentar: "Krävs inte för en åtgärd som omfattas av krav på anmälan (PBF 7 kap. 5 § 2)." }
+      - { text: Avfallshanteringsplan, finns: false, kommentar: "Kravet gäller inte om det är uppenbart att behov saknas (10 kap. 8 a § andra stycket PBL). Här blir det bara emballage, gipsspill och några meter gamla rör, och kontrollplanen anger hur det tas om hand." }
+    forklaring: >
+      En anmälan handläggs som en ansökan om lov i de delar som PBF 6 kap. 5 § räknar upp:
+      den ska innehålla det som 9 kap. 86 § PBL kräver, nämnden får förelägga om komplettering
+      enligt 9 kap. 91 §, och tidsfristerna i 99–101 §§ gäller med en skillnad: fristen är
+      fyra veckor i stället för tio. Utöver det ska en anmälan innehålla de handlingar som
+      krävs för beslut om startbesked (PBF 6 kap. 6 §). Anmälan kom in den 14 september 2026.
+      Förelägger du om komplettering inom tre veckor räknas de fyra veckorna från den dag
+      kompletteringen kommer in (9 kap. 99 § första stycket 4). Kontrollansvarig behövs inte
+      för en anmälningspliktig åtgärd.
+    lagrum: [PBF 6 kap. 5 §, PBF 6 kap. 6 §, PBL 9 kap. 86 §, PBL 9 kap. 91 §, PBL 9 kap. 99 §, PBF 7 kap. 5 §, PBL 10 kap. 8 a §]
+    tid_framat_dagar: 1
+
+  - id: S2
+    typ: fraga
+    rubrik: Anmälan eller lov?
+    instruktion: Läs anmälan och planritningen. Pröva varje del för sig, kaminen, skorstenen och VA-anslutningen.
+    fragetyp: flersvar
+    fraga: Vilka påståenden om åtgärderna på Rönnen 11 stämmer?
+    alternativ:
+      - text: Installationen av kaminen och den nya skorstenen kräver anmälan, eftersom det är installation av en eldstad och en rökkanal i en byggnad (PBF 6 kap. 1 § 4).
+        ratt: true
+      - text: De nya vatten- och avloppsledningarna i huset kräver anmälan (PBF 6 kap. 1 § 5). Ledningarna i tomtmark och förbindelsepunkten hanteras av VA-huvudmannen.
+        ratt: true
+      - text: Anmälningsplikten följer av föreskrifter som 9 kap. 55 § PBL hänvisar till. Den gäller bara åtgärder som inte redan kräver lov.
+        ratt: true
+      - text: Skorstenen kräver bygglov som fasadändring, eftersom den syns från gatan.
+      - text: Skorstenen kräver bygglov enligt 9 kap. 28 §, eftersom paragrafen räknar upp skorstenar.
+      - text: Det krävs en kontrollansvarig och ett tekniskt samråd, eftersom installationen påverkar brandskyddet.
+      - text: Om nämnden inte har hört av sig inom fyra veckor får byggherren börja installera.
+    forklaring: >
+      9 kap. 55 § PBL säger bara att det kan finnas föreskrifter om anmälan för åtgärder som
+      inte kräver lov. Föreskrifterna finns i PBF 6 kap. 1 §: installation av en eldstad och en
+      rökkanal (punkt 4) och av en anläggning för vatten och avlopp i en byggnad (punkt 5).
+      Undantagen i 2 § gäller inte här. Skorstenen ändrar husets yttre, men fasadändring kräver
+      bara bygglov på andra byggnader än en- och tvåbostadshus (9 kap. 15 § 3), och detaljplanen
+      har ingen egen lovplikt. 9 kap. 28 § 3 gäller skorstenar som är högre än 20 meter eller
+      står närmare gränsen än sin höjd; den här är 7,6 meter över marken och 9 meter från
+      närmaste gräns. Kontrollansvarig krävs inte för anmälningspliktiga åtgärder (PBF 7 kap.
+      5 § 2), och då behövs inget tekniskt samråd om det inte är uppenbart befogat eller
+      byggherren begär det (10 kap. 14 §). Nämnden ska i stället ge startbesked direkt eller
+      förelägga om de handlingar som saknas (10 kap. 22 §). Det finns inget "tyst
+      godkännande": en anmälningspliktig åtgärd får aldrig påbörjas utan startbesked (10 kap.
+      3 § första stycket 2).
+    lagrum: [PBL 9 kap. 55 §, PBF 6 kap. 1 §, PBF 6 kap. 2 §, PBL 9 kap. 15 §, PBL 9 kap. 28 §, PBF 7 kap. 5 §, PBL 10 kap. 3 §, PBL 10 kap. 14 §, PBL 10 kap. 22 §]
+
+  - id: S3
+    typ: skrivelse
+    rubrik: Skriv föreläggande om komplettering
+    instruktion: >
+      Skriv föreläggandet till Hanna och Mikael Forsberg. Ange vad som saknas och varför, en
+      svarstid och vad som händer om de inte kompletterar. Berätta också vad som gäller för
+      tidsfristen och för att börja arbetet.
+    ar_forelaggande: true
+    bedomningspunkter:
+      - Begär skorstensfejarens bedömning av skorstenens placering och höjd över taket och av åtkomsten för sotning och brandskyddskontroll (takbrygga, takstege)
+      - Förklarar kort varför underlaget behövs, för att nämnden ska kunna bedöma brandskydd och säkerhet vid användning inför startbeskedet (PBF 6 kap. 6 §, 10 kap. 23 c § PBL)
+      - Anger en bestämd svarstid
+      - Upplyser om att anmälan kan avvisas eller ärendet avgöras i befintligt skick om föreläggandet inte följs (9 kap. 91 § PBL genom PBF 6 kap. 5 §)
+      - Skickas inom tre veckor från att anmälan kom in och säger att fyraveckorsfristen räknas från den dag kompletteringen kommer in (9 kap. 99 § första stycket 4, PBF 6 kap. 5 §, 100 § 2)
+      - Påminner om att arbetet inte får påbörjas förrän nämnden gett startbesked, och att byggsanktionsavgift annars tas ut
+      - Begriplig och vänlig ton, med kontaktuppgifter till handläggaren
+    modelltext: handlingar/modell-forelaggande.md
+    forklaring: >
+      Ett föreläggande om komplettering är ett beslut riktat till byggherren. Det ska säga
+      exakt vad som saknas, när det ska vara inne och vad följden blir om inget kommer in.
+      Eftersom PBF 6 kap. 5 § gör 9 kap. 91 och 99–101 §§ PBL tillämpliga på anmälan gäller
+      samma regler som för en lovansökan, men fristen är fyra veckor.
+    lagrum: [PBL 9 kap. 91 §, PBF 6 kap. 5 §, PBL 9 kap. 99 §, PBL 9 kap. 100 §, PBL 10 kap. 3 §]
+
+  - id: S4
+    typ: fraga
+    rubrik: Vad ska startbeskedet innehålla?
+    instruktion: >
+      Kompletteringen har kommit in. Läs skorstensfejarens bedömning och den kompletterade
+      kontrollplanen innan du svarar.
+    fragetyp: flersvar
+    fraga: Vilka påståenden om startbeskedet stämmer?
+    alternativ:
+      - text: Startbeskedet ska vara skriftligt och ges om åtgärden kan antas uppfylla de tekniska egenskapskraven (10 kap. 23 c § PBL).
+        ratt: true
+      - text: I startbeskedet fastställer nämnden kontrollplanen och bestämmer vilka handlingar som ska lämnas in inför slutbeskedet, t.ex. skorstensfejarens besiktningsprotokoll och intyg om täthetsprovning (10 kap. 24 § 1 och 4).
+        ratt: true
+      - text: Startbeskedet gäller omedelbart och upphör att gälla två år efter att det gavs (10 kap. 24 a § och 25 § andra stycket).
+        ratt: true
+      - text: Startbeskedet bör upplysa om att VA-huvudmannen ska godkänna anslutningen och att miljöenheten ska kontaktas om den gamla avloppsanläggningen (10 kap. 24 § 5).
+        ratt: true
+      - text: Kaminen får användas så snart den är installerad och skorstensfejaren har besiktigat den.
+      - text: Startbeskedet gäller först när det har fått laga kraft, tre veckor efter att det delgetts.
+      - text: Startbeskedet ska kungöras på kommunens anslagstavla.
+    forklaring: >
+      För en anmälningspliktig åtgärd ges startbeskedet enligt 10 kap. 23 c § PBL: nämnden ska
+      skriftligen godkänna att åtgärden får påbörjas om den kan antas uppfylla de tekniska
+      egenskapskraven i 8 kap. 4–7 §§. Innehållet styrs av 24 §: kontrollplanen fastställs,
+      villkor för att påbörja bestäms om de behövs, handlingarna inför slutbeskedet anges och
+      nämnden upplyser om krav enligt annan lagstiftning. Startbeskedet gäller omedelbart
+      (24 a §). För en anmälningspliktig åtgärd upphör det att gälla två år efter att det gavs
+      (25 § andra stycket). Kaminen och de nya ledningarna får inte tas i bruk förrän nämnden
+      gett slutbesked (10 kap. 4 och 34 §§); skorstensfejarens besiktning är ett underlag för
+      slutbeskedet, inte en ersättning för det. Kungörelse gäller beslut om lov och
+      förhandsbesked (9 kap. 109 §), inte startbesked.
+    lagrum: [PBL 10 kap. 23 c §, PBL 10 kap. 24 §, PBL 10 kap. 24 a §, PBL 10 kap. 25 §, PBL 10 kap. 4 §, PBL 10 kap. 34 §, PBL 9 kap. 109 §]
+    tid_framat_dagar: 1
+
+  - id: S5
+    typ: beslut
+    rubrik: Ge startbesked
+    instruktion: >
+      Skriv beslutet. Välj "Ge startbesked" i formuläret: det är ett startbesked, inte ett
+      bygglov. Fastställ kontrollplanen, ange vad som ska lämnas in inför slutbeskedet, redovisa
+      avgiften och skriv hur beslutet kan överklagas. Behövs ett villkor för att få påbörja, t.ex.
+      att takbryggan och stegen ska vara monterade innan kaminen ansluts, skriver du det under
+      villkor och upplysningar (10 kap. 24 § 2 PBL).
+    forvantat_beslut: startbesked
+    lagrum: [PBL 9 kap. 55 §, PBL 10 kap. 23 c §, PBL 10 kap. 24 §]
+    bedomningspunkter:
+      - Beslutet är ett startbesked enligt 10 kap. 23 c § PBL för installation av eldstad och rökkanal och av vatten och avlopp i byggnaden (PBF 6 kap. 1 § 4 och 5), inte ett bygglov
+      - Skälen visar att åtgärden kan antas uppfylla kraven på brandskydd, säkerhet vid användning och vatten och avlopp (8 kap. 4 § PBL), med stöd av produktbladet och skorstensfejarens bedömning
+      - Fastställer den kompletterade kontrollplanen med vem som gör varje kontroll (10 kap. 24 § 1), och konstaterar att kontrollansvarig inte krävs (PBF 7 kap. 5 § 2), att tekniskt samråd inte behövs (10 kap. 14 och 22 §§) och att avfallshanteringsplan inte behövs (10 kap. 8 a §)
+      - Anger handlingarna inför slutbesked (10 kap. 24 § 4), signerad kontrollplan, skorstensfejarens besiktningsprotokoll och VVS-installatörens intyg om provtryckning och täthetsprovning
+      - Upplyser om att kaminen och de nya ledningarna inte får tas i bruk förrän slutbesked getts (10 kap. 4 och 34 §§), och om byggsanktionsavgift för att börja före startbesked eller använda före slutbesked (PBF 9 kap. 13 § och 24 §)
+      - Upplyser om att startbeskedet gäller omedelbart och upphör att gälla två år efter att det gavs (10 kap. 24 a § och 25 § andra stycket)
+      - Upplyser om annan lagstiftning (10 kap. 24 § 5), anmälan till sotningsväsendet (LSO 3 kap. 4 §), VA-huvudmannens godkännande och miljöenheten för den gamla avloppsanläggningen
+      - Avgiften 4 300 kr redovisas med hur den bestämts, utan reduktion eftersom beskedet ges inom fyra veckor från kompletteringen (9 kap. 107 § och 12 kap. 8 a § andra stycket PBL, PBF 6 kap. 5 §)
+      - Överklagandehänvisning till länsstyrelsen inom tre veckor från delgivningen (13 kap. 3 § PBL, 44 § FL), med upplysning om att behovet av kontrollplan, kontrollansvarig och tekniskt samråd inte kan överklagas (13 kap. 2 § 5)
+      - Beslutet delges byggherrarna, som också är fastighetsägare, så att överklagandetiden börjar löpa; det kungörs inte och grannarna får inget meddelande eftersom det inte är ett beslut om lov (9 kap. 109 och 110 §§)
+    modellbeslut: handlingar/modell-startbesked.md
+
+handelser:
+  - id: E1
+    namn: Skorstensfejarens bedömning kommer in
+    utlosare: { efter_steg: S3 }
+    effekt:
+      tid_framat_dagar: 8
+      visa_handlingar: [H5, H6]
+      satt_komplett_datum: true
+      andrade_fakta: { skorstensfejarens_bedomning: true, kontrollplan_kompletterad: true }
+      meddelande: >
+        Hanna Forsberg har mejlat in skorstensfejarens bedömning och ett kompletterat förslag
+        till kontrollplan. Skorstensfejaren godtar placeringen men kräver takbrygga, fast
+        takstege och glidskydd, och vill besiktiga installationen innan kaminen används.
+        Anmälan är nu komplett. Eftersom föreläggandet skickades inom tre veckor räknas
+        fyraveckorsfristen från i dag, den {{simdatum}}, och löper ut den {{simdatum+28}}
+        (9 kap. 99 § första stycket 4 PBL och PBF 6 kap. 5 §).
+
+facit:
+  sammanfattning: >
+    Kaminen, skorstenen och de nya VA-ledningarna i huset kräver anmälan enligt PBF 6 kap.
+    1 § 4 och 5, inte lov: skorstenen är en fasadändring på ett enbostadshus och kräver inte
+    bygglov. Anmälan kompletteras efter ett föreläggande med skorstensfejarens bedömning, och
+    fyraveckorsfristen räknas från kompletteringen. Kontrollansvarig och tekniskt samråd
+    behövs inte. Nämnden ger ett skriftligt startbesked enligt 10 kap. 23 c § som fastställer
+    kontrollplanen, anger handlingarna inför slutbeskedet och gäller omedelbart.
+  vanliga_fel:
+    - Att behandla ärendet som en bygglovsansökan och kungöra beslutet eller underrätta grannar
+    - Att kräva bygglov för skorstenen som fasadändring, trots att huset är ett enbostadshus
+    - Att räkna tio veckors handläggningstid i stället för fyra (PBF 6 kap. 5 §)
+    - Att kräva kontrollansvarig eller kalla till tekniskt samråd utan skäl
+    - Att tro att skorstensfejarens besiktning ersätter slutbeskedet, eller att kaminen får användas innan slutbesked getts
+    - Att hänvisa till den gamla anmälningsplikten för attefallsåtgärder, som inte finns längre
+  modellbeslut: handlingar/modell-startbesked.md

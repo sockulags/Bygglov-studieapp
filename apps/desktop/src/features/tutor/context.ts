@@ -1,7 +1,7 @@
 import type { CaseFile, CaseStep, Question } from '@bygglov/content-schema';
 import {
   caseFacts,
-  DECISION_OUTCOME_LABELS,
+  decisionOutcomeLabel,
   DELIVERY_METHOD_LABELS,
   diary,
   stepOverview,
@@ -359,9 +359,9 @@ function stepResultLabel(result: StepResult): string {
       : 'klart, inte rätt';
 }
 
-function describeDraft(draft: DecisionDraft): string[] {
+function describeDraft(caseFile: CaseFile, draft: DecisionDraft): string[] {
   return [
-    `Utfall: ${DECISION_OUTCOME_LABELS[draft.utfall]}`,
+    `Utfall: ${decisionOutcomeLabel(draft.utfall, caseFile)}`,
     `Lagstöd: ${draft.lagstod.length > 0 ? draft.lagstod.join(', ') : 'inget angivet'}`,
     `Motivering: ${draft.motivering.trim() || 'tom'}`,
     `Villkor och upplysningar: ${draft.villkor_upplysningar.trim() || 'inga'}`,
@@ -381,7 +381,7 @@ function answerKeyForDecision(caseFile: CaseFile, decision: SubmittedDecision): 
   const { assessment } = decision;
   const lines: string[] = [
     `FACIT (hon har lämnat in beslutet ${decision.date})`,
-    `Förväntat utfall: ${DECISION_OUTCOME_LABELS[assessment.expectedOutcome]}`,
+    `Förväntat utfall: ${decisionOutcomeLabel(assessment.expectedOutcome, caseFile)}`,
     `Automatiska kontroller, ${assessment.passedChecks} av ${assessment.totalChecks} godkända:`,
     list(
       assessment.checks.map(
@@ -496,11 +496,13 @@ export function buildCaseContext(
   }
 
   if (options.draft && !decision) {
-    head.push(`Hennes beslutsutkast (inte inlämnat):\n${describeDraft(options.draft).join('\n')}`);
+    head.push(
+      `Hennes beslutsutkast (inte inlämnat):\n${describeDraft(caseFile, options.draft).join('\n')}`,
+    );
   }
   if (decision) {
     head.push(
-      `Hennes inlämnade beslut (${decision.date}):\n${describeDraft(decision.draft).join('\n')}`,
+      `Hennes inlämnade beslut (${decision.date}):\n${describeDraft(caseFile, decision.draft).join('\n')}`,
     );
   }
   if (withKey) head.push(answerKeyForDecision(caseFile, decision).join('\n'));

@@ -169,6 +169,11 @@ export interface CaseState {
    * weeks then run from that day.
    */
   supervision: boolean;
+  /**
+   * A notification case (anmälan): the decision is a start notice, and the deadline is four
+   * weeks instead of ten, extendable once by at most four weeks (6 kap. 5 § PBF).
+   */
+  notification: boolean;
   /** Weeks the 99 § deadline has been extended (0 = not extended, at most 10). */
   extensionWeeks: number;
   /** Why the deadline was extended (shown in the diary), null when not extended. */
@@ -291,6 +296,8 @@ export interface CaseDeadline {
   deadlineDate: string | null;
   /** Swedish explanation with law references. */
   explanation: string;
+  /** Four weeks for a notification (6 kap. 5 § PBF) instead of ten. */
+  notification?: boolean;
 }
 
 export interface DeadlineStatus extends CaseDeadline {

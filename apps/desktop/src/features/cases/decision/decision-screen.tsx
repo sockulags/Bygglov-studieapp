@@ -59,7 +59,7 @@ export function DecisionScreen({
       onOpenChange={onOpenChange}
       eyebrow={`${caseFile.id} · ${stepId} · beslutsdatum ${state.simDate}`}
       title={`Beslut: ${caseFile.titel}, ${caseFile.fastighet.split(',')[0] ?? ''}`}
-      description={`Tidsfrist enligt 9 kap. 99 §: ${deadline.label}. Utkastet sparas medan du skriver.`}
+      description={`Tidsfrist enligt 9 kap. 99 §${state.notification ? ' och 6 kap. 5 § PBF' : ''}: ${deadline.label}. Utkastet sparas medan du skriver.`}
     >
       {wide ? (
         <div className="grid h-full min-h-0 grid-cols-[minmax(440px,560px)_1fr]">

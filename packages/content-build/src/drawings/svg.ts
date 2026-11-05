@@ -406,7 +406,9 @@ export function scaleBar(
 export type LegendSwatch =
   | { type: 'fill'; fill: string; stroke?: string; strokeWidth?: number; dash?: string }
   | { type: 'line'; width: number; dash?: string; color?: string }
-  | { type: 'symbol'; text: string; weight?: 'normal' | 'bold'; italic?: boolean };
+  | { type: 'symbol'; text: string; weight?: 'normal' | 'bold'; italic?: boolean }
+  /** Any markup inside the swatch box (x, y, width, height in mm). */
+  | { type: 'custom'; draw: (x: number, y: number, width: number, height: number) => string };
 
 export interface LegendEntry {
   swatch: LegendSwatch;
@@ -424,7 +426,8 @@ export function legend(
   const row = options.rowHeight ?? 5;
   const size = options.size ?? TEXT.small;
   const sw = 9;
-  const sh = 3.4;
+  // Tight rows get lower swatches, so that they do not run into each other.
+  const sh = Math.min(3.4, row - 0.8);
   const parts: string[] = [
     label(x, y + TEXT.normal, heading, { size: TEXT.normal, weight: 'bold' }),
   ];
@@ -448,6 +451,8 @@ export function legend(
           stroke: s.color ?? INK,
         }),
       );
+    } else if (s.type === 'custom') {
+      parts.push(s.draw(x, top, sw, sh));
     } else {
       parts.push(
         label(x + sw / 2, top + sh / 2, s.text, {

@@ -900,3 +900,231 @@ fragor:
       medan de tekniska kraven hanteras inför startbeskedet och i kontrollplanen.
     lagrum: [PBL 8 kap. 1 §, PBL 8 kap. 4 §, PBF 3 kap. 1 §]
     taggar: [utformningskrav, tekniska_egenskapskrav, grundbegrepp]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: krav-039
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bostadsbolag vill bygga ett flerbostadshus i experimentsyfte med en ny typ av
+      klimatskärm, och ber byggnadsnämnden i Åkerslunda om dispens från ett av de tekniska
+      egenskapskraven. Vad svarar du?
+    alternativ:
+      - text: Byggnadsnämnden kan inte ge dispens. Boverket får i det enskilda fallet ge dispens för byggnader i experimentsyfte, om det finns särskilda skäl och inte medför oacceptabel risk för hälsa eller säkerhet.
+        ratt: true
+      - text: Byggnadsnämnden kan ge dispens i bygglovet om avvikelsen är liten.
+      - text: Länsstyrelsen ger dispens efter samråd med byggnadsnämnden.
+      - text: Dispens behövs inte; byggherren kan välja egna lösningar så länge kontrollansvarig godkänner dem.
+    forklaring: >
+      Enligt 8 kap. 26 § PBL får regeringen eller den myndighet regeringen bestämmer ge dispens
+      från bestämmelserna i 8 kap. Regeringen har i 3 kap. 24 § PBF gett Boverket den uppgiften,
+      men bara för uppförande eller ändring av en byggnad i experimentsyfte, när det finns
+      särskilda skäl och dispensen inte medför oacceptabel risk för människors hälsa eller
+      säkerhet. Byggnadsnämnden har ingen sådan befogenhet. Liten avvikelse (9 kap. 60 §) gäller
+      detaljplanen, inte byggreglerna. Att byggherren väljer en annan lösning än de allmänna
+      råden är däremot vanligt; då ska byggherren visa att föreskrifterna ändå uppfylls.
+    lagrum:
+      - PBL 8 kap. 26 §
+      - PBF 3 kap. 24 §
+      - PBL 8 kap. 4 §
+    taggar: [dispens, tekniska_egenskapskrav, boverket]
+
+  - id: krav-040
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I ett äldre villaområde i Åkerslunda med enbart röda och gula trähus söks bygglov för ett
+      nytt enbostadshus med fasad och tak i svart plåt. Detaljplanen saknar bestämmelser om
+      utformning och material. Huset följer i övrigt planen. Vad gäller för prövningen av
+      utformningen?
+    alternativ:
+      - text: Nämnden ska ändå pröva om huset har en god form-, färg- och materialverkan och tar hänsyn till stadsbilden och helhetsverkan. Ett avslag kräver en tydlig motivering, eftersom planen inte styr utformningen.
+        ratt: true
+      - text: Nämnden får inte pröva utformningen alls, eftersom detaljplanen saknar utformningsbestämmelser.
+      - text: Nämnden ska avslå, eftersom ett hus som avviker från omgivningens material strider mot planen.
+      - text: Nämnden kan bevilja med villkoret att huset målas rött.
+    forklaring: >
+      Inom detaljplan ska nämnden pröva kraven i 8 kap. 1 § och 2 kap. 6 § första stycket 1
+      (9 kap. 56 § första stycket 4), om frågan inte redan är avgjord genom detaljplanen. När
+      planen inte reglerar utformningen är det alltså nämnden som bedömer om byggnaden har en god
+      form-, färg- och materialverkan (8 kap. 1 § 2) och tar hänsyn till stadsbilden och
+      intresset av en god helhetsverkan. Ett annat material är i sig inte fel; modern arkitektur
+      kan passa in. Ett avslag måste bygga på en konkret analys av området och motiveras väl,
+      eftersom det är en skönsmässig bedömning som ofta överklagas. Villkor om kulör kan inte
+      ersätta en prövning av det som faktiskt söks.
+    lagrum:
+      - PBL 8 kap. 1 §
+      - PBL 2 kap. 6 §
+      - PBL 9 kap. 56 §
+    taggar: [utformning, stadsbild, motivering]
+
+  - id: krav-041
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En bensinstation söker bygglov för en ny fristående skylt. Gäller kravet på god form-,
+      färg- och materialverkan för skylten, trots att den inte är en byggnad?
+    alternativ:
+      - text: Ja. Kravet gäller också andra anläggningar än byggnader om anläggningen kräver bygglov, och 2 kap. 6 § PBL gäller uttryckligen skyltar.
+        ratt: true
+      - text: Nej, utformningskraven gäller bara byggnader.
+      - text: Bara om skylten har belysning.
+      - text: Bara om detaljplanen har en bestämmelse om skyltar.
+    forklaring: >
+      8 kap. 1 § PBL gäller byggnader, men enligt 8 kap. 3 § gäller samma krav för andra
+      anläggningar i den omfattning som framgår av föreskrifter. 3 kap. 3 § PBF säger att kravet
+      på form-, färg- och materialverkan gäller en annan anläggning än en byggnad om den kräver
+      bygglov enligt 9 kap. PBL. För lovpliktiga upplag, materialgårdar, tunnlar och bergrum
+      gäller kravet bara så långt det behövs för hänsynen till stads- och landskapsbilden.
+      Dessutom säger 2 kap. 6 § andra stycket att lämplighetskraven också gäller skyltar och
+      ljusanordningar. Skylten prövas alltså med hänsyn till både utformning och placering.
+    lagrum:
+      - PBL 8 kap. 3 §
+      - PBF 3 kap. 3 §
+      - PBL 2 kap. 6 §
+      - PBL 8 kap. 1 §
+    taggar: [skylt, utformning, andra_anlaggningar]
+
+  - id: krav-042
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      När får en byggprodukt ingå i ett byggnadsverk enligt 8 kap. 19 § PBL?
+    alternativ:
+      - text: När den är lämplig för den avsedda användningen, t.ex. för att den har egenskaper som gör att byggnadsverket kan uppfylla de tekniska egenskapskraven.
+        ratt: true
+      - text: När byggnadsnämnden har godkänt produkten i bygglovet.
+      - text: Bara när den är tillverkad i Sverige.
+      - text: När kontrollansvarig har typgodkänt produkten.
+    forklaring: >
+      Enligt 8 kap. 19 § PBL får en byggprodukt ingå i ett byggnadsverk endast om den är lämplig
+      för den avsedda användningen. Den anses lämplig om den har sådana egenskaper att
+      byggnadsverket kan uppfylla de tekniska egenskapskraven när det är rätt projekterat och
+      uppfört, eller om den uppfyller Boverkets föreskrifter. Villkoren för att sälja
+      byggprodukter (bl.a. CE-märkning) finns i EU-regler (20 §). Typgodkännande meddelas av ett
+      ackrediterat organ (22 §), inte av kontrollansvarig eller nämnden. Det är byggherren som
+      ansvarar för att produkterna är lämpliga (10 kap. 5 §).
+    lagrum:
+      - PBL 8 kap. 19 §
+      - PBL 8 kap. 20 §
+      - PBL 8 kap. 22 §
+      - PBL 10 kap. 5 §
+    taggar: [byggprodukter, byggherrens_ansvar]
+
+  - id: krav-043
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Para ihop åtgärden med hur långt utformningskraven i 8 kap. 1 § PBL ska uppfyllas enligt
+      den lydelse som gäller i dag.
+    par:
+      - vanster: Nybyggnad av ett kontorshus
+        hoger: För hela byggnaden
+      - vanster: Ombyggnad av ett äldre skolhus
+        hoger: För hela byggnaden eller, om det inte är rimligt, den betydande och avgränsbara del som påtagligt förnyas
+      - vanster: Byte av entréparti på en butik (annan ändring än ombyggnad)
+        hoger: I fråga om ändringen
+      - vanster: Ett enkelt avhjälpt hinder i en lokal dit allmänheten har tillträde
+        hoger: Ska alltid avhjälpas, även utan byggåtgärd
+      - vanster: En byggåtgärd som varken kräver lov eller anmälan
+        hoger: Kraven får anpassas och avsteg göras i skälig utsträckning
+    forklaring: >
+      8 kap. 2 § PBL styr omfattningen: nybyggnad ska uppfylla kraven för hela byggnaden,
+      ombyggnad för hela byggnaden eller den betydande och avgränsbara del som påtagligt förnyas,
+      och annan ändring i fråga om ändringen. Enkelt avhjälpta hinder mot tillgänglighet i
+      lokaler dit allmänheten har tillträde ska alltid avhjälpas (andra stycket). För lovfria och
+      anmälningsfria åtgärder får kraven anpassas och avsteg göras i skälig utsträckning (8 §).
+      Från 2027-01-01 ersätts begreppet ombyggnad av större byggnadsändring och 2 § delas upp i
+      2–2 c §§ (lag 2026:746), så kontrollera lydelsen när du läser äldre material.
+    lagrum:
+      - PBL 8 kap. 2 §
+      - PBL 8 kap. 8 §
+      - PBL 8 kap. 1 §
+    taggar: [utformning, andring, ombyggnad, tillganglighet]
+
+  - id: krav-044
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I en bygglovsansökan för ett flerbostadshus med 30 lägenheter redovisar situationsplanen
+      bilparkering men ingen cykelparkering. Hur hanterar du det?
+    alternativ:
+      - text: Jag kontrollerar redan i lovet att tomten rymmer lämpligt utrymme för parkering, även för cyklar, och ser till att kravet på cykelparkering och laddning för elfordon i 3 kap. 20 b § PBF följs upp inför startbeskedet.
+        ratt: true
+      - text: Cykelparkering är byggherrens sak och berör inte nämnden alls.
+      - text: Jag avslår ansökan direkt, eftersom cykelparkering är ett krav i detaljplanen.
+      - text: Jag ställer som villkor i lovet att det ska finnas en cykelplats per lägenhet.
+    forklaring: >
+      Tomten ska ordnas så att det i skälig utsträckning finns lämpligt utrymme för parkering,
+      lastning och lossning av fordon (8 kap. 9 § första stycket 4 PBL), och det prövar nämnden i
+      lovet (9 kap. 56 §). Hållbar mobilitet är dessutom ett tekniskt egenskapskrav (8 kap. 4 §
+      första stycket 11): enligt 3 kap. 20 b § PBF ska byggnaden ha den laddutrustning och det
+      antal cykelparkeringsplatser som krävs med hänsyn till bl.a. antalet bilplatser och
+      användningen. De tekniska egenskapskraven hanteras i det tekniska samrådet och kontrollplanen
+      inför startbeskedet. Ett villkor om exakt antal platser saknar stöd. Be sökanden visa
+      cykelparkeringen redan nu, så att platsen finns på tomten.
+    lagrum:
+      - PBL 8 kap. 9 §
+      - PBL 8 kap. 4 §
+      - PBF 3 kap. 20 b §
+      - PBL 9 kap. 56 §
+    taggar: [parkering, cykel, hallbar_mobilitet, tomt, vardag]
+
+  - id: krav-045
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      8 kap. 4 § PBL räknar i dag upp ___ tekniska egenskapskrav. Det senaste, hållbar
+      mobilitet, innebär enligt 3 kap. 20 b § PBF krav på utrustning för laddning av elfordon och
+      på ___.
+    svar: [["11", "elva"], ["cykelparkering", "cykelparkeringsplatser", "cykelparkeringar"]]
+    forklaring: >
+      Kraven är bärförmåga, stadga och beständighet; säkerhet i händelse av brand; skydd med
+      hänsyn till hygien, hälsa och miljön; säkerhet vid användning; skydd mot buller;
+      energihushållning och värmeisolering; lämplighet för det avsedda ändamålet; tillgänglighet
+      och användbarhet; hushållning med vatten och avfall; bredbandsanslutning och hållbar
+      mobilitet. Hur de uppfylls framgår av Boverkets byggregler (16 kap. 2 §). Kommunen får inte
+      ställa egna krav på tekniska egenskaper utöver det som lagen tillåter (8 kap. 4 a §).
+    lagrum:
+      - PBL 8 kap. 4 §
+      - PBF 3 kap. 20 b §
+      - PBL 8 kap. 4 a §
+    taggar: [tekniska_egenskapskrav, hallbar_mobilitet, siffror]
+
+  - id: krav-046
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Kravet i 2 kap. 6 § PBL på hänsyn till stads- och landskapsbilden gäller bara åtgärder som
+      prövas i ett ärende om bygglov.
+    svar: false
+    forklaring: >
+      2 kap. 6 § PBL gäller vid planläggning, i ärenden om bygglov och vid åtgärder avseende
+      byggnader som inte kräver lov. Den som bygger en bygglovsbefriad komplementbyggnad eller
+      tillbyggnad måste alltså också ta hänsyn till stads- och landskapsbilden och till
+      bebyggelseområdets kulturvärden, och byggnaden ska uppfylla kraven i 8 kap., även om de får
+      anpassas i skälig utsträckning (8 kap. 8 §). Ingen prövar det i förväg; nämnden kan bara
+      ingripa genom tillsyn i efterhand. Det är därför viktigt att informera om reglerna när
+      någon frågar om en lovfri åtgärd.
+    lagrum:
+      - PBL 2 kap. 6 §
+      - PBL 8 kap. 8 §
+      - PBL 11 kap. 5 §
+    taggar: [stadsbild, lovbefriad, tillsyn]

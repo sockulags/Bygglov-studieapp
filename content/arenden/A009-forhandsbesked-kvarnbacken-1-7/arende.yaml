@@ -1,0 +1,671 @@
+# Nivå 3-ärende. Fiktiv fastighet, fiktiv kommun, fiktiv översiktsplan och fiktiv fornlämning.
+# Lagrum i 9 kap. PBL är kontrollerade mot docs/rattslage/pbl-9-kap.txt (lydelse 2025:974).
+# PBL 1–5, 8, 12 och 13 kap., FL, MB 3 och 7 kap., förordningen (1998:899) om miljöfarlig
+# verksamhet och hälsoskydd och kulturmiljölagen 2 kap. är kontrollerade mot utdragen i
+# docs/rattslage/ (hämtade från riksdagen.se 2026-11-04–05).
+# Ärendet är ett förhandsbesked: 9 kap. 41, 42 och 74 §§ (bara utanför detaljplan, bara
+# lokalisering, bindande två år från laga kraft) och 104 § om beslutets innehåll. 105 och
+# 114 §§ gäller lov, inte förhandsbesked.
+# Datum efter beslutet skrivs som mallvariabler ({{beslutsdatum}} …, se content/README.md).
+#
+# Situationsplanerna (1:500) använder tomter (nya tomtgränser med area), nybyggnader (huset på
+# tomt 2), fornlamningar och namngivna grannhus (kvarnen och mjölnarbostaden). I H8 ligger
+# fornlämningsområdet utanför ritningens tomt; generatorn ritar det ändå och måttsätter de
+# 10 m från den östra gränsen.
+id: A009
+titel: Förhandsbesked för två tomter vid Kvarnbacken
+lovtyp: forhandsbesked
+niva: 3
+status: utkast
+rattslage: "2025-12-01"
+fastighet: Kvarnbacken 1:7, Åkerslunda kommun
+sammanfattning: >
+  Ägarna till Kvarnbacken 1:7 vill stycka av två tomter för enbostadshus vid Kvarnvägen och
+  söker förhandsbesked innan de går till Lantmäteriet. Marken ligger utanför detaljplan men
+  inom den sammanhållna bebyggelsen i Kvarnbacken, intill en kvarnmiljö som översiktsplanen
+  pekar ut som särskilt värdefullt bebyggelseområde. En stensättning från järnåldern ligger
+  på den östra tomtens mark, avloppet blir enskilt och utfarten går mot en enskild väg som
+  ägs av en samfällighet. Länsstyrelsen kräver arkeologisk utredning om tomten inte
+  justeras, miljöenheten godtar avloppet med villkor och efter beslutet överklagar en granne.
+startdatum: 2026-09-07
+moduler: [05-utanfor-plan, 11-angransande, 06-handlaggning, 12-overklagande, 02-pbl-systemet]
+larandemal:
+  - Förstå förhandsbeskedets räckvidd efter 2025-12-01, bara utanför detaljplan, bara lokalisering och bindande vid bygglovsprövningen om bygglov söks inom två år från laga kraft (9 kap. 41, 42 och 74 §§)
+  - Göra en lokaliseringsprövning enligt 9 kap. 74 § och 2 kap. 2, 4, 5, 6, 6 a, 9 och 10 §§ PBL och avgöra om två nya tomter kräver detaljplan (4 kap. 2 §)
+  - Väga in ett särskilt värdefullt bebyggelseområde (8 kap. 13 § andra stycket 4, utpekat i översiktsplanen enligt 3 kap. 5 § 4) i lokaliseringsprövningen genom 2 kap. 6 § tredje stycket
+  - Hantera en fornlämning enligt kulturmiljölagen, samråd och arkeologisk utredning (2 kap. 10 och 11 §§) och tillstånd till ingrepp (2 kap. 12 §), och upplysa om det (9 kap. 92 §)
+  - Underrätta grannar och en samfällighet utanför plan (9 kap. 94–96 och 113 §§, 5 kap. 33 §) och skicka remisser till länsstyrelsen och miljöenheten
+  - Hantera en ändrad ansökan efter underrättelsen och räkna tidsfrist och avgift (9 kap. 94 § tredje stycket, 99 och 100 §§, 12 kap. 8 a §)
+  - Skriva ett positivt förhandsbesked med villkor och upplysningar enligt 9 kap. 104 §, avgift (107 §) och rätt expediering (108–110 §§)
+  - Rättidspröva en grannes överklagande av ett positivt förhandsbesked (13 kap. 16 § PBL, 44–47 §§ FL)
+
+parter:
+  # Grannarna enligt grannförteckningen (H4). Kvarnvägen är en samfälld fastighet
+  # (Kvarnbacken s:1) som förvaltas av vägsamfällighetsföreningen; meddelanden till
+  # samfälligheten skickas till en styrelseledamot (9 kap. 113 § och 5 kap. 33 §).
+  sokande: [Erik Mattsson, Annika Mattsson]
+  fastighetsagare: [Erik Mattsson, Annika Mattsson]
+  grannar:
+    - { fastighet: Kvarnbacken 1:12, namn: [Gunnel Åström, Rolf Åström] }
+    - { fastighet: Kvarnbacken 1:9, namn: [Lars Berg] }
+    - { fastighet: Kvarnbacken 1:4, namn: [Kvarnbackens hembygdsförening] }
+    - { fastighet: Kvarnbacken s:1, namn: [Kvarnbackens vägsamfällighetsförening, Håkan Lind] }
+
+taxa:
+  # Förenklad fiktiv taxa. Posten omfattar förhandsbesked för upp till två bostadshus utanför
+  # plan med underrättelse, remisser och kungörelse.
+  förhandsbesked_två_enbostadshus_utanför_plan: 16000
+  reduktion_per_vecka: 0.2
+
+handlingar:
+  # Textdokument är Markdown (front matter: rubrik, avsandare, datum, diarienummer).
+  # Situationsplanerna genereras från parametrar med `pnpm content:drawings`.
+  - id: H1
+    typ: ansokan
+    titel: Ansökan om förhandsbesked
+    fil: handlingar/ansokan.md
+    inkom: 2026-09-07
+    fakta:
+      atgard: förhandsbesked för nybyggnad av två enbostadshus på två tomter som ska styckas av
+      detaljplan: false
+      omradesbestammelser: false
+      sammanhallen_bebyggelse: true
+      antal_tomter: 2
+      tomtarea_kvm: 1800
+      byggnadsarea_per_hus_kvm: 135
+      vaningar: "1½"
+      vatten: borrade brunnar
+      avlopp: gemensam avloppsanläggning med fosforrening
+      vag: "Kvarnvägen, enskild väg (Kvarnbacken s:1)"
+      kontrollansvarig: false
+  - id: H2
+    typ: situationsplan
+    titel: Situationsplan över avstyckningen 1:500
+    fil: handlingar/situationsplan.svg
+    inkom: 2026-09-07
+    fakta:
+      avstyckningsomrade_m: [80, 45]
+      tomt_1: [0, 0, 40, 45]
+      tomt_2: [40, 0, 40, 45]
+      hus_tomt_1: [12, 12, 15, 9]
+      hus_tomt_2: [50, 12, 15, 9]
+      fornlamningsomrade: [66, 20, 14, 18]
+      avstand_hus_tomt_2_fornlamningsomrade_m: 1
+      tomt_2_inom_fornlamningsomrade_kvm: 252
+      avstand_hus_tomt_2_kvarnen_m: 31
+      utfart: "gemensam, 6 m bred, 37–43 m från västra gränsen, mot Kvarnvägen"
+      avloppsanlaggning: [16, 35, 16, 8]
+      brunnar: [[4, 4], [46, 4]]
+    parametrar:
+      skala: 500
+      tomt_bredd: 80
+      tomt_djup: 45
+      fastighet: Kvarnbacken 1:7 (del)
+      nybyggnad: [12, 12, 15, 9]
+      huvudbyggnad_namn: Nytt enbostadshus (ungefärligt läge)
+      nybyggnader:
+        - { rektangel: [50, 12, 15, 9], namn: Nytt enbostadshus (ungefärligt läge) }
+      tomter:
+        - { rektangel: [0, 0, 40, 45], namn: Tomt 1, area: 1800 }
+        - { rektangel: [40, 0, 40, 45], namn: Tomt 2, area: 1800 }
+      fornlamningar:
+        - { rektangel: [66, 20, 14, 18], namn: Fornlämningsområde L1987:3312 }
+      anlaggningar:
+        - { rektangel: [16, 35, 16, 8], namn: Avlopp (gemensamt) }
+      punkter:
+        - { punkt: [4, 4], namn: Borrad brunn tomt 1 }
+        - { punkt: [46, 4], namn: Borrad brunn tomt 2 }
+      utfart: { sida: norr, lage: 37, bredd: 6 }
+      gata: { sida: norr, namn: Kvarnvägen (enskild väg), bredd: 5, fastighet: Kvarnbacken s:1 }
+      grannar: { norr: Kvarnbacken 1:12, oster: Kvarnbacken 1:4, soder: Kvarnbacken 1:7, vaster: Kvarnbacken 1:9 }
+      grannhus:
+        - [56, -34, 12, 9]
+        - [-28, 10, 12, 9]
+        - { rektangel: [96, 4, 14, 10], namn: Kvarnen }
+        - { rektangel: [94, 30, 10, 8], namn: Mjölnarbostaden }
+      ritningshuvud:
+        projekt: Förhandsbesked, avstyckning av två tomter
+        datum: 2026-09-02
+        ritad_av: Erik och Annika Mattsson
+        ritningsnummer: A-01
+  - id: H3
+    typ: oversiktsplan
+    titel: Översiktsplanen, utdrag för Kvarnbacken
+    fil: handlingar/oversiktsplan.md
+    inkom: 2026-09-07
+    fakta:
+      detaljplan: false
+      omradesbestammelser: false
+      sarskilt_vardefullt_bebyggelseomrade: "K 3 Kvarnbackens kvarnmiljö (8 kap. 13 § andra stycket 4)"
+      tomterna_inom_K3: true
+      minsta_avstand_ny_bebyggelse_kvarnen_m: 40
+      fornlamning: "stensättning L1987:3312 på terrassen väster om kvarnen"
+      strandskydd: false
+      riksintresse: false
+      vatten_avlopp: "utanför verksamhetsområde, hög skyddsnivå för miljöskydd (Kvarnbäcken)"
+  - id: H4
+    typ: ovrigt
+    titel: Grannförteckning ur fastighetsregistret
+    fil: handlingar/grannforteckning.md
+    inkom: 2026-09-07
+  - id: H5
+    typ: remissvar
+    titel: Yttrande från länsstyrelsen om kulturmiljö och fornlämning
+    fil: handlingar/remissvar-lansstyrelsen.md
+    dold_tills: E1
+    fakta:
+      arkeologisk_utredning_om_tomt_2_behalls: true
+      minsta_avstand_tomtgrans_fornlamningsomrade_m: 10
+  - id: H6
+    typ: grannyttrande
+    titel: Yttrande från ägarna till Kvarnbacken 1:12
+    fil: handlingar/yttrande-kvarnbacken-1-12.md
+    dold_tills: E1
+    fakta: { fastighet: Kvarnbacken 1:12 }
+  - id: H7
+    typ: skrivelse
+    titel: Skrivelse från sökandena om ändrade tomtgränser
+    fil: handlingar/skrivelse-sokandena.md
+    dold_tills: E1
+  - id: H8
+    typ: situationsplan
+    titel: Situationsplan över avstyckningen 1:500, revidering A (ändrade tomtgränser)
+    fil: handlingar/situationsplan-rev-a.svg
+    dold_tills: E1
+    fakta:
+      avstyckningsomrade_m: [56, 54]
+      tomt_1: [0, 0, 28, 54]
+      tomt_2: [28, 0, 28, 54]
+      tomtarea_kvm: 1512
+      hus_tomt_1: [8, 12, 14, 9]
+      hus_tomt_2: [34, 12, 14, 9]
+      avstand_tomtgrans_fornlamningsomrade_m: 10
+      avstand_hus_tomt_2_kvarnen_m: 48
+      utfart: "gemensam, 6 m bred, 25–31 m från västra gränsen, mot Kvarnvägen"
+      avloppsanlaggning: [6, 42, 16, 8]
+      andrat_mot_H2: tomtgränserna, husens lägen, utfarten och avloppsanläggningens läge
+    # Tomterna är smalare och djupare. Den östra gränsen ligger 10 m väster om
+    # fornlämningsområdet (x = 66 i H2:s koordinater), som nu ligger utanför ritningens tomt;
+    # generatorn ritar det och måttsätter avståndet från gränsen.
+    parametrar:
+      skala: 500
+      tomt_bredd: 56
+      tomt_djup: 54
+      fastighet: Kvarnbacken 1:7 (del)
+      nybyggnad: [8, 12, 14, 9]
+      huvudbyggnad_namn: Nytt enbostadshus (ungefärligt läge)
+      nybyggnader:
+        - { rektangel: [34, 12, 14, 9], namn: Nytt enbostadshus (ungefärligt läge) }
+      tomter:
+        - { rektangel: [0, 0, 28, 54], namn: Tomt 1, area: 1512 }
+        - { rektangel: [28, 0, 28, 54], namn: Tomt 2, area: 1512 }
+      fornlamningar:
+        - { rektangel: [66, 20, 14, 18], namn: Fornlämningsområde L1987:3312 }
+      anlaggningar:
+        - { rektangel: [6, 42, 16, 8], namn: Avlopp (gemensamt) }
+      punkter:
+        - { punkt: [3, 4], namn: Borrad brunn tomt 1 }
+        - { punkt: [44, 4], namn: Borrad brunn tomt 2 }
+      utfart: { sida: norr, lage: 25, bredd: 6 }
+      gata: { sida: norr, namn: Kvarnvägen (enskild väg), bredd: 5, fastighet: Kvarnbacken s:1 }
+      grannar: { norr: Kvarnbacken 1:12, oster: Kvarnbacken 1:7, soder: Kvarnbacken 1:7, vaster: Kvarnbacken 1:9 }
+      grannhus:
+        - [56, -34, 12, 9]
+        - [-28, 10, 12, 9]
+        - { rektangel: [96, 4, 14, 10], namn: Kvarnen }
+        - { rektangel: [94, 30, 10, 8], namn: Mjölnarbostaden }
+      ritningshuvud:
+        projekt: Förhandsbesked, avstyckning av två tomter
+        datum: 2026-10-01
+        ritad_av: Erik och Annika Mattsson
+        ritningsnummer: A-01 rev A
+  - id: H9
+    typ: remissvar
+    titel: Yttrande från miljöenheten om vatten och avlopp
+    fil: handlingar/remissvar-miljoenheten.md
+    dold_tills: E2
+    fakta:
+      skyddsniva_miljoskydd: hög
+      skyddsniva_halsoskydd: hög
+      minsta_avstand_brunn_m: 30
+  - id: H10
+    typ: overklagande
+    titel: Överklagande från ägarna till Kvarnbacken 1:12
+    fil: handlingar/overklagande-kvarnbacken-1-12.md
+    dold_tills: E3
+    fakta: { fastighet: Kvarnbacken 1:12 }
+  - id: H11
+    typ: ovrigt
+    titel: Delgivningskvitto från ägarna till Kvarnbacken 1:12
+    fil: handlingar/delgivningskvitto-kvarnbacken-1-12.md
+    dold_tills: E3
+
+steg:
+  - id: S1
+    typ: checklista
+    rubrik: Är ansökan komplett?
+    instruktion: >
+      Gå igenom ansökan, situationsplanen och utdraget ur översiktsplanen. Markera vad som
+      finns. Tänk på vad som faktiskt prövas i ett förhandsbesked och vad som hör till det
+      kommande bygglovet eller till andra myndigheter.
+    poster:
+      - { text: Ifylld och undertecknad ansökan om förhandsbesked, finns: true }
+      - { text: "Karta eller situationsplan med tomternas läge och storlek, husens ungefärliga lägen och utfarten", finns: true }
+      - { text: "Uppgift om vad som ska byggas (två enbostadshus, ungefärlig storlek och antal våningar)", finns: true }
+      - { text: Principlösning för vatten och avlopp, finns: true, kommentar: "Behövs för att bedöma om marken är lämpad med hänsyn till vatten och avlopp (2 kap. 5 § 3). Tillståndet till avloppsanordningen söks hos miljöenheten." }
+      - { text: Fasad- och planritningar, finns: false, kommentar: "Behövs inte. Ett förhandsbesked prövar bara om åtgärden kan lokaliseras till platsen (9 kap. 41 och 74 §§). Husens utformning prövas i bygglovet." }
+      - { text: Förslag till kontrollansvarig, finns: false, kommentar: "Behövs inte i ett förhandsbesked, som inte ger rätt att bygga något. Kontrollansvarig anges i bygglovsansökan (9 kap. 86 § 3 b)." }
+      - { text: Arkeologisk utredning, finns: false, kommentar: "Kan inte krävas av nämnden. Det är länsstyrelsen som beslutar om en arkeologisk utredning behövs (2 kap. 11 § kulturmiljölagen). Nämnden skickar ansökan på remiss." }
+      - { text: Fastighetsägarens medgivande, finns: true, kommentar: "Sökandena äger Kvarnbacken 1:7 och är alltså både sökande och fastighetsägare." }
+    forklaring: >
+      Ansökan är komplett för ett förhandsbesked, så något föreläggande om komplettering behövs
+      inte (9 kap. 91 §). En ansökan om förhandsbesked ska innehålla det som behövs för
+      prövningen (9 kap. 86 § 7), och den prövningen gäller bara lokaliseringen: platsen,
+      markanvändningen, vatten och avlopp, trafik, kulturvärden och grannar. Ritningar och
+      kontrollansvarig hör till bygglovet. Tioveckorsfristen räknas från ansökningsdagen den
+      7 september 2026 och löper ut den 16 november 2026 (9 kap. 99 § första stycket 1).
+      Sökandena ska skriftligen informeras om fristen, om avgiftsreduktionen och om
+      möjligheten att överklaga (100 § 1). Reduktionen gäller även förhandsbesked (12 kap.
+      8 a §).
+    lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 91 §, PBL 9 kap. 99 §, PBL 9 kap. 100 §, PBL 12 kap. 8 a §]
+    tid_framat_dagar: 2
+
+  - id: S2
+    typ: fraga
+    rubrik: Vad prövas i ett förhandsbesked?
+    instruktion: >
+      Erik Mattsson ringer. De vill veta vad de får med ett förhandsbesked, innan de beställer
+      lantmäteriförrättningen. Vilka påståenden stämmer i dag?
+    fragetyp: flersvar
+    fraga: Vilka påståenden om förhandsbesked stämmer efter den 1 december 2025?
+    alternativ:
+      - text: Förhandsbesked kan bara ges för en bygglovspliktig åtgärd i ett område som inte omfattas av en detaljplan.
+        ratt: true
+      - text: Förhandsbeskedet besvarar bara frågan om åtgärden kan lokaliseras till platsen. Husens utformning och de tekniska kraven prövas i bygglovet.
+        ratt: true
+      - text: Ett positivt förhandsbesked är bindande vid bygglovsprövningen om bygglov söks inom två år från den dag förhandsbeskedet fick laga kraft.
+        ratt: true
+      - text: Ett positivt förhandsbesked gäller omedelbart, precis som ett bygglov, även om det överklagas.
+      - text: Med ett positivt förhandsbesked får sökandena börja bygga vägen och schakta för husgrunderna.
+      - text: Sökandena kan i stället begära ett villkorsbesked om att lov kommer att ges om husen utformas på ett visst sätt.
+      - text: Ett förhandsbesked kan också sökas inom detaljplan, för att få veta om en planavvikelse är liten.
+    forklaring: >
+      Den som avser att vidta en bygglovspliktig åtgärd i ett område som inte omfattas av en
+      detaljplan får begära förhandsbesked i frågan om åtgärden kan lokaliseras till en viss
+      plats (9 kap. 41 §). Ett positivt besked binder nämnden vid den kommande
+      bygglovsprövningen om bygglov söks inom två år från den dag förhandsbeskedet fick laga
+      kraft (42 §). Det binder alltså först när det fått laga kraft; 114 § om att lov gäller
+      omedelbart gäller bygglov, rivningslov och marklov, inte förhandsbesked. Beslutet ska
+      upplysa om tvåårsfristen och om att beskedet inte innebär att åtgärden får påbörjas
+      (104 § 1 och 2). Före 2025-12-01 kunde förhandsbesked ges även inom detaljplan, och det
+      fanns villkorsbesked. Båda möjligheterna är borttagna. För sökandena är beskedet ändå
+      värdefullt: de vet att platsen får bebyggas innan de beställer avstyckningen, och
+      Lantmäteriet kan se att lokaliseringen redan är prövad.
+    lagrum: [PBL 9 kap. 41 §, PBL 9 kap. 42 §, PBL 9 kap. 74 §, PBL 9 kap. 104 §, PBL 9 kap. 114 §]
+    tid_framat_dagar: 1
+
+  - id: S3
+    typ: fraga
+    rubrik: Remisser och andra tillstånd
+    instruktion: >
+      Läs utdraget ur översiktsplanen och situationsplanen. Den östra tomten berör en känd
+      fornlämning, avloppet blir enskilt och utfarten går mot en enskild väg.
+    fragetyp: flersvar
+    fraga: Vilka av följande ska du göra?
+    alternativ:
+      - text: Skicka ansökan på remiss till länsstyrelsen, som ansvarar för fornlämningar och kan bedöma hur stensättningen och kvarnmiljön berörs.
+        ratt: true
+      - text: Skicka ansökan på remiss till miljöenheten om möjligheten att ordna vatten och avlopp med hänsyn till Kvarnbäcken och grannarnas brunnar.
+        ratt: true
+      - text: Upplysa sökandena om att varje ingrepp i fornlämningen kräver länsstyrelsens tillstånd och att avloppsanordningen kräver tillstånd från miljöenheten.
+        ratt: true
+      - text: Skicka ansökan på remiss till Trafikverket om den nya utfarten.
+      - text: Förelägga sökandena att själva ge in en arkeologisk utredning innan ansökan prövas.
+      - text: Upplysa sökandena om att strandskyddsdispens behövs, eftersom tomterna ligger nära Kvarnbäcken och kvarndammen.
+    forklaring: >
+      Nämnden ska se till att ärendet blir utrett och kan inhämta yttranden från andra
+      myndigheter (23 och 26 §§ förvaltningslagen). Den som ska bygga bör i god tid ta reda på
+      om en fornlämning berörs och i så fall samråda med länsstyrelsen (2 kap. 10 §
+      kulturmiljölagen). Länsstyrelsen beslutar om en arkeologisk utredning behövs och vem som
+      ska göra den (2 kap. 11 §); nämnden kan inte förelägga sökanden att ta fram en. Ingrepp i
+      en fornlämning kräver länsstyrelsens tillstånd (2 kap. 6 och 12 §§), och nämnden ska
+      upplysa om det (9 kap. 92 § PBL). Prövningarna ska samordnas när det lämpligen kan ske
+      (2 kap. 11 § PBL). Miljöenheten bedömer om avlopp kan ordnas (2 kap. 5 § 3 PBL) och prövar
+      tillståndet till avloppsanordningen (13 § förordningen om miljöfarlig verksamhet och
+      hälsoskydd). Kvarnvägen är en enskild väg, så Trafikverket är inte väghållare och 39 §
+      väglagen gäller inte; vägsamfälligheten underrättas i stället som granne. Strandskydd
+      gäller inte vid vattendrag som är högst två meter breda eller vid insjöar på högst en
+      hektar (7 kap. 13 a och 13 b §§ miljöbalken), och översiktsplanen anger att Kvarnbäcken
+      och dammen är mindre än så.
+    lagrum: [FL 23 §, FL 26 §, KML 2 kap. 10 §, KML 2 kap. 11 §, KML 2 kap. 12 §, PBL 9 kap. 92 §, PBL 2 kap. 11 §, FMH 13 §, MB 7 kap. 13 a §, MB 7 kap. 13 b §]
+    tid_framat_dagar: 1
+
+  - id: S4
+    typ: urval
+    rubrik: Vilka ska underrättas?
+    instruktion: >
+      Ansökan gäller nya bostadshus utanför detaljplan. Använd grannförteckningen och
+      situationsplanen och välj vilka som ska få underrättelsen om ansökan.
+    alternativ:
+      - { text: "Kvarnbacken 1:9, väster om tomt 1 (Lars Berg)", ratt: true }
+      - { text: "Kvarnbacken 1:4, kvarnen öster om tomt 2 (Kvarnbackens hembygdsförening)", ratt: true }
+      - { text: "Kvarnbacken s:1, den samfällda Kvarnvägen, genom en styrelseledamot i Kvarnbackens vägsamfällighetsförening (Håkan Lind)", ratt: true, kommentar: "En samfällighet underrättas på det sätt som följer av 5 kap. 33 §, alltså genom en styrelseledamot eller förvaltare (9 kap. 113 §)." }
+      - { text: "Kvarnbacken 1:12, norr om Kvarnvägen (Gunnel och Rolf Åström)", ratt: true, kommentar: "Skiljs från tomterna endast av en väg (9 kap. 96 § första stycket 1)." }
+      - { text: "Kvarnbacken 1:15, längre österut längs Kvarnvägen", ratt: false, kommentar: "Gränsar inte till tomterna och skiljs inte från dem bara av en väg." }
+      - { text: "Kvarnbacken 1:2, som gränsar till Kvarnbacken 1:7 vid Kvarnsjön, 400 meter söder om tomterna", ratt: false, kommentar: "Gränsar till stamfastigheten men ligger långt från tomterna. Det är uppenbart att ansökan saknar betydelse för ägaren (9 kap. 94 § andra stycket)." }
+      - { text: "Hyresgästen i mjölnarbostaden på Kvarnbacken 1:4", ratt: false, kommentar: "Hyresgäster underrättas inte; meddelandet går till ägare och innehavare av särskild rätt (9 kap. 96 §)." }
+    forklaring: >
+      Underrättelse krävs eftersom ansökan om förhandsbesked avser en åtgärd utanför
+      detaljplan som inte är reglerad i områdesbestämmelser och inte bara kompletterar ett en-
+      eller tvåbostadshus (9 kap. 94 § första stycket 2). Meddelandet ska innehålla ansökans
+      huvudsakliga innehåll, var den finns och hur, till vem och när synpunkter kan lämnas
+      (95 §). Det skickas till ägare och innehavare av särskild rätt till fastigheter som
+      gränsar till tomterna eller skiljs från dem endast av en väg, och kungörs på kommunens
+      anslagstavla (96 §). Kvarnvägen är en samfälld fastighet som gränsar till tomterna.
+      Samfälligheten underrättas genom en styrelseledamot eller förvaltare (113 § och 5 kap.
+      33 §); nämnden behöver inte skicka brev till alla delägare. Underrättelsen skickas den
+      11 september med svar senast den 25 september.
+    lagrum: [PBL 9 kap. 94 §, PBL 9 kap. 95 §, PBL 9 kap. 96 §, PBL 9 kap. 113 §, PBL 5 kap. 33 §]
+    tid_framat_dagar: 14
+
+  - id: S5
+    typ: fraga
+    rubrik: Lokaliseringsprövning
+    instruktion: >
+      Remissvaren, grannyttrandet och de ändrade tomtgränserna har kommit in. Gör
+      lokaliseringsprövningen för revidering A och skriv några stycken som underlag för
+      beslutet.
+    fragetyp: oppen
+    fraga: >
+      Kan två enbostadshus lokaliseras till tomterna enligt 9 kap. 74 § och 2 kap. PBL? Krävs
+      detaljplan? Hur väger du in kvarnmiljön och fornlämningen, och vad säger du om
+      invändningarna från ägarna till Kvarnbacken 1:12?
+    bedomningspunkter:
+      - Konstaterar att marken ligger utanför detaljplan och områdesbestämmelser och att prövningen görs enligt 9 kap. 74 §, där bara lokaliseringskraven i 2 kap. prövas
+      - "Prövar planbehovet (4 kap. 2 §): två tomter som ansluter till den befintliga sammanhållna bebyggelsen blir inte en ny sammanhållen bebyggelse, efterfrågan är låg enligt översiktsplanen, och frågan kan prövas med förhandsbesked och bygglov (tredje stycket)"
+      - Bedömer markanvändningen och hushållningen (2 kap. 2 och 4 §§) med stöd av översiktsplanen och påpekar att den är vägledande men inte bindande (3 kap. 2 §)
+      - "Går igenom 2 kap. 5 §: vatten och avlopp enligt miljöenhetens yttrande, utfart mot Kvarnvägen och markförhållanden, och konstaterar att buller inte är ett problem (2 kap. 6 a § första stycket 1)"
+      - Väger in att tomterna ligger i ett särskilt värdefullt bebyggelseområde (8 kap. 13 § andra stycket 4, utpekat i översiktsplanen enligt 3 kap. 5 § 4) och att områdets värden ska skyddas också i ett förhandsbesked (2 kap. 6 § tredje stycket), medan förvanskningsförbudet för husens utformning prövas fullt ut i bygglovet
+      - Konstaterar att revidering A håller tomterna utanför fornlämningsområdet med tio meters marginal och placerar husen mer än 40 meter från kvarnen, i enlighet med länsstyrelsens yttrande och översiktsplanen
+      - Bedömer miljökvalitetsnormen för Kvarnbäcken (2 kap. 10 §) med stöd av kravet på hög skyddsnivå för avloppet
+      - Prövar grannarnas invändningar mot 2 kap. 9 § och skiljer mellan betydande olägenhet och förlorad utsikt
+    modellsvar: >
+      Tomterna ligger utanför detaljplan och områdesbestämmelser. Ett positivt förhandsbesked
+      får ges om åtgärden inte förutsätter planläggning och uppfyller lokaliseringskraven i
+      2 kap. (9 kap. 74 §). Kvarnbacken är en sammanhållen bebyggelse med ett tiotal hus på
+      tomter som gränsar till varandra längs Kvarnvägen. De två nya tomterna gränsar till
+      Kvarnbacken 1:9 och ligger mitt emot Kvarnbacken 1:12. De kompletterar alltså den
+      befintliga bebyggelsen och bildar ingen ny sammanhållen bebyggelse. Översiktsplanen
+      beskriver efterfrågan som låg och säger att enstaka hus, två eller tre åt gången, kan
+      prövas med förhandsbesked. Detaljplan krävs därför inte (4 kap. 2 § första och tredje
+      styckena). Marken är igenvuxen hagmark, inte brukningsvärd jordbruksmark, och läget vid
+      befintlig väg och bebyggelse är god hushållning (2 kap. 2 och 4 §§, 3 kap. 4 och 6 §§
+      miljöbalken). Miljöenheten godtar en gemensam avloppsanläggning med hög skyddsnivå och
+      borrade brunnar, och kravet på fosforrening gör att miljökvalitetsnormen för
+      Kvarnbäcken inte äventyras (2 kap. 5 § 3 och 10 §). Kvarnvägen tar emot trafiken från
+      två hus, och den gemensamma utfarten har god sikt. Buller från vägen är försumbart
+      (2 kap. 6 a §). Kvarnmiljön är ett särskilt värdefullt bebyggelseområde enligt
+      översiktsplanen, och dess värden ska skyddas (2 kap. 6 § tredje stycket). Med
+      revidering A ligger husen mer än 40 meter från kvarnen, väster om siktlinjen från bron,
+      och tomterna slutar tio meter före fornlämningsområdet, som länsstyrelsen kräver. Då
+      behövs ingen arkeologisk utredning. Husens skala och utformning prövas mot 8 kap. 13 §
+      i bygglovet, men förhandsbeskedet bör förenas med villkor om placering och högsta
+      våningsantal så att det inte lovar något som bygglovet måste vägra. Ägarna till
+      Kvarnbacken 1:12 förlorar en del av utsikten mot kvarnen, men husen ligger på andra
+      sidan vägen, cirka 40 meter sydväst om deras bostadshus, medan kvarnen ligger åt sydost. Det är inte en betydande olägenhet
+      (2 kap. 9 §).
+    lagrum: [PBL 9 kap. 74 §, PBL 4 kap. 2 §, PBL 2 kap. 2 §, PBL 2 kap. 4 §, PBL 2 kap. 5 §, PBL 2 kap. 6 §, PBL 2 kap. 6 a §, PBL 2 kap. 9 §, PBL 2 kap. 10 §, PBL 3 kap. 2 §, PBL 3 kap. 5 §, PBL 8 kap. 13 §]
+    tid_framat_dagar: 3
+
+  - id: S6
+    typ: fraga
+    rubrik: Villkor och upplysningar i förhandsbeskedet
+    instruktion: >
+      Du tänker ge ett positivt förhandsbesked. Läs 9 kap. 104 § och fundera på vad som behövs
+      för att beskedet ska stämma med den kommande bygglovsprövningen.
+    fragetyp: flersvar
+    fraga: Vilka av följande bör förhandsbeskedet förenas med som villkor enligt 9 kap. 104 § 3?
+    alternativ:
+      - text: Husen ska placeras i tomternas norra del, i de lägen som redovisas i situationsplan A-01 rev A, så att de ligger mer än 40 meter från kvarnen.
+        ratt: true
+      - text: Husen ska ha högst en och en halv våning och sadeltak, så att de underordnar sig kvarnen i skala.
+        ratt: true
+      - text: Tomterna ska ha en gemensam utfart mot Kvarnvägen i det läge som redovisas i situationsplanen.
+        ratt: true
+      - text: Bygglov ska sökas inom två år från den dag förhandsbeskedet fått laga kraft.
+      - text: Förhandsbeskedet gäller bara om länsstyrelsen ger tillstånd enligt kulturmiljölagen.
+      - text: Förhandsbeskedet börjar gälla först när miljöenheten har gett tillstånd till avloppsanordningen.
+      - text: Fasaderna ska ha stående träpanel i Falu rödfärg och fönstren ska ha spröjs.
+    forklaring: >
+      Ett positivt förhandsbesked ska innehålla de villkor som behövs för att beskedet ska vara
+      förenligt med förutsättningarna för den kommande bygglovsprövningen (9 kap. 104 § 3).
+      Placeringen, våningsantalet och den gemensamma utfarten är skälen till att lokaliseringen
+      bedöms lämplig i kvarnmiljön, så de ska låsas med villkor; annars kan beskedet binda
+      nämnden till något som bygglovet ändå måste vägra enligt 8 kap. 13 §. Tvåårsfristen är
+      inget villkor utan en upplysning (104 § 1). Ett förhandsbesked kan inte göras beroende av
+      beslut enligt annan lag. Länsstyrelsens tillstånd behövs inte med revidering A, och
+      avloppstillståndet söks hos miljöenheten; båda tas upp som upplysningar (92 §).
+      Detaljerade krav på material och kulör hör till bygglovet, där utformningen prövas mot
+      2 kap. 6 § och 8 kap. 1 och 13 §§.
+    lagrum: [PBL 9 kap. 104 §, PBL 9 kap. 92 §, PBL 9 kap. 42 §, PBL 8 kap. 13 §]
+    tid_framat_dagar: 1
+
+  - id: S7
+    typ: skrivelse
+    rubrik: Kommunicera underlaget
+    instruktion: >
+      Innan beslutet ska sökandena, som också äger fastigheten, få veta vad som kommit in och
+      få yttra sig. Skriv kommuniceringsbrevet.
+    bedomningspunkter:
+      - Riktas till Erik och Annika Mattsson som sökande och fastighetsägare
+      - "Räknar upp underlaget av betydelse: länsstyrelsens yttrande, miljöenhetens yttrande, grannyttrandet från Kvarnbacken 1:12 och deras svar på ändringen, och utdraget ur översiktsplanen"
+      - Berättar vilka villkor nämnden tänker förena förhandsbeskedet med, eftersom villkoren går sökandena emot
+      - Anger en bestämd tid för att yttra sig och att nämnden annars kan besluta på befintligt underlag
+      - Skriver om nämndens bedömning utan att låta som om beslutet redan var fattat
+      - Hänvisar till 9 kap. 98 § PBL
+    modelltext: handlingar/modell-kommunicering.md
+    forklaring: >
+      Före beslut om förhandsbesked ska nämnden underrätta sökanden och fastighetsägaren om
+      allt underlag av betydelse och ge dem tillfälle att yttra sig inom en bestämd tid, om det
+      inte är uppenbart obehövligt (9 kap. 98 § PBL, jfr 25 § förvaltningslagen). Här har det
+      kommit in remissvar med krav och ett negativt grannyttrande, och nämnden tänker ställa
+      villkor, så kommunicering behövs.
+    lagrum: [PBL 9 kap. 98 §, FL 25 §]
+    tid_framat_dagar: 7
+
+  - id: S8
+    typ: beslut
+    rubrik: Fatta beslut om förhandsbesked
+    instruktion: >
+      Skriv beslutet. Tänk på vad 9 kap. 104 § kräver i ett positivt förhandsbesked, att
+      105 § om startbesked, kontrollansvarig och giltighetstid gäller bygglov, hur avgiften
+      har bestämts och vem som ska delges och vem som ska få meddelande.
+    forvantat_beslut: bevilja_med_villkor
+    godtagbara_utfall:
+      - utfall: bevilja
+        motivering: >-
+          Ett positivt förhandsbesked utan särskilda villkor godtas om beslutet ändå binder
+          placeringen och våningsantalet till situationsplan A-01 rev A och översiktsplanens
+          riktlinjer, så att bygglovsprövningen inte kan överraskas.
+    lagrum: [PBL 9 kap. 74 §, PBL 9 kap. 41 §]
+    bedomningspunkter:
+      - Ger ett positivt förhandsbesked om att två enbostadshus kan lokaliseras till tomterna enligt situationsplan A-01 rev A, med stöd av 9 kap. 41 och 74 §§ PBL
+      - Förenar beskedet med villkor enligt 104 § 3 om husens placering, högst en och en halv våning med sadeltak och gemensam utfart
+      - Upplyser om att beskedet bara gäller om bygglov söks inom två år efter att det fått laga kraft och att det inte innebär att åtgärden får påbörjas (104 § 1 och 2)
+      - Motiverar lokaliseringen mot 2 kap. 2, 4, 5, 6 tredje stycket, 6 a, 9 och 10 §§ och förklarar varför detaljplan inte krävs (4 kap. 2 §)
+      - Redovisar hur kvarnmiljön (8 kap. 13 § andra stycket 4) och fornlämningen har vägts in och att husens utformning prövas mot 8 kap. 13 § i bygglovet
+      - Bemöter yttrandet från Kvarnbacken 1:12 sakligt, utsikt, kulturmiljö, fornlämning, trafik, brunnar och detaljplan
+      - Upplyser om andra tillstånd (92 §), avloppstillstånd, länsstyrelsens tillstånd för ingrepp i fornlämningen, att arbetet ska avbrytas om en fornlämning påträffas (2 kap. 10 § andra stycket kulturmiljölagen), avstyckning och rätt att använda Kvarnvägen genom Lantmäteriet, och att även annars lovfria komplementbyggnader kräver bygglov inom kvarnmiljön (9 kap. 37 § 4)
+      - Använder inte 105 § och 114 § som om förhandsbeskedet vore ett lov
+      - Avgiften är 16 000 kr enligt taxan och redovisas, utan reduktion eftersom beslutet fattas inom tidsfristen, som efter de ändrade tomtgränserna räknas från den 2 oktober 2026 (9 kap. 99 § första stycket 2, 107 §, 12 kap. 8 a §)
+      - Redovisar handläggningen, underrättelsen den 11 september, remisserna, att ägarna till Kvarnbacken 1:12 fått yttra sig över ändringen (94 § tredje stycket) och att sökandena informerats om den nya fristen (100 § 2)
+      - Överklagandehänvisningen anger tre veckor från delgivningen och, för den som inte delges, från en vecka efter kungörelsen (13 kap. 16 §)
+      - Beslutet delges sökandena och fastighetsägarna och ägarna till Kvarnbacken 1:12 (108 §), kungörs på anslagstavlan (109 §) och meddelande skickas till ägarna av Kvarnbacken 1:9 och 1:4 och till samfälligheten Kvarnbacken s:1 genom en styrelseledamot (110 och 113 §§)
+    modellbeslut: handlingar/modell-beslut.md
+
+handelser:
+  - id: E1
+    namn: Länsstyrelsens yttrande, grannyttrande och ändrade tomtgränser
+    utlosare: { efter_steg: S4 }
+    effekt:
+      tid_framat_dagar: 7
+      visa_handlingar: [H5, H6, H7, H8]
+      meddelande: >
+        Ägarna till Kvarnbacken 1:12 har yttrat sig inom svarstiden och motsätter sig
+        tomterna. Länsstyrelsen har svarat att den östra tomten i föreslagen utformning
+        omfattar en del av fornlämningsområdet kring stensättningen och att en arkeologisk
+        utredning då behövs. Du skickade yttrandet till sökandena för kännedom. I dag har
+        Erik och Annika Mattsson på eget initiativ kommit in med en ändrad situationsplan,
+        där tomterna har gjorts smalare och djupare så att den östra tomten slutar tio meter
+        före fornlämningsområdet. Något föreläggande har inte skickats.
+      # Ändringen kom in på sökandenas initiativ: fristen räknas från i dag (99 § första stycket 2).
+      ny_fristdag: sokandens_initiativ
+      andrade_fakta: { tomtgranser_andrade: true, tomt_2_inom_fornlamningsomrade: false, arkeologisk_utredning_behovs: false }
+      nytt_steg:
+        id: S4b
+        typ: fraga
+        rubrik: Ändrad ansökan efter underrättelsen
+        fragetyp: flerval
+        fraga: Tomtgränserna har ändrats efter att grannarna underrättades. Vad gäller?
+        alternativ:
+          - text: Alla grannar och samfälligheten ska underrättas på nytt, eftersom ansökan har ändrats.
+          - text: >-
+              Ingen ny underrättelse behövs, men ägarna till Kvarnbacken 1:12, som haft
+              synpunkter, ska få yttra sig över ändringen. Tioveckorsfristen räknas från den
+              dag ändringen kom in, och sökandena ska skriftligen informeras om det.
+            ratt: true
+          - text: Ingen behöver höras och fristen påverkas inte, eftersom det var länsstyrelsen som föranledde ändringen.
+          - text: Ändringen gör att den ursprungliga ansökan ska avskrivas och en ny ansökan med ny avgift registreras.
+        forklaring: >
+          Om ansökan ändras efter underrättelsen behöver en ny underrättelse bara ske om
+          ändringen strider mot detaljplanen eller områdesbestämmelserna, och här finns
+          ingetdera. De som har haft synpunkter på den ursprungliga ansökan ska dock alltid ges
+          tillfälle att yttra sig (9 kap. 94 § tredje stycket). Ägarna till Kvarnbacken 1:12 får
+          en vecka på sig. Ändringen kom in den 2 oktober på sökandenas eget initiativ, så
+          tioveckorsfristen räknas från den dagen i stället för från ansökningsdagen (9 kap.
+          99 § första stycket 2). Att länsstyrelsens yttrande var anledningen ändrar inte det,
+          så länge nämnden inte förelagt sökandena att ändra. Fristen löper nu ut den
+          {{frist}}, och sökandena ska skriftligen informeras om den ändrade tidpunkten
+          (100 § 2).
+        lagrum: [PBL 9 kap. 94 §, PBL 9 kap. 99 §, PBL 9 kap. 100 §]
+        tid_framat_dagar: 1
+
+  - id: E2
+    namn: Miljöenheten godtar avloppet med villkor
+    utlosare: { efter_steg: S4 }
+    effekt:
+      tid_framat_dagar: 5
+      visa_handlingar: [H9]
+      meddelande: >
+        Miljöenheten har yttrat sig. En gemensam avloppsanläggning med hög skyddsnivå för
+        miljö- och hälsoskydd kan ordnas på tomt 1 i det läge som revidering A visar, på
+        villkor att tillstånd söks och att brunnarna hålls på avstånd. Annika Mattsson ringer
+        samtidigt och frågar vad som händer med avgiften nu när de har ändrat tomtgränserna,
+        och om den blir lägre om beslutet dröjer.
+      andrade_fakta: { avlopp_godtas: true }
+      nytt_steg:
+        id: S4c
+        typ: berakning
+        rubrik: Tidsfrist och avgift
+        instruktion: >
+          Taxan för förhandsbeskedet är 16 000 kr. Avgiften reduceras med en femtedel för varje
+          påbörjad vecka som tidsfristen överskrids (12 kap. 8 a §). Ansökan kom in den
+          7 september 2026 och den ändrade situationsplanen den 2 oktober 2026.
+        fragor:
+          - id: reduktion_procent
+            text: Om nämnden skulle besluta den 21 december 2026, med hur många procent ska avgiften reduceras?
+            svar: 40
+            tolerans: 0
+            enhet: "%"
+          - id: avgift_21_dec
+            text: Hur stor blir avgiften då?
+            svar: 9600
+            tolerans: 0
+            enhet: kr
+          - id: avgift_utan_andring
+            text: Anta i stället att sökandena aldrig hade ändrat ansökan, så att fristen räknades från ansökningsdagen. Hur stor hade avgiften blivit vid ett beslut den 20 november 2026?
+            svar: 12800
+            tolerans: 0
+            enhet: kr
+        forklaring: >
+          Tio veckor från den 2 oktober 2026 ger att fristen löper ut den 11 december 2026
+          (9 kap. 99 § första stycket 2). Ett beslut den 21 december kommer tio dagar för sent,
+          alltså under den andra påbörjade veckan: två femtedelar, 40 procent, och avgiften blir
+          16 000 × 0,6 = 9 600 kr. Räknat från ansökningsdagen den 7 september hade fristen
+          löpt ut den 16 november. Ett beslut den 20 november kommer fyra dagar för sent, en
+          påbörjad vecka, och avgiften blir 16 000 × 0,8 = 12 800 kr. Reduktionen gäller ärenden
+          om förhandsbesked på samma sätt som lov (12 kap. 8 a §), och beslutet ska redovisa
+          hur avgiften har bestämts (9 kap. 107 §). Nämnden kan förlänga fristen en gång med
+          högst tio veckor om utredningen kräver det, men måste då meddela sökandena före
+          fristens utgång (99 § andra stycket och 100 § 3).
+        lagrum: [PBL 9 kap. 99 §, PBL 9 kap. 100 §, PBL 9 kap. 107 §, PBL 12 kap. 8 a §]
+        tid_framat_dagar: 1
+
+  - id: E3
+    namn: Överklagande från Kvarnbacken 1:12
+    utlosare: { efter_steg: S8, vid_beslut: bevilja }
+    effekt:
+      # Delgivningskvittot är undertecknat sex dagar efter beslutet. Överklagandet skickades
+      # till länsstyrelsen och kom in där 22 dagar efter beslutet; länsstyrelsen
+      # vidarebefordrade det och det kom in till nämnden 34 dagar efter beslutet.
+      tid_framat_dagar: 34
+      visa_handlingar: [H10, H11]
+      meddelande: >
+        I dag har ett överklagande från Gunnel och Rolf Åström, Kvarnbacken 1:12, kommit in
+        till nämnden. De skickade det till länsstyrelsen, som har vidarebefordrat det med en
+        uppgift om vilken dag det kom in där. Delgivningskvittot visar att de fick del av
+        beslutet den {{beslutsdatum+6}}.
+      nytt_steg:
+        id: S9
+        typ: skrivelse
+        rubrik: Rättidspröva och överlämna överklagandet
+        instruktion: >
+          Beslutet fattades den {{beslutsdatum}}. Gunnel och Rolf Åström delgavs beslutet den
+          {{beslutsdatum+6}}. Överklagandet kom in till länsstyrelsen den {{beslutsdatum+22}}
+          och till nämnden i dag, den {{simdatum}}. Pröva om överklagandet har kommit in i rätt
+          tid och skriv nämndens överlämnande till länsstyrelsen med ett kort yttrande över
+          skälen i överklagandet.
+        bedomningspunkter:
+          - Räknar överklagandetiden från delgivningen, eftersom de klagande delgetts beslutet (44 § FL), och konstaterar att den gick ut den {{beslutsdatum+27|vardag}}
+          - Konstaterar att överklagandet kom in för sent till nämnden men inom tiden till länsstyrelsen och därför inte ska avvisas (45 § andra stycket 2 FL)
+          - Överlämnar överklagandet och handlingarna skyndsamt till länsstyrelsen (46 § FL, 13 kap. 3 § PBL) och tar inte själv ställning till klagorätten (47 § FL)
+          - Anger att nämnden vidhåller beslutet och bemöter skälen sakligt, särskilt att förhandsbeskedet bara prövar lokaliseringen och att husens utformning prövas i bygglovet med villkoren som ram
+          - Påpekar att förhandsbeskedet inte binder vid bygglovsprövningen förrän det fått laga kraft, och att tvåårsfristen räknas från den dagen (9 kap. 42 §)
+        modelltext: handlingar/modell-yttrande.md
+        forklaring: >
+          Den som delges beslutet har tre veckor från delgivningen (44 § förvaltningslagen).
+          Tiden räknas från en vecka efter kungörelsen bara för dem som inte ska delges
+          (13 kap. 16 § tredje stycket PBL), och ägarna till Kvarnbacken 1:12 skulle delges
+          eftersom deras synpunkter inte tillgodosetts (9 kap. 108 § första stycket 2). Sista
+          dagen var den {{beslutsdatum+27|vardag}}; infaller den på en lördag, söndag eller
+          helgdag flyttas den till nästa vardag (2 § lagen (1930:173) om beräkning av
+          lagstadgad tid). Överklagandet kom in till nämnden för sent, men ett överklagande
+          ska inte avvisas om det har kommit in till överinstansen inom överklagandetiden
+          (45 § andra stycket 2 FL). Länsstyrelsen ska då vidarebefordra det och ange när det
+          kom in där (47 § andra stycket FL). Nämnden prövar bara rättidsfrågan och ska sedan
+          skyndsamt överlämna överklagandet (46 § FL). Om ägarna får överklaga avgör
+          länsstyrelsen. Så länge överklagandet prövas har förhandsbeskedet inte fått laga
+          kraft, och tvåårsfristen i 9 kap. 42 § har inte börjat löpa.
+        lagrum: [FL 44 §, FL 45 §, FL 46 §, FL 47 §, PBL 13 kap. 16 §, PBL 13 kap. 3 §, PBL 9 kap. 108 §, PBL 9 kap. 42 §]
+
+facit:
+  sammanfattning: >
+    Förhandsbeskedet prövar bara lokaliseringen av två enbostadshus utanför detaljplan. Två
+    tomter som kompletterar den sammanhållna bebyggelsen kräver ingen detaljplan. Grannarna
+    och vägsamfälligheten underrättas, länsstyrelsen och miljöenheten får remiss. Efter
+    länsstyrelsens yttrande flyttar sökandena tomterna på eget initiativ så att de ligger
+    utanför fornlämningsområdet; fristen räknas från den dagen och grannarna som yttrat sig
+    får säga sitt om ändringen. Efter kommunicering ges ett positivt förhandsbesked med
+    villkor om placering, våningsantal och utfart och med upplysningarna i 104 §. Grannens
+    överklagande kom in för sent till nämnden men i tid till länsstyrelsen och ska därför
+    inte avvisas utan överlämnas.
+  vanliga_fel:
+    - Att pröva husens utformning och tekniska krav som i ett bygglov i stället för bara lokaliseringen (9 kap. 74 §)
+    - Att skriva upplysningar enligt 105 § (startbesked, kontrollansvarig, giltighetstid fem år) och 114 § (gäller omedelbart) i ett förhandsbesked i stället för upplysningarna i 104 §
+    - Att tro att förhandsbesked fortfarande kan ges inom detaljplan eller att villkorsbesked finns kvar
+    - Att förelägga sökanden att ta fram en arkeologisk utredning; det beslutar länsstyrelsen om enligt kulturmiljölagen
+    - Att avfärda kvarnmiljön för att det inte finns någon detaljplan med skyddsbestämmelser, i stället för att väga in den genom 2 kap. 6 § tredje stycket
+    - Att glömma samfälligheten bland grannarna, eller att tro att varje delägare måste få ett eget brev (9 kap. 113 §, 5 kap. 33 §)
+    - Att räkna tidsfristen från ansökningsdagen trots att sökandena på eget initiativ ändrade tomtgränserna
+    - Att räkna överklagandetiden från kungörelsen för en granne som delgetts beslutet, eller att avvisa ett överklagande som kommit in i tid till länsstyrelsen
+  modellbeslut: handlingar/modell-beslut.md

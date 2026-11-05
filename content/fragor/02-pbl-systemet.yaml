@@ -996,3 +996,211 @@ fragor:
       - PBL 9 kap. 4 §
       - PBL 9 kap. 15 §
     taggar: [definitioner, komplementbyggnad, fasadandring]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: sys-041
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad syftar bestämmelserna i plan- och bygglagen till enligt 1 kap. 1 §?
+    alternativ:
+      - text: Att, med hänsyn till den enskilda människans frihet, främja en samhällsutveckling med jämlika och goda sociala levnadsförhållanden och en god och långsiktigt hållbar livsmiljö för människorna i dag och för kommande generationer.
+        ratt: true
+      - text: Att skydda fastighetsägarens rätt att bygga fritt på sin egen mark.
+      - text: Att säkerställa att kommunerna får täckning för sina kostnader för planläggning och bygglov.
+      - text: Att ersätta miljöbalken när det gäller byggande.
+    forklaring: >
+      Portalparagrafen 1 kap. 1 § PBL anger lagens syfte. Den är inte en regel som ett beslut kan
+      grundas på ensam, men den förklarar avvägningen i hela lagen: den enskildes frihet ska
+      vägas mot samhällets intresse av goda och hållbara livsmiljöer, också för kommande
+      generationer. Samma tanke kommer igen i 2 kap. 1 §, där både allmänna och enskilda intressen
+      ska beaktas. Paragrafen säger också vad lagen reglerar: planläggning av mark och vatten och
+      byggande, underhåll och kontroll av byggnadsverk.
+    lagrum:
+      - PBL 1 kap. 1 §
+      - PBL 2 kap. 1 §
+    taggar: [syfte, pbl_systemet]
+
+  - id: sys-042
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska planläggning enligt 2 kap. 3 § PBL främja?
+    alternativ:
+      - text: En ändamålsenlig struktur och en estetiskt tilltalande utformning av bebyggelse, grönområden och kommunikationsleder.
+        ratt: true
+      - text: En från social synpunkt god livsmiljö som är tillgänglig och användbar för alla samhällsgrupper.
+        ratt: true
+      - text: Bostadsbyggande och utveckling av bostadsbeståndet.
+        ratt: true
+      - text: En god ekonomisk tillväxt och en effektiv konkurrens.
+        ratt: true
+      - text: Att varje fastighetsägare får samma byggrätt.
+      - text: Att kommunens markinnehav ökar.
+    forklaring: >
+      2 kap. 3 § PBL räknar upp fem intressen som planläggningen ska främja, med hänsyn till natur-
+      och kulturvärden, miljö- och klimataspekter och mellankommunala och regionala förhållanden:
+      ändamålsenlig struktur och estetisk utformning, en social god livsmiljö tillgänglig för
+      alla, långsiktigt god hushållning med mark, vatten, energi och råvaror och goda
+      miljöförhållanden, god ekonomisk tillväxt och effektiv konkurrens samt bostadsbyggande.
+      Hänsyn till intressena ska tas även i andra ärenden enligt lagen, t.ex. bygglov (andra
+      stycket). Lika byggrätt för alla är inget mål i sig; planen ska vara lämplig för platsen.
+    lagrum:
+      - PBL 2 kap. 3 §
+    taggar: [allmanna_intressen, planlaggning]
+
+  - id: sys-043
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Kommunen ska ta fram en detaljplan för ett köpcentrum som inte stämmer med översiktsplanen.
+      Vilket planförfarande ska användas?
+    alternativ:
+      - text: Utökat förfarande, eftersom planen inte är förenlig med översiktsplanen.
+        ratt: true
+      - text: Standardförfarande, eftersom det är huvudregeln för alla detaljplaner.
+      - text: Samordnat förfarande, eftersom ett köpcentrum är en tillståndspliktig verksamhet.
+      - text: Inget planförfarande behövs; köpcentret kan prövas direkt i ett bygglov.
+    forklaring: >
+      Standardförfarandet är huvudregeln, men det utökade planförfarandet ska användas för en
+      detaljplan som inte är förenlig med översiktsplanen eller länsstyrelsens
+      granskningsyttrande, som är av betydande intresse för allmänheten eller annars av stor
+      betydelse, eller som kan antas medföra en betydande miljöpåverkan (5 kap. 7 § PBL). Det
+      gäller också om den del av översiktsplanen som har betydelse inte är aktuell. Utökat
+      förfarande innebär bl.a. att förslaget ska kungöras och att granskningstiden blir längre
+      (18 §). Ett köpcentrum kräver dessutom detaljplan enligt 4 kap. 2 § första stycket 3, om
+      det kan antas medföra en betydande miljöpåverkan.
+    lagrum:
+      - PBL 5 kap. 7 §
+      - PBL 5 kap. 18 §
+      - PBL 4 kap. 2 §
+    taggar: [planprocess, utokat_forfarande]
+
+  - id: sys-044
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Granskningstiden för ett detaljplaneförslag ska vara minst ___ veckor vid
+      standardförfarande. För en plan som inte är förenlig med översiktsplanen eller som är av
+      betydande intresse för allmänheten ska den vara minst ___ veckor, och för en plan som kan
+      antas medföra en betydande miljöpåverkan minst ___ dagar.
+    svar: [["2", "två"], ["3", "tre"], "30"]
+    forklaring: >
+      Tiderna står i 5 kap. 18 § andra stycket PBL. Vid standardförfarande får granskningstiden
+      göras kortare än två veckor om alla berörda är överens. Granskningen föregås av ett samråd
+      (11 §), och efter granskningstiden ska kommunen göra ett granskningsutlåtande (23 §) innan
+      planen antas (27 §). Bygglovshandläggaren deltar ofta i planarbetet och behöver förstå
+      processen, eftersom ett pågående planarbete kan göra att ett lovärende förklaras vilande
+      (9 kap. 102 § första stycket 3).
+    lagrum:
+      - PBL 5 kap. 18 §
+      - PBL 5 kap. 23 §
+      - PBL 9 kap. 102 §
+    taggar: [planprocess, granskning, siffror]
+
+  - id: sys-045
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En skogsfastighet på 12 hektar utanför detaljplan har ett bostadshus med trädgård. Ägaren
+      vill bygga en bygglovsbefriad komplementbyggnad på 30 kvm ute i skogen, 150 m från huset.
+      Varför kan byggnaden sannolikt inte uppföras utan lov?
+    alternativ:
+      - text: För att den inte placeras inom tomten, som bara omfattar mark för byggnaderna och mark i direkt anslutning som behövs för att de ska kunna användas för avsett ändamål.
+        ratt: true
+      - text: För att komplementbyggnader utanför plan aldrig är bygglovsbefriade.
+      - text: För att byggnaden är för stor.
+      - text: För att fastigheten är större än 1 hektar.
+    forklaring: >
+      En bygglovsbefriad komplementbyggnad ska placeras inom tomten (9 kap. 5 § första stycket 4
+      PBL). Tomt definieras i 1 kap. 4 § som ett område som omfattar mark för en eller flera
+      byggnader och mark i direkt anslutning som behövs för att byggnaderna ska kunna användas
+      för avsett ändamål. Fastigheten och tomten är alltså inte samma sak: på en stor fastighet
+      är tomten normalt bara trädgården runt huset. En byggnad 150 m ut i skogen ligger utanför
+      tomten och kräver lov, om den inte är en ekonomibyggnad för skogsbruket (9 kap. 6 §).
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 9 kap. 5 §
+      - PBL 9 kap. 6 §
+    taggar: [tomt, definitioner, komplementbyggnad]
+
+  - id: sys-046
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande i ett villaområde inom sammanhållen bebyggelse behöver en nybyggnadskarta för
+      sin ansökan om bygglov och ber kommunen ta fram den. Vad gäller enligt 12 kap. 4 § PBL?
+    alternativ:
+      - text: Byggnadsnämnden ska tillhandahålla nybyggnadskartan om den behövs för prövningen och sökanden begär det.
+        ratt: true
+      - text: Sökanden måste alltid anlita en privat mätningsfirma.
+      - text: Nybyggnadskarta kan bara beställas av lantmäterimyndigheten.
+      - text: Byggnadsnämnden får bara ta fram nybyggnadskartor för flerbostadshus.
+    forklaring: >
+      Enligt 12 kap. 4 § PBL ska byggnadsnämnden tillhandahålla en nybyggnadskarta om det behövs
+      en karta för prövningen av en fråga om bygglov inom ett område med sammanhållen bebyggelse
+      och sökanden begär det. Kommunen får ta ut avgift för kartan enligt taxan (12 kap. 8 §).
+      Nybyggnadskartan visar bl.a. fastighetsgränser, höjder, ledningar och gällande
+      planbestämmelser, och är därför ett bättre underlag för situationsplanen än ett flygfoto.
+    lagrum:
+      - PBL 12 kap. 4 §
+      - PBL 12 kap. 8 §
+    taggar: [nybyggnadskarta, byggnadsnamnden, service]
+
+  - id: sys-047
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En man mejlar byggnadsnämnden och begär ett skriftligt besked om vad detaljplanen tillåter
+      på hans fastighet, eftersom han funderar på att köpa grannfastigheten. Vad gäller?
+    alternativ:
+      - text: Nämnden ska lämna skriftliga upplysningar om planläggning, byggande och fastighetsbildning när någon begär det, men upplysningarna är inte ett bindande beslut.
+        ratt: true
+      - text: Nämnden får bara svara muntligt, eftersom skriftliga svar binder kommunen.
+      - text: Nämnden behöver inte svara, eftersom han inte äger fastigheten.
+      - text: Han måste söka förhandsbesked för att få ett svar.
+    forklaring: >
+      12 kap. 3 § PBL säger att byggnadsnämnden ska ge skriftliga upplysningar om planläggning,
+      byggande och fastighetsbildning om någon begär det. Det gäller vem som helst, inte bara
+      fastighetsägare. Upplysningarna är service och inte myndighetsutövning i form av ett
+      bindande beslut; vill han ha ett bindande besked måste han söka lov. Förhandsbesked finns
+      bara utanför detaljplan (9 kap. 41 §). Svara sakligt och skriv vad svaret bygger på och att
+      det inte är ett beslut (6 § FL).
+    lagrum:
+      - PBL 12 kap. 3 §
+      - PBL 9 kap. 41 §
+      - FL 6 §
+    taggar: [upplysningar, service, byggnadsnamnden]
+
+  - id: sys-048
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I ärenden om bygglov ska byggnadsverk som placeras under markytan i skälig omfattning
+      utformas så att de inte försvårar användningen av marken ovanför.
+    svar: true
+    forklaring: >
+      Kravet står i 2 kap. 8 § PBL och gäller både vid planläggning och i ärenden om bygglov. Det
+      kan gälla t.ex. ett underjordiskt garage under en gård som ska kunna användas för lek, eller
+      ett bergrum under en park. Bestämmelsen ingår i det som prövas inom detaljplan (9 kap. 56 §
+      första stycket 4). Kom ihåg att byggrätten också sträcker sig nedåt: prickmark hindrar i regel
+      även underjordiska byggnader.
+    lagrum:
+      - PBL 2 kap. 8 §
+      - PBL 9 kap. 56 §
+    taggar: [allmanna_intressen, underjordiska_byggnader]

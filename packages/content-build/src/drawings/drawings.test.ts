@@ -452,6 +452,141 @@ describe('fas 4: supervision, alterations and apartment blocks', () => {
   });
 });
 
+describe('fas 4b: trees, pools, levels, subdivision, ancient monuments and installations', () => {
+  it('draws trees to keep and to fell, a pool and existing and new ground levels', () => {
+    const svg = render('situationsplan', {
+      skala: 200,
+      tomt_bredd: 30,
+      tomt_djup: 40,
+      hus: [8, 8, 14, 10],
+      pooler: [{ rektangel: [11, 26, 8, 4], namn: 'Ny pool' }],
+      trad: [
+        { punkt: [4, 34], namn: 'Ek 4', krondiameter: 8 },
+        { punkt: [18, 27], namn: 'Ek 1', stamdiameter: 0.45, krondiameter: 9, status: 'falls' },
+      ],
+      hojder: [
+        { punkt: [21, 20.5], befintlig: 24.75, ny: 24.05 },
+        { punkt: [15, 1], befintlig: 25.6 },
+      ],
+    });
+    assertWellFormed(svg);
+    expect(svg).toContain('id="TEST-H1-pool"');
+    expect(svg).toContain('Ny pool</text>');
+    expect(svg).toContain('Ek 4</text>');
+    expect(svg).toContain('Ek 1</text>');
+    // Crowns at 1:200: 8 m and 9 m across.
+    expect(svg).toContain('r="20"');
+    expect(svg).toContain('r="22.5"');
+    expect(svg).toContain('stroke-dasharray="1.2 0.8"');
+    expect(svg).toContain('Träd som bevaras</text>');
+    expect(svg).toContain('Träd som fälls</text>');
+    expect(svg).toContain('+24,75</text>');
+    expect(svg).toContain('+24,05</text>');
+    expect(svg).toContain('+25,60</text>');
+    expect(svg).toContain('Befintlig marknivå (m)</text>');
+    expect(svg).toContain('Ny marknivå (m)</text>');
+    expect(svg).toContain('Pool</text>');
+  });
+
+  const subdivision = {
+    skala: 500,
+    tomt_bredd: 56,
+    tomt_djup: 54,
+    nybyggnad: [8, 12, 14, 9],
+    nybyggnader: [{ rektangel: [34, 12, 14, 9], namn: 'Nytt hus' }],
+    tomter: [
+      { rektangel: [0, 0, 28, 54], namn: 'Tomt 1', area: 1512 },
+      { rektangel: [28, 0, 28, 54], namn: 'Tomt 2', area: 1512 },
+    ],
+    fornlamningar: [{ rektangel: [66, 20, 14, 18], namn: 'Fornlämning' }],
+    grannhus: [[-28, 10, 12, 9], { rektangel: [96, 4, 14, 10], namn: 'Kvarnen' }],
+  };
+
+  it('draws new plots, their areas and the houses measured to their own plot', () => {
+    const svg = render('situationsplan', subdivision);
+    assertWellFormed(svg);
+    expect(svg).toContain('Tomt 2</text>');
+    expect(svg).toContain('1 512 m²</text>');
+    expect(svg).toContain('stroke-dasharray="3.5 1.2"');
+    expect(svg).toContain('Ny tomtgräns</text>');
+    expect(svg).toContain('Gräns för området som ska styckas av</text>');
+    expect(svg).not.toContain('>Tomtgräns</text>');
+    // The house on plot 2 is 6 m from the plot line between the plots and 8 m from the east.
+    expect(svg).toContain('>6,0</text>');
+    expect(svg).toContain('>8,0</text>');
+    // The plot dimensions are broken at the new plot line.
+    expect(svg.match(/>28,0<\/text>/g)?.length).toBe(2);
+  });
+
+  it('widens the surroundings for an ancient monument and a named house outside the plot', () => {
+    const svg = render('situationsplan', subdivision);
+    const without = render('situationsplan', {
+      ...subdivision,
+      fornlamningar: [],
+      grannhus: [
+        [-28, 10, 12, 9],
+        [96, 4, 14, 10],
+      ],
+    });
+    const width = (s: string) => Number(/data-drawing-area="[\d.]+ [\d.]+ ([\d.]+)/.exec(s)?.[1]);
+    expect(width(svg)).toBeGreaterThan(width(without));
+    expect(svg).toContain('Kvarnen</text>');
+    expect(svg).toContain('Fornlämning</text>');
+    expect(svg).toContain('id="TEST-H1-fornlamning"');
+    // 10 m from the plot's eastern boundary to the monument area.
+    expect(svg).toContain('>10,0</text>');
+  });
+
+  it('validates the new situationsplan keys', () => {
+    const base = { tomt_bredd: 20, tomt_djup: 20, hus: [5, 5, 8, 8] };
+    expect(
+      issues('situationsplan', { ...base, trad: [{ punkt: [3, 3], status: 'sagas' }] }),
+    ).toEqual(['trad[1].status: status ska vara en av: bevaras, falls.']);
+    expect(issues('situationsplan', { ...base, hojder: [{ punkt: [3, 3] }] })).toEqual([
+      'hojder[1]: Ange befintlig höjd, ny höjd eller båda.',
+    ]);
+    expect(issues('situationsplan', { ...base, fornlamningar: [{ namn: 'R' }] })).toEqual([
+      'fornlamningar[1]: Ange antingen rektangel (ett område) eller punkt (en enskild fornlämning).',
+    ]);
+    expect(issues('situationsplan', { ...base, tomter: [{ rektangel: [10, 0, 12, 20] }] })).toEqual(
+      ['tomter[1].rektangel: Tomten ligger utanför tomten (0–20 × 0–20 m).'],
+    );
+  });
+
+  it('draws a stove and a service connection in a floor plan with their own legend rows', () => {
+    const base = {
+      skala: 50,
+      byggnader: [{ rektangel: [0, 0, 10, 8] }],
+      rum: [{ namn: 'Rum', rektangel: [0.3, 0.3, 9.4, 7.4] }],
+    };
+    const svg = render('planritning', {
+      ...base,
+      installationer: [
+        { typ: 'kamin', namn: 'Ny kamin', rektangel: [2, 0.5, 0.55, 0.45] },
+        { typ: 'servis', namn: 'Ny VA-servis', rektangel: [8.8, 3, 0.75, 0.9] },
+      ],
+    });
+    assertWellFormed(svg);
+    expect(svg).toContain('Ny kamin</text>');
+    expect(svg).toContain('Ny VA-servis</text>');
+    expect(svg).toContain('Ny eldstad (kamin) med anslutning till rökkanal</text>');
+    expect(svg).toContain('Ny VA-servis, V = vatten, S = spillvatten</text>');
+    expect(svg).toContain('>V</text>');
+    expect(
+      issues('planritning', {
+        ...base,
+        installationer: [{ typ: 'kamin', rektangel: [12, 0, 1, 1] }],
+      }),
+    ).toEqual(['installationer[1].rektangel: Installationen ligger inte helt inom någon byggnad.']);
+    expect(
+      issues('planritning', {
+        ...base,
+        installationer: [{ typ: 'spis', rektangel: [1, 1, 1, 1] }],
+      }),
+    ).toEqual(['installationer[1].typ: typ ska vara en av: kamin, skorsten, servis, annan.']);
+  });
+});
+
 describe('parameter validation', () => {
   it('accepts all A002 parameters', () => {
     for (const kind of DRAWING_KINDS) expect(issues(kind, a002Params(kind))).toEqual([]);

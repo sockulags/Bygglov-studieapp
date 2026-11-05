@@ -1067,3 +1067,238 @@ fragor:
       - PBL 4 kap. 39 §
       - PBL 9 kap. 102 §
     taggar: [planbesked, avvikelse, radgivning, instudering]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: dp-040
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Detaljplanen för Norra Åkerslunda vann laga kraft 2025. Enligt planen börjar
+      genomförandetiden för etapp 2 att löpa den 1 januari 2028, när den nya huvudgatan ska vara
+      klar. I april 2026 söker en byggherre bygglov för ett planenligt flerbostadshus inom etapp
+      2. Kan lov ges?
+    alternativ:
+      - text: Nej. Bygglov får inte ges för en åtgärd som måste avvakta att genomförandetiden börjar löpa.
+        ratt: true
+      - text: Ja, eftersom planen har vunnit laga kraft och huset följer den.
+      - text: Ja, men bara som tidsbegränsat bygglov.
+      - text: Ja, om avvikelsen i tid bedöms som liten enligt 9 kap. 60 §.
+    forklaring: >
+      En av förutsättningarna för bygglov inom detaljplan är att åtgärden inte måste avvakta att
+      genomförandetiden för planen börjar löpa (9 kap. 56 § första stycket 3 PBL). Genomförandetiden
+      räknas normalt från den dag planen vinner laga kraft, men kommunen kan i planen bestämma att
+      den ska räknas från en senare tidpunkt eller olika tider för olika områden (4 kap. 21 §). Det
+      används för etappvis utbyggnad, så att gator och VA hinner komma på plats. Tidpunkten är
+      inte en planbestämmelse som går att avvika från med liten avvikelse; ansökan får avslås
+      eller, om sökanden vill, vänta.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 4 kap. 21 §
+    taggar: [genomforandetid, planenlighet, etappindelning]
+
+  - id: dp-041
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Planen för kvarteret Syrenen säger "Minsta fastighetsstorlek är 800 kvm". Fastigheten
+      Syrenen 6 är 720 kvm. Den bildades 2015 genom avstyckning, och lantmäterimyndigheten
+      godtog då avvikelsen enligt 3 kap. 2 § fastighetsbildningslagen. Ägaren söker nu bygglov för
+      en planenlig tillbyggnad. Hur påverkar fastighetens storlek prövningen?
+    alternativ:
+      - text: Avvikelsen har godtagits vid fastighetsbildningen och hindrar inte lov, men den ska ingå i en samlad bedömning om tillbyggnaden också innebär en ny avvikelse.
+        ratt: true
+      - text: Lov kan inte ges, eftersom fastigheten strider mot planen.
+      - text: Nämnden måste pröva fastighetsstorleken på nytt som en liten avvikelse.
+      - text: Lov kan bara ges om planens genomförandetid har gått ut för minst femton år sedan.
+    forklaring: >
+      Enligt 9 kap. 56 § första stycket 1 PBL ska både fastigheten och byggnadsverket stämma med
+      planen. Undantag finns: avvikelsen kan ha godtagits vid en tidigare bygglovsprövning eller
+      vid fastighetsbildning enligt 3 kap. 2 § FBL (1 c), eller planens genomförandetid kan ha gått
+      ut för minst femton år sedan (1 b). Här godtogs avvikelsen när fastigheten bildades, så den
+      behöver inte prövas igen. Om den sökta åtgärden i sig avviker från planen ska nämnden göra
+      en samlad bedömning av den nya avvikelsen och de som godtagits tidigare (64 §).
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 9 kap. 64 §
+    taggar: [planenlighet, fastighetsbildning, planstridigt_utgangslage]
+
+  - id: dp-042
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En bostadsrättsförening söker bygglov för ett hisstorn på gårdssidan av sitt trevånings
+      flerbostadshus från 1960-talet. Hisstornet hamnar 2 m in på prickmark. Planens syfte är
+      bostäder med gårdar. Vilken grund i 9 kap. 60 § PBL är mest relevant att pröva?
+    alternativ:
+      - text: Att avvikelsen är förenlig med planens syfte och åtgärden är av begränsad omfattning och nödvändig för att området ska kunna användas på ett ändamålsenligt sätt.
+        ratt: true
+      - text: Att åtgärden är att inreda en vind till bostad.
+      - text: Att åtgärden tillgodoser ett allmänt intresse och genomförandetiden har gått ut.
+      - text: Ingen grund behövs, eftersom tillgänglighetsåtgärder alltid får placeras på prickmark.
+    forklaring: >
+      9 kap. 60 § första stycket 2 PBL är tänkt för just sådana fall: en åtgärd som avviker mer
+      än lite, men som är av begränsad omfattning och nödvändig för att området ska kunna
+      användas ändamålsenligt, t.ex. hiss, ramp eller trapphus som gör befintliga bostäder
+      tillgängliga. Avvikelsen måste vara förenlig med planens syfte, och 62 § får inte hindra
+      (betydande miljöpåverkan eller begränsning av en rättighet eller pågående verksamhet).
+      Nödvändigheten bedöms objektivt: finns det en rimlig placering inom byggrätten är
+      åtgärden inte nödvändig på prickmarken. Grannar och andra berörda ska underrättas (94 §).
+    lagrum:
+      - PBL 9 kap. 60 §
+      - PBL 9 kap. 62 §
+      - PBL 9 kap. 94 §
+    taggar: [liten_avvikelse, tillganglighet, prickmark]
+
+  - id: dp-043
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En bostadsrättsförening vill bygga ett bygglovsbefriat miljöhus på 20 kvm (en
+      komplementbyggnad enligt 9 kap. 4 §) till sitt flerbostadshus. Det ska stå helt på
+      prickmark mot gatan. Vad gäller?
+    alternativ:
+      - text: Miljöhuset får inte strida mot planen utan lov, eftersom undantaget i 10 kap. 2 a § bara gäller komplementbyggnader till en- och tvåbostadshus och komplementbostadshus. En hel byggnad på prickmark är inte en liten avvikelse, så föreningen kan i stället söka lov och få avvikelsen prövad.
+        ratt: true
+      - text: Miljöhuset får byggas, eftersom alla bygglovsbefriade komplementbyggnader får strida mot planen.
+      - text: Miljöhuset får byggas om grannarna skriftligen medger det.
+      - text: Miljöhuset kräver alltid bygglov, eftersom komplementbyggnader till flerbostadshus aldrig är bygglovsbefriade.
+    forklaring: >
+      En åtgärd som inte kräver lov ska som huvudregel följa detaljplanen (10 kap. 2 § 2 PBL).
+      10 kap. 2 a § räknar uttömmande upp de lovfria åtgärder som ändå får strida mot planen, och
+      komplementbyggnader till flerbostadshus finns inte med. För andra lovfria åtgärder tillåter
+      2 b § bara en liten avvikelse som inte motverkar planens syfte, och ett helt miljöhus på
+      prickmarken är inte litet. Föreningen kan söka lov (frivilligt lov enligt 9 kap. 52 §) och
+      få avvikelsen prövad enligt 9 kap. 60 §, eller placera miljöhuset på mark som får bebyggas.
+      Grannmedgivande enligt 9 kap. 35 § gäller bara närhet till gräns, inte strid mot planen.
+    lagrum:
+      - PBL 10 kap. 2 §
+      - PBL 10 kap. 2 a §
+      - PBL 10 kap. 2 b §
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 52 §
+      - PBL 9 kap. 60 §
+    taggar: [planstridig_lovfri, komplementbyggnad, prickmark, frivilligt_lov]
+
+  - id: dp-044
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En detaljplan med stöd av 4 kap. 14 § PBL har bestämmelsen "Lov får inte ges förrän
+      bullerskärm har kommit till stånd längs järnvägen". Skärmen är ännu inte byggd när en
+      byggherre söker bygglov för ett planenligt bostadshus. Vad kan nämnden göra?
+    alternativ:
+      - text: Ge lov med villkoret att bullerskärmen ska ha kommit till stånd innan startbesked får ges.
+        ratt: true
+      - text: Ge lov utan villkor, eftersom bullerskydd prövas först i det tekniska samrådet.
+      - text: Bara avslå ansökan, eftersom förutsättningen inte är uppfylld.
+      - text: Ge ett tidsbegränsat bygglov tills skärmen är byggd.
+    forklaring: >
+      Med en planbestämmelse enligt 4 kap. 14 § kan kommunen bestämma att lov eller startbesked
+      bara får ges om en viss förutsättning är uppfylld, t.ex. att åtgärder mot omgivningsbuller
+      har vidtagits eller att en anläggning för VA har kommit till stånd. 9 kap. 83 § ger nämnden
+      möjlighet att ändå ge lovet med villkoret att förutsättningen ska vara uppfylld för att
+      startbesked ska få ges. Det gör att byggherren kan projektera parallellt utan att någon kan
+      flytta in innan skyddet finns. Villkoret ska skrivas tydligt i beslutet.
+    lagrum:
+      - PBL 4 kap. 14 §
+      - PBL 9 kap. 83 §
+      - PBL 9 kap. 56 §
+    taggar: [villkor, planbestammelse, buller, startbesked]
+
+  - id: dp-045
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Planbeskrivningen är juridiskt bindande på samma sätt som plankartan och
+      planbestämmelserna.
+    svar: false
+    forklaring: >
+      En detaljplan består av plankartan och de bestämmelser som behövs (4 kap. 30 § PBL).
+      Planbeskrivningen ska finnas tillsammans med planen och redovisa bl.a. förutsättningar,
+      syfte och hur planen är tänkt att genomföras (31 och 33 §§), men den är inte bindande.
+      Den är ändå viktig för handläggaren: den hjälper till att tolka otydliga bestämmelser, och
+      planens syfte är avgörande när en avvikelse prövas enligt 9 kap. 60 §. Ett önskemål som bara
+      står i beskrivningen, t.ex. "husen bör ha träfasad", kan inte ensamt bära ett avslag.
+    lagrum:
+      - PBL 4 kap. 30 §
+      - PBL 4 kap. 31 §
+      - PBL 4 kap. 33 §
+      - PBL 9 kap. 60 §
+    taggar: [planbeskrivning, plantolkning]
+
+  - id: dp-046
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop bestämmelsen i 4 kap. PBL med vad den säger om genomförandetiden.
+    par:
+      - vanster: 4 kap. 21 §
+        hoger: Minst fem och högst femton år, räknat från laga kraft om inget annat bestämts
+      - vanster: 4 kap. 23 §
+        hoger: Saknar planen uppgift om längden anses den vara femton år
+      - vanster: 4 kap. 24 §
+        hoger: Förlängning eller förnyelse med högst fem år i sänder
+      - vanster: 4 kap. 25 §
+        hoger: Kommunen ska förlänga för en fastighet om förseningen beror på något kommunen råder över
+      - vanster: 4 kap. 39 §
+        hoger: Planen får inte ändras före utgången om en berörd fastighetsägare motsätter sig det
+      - vanster: 4 kap. 40 §
+        hoger: Rättigheterna hindrar inte ändring eller upphävande efter utgången
+    forklaring: >
+      Genomförandetiden ger fastighetsägarna en garanterad byggrätt under en period. Under
+      genomförandetiden får planen inte ändras mot en berörd fastighetsägares vilja, utom vid nya
+      förhållanden av stor allmän vikt (39 §), och kommunen kan bli ersättningsskyldig. Efter
+      utgången fortsätter planen att gälla tills den ändras eller upphävs (38 §), men
+      byggrätten är inte längre skyddad (40 §). För bygglovet har genomförandetiden betydelse
+      bl.a. för vindsinredning (9 kap. 60 § andra stycket), 61 § och 56 § första stycket 1 b.
+    lagrum:
+      - PBL 4 kap. 21 §
+      - PBL 4 kap. 23 §
+      - PBL 4 kap. 24 §
+      - PBL 4 kap. 25 §
+      - PBL 4 kap. 39 §
+      - PBL 4 kap. 40 §
+    taggar: [genomforandetid, planens_giltighet]
+
+  - id: dp-047
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov kommer in för en fastighet i kvarteret Lönnen. Där gäller en
+      detaljplan från 1978, som ändrades genom en ändring av detaljplan 2009. Vilka handlingar
+      behöver du läsa för att veta vad som gäller?
+    alternativ:
+      - text: Både den ursprungliga planen och ändringen, eftersom de gäller tillsammans, och planbeskrivningarna för att förstå syftet.
+        ratt: true
+      - text: Bara ändringen från 2009, eftersom den ersätter den äldre planen.
+      - text: Bara den ursprungliga planen, eftersom ändringar inte påverkar enskilda fastigheter.
+      - text: Bara kommunens översiktsplan, eftersom den är nyare.
+    forklaring: >
+      En ändring av en detaljplan ändrar bara det som ändringen avser; resten av den ursprungliga
+      planen gäller fortfarande (4 kap. 38 § PBL: en plan gäller till dess den ändras eller
+      upphävs). Handläggaren måste därför läsa planerna tillsammans och kontrollera vilka
+      bestämmelser som har ersatts. Ändringen har dessutom ofta en egen genomförandetid för det
+      som ändrats (4 kap. 22 §). Planbeskrivningarna är inte bindande men visar syftet, och
+      översiktsplanen är inte bindande alls. Kontrollera också om det finns äldre
+      fastighetsplaner eller tomtindelningar som gäller som planbestämmelser.
+    lagrum:
+      - PBL 4 kap. 38 §
+      - PBL 4 kap. 22 §
+      - PBL 4 kap. 31 §
+    taggar: [plantolkning, andring_av_detaljplan, vardag]

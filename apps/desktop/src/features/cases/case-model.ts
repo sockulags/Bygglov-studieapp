@@ -120,10 +120,11 @@ export function deadlineSummary(state: CaseState): DeadlineSummary {
     }
   }
   const status = deadlineStatus(state);
+  const weeksWord = state.notification ? 'Fyraveckorsfristen' : 'Tioveckorsfristen';
   if (status.suspendedSince !== null) {
     return {
       label: 'Vilande',
-      detail: `Ärendet är vilande sedan ${status.suspendedSince} (9 kap. 102 §). Tioveckorsfristen löper inte förrän vilandeförklaringen upphör, och avgiften reduceras inte för den tiden (12 kap. 8 a §).`,
+      detail: `Ärendet är vilande sedan ${status.suspendedSince} (9 kap. 102 §). ${weeksWord} löper inte förrän vilandeförklaringen upphör, och avgiften reduceras inte för den tiden (12 kap. 8 a §).`,
       tone: 'paused',
     };
   }
@@ -133,7 +134,7 @@ export function deadlineSummary(state: CaseState): DeadlineSummary {
   if (status.deadlineDate === null || status.daysLeft === null) {
     return {
       label: 'Fristen väntar',
-      detail: `${status.explanation} Tioveckorsfristen börjar löpa när kompletteringen kommit in.`,
+      detail: `${status.explanation} ${weeksWord} börjar löpa när kompletteringen kommit in.`,
       tone: 'paused',
     };
   }
@@ -142,7 +143,9 @@ export function deadlineSummary(state: CaseState): DeadlineSummary {
     status.daysElapsed === null
       ? ''
       : ` ${status.daysElapsed} ${status.daysElapsed === 1 ? 'dag' : 'dagar'} sedan ${
-          DEADLINE_START_LABELS[status.basis]
+          state.notification && status.basis === 'ansokningsdagen'
+            ? 'anmälan kom in'
+            : DEADLINE_START_LABELS[status.basis]
         }.`;
   if (days < 0) {
     return {
@@ -161,7 +164,7 @@ export function deadlineSummary(state: CaseState): DeadlineSummary {
   ].join('');
   return {
     label: days === 0 ? 'Sista dagen i dag' : `${days} ${days === 1 ? 'dag' : 'dagar'} kvar`,
-    detail: `Beslut senast ${status.deadlineDate} (9 kap. 99 §).${elapsed}${notes}`,
+    detail: `Beslut senast ${status.deadlineDate} (9 kap. 99 §${state.notification ? ' och 6 kap. 5 § PBF' : ''}).${elapsed}${notes}`,
     tone: days <= 14 ? 'warning' : 'normal',
   };
 }

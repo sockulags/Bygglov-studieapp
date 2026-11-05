@@ -2,37 +2,57 @@
 
 Allt innehåll i appen skrivs mot **PBL i lydelsen efter 1 december 2025** (lag 2025:974, "nytt
 regelverk för bygglov") och kontrolleras mot **Lagtextens byggregler 2026-01-01**. Den här mappen
-innehåller primärkällor hämtade 2026-11-04 så att den som skriver frågor och ärenden inte behöver
-gissa paragrafnummer:
+innehåller primärkällor, så att den som skriver frågor och ärenden inte behöver gissa
+paragrafnummer. Varje fil har källa, hämtdatum och "ändrad t.o.m." i filhuvudet. Hämta om en
+fil i stället för att lita på minnet när riksdagen.se visar en senare ändring, och lägg till en
+rad i tabellen när en ny fil sparas.
 
-| Fil | Innehåll |
-| --- | --- |
-| `pbl-9-kap.txt` | Hela 9 kap. PBL (115 §§) i gällande lydelse, från riksdagen.se |
-| `boverket-lista-pbl-andringar.txt` | Boverkets översiktliga lista över vad som ändrades |
+Alla sparade lagtexter (43 filer i 42 rader):
 
-Under fas 4 (hämtat 2026-11-05) har fler utdrag lagts till. Varje fil har källa, hämtdatum och
-"ändrad t.o.m." i filhuvudet. Hämta om en fil i stället för att lita på minnet när
-riksdagen.se visar en senare ändring.
-
-| Fil | Innehåll |
-| --- | --- |
-| `pbl-1-kap.txt` … `pbl-6-kap.txt`, `pbl-8-kap.txt` | PBL 1–6 och 8 kap. (definitioner, intressen, översiktsplan, detaljplan, planförfarande, genomförande av detaljplaner, krav på byggnadsverk) |
-| `pbl-10-kap.txt`, `pbl-11-kap.txt` | PBL 10 kap. (genomförandet, i lydelsen från 2026-07-01) och 11 kap. (tillsyn och sanktioner) |
-| `pbl-12-kap.txt`, `pbl-13-kap.txt`, `pbl-16-kap.txt` | PBL 12 kap. (byggnadsnämnden, avgifter), 13 kap. (överklagande) och 16 kap. (bemyndiganden) |
-| `pbf-1-kap.txt`, `pbf-3-kap.txt` | PBF 1 kap. (definitioner, byggnadshöjd, våning, sanktionsarea) och 3 kap. (krav på byggnadsverk) |
-| `pbf-5-och-8-kap.txt`, `pbf-6-kap.txt`, `pbf-7-kap.txt`, `pbf-9-kap.txt` | PBF 5 och 8 kap. (funktionskontroll, OVK, tillsyn), 6 kap. (anmälan), 7 kap. (kontrollplan, KA, byggbedömare) och 9 kap. (byggsanktionsavgifter) |
-| `fl.txt` | Hela förvaltningslagen (2017:900) |
-| `kl-utdrag.txt` | Kommunallagen: 6 kap. 28–44 §§ (jäv, delegering), 7 kap. 1–8 §§ och 13 kap. (laglighetsprövning) |
-| `tf-2-kap.txt`, `osl-utdrag.txt`, `sprl.txt` | Tryckfrihetsförordningen 2 kap., utdrag ur offentlighets- och sekretesslagen och hela språklagen |
-| `mmdl-5-kap.txt` | Lagen (2010:921) om mark- och miljödomstolar, 5 kap. |
-| `mb-3-kap.txt`, `mb-4-kap.txt`, `mb-7-kap.txt`, `mb-utdrag-8-10-19-kap.txt` | Miljöbalken 3, 4 och 7 kap. (strandskyddet numrerat om 2025-07-01) och utdrag ur 8–10 och 19 kap. |
-| `kml-2-4-kap.txt` | Kulturmiljölagen 1 kap. 1 § och 2–4 kap. |
-| `vagl-utdrag.txt`, `fmh-utdrag.txt` | Väglagen 39 och 47 §§, förordningen om miljöfarlig verksamhet och hälsoskydd 12–14 §§ |
-| `jb-utdrag.txt`, `fastighetsratt-utdrag.txt` | Jordabalken 3 kap. och 14 kap. 1–4 §§, anläggningslagen 1–9 §§ och fastighetsbildningslagen 7 kap. 1 § |
-| `lso-utdrag.txt`, `fardigstallandeskydd.txt`, `trafikbullerforordningen.txt` | Lagen om skydd mot olyckor 1–3 kap., lagen (2014:227) om färdigställandeskydd och förordningen (2015:216) om trafikbuller |
-| `byggnadsstadgan-1959-39-40.txt` | Byggnadsstadgan 39–40 §§ (upphävd 1987, behövs för äldre planer) |
-| `prisbasbelopp.txt` | Prisbasbeloppet 2026 (59 200 kr) och 2027 (59 600 kr) enligt SCB |
-| `boverket-matt-och-planbestammelser.txt`, `boverket-tillsyn-utdrag.txt` | Boverkets PBL kunskapsbanken om mätregler, planbestämmelser och liten avvikelse, och om tillsyn med sammanfattad praxis |
+| Fil | Innehåll | Källa | Hämtad | Ändrad t.o.m. |
+| --- | --- | --- | --- | --- |
+| `pbl-1-kap.txt` | PBL 1 kap. (inledande bestämmelser, definitioner) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-2-kap.txt` | PBL 2 kap. (allmänna och enskilda intressen) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-3-kap.txt` | PBL 3 kap. (översiktsplan) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-4-kap.txt` | PBL 4 kap. (detaljplan, planbestämmelser) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-5-kap.txt` | PBL 5 kap. (planförfarandet) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-6-kap.txt` | PBL 6 kap. (genomförande av detaljplaner) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-8-kap.txt` | PBL 8 kap. (krav på byggnadsverk, tomter och allmänna platser) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-9-kap.txt` | Hela PBL 9 kap. (1–115 §§, lov, anmälan, förhandsbesked) i lydelsen från 2025-12-01 | riksdagen.se | 2026-11-04 | SFS 2026:1583 |
+| `pbl-10-kap.txt` | PBL 10 kap. (genomförandet, startbesked, slutbesked) i lydelsen från 2026-07-01 | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-11-kap.txt` | PBL 11 kap. (tillsyn, ingripanden, byggsanktionsavgift) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-12-kap.txt` | PBL 12 kap. (byggnadsnämnden, avgifter, 8 a § reduktion) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-13-kap.txt` | PBL 13 kap. (överklagande) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbl-16-kap.txt` | PBL 16 kap. (bemyndiganden) | riksdagen.se | 2026-11-05 | SFS 2026:1583 |
+| `pbf-1-kap.txt` | PBF 1 kap. (definitioner: byggnadshöjd, våning, sanktionsarea) | riksdagen.se | 2026-11-05 | SFS 2026:1722 |
+| `pbf-3-kap.txt` | PBF 3 kap. (krav på byggnadsverk) | riksdagen.se | 2026-11-05 | SFS 2026:1722 |
+| `pbf-5-och-8-kap.txt` | PBF 5 kap. (funktionskontroll av ventilation, OVK) och 8 kap. (tillsyn) | riksdagen.se | 2026-11-05 | SFS 2026:1722 |
+| `pbf-6-kap.txt` | PBF 6 kap. (anmälan; 5 § fyraveckorsfristen) | riksdagen.se | 2026-11-05 | SFS 2026:1722 |
+| `pbf-7-kap.txt` | PBF 7 kap. (kontrollplan, kontrollansvarig, byggbedömare) | riksdagen.se | 2026-11-05 | SFS 2026:1722 |
+| `pbf-9-kap.txt` | PBF 9 kap. (byggsanktionsavgifter) | riksdagen.se | 2026-11-05 | SFS 2026:1722 |
+| `fl.txt` | Hela förvaltningslagen (2017:900) | riksdagen.se | 2026-11-05 | SFS 2025:582 |
+| `kl-utdrag.txt` | Kommunallagen 6 kap. 28–44 §§ (jäv, delegering), 7 kap. 1–8 §§ och 13 kap. (laglighetsprövning) | riksdagen.se | 2026-11-05 | SFS 2026:836 |
+| `tf-2-kap.txt` | Tryckfrihetsförordningen 2 kap. (allmänna handlingar) | riksdagen.se | 2026-11-05 | SFS 2015:151 |
+| `osl-utdrag.txt` | Utdrag ur offentlighets- och sekretesslagen | riksdagen.se | 2026-11-05 | SFS 2026:1648 |
+| `sprl.txt` | Hela språklagen (2009:600) | riksdagen.se | 2026-11-05 | ursprunglig lydelse |
+| `mmdl-5-kap.txt` | Lagen (2010:921) om mark- och miljödomstolar, 5 kap. | riksdagen.se | 2026-11-05 | SFS 2026:1443 |
+| `mb-3-kap.txt`, `mb-4-kap.txt` | Miljöbalken 3 och 4 kap. (hushållning med mark och vatten, riksintressen) | riksdagen.se | 2026-11-05 | SFS 2026:1442 |
+| `mb-7-kap.txt` | Miljöbalken 7 kap. (bl.a. strandskyddet, numrerat om 2025-07-01) | riksdagen.se | 2026-11-05 | SFS 2026:1442 |
+| `mb-utdrag-8-10-19-kap.txt` | Utdrag ur miljöbalken 8–10 och 19 kap. | riksdagen.se | 2026-11-05 | SFS 2026:1442 |
+| `kml-2-4-kap.txt` | Kulturmiljölagen 1 kap. 1 § och 2–4 kap. (fornlämningar, byggnadsminnen, kyrkliga kulturminnen) | riksdagen.se | 2026-11-05 | SFS 2024:813 |
+| `vagl-utdrag.txt` | Väglagen 39 och 47 §§ | riksdagen.se | 2026-11-05 | SFS 2025:772 |
+| `fmh-utdrag.txt` | Förordningen (1998:899) om miljöfarlig verksamhet och hälsoskydd 12–14 §§ | riksdagen.se | 2026-11-05 | SFS 2026:1515 |
+| `jb-utdrag.txt` | Jordabalken 3 kap. (grannelagsrätt, gränsträd) och 14 kap. 1–4 §§ | riksdagen.se | 2026-11-05 | SFS 2026:1498 |
+| `fastighetsratt-utdrag.txt` | Anläggningslagen 1–9 §§ och fastighetsbildningslagen 7 kap. 1 § | riksdagen.se | 2026-11-05 | SFS 2022:362 (AL) |
+| `lso-utdrag.txt` | Lagen (2003:778) om skydd mot olyckor 1–3 kap. (bl.a. sotning och brandskyddskontroll) | riksdagen.se | 2026-11-05 | SFS 2025:1077 |
+| `ol-3-kap-utdrag.txt` | Ordningslagen (1993:1617) 3 kap. 3–5 §§ (bl.a. skydd kring bassänger) | riksdagen.se | 2026-11-05 | SFS 2026:729 |
+| `fardigstallandeskydd.txt` | Lagen (2014:227) om färdigställandeskydd | riksdagen.se | 2026-11-05 | SFS 2025:978 |
+| `trafikbullerforordningen.txt` | Förordningen (2015:216) om trafikbuller vid bostadsbyggnader | riksdagen.se | 2026-11-05 | SFS 2025:981 |
+| `byggnadsstadgan-1959-39-40.txt` | Byggnadsstadgan (1959:612) 39–40 §§, upphävd 1987, behövs för äldre planer | Boverket | 2026-11-05 | – |
+| `boverket-lista-pbl-andringar.txt` | Boverkets lista över vad som ändrades i PBL 2025-12-01 | Boverket | 2026-11-04 | – |
+| `boverket-matt-och-planbestammelser.txt` | PBL kunskapsbanken om mätregler, planbestämmelser och liten avvikelse | Boverket | 2026-11-05 | – |
+| `boverket-tillsyn-utdrag.txt` | PBL kunskapsbanken om tillsyn, med sammanfattad praxis | Boverket | 2026-11-05 | – |
+| `prisbasbelopp.txt` | Prisbasbeloppet 2026 (59 200 kr) och 2027 (59 600 kr) | SCB | 2026-11-05 | – |
 
 PBF 10 kap. och övriga kapitel hämtas vid behov från riksdagen.se.
 

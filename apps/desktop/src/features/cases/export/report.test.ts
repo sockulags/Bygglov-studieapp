@@ -381,6 +381,17 @@ describe('loadDecisionReport', () => {
   });
 });
 
+describe('a start notice in the report', () => {
+  it('names the outcome in the decision and in the timeline', () => {
+    const state = playToDecision({ ...draft, utfall: 'startbesked' });
+    const report = reportFor(state);
+    expect(report.decision.outcome).toBe('startbesked');
+    expect(report.decision.outcomeLabel).toBe('Ge startbesked');
+    expect(renderDecisionReportMarkdown(report)).toContain('Ge startbesked');
+    expect(renderDecisionReportHtml(report)).toContain('Ge startbesked');
+  });
+});
+
 describe('parseDecisionValue', () => {
   it('reads a draft, a wrapper, a JSON string and garbage', () => {
     expect(parseDecisionValue(draft)).toMatchObject({ complete: true, draft });

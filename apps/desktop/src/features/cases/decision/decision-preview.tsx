@@ -98,7 +98,7 @@ export function DecisionPreview({
               </>
             ) : (
               <tr>
-                <td>Ansökan kom in</td>
+                <td>{draft.utfall === 'startbesked' ? 'Anmälan kom in' : 'Ansökan kom in'}</td>
                 <td>
                   {state.applicationDate}
                   {state.completionDate ? `, komplett ${state.completionDate}` : ''}
@@ -129,7 +129,11 @@ export function DecisionPreview({
         {draft.villkor_upplysningar.trim() !== '' && (
           <>
             <h2>
-              {draft.utfall === 'bevilja_med_villkor' ? 'Villkor och upplysningar' : 'Upplysningar'}
+              {draft.utfall === 'bevilja_med_villkor'
+                ? 'Villkor och upplysningar'
+                : draft.utfall === 'startbesked'
+                  ? 'Kontrollplan, villkor och upplysningar'
+                  : 'Upplysningar'}
             </h2>
             <Paragraphs text={draft.villkor_upplysningar} empty="" />
           </>

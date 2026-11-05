@@ -14,7 +14,16 @@ import {
   recipientSuggestions,
   splitUnit,
 } from './case-model';
-import { appealText, parseFee, taxaLabel, validateDecisionDraft } from './decision/decision-text';
+import {
+  appealText,
+  decisionSentence,
+  decisionTitle,
+  OUTCOME_OPTIONS,
+  outcomeOptions,
+  parseFee,
+  taxaLabel,
+  validateDecisionDraft,
+} from './decision/decision-text';
 import { parseFrontMatter } from './documents/front-matter';
 import { emptyDecisionDraft } from '@/engine';
 
@@ -249,6 +258,58 @@ describe('decision texts', () => {
     expect(text).toMatch(/diarienummer BN 1/);
     const refusal = appealText(caseFile(), { outcome: 'avsla' }).join(' ');
     expect(refusal).not.toMatch(/kungjorts/);
+  });
+
+  it('writes a start notice as a start notice, with its own appeal limits', () => {
+    const file = { ...caseFile(), titel: 'Anmälan: installation av eldstad' };
+    expect(decisionTitle('startbesked', file)).toBe('Startbesked för installation av eldstad');
+    expect(
+      decisionSentence(
+        { ...emptyDecisionDraft(), utfall: 'startbesked', lagstod: ['10 kap. 23 c § PBL'] },
+        file,
+      ),
+    ).toMatchObject({
+      verb: 'ger startbesked',
+      rest: ' för installation av eldstad, med stöd av 10 kap. 23 c § PBL.',
+    });
+    const text = appealText(file, { outcome: 'startbesked' }).join(' ');
+    expect(text).toMatch(/13 kap\. 2 § 5 PBL/);
+    expect(text).not.toMatch(/kungjorts/);
+    expect(OUTCOME_OPTIONS.map((o) => o.value)).toContain('startbesked');
+  });
+
+  it('names the decision after the kind of permit', () => {
+    const marklov = {
+      ...caseFile(),
+      titel: 'Marklov och trädfällning på Eken 2',
+      lovtyp: 'marklov' as const,
+    };
+    expect(decisionTitle('bevilja_med_villkor', marklov)).toBe(
+      'Beslut om marklov och trädfällning på Eken 2',
+    );
+    expect(
+      decisionSentence({ ...emptyDecisionDraft(), utfall: 'bevilja_med_villkor' }, marklov).verb,
+    ).toBe('beviljar marklov med villkor');
+    expect(outcomeOptions(marklov)[1]?.label).toBe('Bevilja marklov med villkor');
+    const advance = {
+      ...caseFile(),
+      titel: 'Förhandsbesked för två tomter vid Kvarnbacken',
+      lovtyp: 'forhandsbesked' as const,
+    };
+    expect(decisionTitle('bevilja', advance)).toBe(
+      'Beslut om förhandsbesked för två tomter vid Kvarnbacken',
+    );
+    expect(decisionSentence({ ...emptyDecisionDraft(), utfall: 'bevilja' }, advance)).toMatchObject(
+      {
+        verb: 'ger positivt förhandsbesked',
+        rest: ' i ärendet om förhandsbesked för två tomter vid Kvarnbacken.',
+      },
+    );
+    expect(outcomeOptions(advance)[0]?.label).toBe('Ge positivt förhandsbesked');
+    // Without lovtyp it is a building permit, as before.
+    expect(decisionTitle('bevilja', caseFile())).toBe(
+      'Beslut om bygglov för tillbyggnad av enbostadshus',
+    );
   });
 
   it('parses fees and labels taxa entries', () => {

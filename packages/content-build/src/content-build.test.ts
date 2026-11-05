@@ -64,6 +64,9 @@ describe('check', () => {
       'A004',
       'A005',
       'A006',
+      'A007',
+      'A008',
+      'A009',
     ]);
     // Every one of the 13 modules has questions.
     expect(new Set(tree.questionFiles.map((f) => f.file)).size).toBe(13);

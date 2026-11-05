@@ -10,7 +10,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { addDays, MAX_EXTENSION_WEEKS, type CaseState } from '@/engine';
+import { addDays, maxExtensionWeeks, type CaseState } from '@/engine';
 import { cn } from '@/lib/cn';
 import type { ExtensionAvailability } from './case-model';
 import { extendCaseDeadline } from './case-store';
@@ -43,8 +43,9 @@ export function ExtendDeadlineDialog({
   const [reason, setReason] = useState('');
   const [tried, setTried] = useState(false);
 
+  const maxWeeks = maxExtensionWeeks(state);
   const parsed = Number(weeks);
-  const weeksValid = Number.isInteger(parsed) && parsed >= 1 && parsed <= MAX_EXTENSION_WEEKS;
+  const weeksValid = Number.isInteger(parsed) && parsed >= 1 && parsed <= maxWeeks;
   const reasonValid = reason.trim() !== '';
   const newDeadline =
     weeksValid && state.deadlineDate !== null ? addDays(state.deadlineDate, parsed * 7) : null;
@@ -85,22 +86,23 @@ export function ExtendDeadlineDialog({
           <DialogHeader>
             <DialogTitle>Förläng tidsfristen</DialogTitle>
             <DialogDescription>
-              Tioveckorsfristen får förlängas en gång med högst tio veckor om det är nödvändigt på
-              grund av handläggningen eller utredningen (9 kap. 99 § andra stycket PBL). Sökanden
-              ska skriftligen informeras om förlängningen och skälen innan den ursprungliga fristen
-              gått ut (100 § 3).
+              {state.notification
+                ? 'Fyraveckorsfristen för en anmälan får förlängas en gång med högst fyra veckor om det är nödvändigt på grund av handläggningen eller utredningen (9 kap. 99 § andra stycket PBL och 6 kap. 5 § PBF).'
+                : 'Tioveckorsfristen får förlängas en gång med högst tio veckor om det är nödvändigt på grund av handläggningen eller utredningen (9 kap. 99 § andra stycket PBL).'}{' '}
+              Sökanden ska skriftligen informeras om förlängningen och skälen innan den ursprungliga
+              fristen gått ut (100 § 3).
             </DialogDescription>
           </DialogHeader>
 
           <div className="flex flex-col gap-1.5">
             <label htmlFor={`${id}-weeks`} className="text-sm font-medium">
-              Antal veckor (1–{MAX_EXTENSION_WEEKS})
+              Antal veckor (1–{maxWeeks})
             </label>
             <input
               id={`${id}-weeks`}
               type="number"
               min={1}
-              max={MAX_EXTENSION_WEEKS}
+              max={maxWeeks}
               step={1}
               inputMode="numeric"
               value={weeks}
@@ -111,7 +113,7 @@ export function ExtendDeadlineDialog({
             />
             <p id={`${id}-weeks-hint`} className="text-sm text-muted">
               {tried && !weeksValid
-                ? `Ange ett helt antal veckor mellan 1 och ${MAX_EXTENSION_WEEKS}.`
+                ? `Ange ett helt antal veckor mellan 1 och ${maxWeeks}.`
                 : newDeadline
                   ? `Ny sista dag för beslut: ${newDeadline}.`
                   : 'Förlängningen räknas från den frist som gäller.'}

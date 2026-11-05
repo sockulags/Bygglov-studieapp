@@ -8,6 +8,7 @@ import {
 import {
   addDays,
   DECISION_OUTCOME_LABELS,
+  decisionOutcomeLabel,
   DELIVERY_METHOD_LABELS,
   formatKronor,
   injunctionKind,
@@ -206,6 +207,7 @@ function findDecisionStep(caseFile: CaseFile, stepId: string | null | undefined)
 }
 
 function buildDecision(
+  caseFile: CaseFile,
   draft: Partial<DecisionDraft>,
   assessment: DecisionAssessment | null,
 ): ReportDecision {
@@ -218,7 +220,7 @@ function buildDecision(
       ?.expectedAmount ?? (lines.length === 1 ? (lines[0]?.expectedAmount ?? null) : null);
   return {
     outcome,
-    outcomeLabel: outcome ? DECISION_OUTCOME_LABELS[outcome] : 'Inget utfall valt',
+    outcomeLabel: outcome ? decisionOutcomeLabel(outcome, caseFile) : 'Inget utfall valt',
     lawRefs: (Array.isArray(draft.lagstod) ? draft.lagstod : [])
       .map((ref) => trimmed(ref))
       .filter((ref) => ref.length > 0),
@@ -509,7 +511,7 @@ export function buildDecisionReport(
   if (!decisionDate) warnings.push('Beslutsdatum saknas.');
   if (!isOutcome(draft.utfall)) warnings.push('Beslutet saknar utfall.');
 
-  const reportDecision = buildDecision(draft, assessment);
+  const reportDecision = buildDecision(caseFile, draft, assessment);
   const criteriaTexts = assessment?.criteria ?? step?.bedomningspunkter ?? [];
   const checked = decision.checkedCriteria ?? null;
   const notes = trimmed(options.notes);

@@ -1,5 +1,5 @@
 import { idSafe, shortProperty, titleData, type DrawingContext } from './context';
-import type { Rectangle, Side, SituationsplanParams } from './schema';
+import type { NamedRectangle, Rectangle, Side, SituationsplanParams } from './schema';
 import {
   INK,
   LINE,
@@ -14,6 +14,7 @@ import {
   hatchPattern,
   label,
   legend,
+  level,
   line,
   northArrow,
   rect,
@@ -22,6 +23,7 @@ import {
   textBlock,
   textWidth,
   type ChainPoint,
+  type LegendEntry,
 } from './svg';
 
 /** Paper distance (mm) from the plot to the edge of the drawn surroundings. */
@@ -38,6 +40,12 @@ const ACCESSIBLE_SPACE_M = 5;
 const MIN_SPACE_M = 2.3;
 const LOVGIVET_DASH = '4 1 0.8 1 0.8 1';
 const BALCONY_DASH = '0.6 0.6';
+/** New property boundaries inside the plot (subdivision). */
+const NEW_BOUNDARY_DASH = '3.5 1.2';
+const MONUMENT_DASH = '0.5 0.7';
+const FELLED_CROWN_DASH = '1.2 0.8';
+/** Grey of buildings on the neighbours' properties. */
+const NEIGHBOUR_FILL = '#ececec';
 
 const isHorizontalSide = (s: Side) => s === 'norr' || s === 'soder';
 
@@ -92,6 +100,11 @@ export function wrapName(name: string): string[] {
   return lines;
 }
 
+/** An integer with a space as thousands separator, e.g. 1800 → "1 800". */
+function thousands(value: number): string {
+  return String(Math.round(value)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
 /** Font size that makes every line fit inside `width` mm. */
 function fitSize(lines: string[], width: number, preferred: number, min = 1.4): number {
   const widest = Math.max(...lines.map((l) => textWidth(l, 1)));
@@ -108,10 +121,30 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   const margin = SURROUNDINGS_MM / k;
   const mm = (paper: number) => paper / k; // paper mm → metres
   const extra = (s: Side) => (street?.sida === s ? street.bredd : 0);
+  const neighbourHouses: NamedRectangle[] = p.grannhus.map((g) =>
+    Array.isArray(g) ? { rektangel: g } : g,
+  );
+  const monumentBox = (f: SituationsplanParams['fornlamningar'][number]): Box =>
+    f.rektangel
+      ? boxOf(f.rektangel)
+      : [f.punkt![0] - mm(2), f.punkt![1] - mm(2), f.punkt![0] + mm(2), f.punkt![1] + mm(2)];
+  // Named neighbouring houses and ancient monuments widen the drawn surroundings.
+  const farFeatures: Box[] = [
+    ...neighbourHouses.filter((g) => g.namn).map((g) => boxOf(g.rektangel)),
+    ...p.fornlamningar.map(monumentBox),
+  ];
   // How far the drawn surroundings reach beyond the boundary on each side.
   const reach = (s: Side) => {
-    const base = margin + extra(s);
-    return shore?.sida === s ? Math.max(base, shore.avstand + mm(16)) : base;
+    let base = margin + extra(s);
+    if (shore?.sida === s) base = Math.max(base, shore.avstand + mm(16));
+    const pad = mm(8);
+    for (const b of farFeatures) {
+      if (s === 'oster') base = Math.max(base, b[2] - W + pad);
+      if (s === 'vaster') base = Math.max(base, -b[0] + pad);
+      if (s === 'norr') base = Math.max(base, -b[1] + pad);
+      if (s === 'soder') base = Math.max(base, b[3] - D + pad);
+    }
+    return base;
   };
 
   const x0 = -reach('vaster');
@@ -130,6 +163,8 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     utfart: `${id}-utfart`,
     vatten: `${id}-vatten`,
     avvikelse: `${id}-avvikelse`,
+    pool: `${id}-pool`,
+    fornlamning: `${id}-fornlamning`,
   };
   const defs = [
     el('clipPath', { id: ids.clip }, rect(0, 0, width, height)),
@@ -139,6 +174,9 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   if (p.utfart) defs.push(dotPattern(ids.utfart, { spacing: 1.2, radius: 0.12 }));
   if (shore) defs.push(hatchPattern(ids.vatten, { angle: 90, spacing: 1.4, width: LINE.hair }));
   if (p.avvikelse.length > 0) defs.push(crossHatchPattern(ids.avvikelse, { spacing: 1.3 }));
+  if (p.pooler.length > 0) defs.push(hatchPattern(ids.pool, { angle: 90, spacing: 0.8 }));
+  if (p.fornlamningar.length > 0)
+    defs.push(hatchPattern(ids.fornlamning, { angle: 20, spacing: 1.8, width: LINE.hair }));
 
   // The main building is the existing house, or the new house on an empty plot.
   const main: Rectangle = p.hus ?? (p.nybyggnad as Rectangle);
@@ -159,6 +197,13 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     });
   if (p.nybyggnad)
     buildings.push({ r: p.nybyggnad, lines: mainLines ?? ['Nytt', 'bostadshus'], kind: 'ny' });
+  for (const b of p.nybyggnader) {
+    buildings.push({
+      r: b.rektangel,
+      lines: b.namn ? wrapName(b.namn) : ['Nytt', 'bostadshus'],
+      kind: 'ny',
+    });
+  }
   if (p.tillbyggnad) buildings.push({ r: p.tillbyggnad, lines: ['Ny', 'tillbyggnad'], kind: 'ny' });
   if (p.komplementbyggnad)
     buildings.push({
@@ -252,10 +297,12 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   }
 
   // Neighbouring houses.
-  for (const [x, y, w, d] of p.grannhus) {
+  for (const {
+    rektangel: [x, y, w, d],
+  } of neighbourHouses) {
     clipped.push(
       rect(X(x), Y(y), w * k, d * k, {
-        fill: '#ececec',
+        fill: NEIGHBOUR_FILL,
         stroke: INK,
         'stroke-width': LINE.normal,
       }),
@@ -359,6 +406,21 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     occupied.push(boxOf(a.rektangel, mm(1)));
   }
 
+  // Pools: the coping and the water surface inside it.
+  for (const pool of p.pooler) {
+    const [x, y, w, d] = pool.rektangel;
+    const c = Math.min(0.3, w / 6, d / 6);
+    parts.push(
+      rect(X(x), Y(y), w * k, d * k, { fill: PAPER, stroke: INK, 'stroke-width': LINE.medium }),
+      rect(X(x + c), Y(y + c), (w - 2 * c) * k, (d - 2 * c) * k, {
+        fill: `url(#${ids.pool})`,
+        stroke: INK,
+        'stroke-width': LINE.thin,
+      }),
+    );
+    occupied.push(boxOf(pool.rektangel, mm(1)));
+  }
+
   // Parking: the area divided into spaces across its longer side.
   for (const park of p.parkering) {
     const [x, y, w, d] = park.rektangel;
@@ -454,6 +516,45 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     );
   }
 
+  // New property boundaries inside the plot, each drawn once and not on the outer boundary.
+  const drawnBoundaries = new Set<string>();
+  const near = (a: number, b: number) => Math.abs(a - b) < 1e-9;
+  for (const t of p.tomter) {
+    const [x, y, w, d] = t.rektangel;
+    const segments: [number, number, number, number][] = [
+      [x, y, x + w, y],
+      [x, y + d, x + w, y + d],
+      [x, y, x, y + d],
+      [x + w, y, x + w, y + d],
+    ];
+    for (const [ax, ay, bx, by] of segments) {
+      const onOuter = ay === by ? near(ay, 0) || near(ay, D) : near(ax, 0) || near(ax, W);
+      const key = [ax, ay, bx, by].map((v) => v.toFixed(3)).join(' ');
+      if (onOuter || drawnBoundaries.has(key)) continue;
+      drawnBoundaries.add(key);
+      parts.push(
+        line(X(ax), Y(ay), X(bx), Y(by), LINE.heavy, { 'stroke-dasharray': NEW_BOUNDARY_DASH }),
+      );
+    }
+  }
+
+  // Ancient monuments: a hatched area with a dotted outline, or a small hatched circle.
+  for (const f of p.fornlamningar) {
+    const style = {
+      fill: `url(#${ids.fornlamning})`,
+      stroke: INK,
+      'stroke-width': LINE.medium,
+      'stroke-dasharray': MONUMENT_DASH,
+    };
+    if (f.rektangel) {
+      const [x, y, w, d] = f.rektangel;
+      parts.push(rect(X(x), Y(y), w * k, d * k, style));
+    } else if (f.punkt) {
+      parts.push(el('circle', { cx: X(f.punkt[0]), cy: Y(f.punkt[1]), r: 1.6, ...style }));
+      occupied.push(monumentBox(f));
+    }
+  }
+
   // Buildings.
   for (const b of buildings) {
     const [x, y, w, d] = b.r;
@@ -501,6 +602,51 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
         'stroke-dasharray': LOVGIVET_DASH,
       }),
     );
+  }
+
+  // Trees: the crown as a circle and the trunk as a dot. A tree to be felled gets a dashed
+  // crown and a cross.
+  for (const t of p.trad) {
+    const [px, py] = t.punkt;
+    const r = (t.krondiameter / 2) * k;
+    const stem = Math.max(0.4, ((t.stamdiameter ?? 0.3) / 2) * k);
+    const felled = t.status === 'falls';
+    parts.push(
+      el('circle', {
+        cx: X(px),
+        cy: Y(py),
+        r,
+        fill: 'none',
+        stroke: INK,
+        'stroke-width': LINE.normal,
+        'stroke-dasharray': felled ? FELLED_CROWN_DASH : undefined,
+      }),
+      el('circle', { cx: X(px), cy: Y(py), r: stem, fill: INK }),
+    );
+    if (felled) {
+      const c = Math.max(Math.min(r * 0.7, 4), stem + 1.2);
+      parts.push(
+        line(X(px) - c, Y(py) - c, X(px) + c, Y(py) + c, LINE.heavy),
+        line(X(px) - c, Y(py) + c, X(px) + c, Y(py) - c, LINE.heavy),
+      );
+    }
+    occupied.push([
+      px - mm(stem + 0.6),
+      py - mm(stem + 0.6),
+      px + mm(stem + 0.6),
+      py + mm(stem + 0.6),
+    ]);
+  }
+
+  // Ground levels: a small cross at the point.
+  for (const h of p.hojder) {
+    const [px, py] = h.punkt;
+    const c = 0.7;
+    parts.push(
+      line(X(px) - c, Y(py) - c, X(px) + c, Y(py) + c, LINE.normal),
+      line(X(px) - c, Y(py) + c, X(px) + c, Y(py) - c, LINE.normal),
+    );
+    occupied.push([px - mm(1), py - mm(1), px + mm(1), py + mm(1)]);
   }
 
   // Prickmark boundaries on top, so an intrusion shows across the building.
@@ -598,8 +744,8 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
       );
     } else if (
       textEnd > W &&
-      p.grannhus.some((g) =>
-        overlaps(boxOf(g), [x + w, y + d / 2 - mm(1.5), textEnd, y + d / 2 + mm(1.5)]),
+      neighbourHouses.some((g) =>
+        overlaps(boxOf(g.rektangel), [x + w, y + d / 2 - mm(1.5), textEnd, y + d / 2 + mm(1.5)]),
       )
     ) {
       // The text would run into a neighbour's house: under the feature, inside the plot.
@@ -667,6 +813,178 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     ]);
   }
 
+  // Labels of the features below, each at the first free spot among a few candidates.
+  const viewBox: Box = [x0, y0, x1, y1];
+  const isFree = (box: Box, extraBlockers: Box[] = []) =>
+    box[0] >= viewBox[0] &&
+    box[1] >= viewBox[1] &&
+    box[2] <= viewBox[2] &&
+    box[3] <= viewBox[3] &&
+    ![...occupied, ...extraBlockers].some((o) => overlaps(o, box));
+  /** Boxes (metres) of labels placed here, kept clear by the dimension chains. */
+  const labelBoxes: Box[] = [];
+  const claim = (box: Box) => {
+    occupied.push(box);
+    labelBoxes.push(box);
+  };
+  /** A one-line label east, west, south or north of a point, at `gap` mm from it. */
+  const pointLabel = (px: number, py: number, text: string, gap: number, size = TEXT.small) => {
+    const tw = mm(textWidth(text, size));
+    const h = mm(size * 0.75);
+    const g = mm(gap);
+    const options: { box: Box; x: number; y: number; anchor: 'start' | 'end' | 'middle' }[] = [
+      { box: [px + g, py - h, px + g + tw, py + h], x: px + g, y: py, anchor: 'start' },
+      { box: [px - g - tw, py - h, px - g, py + h], x: px - g, y: py, anchor: 'end' },
+      {
+        box: [px - tw / 2, py + g, px + tw / 2, py + g + 2 * h],
+        x: px,
+        y: py + g + h,
+        anchor: 'middle',
+      },
+      {
+        box: [px - tw / 2, py - g - 2 * h, px + tw / 2, py - g],
+        x: px,
+        y: py - g - h,
+        anchor: 'middle',
+      },
+    ];
+    const chosen = options.find((o) => isFree(o.box)) ?? options[0]!;
+    claim(chosen.box);
+    return label(X(chosen.x), Y(chosen.y), text, {
+      anchor: chosen.anchor,
+      baseline: 'middle',
+      size,
+      halo: true,
+    });
+  };
+  /** A label of several lines inside a rectangle if it fits, otherwise just below it. */
+  const areaLabel = (r: Rectangle, lines: string[], preferred: number = TEXT.small) => {
+    const [x, y, w, d] = r;
+    const size = fitSize(lines, w * k, preferred, 1.6);
+    const tw = mm(Math.max(...lines.map((l) => textWidth(l, size))));
+    const th = mm(size * 1.25 * lines.length);
+    if (tw <= w - mm(1) && th <= d - mm(1)) {
+      return textBlock(X(x + w / 2), Y(y + d / 2), lines, { size, halo: true, firstBold: false });
+    }
+    const small = TEXT.small;
+    const sw = mm(Math.max(...lines.map((l) => textWidth(l, small))));
+    const sh = mm(small * 1.25 * lines.length);
+    const below: Box = [
+      x + w / 2 - sw / 2,
+      y + d + mm(0.8),
+      x + w / 2 + sw / 2,
+      y + d + mm(0.8) + sh,
+    ];
+    const above: Box = [x + w / 2 - sw / 2, y - mm(0.8) - sh, x + w / 2 + sw / 2, y - mm(0.8)];
+    const box = isFree(below) || !isFree(above) ? below : above;
+    claim(box);
+    return textBlock(X(x + w / 2), Y((box[1] + box[3]) / 2), lines, {
+      size: small,
+      halo: true,
+      firstBold: false,
+    });
+  };
+
+  for (const pool of p.pooler) {
+    if (!pool.namn) continue;
+    // One line when it fits, otherwise wrapped.
+    const oneLine = textWidth(pool.namn, 1.8) <= pool.rektangel[2] * k - 2;
+    parts.push(areaLabel(pool.rektangel, oneLine ? [pool.namn] : wrapName(pool.namn), 2));
+  }
+  for (const f of p.fornlamningar) {
+    if (!f.namn) continue;
+    if (f.rektangel) parts.push(areaLabel(f.rektangel, wrapName(f.namn)));
+    else if (f.punkt) parts.push(pointLabel(f.punkt[0], f.punkt[1], f.namn, 2.4));
+  }
+  for (const g of neighbourHouses) {
+    if (g.namn) parts.push(areaLabel(g.rektangel, wrapName(g.namn), 2));
+  }
+  for (const t of p.trad) {
+    if (!t.namn) continue;
+    const stem = Math.max(0.4, ((t.stamdiameter ?? 0.3) / 2) * k);
+    const crossed = t.status === 'falls';
+    const gap = crossed
+      ? Math.max(Math.min((t.krondiameter / 2) * k * 0.7, 4), stem + 1.2) + 0.8
+      : stem + 1;
+    parts.push(pointLabel(t.punkt[0], t.punkt[1], t.namn, gap));
+  }
+  // Levels: the existing level as plain text, the new level framed below it.
+  for (const h of p.hojder) {
+    const [px, py] = h.punkt;
+    const rows = [
+      ...(h.befintlig !== undefined ? [{ text: level(h.befintlig), framed: false }] : []),
+      ...(h.ny !== undefined ? [{ text: level(h.ny), framed: true }] : []),
+    ];
+    const size = TEXT.small;
+    const rowH = size * 1.45;
+    const blockW = Math.max(...rows.map((r) => textWidth(r.text, size) + (r.framed ? 1 : 0)));
+    const blockH = rows.length * rowH;
+    const topMm = Y(py) - blockH / 2;
+    const candidates = [X(px) + 1.4, X(px) - 1.4 - blockW];
+    const boxAt = (left: number): Box => [
+      x0 + left / k,
+      y0 + topMm / k,
+      x0 + (left + blockW) / k,
+      y0 + (topMm + blockH) / k,
+    ];
+    const left = candidates.find((c) => isFree(boxAt(c))) ?? candidates[0]!;
+    claim(boxAt(left));
+    rows.forEach((row, i) => {
+      const top = topMm + i * rowH;
+      const tx = left + (row.framed ? 0.5 : 0);
+      if (row.framed) {
+        parts.push(
+          rect(left, top + 0.15, textWidth(row.text, size) + 1, rowH - 0.3, {
+            fill: PAPER,
+            stroke: INK,
+            'stroke-width': LINE.thin,
+          }),
+        );
+      }
+      parts.push(
+        label(tx, top + rowH / 2, row.text, { size, baseline: 'middle', halo: !row.framed }),
+      );
+    });
+  }
+  // The new plots: name and area at a free spot, preferably in the southern part.
+  for (const t of p.tomter) {
+    const lines = [t.namn, t.area !== undefined ? `${thousands(t.area)} m²` : undefined].filter(
+      (l): l is string => l !== undefined,
+    );
+    if (lines.length === 0) continue;
+    const [x, y, w, d] = t.rektangel;
+    const size = TEXT.label;
+    const bw = mm(Math.max(...lines.map((l) => textWidth(l, size, true))) + 1);
+    const bh = mm(size * 1.3 * lines.length);
+    const preferred: [number, number] = [x + w / 2, y + d * 0.72];
+    const options: [number, number][] = [];
+    for (const fx of [0.5, 0.3, 0.7]) {
+      for (let cy = y + bh / 2 + mm(1); cy <= y + d - bh / 2 - mm(1); cy += mm(1)) {
+        options.push([x + w * fx, cy]);
+      }
+    }
+    const boxAt = ([cx, cy]: [number, number]): Box => [
+      cx - bw / 2,
+      cy - bh / 2,
+      cx + bw / 2,
+      cy + bh / 2,
+    ];
+    const found =
+      options
+        .filter((o) => {
+          const b = boxAt(o);
+          return b[0] >= x && b[2] <= x + w && isFree(b);
+        })
+        .sort(
+          (a, b) =>
+            Math.abs(a[1] - preferred[1]) +
+            Math.abs(a[0] - preferred[0]) * 2 -
+            (Math.abs(b[1] - preferred[1]) + Math.abs(b[0] - preferred[0]) * 2),
+        )[0] ?? preferred;
+    claim(boxAt(found));
+    parts.push(textBlock(X(found[0]), Y(found[1]), lines, { size, halo: true, firstBold: true }));
+  }
+
   // Dimensions (metres).
   const metres = (lengthMm: number) => sv(lengthMm / k, 1);
   const chains: string[] = [];
@@ -696,16 +1014,28 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     return boxes;
   };
   const horizontalTexts: Box[] = [];
+  // A building on one of the new plots is measured to that plot's boundaries.
+  const plotOf = (r: Rectangle): [number, number] => {
+    const t = p.tomter.find(
+      ({ rektangel: [tx, ty, tw, td] }) =>
+        r[0] >= tx - 1e-9 &&
+        r[0] + r[2] <= tx + tw + 1e-9 &&
+        r[1] >= ty - 1e-9 &&
+        r[1] + r[3] <= ty + td + 1e-9,
+    );
+    return t ? [t.rektangel[0], t.rektangel[0] + t.rektangel[2]] : [0, W];
+  };
   const horizontalChain = (y: number, r: Rectangle, fromY: number) => {
-    horizontalTexts.push(...chainTexts('x', y, [0, r[0], r[0] + r[2], W]));
+    const [west, east] = plotOf(r);
+    horizontalTexts.push(...chainTexts('x', y, [west, r[0], r[0] + r[2], east]));
     return dimensionChain({
       axis: 'x',
       at: Y(y),
       points: [
-        { at: X(0) },
+        { at: X(west) },
         { at: X(r[0]), from: Y(fromY) },
         { at: X(r[0] + r[2]), from: Y(fromY) },
-        { at: X(W) },
+        { at: X(east) },
       ],
       format: metres,
     });
@@ -718,6 +1048,13 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     ...p.balkonger.map((b) => boxOf(b, mm(1))),
   ];
   if (driveway) features.push(boxOf(driveway, mm(1)));
+  features.push(...p.pooler.map((a) => boxOf(a.rektangel, mm(1))), ...labelBoxes);
+  for (const f of p.fornlamningar) {
+    const box = monumentBox(f);
+    if (overlaps(box, [0, 0, W, D])) features.push(box);
+  }
+  for (const t of p.trad) features.push(boxOf([...t.punkt, 0, 0], mm(1.5)));
+  for (const h of p.hojder) features.push(boxOf([...h.punkt, 0, 0], mm(1.5)));
   for (const pt of p.punkter) {
     const [px, py] = pt.punkt;
     features.push([
@@ -732,6 +1069,11 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     p.parkering.length +
     p.balkonger.length +
     p.punkter.length +
+    p.pooler.length +
+    p.trad.length +
+    p.hojder.length +
+    labelBoxes.length +
+    p.fornlamningar.length +
     (driveway ? 1 : 0);
   const northLimit = Math.max(
     0,
@@ -773,6 +1115,27 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     mainChainY = above ? aboveY : belowY;
     mainChainFrom = above ? mainTop : mainBottom;
   }
+  // The driveway's chain along a northern or southern boundary, where it will be drawn below.
+  const drivewayChainY = (() => {
+    const u = p.utfart;
+    if (!u || !driveway || !isHorizontalSide(u.sida)) return undefined;
+    const at = u.sida === 'norr' ? u.langd + mm(5) : D - u.langd - mm(3);
+    const band: Box = [0, at - mm(3.5), u.lage + u.bredd, at + mm(1)];
+    const long = u.langd * k > 40 && street?.sida === u.sida;
+    return long || buildings.some((b) => overlaps(boxOf(b.r), band)) ? undefined : at;
+  })();
+  // A building chain that would run close to the driveway chain (less than 4 mm apart, where
+  // both have values) moves to the other side of the building, if there is room there.
+  const hitsDriveway = (y: number, r: Rectangle) => {
+    if (drivewayChainY === undefined || !p.utfart) return false;
+    const u = p.utfart;
+    const [west] = plotOf(r);
+    return Math.abs(y - drivewayChainY) < mm(4) && west < u.lage + u.bredd;
+  };
+  if (mainChainY < mainTop && belowOk && hitsDriveway(mainChainY, main)) {
+    mainChainY = belowY;
+    mainChainFrom = mainBottom;
+  }
   chains.push(horizontalChain(mainChainY, main, mainChainFrom));
   occupied.push(chainBand(mainChainY));
   const mainCenter = main[1] + main[3] / 2;
@@ -781,7 +1144,10 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   )) {
     const [, y, , d] = b.r;
     // Below when the building lies south of the main building, unless that is on the boundary.
-    const below = y + d / 2 > mainCenter && (y + d + mm(4) <= D - mm(3) || y - mm(8) < 0);
+    const roomBelow = y + d + mm(4) <= D - mm(3);
+    const below =
+      (y + d / 2 > mainCenter && (roomBelow || y - mm(8) < 0)) ||
+      (roomBelow && hitsDriveway(y - mm(4), b.r));
     const at = below ? y + d + mm(4) : y - mm(4);
     chains.push(horizontalChain(at, b.r, below ? y + d : y));
     occupied.push(chainBand(at));
@@ -882,7 +1248,10 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
       chainX = best.from + (best.to - best.from) * (east ? 0.6 : 0.4);
     }
     // No strip wide enough for a chain with its values: outside the plot instead.
-    if ((!best || best.to - best.from < mm(4)) && p.balkonger.length + p.parkering.length > 0) {
+    if (
+      (!best || best.to - best.from < mm(4)) &&
+      p.balkonger.length + p.parkering.length + p.fornlamningar.length > 0
+    ) {
       narrowStrips = true;
     }
   }
@@ -941,9 +1310,17 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   // away from the street, so they do not collide with the street's name.
   const outerChains = (axis: 'x' | 'y') => {
     const size = axis === 'x' ? W : D;
-    const breaks = p.prickmark
-      .filter((z) => (axis === 'x' ? !isHorizontalSide(z.sida) : isHorizontalSide(z.sida)))
-      .map((z) => (z.sida === 'norr' || z.sida === 'vaster' ? z.djup : size - z.djup));
+    const plotEdges = p.tomter
+      .flatMap(({ rektangel: [x, y, w, d] }) => (axis === 'x' ? [x, x + w] : [y, y + d]))
+      .filter((v) => v > 1e-9 && v < size - 1e-9);
+    const breaks = [
+      ...new Set([
+        ...p.prickmark
+          .filter((z) => (axis === 'x' ? !isHorizontalSide(z.sida) : isHorizontalSide(z.sida)))
+          .map((z) => (z.sida === 'norr' || z.sida === 'vaster' ? z.djup : size - z.djup)),
+        ...plotEdges,
+      ]),
+    ].sort((a, b) => a - b);
     const toPaper = axis === 'x' ? X : Y;
     const flip = axis === 'x' ? street?.sida === 'norr' : street?.sida === 'vaster';
     const lineAt = (offsetMm: number) =>
@@ -979,6 +1356,39 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     return out;
   };
   chains.push(...outerChains('x'), ...outerChains('y'));
+
+  // Distance from the plot to an ancient monument area outside it.
+  for (const f of p.fornlamningar) {
+    if (!f.rektangel) continue;
+    const [x, y, w, d] = f.rektangel;
+    const top = Math.max(0, y);
+    const bottom = Math.min(D, y + d);
+    const westEnd = Math.max(0, x);
+    const eastEnd = Math.min(W, x + w);
+    if (bottom > top && (x >= W || x + w <= 0)) {
+      const at = (top + bottom) / 2;
+      const [a, b] = x >= W ? [W, x] : [x + w, 0];
+      chains.push(
+        dimensionChain({
+          axis: 'x',
+          at: Y(at),
+          points: [{ at: X(Math.min(a, b)) }, { at: X(Math.max(a, b)) }],
+          format: metres,
+        }),
+      );
+    } else if (eastEnd > westEnd && (y >= D || y + d <= 0)) {
+      const at = (westEnd + eastEnd) / 2;
+      const [a, b] = y >= D ? [D, y] : [y + d, 0];
+      chains.push(
+        dimensionChain({
+          axis: 'y',
+          at: X(at),
+          points: [{ at: Y(Math.min(a, b)) }, { at: Y(Math.max(a, b)) }],
+          format: metres,
+        }),
+      );
+    }
+  }
   parts.push(group(chains, { class: 'matt' }));
 
   // Property label: where the old rule puts it if that spot is free, otherwise the nearest
@@ -1030,10 +1440,28 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     vaster: [-neighbourOffset('vaster') - mm(4), sideY],
     oster: [W + neighbourOffset('oster') + mm(2), sideY],
   };
+  // With features outside the plot, the labels move along their side to a free spot.
+  const avoid = farFeatures.length > 0 || p.trad.length + p.hojder.length > 0;
   for (const s of ['norr', 'oster', 'soder', 'vaster'] as const) {
     const name = p.grannar[s];
     if (!name) continue;
-    const [nx, ny] = neighbourAt[s];
+    let [nx, ny] = neighbourAt[s];
+    // Make room for a vertical chain outside the plot on the east side.
+    if (avoid && outside && s === 'oster') nx += mm(5);
+    if (avoid) {
+      const hw = mm(textWidth(name, TEXT.label) / 2 + 1);
+      const hh = mm(TEXT.label * 0.8);
+      const along = isHorizontalSide(s)
+        ? [nx, W * 0.25, W * 0.75, W * 0.1, W * 0.9].map((v): [number, number] => [v, ny])
+        : [ny, D * 0.3, D * 0.7, D * 0.15, D * 0.85].map((v): [number, number] => [nx, v]);
+      const ok = along.find(
+        ([cx, cy]) =>
+          ![...occupied, ...farFeatures].some((o) =>
+            overlaps(o, [cx - hw, cy - hh, cx + hw, cy + hh]),
+          ),
+      );
+      if (ok) [nx, ny] = ok;
+    }
     parts.push(
       label(X(nx), Y(ny), name, {
         anchor: 'middle',
@@ -1090,7 +1518,75 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     );
   }
 
-  const entries = [
+  const treeSwatch =
+    (felled: boolean) =>
+    (x: number, y: number, w: number, h: number): string => {
+      const cx = x + w / 2;
+      const cy = y + h / 2;
+      const r = h / 2;
+      return [
+        el('circle', {
+          cx,
+          cy,
+          r,
+          fill: 'none',
+          stroke: INK,
+          'stroke-width': LINE.normal,
+          'stroke-dasharray': felled ? FELLED_CROWN_DASH : undefined,
+        }),
+        el('circle', { cx, cy, r: 0.4, fill: INK }),
+        felled ? line(cx - r * 0.55, cy - r * 0.55, cx + r * 0.55, cy + r * 0.55, LINE.medium) : '',
+        felled ? line(cx - r * 0.55, cy + r * 0.55, cx + r * 0.55, cy - r * 0.55, LINE.medium) : '',
+      ].join('');
+    };
+  const treeEntries: LegendEntry[] = [
+    ...(p.trad.some((t) => t.status === 'bevaras')
+      ? [{ swatch: { type: 'custom' as const, draw: treeSwatch(false) }, text: 'Träd som bevaras' }]
+      : []),
+    ...(p.trad.some((t) => t.status === 'falls')
+      ? [{ swatch: { type: 'custom' as const, draw: treeSwatch(true) }, text: 'Träd som fälls' }]
+      : []),
+  ];
+  const levelEntries: LegendEntry[] = [
+    ...(p.hojder.some((h) => h.befintlig !== undefined)
+      ? [
+          {
+            swatch: {
+              type: 'custom' as const,
+              draw: (x: number, y: number, w: number, h: number) =>
+                label(x + w / 2, y + h / 2, '+0,00', {
+                  anchor: 'middle',
+                  baseline: 'middle',
+                  size: TEXT.small,
+                }),
+            },
+            text: 'Befintlig marknivå (m)',
+          },
+        ]
+      : []),
+    ...(p.hojder.some((h) => h.ny !== undefined)
+      ? [
+          {
+            swatch: {
+              type: 'custom' as const,
+              draw: (x: number, y: number, w: number, h: number) =>
+                rect(x + 0.6, y, w - 1.2, h, {
+                  fill: PAPER,
+                  stroke: INK,
+                  'stroke-width': LINE.thin,
+                }) +
+                label(x + w / 2, y + h / 2, '+0,00', {
+                  anchor: 'middle',
+                  baseline: 'middle',
+                  size: TEXT.small,
+                }),
+            },
+            text: 'Ny marknivå (m)',
+          },
+        ]
+      : []),
+  ];
+  const entries: LegendEntry[] = [
     ...(p.hus || p.ovriga_byggnader.length > 0
       ? [
           {
@@ -1176,15 +1672,46 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
           },
         ]
       : []),
+    ...(p.pooler.length > 0
+      ? [
+          {
+            swatch: { type: 'fill' as const, fill: `url(#${ids.pool})`, strokeWidth: LINE.medium },
+            text: 'Pool',
+          },
+        ]
+      : []),
+    ...treeEntries,
+    ...levelEntries,
+    ...(p.fornlamningar.length > 0
+      ? [
+          {
+            swatch: {
+              type: 'fill' as const,
+              fill: `url(#${ids.fornlamning})`,
+              strokeWidth: LINE.medium,
+              dash: MONUMENT_DASH,
+            },
+            text: 'Fornlämning',
+          },
+        ]
+      : []),
     {
       swatch: { type: 'line' as const, width: LINE.bold, dash: '7 1.2 1.2 1.2' },
-      text: 'Tomtgräns',
+      text: p.tomter.length > 0 ? 'Gräns för området som ska styckas av' : 'Tomtgräns',
     },
+    ...(p.tomter.length > 0
+      ? [
+          {
+            swatch: { type: 'line' as const, width: LINE.heavy, dash: NEW_BOUNDARY_DASH },
+            text: 'Ny tomtgräns',
+          },
+        ]
+      : []),
     { swatch: { type: 'line' as const, width: LINE.thin }, text: 'Fastighetsgräns, grannar' },
     ...(p.grannhus.length > 0
       ? [
           {
-            swatch: { type: 'fill' as const, fill: '#ececec', strokeWidth: LINE.normal },
+            swatch: { type: 'fill' as const, fill: NEIGHBOUR_FILL, strokeWidth: LINE.normal },
             text: 'Byggnad på grannfastighet',
           },
         ]
@@ -1207,7 +1734,13 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
       : []),
   ];
   // The legend must fit beside the title block (40 mm), so long legends get tighter rows.
-  const rowHeight = entries.length > 7 ? Math.min(5, 34.5 / entries.length) : 5;
+  // Above ten rows the bottom row would touch the frame, so they get a little tighter still.
+  const rowHeight =
+    entries.length > 10
+      ? 33 / entries.length
+      : entries.length > 7
+        ? Math.min(5, 34.5 / entries.length)
+        : 5;
   const footer = legend(0, 0, 'Teckenförklaring', entries, { rowHeight });
 
   return composeSheet({

@@ -885,3 +885,234 @@ fragor:
       - FL 33 §
       - SprL 11 §
     taggar: [klarsprak, tolk, avslag]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: kom-037
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Under grannehörandet för en tillbyggnad på Rönnen 3 ringer grannen Lars Ek och berättar att
+      tillbyggnaden kommer att ta allt kvällsljus från hans uteplats. Han vill inte skriva något.
+      Vad gör du med det han säger?
+    alternativ:
+      - text: Dokumenterar uppgifterna i en tjänsteanteckning med datum och mitt namn, och låter sökanden yttra sig över dem innan beslut om de har betydelse.
+        ratt: true
+      - text: Ingenting, eftersom bara skriftliga synpunkter räknas i ett lovärende.
+      - text: Antecknar dem för egen del, men lägger inte in dem i ärendet eftersom han inte ville skriva.
+      - text: Ber honom att i stället överklaga beslutet när det kommer.
+    forklaring: >
+      Uppgifter som kommer in på annat sätt än genom en handling, t.ex. i telefon, ska snarast
+      dokumenteras om de kan ha betydelse för beslutet, och det ska framgå när och av vem
+      (27 § FL). Tjänsteanteckningen blir en allmän handling i ärendet. Innan nämnden beslutar
+      ska sökanden få tillfälle att yttra sig över allt underlag av betydelse (9 kap. 98 § PBL),
+      så grannens synpunkt kommuniceras. Det är också viktigt för grannen: synpunkter som inte
+      tillgodoses gör att han ska delges beslutet (9 kap. 108 §). Säg gärna till honom att
+      synpunkten antecknas och att ett skriftligt yttrande blir tydligare.
+    lagrum:
+      - FL 27 §
+      - PBL 9 kap. 98 §
+      - PBL 9 kap. 108 §
+    taggar: [dokumentation, grannar, telefon, vardag]
+
+  - id: kom-038
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande ringer efter att ha fått avslag på bygglov i ett delegationsbeslut som du har
+      fattat. Han säger: "Jag vill att politikerna i nämnden bestämmer, inte en tjänsteman." Vad
+      är det bästa svaret?
+    alternativ:
+      - text: Förklara att nämnden har delegerat beslutanderätten i den typen av ärenden, att beslutet är nämndens beslut och att han kan överklaga det till länsstyrelsen enligt överklagandehänvisningen.
+        ratt: true
+      - text: Lova att ta upp ärendet på nästa nämndsammanträde, så att politikerna kan ändra beslutet.
+      - text: Säga att beslutet inte går att överklaga eftersom det fattats på delegation.
+      - text: Hänvisa honom till kommunfullmäktige, som är ytterst ansvarigt.
+    forklaring: >
+      En nämnd får delegera beslutanderätten (6 kap. 37 § KL) och uppdra åt en anställd att
+      besluta (7 kap. 5 § KL). Ett delegationsbeslut är nämndens eget beslut och överklagas på
+      samma sätt som om nämnden fattat det, i bygglovsärenden till länsstyrelsen (13 kap. 3 §
+      PBL). Ärenden av principiell beskaffenhet eller annars av större vikt får inte delegeras
+      (6 kap. 38 § KL). Bemötandet är viktigt: förklara lugnt hur systemet fungerar, varför det
+      ger samma rättssäkerhet och hur han går vidare. Lova inte att nämnden "tar om" ett beslut.
+    lagrum:
+      - KL 6 kap. 37 §
+      - KL 6 kap. 38 §
+      - KL 7 kap. 5 §
+      - PBL 13 kap. 3 §
+    taggar: [delegation, overklagande, bemotande]
+
+  - id: kom-039
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop situationen med den bestämmelse i förvaltningslagen som styr hur du agerar.
+    par:
+      - vanster: Du ska vara saklig och opartisk även mot en sökande som varit otrevlig i telefon.
+        hoger: FL 5 §
+      - vanster: En sökande förstår inte vilka ritningar som krävs och behöver hjälp utan onödigt dröjsmål.
+        hoger: FL 6 §
+      - vanster: Kommunens webbplats ska tala om när och hur bygglovsenheten kan nås.
+        hoger: FL 7 §
+      - vanster: Du begär själv in ett yttrande från räddningstjänsten i stället för att be sökanden göra det.
+        hoger: FL 8 §
+      - vanster: Ärendet ska handläggas enkelt och snabbt utan att rättssäkerheten eftersätts.
+        hoger: FL 9 §
+      - vanster: Sökanden låter sin arkitekt sköta kontakterna med kommunen.
+        hoger: FL 14 §
+    forklaring: >
+      Förvaltningslagens inledande paragrafer beskriver hur en myndighet ska bete sig i vardagen.
+      5 § är grunden: legalitet, objektivitet och proportionalitet. 6 § om service och 7 § om
+      tillgänglighet handlar om att vara lätt att nå och hjälpa till. 8 § säger att myndigheter
+      ska samverka och i rimlig utsträckning själva hämta in yttranden från andra myndigheter. 9 §
+      kräver enkel, snabb och kostnadseffektiv handläggning, som huvudregel skriftlig. Enligt 14 §
+      får en part anlita ombud, men måste medverka personligen om myndigheten begär det.
+    lagrum:
+      - FL 5 §
+      - FL 6 §
+      - FL 7 §
+      - FL 8 §
+      - FL 9 §
+      - FL 14 §
+    taggar: [forvaltningslagen, service, bemotande]
+
+  - id: kom-040
+    typ: ordning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ordna de skriftliga kontakterna med sökanden i ett bygglovsärende som avviker från planen
+      och som behöver kompletteras, i den ordning de normalt sker.
+    poster:
+      - Information om tidsfristen, avgiftsreduktionen och möjligheten att överklaga (mottagningsbekräftelse)
+      - Föreläggande om komplettering
+      - Underrättelse till grannarna och tillfälle för dem att yttra sig
+      - Kommunicering av grannarnas yttranden och förslaget till beslut
+      - Delgivning av beslutet med uppgift om hur man överklagar
+    forklaring: >
+      Varje kontakt har ett lagrum och ett syfte. Informationen om frister ska lämnas skriftligen
+      när ansökan kommit in (9 kap. 100 § PBL). Föreläggandet om komplettering bör skickas inom
+      tre veckor för att fristen ska räknas från kompletteringen (91 och 99 §§). Grannarna
+      underrättas när underlaget är tillräckligt för att de ska förstå åtgärden (94–97 §§). Innan
+      beslut ska sökanden få yttra sig över allt underlag av betydelse (98 §). Beslutet delges
+      sökanden med uppgift om hur man överklagar (108 §). Varje brev bör säga vad som händer
+      härnäst, så att sökanden kan följa ärendet.
+    lagrum:
+      - PBL 9 kap. 100 §
+      - PBL 9 kap. 91 §
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 98 §
+      - PBL 9 kap. 108 §
+    taggar: [handlaggning, forvantanshantering, skrivelser]
+
+  - id: kom-041
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett beslut om bygglov som helt bifaller ansökan behöver aldrig motiveras, eftersom det inte
+      går sökanden emot.
+    svar: false
+    forklaring: >
+      Enligt 32 § FL ska ett beslut som kan antas påverka någons situation på ett inte obetydligt
+      sätt innehålla en klargörande motivering, om det inte är uppenbart obehövligt. Ett bygglov
+      påverkar ofta andra än sökanden, t.ex. grannar som yttrat sig emot åtgärden eller som kan
+      överklaga. Därför behöver även ett beviljande beslut skäl, särskilt när det bygger på en
+      avvikelse eller när synpunkter inte har tillgodosetts. Motiveringen ska ange vilka
+      föreskrifter som tillämpats och vilka omständigheter som varit avgörande. Skriv den så att
+      grannen förstår varför hans invändning inte ledde till avslag.
+    lagrum:
+      - FL 32 §
+      - PBL 9 kap. 108 §
+    taggar: [motivering, beslut, klarsprak]
+
+  - id: kom-042
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne som inte ska delges beslutet om lov kan överklaga inom ___ veckor. Tiden räknas
+      från den dag som infaller ___ vecka efter att beslutet har kungjorts på kommunens
+      anslagstavla.
+    svar: [["3", "tre"], ["1", "en"]]
+    forklaring: >
+      Överklagandetiden är tre veckor (44 § FL), och för den som inte ska delges beslutet enligt
+      9 kap. 108 § PBL räknas den från den dag som infaller en vecka efter kungörelsen på
+      anslagstavlan (13 kap. 16 § PBL). Det är en vanlig fråga från grannar, och den är svår att
+      förklara i ord. Ge hellre ett datum: "Ditt överklagande ska ha kommit in till kommunen
+      senast den 2 juni." Tala också om att överklagandet skickas till byggnadsnämnden, som
+      prövar om det kommit in i tid och sedan skickar det vidare till länsstyrelsen.
+    lagrum:
+      - FL 44 §
+      - PBL 13 kap. 16 §
+      - PBL 9 kap. 108 §
+      - PBL 9 kap. 109 §
+    taggar: [overklagandetid, grannar, klarsprak]
+
+  - id: kom-043
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare mejlar och frågar om hennes planerade altan på 20 kvm, 0,8 m över mark och
+      6 m från tomtgräns, kräver bygglov. Hur bör ditt svar börja?
+    alternativ:
+      - text: Med svaret på frågan, t.ex. "Din altan kräver inte bygglov om den byggs som du beskriver", och därefter skälen och förbehållen.
+        ratt: true
+      - text: Med en sammanfattning av vilka lagar som reglerar altaner, så att hon förstår bakgrunden.
+      - text: Med en hänvisning till kommunens webbplats, där hon kan läsa själv.
+      - text: Med en upplysning om att svaret inte är ett beslut och inte binder nämnden.
+    forklaring: >
+      Klarspråk handlar om att mottagaren ska förstå och kunna använda texten (11 § språklagen).
+      Börja med det hon vill veta, förklara sedan villkoren och förbehållen: att svaret bygger på
+      hennes beskrivning, att det inte är ett beslut och att hon kan söka frivilligt lov om hon
+      vill ha ett bindande besked (9 kap. 52 § PBL). En hänvisning till webbplatsen kan vara ett
+      bra komplement men ersätter inte svaret på en konkret fråga. Frågor från enskilda ska
+      besvaras utan onödigt dröjsmål (6 § FL). Kontrollera själv reglerna om altaner i 9 kap.
+      PBL innan du svarar.
+    lagrum:
+      - SprL 11 §
+      - FL 6 §
+      - PBL 9 kap. 52 §
+    taggar: [klarsprak, mejl, service, vardag]
+
+  - id: kom-044
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Kerstin Lund på Granen 5 mejlar arg: grannen på Granen 4 har fått bygglov för ett nytt
+      garage, och hon fick aldrig chansen att säga sitt. Garaget följer detaljplanen. Skriv
+      huvuddragen i ditt svar till henne.
+    bedomningspunkter:
+      - Börjar med att bekräfta hennes fråga och ge det viktigaste svaret först, i ett vänligt och sakligt tonläge.
+      - Förklarar att grannar ska underrättas när åtgärden avviker från detaljplanen eller ligger utanför plan (9 kap. 94 § PBL), och att ett planenligt garage därför inte kräver grannehörande.
+      - Förklarar att detaljplanen redan har prövat vad som får byggas och att grannarna hade möjlighet att påverka när planen togs fram.
+      - Upplyser om att hon som granne ändå kan överklaga, att tiden är tre veckor från en vecka efter kungörelsen på anslagstavlan (13 kap. 16 § PBL) och anger gärna sista dagen.
+      - Erbjuder att skicka beslutet och ritningarna (allmänna handlingar) och anger hur hon når handläggaren.
+    modellsvar: >
+      Hej Kerstin! Tack för ditt mejl. Du fick inget brev om garaget eftersom det följer
+      detaljplanen. Kommunen ska bara fråga grannarna när en åtgärd avviker från planen eller
+      ligger utanför detaljplanerat område (9 kap. 94 § plan- och bygglagen). Det som planen
+      tillåter har redan prövats när planen togs fram, och då kunde grannarna lämna synpunkter.
+      Du kan ändå överklaga beslutet om du anser att det är fel. Beslutet kungjordes på kommunens
+      anslagstavla den 12 maj, och ditt överklagande ska ha kommit in till byggnadsnämnden senast
+      den 9 juni (tre veckor från en vecka efter kungörelsen, 13 kap. 16 §). Skriv vilket beslut
+      det gäller, vad du vill ändra och varför. Jag skickar gärna beslutet och ritningarna. Hör av
+      dig om du har fler frågor; du når mig på telefon 070-174 06 12 vardagar 9–11.
+    lagrum:
+      - PBL 9 kap. 94 §
+      - PBL 13 kap. 16 §
+      - FL 44 §
+      - SprL 11 §
+    taggar: [grannar, mejl, overklagande, bemotande, instudering]

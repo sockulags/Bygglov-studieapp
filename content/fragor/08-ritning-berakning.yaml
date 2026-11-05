@@ -965,3 +965,207 @@ fragor:
       - Boverket
       - PBL 9 kap. 60 §
     taggar: [byggnadshojd, nockhojd, takvinkel, instudering]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: rit-040
+    typ: ritning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fil: arenden/A001-komplementbyggnad-larken-4/handlingar/situationsplan.svg
+    bild_text: Situationsplan för Lärken 4 i skala 1:500 (samma ritning som i ärende A001).
+    fraga: >
+      Läs av situationsplanen. Hur långt från gränsen mot Lärken 3 i öster placeras den nya
+      komplementbyggnaden? Svara i meter.
+    svar: 3
+    tolerans: 0.1
+    enhet: m
+    forklaring: >
+      Tomten är 25 m bred och komplementbyggnaden ligger 18–22 m från den västra gränsen, alltså
+      3,0 m från den östra. Använd måttkedjorna om de finns och kontrollera med mätverktyget
+      (tangenten M) eller skalan: i 1:500 motsvarar 1 cm på papperet 5 m. Eftersom byggnaden
+      hamnar närmare gränsen än 4,5 m krävs bygglov enligt 9 kap. 34 § PBL, trots att den annars
+      är bygglovsbefriad enligt 4 §, om inte grannarna på Lärken 3 skriftligen har medgett
+      placeringen (35 §). Avståndet till gräns är därför något av det första du mäter.
+    lagrum:
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 35 §
+      - PBL 9 kap. 4 §
+    taggar: [situationsplan, avstand_till_grans, skala, ritning]
+
+  - id: rit-041
+    typ: ritning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fil: arenden/A002-tillbyggnad-bjorken-7/handlingar/situationsplan.svg
+    bild_text: Situationsplan för Björken 7 i skala 1:500 (samma ritning som i ärende A002).
+    fraga: >
+      Mät på situationsplanen. Hur stor blir den sammanlagda byggnadsarean för det befintliga
+      bostadshuset och den nya tillbyggnaden? Svara i kvm.
+    svar: 138.5
+    tolerans: 1.5
+    enhet: kvm
+    forklaring: >
+      Huset mäter 12,5 × 8,0 m = 100 kvm och tillbyggnaden 7,0 × 5,5 m = 38,5 kvm, sammanlagt
+      138,5 kvm. Byggnadsarean är den yta byggnaden upptar på marken, mätt till ytterväggarnas
+      utsida. Tomten är 24 × 32 m = 768 kvm, och planen för Björken tillåter att 20 procent
+      bebyggs, alltså 153,6 kvm. Tillbyggnaden ryms därmed i byggrätten. Glöm inte att också
+      kontrollera prickmarken, avståndet till gräns och höjderna, och att lovbefriade
+      komplementbyggnader enligt 10 kap. 2 a § inte räknas med när planenligheten bedöms
+      (9 kap. 56 § andra stycket).
+    lagrum:
+      - PBL 9 kap. 56 §
+      - SS 21054:2020
+      - Boverket
+    taggar: [byggnadsarea, utnyttjandegrad, situationsplan, ritning]
+
+  - id: rit-042
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En inmätt situationsplan i skala 1:200 visar ett förråd som byggts utan lov. På papperet
+      mäter förrådet 1,0 × 4,0 cm. Hur stor är förrådets byggnadsarea?
+    alternativ:
+      - text: 16 kvm
+        ratt: true
+      - text: 4 kvm
+      - text: 8 kvm
+      - text: 100 kvm
+    forklaring: >
+      I skala 1:200 motsvarar 1 cm på papperet 200 cm, alltså 2 m i verkligheten. Förrådet är
+      därför 2,0 × 8,0 m = 16 kvm. Räkna alltid om varje sida för sig innan du multiplicerar; den
+      som multiplicerar 4 kvadratcentimeter med 200 får fel, eftersom ytan skalas med skaltalet i
+      kvadrat (200 × 200). I ett tillsynsärende är arean viktig både för att bedöma om
+      åtgärden krävde lov och, via bruttoarean, för att räkna ut sanktionsarean.
+    lagrum:
+      - PBL 9 kap. 86 §
+      - PBF 1 kap. 7 §
+    taggar: [skala, byggnadsarea, tillsyn]
+
+  - id: rit-043
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Planen anger att takvinkeln ska vara 27–38 grader. På gavelfasaden för ett hus med
+      sadeltak stiger takets ovansida 2,3 m från takfoten till nocken, över en horisontell
+      sträcka på 4,0 m. Vilken takvinkel har taket? Svara i grader med en decimal.
+    svar: 29.9
+    tolerans: 0.5
+    enhet: grader
+    losning: >
+      Takvinkeln är vinkeln v där tan v = höjdskillnaden / den horisontella sträckan =
+      2,3 / 4,0 = 0,575. v = arctan 0,575 ≈ 29,9 grader. Taket ligger inom planens intervall.
+    forklaring: >
+      Takvinkeln mäts mot horisontalplanet och kontrolleras enklast på gavelfasaden eller en
+      sektion, där takfallet syns i sin rätta lutning. Är vinkeln inte utskriven räknar du fram
+      den med tangens. Kontrollera också att samma vinkel används i nockhöjden: med 29,9 grader
+      och en husbredd på 8 m blir nocken 2,3 m över takfotens nivå. Ett tak utanför intervallet är
+      en planavvikelse som prövas enligt 9 kap. 60 § PBL.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 9 kap. 60 §
+    taggar: [takvinkel, fasadritning, berakning]
+
+  - id: rit-044
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En detaljritning av en entré är ritad i skala 1:50. Hur lång blir en 9,6 m lång vägg på
+      ritningen?
+    alternativ:
+      - text: 19,2 cm
+        ratt: true
+      - text: 9,6 cm
+      - text: 4,8 cm
+      - text: 48 cm
+    forklaring: >
+      I skala 1:50 är allt 50 gånger mindre på papperet: 960 cm / 50 = 19,2 cm. Skala 1:50
+      används för detaljer och ibland för planer av små byggnader, 1:100 för plan, fasad och
+      sektion och 1:400 eller 1:500 för situationsplaner. Kontrollera alltid vilken skala och
+      vilket pappersformat ritningen är gjord för innan du mäter, och mät helst mot en skalstock
+      eller ett utskrivet mått.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [skala, ritningslasning]
+
+  - id: rit-045
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad är öppenarea (OPA)?
+    alternativ:
+      - text: En helt eller delvis öppen yta för vistelse eller förvaring i anslutning till en byggnad, t.ex. en carport eller en öppen altan under tak.
+        ratt: true
+      - text: Den del av tomten som inte är bebyggd.
+      - text: Den sammanlagda arean av alla våningsplan till ytterväggarnas utsida.
+      - text: Ytan av fönster och dörrar i en fasad.
+    forklaring: >
+      Öppenarea kan förenklat beskrivas som en helt eller delvis öppen yta för vistelse eller
+      förvaring som ligger i anslutning till en byggnad. Begreppet kommer från SS 21054:2020.
+      Viss öppenarea ingår i byggnadsarean (t.ex. en carport under tak), men öppenarea ingår inte
+      i bruttoarean. Den bygglovsbefriade tillbyggnaden enligt 9 kap. 10 § PBL mäts i bruttoarea
+      och öppenarea, så en inglasad eller överbyggd uteplats räknas in i de 30 kvm.
+    lagrum:
+      - SS 21054:2020
+      - Boverket
+      - PBL 9 kap. 10 §
+    taggar: [oppenarea, areabegrepp]
+
+  - id: rit-046
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare inom detaljplan vill fylla upp trädgården. Situationsplanen visar befintlig
+      marknivå +21,30 och ny marknivå +21,95 vid uteplatsen. Planen anger inga marknivåer, och
+      ingen bygglovspliktig åtgärd söks samtidigt. Krävs marklov?
+    alternativ:
+      - text: Ja, eftersom höjdläget ändras med 0,65 m, alltså mer än 0,5 m.
+        ratt: true
+      - text: Nej, eftersom ändringen är mindre än en meter.
+      - text: Nej, marklov krävs bara för schaktning, inte för fyllning.
+      - text: Ja, men bara om grannen invänder.
+    forklaring: >
+      Inom detaljplan krävs marklov för schaktning eller fyllning som ändrar höjdläget mer än
+      0,5 m, om markytan inte höjs eller sänks till en nivå som bestämts i planen (9 kap. 47 §
+      första stycket 1 PBL). +21,95 − 21,30 = 0,65 m. Ingår markåtgärden i ett bygglov, t.ex. för
+      ett nytt hus, krävs inget separat marklov (50 §). Räkna alltid ut skillnaden från kotorna i
+      stället för att lita på sökandens beskrivning, och tänk på att höjd mark påverkar
+      dagvatten och grannar.
+    lagrum:
+      - PBL 9 kap. 47 §
+      - PBL 9 kap. 50 §
+    taggar: [marklov, nivaer, situationsplan]
+
+  - id: rit-047
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      För ett hus i ett plan är byggnadsarean alltid lika stor som bruttoarean.
+    svar: false
+    forklaring: >
+      Byggnadsarea (BYA) är den yta byggnaden upptar på marken, och viss öppenarea ingår, t.ex. en
+      carport eller ett skärmtak som hör till byggnaden. Bruttoarea (BTA) är våningsplanens
+      sammanlagda area och omfattar inte öppenarea. Ett enplanshus med en carport under samma tak
+      har därför större byggnadsarea än bruttoarea. Kontrollera alltid vilket mått
+      planbestämmelsen och lagregeln använder: potten för komplementbyggnader mäts i
+      byggnadsarea (9 kap. 4 och 5 §§), den lovbefriade tillbyggnaden i bruttoarea och
+      öppenarea (10 §).
+    lagrum:
+      - SS 21054:2020
+      - Boverket
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 10 §
+    taggar: [byggnadsarea, bruttoarea, oppenarea, areabegrepp]

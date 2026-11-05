@@ -43,6 +43,24 @@ import type {
 export const DEADLINE_DAYS = 70;
 export const INJUNCTION_WINDOW_DAYS = 21;
 export const MAX_EXTENSION_WEEKS = 10;
+/** 6 kap. 5 § PBF: a notification (anmälan) has four weeks, extendable once by four. */
+export const NOTIFICATION_DEADLINE_DAYS = 28;
+export const NOTIFICATION_MAX_EXTENSION_WEEKS = 4;
+
+/** The longest extension allowed for the case (99 § andra stycket, 6 kap. 5 § PBF). */
+export function maxExtensionWeeks(state: Pick<CaseState, 'notification'>): number {
+  return state.notification ? NOTIFICATION_MAX_EXTENSION_WEEKS : MAX_EXTENSION_WEEKS;
+}
+
+/** Rewrites the ten-week texts for a notification, where the deadline is four weeks. */
+function forNotification(text: string): string {
+  return text
+    .replaceAll('Tioveckorsfristen', 'Fyraveckorsfristen')
+    .replaceAll('tioveckorsfristen', 'fyraveckorsfristen')
+    .replaceAll('ansökningsdagen', 'dagen anmälan kom in')
+    .replaceAll('ändringen av ansökan', 'ändringen av anmälan')
+    .replaceAll('(99 § andra stycket)', '(9 kap. 99 § andra stycket och 6 kap. 5 § PBF)');
+}
 /** 12 kap. 8 a § PBL: one fifth per started week. */
 export const DEFAULT_REDUCTION_PER_WEEK = 0.2;
 const REDUCTION_KEY = /^reduktion/;
@@ -86,6 +104,8 @@ export interface DeadlineInput {
    * or from a later change the applicant makes on their own initiative (första stycket 2).
    */
   supervision?: boolean;
+  /** Notification (anmälan): four weeks instead of ten (6 kap. 5 § PBF). */
+  notification?: boolean;
 }
 
 const SUPERVISION_NO_DEADLINE =
@@ -150,6 +170,20 @@ function supervisionDeadline(input: DeadlineInput): CaseDeadline {
 /** The decision deadline under 9 kap. 99 §, paused while the case rests (102 §). */
 export function computeDeadline(input: DeadlineInput): CaseDeadline {
   if (input.supervision) return supervisionDeadline(input);
+  if (input.notification) {
+    const deadline = applicationDeadline(input, NOTIFICATION_DEADLINE_DAYS);
+    return {
+      ...deadline,
+      notification: true,
+      explanation:
+        'En anmälan ska avgöras inom fyra veckor (6 kap. 5 § PBF, som hänvisar till 9 kap. 99 § PBL). ' +
+        forNotification(deadline.explanation),
+    };
+  }
+  return applicationDeadline(input, DEADLINE_DAYS);
+}
+
+function applicationDeadline(input: DeadlineInput, deadlineDays: number): CaseDeadline {
   const { applicationDate } = input;
   const extensionWeeks = input.extensionWeeks ?? 0;
   const completionDate = input.completionDate ?? null;
@@ -230,9 +264,7 @@ export function computeDeadline(input: DeadlineInput): CaseDeadline {
   });
   const suspendedDays = resting.reduce((sum, r) => sum + r.days, 0);
   const deadlineDate =
-    ongoing === null
-      ? addDays(startDate, DEADLINE_DAYS + extensionWeeks * 7 + suspendedDays)
-      : null;
+    ongoing === null ? addDays(startDate, deadlineDays + extensionWeeks * 7 + suspendedDays) : null;
   const runsOut = deadlineDate === null ? '.' : ` och löper ut ${deadlineDate}.`;
 
   let explanation: string;
@@ -291,6 +323,7 @@ export function caseDeadline(state: CaseState): CaseDeadline {
     extensionWeeks: state.extensionWeeks,
     suspensions: state.suspensions,
     supervision: state.supervision,
+    notification: state.notification,
   });
 }
 
@@ -369,6 +402,10 @@ export function calculateFee(
       ),
     );
   }
+  const deadlineRule = status.notification ? '9 kap. 99 § PBL och 6 kap. 5 § PBF' : '9 kap. 99 §';
+  const texts = explanation.map((t) =>
+    status.notification ? forNotification(t).replaceAll('(9 kap. 99 §)', `(${deadlineRule})`) : t,
+  );
   return {
     decisionDate,
     deadline: status,
@@ -376,7 +413,7 @@ export function calculateFee(
     weeksOverdue: status.weeksOverdue,
     reduction,
     lines,
-    explanation,
+    explanation: texts,
   };
 }
 

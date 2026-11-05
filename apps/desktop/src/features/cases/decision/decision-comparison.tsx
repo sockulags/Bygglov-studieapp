@@ -4,7 +4,7 @@ import type { CaseFile } from '@bygglov/content-schema';
 import { LawRefChip } from '@/components/ui/law-ref-chip';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
-  DECISION_OUTCOME_LABELS,
+  decisionOutcomeLabel,
   type CaseState,
   type DecisionCheck,
   type SubmittedDecision,
@@ -106,12 +106,12 @@ function Assessment({
         </h3>
         <p className="mt-1 text-sm text-muted">
           {assessment.passedChecks} av {assessment.totalChecks} godkända. Ditt beslut:{' '}
-          {DECISION_OUTCOME_LABELS[decision.draft.utfall].toLowerCase()}
+          {decisionOutcomeLabel(decision.draft.utfall, caseFile).toLowerCase()}
           {decision.draft.utfall === assessment.expectedOutcome
             ? ', som förväntat.'
             : outcomeRight
-              ? `, ett godtagbart alternativ. Förväntat: ${DECISION_OUTCOME_LABELS[assessment.expectedOutcome].toLowerCase()}.`
-              : `. Förväntat: ${DECISION_OUTCOME_LABELS[assessment.expectedOutcome].toLowerCase()}.`}
+              ? `, ett godtagbart alternativ. Förväntat: ${decisionOutcomeLabel(assessment.expectedOutcome, caseFile).toLowerCase()}.`
+              : `. Förväntat: ${decisionOutcomeLabel(assessment.expectedOutcome, caseFile).toLowerCase()}.`}
         </p>
         <ul className="mt-3 flex flex-col gap-2">
           {counted.map((check) => (

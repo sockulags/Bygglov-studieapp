@@ -1,0 +1,372 @@
+# Nivå 2-ärende. Fiktiv fastighet, fiktiv kommun, fiktiv detaljplan.
+# Lagrum kontrollerade mot docs/rattslage/ (hämtade från riksdagen.se 2026-11-04–05):
+# PBL 2, 4, 8, 9, 10, 12 och 13 kap., PBF 7 och 9 kap., JB 3 kap. och ordningslagen 3 kap. 5 §
+# (ol-3-kap-utdrag.txt, hämtad 2026-11-05).
+# Detaljplanen antogs 2009. Bestämmelsen om krav på marklov för trädfällning (a1) beslutades
+# när kommunen ännu fick utöka lovplikten i detaljplan; den gäller fortfarande genom 9 kap.
+# 47 § 2 PBL. Bestämmelserna n1 och n2 är bestämmelser om vegetation och markens höjdläge
+# (4 kap. 10 § PBL), så trädfällningen kräver också lov enligt 47 § 3 a.
+# Tidslinje: ansökan 2026-03-09, föreläggande 2026-03-11 (inom tre veckor), komplett
+# 2026-03-27, tioveckorsfristen löper ut 2026-06-05 (9 kap. 99 § första stycket 4).
+# Underrättelse 2026-03-30, grannens yttrande 2026-04-14, beslut omkring 2026-04-28.
+id: A008
+titel: Marklov och trädfällning på Eken 2
+lovtyp: marklov
+niva: 2
+status: utkast
+rattslage: "2025-12-01"
+fastighet: Eken 2, Åkerslunda kommun
+sammanfattning: >
+  Ägarna till ett enbostadshus i villaområdet Ekbacken vill anlägga en pool med ett
+  pooldäck som schaktas in i slänten, och fälla tre ekar. Detaljplanen skyddar ekarna och
+  begränsar hur mycket marken får ändras, och den kräver marklov för att fälla ekar. Ansökan
+  saknar underlag om trädens hälsa. En arborist visar att en av ekarna är rötskadad. Grannen
+  i öster påpekar att en av ekarna står i gränsen och att de inte går med på att den fälls.
+startdatum: 2026-03-09
+moduler: [03-lovplikt, 04-detaljplan, 06-handlaggning, 07-krav-byggnadsverk, 11-angransande]
+larandemal:
+  - Avgöra när schaktning kräver marklov (9 kap. 47 § 1, mer än 0,5 meter) och när trädfällning gör det (47 § 2 och 3 a med 4 kap. 10 §)
+  - Se att en pool i sig inte kräver lov, men att ägaren ansvarar för säkerheten (ordningslagen 3 kap. 5 §, Boverkets byggregler)
+  - Pröva marklov enligt 9 kap. 77 § och en liten avvikelse enligt 78 §, med 2 kap. 6 § och 8 kap. 9 § om tomten, dagvatten och skyfall
+  - Underrätta grannarna när ansökan avviker från planen (9 kap. 94–96 §§) och hantera ett grannyttrande som rör civilrätt (JB 3 kap. 1–3 §§)
+  - Dela upp beslutet, bevilja det som uppfyller förutsättningarna och avslå resten, och ställa preciserade villkor om ersättningsträd och rotskydd med stöd av 9 kap. 105 § 6
+  - Ta ställning till om ett lov för trädfällning ska gälla först när det fått laga kraft (9 kap. 114 § andra stycket)
+
+parter:
+  sokande: [Tove Rahimi, Ali Rahimi]
+  fastighetsagare: [Tove Rahimi, Ali Rahimi]
+  grannar:
+    - { fastighet: Eken 1, namn: [Lisa Kraft] }
+    - { fastighet: Eken 3, namn: [Gun Holmqvist, Sven-Erik Holmqvist] }
+    - { fastighet: Eken 7, namn: [Åsa Nyberg, Peter Nyberg] }
+    - { fastighet: Hasseln 4, namn: [Nils Bergqvist] }
+    - { fastighet: Åkerslunda 4:1, namn: [Åkerslunda kommun] }
+
+taxa:
+  # Förenklad fiktiv taxa. Posten omfattar prövningen av hela ansökan, underrättelse,
+  # kungörelse och expediering, även om en del avslås (12 kap. 8 § 2, 8 och 9 PBL).
+  marklov_schaktning_och_trädfällning: 9200
+  reduktion_per_vecka: 0.2
+
+handlingar:
+  - id: H1
+    typ: ansokan
+    titel: Ansökan om marklov
+    fil: handlingar/ansokan.md
+    inkom: 2026-03-09
+    fakta:
+      atgard: schaktning och fyllning för pool med pooldäck, fällning av tre ekar
+      schakt_max_m: 0.7
+      fyllning_max_m: 0.15
+      pooldack_kvm: 114
+      pool: "8 × 4 m, nedgrävd, liner, djup 1,5 m"
+      ekar_som_ska_fallas: 3
+      arboristutlatande: false
+      ersattningsplantering: "två prydnadskörsbär"
+  - id: H2
+    typ: situationsplan
+    titel: Situationsplan med träd, pool och höjder 1:200
+    fil: handlingar/situationsplan.svg
+    inkom: 2026-03-09
+    fakta:
+      ek_1: { stamdiameter_m: 0.45, lage: "inom poolen" }
+      ek_2: { stamdiameter_m: 0.55, lage: "väster om pooldäcket, 7 m från däckets kant" }
+      ek_3: { stamdiameter_m: 0.70, lage: "i gränsen mot Eken 3" }
+      ek_4: { stamdiameter_m: 0.40, lage: "sydväst om däcket, bevaras" }
+    parametrar:
+      skala: 200
+      tomt_bredd: 30
+      tomt_djup: 40
+      hus: [8, 8, 14, 10]
+      anlaggningar:
+        - { rektangel: [9, 20.5, 12, 9.5], namn: Nytt pooldäck }
+        - { rektangel: [12, 33, 4, 2], namn: Makadammagasin }
+      pooler:
+        - { rektangel: [11, 26, 8, 4], namn: Ny pool 8 × 4 m }
+      trad:
+        - { punkt: [18, 26.8], namn: "Ek 1, Ø 0,45", stamdiameter: 0.45, krondiameter: 9, status: falls }
+        - { punkt: [2, 23], namn: "Ek 2, Ø 0,55", stamdiameter: 0.55, krondiameter: 11, status: falls }
+        - { punkt: [30, 31], namn: "Ek 3, Ø 0,70", stamdiameter: 0.7, krondiameter: 14, status: falls }
+        - { punkt: [4, 34], namn: "Ek 4, Ø 0,40", stamdiameter: 0.4, krondiameter: 8 }
+      hojder:
+        - { punkt: [21, 20.5], befintlig: 24.75, ny: 24.05 }
+        - { punkt: [21, 30], befintlig: 23.90, ny: 24.05 }
+        - { punkt: [15, 1], befintlig: 25.60 }
+        - { punkt: [15, 39], befintlig: 23.20 }
+      prickmark: [{ sida: norr, djup: 6 }]
+      utfart: { sida: norr, lage: 22, bredd: 4 }
+      gata: { sida: norr, namn: Ekbacksvägen, fastighet: "Åkerslunda 4:1" }
+      grannar: { norr: Hasseln 4, oster: Eken 3, soder: Eken 7, vaster: Eken 1 }
+      grannhus: [[36, 9, 12, 10], [-19, 10, 13, 10], [8, 47, 14, 10], [9, -24, 13, 10]]
+      ritningshuvud: { datum: 2026-02-27, ritad_av: Ali Rahimi, ritningsnummer: M-01 }
+  - id: H3
+    typ: markplanering
+    titel: Markplaneringsritning med höjder
+    fil: handlingar/markplanering.md
+    inkom: 2026-03-09
+    fakta:
+      befintlig_mark_norra_dackkanten: 24.75
+      befintlig_mark_sodra_dackkanten: 23.90
+      ny_dackniva: 24.05
+      storsta_sankning_m: 0.70
+      storsta_hojning_m: 0.15
+      stodmur_hojd_m: 0.7
+      dagvatten: "ränndal och dränledning till makadammagasin 6 m³"
+  - id: H4
+    typ: planbestammelser
+    titel: Detaljplan Dp 2009-11, planbestämmelser
+    fil: handlingar/planbestammelser.md
+    inkom: 2026-03-09
+    fakta:
+      anvandning: B
+      storsta_byggnadsarea_procent: 20
+      n1: "Ek med en stamdiameter större än 0,3 m, mätt 1,3 m över mark, ska bevaras. Ek får fällas endast om den är sjuk eller utgör en säkerhetsrisk."
+      n2: "Markens höjd får inte ändras med mer än 0,5 m."
+      a1: "Marklov krävs för fällning av ek med en stamdiameter större än 0,3 m."
+      genomforandetid_utgangen: true
+  - id: H5
+    typ: arboristutlatande
+    titel: Arboristutlåtande om ekarna på Eken 2
+    fil: handlingar/arboristutlatande.md
+    dold_tills: E1
+    fakta:
+      ek_1: "rötskadad, stamröta och svavelticka, brottrisk, bör fällas"
+      ek_2: "frisk och vital"
+      ek_3: "frisk och vital, cirka 140 år, stammen står i gränsen"
+      ek_4: "frisk"
+      rotskyddszon: "radie 12 × stamdiametern"
+  - id: H6
+    typ: grannyttrande
+    titel: Yttrande från ägarna till Eken 3
+    fil: handlingar/yttrande-eken-3.md
+    dold_tills: E2
+    fakta: { fastighet: Eken 3, invandning: true }
+
+steg:
+  - id: S1
+    typ: checklista
+    rubrik: Är ansökan komplett?
+    instruktion: >
+      Läs ansökan, situationsplanen, markplaneringen och planbestämmelserna. Markera vad som
+      finns. Fundera på vad nämnden behöver för att kunna pröva varje del av ansökan mot
+      planen.
+    poster:
+      - { text: Ifylld och undertecknad ansökan, finns: true }
+      - { text: "Situationsplan med träden, poolen, däcket och höjder", finns: true }
+      - { text: Markplanering med befintliga och nya marknivåer, finns: true }
+      - { text: "Uppgift om varje träds art, stamdiameter och läge", finns: true, kommentar: "Står i situationsplanen. Alla tre ekarna är grövre än 0,3 meter och omfattas av planens bestämmelser." }
+      - { text: Redovisning av hur dagvattnet tas om hand, finns: true, kommentar: "Markplaneringen visar ränndal, dränledning och makadammagasin." }
+      - { text: Utlåtande om ekarnas hälsa och säkerhet från en arborist eller annan sakkunnig, finns: false, kommentar: "Planen tillåter fällning bara om eken är sjuk eller en säkerhetsrisk. Sökandena skriver att ek 1 'verkar dålig', men det är inget underlag. Förelägg om komplettering." }
+      - { text: Medgivande från ägarna till Eken 3 för ek 3, finns: false, kommentar: "Inget krav för att ansökan ska vara komplett. Nämnden prövar inte äganderätten till träd. Men stammen står i gränsen, och frågan kommer tillbaka." }
+      - { text: Uppgift om kontrollansvarig, finns: false, kommentar: "Krävs inte för en liten markåtgärd (PBF 7 kap. 5 § 10). Nämnden kan besluta något annat." }
+    forklaring: >
+      En ansökan ska innehålla de ritningar, beskrivningar och andra uppgifter som behövs för
+      prövningen (9 kap. 86 § 7 PBL). För att pröva fällningen mot planbestämmelsen n1 behöver
+      nämnden veta om ekarna är sjuka eller en säkerhetsrisk, och det kan bara en sakkunnig
+      bedöma. Ansökan kom in den 9 mars 2026. Förelägger du om komplettering senast den 30
+      mars, inom tre veckor, räknas tioveckorsfristen från den dag kompletteringen kommer in
+      (9 kap. 99 § första stycket 4). Grannens samtycke är en civilrättslig fråga och inget
+      krav i 86 §.
+    lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 91 §, PBL 9 kap. 99 §, PBF 7 kap. 5 §]
+    tid_framat_dagar: 2
+
+  - id: S2
+    typ: skrivelse
+    rubrik: Skriv föreläggande om komplettering
+    instruktion: >
+      Skriv föreläggandet till Tove och Ali Rahimi. Ange vad som saknas och varför, en
+      svarstid och vad som händer om föreläggandet inte följs.
+    ar_forelaggande: true
+    bedomningspunkter:
+      - Begär ett utlåtande från en arborist eller annan sakkunnig om ekarnas hälsa, livskraft och säkerhet, för var och en av ekarna 1–3
+      - Förklarar varför, med hänvisning till planbestämmelsen n1 (ek får fällas bara om den är sjuk eller en säkerhetsrisk)
+      - Ber gärna att utlåtandet också anger rotskyddszoner för de ekar som står kvar nära schakten
+      - Anger en bestämd svarstid
+      - Upplyser om att ansökan kan avvisas eller ärendet avgöras i befintligt skick om föreläggandet inte följs (9 kap. 91 §)
+      - Skickas inom tre veckor från ansökningsdagen och säger att tidsfristen räknas från den dag kompletteringen kommer in (9 kap. 99 § första stycket 4 och 100 § 2)
+      - Begriplig och vänlig ton, med kontaktuppgifter till handläggaren
+    modelltext: handlingar/modell-forelaggande.md
+
+  - id: S3
+    typ: fraga
+    rubrik: Vad kräver lov?
+    instruktion: Kompletteringen har kommit in. Läs ansökan, markplaneringen och planbestämmelserna.
+    fragetyp: flersvar
+    fraga: Vilka påståenden om lovplikten på Eken 2 stämmer?
+    alternativ:
+      - text: Schakten för pooldäcket kräver marklov, eftersom markytans höjdläge sänks 0,7 meter, mer än 0,5 meter (9 kap. 47 § 1).
+        ratt: true
+      - text: Fällningen av ekarna kräver marklov, både för att planen kräver marklov för fällning av ekar (47 § 2) och för att planen reglerar fällningen med en bestämmelse om vegetation (47 § 3 a och 4 kap. 10 §).
+        ratt: true
+      - text: Poolen i sig kräver inte bygglov. Den är ingen byggnad och inte någon av de anläggningar som 9 kap. 19–33 §§ räknar upp, men ägaren ansvarar för att den har de säkerhetsanordningar som behövs (ordningslagen 3 kap. 5 §).
+        ratt: true
+      - text: Poolen kräver bygglov som byggnad, eftersom den är större än 15 kvadratmeter.
+      - text: Det genomsiktliga staketet runt poolen, 1,1 meter högt, kräver bygglov som plank.
+      - text: Stödmuren längs däckets norra kant, 0,7 meter hög, kräver bygglov.
+      - text: Marklov behövs inte för schakten, eftersom poolen ingår i ett bygglov (9 kap. 50 §).
+    forklaring: >
+      Inom detaljplan krävs marklov för schaktning eller fyllning som ändrar höjdläget mer än
+      0,5 meter (47 § 1). Här sänks markytan under däcket upp till 0,7 meter vid den norra
+      kanten. Hur själva poolgropen ska bedömas diskuteras ibland, men här behöver du inte ta
+      ställning till det: avschaktningen för däcket räcker. Fällningen kräver marklov av två
+      skäl. Planen från 2009 innehåller en bestämmelse om krav på marklov för fällning av
+      ekar, som kommunen fick besluta före 2025-12-01 och som fortfarande gäller enligt 47 §
+      2. Planen reglerar också fällningen med stöd av 4 kap. 10 §, och då krävs marklov för
+      trädfällning enligt 47 § 3 a. En pool är ingen byggnad och inte någon av de anläggningar
+      som kräver bygglov. Ett staket som går att se igenom är inget plank, och en mur kräver
+      bara bygglov om den är högre än 1,2 meter (1,8 meter inom 3,6 meter från en byggnad)
+      enligt 19 §. 50 § gäller markåtgärder som ingår i ett bygglov, och här finns inget
+      bygglov. Att poolen är lovfri betyder inte att den saknar krav: ordningslagen kräver
+      säkerhetsanordningar, särskilt med tanke på barn, och tomten ska ordnas så att risken
+      för olycksfall begränsas (8 kap. 9 § första stycket 6 PBL).
+    lagrum: [PBL 9 kap. 47 §, PBL 4 kap. 10 §, PBL 9 kap. 19 §, PBL 9 kap. 50 §, PBL 8 kap. 9 §]
+    tid_framat_dagar: 3
+
+  - id: S4
+    typ: urval
+    rubrik: Vilka ska underrättas?
+    instruktion: >
+      Ansökan avviker från detaljplanen: marken sänks mer än 0,5 meter, och två av ekarna är
+      friska enligt arboristen. Välj dem som ska få underrättelsen.
+    alternativ:
+      - { text: "Eken 1 (väster)", ratt: true }
+      - { text: "Eken 3 (öster), där ek 3 står i gränsen", ratt: true }
+      - { text: "Eken 7 (söder, nedanför slänten)", ratt: true }
+      - { text: "Hasseln 4 (norr, på andra sidan Ekbacksvägen)", ratt: true, kommentar: Skiljs från Eken 2 bara av gatan. }
+      - { text: "Åkerslunda 4:1 (Ekbacksvägen, kommunens gatumark)", ratt: true, kommentar: Kommunen som fastighetsägare till gatan. }
+      - { text: "Eken 8 (två tomter söderut)", ratt: false }
+      - { text: "Hyresgästen i komplementbostadshuset på Eken 3", ratt: false, kommentar: "Hyresgäster underrättas inte längre (96 §)." }
+    forklaring: >
+      Nämnden ska underrätta när ansökan avser en åtgärd som avviker från detaljplanen (9 kap.
+      94 § första stycket 1). Underrättelsen ska innehålla ansökans huvudsakliga innehåll, var
+      den finns tillgänglig och hur, till vem och när synpunkter kan lämnas (95 §). Den skickas
+      till ägare och innehavare av särskild rätt till fastigheter som gränsar till Eken 2 eller
+      skiljs från den bara av en gata, och kungörs på kommunens anslagstavla (96 §).
+      Hyresgäster och bostadsrättshavare får den inte längre. Ge en svarstid på två till tre
+      veckor. Skickades underrättelsen inte, kan ett lov som ges upphävas vid ett överklagande.
+    tid_framat_dagar: 0
+
+  - id: S5
+    typ: fraga
+    rubrik: Vad kan beviljas?
+    instruktion: >
+      Läs arboristutlåtandet och yttrandet från Eken 3. Gör en bedömning av varje del av
+      ansökan som underlag för beslutet. Bestäm också vem som ska få yttra sig innan du
+      beslutar.
+    fragetyp: oppen
+    fraga: >
+      Kan marklov ges för schakten och för fällningen av ek 1, ek 2 och ek 3 (9 kap. 77 och
+      78 §§)? Vilka villkor behövs, och med vilket stöd? Hur hanterar du grannens synpunkter om
+      ek 3 och om vattnet?
+    bedomningspunkter:
+      - Ek 1 är rötskadad och en säkerhetsrisk enligt arboristen, så fällningen stämmer med n1 och marklov ska ges om 77 § i övrigt är uppfylld
+      - Ek 2 och ek 3 är friska. Att fälla dem strider mot n1, och avvikelsen är varken liten eller förenlig med planens syfte att bevara ekbacken (78 §). Sol och löv i poolen är inga skäl
+      - Schakten avviker från n2 med 0,2 meter, på en begränsad yta som inte syns från gatan och ligger utanför de kvarvarande ekarnas rotskyddszoner; avvikelsen är liten och förenlig med planens syfte (78 §)
+      - Prövar dagvatten och skyfall, att ränndalen och magasinet tar hand om vattnet och att skyfall inte leds mot Eken 7 eller Eken 3, så att åtgärden inte medför betydande olägenheter (77 § 4, 8 kap. 9 § första stycket 2)
+      - Ersättningsträd och rotskydd som preciserade villkor med stöd av 9 kap. 105 § 6, kopplade till planens syfte och 8 kap. 9 §; 82 § gäller gatukostnader och är fel grund
+      - Lovet prövar inte vem som äger ek 3. Ett lov ger ingen rätt att fälla ett träd som helt eller delvis tillhör grannen. JB 3 kap. 2 § ger bara rätt att ta bort rötter och grenar som tränger in och vållar olägenhet, inte att fälla trädet, och schakt nära gränsen kräver skyddsåtgärder (JB 3 kap. 3 §)
+      - Sökandena får yttra sig över arboristutlåtandet, grannens yttrande och att nämnden tänker avslå fällningen av ek 2 och ek 3 innan beslutet (9 kap. 98 §)
+      - Tar ställning till om fällningen ska få verkan först när lovet fått laga kraft, eftersom en fälld ek inte kan återställas (114 § andra stycket)
+    modellsvar: >
+      Ek 1 står där poolen ska ligga. Arboristen har funnit stamröta och svavelticka och
+      bedömer att den kan brista. Planen tillåter fällning av en ek som är sjuk eller en
+      säkerhetsrisk, så fällningen stämmer med planen och marklov ska ges om kraven i 77 § i
+      övrigt är uppfyllda. Ek 2 och ek 3 är friska och vitala. Att fälla dem för att få sol
+      och slippa löv strider mot n1, och planens syfte är just att bevara ekarna. Det är inte
+      en liten avvikelse förenlig med syftet, så den delen avslås. Schakten sänker marken
+      0,7 meter vid däckets norra kant, 0,2 meter mer än planen tillåter. Ytan är cirka
+      110 kvadratmeter, ligger bakom huset och utanför rotskyddszonerna för ek 2, ek 3 och
+      ek 4, och slänten tas upp av en låg stödmur. Avvikelsen är liten och förenlig med
+      planens syfte (78 §). Däcket blir en lågpunkt, men ränndalen och makadammagasinet tar
+      hand om dagvattnet. Vid skyfall ska vattnet kunna rinna av över däckets södra kant mot
+      den egna gräsytan, inte mot Eken 7 eller Eken 3. Det ska visas i den slutliga
+      markplaneringen. Planen bygger på att ekbacken består. Därför behövs villkor om en
+      ersättningsek för ek 1 och om rotskydd för ek 4 under schakten. Villkoren ställs med
+      stöd av 9 kap. 105 § 6 och ska vara preciserade. 82 § gäller gatukostnader. Om ek 3
+      står i gränsen kan den tillhöra båda fastigheterna. Det avgör inte nämnden, men lovet
+      ger ingen rätt att fälla grannens träd, och Holmqvists får själva bara ta bort rötter
+      och grenar som tränger in och vållar olägenhet (JB 3 kap. 2 §). Innan beslutet ska
+      Rahimis få yttra sig över arboristutlåtandet, Holmqvists yttrande och förslaget att
+      avslå fällningen av ek 2 och ek 3 (98 §). En fälld ek kan inte återställas, så lovet
+      bör gälla först när det fått laga kraft (114 § andra stycket 1).
+    lagrum: [PBL 9 kap. 77 §, PBL 9 kap. 78 §, PBL 8 kap. 9 §, PBL 2 kap. 6 §, PBL 9 kap. 105 §, PBL 9 kap. 98 §, PBL 9 kap. 114 §, JB 3 kap. 2 §, JB 3 kap. 3 §]
+    tid_framat_dagar: 14
+
+  - id: S6
+    typ: beslut
+    rubrik: Fatta beslut
+    instruktion: >
+      Skriv beslutet. Ansökan har flera delar, och alla behöver inte få samma utgång. Välj det
+      utfall som gäller för det som beviljas och skriv tydligt i beslutet vad som avslås.
+      Tänk på villkoren, upplysningarna i 9 kap. 105 §, när lovet ska börja gälla, avgiften och
+      expedieringen.
+    forvantat_beslut: bevilja_med_villkor
+    godtagbara_utfall:
+      - utfall: bevilja
+        motivering: >-
+          Lov utan särskilda villkor godtas om ersättningseken och rotskyddet i stället är låsta i
+          en reviderad markplanering som beslutet hänvisar till. Avslaget för ek 2 och ek 3
+          ska ändå framgå av beslutet.
+    lagrum: [PBL 9 kap. 47 §, PBL 9 kap. 77 §, PBL 9 kap. 78 §, PBL 9 kap. 105 §]
+    bedomningspunkter:
+      - Beviljar marklov för schaktning och fyllning för pooldäcket och för fällning av ek 1, med stöd av 9 kap. 47, 77 och 78 §§ PBL
+      - Avslår ansökan i den del den avser fällning av ek 2 och ek 3, med stöd av 9 kap. 77 § 1 och 78 §, och motiverar det med planbestämmelsen n1 och arboristutlåtandet
+      - Motiverar att schakten är en liten avvikelse från n2 som är förenlig med planens syfte (78 §), och att dagvatten och skyfall tas om hand utan betydande olägenheter för grannarna (77 § 4, 8 kap. 9 §)
+      - Preciserade villkor med stöd av 105 § 6, en ersättningsek med angiven art, storlek, plats och tidpunkt och rotskydd för ek 4 under schakten, och anger att sökandena godtagit dem
+      - Bestämmer att lovet gäller först när det fått laga kraft, eftersom fällningen inte kan återställas (114 § andra stycket 1), och upplyser om att arbetena ändå inte får påbörjas förrän startbesked getts (105 § 4, 10 kap. 3 §)
+      - Upplyser om giltighetstiden (115 §), att kontrollansvarig inte behövs (PBF 7 kap. 5 § 10), att förslag till kontrollplan ska lämnas in inför startbeskedet, om poolens säkerhet (ordningslagen 3 kap. 5 §), om skyddsåtgärder vid schakt nära gräns (JB 3 kap. 3 §) och om att lovet inte ger rätt att fälla ett träd som tillhör grannen
+      - Bemöter Holmqvists yttrande sakligt, både om ek 3 och om vattnet
+      - Avgiften 9 200 kr redovisas (107 §), utan reduktion eftersom tioveckorsfristen räknas från kompletteringen den 27 mars 2026 och löper ut den 5 juni 2026
+      - Överklagandehänvisning med tre veckor från delgivningen och, för den som inte delges, från en vecka efter kungörelsen (13 kap. 16 §)
+      - Delges sökandena och ägarna till Eken 3, vars synpunkter inte helt tillgodosetts (108 §), kungörs på anslagstavlan (109 §), och meddelande skickas till ägarna av Eken 1, Eken 7, Hasseln 4 och Åkerslunda 4:1 (110 §)
+    modellbeslut: handlingar/modell-beslut.md
+
+handelser:
+  - id: E1
+    namn: Arboristutlåtandet kommer in
+    utlosare: { efter_steg: S2 }
+    effekt:
+      tid_framat_dagar: 16
+      visa_handlingar: [H5]
+      satt_komplett_datum: true
+      andrade_fakta: { arboristutlatande: true, ek_1_rotskadad: true, ek_2_frisk: true, ek_3_frisk: true }
+      meddelande: >
+        Tove Rahimi har skickat in ett utlåtande från en certifierad arborist. Ek 1, som står
+        där poolen ska ligga, är rötskadad och en säkerhetsrisk. Ek 2 och ek 3 är friska.
+        Arboristen noterar också att ek 3 står i gränsen mot Eken 3. Ansökan är nu komplett.
+        Eftersom föreläggandet skickades inom tre veckor räknas tioveckorsfristen från i dag,
+        den {{simdatum}}, och löper ut den {{frist}} (9 kap. 99 § första stycket 4).
+
+  - id: E2
+    namn: Grannarna på Eken 3 yttrar sig
+    utlosare: { efter_steg: S4 }
+    effekt:
+      tid_framat_dagar: 15
+      visa_handlingar: [H6]
+      andrade_fakta: { granne_eken_3_motsatter_sig: true, ek_3_i_gransen: true }
+      meddelande: >
+        Underrättelsen skickades och anslogs på kommunens anslagstavla den {{simdatum-15}}. I
+        dag har Gun och Sven-Erik Holmqvist på Eken 3 svarat. De motsätter sig att ek 3 fälls,
+        skriver att trädet står i gränsen och att de aldrig gett sitt samtycke, och undrar var
+        vattnet från det nya däcket ska ta vägen. De övriga grannarna har inte hört av sig.
+
+facit:
+  sammanfattning: >
+    Schakten för pooldäcket kräver marklov eftersom marken sänks mer än 0,5 meter, och
+    fällningen kräver marklov enligt planens a-bestämmelse och n-bestämmelse (9 kap. 47 § 1,
+    2 och 3 a). Poolen i sig kräver inte lov, men ägaren ansvarar för säkerheten. Ansökan
+    kompletteras med ett arboristutlåtande. Den avviker från planen, så grannarna underrättas.
+    Ek 1 är rötskadad och får fällas. Schakten är en liten avvikelse från n2 och godtas med
+    stöd av 78 §. Ek 2 och ek 3 är friska, och fällningen av dem avslås. Lovet förenas med
+    villkor om ersättningsek och rotskydd (105 § 6) och gäller först när det fått laga kraft
+    (114 §). Frågan om vem som äger ek 3 är civilrättslig.
+  vanliga_fel:
+    - Att tro att trädfällning aldrig kräver lov, eller att poolen kräver bygglov
+    - Att räkna lovplikten för schakten från poolens djup i stället för från hur markytans höjdläge ändras
+    - Att bevilja fällning av friska ekar för att sökanden vill ha sol, trots planbestämmelsen n1
+    - Att avslå hela ansökan när delar av den uppfyller förutsättningarna
+    - Att stödja ett villkor om ersättningsträd på 9 kap. 82 §, som gäller gatukostnader
+    - Att försöka avgöra äganderätten till gränsträdet i lovet, eller att tro att lovet ger rätt att fälla grannens träd
+    - Att glömma att underrätta grannarna trots att ansökan avviker från planen, eller att glömma kommuniceringen med sökandena före ett delvis avslag (98 §)
+    - Att låta lovet gälla omedelbart utan att pröva 114 § andra stycket, när en fälld ek inte kan återställas
+  modellbeslut: handlingar/modell-beslut.md

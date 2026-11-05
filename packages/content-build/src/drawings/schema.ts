@@ -70,6 +70,12 @@ export const ZoneSchema = z.strictObject({
 });
 export type Zone = z.output<typeof ZoneSchema>;
 
+/** `{ rektangel, namn }`, used for several kinds of named features. */
+export const NamedRectangleSchema = z.strictObject({ rektangel: rectangle, namn: text.optional() });
+export type NamedRectangle = z.output<typeof NamedRectangleSchema>;
+
+export const TREE_STATUSES = ['bevaras', 'falls'] as const;
+
 const inside = (r: Rectangle, width: number, depth: number, tolerance = 1e-9) =>
   r[0] >= -tolerance &&
   r[1] >= -tolerance &&
@@ -204,9 +210,86 @@ export const SituationsplanSchema = z
         vaster: text.optional(),
       })
       .default({}),
-    /** Neighbouring houses, in the same coordinates (may lie outside the plot). */
+    /**
+     * Neighbouring houses, in the same coordinates (may lie outside the plot). A plain rectangle
+     * or `{ rektangel, namn }`; a named house gets a label and the drawn surroundings widen to
+     * show it, e.g. a mill some way off.
+     */
     grannhus: z
-      .array(rectangle, { error: fieldError('grannhus ska vara en lista med rektanglar.') })
+      .array(z.union([rectangle, NamedRectangleSchema]), {
+        error: fieldError('grannhus ska vara en lista med rektanglar eller { rektangel, namn }.'),
+      })
+      .default([]),
+    /** New property boundaries inside the plot, e.g. two plots to be subdivided. */
+    tomter: z
+      .array(
+        z.strictObject({
+          rektangel: rectangle,
+          namn: text.optional(),
+          /** Area as printed on the drawing, in m². Left out, no area is printed. */
+          area: number('area ska vara ett tal i m².')
+            .positive({ error: fieldError('area ska vara större än 0.') })
+            .optional(),
+        }),
+        { error: fieldError('tomter ska vara en lista med { rektangel, namn, area }.') },
+      )
+      .default([]),
+    /** More new main buildings, e.g. one house on each new plot. */
+    nybyggnader: z
+      .array(NamedRectangleSchema, {
+        error: fieldError('nybyggnader ska vara en lista med { rektangel, namn }.'),
+      })
+      .default([]),
+    /** Trees: crown and trunk, with a cross when the tree is to be felled. */
+    trad: z
+      .array(
+        z.strictObject({
+          punkt: point,
+          namn: text.optional(),
+          /** Trunk diameter in metres, measured 1.3 m above the ground. */
+          stamdiameter: length.optional(),
+          krondiameter: length.default(6),
+          status: z
+            .enum(TREE_STATUSES, {
+              error: fieldError(`status ska vara en av: ${TREE_STATUSES.join(', ')}.`),
+            })
+            .default('bevaras'),
+        }),
+        { error: fieldError('trad ska vara en lista med { punkt, namn, krondiameter, status }.') },
+      )
+      .default([]),
+    /** Pools and other water surfaces on the plot. */
+    pooler: z
+      .array(NamedRectangleSchema, {
+        error: fieldError('pooler ska vara en lista med { rektangel, namn }.'),
+      })
+      .default([]),
+    /** Ground levels: existing (`befintlig`) and new (`ny`), in metres above the datum. */
+    hojder: z
+      .array(
+        z.strictObject({
+          punkt: point,
+          befintlig: number('befintlig ska vara en höjd i meter, t.ex. 24.75.').optional(),
+          ny: number('ny ska vara en höjd i meter, t.ex. 24.05.').optional(),
+        }),
+        { error: fieldError('hojder ska vara en lista med { punkt, befintlig, ny }.') },
+      )
+      .default([]),
+    /**
+     * Ancient monuments: an area (`rektangel`) or a single monument (`punkt`). May lie outside
+     * the plot; the drawn surroundings widen to show it.
+     */
+    fornlamningar: z
+      .array(
+        z.strictObject({
+          rektangel: rectangle.optional(),
+          punkt: point.optional(),
+          namn: text.optional(),
+        }),
+        {
+          error: fieldError('fornlamningar ska vara en lista med { rektangel eller punkt, namn }.'),
+        },
+      )
       .default([]),
     /** Rotation of the north arrow in degrees, clockwise. 0 means north is up. */
     norr_vinkel: number('norr_vinkel ska vara ett tal i grader.').default(0),
@@ -256,6 +339,29 @@ export const SituationsplanSchema = z
         message: 'strandskydd kräver strandlinje (gränsen mäts från strandlinjen).',
       });
     }
+    p.tomter.forEach((t, i) => check(t.rektangel, ['tomter', i, 'rektangel'], 'Tomten'));
+    p.nybyggnader.forEach((b, i) =>
+      check(b.rektangel, ['nybyggnader', i, 'rektangel'], 'Nybyggnaden'),
+    );
+    p.pooler.forEach((b, i) => check(b.rektangel, ['pooler', i, 'rektangel'], 'Poolen'));
+    p.hojder.forEach((h, i) => {
+      if (h.befintlig === undefined && h.ny === undefined) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['hojder', i],
+          message: 'Ange befintlig höjd, ny höjd eller båda.',
+        });
+      }
+    });
+    p.fornlamningar.forEach((f, i) => {
+      if ((f.rektangel === undefined) === (f.punkt === undefined)) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['fornlamningar', i],
+          message: 'Ange antingen rektangel (ett område) eller punkt (en enskild fornlämning).',
+        });
+      }
+    });
     check(p.tillbyggnad, ['tillbyggnad'], 'Tillbyggnaden');
     check(p.komplementbyggnad, ['komplementbyggnad'], 'Komplementbyggnaden');
     p.ovriga_byggnader.forEach((b, i) =>
@@ -536,6 +642,22 @@ export const PlanBuildingSchema = z.strictObject({
 });
 export type PlanBuilding = z.output<typeof PlanBuildingSchema>;
 
+export const INSTALLATION_TYPES = ['kamin', 'skorsten', 'servis', 'annan'] as const;
+
+/** A fixed installation in a floor plan: a stove, a chimney, a service connection … */
+export const PlanInstallationSchema = z.strictObject({
+  typ: z.enum(INSTALLATION_TYPES, {
+    error: fieldError(`typ ska vara en av: ${INSTALLATION_TYPES.join(', ')}.`),
+  }),
+  /** Label next to the symbol, e.g. "Ny kamin". */
+  namn: text.optional(),
+  /** Outer dimensions of the installation. */
+  rektangel: rectangle,
+  /** Part of the application (drawn with a heavier line). */
+  ny: z.boolean({ error: fieldError('ny ska vara true eller false.') }).default(true),
+});
+export type PlanInstallation = z.output<typeof PlanInstallationSchema>;
+
 export const PlanSectionSchema = z.strictObject({
   rubrik: text.default('Sektion A-A'),
   /** Section line drawn on the plan. */
@@ -580,10 +702,29 @@ export const PlanritningSchema = z
         error: fieldError('balkonger ska vara en lista med { rektangel, namn }.'),
       })
       .default([]),
+    /** Stoves, chimneys and service connections, drawn with their own symbols. */
+    installationer: z
+      .array(PlanInstallationSchema, { error: fieldError('installationer ska vara en lista.') })
+      .default([]),
     norr_vinkel: number('norr_vinkel ska vara ett tal i grader.').default(0),
     ritningshuvud: titleBlock,
   })
   .superRefine((p, ctx) => {
+    p.installationer.forEach((inst, i) => {
+      const [x, y, w, d] = inst.rektangel;
+      const e = 1e-9;
+      const inBuilding = p.byggnader.some(
+        ({ rektangel: [bx, by, bw, bd] }) =>
+          x >= bx - e && y >= by - e && x + w <= bx + bw + e && y + d <= by + bd + e,
+      );
+      if (!inBuilding) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['installationer', i, 'rektangel'],
+          message: 'Installationen ligger inte helt inom någon byggnad.',
+        });
+      }
+    });
     p.rum.forEach((room, i) => {
       const [x, y, w, d] = room.rektangel;
       const inBuilding = p.byggnader.some(({ rektangel: [bx, by, bw, bd] }) => {

@@ -19,6 +19,8 @@ export const DECISION_OUTCOMES = [
   'avsla',
   'avvisa',
   'avskriva',
+  /** Start notice for a notifiable measure (10 kap. 23 c § PBL), e.g. installing a stove. */
+  'startbesked',
 ] as const;
 
 export const decisionOutcome = z.enum(DECISION_OUTCOMES, {
@@ -26,6 +28,10 @@ export const decisionOutcome = z.enum(DECISION_OUTCOMES, {
 });
 
 export type DecisionOutcome = z.output<typeof decisionOutcome>;
+
+/** What a case's application is for (`lovtyp`); bygglov when left out. */
+export const PERMIT_KINDS = ['bygglov', 'marklov', 'rivningslov', 'forhandsbesked'] as const;
+export type PermitKind = (typeof PERMIT_KINDS)[number];
 
 export const STEP_TYPES = [
   'checklista',
@@ -422,6 +428,15 @@ export const CaseFileSchema = z
       error: fieldError('Ärende-id ska ha formatet A + tre siffror, t.ex. A002.'),
     }),
     titel: text,
+    /**
+     * What the application is for: bygglov (default), marklov, rivningslov or förhandsbesked.
+     * The decision form and the checks name the decision after it ("Bevilja marklov").
+     */
+    lovtyp: z
+      .enum(PERMIT_KINDS, {
+        error: fieldError(`lovtyp ska vara en av: ${PERMIT_KINDS.join(', ')}.`),
+      })
+      .optional(),
     niva: z.union([z.literal(1), z.literal(2), z.literal(3), z.literal(4)], {
       error: fieldError('niva ska vara 1 (grund), 2 (normal), 3 (avancerad) eller 4 (tillsyn).'),
     }),

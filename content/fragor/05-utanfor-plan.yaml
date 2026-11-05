@@ -978,3 +978,245 @@ fragor:
       - PBL 2 kap. 5 §
       - FMH 13 §
     taggar: [vag, va, remiss, instudering]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: utp-037
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bolag vill uppföra ett bygglovspliktigt vindkraftverk på en skogsfastighet utanför
+      detaljplan i Åkerslunda. När ska kommunen pröva platsens lämplighet med en detaljplan i
+      stället för i ett bygglov?
+    alternativ:
+      - text: När det råder stor efterfrågan på området för bebyggande och kraftverket inte kan prövas i samband med en ansökan om bygglov eller förhandsbesked.
+        ratt: true
+      - text: Alltid, eftersom vindkraftverk inte får prövas i bygglov utanför detaljplan.
+      - text: Aldrig, vindkraftverk prövas bara enligt miljöbalken.
+      - text: Bara om grannarna motsätter sig projektet när de underrättas.
+    forklaring: >
+      Vindkraftverk har en egen regel om detaljplanekrav i 4 kap. 3 § PBL. Detaljplan krävs om
+      verket är lovpliktigt, om det råder stor efterfrågan på området för bebyggande och om
+      kraftverket inte kan prövas i samband med en ansökan om bygglov eller förhandsbesked. Andra
+      nya byggnadsverk med betydande inverkan på omgivningen faller i stället under 4 kap. 2 §
+      första stycket 4. Grannarnas inställning avgör inte planfrågan, men den är en del av
+      prövningen av betydande olägenhet (2 kap. 9 §) när verket prövas i ett lov. Kräver åtgärden
+      planläggning får varken bygglov eller förhandsbesked ges (9 kap. 57 och 74 §§).
+    lagrum:
+      - PBL 4 kap. 3 §
+      - PBL 4 kap. 2 §
+      - PBL 9 kap. 57 §
+      - PBL 9 kap. 74 §
+    taggar: [detaljplanekrav, vindkraft, lokaliseringsprovning]
+
+  - id: utp-038
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Kommunen vill anta områdesbestämmelser för ett fritidshusområde vid Åkerslundasjön. Vilka av
+      följande får kommunen reglera med områdesbestämmelser?
+    alternativ:
+      - text: Största tillåtna byggnadsarea eller bruttoarea för fritidshus och storleken på tomter för sådana hus.
+        ratt: true
+      - text: Placering, utformning och utförande av byggnadsverk och tomter.
+        ratt: true
+      - text: Grunddragen för användningen av mark för bebyggelse, om det behövs för att säkerställa syftet med översiktsplanen eller tillgodose ett riksintresse.
+        ratt: true
+      - text: Gränserna mellan kvartersmark och allmänna platser.
+      - text: Att kommunen ska vara huvudman för allmänna platser i området.
+    forklaring: >
+      Områdesbestämmelser är ett enklare instrument än detaljplan och får bara reglera det som
+      räknas upp i 4 kap. 42 § PBL: grunddragen för mark- och vattenanvändningen (med de angivna
+      syftena), mark för gemensam användning, största byggnads- eller bruksarea för fritidshus och
+      tomtstorlek, samt placering, utformning och utförande av byggnadsverk och tomter. Att ange
+      allmänna platser och kvartersmark och bestämma huvudmannaskap är detaljplanens uppgift
+      (4 kap. 5 §). Områdesbestämmelser får bara antas för begränsade områden som inte omfattas av
+      en detaljplan (41 §). I lovprövningen får åtgärden inte strida mot bestämmelserna
+      (9 kap. 57 § första stycket 1), men liten avvikelse kan godtas enligt 9 kap. 60 §.
+    lagrum:
+      - PBL 4 kap. 41 §
+      - PBL 4 kap. 42 §
+      - PBL 4 kap. 5 §
+      - PBL 9 kap. 57 §
+    taggar: [omradesbestammelser, fritidshus]
+
+  - id: utp-039
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop bestämmelsen med vad den reglerar vid prövning utanför detaljplan.
+    par:
+      - vanster: PBL 9 kap. 41 §
+        hoger: Rätten att begära förhandsbesked om en åtgärd kan lokaliseras till en viss plats
+      - vanster: PBL 9 kap. 42 §
+        hoger: Ett positivt förhandsbesked binder bygglovsprövningen i två år från laga kraft
+      - vanster: PBL 9 kap. 57 §
+        hoger: Förutsättningarna för bygglov utanför detaljplan
+      - vanster: PBL 9 kap. 59 §
+        hoger: Begränsad prövning av en liten tillbyggnad eller liten komplementbyggnad till ett en- eller tvåbostadshus
+      - vanster: PBL 9 kap. 74 §
+        hoger: Förutsättningarna för ett positivt förhandsbesked
+      - vanster: PBL 4 kap. 2 §
+        hoger: När lämpligheten ska prövas med en detaljplan
+    forklaring: >
+      Prövningen utanför plan vilar på några få paragrafer. 57 § är huvudregeln för bygglov:
+      ingen strid mot områdesbestämmelser, inget krav på detaljplan och kraven i 2 och 8 kap.
+      uppfyllda. 59 § gör prövningen enklare för små kompletteringar till en- och tvåbostadshus,
+      eftersom lokaliseringen redan är avgjord när huset finns. Förhandsbesked (41, 42 och 74 §§)
+      prövar bara lokaliseringen. Detaljplanekravet i 4 kap. 2 § styr när frågan inte alls kan
+      avgöras i ett lov.
+    lagrum:
+      - PBL 9 kap. 41 §
+      - PBL 9 kap. 42 §
+      - PBL 9 kap. 57 §
+      - PBL 9 kap. 59 §
+      - PBL 9 kap. 74 §
+      - PBL 4 kap. 2 §
+    taggar: [forhandsbesked, lagrum, oversikt]
+
+  - id: utp-040
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På fastigheten Lövhagen 1:4 utanför detaljplan vill ägaren fylla upp en del av tomten med
+      en meter jord för att få en plan gräsmatta. Området omfattas inte av områdesbestämmelser.
+      Krävs marklov?
+    alternativ:
+      - text: Nej. Utanför detaljplan krävs marklov bara där områdesbestämmelser ställer krav på det i de områden som avses i 4 kap. 42 § första stycket 4 a.
+        ratt: true
+      - text: Ja, eftersom höjdläget ändras mer än 0,5 m.
+      - text: Ja, all fyllning utanför detaljplan kräver marklov.
+      - text: Nej, men åtgärden ska anmälas till byggnadsnämnden.
+    forklaring: >
+      Regeln om marklov när höjdläget ändras mer än 0,5 m gäller bara inom detaljplan (9 kap.
+      47 §). Utanför plan krävs marklov för schaktning, fyllning, trädfällning och
+      skogsplantering bara om åtgärden ska göras i ett sådant område som avses i 4 kap. 42 §
+      första stycket 4 a (ett område avsett för bebyggelse eller nära t.ex. en flygplats eller en
+      anläggning för totalförsvaret) och
+      områdesbestämmelserna kräver marklov eller reglerar frågan (9 kap. 48 §). Ägaren måste
+      ändå ta hänsyn till grannarna, t.ex. så att vatten inte rinner över till dem, men det är
+      inte en lovfråga. Lägger hon fyllnadsmassor kan miljöbalken också vara aktuell.
+    lagrum:
+      - PBL 9 kap. 48 §
+      - PBL 9 kap. 47 §
+      - PBL 4 kap. 42 §
+    taggar: [marklov, omradesbestammelser, lovplikt]
+
+  - id: utp-041
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Områdesbestämmelserna för Sjövikens fritidshusområde säger att den sammanlagda
+      byggnadsarean på varje tomt får vara högst 120 kvm. På Sjöviken 2:3 finns ett fritidshus på
+      95 kvm och ett komplementbostadshus på 30 kvm som uppfördes utan lov enligt 9 kap. 5 §.
+      Ägaren söker bygglov för en tillbyggnad av fritidshuset med 20 kvm byggnadsarea. Hur
+      bedömer du planenligheten?
+    alternativ:
+      - text: Komplementbostadshuset ska inte räknas med. Fritidshuset blir 115 kvm och åtgärden strider inte mot områdesbestämmelserna.
+        ratt: true
+      - text: Alla byggnader räknas. 145 kvm överskrider 120 kvm och tillbyggnaden strider mot områdesbestämmelserna.
+      - text: Tillbyggnaden kan bara godtas som en liten avvikelse eftersom tomten redan är fullt utnyttjad.
+      - text: Komplementbostadshuset ska rivas innan lov kan ges, eftersom det strider mot bestämmelserna.
+    forklaring: >
+      Enligt 10 kap. 2 a § PBL får bl.a. nybyggnad av ett lovbefriat komplementbostadshus strida
+      mot detaljplan och områdesbestämmelser. För att sådana åtgärder inte ska låsa framtida
+      lovprövningar säger 9 kap. 57 § andra stycket att man vid bedömningen av om en åtgärd
+      strider mot områdesbestämmelser inte ska ta hänsyn till åtgärder som enligt 10 kap. 2 a §
+      får strida mot dem. Inom detaljplan gäller samma sak enligt 56 § andra stycket. Därför
+      räknas bara fritidshuset, 95 + 20 = 115 kvm, och tillbyggnaden är förenlig med
+      bestämmelserna. Komplementbostadshuset är lagligt uppfört och kan inte krävas bort.
+    lagrum:
+      - PBL 9 kap. 57 §
+      - PBL 10 kap. 2 a §
+      - PBL 9 kap. 5 §
+      - PBL 9 kap. 56 §
+    taggar: [omradesbestammelser, komplementbostadshus, planenlighet]
+
+  - id: utp-042
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt byggnadsverk som får betydande inverkan på omgivningen kräver alltid detaljplan,
+      även om dess lämplighet går att pröva i samband med en ansökan om bygglov eller
+      förhandsbesked.
+    svar: false
+    forklaring: >
+      Enligt 4 kap. 2 § första stycket 4 PBL ska lämpligheten för ett nytt byggnadsverk med
+      betydande inverkan på omgivningen, eller där det råder stor efterfrågan på området för
+      bebyggande, prövas med detaljplan. Men tredje stycket säger att det inte krävs någon
+      detaljplan om byggnadsverket kan prövas i samband med bygglov eller förhandsbesked. Det
+      ger utrymme att pröva t.ex. ett enstaka hus eller en verksamhetsbyggnad utanför plan i
+      lovet, om frågorna kan överblickas där. Kravet på detaljplan för ny sammanhållen bebyggelse
+      i första stycket 1 har inget sådant undantag.
+    lagrum:
+      - PBL 4 kap. 2 §
+      - PBL 9 kap. 57 §
+    taggar: [detaljplanekrav, lokaliseringsprovning]
+
+  - id: utp-043
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En man ringer till bygglovsenheten. Han har köpt en skogsfastighet utanför Åkerslunda och
+      vill bygga ett bostadshus för permanent boende, men vet inte om kommunen kommer att godta
+      platsen. Vad är ditt bästa råd?
+    alternativ:
+      - text: Att först söka förhandsbesked, så att platsens lämplighet prövas innan han lägger pengar på ritningar, och att tidigt ta reda på hur vatten, avlopp och utfart kan ordnas.
+        ratt: true
+      - text: Att söka bygglov direkt med konstruktionsritningar, eftersom förhandsbesked bara finns inom detaljplan.
+      - text: Att begära planbesked, eftersom ett enstaka bostadshus utanför plan alltid kräver detaljplan.
+      - text: Att börja bygga, eftersom bostadshus utanför detaljplan inte kräver bygglov.
+    forklaring: >
+      Ett förhandsbesked (9 kap. 41 § PBL) prövar just frågan om åtgärden kan lokaliseras till
+      platsen och kräver bara enkla handlingar, t.ex. en karta med husets ungefärliga läge.
+      Ett positivt besked binder nämnden om bygglov söks inom två år från laga kraft (42 §).
+      Förutsättningarna är desamma som för lokaliseringen i ett bygglov (74 §), så VA (2 kap.
+      5 § och tillstånd för avlopp) och utfart mot väg är frågor han bör ta reda på tidigt.
+      Ett enstaka hus kräver normalt inte detaljplan (4 kap. 2 § tredje stycket), och ett
+      bostadshus kräver alltid bygglov (9 kap. 3 §). Rådgivningen är en del av
+      serviceskyldigheten (6 § FL).
+    lagrum:
+      - PBL 9 kap. 41 §
+      - PBL 9 kap. 42 §
+      - PBL 9 kap. 74 §
+      - PBL 9 kap. 3 §
+      - FL 6 §
+    taggar: [forhandsbesked, service, vardag]
+
+  - id: utp-044
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Utanför detaljplan krävs inte bygglov för en komplementbyggnad eller ett
+      komplementbostadshus som bland annat får en byggnadsarea på högst ___ kvm, en taknockshöjd
+      på högst ___ m och som tillsammans med övriga komplementbyggnader och komplementbostadshus
+      på tomten får en sammanlagd byggnadsarea på högst ___ kvm.
+    svar: ["50", ["4,5", "4.5"], "65"]
+    forklaring: >
+      Gränserna står i 9 kap. 5 § PBL. Byggnaden måste också vara mindre än den byggnad den
+      kompletterar och placeras inom tomten. Äldre lovbefriade komplementbyggnader, t.ex.
+      friggebodar och attefallshus från före 2025-12-01, räknas in i potten på 65 kvm. Inom
+      detaljplan är gränserna lägre: 30 kvm, 4 m och 45 kvm (4 §). Tillbyggnad av en
+      komplementbyggnad utanför plan har samma gränser (12 §). Nära gräns och järnväg kan lov
+      ändå krävas (34 och 35 §§).
+    lagrum:
+      - PBL 9 kap. 5 §
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 12 §
+      - PBL 9 kap. 34 §
+    taggar: [komplementbyggnad, lovbefriad, pott, siffror]

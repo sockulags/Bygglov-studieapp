@@ -942,3 +942,236 @@ fragor:
       förvaltningslagen att hjälpa henne vidare även när svaret är att nämnden inte kan ingripa.
     lagrum: [FL 6 §, PBL 2 kap. 9 §, JB 3 kap. 2 §, JB 3 kap. 3 §]
     taggar: [grannelag, bemotande, civilratt]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: angr-041
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I en detaljplan från 1995 för ett bostadsområde vid Åkerslundasjön upphävdes strandskyddet.
+      Kommunen ersätter nu planen med en ny detaljplan med samma användning, men glömmer att ta
+      ställning till strandskyddet. Vad händer med strandskyddet när den nya planen vinner laga
+      kraft?
+    alternativ:
+      - text: Strandskyddet gäller åter, eftersom det inträder när en detaljplan ersätts med en ny, om inte kommunen i den nya planen bestämt att det fortsatt ska vara upphävt.
+        ratt: true
+      - text: Strandskyddet förblir upphävt för all framtid, eftersom det en gång har upphävts.
+      - text: Strandskyddet gäller åter först om länsstyrelsen beslutar det.
+      - text: Strandskyddet gäller åter bara för obebyggda tomter.
+    forklaring: >
+      Enligt 7 kap. 18 j § miljöbalken gäller strandskyddet åter om ett område med upphävt
+      strandskydd upphör att omfattas av planen eller om planen ersätts med en ny detaljplan.
+      Kommunen kan undvika det genom att i den nya planen bestämma att strandskyddet fortsatt ska
+      vara upphävt, och om området ska ha samma användning som tidigare behöver kommunen då inte
+      pröva särskilda skäl på nytt (4 kap. 17 a § PBL). För bygglovshandläggaren betyder det att
+      man alltid ska kontrollera vad den gällande planen säger om strandskydd; en ny plan kan ha
+      gjort tidigare upphävt strandskydd aktuellt igen.
+    lagrum:
+      - MB 7 kap. 18 j §
+      - PBL 4 kap. 17 a §
+      - PBL 4 kap. 17 §
+    taggar: [strandskydd, detaljplan, upphavande]
+
+  - id: angr-042
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Kommunen vill i en ny detaljplan upphäva strandskyddet för en småbåtshamn och några
+      bostadstomter vid sjön. Vad krävs enligt 4 kap. 17 § PBL?
+    alternativ:
+      - text: Att det finns särskilda skäl och att intresset av att ta området i anspråk enligt planen väger tyngre än strandskyddsintresset.
+        ratt: true
+      - text: Att länsstyrelsen först har gett dispens för varje tomt.
+      - text: Att markägarna är överens om att strandskyddet ska upphävas.
+      - text: Ingenting särskilt; strandskyddet upphävs automatiskt när planen antas.
+    forklaring: >
+      I en detaljplan får kommunen upphäva strandskyddet om det finns särskilda skäl och
+      intresset av att ta området i anspråk väger tyngre än strandskyddsintresset (4 kap. 17 §
+      PBL). Skälen är desamma som för dispens enligt 7 kap. 18 e och 18 g §§ miljöbalken, t.ex. att
+      en anläggning för sin funktion måste ligga vid vattnet, och kravet på fri passage i 18 i §
+      gäller också. Upphävandet får inte avse områden där länsstyrelsen beslutar enligt 7 kap.
+      18 § första stycket 2 miljöbalken. Länsstyrelsen kan dessutom överpröva planen om
+      strandskyddet upphävs i strid med bestämmelserna.
+    lagrum:
+      - PBL 4 kap. 17 §
+      - MB 7 kap. 18 e §
+      - MB 7 kap. 18 i §
+      - MB 7 kap. 18 §
+    taggar: [strandskydd, detaljplan, upphavande]
+
+  - id: angr-043
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En yrkesfiskare vill bygga en bod för redskap vid sin brygga vid Åkersjön, inom
+      strandskyddsområdet. Boden ska användas i hans fiskeverksamhet och måste ligga vid vattnet.
+      Behövs strandskyddsdispens?
+    alternativ:
+      - text: Nej, förbuden gäller inte en byggnad som inte är avsedd för bostadsändamål och som behövs för en varaktig förvärvsverksamhet inom bl.a. fiske, om den för sin funktion måste ligga inom strandskyddsområdet.
+        ratt: true
+      - text: Ja, all byggnation inom strandskyddsområde kräver dispens.
+      - text: Nej, men bara om boden är mindre än 15 kvm.
+      - text: Ja, men dispensen prövas av Havs- och vattenmyndigheten.
+    forklaring: >
+      7 kap. 16 § 1 miljöbalken undantar byggnader och anläggningar för jord- och skogsbruk,
+      fiske, vattenbruk och renskötsel från förbuden i 15 §, om de inte är avsedda för
+      bostadsändamål, behövs för en förvärvsverksamhet som ska bedrivas varaktigt och för sin
+      funktion måste finnas inom strandskyddsområdet. En fritidsfiskares förråd omfattas inte.
+      Handläggaren bör be om underlag som visar att verksamheten är yrkesmässig. Bygglovsfrågan
+      prövas separat; utanför detaljplan kan boden vara en lovbefriad ekonomibyggnad (9 kap.
+      6 § PBL), men nära gräns och i vissa områden kan lov krävas ändå.
+    lagrum:
+      - MB 7 kap. 16 §
+      - MB 7 kap. 15 §
+      - PBL 9 kap. 6 §
+    taggar: [strandskydd, undantag, ekonomibyggnad]
+
+  - id: angr-044
+    typ: ordning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid schaktning för en villagrund påträffas något som ser ut som en fornlämning. Ordna det
+      som ska ske enligt 2 kap. kulturmiljölagen.
+    poster:
+      - Arbetet avbryts omedelbart till den del fornlämningen berörs
+      - Den som leder arbetet anmäler fyndet till länsstyrelsen
+      - Byggherren ansöker om tillstånd hos länsstyrelsen för att få ändra eller ta bort fornlämningen
+      - Länsstyrelsen beslutar om tillstånd och kan ställa villkor om arkeologisk undersökning
+      - Arbetet återupptas enligt tillståndet och villkoren
+    forklaring: >
+      Påträffas en fornlämning under grävning ska arbetet omedelbart avbrytas till den del
+      fornlämningen berörs, och den som leder arbetet ska omedelbart anmäla det till
+      länsstyrelsen (2 kap. 10 § KML). För att få rubba eller ta bort fornlämningen krävs
+      länsstyrelsens tillstånd (12 §), som får förenas med villkor om bl.a. arkeologisk
+      undersökning (13 §). Bygglovet ger inte rätt att skada en fornlämning; nämnden ska upplysa
+      om kraven enligt annan lag (9 kap. 92 § PBL). Bättre är att byggherren i förväg kontaktar
+      länsstyrelsen (10 § första stycket).
+    lagrum:
+      - KML 2 kap. 10 §
+      - KML 2 kap. 12 §
+      - KML 2 kap. 13 §
+      - PBL 9 kap. 92 §
+    taggar: [fornlamning, kulturmiljolagen, byggskede]
+
+  - id: angr-045
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilka av följande frågor är civilrättsliga eller hör till någon annan myndighet, så att
+      byggnadsnämnden inte avgör dem i ett bygglovsärende?
+    alternativ:
+      - text: Om grannen får såga av grenar som hänger in över tomtgränsen.
+        ratt: true
+      - text: Hur kostnaderna för en gemensam väg ska fördelas mellan tre fastigheter.
+        ratt: true
+      - text: Om en ny utfart får anslutas till en allmän väg.
+        ratt: true
+      - text: Om ett nytt hus medför betydande olägenhet för grannen genom skuggning.
+      - text: Om tomten har en lämpligt belägen utfart.
+    forklaring: >
+      Grenar och rötter regleras i 3 kap. 2 § jordabalken och är en fråga mellan grannarna.
+      Kostnadsfördelning för en gemensamhetsanläggning bestäms vid lantmäteriförrättning enligt
+      anläggningslagen (1 och 4 §§). Anslutning till allmän väg prövas av väghållningsmyndigheten
+      (39 § väglagen). Betydande olägenhet för omgivningen (2 kap. 9 § PBL) och att tomten har en
+      lämpligt belägen utfart (8 kap. 9 § PBL) prövar däremot nämnden i lovet. Att kunna skilja
+      på detta gör det lättare att ge rätt besked och hänvisa vidare (6 § FL).
+    lagrum:
+      - JB 3 kap. 2 §
+      - AL 1 §
+      - AL 4 §
+      - VägL 39 §
+      - PBL 2 kap. 9 §
+      - PBL 8 kap. 9 §
+      - FL 6 §
+    taggar: [civilratt, grannelag, gemensamhetsanlaggning, vag]
+
+  - id: angr-046
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande har fått strandskyddsdispens från kommunen för ett gästhus vid sjön och tror att
+      han nu kan börja bygga. Gästhuset kräver bygglov. Vad säger du till honom?
+    alternativ:
+      - text: Att dispensen och bygglovet är två skilda prövningar. Han behöver också bygglov och startbesked, och dispensen kan överprövas av länsstyrelsen.
+        ratt: true
+      - text: Att dispensen ersätter bygglovet, eftersom båda prövas av kommunen.
+      - text: Att han kan börja bygga och söka bygglov i efterhand.
+      - text: Att han bara behöver göra en anmälan till byggnadsnämnden.
+    forklaring: >
+      Strandskyddsdispens prövas enligt 7 kap. miljöbalken och bygglov enligt PBL. Båda behövs när
+      åtgärden kräver båda, och de prövar olika saker. Även med lov får åtgärden inte påbörjas
+      förrän nämnden gett startbesked (10 kap. 3 § PBL). Kommunens dispensbeslut ska skickas till
+      länsstyrelsen, som kan överpröva det (19 kap. 3 a och 3 b §§ MB), så det är klokt att vänta
+      tills den tiden har gått. Att bygga utan lov och startbesked kan leda till
+      byggsanktionsavgift.
+    lagrum:
+      - MB 7 kap. 15 §
+      - MB 19 kap. 3 a §
+      - MB 19 kap. 3 b §
+      - PBL 10 kap. 3 §
+    taggar: [strandskydd, bygglov, startbesked, vardag]
+
+  - id: angr-047
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Om en åtgärd kräver tillstånd enligt en annan lag, t.ex. strandskyddsdispens eller
+      tillstånd för avlopp, ska byggnadsnämnden upplysa sökanden om det.
+    svar: true
+    forklaring: >
+      Enligt 9 kap. 92 § PBL ska byggnadsnämnden upplysa sökanden när den finner att åtgärden
+      också omfattas av krav på tillstånd eller anmälan enligt annan lag. Upplysningen
+      skrivs ofta i beslutet under Upplysningar. Nämnden ska också samordna prövningen med
+      prövning enligt annan lag när det kan ske (2 kap. 11 §). Om åtgärden kräver
+      strandskyddsdispens får lovärendet förklaras vilande tills dispensfrågan är avgjord (102 §).
+    lagrum:
+      - PBL 9 kap. 92 §
+      - PBL 2 kap. 11 §
+      - PBL 9 kap. 102 §
+    taggar: [upplysning, samordning, annan_lag]
+
+  - id: angr-048
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En detaljplan för ett nytt villaområde har ett område betecknat g, avsett för en
+      gemensamhetsanläggning för lokalgata och lekplats. Under genomförandetiden ansöker en
+      fastighetsägare om förrättning. Vilka villkor i anläggningslagen ska då INTE prövas?
+    alternativ:
+      - text: Villkoren om väsentlig betydelse för varje deltagande fastighet (5 §) och att fördelarna överväger kostnaderna (6 §).
+        ratt: true
+      - text: Att anläggningen inte får strida mot detaljplanen (9 §).
+      - text: Att frågan prövas vid förrättning hos lantmäterimyndigheten (1 och 4 §§).
+      - text: Alla villkor; detaljplanen ersätter förrättningen.
+    forklaring: >
+      Enligt 6 a § anläggningslagen ska 5 och 6 §§ inte tillämpas om detaljplanen har bestämmelser
+      om en gemensamhetsanläggning och anläggningsbeslutet meddelas under genomförandetiden.
+      Kommunen har då redan prövat behovet i planen. Frågan prövas fortfarande vid förrättning hos
+      lantmäterimyndigheten, och anläggningen får inte strida mot planen (9 §). För
+      bygglovshandläggaren är det ett exempel på hur planen styr genomförandet, och ett skäl att
+      läsa planens genomförandebeskrivning.
+    lagrum:
+      - AL 6 a §
+      - AL 5 §
+      - AL 6 §
+      - AL 9 §
+      - AL 4 §
+      - PBL 4 kap. 18 §
+    taggar: [gemensamhetsanlaggning, detaljplan, genomforande]

@@ -1,8 +1,11 @@
 import type { CaseFile } from '@bygglov/content-schema';
 import {
   DECISION_OUTCOME_LABELS,
+  decisionOutcomeLabel,
   formatKronor,
   isGrant,
+  permitKind,
+  permitNoun,
   type DecisionDraft,
   type DecisionOutcome,
   type DeliveryMethod,
@@ -38,7 +41,29 @@ export const OUTCOME_OPTIONS: { value: DecisionOutcome; label: string; hint: str
     label: DECISION_OUTCOME_LABELS.avskriva,
     hint: 'Ärendet avslutas utan prövning, t.ex. när ansökan återkallats.',
   },
+  {
+    value: 'startbesked',
+    label: DECISION_OUTCOME_LABELS.startbesked,
+    hint: 'En anmäld åtgärd får påbörjas. Startbeskedet fastställer kontrollplanen (10 kap. 23 c och 24 §§ PBL).',
+  },
 ];
+
+/** The outcome options named for the case, e.g. "Bevilja marklov". */
+export function outcomeOptions(
+  caseFile: CaseFile,
+): { value: DecisionOutcome; label: string; hint: string }[] {
+  const advance = permitKind(caseFile) === 'forhandsbesked';
+  return OUTCOME_OPTIONS.map((option) => ({
+    ...option,
+    label: decisionOutcomeLabel(option.value, caseFile),
+    hint:
+      advance && option.value === 'bevilja'
+        ? 'Åtgärden kan tillåtas på platsen (9 kap. 41 §).'
+        : advance && option.value === 'bevilja_med_villkor'
+          ? 'Förhandsbeskedet förenas med villkor inför bygglovsprövningen (9 kap. 104 § 3).'
+          : option.hint,
+  }));
+}
 
 export const DELIVERY_OPTIONS: { value: DeliveryMethod; label: string; hint: string }[] = [
   { value: 'delges', label: 'Delges', hint: 'Med delgivningskvitto (9 kap. 108 § PBL)' },
@@ -59,24 +84,34 @@ export function isSupervisionCase(caseFile: Pick<CaseFile, 'niva'>): boolean {
 function caseObject(caseFile: CaseFile): string {
   const title = isSupervisionCase(caseFile)
     ? caseFile.titel.replace(/^Tillsyn:\s*/i, '')
-    : caseFile.titel;
+    : caseFile.titel.replace(/^Anmälan:\s*/i, '');
   return title.charAt(0).toLowerCase() + title.slice(1);
+}
+
+/** The case title already names the kind of permit, e.g. "Marklov och trädfällning …". */
+function titleNamesPermit(caseFile: CaseFile): boolean {
+  return caseObject(caseFile).startsWith(permitNoun(caseFile));
 }
 
 /** Heading of the decision document. */
 export function decisionTitle(outcome: DecisionOutcome, caseFile: CaseFile): string {
   const what = caseObject(caseFile);
   if (isSupervisionCase(caseFile)) return `Beslut i tillsynsärende om ${what}`;
+  const noun = permitNoun(caseFile);
+  // "Beslut om marklov och trädfällning …" rather than "… om marklov för marklov och …".
+  const about = titleNamesPermit(caseFile) ? what : `${noun} för ${what}`;
   switch (outcome) {
     case 'bevilja':
     case 'bevilja_med_villkor':
-      return `Beslut om bygglov för ${what}`;
+      return `Beslut om ${about}`;
     case 'avsla':
-      return `Beslut om avslag på ansökan om bygglov för ${what}`;
+      return `Beslut om avslag på ansökan om ${about}`;
     case 'avvisa':
-      return `Beslut om avvisning av ansökan om bygglov för ${what}`;
+      return `Beslut om avvisning av ansökan om ${about}`;
     case 'avskriva':
       return `Beslut om avskrivning av ärende om ${what}`;
+    case 'startbesked':
+      return `Startbesked för ${what}`;
   }
 }
 
@@ -86,6 +121,7 @@ const VERB: Record<DecisionOutcome, string> = {
   avsla: 'avslår ansökan om bygglov',
   avvisa: 'avvisar ansökan om bygglov',
   avskriva: 'avskriver ärendet',
+  startbesked: 'ger startbesked',
 };
 
 const SUPERVISION_VERB: Record<DecisionOutcome, string> = {
@@ -94,7 +130,22 @@ const SUPERVISION_VERB: Record<DecisionOutcome, string> = {
   avsla: 'avslår ansökan om bygglov i efterhand',
   avvisa: 'avvisar ansökan om bygglov i efterhand',
   avskriva: 'avskriver ärendet',
+  startbesked: 'ger startbesked',
 };
+
+/** "beviljar marklov med villkor", "ger positivt förhandsbesked". */
+function permitVerb(outcome: DecisionOutcome, caseFile: CaseFile): string {
+  const kind = permitKind(caseFile);
+  if (kind === 'bygglov') return VERB[outcome];
+  const noun = permitNoun(caseFile);
+  if (kind === 'forhandsbesked') {
+    if (outcome === 'bevilja') return 'ger positivt förhandsbesked';
+    if (outcome === 'bevilja_med_villkor') return 'ger positivt förhandsbesked med villkor';
+  }
+  if (outcome === 'bevilja') return `beviljar ${noun}`;
+  if (outcome === 'bevilja_med_villkor') return `beviljar ${noun} med villkor`;
+  return VERB[outcome].replace('bygglov', noun);
+}
 
 /** "Bygg- och miljönämnden beviljar bygglov … med stöd av 9 kap. 56 § PBL." */
 export function decisionSentence(
@@ -108,9 +159,13 @@ export function decisionSentence(
   const what = caseObject(caseFile);
   const supervision = isSupervisionCase(caseFile);
   const object =
-    draft.utfall === 'avskriva' ? '' : supervision ? ` i ärendet om ${what}` : ` för ${what}`;
+    draft.utfall === 'avskriva'
+      ? ''
+      : supervision || titleNamesPermit(caseFile)
+        ? ` i ärendet om ${what}`
+        : ` för ${what}`;
   const basis = draft.lagstod.length > 0 ? `, med stöd av ${joinSwedish(draft.lagstod)}` : '';
-  const verb = (supervision ? SUPERVISION_VERB : VERB)[draft.utfall];
+  const verb = supervision ? SUPERVISION_VERB[draft.utfall] : permitVerb(draft.utfall, caseFile);
   return { body: DECIDING_BODY, verb, rest: `${object}${basis}.` };
 }
 
@@ -140,6 +195,13 @@ export function appealText(
       options.diaryNumber ? ` (diarienummer ${options.diaryNumber})` : ''
     }, varför ni anser att beslutet är fel och vilken ändring ni vill ha. Ange namn, adress och telefonnummer och underteckna skrivelsen.`,
   ];
+  if (options.outcome === 'startbesked') {
+    paragraphs.splice(
+      2,
+      0,
+      'Startbeskedet kan inte överklagas i den del det gäller behovet av kontrollplan, kontrollansvarig, sakkunnig, tekniskt samråd eller slutsamråd (13 kap. 2 § 5 PBL).',
+    );
+  }
   return paragraphs;
 }
 

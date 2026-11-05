@@ -12,11 +12,16 @@ import { addDays, daysBetween } from './dates';
 import {
   caseDeadline,
   formatKronor,
-  MAX_EXTENSION_WEEKS,
+  maxExtensionWeeks,
   suspensionLawRef,
   SUSPENSION_REASON_TEXT,
 } from './deadline';
-import { assessDecision, assessmentScore, DECISION_OUTCOME_LABELS } from './decision';
+import {
+  assessDecision,
+  assessmentScore,
+  decisionOutcomeLabel,
+  isNotificationCase,
+} from './decision';
 import { CaseEngineError } from './errors';
 import {
   criteriaOf,
@@ -73,6 +78,7 @@ export function startCase(caseFile: CaseFile, options: StartCaseOptions): CaseSt
     completionDate: null,
     amendmentDates: [],
     supervision: caseFile.niva === 4,
+    notification: isNotificationCase(caseFile),
     extensionWeeks: 0,
     extensionReason: null,
     suspensions: [],
@@ -346,7 +352,7 @@ export function submitDecision(
   log(s, {
     kind: 'beslut',
     stepId: step.id,
-    text: `Beslut: ${DECISION_OUTCOME_LABELS[draft.utfall]}.${draft.avgift !== null ? ` Avgift ${formatKronor(draft.avgift)}.` : ''}`,
+    text: `Beslut: ${decisionOutcomeLabel(draft.utfall, caseFile)}.${draft.avgift !== null ? ` Avgift ${formatKronor(draft.avgift)}.` : ''}`,
   });
   s.currentIndex += 1;
   const firedEvents = fireEvents(caseFile, s, { decision: draft.utfall });
@@ -390,10 +396,11 @@ export function extendDeadline(state: CaseState, weeks: number, reason?: string)
       'Tidsfristen har redan förlängts. Den får förlängas en gång (9 kap. 99 § andra stycket).',
     );
   }
-  if (!Number.isInteger(weeks) || weeks < 1 || weeks > MAX_EXTENSION_WEEKS) {
+  const maxWeeks = maxExtensionWeeks(state);
+  if (!Number.isInteger(weeks) || weeks < 1 || weeks > maxWeeks) {
     throw new CaseEngineError(
       'invalid_extension',
-      `Förlängningen ska vara 1–${MAX_EXTENSION_WEEKS} hela veckor (9 kap. 99 § andra stycket).`,
+      `Förlängningen ska vara 1–${maxWeeks} hela veckor (9 kap. 99 § andra stycket${state.notification ? ' och 6 kap. 5 § PBF' : ''}).`,
     );
   }
   if (state.deadlineDate !== null && state.simDate > state.deadlineDate) {
@@ -543,7 +550,7 @@ function suspend(
     ...source,
     text:
       `Ärendet förklaras vilande: det ska inte avgöras förrän ${SUSPENSION_REASON_TEXT[reason]} (${suspensionLawRef(reason)}). ` +
-      'Tioveckorsfristen löper inte medan ärendet vilar, och avgiften reduceras inte när fristen överskrids på grund av vilandebeslutet (12 kap. 8 a §). Handläggningen i övrigt fortsätter.',
+      'Tidsfristen löper inte medan ärendet vilar, och avgiften reduceras inte när fristen överskrids på grund av vilandebeslutet (12 kap. 8 a §). Handläggningen i övrigt fortsätter.',
   });
   updateDeadline(state, false, true);
 }
@@ -559,7 +566,7 @@ function resume(state: CaseState, eventId: string): void {
     eventId,
     text:
       `Vilandeförklaringen upphör ${state.simDate}: ${SUSPENSION_REASON_TEXT[open.reason]}. ` +
-      `Ärendet var vilande i ${days} ${days === 1 ? 'dag' : 'dagar'} sedan ${open.from} (${suspensionLawRef(open.reason)}), och tioveckorsfristen löper igen.`,
+      `Ärendet var vilande i ${days} ${days === 1 ? 'dag' : 'dagar'} sedan ${open.from} (${suspensionLawRef(open.reason)}), och tidsfristen löper igen.`,
   });
   updateDeadline(state, true);
 }
@@ -599,7 +606,21 @@ function applyEvent(
     addDocument(state, doc, state.simDate);
   }
   if (effekt.meddelande) {
-    const values = { ...caseTemplateValues(state), inkomdatum: state.simDate };
+    // {{frist}} in the message is the deadline after this event: a completion or a new start
+    // of the deadline that the same event brings is counted in.
+    const after: CaseState = {
+      ...state,
+      completionDate: effekt.satt_komplett_datum ? state.simDate : state.completionDate,
+      amendmentDates:
+        effekt.ny_fristdag !== undefined
+          ? [...state.amendmentDates, state.simDate]
+          : state.amendmentDates,
+    };
+    const values = {
+      ...caseTemplateValues(state),
+      frist: caseDeadline(after).deadlineDate,
+      inkomdatum: state.simDate,
+    };
     log(state, {
       kind: 'handelse',
       eventId: event.id,

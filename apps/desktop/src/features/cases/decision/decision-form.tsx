@@ -9,7 +9,7 @@ import { caseLawRefs, recipientSuggestions } from '../case-model';
 import {
   appealText,
   DELIVERY_OPTIONS,
-  OUTCOME_OPTIONS,
+  outcomeOptions,
   parseFee,
   taxaLabel,
   taxaLines,
@@ -81,6 +81,7 @@ export function DecisionForm({
   const refs = caseLawRefs(caseFile);
   const suggestions = recipientSuggestions(caseFile);
   const taxa = taxaLines(caseFile.taxa);
+  const options = outcomeOptions(caseFile);
   const feeValue = parseFee(feeInput);
   const feeInvalid = feeValue !== null && Number.isNaN(feeValue);
 
@@ -126,8 +127,8 @@ export function DecisionForm({
 
   // 1–5 choose the outcome when focus is not in a text field.
   useKeydown((event) => {
-    if (!/^[1-5]$/.test(event.key)) return;
-    const option = OUTCOME_OPTIONS[Number(event.key) - 1];
+    if (!/^[1-9]$/.test(event.key)) return;
+    const option = options[Number(event.key) - 1];
     if (!option) return;
     event.preventDefault();
     update({ utfall: option.value });
@@ -149,7 +150,7 @@ export function DecisionForm({
     >
       <Section number={1} title="Beslut">
         <div role="radiogroup" aria-label="Beslut" className="flex flex-col gap-1.5">
-          {OUTCOME_OPTIONS.map((option, index) => (
+          {options.map((option, index) => (
             <label
               key={option.value}
               className={cn(
@@ -267,7 +268,11 @@ export function DecisionForm({
       <Section
         number={4}
         title="Villkor och upplysningar"
-        hint="T.ex. startbesked, giltighetstid, kungörelse, kontrollansvarig. En tom rad ger nytt stycke."
+        hint={
+          draft.utfall === 'startbesked'
+            ? 'T.ex. kontrollplanen som fastställs, handlingar inför slutbesked, giltighetstid, annan lagstiftning. En tom rad ger nytt stycke.'
+            : 'T.ex. startbesked, giltighetstid, kungörelse, kontrollansvarig. En tom rad ger nytt stycke.'
+        }
       >
         <label htmlFor={`${baseId}-upplysningar`} className="sr-only">
           Villkor och upplysningar

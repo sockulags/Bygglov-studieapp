@@ -34,6 +34,7 @@ import {
   stepFeedback,
   visibleDocuments,
   type DecisionDraft,
+  isNotificationCase,
 } from '@/engine';
 import { AskTutorButton, DECISION_SUGGESTIONS, useCaseTutorContext } from '@/features/tutor';
 import { cn } from '@/lib/cn';
@@ -152,7 +153,8 @@ function StartCase({ caseFile }: { caseFile: CaseFile }) {
           </h1>
           <p className="inline-flex items-center gap-1 text-sm text-muted">
             <MapPin className="size-4" aria-hidden="true" />
-            {caseFile.fastighet} · ansökan inkom {caseFile.startdatum}
+            {caseFile.fastighet} · {isNotificationCase(caseFile) ? 'anmälan' : 'ansökan'} inkom{' '}
+            {caseFile.startdatum}
           </p>
           <p className="text-[1.0625rem] leading-relaxed">{caseFile.sammanfattning}</p>
           <div>
@@ -361,7 +363,9 @@ function CaseWorkspace({
               onClick={() => setExtendOpen(true)}
               title={
                 extension.allowed
-                  ? 'Förläng tidsfristen en gång med högst tio veckor (9 kap. 99 § andra stycket)'
+                  ? state.notification
+                    ? 'Förläng fristen för anmälan en gång med högst fyra veckor (6 kap. 5 § PBF)'
+                    : 'Förläng tidsfristen en gång med högst tio veckor (9 kap. 99 § andra stycket)'
                   : extension.reason
               }
             >

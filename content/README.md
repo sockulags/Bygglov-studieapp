@@ -71,7 +71,10 @@ börja med ärendets id (`A` + tre siffror). Utgå från `A002-tillbyggnad-bjork
 - **Huvudfält**: `id`, `titel`, `niva` (1–4), `status`, `rattslage`, `fastighet`,
   `sammanfattning`, `startdatum` (ÅÅÅÅ-MM-DD), `larandemal`, `taxa` (post: belopp; postens namn
   visas i appen, så skriv det med å, ä och ö), valfritt
-  `moduler` och `facit`.
+  `moduler`, `facit` och `lovtyp` (`bygglov` som standard, `marklov`, `rivningslov` eller
+  `forhandsbesked`). `lovtyp` styr hur beslutet heter i formuläret och på beslutet ("Bevilja
+  marklov", "Ge positivt förhandsbesked") och vilka upplysningar kontrollen letar efter
+  (9 kap. 104 § för förhandsbesked, 105 § för lov).
 - **`handlingar`**: `id`, `typ` (t.ex. `situationsplan`), `titel`, `fil` (ska ligga under
   `handlingar/`), valfritt `inkom`, `parametrar`, `fakta` och `dold_tills: <händelse-id>`.
   Se [Så skriver du handlingar](#så-skriver-du-handlingar).
@@ -79,8 +82,8 @@ börja med ärendets id (`A` + tre siffror). Utgå från `A002-tillbyggnad-bjork
   `checklista` (`poster` med `finns`), `fraga` (`fragetyp` flerval/flersvar/sant_falskt/oppen),
   `berakning` (`fragor` med `svar` och `tolerans`), `urval` (`alternativ` med `ratt`),
   `skrivelse` (`bedomningspunkter`, valfritt `modelltext` och `ar_forelaggande: true`),
-  `beslut` (`forvantat_beslut`: bevilja, bevilja_med_villkor, avsla, avvisa eller avskriva,
-  `bedomningspunkter` och valfritt `godtagbara_utfall`). Alla steg kan ha `vilande`.
+  `beslut` (`forvantat_beslut`: bevilja, bevilja_med_villkor, avsla, avvisa, avskriva eller
+  startbesked, `bedomningspunkter` och valfritt `godtagbara_utfall`). Alla steg kan ha `vilande`.
 - **`handelser`**: `id`, `namn`, `utlosare` och `effekt`. Utlösare (alla angivna villkor ska
   gälla): `efter_steg`, `vid_beslut`, `om_missat`, `om_forelagt`, `slump` (0–1). Effekter:
   `visa_handlingar`, `tid_framat_dagar`, `meddelande`, `satt_komplett_datum`, `ny_fristdag`,
@@ -103,6 +106,14 @@ Så tolkar ärendemotorn ärendet (bra att veta när du skriver):
 - `satt_komplett_datum: true` betyder att bristerna avhjälptes den dag händelsen inträffar
   (efter `tid_framat_dagar`). Om föreläggandet skickades inom tre veckor räknas
   tioveckorsfristen från den dagen (9 kap. 99 § första stycket 4).
+- **Ett ärende med `forvantat_beslut: startbesked` är en anmälan** (t.ex. eldstad eller VA,
+  PBF 6 kap. 1 §). Tidsfristen är då fyra veckor i stället för tio och kan förlängas med högst
+  fyra veckor (6 kap. 5 § PBF); föreläggande om komplettering och avgiftsreduktion fungerar som
+  för lov. Beslutskontrollen godtar lagstöd i 10 kap. 23 eller 23 c § PBL, kräver att byggherren
+  finns i expedieringen (delgivning är ett tips, inte ett krav, eftersom 9 kap. 108 § gäller lov)
+  och letar i motivering och upplysningar efter kontrollplanen, handlingarna inför slutbesked,
+  att det nya inte får tas i bruk före slutbesked och giltighetstiden (10 kap. 4, 24, 24 a och
+  25 §§). Startbeskedet kungörs inte. Se A007.
 - **Nivå 4 är tillsyn.** Ett tillsynsärende har ingen tidsfrist enligt 9 kap. 99 §: rubrikraden
   visar "Tillsyn, ingen frist", diariet förklarar varför och fristen kan inte förlängas. Kommer en
   ansökan om lov i efterhand in, skriv `ny_fristdag: ansokan_om_lov_i_efterhand` på händelsen;
@@ -153,7 +164,7 @@ och appen fyller i steg och handlingar när de visas.
 | `{{ansokningsdatum}}` | Ansökningsdagen (`startdatum`) |
 | `{{beslutsdatum}}` | Dagen då beslutet fattades |
 | `{{kungorelsedatum}}` | Dagen då beslutet kungjordes på anslagstavlan; i simuleringen två dagar efter beslutet |
-| `{{frist}}` | Sista dagen för beslut enligt 9 kap. 99 § som den ser ut just nu |
+| `{{frist}}` | Sista dagen för beslut enligt 9 kap. 99 § som den ser ut just nu (i ett meddelande: efter händelsens `satt_komplett_datum` och `ny_fristdag`) |
 | `{{inkomdatum}}` | Dagen då handlingen kom in (bara i handlingar och meddelanden) |
 
 - `{{kungorelsedatum+19}}` och `{{simdatum-14}}` lägger till eller drar ifrån dagar.
@@ -265,6 +276,7 @@ Gemensamt för alla ritningstyper:
 | `hus` | Befintlig huvudbyggnad, rektangel. Ange `hus`, `nybyggnad` eller båda. |
 | `nybyggnad` | Ny huvudbyggnad, t.ex. ett nytt bostadshus på en obebyggd tomt (skrafferas) |
 | `huvudbyggnad_namn` | Etikett på huvudbyggnaden, t.ex. "Nytt flerbostadshus" (annars "Befintligt/Nytt bostadshus") |
+| `nybyggnader` | Fler nya huvudbyggnader, lista med `{ rektangel, namn }`, t.ex. ett hus på varje ny tomt. Skrafferas och måttsätts som `nybyggnad` |
 | `tillbyggnad`, `komplementbyggnad` | Ny byggnadsdel, rektangel (skrafferas) |
 | `komplementbyggnad_namn` | Etikett på komplementbyggnaden, t.ex. "Miljöhus och cykelförråd" |
 | `ovriga_byggnader` | Befintliga byggnader, lista med `{ rektangel, namn }` |
@@ -275,18 +287,26 @@ Gemensamt för alla ritningstyper:
 | `parkering` | Lista med `{ rektangel, platser, tillgangliga (0), namn }`. Ytan delas i `platser` platser längs den långa sidan; de första `tillgangliga` blir 5 m breda och märks PRH |
 | `anlaggningar` | Annat på tomten (altan, markbädd …), lista med `{ rektangel, namn }`, ritas tunt streckat |
 | `punkter` | Punkter med namn, t.ex. `[{ punkt: [10, 28], namn: Borrad brunn }]` |
+| `pooler` | Pool eller annan vattenyta, lista med `{ rektangel, namn }`. Kant och vattenyta med vågräta streck |
+| `trad` | Träd, lista med `{ punkt, namn, stamdiameter, krondiameter (6), status }`. Kronan ritas som en cirkel och stammen som en prick; `status: falls` ger streckad krona och kryss, `bevaras` (standard) hel krona. Etiketten hamnar på en ledig plats bredvid stammen |
+| `hojder` | Markhöjder, lista med `{ punkt, befintlig, ny }` i meter över nollplanet. Befintlig höjd skrivs som text (+24,75), ny höjd i en ram under (+24,05). Minst en av dem |
+| `tomter` | Nya tomtgränser inom området, t.ex. vid avstyckning: lista med `{ rektangel, namn, area }`. Gränserna ritas streckade (inte där de sammanfaller med ytterkanten), `namn` och `area` (m², som den ska stå) skrivs i tomten, och måttkedjorna bryts vid tomtgränserna. Byggnader måttsätts mot sin egen tomt. Teckenförklaringen kallar då ytterkanten "Gräns för området som ska styckas av" |
+| `fornlamningar` | Fornlämningar, lista med `{ rektangel, namn }` (ett område) eller `{ punkt, namn }` (en enskild). Skrafferas med prickad kontur och får ligga utanför tomten; ett område utanför tomten måttsätts från tomtgränsen |
 | `utfart` | `{ sida, lage, bredd, langd (6) }`; `lage` räknas från tomtens västra eller norra hörn |
 | `strandlinje` | `{ sida, avstand, namn }`: strandlinjen `avstand` meter utanför tomtgränsen, med vatten bortom |
 | `strandskydd` | `{ avstand }`: strandskyddsgränsen, `avstand` meter från strandlinjen (kräver `strandlinje`) |
 | `gata` | `{ sida, namn, bredd (8), fastighet }` |
 | `grannar` | Fastighetsbeteckningar per sida: `{ norr, oster, soder, vaster }` |
-| `grannhus` | Grannarnas hus, rektanglar i samma koordinater (får ligga utanför tomten) |
+| `grannhus` | Grannarnas hus i samma koordinater (får ligga utanför tomten): en rektangel, eller `{ rektangel, namn }` som får etikett, t.ex. "Kvarnen" |
 | `norr_vinkel` | Norrpilens vridning i grader (0 = norr uppåt) |
 | `visa_areor` | `true` skriver ut tomtarea och byggnadsareor (av som standard, hon ska mäta själv) |
 
 Måttkedjor ritas automatiskt: tomtens mått, husets och de nya delarnas läge mot gränserna,
 utfartens läge och prickmarkens djup. Generatorn flyttar måttkedjor och fastighetsnamnet så
 att de inte skriver över varandra eller anläggningarna, men titta alltid på resultatet.
+Fornlämningar och namngivna grannhus utanför tomten gör att ritningen visar mer av omgivningen
+(och kan välja ett större papper), och grannfastigheternas namn flyttar sig då längs sidan
+till en ledig plats.
 
 **`fasadritning`** (standardskala 1:100). En eller två fasader i `fasader`, var och en med
 `rubrik` och `delar`. Delarna ritas i ordning, så lista den som ligger längst bort först.
@@ -323,6 +343,7 @@ Ett dörrhandtag ritas en meter över dörrens underkant, så balkongdörrar få
 | `fonster` | `{ position, vagg, bredd, tjocklek }` |
 | `sektion` | Valfri sektion bredvid planen: `{ rubrik, snitt: { fran, till, sikt }, bredd, byggnadshojd, takvinkel, takutsprang, taktjocklek, golv_over_mark, rum }` |
 | `balkonger` | Lista med `{ rektangel, namn }` utanför väggarna (utsida platta). Måttkedjorna flyttas ut förbi dem |
+| `installationer` | Lista med `{ typ, namn, rektangel, ny (true) }`, `typ` är `kamin` (eldstad med anslutning till rökkanal), `skorsten`, `servis` (VA-servis med V och S) eller `annan`. Ska ligga inom en byggnad; `namn` skrivs bredvid symbolen inne i rummet, och teckenförklaringen får en rad per typ |
 
 Väggar blir det som ligger mellan rummen. `position` är öppningens början på väggens norra
 (horisontell vägg) eller västra (vertikal vägg) sida, och `tjocklek` är väggens tjocklek där

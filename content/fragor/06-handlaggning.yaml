@@ -1182,3 +1182,115 @@ fragor:
       - PBL 9 kap. 115 §
       - PBL 10 kap. 3 §
     taggar: [lov_galler, laga_kraft, service]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: hand-048
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du skriver ett positivt förhandsbesked för ett nytt enbostadshus utanför detaljplan. Vilka
+      upplysningar måste beslutet innehålla enligt 9 kap. 104 § PBL?
+    alternativ:
+      - text: Att beskedet bara gäller om bygglov söks inom två år från laga kraft, att det inte innebär att åtgärden får påbörjas, och de villkor som behövs inför bygglovsprövningen.
+        ratt: true
+      - text: Att beskedet gäller i fem år och att byggandet får påbörjas när det fått laga kraft.
+      - text: Att grannarna inte kan överklaga beskedet.
+      - text: Att beskedet ersätter bygglovet om huset byggs enligt ansökan.
+    forklaring: >
+      Ett positivt förhandsbesked ska enligt 9 kap. 104 § PBL innehålla en upplysning om att det
+      bara gäller om bygglov söks inom två år efter att beslutet fick laga kraft (jfr 42 §), en
+      upplysning om att det inte innebär att åtgärden får påbörjas, och de villkor som behövs för
+      att beskedet ska vara förenligt med förutsättningarna för den kommande bygglovsprövningen,
+      t.ex. om placering eller anslutning till väg. Ett positivt förhandsbesked kungörs på samma
+      sätt som ett lov (109 §) och kan överklagas av berörda grannar.
+    lagrum:
+      - PBL 9 kap. 104 §
+      - PBL 9 kap. 42 §
+      - PBL 9 kap. 109 §
+    taggar: [forhandsbesked, beslutets_innehall]
+
+  - id: hand-049
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I ett ärende med en liten avvikelse från planen har grannarna underrättats. Grannen på
+      Eken 4 har yttrat sig negativt. Sökanden ändrar sedan ansökan så att tillbyggnaden blir
+      mindre och planenlig. Vad gäller för fortsatt grannehörande?
+    alternativ:
+      - text: Ingen ny underrättelse behövs, eftersom ändringen inte strider mot planen, men grannen på Eken 4 ska ändå ges tillfälle att yttra sig över den ändrade ansökan.
+        ratt: true
+      - text: Alla grannar ska underrättas på nytt, eftersom ansökan har ändrats.
+      - text: Ingen behöver höras igen, eftersom åtgärden nu är planenlig.
+      - text: Ansökan ska avvisas och en ny ansökan krävs.
+    forklaring: >
+      Enligt 9 kap. 94 § tredje stycket PBL behöver en ny underrättelse efter en ändring av
+      ansökan bara ske om ändringen strider mot detaljplanen eller områdesbestämmelserna. De som
+      har haft synpunkter på den ursprungliga ansökan ska dock alltid ges tillfälle att yttra sig.
+      Kom också ihåg att en ändring på sökandens eget initiativ gör att tioveckorsfristen räknas
+      från den dagen (99 § första stycket 2) och att sökanden ska informeras skriftligen om det
+      (100 § 2). Innan beslut ska sökanden få yttra sig över allt underlag av betydelse (98 §).
+    lagrum:
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 100 §
+      - PBL 9 kap. 98 §
+    taggar: [underrattelse, grannar, andrad_ansokan]
+
+  - id: hand-050
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnadsnämnden får begära att de handlingar som lämnas in med en ansökan om lov är lämpliga
+      för arkivering.
+    svar: true
+    forklaring: >
+      Enligt 9 kap. 90 § PBL ska de handlingar som lämnas in i en ansökan om lov eller
+      förhandsbesked vara lämpliga för arkivering, om byggnadsnämnden begär det. Det kan gälla
+      format, läsbarhet och att ritningarna har skala, måttsättning och ritningshuvud. Lovhandlingar
+      bevaras länge och används vid tillsyn och framtida ärenden. Ofullständiga eller olämpliga
+      handlingar kan föranleda ett föreläggande om komplettering (91 §), men hjälp först sökanden
+      till rätta (20 § FL).
+    lagrum:
+      - PBL 9 kap. 90 §
+      - PBL 9 kap. 91 §
+      - FL 20 §
+    taggar: [ansokan, arkivering, handlingar]
+
+  - id: hand-051
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov avser en ny campingplats utanför detaljplan, alltså en åtgärd enligt
+      4 kap. 2 § första stycket 3 a PBL. Vad gäller särskilt för ansökan och beslutet?
+    alternativ:
+      - text: Ansökan ska innehålla uppgifter om bl.a. miljöns känslighet och de betydande miljöeffekter som kan antas uppstå, och beslutet ska redovisa nämndens bedömning av om åtgärden kan antas medföra betydande miljöpåverkan och skälen för den.
+        ratt: true
+      - text: Inget särskilt; en campingplats prövas som vilket bygglov som helst.
+      - text: Ansökan ska alltid innehålla en fullständig miljökonsekvensbeskrivning som länsstyrelsen har godkänt.
+      - text: Bygglov får aldrig ges för en campingplats utanför detaljplan.
+    forklaring: >
+      För de åtgärder som räknas upp i 4 kap. 2 § första stycket 3 a PBL ska ansökan utanför
+      detaljplan innehålla uppgifter om bl.a. byggnadsverkets utformning, miljöns känslighet och
+      de betydande miljöeffekter som kan antas uppstå, och en bedömning av om åtgärden kan antas
+      medföra betydande miljöpåverkan (9 kap. 88 §). Uppgifterna ska vara så detaljerade som
+      behövs för bedömningen (89 §). I beslutet ska nämnden redovisa sin bedömning och de
+      omständigheter som lagts till grund för den (106 §). Kan åtgärden antas medföra betydande
+      miljöpåverkan krävs detaljplan, och då får lov inte ges (57 § första stycket 2). Sådana lov
+      kan överklagas av miljöorganisationer (13 kap. 12 §).
+    lagrum:
+      - PBL 9 kap. 88 §
+      - PBL 9 kap. 89 §
+      - PBL 9 kap. 106 §
+      - PBL 4 kap. 2 §
+      - PBL 9 kap. 57 §
+      - PBL 13 kap. 12 §
+    taggar: [miljopaverkan, campingplats, ansokan, beslutets_innehall]

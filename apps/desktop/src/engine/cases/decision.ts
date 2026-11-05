@@ -4,6 +4,7 @@ import {
   type CaseFile,
   type DecisionOutcome,
   type DecisionStep,
+  type PermitKind,
   type SelectionStep,
 } from '@bygglov/content-schema';
 import { calculateFee, caseDeadline, FEE_LAW_REFS, formatKronor, startedWeeks } from './deadline';
@@ -40,7 +41,40 @@ export const DECISION_OUTCOME_LABELS: Record<DecisionOutcome, string> = {
   avsla: 'Avslå ansökan',
   avvisa: 'Avvisa ansökan',
   avskriva: 'Avskriva ärendet',
+  startbesked: 'Ge startbesked',
 };
+
+/** What the case's application is for; bygglov unless the case says otherwise. */
+export function permitKind(caseFile: Pick<CaseFile, 'lovtyp' | 'niva'>): PermitKind {
+  return caseFile.niva === 4 ? 'bygglov' : (caseFile.lovtyp ?? 'bygglov');
+}
+
+/** "bygglov", "marklov", "rivningslov" or "förhandsbesked". */
+export function permitNoun(caseFile: Pick<CaseFile, 'lovtyp' | 'niva'>): string {
+  const kind = permitKind(caseFile);
+  return kind === 'forhandsbesked' ? 'förhandsbesked' : kind;
+}
+
+/**
+ * The outcome named for the case: "Bevilja marklov med villkor", "Ge positivt
+ * förhandsbesked". Without a case, or for bygglov, the general labels.
+ */
+export function decisionOutcomeLabel(
+  outcome: DecisionOutcome,
+  caseFile?: Pick<CaseFile, 'lovtyp' | 'niva'>,
+): string {
+  const kind = caseFile ? permitKind(caseFile) : 'bygglov';
+  if (kind === 'bygglov' || !caseFile) return DECISION_OUTCOME_LABELS[outcome];
+  if (kind === 'forhandsbesked') {
+    if (outcome === 'bevilja') return 'Ge positivt förhandsbesked';
+    if (outcome === 'bevilja_med_villkor') return 'Ge positivt förhandsbesked med villkor';
+    if (outcome === 'avsla') return 'Ge negativt förhandsbesked (avslå ansökan)';
+    return DECISION_OUTCOME_LABELS[outcome];
+  }
+  if (outcome === 'bevilja') return `Bevilja ${kind}`;
+  if (outcome === 'bevilja_med_villkor') return `Bevilja ${kind} med villkor`;
+  return DECISION_OUTCOME_LABELS[outcome];
+}
 
 export const DELIVERY_METHOD_LABELS: Record<DeliveryMethod, string> = {
   delges: 'delges',
@@ -66,6 +100,43 @@ export function isGrant(outcome: DecisionOutcome): boolean {
 }
 
 /**
+ * A start notice (startbesked) for a notifiable measure. It is not a permit: 9 kap. 108–110 §§
+ * on service and public announcement do not apply, and its content follows 10 kap. 24 § PBL.
+ */
+export function isStartNotice(outcome: DecisionOutcome): boolean {
+  return outcome === 'startbesked';
+}
+
+/**
+ * A notification case (anmälan): its decision step expects a start notice. Its deadline is
+ * four weeks (6 kap. 5 § PBF).
+ */
+export function isNotificationCase(caseFile: CaseFile): boolean {
+  return allCaseSteps(caseFile).some(
+    (s) => s.typ === 'beslut' && s.forvantat_beslut === 'startbesked',
+  );
+}
+
+/** Sections of 10 kap. PBL named in a free-text law reference, e.g. "10 kap. 23 c §". */
+export function chapterTenSections(text: string): string[] {
+  const out: string[] = [];
+  const kap = /\b10\s*kap\.?\s*((?:\d+\s*[a-z]?\b[\s,–-]*(?:och\s*)?)+)§/gi;
+  let match: RegExpExecArray | null;
+  while ((match = kap.exec(text)) !== null) {
+    const list = match[1] ?? '';
+    const part = /(\d+)(?:\s*([a-z])\b)?/gi;
+    let m: RegExpExecArray | null;
+    while ((m = part.exec(list)) !== null) {
+      out.push(m[2] ? `${m[1]} ${m[2].toLowerCase()}` : (m[1] ?? ''));
+    }
+  }
+  return out;
+}
+
+/** 10 kap. 23 § (lov) and 23 c § (anmälan) are the sections a start notice is given under. */
+const START_NOTICE_SECTIONS = ['23', '23 c'];
+
+/**
  * Assesses a decision draft as if it were submitted on `state.simDate`. The checks reveal
  * the expected outcome, so the UI should only show them after submission.
  */
@@ -79,6 +150,7 @@ export function assessDecision(
   const add = (check: Omit<DecisionCheck, 'details'> & { details?: string[] }) =>
     checks.push({ details: [], ...check });
   const grant = isGrant(draft.utfall);
+  const label = (outcome: DecisionOutcome) => decisionOutcomeLabel(outcome, caseFile);
 
   // 1. Outcome: the expected one, or one of the outcomes the case also accepts.
   const expected = step.forvantat_beslut;
@@ -92,27 +164,45 @@ export function assessDecision(
     passed: outcomeRight || alternative !== undefined,
     severity: 'error',
     message: outcomeRight
-      ? `Rätt utfall: ${DECISION_OUTCOME_LABELS[expected]}.`
+      ? `Rätt utfall: ${label(expected)}.`
       : alternative
-        ? `Godtagbart utfall: ${DECISION_OUTCOME_LABELS[draft.utfall]}. Det förväntade var "${DECISION_OUTCOME_LABELS[expected]}". ${alternative.motivering}`
-        : `Förväntat utfall var "${DECISION_OUTCOME_LABELS[expected]}", ditt beslut är "${DECISION_OUTCOME_LABELS[draft.utfall]}".`,
+        ? `Godtagbart utfall: ${label(draft.utfall)}. Det förväntade var "${label(expected)}". ${alternative.motivering}`
+        : `Förväntat utfall var "${label(expected)}", ditt beslut är "${label(draft.utfall)}".`,
     lawRefs: step.lagrum ?? [],
   });
 
-  // 2. Legal basis: at least one section of 9 kap., in the current numbering.
+  // 2. Legal basis: at least one section of 9 kap., in the current numbering. A start notice
+  // is given under 10 kap. 23 or 23 c §.
+  const startNotice = isStartNotice(draft.utfall);
   const refs = draft.lagstod.flatMap((text) => chapterNineRefs(text));
   const existing = refs.filter((r) => r.exists);
-  add({
-    id: 'lagstod',
-    title: 'Lagstöd',
-    passed: existing.length > 0,
-    severity: 'error',
-    message:
-      existing.length > 0
-        ? `Lagstöd ur 9 kap. PBL anges (${unique(existing.map((r) => `${r.section} §`)).join(', ')}).`
-        : 'Ange minst ett lagrum ur 9 kap. PBL som beslutet grundas på, t.ex. 9 kap. 56 § för bygglov inom detaljplan.',
-    lawRefs: ['FL 32 §'],
-  });
+  if (startNotice) {
+    const tenth = unique(draft.lagstod.flatMap((text) => chapterTenSections(text)));
+    const basis = tenth.filter((s) => START_NOTICE_SECTIONS.includes(s));
+    add({
+      id: 'lagstod',
+      title: 'Lagstöd',
+      passed: basis.length > 0,
+      severity: 'error',
+      message:
+        basis.length > 0
+          ? `Startbeskedet grundas på 10 kap. ${basis.map((s) => `${s} §`).join(' och ')} PBL.`
+          : 'Ange lagrummet för startbeskedet: 10 kap. 23 c § PBL för en anmälningspliktig åtgärd (10 kap. 23 § för en lovpliktig).',
+      lawRefs: ['PBL 10 kap. 23 §', 'PBL 10 kap. 23 c §', 'FL 32 §'],
+    });
+  } else {
+    add({
+      id: 'lagstod',
+      title: 'Lagstöd',
+      passed: existing.length > 0,
+      severity: 'error',
+      message:
+        existing.length > 0
+          ? `Lagstöd ur 9 kap. PBL anges (${unique(existing.map((r) => `${r.section} §`)).join(', ')}).`
+          : 'Ange minst ett lagrum ur 9 kap. PBL som beslutet grundas på, t.ex. 9 kap. 56 § för bygglov inom detaljplan.',
+      lawRefs: ['FL 32 §'],
+    });
+  }
   const outdated = refs.filter((r) => !r.exists);
   if (outdated.length > 0) {
     add({
@@ -169,8 +259,12 @@ export function assessDecision(
     severity: 'error',
     message: draft.overklagandehanvisning
       ? 'Överklagandehänvisning finns.'
-      : 'Överklagandehänvisning saknas. Beslutet ska delges tillsammans med en uppgift om vad den som vill överklaga måste göra.',
-    lawRefs: ['PBL 9 kap. 108 §', 'FL 33 §'],
+      : startNotice
+        ? 'Överklagandehänvisning saknas. Ett startbesked kan överklagas till länsstyrelsen, utom i frågan om behovet av kontrollplan, kontrollansvarig och tekniskt samråd.'
+        : 'Överklagandehänvisning saknas. Beslutet ska delges tillsammans med en uppgift om vad den som vill överklaga måste göra.',
+    lawRefs: startNotice
+      ? ['PBL 13 kap. 2 § 5', 'PBL 13 kap. 3 §', 'FL 33 §']
+      : ['PBL 9 kap. 108 §', 'FL 33 §'],
   });
 
   // 5. Neighbour notice when the case requires it.
@@ -184,26 +278,31 @@ export function assessDecision(
   // 7. Delivery: the applicant and the owner are served (delges). Recipients are matched
   // by role word, name (from `parter`) and property designation.
   const parties = caseParties(caseFile);
-  add(
-    deliveryCheck({
-      id: 'delgivning_sokande',
-      title: 'Delgivning av sökanden',
-      who: 'Sökanden',
-      matches: (m) => isApplicant(m, parties),
-      recipients: draft.expediering,
-      lawRefs: ['PBL 9 kap. 108 § första stycket 1'],
-    }),
-  );
-  add(
-    deliveryCheck({
-      id: 'delgivning_fastighetsagare',
-      title: 'Delgivning av fastighetsägaren',
-      who: 'Fastighetsägaren',
-      matches: (m) => isOwner(m, parties),
-      recipients: draft.expediering,
-      lawRefs: ['PBL 9 kap. 108 § första stycket 1'],
-    }),
-  );
+  if (startNotice) {
+    add(startNoticeDeliveryCheck(draft.expediering, parties));
+  }
+  if (!startNotice)
+    add(
+      deliveryCheck({
+        id: 'delgivning_sokande',
+        title: 'Delgivning av sökanden',
+        who: 'Sökanden',
+        matches: (m) => isApplicant(m, parties),
+        recipients: draft.expediering,
+        lawRefs: ['PBL 9 kap. 108 § första stycket 1'],
+      }),
+    );
+  if (!startNotice)
+    add(
+      deliveryCheck({
+        id: 'delgivning_fastighetsagare',
+        title: 'Delgivning av fastighetsägaren',
+        who: 'Fastighetsägaren',
+        matches: (m) => isOwner(m, parties),
+        recipients: draft.expediering,
+        lawRefs: ['PBL 9 kap. 108 § första stycket 1'],
+      }),
+    );
 
   // 8. Neighbours whose objections were not accommodated are served too.
   const objectors = objectingNeighbours(caseFile, state);
@@ -217,9 +316,26 @@ export function assessDecision(
     if (tip) add(tip);
   }
 
-  // 10. Mandatory information in a permit (105 §), looked for in the free text.
+  // 10. Mandatory information in a permit (105 §), looked for in the free text. A start
+  // notice has its own content (10 kap. 24 §), looked for in the reasons and the information.
+  if (startNotice) {
+    const written = `${draft.motivering}\n${draft.villkor_upplysningar}`;
+    for (const info of START_NOTICE_INFORMATION) {
+      const found = info.pattern.test(written);
+      add({
+        id: info.id,
+        title: info.title,
+        passed: found,
+        severity: 'tip',
+        message: found ? info.found : info.missing,
+        lawRefs: info.lawRefs,
+      });
+    }
+  }
   if (grant) {
-    for (const info of PERMIT_INFORMATION) {
+    const information =
+      permitKind(caseFile) === 'forhandsbesked' ? ADVANCE_NOTICE_INFORMATION : PERMIT_INFORMATION;
+    for (const info of information) {
       const found = info.pattern.test(draft.villkor_upplysningar);
       add({
         id: info.id,
@@ -517,6 +633,104 @@ function announcementNoticeTip(
     details: missing.map((d) => `Saknas: ${d}`),
   };
 }
+
+/**
+ * A start notice goes to the developer (byggherren), here the applicant. 9 kap. 108 § does
+ * not apply, so any way of sending it passes (FL 33 §); serving it (delges) is a tip, since
+ * the time for appeal then starts to run (FL 44 §).
+ */
+function startNoticeDeliveryCheck(
+  recipients: readonly DecisionRecipient[],
+  parties: CaseParties,
+): Omit<DecisionCheck, 'details'> {
+  const found = recipients.filter((r) => isApplicant(r.mottagare, parties));
+  const served = found.some((r) => r.satt === 'delges');
+  return {
+    id: 'delgivning_sokande',
+    title: 'Startbeskedet till byggherren',
+    passed: found.length > 0,
+    severity: 'error',
+    message:
+      found.length === 0
+        ? 'Byggherren saknas i expedieringen. Startbeskedet ska skickas till byggherren, som är part i ärendet.'
+        : served
+          ? 'Byggherren delges startbeskedet, så att tiden för överklagande börjar löpa.'
+          : 'Byggherren får startbeskedet. Överväg att delge det, så att tiden för överklagande börjar löpa (44 § förvaltningslagen).',
+    lawRefs: ['FL 33 §', 'FL 44 §'],
+  };
+}
+
+/* ------------------------------------------------------------- start notice content */
+
+const START_NOTICE_INFORMATION: {
+  id: string;
+  title: string;
+  pattern: RegExp;
+  found: string;
+  missing: string;
+  lawRefs: string[];
+}[] = [
+  {
+    id: 'startbesked_kontrollplan',
+    title: 'Kontrollplanen fastställs',
+    pattern: /kontrollplan/i,
+    found: 'Startbeskedet tar upp kontrollplanen.',
+    missing:
+      'Hittade ingen kontrollplan. I startbeskedet ska nämnden fastställa den kontrollplan som ska gälla, med uppgift om vem som gör kontrollerna.',
+    lawRefs: ['PBL 10 kap. 24 § 1'],
+  },
+  {
+    id: 'startbesked_slutbesked',
+    title: 'Handlingar inför slutbesked',
+    pattern: /slutbesked/i,
+    found: 'Startbeskedet tar upp slutbeskedet.',
+    missing:
+      'Hittade inget om slutbeskedet. Startbeskedet ska ange vilka handlingar som ska lämnas in inför slutbeskedet.',
+    lawRefs: ['PBL 10 kap. 24 § 4'],
+  },
+  {
+    id: 'startbesked_ibruktagande',
+    title: 'Inte i bruk före slutbesked',
+    pattern: /i bruk|ibruktag|användas|använda/i,
+    found: 'Upplysning om att det nya inte får tas i bruk före slutbesked finns.',
+    missing:
+      'Hittade ingen upplysning om att det som byggts eller installerats inte får tas i bruk förrän nämnden gett slutbesked.',
+    lawRefs: ['PBL 10 kap. 4 §'],
+  },
+  {
+    id: 'startbesked_giltighetstid',
+    title: 'Giltighetstid',
+    pattern: /två år|upphör att gälla|25 §/i,
+    found: 'Upplysning om hur länge startbeskedet gäller finns.',
+    missing:
+      'Hittade ingen upplysning om giltighetstiden. Ett startbesked för en anmälningspliktig åtgärd upphör att gälla två år efter att det gavs.',
+    lawRefs: ['PBL 10 kap. 24 a §', 'PBL 10 kap. 25 §'],
+  },
+];
+
+/* ------------------------------------------------- advance notice (förhandsbesked) */
+
+/** 104 §: what a positive förhandsbesked must say, instead of 105 § for a permit. */
+const ADVANCE_NOTICE_INFORMATION: typeof PERMIT_INFORMATION = [
+  {
+    id: 'upplysning_forhandsbesked_giltighet',
+    title: 'Upplysning om giltighetstid',
+    pattern: /två år/i,
+    found: 'Upplysning om att förhandsbeskedet gäller om bygglov söks inom två år finns.',
+    missing:
+      'Hittade ingen upplysning om att förhandsbeskedet bara gäller om bygglov söks inom två år efter att beslutet fått laga kraft.',
+    lawRefs: ['PBL 9 kap. 104 § 1'],
+  },
+  {
+    id: 'upplysning_forhandsbesked_paborja',
+    title: 'Upplysning om att åtgärden inte får påbörjas',
+    pattern: /påbörja|bygglov och startbesked|startbesked/i,
+    found: 'Upplysning om att förhandsbeskedet inte innebär att åtgärden får påbörjas finns.',
+    missing:
+      'Hittade ingen upplysning om att förhandsbeskedet inte innebär att åtgärden får påbörjas; bygglov och startbesked krävs.',
+    lawRefs: ['PBL 9 kap. 104 § 2'],
+  },
+];
 
 /* ------------------------------------------------------------- permit information */
 

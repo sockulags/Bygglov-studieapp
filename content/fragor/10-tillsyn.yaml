@@ -944,3 +944,239 @@ fragor:
       förelägganden med upplysning om genomförande på bekostnad får inte delegeras (12 kap. 6 §).
     lagrum: [PBL 11 kap. 27 §, PBL 11 kap. 28 §, PBL 11 kap. 37 §, PBL 11 kap. 39 §, PBF 9 kap. 2 §, PBL 12 kap. 6 §]
     taggar: [vite, handrackning, verkstallighet]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: tills-041
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En familj ska köpa en villa i Åkerslunda och vill veta om kommunen anser att något på
+      fastigheten är byggt i strid med reglerna. Vad kan de begära av byggnadsnämnden?
+    alternativ:
+      - text: Ett skriftligt ingripandebesked, där nämnden redovisar om det har vidtagits någon åtgärd som enligt nämndens bedömning motiverar ett ingripande.
+        ratt: true
+      - text: Ett slutbesked för hela fastigheten.
+      - text: Ett förhandsbesked om att inga ingripanden kommer att ske.
+      - text: Ingenting; tillsynsärenden är alltid sekretessbelagda.
+    forklaring: >
+      Enligt 11 kap. 7 § PBL ska byggnadsnämnden, om någon begär det, i ett skriftligt
+      ingripandebesked redovisa om det i fråga om ett visst byggnadsverk har vidtagits någon
+      åtgärd som enligt nämndens bedömning motiverar ett ingripande enligt 11 kap. Vem som helst
+      kan begära beskedet, och det är ett bra underlag vid köp. Beskedet bygger på det nämnden
+      känner till och binder inte nämnden om nya uppgifter kommer fram, men det kan ha betydelse
+      för vad en köpare kan anses ha känt till. Ett slutbesked gäller en viss åtgärd och
+      förhandsbesked gäller lokalisering utanför plan.
+    lagrum:
+      - PBL 11 kap. 7 §
+      - PBL 11 kap. 5 §
+    taggar: [ingripandebesked, fastighetskop, service]
+
+  - id: tills-042
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden har fått en anmälan om att en ladugård har byggts om till bostad utan lov. Ägaren
+      vägrar släppa in byggnadsinspektören på fastigheten. Vad gäller?
+    alternativ:
+      - text: Nämnden har rätt till tillträde till fastigheten och byggnadsverket för att fullgöra sina uppgifter, och Polismyndigheten ska lämna det biträde som behövs.
+        ratt: true
+      - text: Nämnden måste få ägarens samtycke och kan annars bara avskriva ärendet.
+      - text: Nämnden kan bara se på byggnaden från allmän väg.
+      - text: Nämnden måste först få ett beslut från mark- och miljödomstolen.
+    forklaring: >
+      Byggnadsnämnden och den som utför arbete på nämndens uppdrag har rätt till tillträde till
+      fastigheter och byggnadsverk för att fullgöra sina uppgifter (11 kap. 8 § första stycket 1
+      PBL), och Polismyndigheten ska lämna det biträde som behövs (9 §). Nämnden har också rätt
+      att på begäran få upplysningar och handlingar från ägaren (8 § första stycket 2). Använd
+      befogenheten proportionerligt (5 § FL): försök först få till ett frivilligt besök och
+      förklara syftet, och dokumentera kontakterna. Kronofogdemyndigheten kan också besluta om
+      handräckning för tillträde (39 §).
+    lagrum:
+      - PBL 11 kap. 8 §
+      - PBL 11 kap. 9 §
+      - PBL 11 kap. 39 §
+      - FL 5 §
+    taggar: [tilltrade, tillsyn, platsbesok]
+
+  - id: tills-043
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett gammalt bostadshus har stått tomt i tio år och är kraftigt förfallet, men det finns
+      ingen akut rasrisk. Nämnden vill att huset rivs. Vad måste föregå ett rivningsföreläggande?
+    alternativ:
+      - text: Ett åtgärdsföreläggande om att sätta byggnadsverket i stånd.
+        ratt: true
+      - text: Ett beslut om byggsanktionsavgift.
+      - text: Ett rivningslov som nämnden själv söker.
+      - text: Ingenting, nämnden kan förelägga om rivning direkt när huset är förfallet.
+    forklaring: >
+      Enligt 11 kap. 21 § PBL får nämnden förelägga ägaren av ett byggnadsverk som är förfallet
+      eller skadat i väsentlig omfattning att riva det. Rivningsföreläggandet ska dock föregås av
+      ett föreläggande enligt 19 § att sätta byggnadsverket i stånd. Det gäller inte när det
+      finns brister som kan äventyra säkerheten för dem som vistas i eller nära byggnaden och
+      bristerna inte kan åtgärdas med mindre ingripande åtgärder. Ordningen följer
+      proportionalitetsprincipen: ägaren ska först få chansen att rusta upp. Följs inte ett
+      föreläggande kan nämnden besluta om genomförande på ägarens bekostnad (27 §).
+    lagrum:
+      - PBL 11 kap. 21 §
+      - PBL 11 kap. 19 §
+      - PBL 11 kap. 27 §
+      - PBL 8 kap. 14 §
+    taggar: [rivningsforelaggande, underhall, forfall]
+
+  - id: tills-044
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett övergivet lagerhus i utkanten av Åkerslunda har trasiga fönster och ett tak som kan
+      rasa. Barn har setts leka inne i huset. Vilket ingripande ger snabbast skydd?
+    alternativ:
+      - text: Ett föreläggande om att anordna stängsel kring byggnaden, med beslut om att det ska genomföras omedelbart.
+        ratt: true
+      - text: Ett lovföreläggande om att söka rivningslov.
+      - text: Ett beslut om byggsanktionsavgift för bristande underhåll.
+      - text: En anmälan till länsstyrelsen.
+    forklaring: >
+      Nämnden får förelägga ägaren att anordna stängsel kring ett byggnadsverk som har brister som
+      kan äventyra säkerheten för dem som uppehåller sig i eller nära det (11 kap. 24 § PBL).
+      Föreläggandet kan förenas med vite (37 §) och nämnden kan bestämma att det ska genomföras
+      omedelbart trots att det inte fått laga kraft (38 §). Följs det inte kan nämnden låta göra
+      åtgärden på ägarens bekostnad, om föreläggandet innehöll en upplysning om det (27 och
+      28 §§). På sikt kan ett föreläggande om iståndsättande eller rivning bli aktuellt (19 och
+      21 §§); när säkerheten är hotad behöver rivningsföreläggandet inte föregås av ett
+      iståndsättningsföreläggande.
+    lagrum:
+      - PBL 11 kap. 24 §
+      - PBL 11 kap. 37 §
+      - PBL 11 kap. 38 §
+      - PBL 11 kap. 27 §
+      - PBL 11 kap. 21 §
+    taggar: [stangsel, sakerhet, omedelbart_genomforande]
+
+  - id: tills-045
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop situationen med den bestämmelse om förbud i 11 kap. PBL som är tillämplig.
+    par:
+      - vanster: Ett pågående arbete medför uppenbar fara för människors liv (nämnden ska förbjuda)
+        hoger: 11 kap. 30 §
+      - vanster: Ett pågående arbete strider uppenbart mot lovet (nämnden får förbjuda)
+        hoger: 11 kap. 31 §
+      - vanster: Byggherren följer inte en väsentlig del av kontrollplanen
+        hoger: 11 kap. 32 §
+      - vanster: Förbud att utföra en olovlig åtgärd på nytt, i samband med rättelseföreläggande
+        hoger: 11 kap. 32 a §
+      - vanster: Byggnaden används trots att förutsättningar för slutbesked saknas
+        hoger: 11 kap. 33 §
+    forklaring: >
+      Förbuden i 11 kap. PBL har olika styrka. Vid uppenbar fara för hållfasthet eller människors
+      liv eller hälsa ska nämnden förbjuda arbetet (30 §). Vid uppenbar strid mot lagen, lovet
+      eller andra beslut får nämnden förbjuda (31 §). Följs inte en väsentlig del av
+      kontrollplanen får arbetet förbjudas tills bristerna avhjälpts (32 §). 32 a § förhindrar att
+      en olovlig åtgärd som rättats görs igen. Användningsförbud enligt 33 § gäller brister i
+      säkerheten eller att förutsättningar för slutbesked saknas. Förbuden gäller omedelbart om
+      inte annat bestäms och kan förenas med vite (37 och 38 §§).
+    lagrum:
+      - PBL 11 kap. 30 §
+      - PBL 11 kap. 31 §
+      - PBL 11 kap. 32 §
+      - PBL 11 kap. 32 a §
+      - PBL 11 kap. 33 §
+      - PBL 11 kap. 38 §
+    taggar: [forbud, byggskede, tillsyn]
+
+  - id: tills-046
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden förelade ägaren till Tallen 9 att ta bort ett olovligt förråd inom tre månader.
+      Föreläggandet har vunnit laga kraft men har inte följts. Nämnden vill nu låta ta bort
+      förrådet på ägarens bekostnad. Vad avgör om det går?
+    alternativ:
+      - text: Om föreläggandet innehöll en upplysning om att åtgärden kan komma att genomföras på ägarens bekostnad. Nämnden ska också se till att kostnaderna inte blir oskäliga.
+        ratt: true
+      - text: Om ägaren skriftligen godkänner det.
+      - text: Om mark- och miljödomstolen har dömt ut ett vite först.
+      - text: Om förrådet är större än 15 kvm.
+    forklaring: >
+      Följs inte ett rättelseföreläggande får nämnden besluta att åtgärden ska genomföras på den
+      försumliges bekostnad (11 kap. 27 § tredje stycket PBL), men bara om föreläggandet har
+      innehållit en upplysning om detta (28 §). Nämnden ska se till att genomförandet inte ger
+      upphov till oskäliga kostnader, och Kronofogdemyndigheten ska lämna den hjälp som behövs
+      (29 §). Ett alternativ är att förena föreläggandet med vite och ansöka om utdömande hos
+      mark- och miljödomstolen (37 §). Skriv därför alltid in upplysningen i föreläggandet, så att
+      alla verktyg finns kvar.
+    lagrum:
+      - PBL 11 kap. 27 §
+      - PBL 11 kap. 28 §
+      - PBL 11 kap. 29 §
+      - PBL 11 kap. 37 §
+    taggar: [rattelseforelaggande, verkstallighet, forelaggandets_innehall]
+
+  - id: tills-047
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Om byggnadsnämnden finner att en kontrollansvarig har åsidosatt sina skyldigheter enligt
+      PBL, får nämnden bara påpeka det för byggherren.
+    svar: false
+    forklaring: >
+      Enligt 11 kap. 35 § PBL ska nämnden då entlediga den kontrollansvarige från uppdraget och
+      underrätta certifieringsorganet, och efter förslag från byggherren besluta om en ny
+      kontrollansvarig. Samma gäller en sakkunnig. Certifieringsorganet kan återkalla
+      certifieringen om personen visat sig vara olämplig (36 §). För en byggbedömare som gjort en
+      uppenbar felbedömning ska nämnden underrätta certifieringsorganet (34 a §). Den
+      kontrollansvariges uppgifter står i 10 kap. 11 §.
+    lagrum:
+      - PBL 11 kap. 35 §
+      - PBL 11 kap. 36 §
+      - PBL 11 kap. 34 a §
+      - PBL 10 kap. 11 §
+    taggar: [kontrollansvarig, entledigande, tillsyn]
+
+  - id: tills-048
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ordna stegen när nämnden förelägger en ägare vid vite att ta bort en olovlig tillbyggnad
+      och ägaren inte följer föreläggandet.
+    poster:
+      - Nämnden kommunicerar utkastet till föreläggande med ägaren
+      - Nämnden beslutar om rättelseföreläggande vid vite med en tidsfrist
+      - Föreläggandet vinner laga kraft och tidsfristen går ut
+      - Nämnden kontrollerar på plats att rättelse inte har skett
+      - Nämnden ansöker hos mark- och miljödomstolen om att vitet ska dömas ut
+    forklaring: >
+      Ett föreläggande går ägaren emot och ska därför kommuniceras innan det beslutas (25 § FL).
+      Rättelseföreläggandet (11 kap. 20 § PBL) får förenas med vite (37 §) och ska ange en skälig
+      tid. Normalt måste föreläggandet ha vunnit laga kraft och tiden ha gått ut innan vitet kan
+      dömas ut, om inte nämnden beslutat om omedelbart genomförande (38 §). Nämnden kontrollerar
+      och dokumenterar om rättelse har skett och ansöker sedan om utdömande hos mark- och
+      miljödomstolen (37 § tredje stycket). Ett utdömt vite tvingar inte bort tillbyggnaden; då
+      finns genomförande på ägarens bekostnad (27 §) eller handräckning (39 §).
+    lagrum:
+      - FL 25 §
+      - PBL 11 kap. 20 §
+      - PBL 11 kap. 37 §
+      - PBL 11 kap. 38 §
+      - PBL 11 kap. 27 §
+      - PBL 11 kap. 39 §
+    taggar: [vite, rattelseforelaggande, process]

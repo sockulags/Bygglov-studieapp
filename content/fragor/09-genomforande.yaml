@@ -923,3 +923,239 @@ fragor:
       Ett interimistiskt slutbesked kan också avse en etapp i ett större projekt.
     lagrum: [PBL 10 kap. 35 §, PBL 10 kap. 36 §]
     taggar: [slutbesked, interimistiskt_slutbesked]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: gen-041
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Under schaktningen för ett nytt flerbostadshus visar det sig att marken innehåller ett
+      lager av lös lera som ingen kände till vid det tekniska samrådet. Kontrollplanen saknar
+      kontroll av grundläggningen på lera. Vad kan byggnadsnämnden göra?
+    alternativ:
+      - text: Besluta om kompletterande villkor för byggåtgärderna eller kontrollen, eftersom villkoren behövs för att uppfylla kraven och behovet inte kunde förutses när startbeskedet gavs.
+        ratt: true
+      - text: Ingenting, eftersom kontrollplanen fastställdes i startbeskedet och inte kan ändras.
+      - text: Återkalla bygglovet och kräva en ny ansökan.
+      - text: Kräva att kontrollansvarig byts ut.
+    forklaring: >
+      10 kap. 29 § PBL ger nämnden rätt att besluta om kompletterande villkor för bygg- eller
+      rivningsåtgärderna eller för kontrollen, om villkoren behövs för att uppfylla kraven och
+      behovet inte kunde förutses när startbeskedet gavs. Här kan nämnden t.ex. kräva
+      sakkunnigkontroll av grundläggningen och ett utlåtande från en geotekniker. Om en
+      byggbedömare används får kompletterande villkor inte avse utformningskraven i 8 kap. 1 § 1
+      och 3 eller de tekniska egenskapskraven. Byggherren har hela tiden ansvaret för att kraven
+      uppfylls (5 §), så den kontrollansvarige bör själv ta upp frågan.
+    lagrum:
+      - PBL 10 kap. 29 §
+      - PBL 10 kap. 5 §
+      - PBL 10 kap. 24 §
+    taggar: [kompletterande_villkor, kontrollplan, byggskede]
+
+  - id: gen-042
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du har gjort ett arbetsplatsbesök på ett bygge i Åkerslunda. Vad gäller enligt 10 kap. 28 §
+      PBL för dokumentationen av besöket?
+    alternativ:
+      - text: Nämnden ska föra protokoll över besöket och skicka det till byggherren och den kontrollansvarige.
+        ratt: true
+      - text: Det räcker att du gör en minnesanteckning för egen del.
+      - text: Protokoll behövs bara om du hittade fel.
+      - text: Kontrollansvarig ska föra protokollet och skicka det till nämnden.
+    forklaring: >
+      Vid arbetsplatsbesöket ska nämnden gå igenom hur genomförda åtgärder förhåller sig till
+      lovet, kontrollplanen, avfallshanteringsplanen, startbeskedet och villkoren, och föra
+      protokoll som skickas till byggherren och den kontrollansvarige (10 kap. 28 § PBL). Den
+      kontrollansvarige ska i sin tur lämna protokollet till de sakkunniga (11 § 5).
+      Protokollet är viktigt underlag inför slutsamrådet och för ett eventuellt tillsynsärende.
+      Skriv det sakligt: vad som kontrollerades, vad som avvek och vad som ska följas upp.
+    lagrum:
+      - PBL 10 kap. 28 §
+      - PBL 10 kap. 27 §
+      - PBL 10 kap. 11 §
+    taggar: [arbetsplatsbesok, protokoll, dokumentation]
+
+  - id: gen-043
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vad innebär kravet i 10 kap. 2 c § PBL för den som river ett gammalt garage tätt intill
+      grannens hus?
+    alternativ:
+      - text: Att rivningen ska planeras och utföras med aktsamhet, enligt de föreskrifter som har meddelats om det.
+        ratt: true
+      - text: Att grannen ska godkänna rivningen skriftligen.
+      - text: Att rivningen bara får ske vardagar mellan 9 och 16.
+      - text: Att byggnadsnämnden ska närvara när rivningen görs.
+    forklaring: >
+      Enligt 10 kap. 2 c § PBL ska bygg-, rivnings- och markåtgärder planeras och utföras med
+      aktsamhet. Vad det innebär framgår av föreskrifter som meddelats med stöd av 16 kap. 10 a §.
+      Det handlar om att undvika skador och olägenheter för omgivningen, t.ex. damm, vibrationer
+      och skador på grannens byggnad. Byggherren ansvarar för det (10 kap. 5 §), och frågan kan
+      tas upp i det tekniska samrådet och i kontrollplanen. Ersättning för skador grannar emellan
+      är en civilrättslig fråga (3 kap. 3 § jordabalken och 32 kap. miljöbalken).
+    lagrum:
+      - PBL 10 kap. 2 c §
+      - PBL 16 kap. 10 a §
+      - PBL 10 kap. 5 §
+      - JB 3 kap. 3 §
+    taggar: [aktsamhet, rivning, grannar, byggskede]
+
+  - id: gen-044
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop beslutet med vad som gäller för när det börjar gälla eller upphör att gälla.
+    par:
+      - vanster: Bygglov
+        hoger: Gäller omedelbart, även innan det fått laga kraft, om nämnden inte beslutat annat
+      - vanster: Bygglov som inte utnyttjas
+        hoger: Upphör om åtgärden inte påbörjats inom två år och avslutats inom fem år från laga kraft
+      - vanster: Startbesked
+        hoger: Gäller omedelbart
+      - vanster: Startbesked för en anmälningspliktig åtgärd
+        hoger: Upphör två år efter att det gavs
+      - vanster: Startbesked för en lovpliktig åtgärd
+        hoger: Upphör samma dag som lovet upphör att gälla
+      - vanster: Slutbesked
+        hoger: Gäller omedelbart och hindrar inte ett senare ingripande
+    forklaring: >
+      Sedan 2025-12-01 gäller lov omedelbart (9 kap. 114 §), men nämnden ska skjuta upp verkan
+      till laga kraft vid risk för oåterkalleliga skador på natur- eller kulturvärden eller
+      totalförsvarets intressen. Lovets giltighetstid står i 9 kap. 115 §. Startbesked och
+      slutbesked gäller omedelbart (10 kap. 24 a och 39 §§). Startbeskedets giltighet följer
+      lovet, men för anmälningspliktiga åtgärder upphör det efter två år (25 §). Ett slutbesked
+      hindrar inte ett ingripande om det senare visar sig att ett krav inte är uppfyllt (40 §).
+    lagrum:
+      - PBL 9 kap. 114 §
+      - PBL 9 kap. 115 §
+      - PBL 10 kap. 24 a §
+      - PBL 10 kap. 25 §
+      - PBL 10 kap. 39 §
+      - PBL 10 kap. 40 §
+    taggar: [giltighet, startbesked, slutbesked, lov]
+
+  - id: gen-045
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Efter slutsamrådet har du fått in den kontrollansvariges utlåtande och alla handlingar
+      som startbeskedet krävde. Samtidigt ser du att ett plank på tomten har byggts utan lov.
+      Hur ska du hantera slutbeskedet och planket?
+    alternativ:
+      - text: Pröva slutbeskedet skyndsamt för det som startbeskedet gäller och samtidigt, lika skyndsamt, utreda planket som ett tillsynsärende.
+        ratt: true
+      - text: Vänta med slutbeskedet tills planket har fått lov i efterhand.
+      - text: Ge slutbesked och bortse från planket, eftersom det inte ingår i ärendet.
+      - text: Avslå slutbeskedet, eftersom fastigheten har en olovlig åtgärd.
+    forklaring: >
+      Enligt 10 kap. 37 § PBL ska nämnden pröva frågan om slutbesked så snart den har fått in det
+      underlag som behövs, och handläggningen ska ske skyndsamt. Finns det skäl för ett ingripande
+      enligt 11 kap. ska även den frågan handläggas skyndsamt. Planket hör inte till det
+      startbeskedet omfattar och ska inte användas som påtryckning för att hålla inne
+      slutbeskedet, men det ska utredas (11 kap. 5 §). Förutsättningarna för slutbesked står i
+      10 kap. 34 §.
+    lagrum:
+      - PBL 10 kap. 37 §
+      - PBL 10 kap. 34 §
+      - PBL 11 kap. 5 §
+    taggar: [slutbesked, tillsyn, skyndsamhet]
+
+  - id: gen-046
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      För en åtgärd som kräver bygglov måste byggnadsnämnden alltid fastställa en kontrollplan i
+      startbeskedet.
+    svar: false
+    forklaring: >
+      Huvudregeln är att byggherren ska se till att det finns en kontrollplan för åtgärder som
+      kräver startbesked (10 kap. 6 § PBL), och nämnden fastställer den i startbeskedet (24 §).
+      Men nämnden får i det enskilda fallet besluta att en kontrollplan inte behövs för enklare
+      åtgärder (6 a §), t.ex. ett lovpliktigt plank. Kravet gäller inte heller utförande som
+      omfattas av en byggbedömares kontroll; då ska ingen kontrollplan fastställas för den delen
+      (6 § och 24 § andra stycket).
+    lagrum:
+      - PBL 10 kap. 6 §
+      - PBL 10 kap. 6 a §
+      - PBL 10 kap. 24 §
+    taggar: [kontrollplan, startbesked, byggbedomare]
+
+  - id: gen-047
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Familjen Ek har sökt bygglov för ett nytt enbostadshus och samtidigt lov för en tillbyggnad
+      av huset som annars hade varit bygglovsbefriad. Båda åtgärderna ska utföras under samma
+      byggtid. Vad gäller för startbesked och slutbesked?
+    alternativ:
+      - text: Nämnden får ge startbesked för tillbyggnaden samtidigt som för nybyggnaden, och då också ge samtidiga slutbesked.
+        ratt: true
+      - text: Tillbyggnaden får inte påbörjas förrän nybyggnaden har fått slutbesked.
+      - text: Tillbyggnaden behöver varken startbesked eller slutbesked, eftersom den är bygglovsbefriad.
+      - text: Nämnden måste ge två separata startbesked med minst fyra veckors mellanrum.
+    forklaring: >
+      Den som vill bygga en sådan tillbyggnad som får strida mot detaljplanen enligt 10 kap. 2 a §
+      i samband med nybyggnad av ett en- eller tvåbostadshus ska söka lov för tillbyggnaden
+      samtidigt som bygglovet för nybyggnaden (9 kap. 53 §). Lov ska då ges om tillbyggnaden
+      uppfyller kraven på lokalisering, placering och utformning (79 §). När nämnden ger
+      startbesked för nybyggnaden får den samtidigt ge startbesked för tillbyggnaden (10 kap.
+      23 b §) och sedan samtidiga slutbesked (38 §). Samma sak gäller inredning av ytterligare en
+      bostad i ett nytt enbostadshus (9 kap. 54 §).
+    lagrum:
+      - PBL 10 kap. 23 b §
+      - PBL 10 kap. 38 §
+      - PBL 9 kap. 53 §
+      - PBL 9 kap. 54 §
+      - PBL 9 kap. 79 §
+    taggar: [startbesked, slutbesked, tillbyggnad, nybyggnad]
+
+  - id: gen-048
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Under byggtiden för ett nytt hus på Linden 4 ringer grannen på Linden 5 och säger att
+      schaktningen intill gränsen har gett sprickor i hennes källarvägg. Hon vill att nämnden
+      "gör något". Vad kan nämnden göra, vad är civilrättsligt och hur hanterar du samtalet?
+    bedomningspunkter:
+      - Dokumenterar uppgifterna (FL 27 §) och tar kontakt med byggherren och den kontrollansvarige.
+      - Förklarar att åtgärder ska planeras och utföras med aktsamhet (10 kap. 2 c § PBL) och att byggherren ansvarar för att kraven uppfylls (10 kap. 5 §).
+      - Överväger arbetsplatsbesök, kompletterande villkor för kontrollen (10 kap. 29 §) och vid behov ingripande enligt 11 kap., t.ex. om det finns risk för ras eller skador.
+      - Förklarar att ersättning för skadan är en civilrättslig fråga mellan grannarna (3 kap. 3 § jordabalken, 32 kap. miljöbalken) som avgörs i domstol, och hänvisar dit.
+      - Bemöter grannen lugnt och sakligt och ger tydliga besked om vad nämnden kan och inte kan göra.
+    modellsvar: >
+      Jag antecknar vad hon berättar, med datum och mitt namn, och ber om bilder om hon kan ta
+      några. Sedan kontaktar jag byggherren och den kontrollansvarige. Byggherren ansvarar för att
+      arbetena uppfyller kraven (10 kap. 5 § PBL), och bygg- och markåtgärder ska planeras och
+      utföras med aktsamhet (2 c §). Jag kan göra ett arbetsplatsbesök och, om kontrollen av
+      schaktningen är otillräcklig, besluta om kompletterande villkor, t.ex. sakkunnigkontroll
+      eller mätning av sättningar (29 §). Finns det risk för ras eller fortsatt skada kan nämnden
+      ingripa med stöd av 11 kap. Frågan om vem som ska betala för sprickorna är däremot
+      civilrättslig: den som gräver ska vidta skyddsåtgärder (3 kap. 3 § jordabalken), och
+      ersättning prövas enligt 32 kap. miljöbalken av domstol. Det säger jag tydligt och vänligt,
+      så att hon vet vad nämnden gör och vart hon kan vända sig med ersättningskravet.
+    lagrum:
+      - PBL 10 kap. 2 c §
+      - PBL 10 kap. 5 §
+      - PBL 10 kap. 29 §
+      - JB 3 kap. 3 §
+      - FL 27 §
+    taggar: [aktsamhet, grannar, byggskede, civilratt, instudering]

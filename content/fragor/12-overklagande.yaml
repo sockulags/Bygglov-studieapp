@@ -1038,3 +1038,231 @@ fragor:
       - PBL 9 kap. 105 §
       - FL 48 §
     taggar: [verkstallighet, byggherrens_risk, laga_kraft]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: overk-045
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Kommunfullmäktige har antagit en ny detaljplan för kvarteret Videt. En fastighetsägare
+      inom planområdet vill överklaga, men han lämnade inga synpunkter under samrådet eller
+      granskningen. Planförslaget ändrades inte efter granskningen. Får han överklaga?
+    alternativ:
+      - text: Normalt inte. Ett planbeslut får bara överklagas av den som skriftligen har framfört synpunkter som inte tillgodosetts före granskningstidens utgång, med vissa undantag, t.ex. om beslutet inte tillkommit i laga ordning.
+        ratt: true
+      - text: Ja, alla fastighetsägare inom planområdet får alltid överklaga.
+      - text: Ja, men bara till länsstyrelsen.
+      - text: Nej, detaljplaner kan aldrig överklagas, bara laglighetsprövas.
+    forklaring: >
+      Enligt 13 kap. 11 § PBL får ett beslut att anta, ändra eller upphäva en detaljplan
+      överklagas endast av den som före utgången av granskningstiden skriftligen har framfört
+      synpunkter som inte har tillgodosetts. Inskränkningen gäller inte om beslutet har gått
+      sakägaren emot genom att förslaget ändrats efter granskningen, om överklagandet grundas på
+      att beslutet inte tillkommit i laga ordning, eller för vissa planer med betydande
+      miljöpåverkan. Planbeslut överklagas till mark- och miljödomstolen (2 a §). Det är därför
+      viktigt att granskningsunderrättelsen tydligt talar om vad som gäller.
+    lagrum:
+      - PBL 13 kap. 11 §
+      - PBL 13 kap. 2 a §
+      - PBL 5 kap. 18 §
+    taggar: [detaljplan, klagoratt, granskning]
+
+  - id: overk-046
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnadsnämnden ger bygglov för en ny campingplats utanför detaljplan. Lovet föregicks av
+      en bedömning av om åtgärden kan antas medföra betydande miljöpåverkan. En
+      naturskyddsförening som uppfyller kraven i 16 kap. 13 § miljöbalken vill överklaga. Får
+      den det?
+    alternativ:
+      - text: Ja. Sådana föreningar får överklaga bygglov för åtgärder enligt 4 kap. 2 § första stycket 3 a som ska föregås av en bedömning av om de kan antas medföra betydande miljöpåverkan.
+        ratt: true
+      - text: Nej, bara grannar och sökanden får överklaga bygglov.
+      - text: Ja, men bara om föreningen äger mark i närheten.
+      - text: Nej, föreningar får bara överklaga detaljplaner.
+    forklaring: >
+      13 kap. 12 § PBL ger miljöorganisationer som avses i 16 kap. 13 § miljöbalken rätt att
+      överklaga dels vissa detaljplaner med betydande miljöpåverkan, dels beslut att ge bygglov
+      eller positivt förhandsbesked för en åtgärd som anges i 4 kap. 2 § första stycket 3 a, t.ex.
+      en campingplats, och som ska föregås av en bedömning av betydande miljöpåverkan. Rätten
+      gäller inte beslut som rör vissa försvarsmyndigheter. Enligt 13 § får sådana föreningar
+      också överklaga planer som upphäver strandskydd. Grannars klagorätt följer annars av 42 § FL.
+    lagrum:
+      - PBL 13 kap. 12 §
+      - PBL 13 kap. 13 §
+      - PBL 4 kap. 2 §
+      - FL 42 §
+    taggar: [klagoratt, miljoorganisationer, campingplats]
+
+  - id: overk-047
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Mark- och miljödomstolen prövar ett överklagande av en detaljplan och finner att en
+      bestämmelse om en byggrätt strider mot en rättsregel. Kommunen har inte medgett någon
+      ändring. Vad ska domstolen göra?
+    alternativ:
+      - text: Upphäva planbeslutet i sin helhet, om det inte är uppenbart att felet saknar betydelse för avgörandet.
+        ratt: true
+      - text: Ändra bestämmelsen så att den blir laglig och fastställa resten av planen.
+      - text: Upphäva bara den felaktiga bestämmelsen.
+      - text: Återförvisa planen till kommunen för ny granskning av den felaktiga delen.
+    forklaring: >
+      Vid överklagande av planer prövar instansen bara om beslutet strider mot någon rättsregel på
+      det sätt klaganden angett eller som framgår av omständigheterna (13 kap. 17 § PBL). Strider
+      det mot en rättsregel ska beslutet upphävas i sin helhet, annars fastställas i sin helhet.
+      Det upphävs inte om felet uppenbart saknar betydelse. Bara om kommunen har medgett det får
+      beslutet upphävas i en viss del eller ändras på annat sätt. Det skiljer sig från bygglov,
+      där överinstansen gör en fullständig prövning av ärendet.
+    lagrum:
+      - PBL 13 kap. 17 §
+      - PBL 13 kap. 2 a §
+    taggar: [detaljplan, provningens_omfattning, mark_och_miljodomstol]
+
+  - id: overk-048
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilket av följande beslut i ett bygglovsärende kan sökanden överklaga särskilt, utan att
+      vänta på det slutliga beslutet i ärendet?
+    alternativ:
+      - text: Ett beslut att avvisa ansökan för att den trots föreläggande är ofullständig.
+        ratt: true
+      - text: Ett beslut att förlänga handläggningstiden med tio veckor.
+      - text: Ett beslut att skicka ansökan på remiss till räddningstjänsten.
+      - text: Ett beslut i startbeskedet om att det behövs en kontrollansvarig.
+    forklaring: >
+      Avvisningen avslutar ärendet och påverkar sökandens situation på ett inte obetydligt sätt,
+      så den kan överklagas (41 § FL och 13 kap. 3 § PBL). En remiss är en beredningsåtgärd som
+      inte i sig påverkar sökandens situation och kan inte överklagas särskilt. Beslut om
+      förlängd handläggningstid och om behovet av kontrollansvarig, kontrollplan eller tekniskt
+      samråd får uttryckligen inte överklagas (13 kap. 2 § första stycket 4 och 5 PBL). Sökanden
+      kan i stället ta upp sådana frågor när det slutliga beslutet överklagas, om de har betydelse
+      för det.
+    lagrum:
+      - FL 41 §
+      - PBL 13 kap. 2 §
+      - PBL 13 kap. 3 §
+      - PBL 9 kap. 91 §
+    taggar: [overklagbarhet, avvisning, beredning]
+
+  - id: overk-049
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett överklagande av ett bygglov måste vara egenhändigt undertecknat för att kunna prövas.
+    svar: false
+    forklaring: >
+      Enligt 43 § FL ska ett överklagande göras skriftligen och ges in till den myndighet som
+      meddelat beslutet. Det ska ange vilket beslut som överklagas och hur klaganden vill att
+      beslutet ska ändras. Något krav på underskrift finns inte, så ett överklagande via e-post
+      är giltigt. Myndigheten kan begära att en handling bekräftas om det behövs (21 § FL). Saknas
+      uppgifter, t.ex. vilken ändring som begärs, kan klaganden få komplettera. Ankomstdagen är
+      avgörande för rättidsprövningen (45 §).
+    lagrum:
+      - FL 43 §
+      - FL 21 §
+      - FL 45 §
+    taggar: [overklagandets_form, epost, rattidsprovning]
+
+  - id: overk-050
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnadsnämnden i Åkerslunda har på uppdrag av fullmäktige antagit en detaljplan.
+      Justeringen av protokollet tillkännages på kommunens anslagstavla måndagen den 7 september
+      2026. Hur många dagar efter tillkännagivandet infaller sista dagen för att överklaga
+      planbeslutet?
+    svar: 21
+    tolerans: 0
+    enhet: dagar
+    losning: >
+      För planbeslut räknas överklagandetiden från den dag då justeringen av protokollet
+      tillkännagavs på anslagstavlan (13 kap. 16 § andra stycket PBL), och tiden är tre veckor
+      (44 § FL). 7 september + 21 dagar = måndagen den 28 september 2026.
+    forklaring: >
+      Jämför med bygglov: för den som inte delges ett bygglov räknas tiden från den dag som
+      infaller en vecka efter kungörelsen (13 kap. 16 § tredje stycket), så där blir det 28 dagar
+      från kungörelsedagen. För planbeslut finns ingen sådan extra vecka. Planbeslut överklagas
+      till mark- och miljödomstolen (2 a §), men överklagandet ges in till kommunen. Faller sista
+      dagen på en lördag, söndag eller helgdag flyttas den till nästa vardag.
+    lagrum:
+      - PBL 13 kap. 16 §
+      - FL 44 §
+      - PBL 13 kap. 2 a §
+    taggar: [overklagandetid, detaljplan, berakning]
+
+  - id: overk-051
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne överklagar ett bygglov för ett nytt enbostadshus. Huset följer detaljplanen i
+      allt, och planens genomförandetid har inte gått ut. Grannen anser att en tillåten
+      byggnadshöjd på 7 m är för hög för området och tar utsikten. Hur påverkar det prövningen?
+    alternativ:
+      - text: Frågan om hur högt man får bygga är redan avgjord genom detaljplanen, och beslutet får inte överklagas i den delen. Grannen kan få prövat det som inte avgjorts i planen, t.ex. betydande olägenhet av en detalj som planen inte reglerar.
+        ratt: true
+      - text: Länsstyrelsen prövar höjden på nytt och kan sänka den om grannens utsikt försämras.
+      - text: Överklagandet ska avvisas helt, eftersom planenliga bygglov aldrig kan överklagas.
+      - text: Nämnden ska ompröva lovet och sänka huset till en nivå grannen godtar.
+    forklaring: >
+      Enligt 13 kap. 2 § första stycket 7 PBL får kommunala beslut inte överklagas i den del de
+      avser en fråga som redan är avgjord genom en detaljplan, områdesbestämmelser eller ett
+      förhandsbesked. Planen har prövat hur högt man får bygga, och den prövningen gjordes när
+      planen togs fram. Ett planenligt lov kan ändå överklagas i andra delar, t.ex. om
+      utformningen eller om något som planen inte reglerar. Förklara gärna detta för grannen
+      redan när hon hör av sig, så att hon förstår vad överinstansen kan pröva.
+    lagrum:
+      - PBL 13 kap. 2 §
+      - PBL 9 kap. 56 §
+      - PBL 13 kap. 3 §
+    taggar: [overklagbarhet, planenlighet, grannar]
+
+  - id: overk-052
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Skriv rubriken "Hur man överklagar" i ett beslut om bygglov för en tillbyggnad på Rönnen 3.
+      Texten ska fungera både för sökanden, som delges beslutet, och för grannar som inte delges
+      det.
+    bedomningspunkter:
+      - Anger att överklagandet ska vara skriftligt och skickas till byggnadsnämnden, inte till länsstyrelsen (43 § FL).
+      - Anger att överklagandet ska ha kommit in inom tre veckor från den dag mottagaren fick del av beslutet (44 § FL).
+      - Förklarar att tiden för den som inte delgetts räknas från den dag som infaller en vecka efter kungörelsen på anslagstavlan (13 kap. 16 § PBL).
+      - "Anger vad överklagandet ska innehålla: vilket beslut (gärna diarienummer), vilken ändring som begärs och varför."
+      - Förklarar att nämnden prövar om överklagandet kommit in i tid och sedan skickar det till länsstyrelsen, och ger kontaktuppgifter för frågor.
+    modellsvar: >
+      Hur man överklagar. Om du vill överklaga beslutet ska du skriva till Bygg- och
+      miljönämnden, Åkerslunda kommun, 999 99 Åkerslunda, eller mejla till
+      bygglov@example.com. Ange diarienummer BN 2026-000318, vilket beslut du överklagar, hur du
+      vill att beslutet ska ändras och varför. Ditt överklagande ska ha kommit in till nämnden
+      inom tre veckor från den dag du fick del av beslutet. Om du inte har fått beslutet
+      delgivet räknas de tre veckorna från den dag som infaller en vecka efter att beslutet
+      kungjorts på kommunens anslagstavla. Nämnden kontrollerar att överklagandet kommit in i
+      tid och skickar det sedan vidare till länsstyrelsen, som prövar det. Har du frågor kan du
+      ringa handläggaren på 070-174 06 31.
+    lagrum:
+      - FL 43 §
+      - FL 44 §
+      - FL 45 §
+      - PBL 13 kap. 16 §
+      - FL 33 §
+    taggar: [overklagandehanvisning, klarsprak, instudering]

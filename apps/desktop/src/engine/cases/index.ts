@@ -40,7 +40,12 @@ export {
   DECISION_OUTCOME_LABELS,
   DELIVERY_METHOD_LABELS,
   emptyDecisionDraft,
+  decisionOutcomeLabel,
   isGrant,
+  isNotificationCase,
+  permitKind,
+  permitNoun,
+  isStartNotice,
   objectingNeighbours,
 } from './decision';
 export {
@@ -53,6 +58,9 @@ export {
   formatKronor,
   INJUNCTION_WINDOW_DAYS,
   MAX_EXTENSION_WEEKS,
+  maxExtensionWeeks,
+  NOTIFICATION_DEADLINE_DAYS,
+  NOTIFICATION_MAX_EXTENSION_WEEKS,
   suspensionLawRef,
   SUSPENSION_REASON_TEXT,
   type DeadlineInput,

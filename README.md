@@ -27,21 +27,26 @@ pluggar aldrig behöver göra något mer tekniskt än att trycka "Uppdatera".
 
 ## Status
 
-Fas 1 (v0.1), fas 2 (v0.2, ärendesimulatorn) och fas 3 (v0.3, studiehjälp och uppslag) är
-släppta. Fas 4, bredd och finish, är byggd och kommer i nästa version. Det som finns:
+Fas 1 (v0.1), fas 2 (v0.2, ärendesimulatorn), fas 3 (v0.3, studiehjälp och uppslag) och fas 4
+(v0.4, bredd och finish) är släppta. Fas 4b, mer innehåll (96 nya frågor och tre nya ärenden),
+är byggd och kommer i nästa version. Det som finns:
 
 - **Plugga**: snabbquiz, modulgenomgång, repetition (FSRS), instudering och tentaläge med alla
   nio frågetyper, förklaring och lagrum efter varje svar, tangentbordsstyrning och avslutsvy med
   "öva på felen". Varje svar sparas och styr repetitionsschemat. Alla 13 moduler har frågor.
-- **Ärenden**: sex ärenden på fyra nivåer: A001 komplementbyggnad nära gräns, A002 tillbyggnad
+- **Ärenden**: nio ärenden på fyra nivåer: A001 komplementbyggnad nära gräns, A002 tillbyggnad
   med liten avvikelse, A003 nybyggnad utanför plan vid strand, A004 tillsyn av ett garage byggt
-  större än lovet (nivå 4), A005 restaurang i en kulturhistoriskt värdefull byggnad och A006
-  flerbostadshus med överklagande. Ärendevyn har diarium, handlingsvisare med genererade
-  ritningar och mätverktyg (avstånd och yta), arbetsyta med sex stegtyper, simulerad tid med
-  tioveckorsfristen (9 kap. 99 §; tillsynsärenden har ingen frist förrän en ansökan om lov i
-  efterhand kommer in), förlängning av fristen, vilande enligt 9 kap. 102 §, händelser som
+  större än lovet (nivå 4), A005 restaurang i en kulturhistoriskt värdefull byggnad, A006
+  flerbostadshus med överklagande, A007 anmälan av eldstad och VA-servis som slutar med ett
+  startbesked, A008 marklov för schakt och trädfällning och A009 förhandsbesked för två tomter
+  vid en kvarnmiljö. Ärendevyn har diarium, handlingsvisare med genererade ritningar och
+  mätverktyg (avstånd och yta), arbetsyta med sex stegtyper, simulerad tid med tioveckorsfristen
+  (9 kap. 99 §; fyra veckor för en anmälan enligt 6 kap. 5 § PBF; tillsynsärenden har ingen
+  frist förrän en ansökan om lov i efterhand kommer in), förlängning av fristen, vilande enligt
+  9 kap. 102 §, händelser som
   förgrenar ärendet, datum som följer hennes egen tidslinje, beslutsmall med automatiska
-  kontroller, jämförelse med modellbeslutet och export av beslutsrapporten till handledaren.
+  kontroller (beslut om bygglov, marklov, förhandsbesked och startbesked), jämförelse med
+  modellbeslutet och export av beslutsrapporten till handledaren.
   Se [docs/03-arendesimulator.md](docs/03-arendesimulator.md).
 - **Fråga handledaren** (studiehjälp med AI): i förklaringen efter varje svar, i ärendets
   arbetsyta, som första återkoppling i jämförelsevyn och på Hem. Svaren strömmar från Claude
@@ -57,7 +62,7 @@ släppta. Fas 4, bredd och finish, är byggd och kommer i nästa version. Det so
   och på resultatsidan behärskning över tid, svar per dag, svaga taggar, ärenden per status,
   kontroller per beslut och handledarens bedömningar, med filter och tabellvy för varje
   diagram.
-- **Innehåll**: 526 frågor i alla 13 moduler, sex ärenden och uppslagsinnehållet, allt enligt
+- **Innehåll**: 622 frågor i alla 13 moduler, nio ärenden och uppslagsinnehållet, allt enligt
   rättsläget från 2025-12-01 och med status `utkast` tills handledaren granskat det. Lagtext som
   innehållet bygger på ligger i [docs/rattslage/](docs/rattslage/README.md).
 - **Tillgänglighet**: genomgången med axe (WCAG 2.2 AA) i ljust och mörkt läge, synlig

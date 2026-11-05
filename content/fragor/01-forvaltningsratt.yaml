@@ -1074,3 +1074,235 @@ fragor:
       - FL 32 §
       - FL 33 §
     taggar: [motivering, beslut, overklagandehanvisning]
+
+  # --- Fas 4b: kompletterande frågor ------------------------------------------------------
+
+  - id: forv-042
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett överklagande ligger i kommunhusets postlåda när den töms första gången på måndag
+      morgon. Överklagandetiden gick ut på fredagen. Vilken dag har överklagandet kommit in?
+    alternativ:
+      - text: På fredagen, eftersom en handling som finns i postlådan när den töms första gången en dag anses ha kommit in närmast föregående arbetsdag.
+        ratt: true
+      - text: På måndagen, eftersom det var då kommunen fick handlingen.
+      - text: På lördagen, eftersom den troligen lades i postlådan då.
+      - text: Den dag då handlingen registrerades i diariet.
+    forklaring: >
+      Huvudregeln är att en handling har kommit in den dag den når myndigheten (22 § första
+      stycket FL). Men en handling som finns i myndighetens postlåda när den töms första gången
+      en viss dag anses ha kommit in närmast föregående arbetsdag (tredje stycket). Överklagandet
+      har därför kommit in i tid. Regeln är viktig både vid rättidsprövning (45 § FL) och för
+      tioveckorsfristen i bygglovsärenden, som räknas från ansökningsdagen. Ankomststämpla därför
+      post som tas ur postlådan på morgonen med föregående arbetsdag.
+    lagrum:
+      - FL 22 §
+      - FL 45 §
+    taggar: [ankomstdag, overklagandetid, registrering]
+
+  - id: forv-043
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov för en tillbyggnad saknar fasadritning, och sökanden har skrivit fel
+      fastighetsbeteckning. Hur bör du först hantera bristerna?
+    alternativ:
+      - text: Först hjälpa sökanden till rätta inom serviceskyldigheten, t.ex. genom ett samtal eller ett mejl om vad som saknas, och förelägga om komplettering om bristerna finns kvar.
+        ratt: true
+      - text: Avvisa ansökan direkt, eftersom den inte är fullständig.
+      - text: Rätta fastighetsbeteckningen själv och rita en enkel fasad utifrån planritningen.
+      - text: Vänta tills tioveckorsfristen nästan gått ut och sedan avslå ansökan.
+    forklaring: >
+      Enligt 20 § FL ska myndigheten i första hand hjälpa den enskilde till rätta inom ramen för
+      serviceskyldigheten när en framställning är ofullständig eller oklar. Först om bristen finns
+      kvar och hindrar en prövning i sak får myndigheten förelägga. För bygglov finns en särskild
+      regel i 9 kap. 91 § PBL, som går före förvaltningslagen (4 § FL): föreläggandet ska upplysa
+      om att ansökan kan avvisas eller avgöras i befintligt skick. Tänk på att ett föreläggande
+      inom tre veckor från ansökningsdagen gör att tioveckorsfristen räknas från kompletteringen
+      (9 kap. 99 §). Handläggaren ska inte själv ta fram sökandens handlingar.
+    lagrum:
+      - FL 20 §
+      - FL 6 §
+      - FL 4 §
+      - PBL 9 kap. 91 §
+      - PBL 9 kap. 99 §
+    taggar: [komplettering, service, foreläggande]
+
+  - id: forv-044
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du ska skicka en ansökan om bygglov för en förskola på remiss till räddningstjänsten,
+      miljöenheten och trafikenheten. Vad kräver 26 § FL av remisserna?
+    alternativ:
+      - text: Att de som huvudregel skickas samtidigt och att det framgår vad yttrandet ska avse och när det senast ska ha kommit in.
+        ratt: true
+      - text: Att de skickas en i taget, så att varje instans kan ta del av de tidigare svaren.
+      - text: Att sökanden själv skickar remisserna och betalar för yttrandena.
+      - text: Att remissinstanserna alltid får minst sex veckor på sig.
+    forklaring: >
+      Myndigheten kan inom sitt utredningsansvar (23 § FL) begära yttranden från andra
+      myndigheter eller enskilda. Behövs flera yttranden ska de begäras samtidigt, om inte något
+      annat är lämpligare, och remissen ska tala om vad yttrandet ska avse och när det senast ska
+      ha kommit in (26 §). Samtidiga remisser med tydlig sista dag är viktiga för att hålla
+      tioveckorsfristen i 9 kap. 99 § PBL. Remissvar som har betydelse för beslutet ska
+      kommuniceras med sökanden (9 kap. 98 §).
+    lagrum:
+      - FL 26 §
+      - FL 23 §
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 98 §
+    taggar: [remiss, utredning, handlaggningstid]
+
+  - id: forv-045
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du har föredragit ett ärende i nämnden och föreslagit avslag eftersom avvikelsen från
+      planen inte är liten. Nämnden beviljar ändå lov. Vad har du för möjlighet att markera din
+      uppfattning?
+    alternativ:
+      - text: Du har rätt att få en avvikande mening antecknad, och den ska anmälas innan beslutet expedieras.
+        ratt: true
+      - text: Ingen, eftersom bara ledamöter får reservera sig.
+      - text: Du kan vägra att expediera beslutet.
+      - text: Du kan själv överklaga beslutet till länsstyrelsen.
+    forklaring: >
+      Den som medverkar vid den slutliga handläggningen utan att delta i avgörandet, t.ex. en
+      föredragande handläggare, har alltid rätt att få en avvikande mening antecknad (30 § andra
+      stycket FL). Den ska anmälas innan beslutet expedieras eller på annat sätt görs
+      tillgängligt för utomstående (tredje stycket). Parterna ska upplysas om antecknade avvikande
+      meningar när de underrättas om beslutet (33 §). Handläggaren är skyldig att verkställa och
+      expediera nämndens beslut och har ingen egen klagorätt; det är grannar och sökande som kan
+      överklaga.
+    lagrum:
+      - FL 30 §
+      - FL 33 §
+    taggar: [avvikande_mening, foredragning, namnden]
+
+  - id: forv-046
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett avslag på bygglov har överklagats av sökanden. Innan nämnden har skickat överklagandet
+      till länsstyrelsen inser handläggaren att avslaget bygger på en felläst plankarta och är
+      uppenbart felaktigt. Lov kan ges snabbt och utan nackdel för någon annan part. Vad gäller?
+    alternativ:
+      - text: Nämnden ska ändra beslutet, och det nya beslutet överlämnas till länsstyrelsen tillsammans med överklagandet, som anses omfatta det nya beslutet.
+        ratt: true
+      - text: Nämnden får inte ändra ett beslut som har överklagats; länsstyrelsen måste avgöra saken.
+      - text: Nämnden ska avvisa överklagandet och fatta ett nytt beslut.
+      - text: Nämnden får ändra beslutet först sedan länsstyrelsen har återförvisat ärendet.
+    forklaring: >
+      Enligt 38 § FL ska en myndighet ändra ett beslut som den meddelat som första instans om det
+      är uppenbart felaktigt i något väsentligt hänseende och kan ändras snabbt och enkelt utan
+      nackdel för någon enskild part. Ett överklagat beslut får ändras i sådana fall, men bara så
+      länge överklagandet inte har överlämnats till överinstansen (39 §). Det nya beslutet
+      överlämnas och överklagandet anses omfatta det (46 § andra stycket). Om grannar påverkas
+      negativt av ett beviljat lov är villkoret "utan nackdel" inte uppfyllt.
+    lagrum:
+      - FL 38 §
+      - FL 39 §
+      - FL 46 §
+    taggar: [omprovning, andring_av_beslut, overklagande]
+
+  - id: forv-047
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En jävig handläggare får aldrig vidta någon åtgärd i ärendet, inte ens en åtgärd som ingen
+      annan kan utföra utan att handläggningen försenas avsevärt.
+    svar: false
+    forklaring: >
+      Huvudregeln i 17 § FL är att den som är jävig inte får ta del i handläggningen och inte
+      heller närvara när ärendet avgörs. Men han eller hon får utföra sådana uppgifter som inte
+      någon annan kan utföra utan att handläggningen försenas avsevärt, t.ex. att ta emot och
+      registrera en handling när ingen annan finns på plats. För anställda i kommunen gäller
+      kommunallagens jävsregler (6 kap. 28–32 §§ via 7 kap. 4 § KL), och 6 kap. 30 § KL har
+      samma undantag. Den som känner till en omständighet som kan antas utgöra jäv ska självmant
+      uppge det.
+    lagrum:
+      - FL 17 §
+      - FL 16 §
+      - KL 7 kap. 4 §
+      - KL 6 kap. 30 §
+    taggar: [jav]
+
+  - id: forv-048
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop situationen med den paragraf i förvaltningslagen som styr den.
+    par:
+      - vanster: Ett brev ligger i postlådan när den töms på morgonen
+        hoger: FL 22 § (ankomstdag)
+      - vanster: Du skickar ansökan till räddningstjänsten för yttrande
+        hoger: FL 26 § (remiss)
+      - vanster: Föredraganden håller inte med om nämndens beslut
+        hoger: FL 30 § (avvikande mening)
+      - vanster: Beslutet har ett räknefel i avgiften
+        hoger: FL 36 § (rättelse av skrivfel)
+      - vanster: Ett överklagande kom in en dag för sent
+        hoger: FL 45 § (rättidsprövning)
+      - vanster: En part vill lämna uppgifter muntligt
+        hoger: FL 24 § (muntliga uppgifter)
+    forklaring: >
+      Förvaltningslagen följer ärendets gång: inledning och ankomst (19–22 §§), beredning med
+      utredning, muntliga uppgifter, remiss, kommunicering och dokumentation (23–27 §§), beslut
+      och avvikande mening (28–34 §§), rättelse och ändring (36–39 §§) och överklagande (40–48 §§).
+      En part som vill lämna uppgifter muntligt ska få göra det om det inte är obehövligt, men
+      myndigheten bestämmer formen (24 §). Ett för sent inkommet överklagande avvisas, utom när
+      förseningen beror på en felaktig överklagandehänvisning eller överklagandet kommit in till
+      överinstansen inom överklagandetiden (45 §).
+    lagrum:
+      - FL 22 §
+      - FL 24 §
+      - FL 26 §
+      - FL 30 §
+      - FL 36 §
+      - FL 45 §
+    taggar: [forvaltningslagen, oversikt]
+
+  - id: forv-049
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En enskild inleder ett ärende med en framställning. Vilka uppgifter ska den innehålla
+      enligt 19 § FL?
+    alternativ:
+      - text: Uppgifter om den enskildes identitet.
+        ratt: true
+      - text: Information som behövs för att myndigheten ska kunna kontakta honom eller henne.
+        ratt: true
+      - text: Vad ärendet gäller och vad den enskilde vill att myndigheten ska göra.
+        ratt: true
+      - text: Hänvisning till de lagrum som ansökan grundas på.
+      - text: En egenhändig namnteckning i original.
+    forklaring: >
+      19 § FL kräver identitet, kontaktuppgifter, vad ärendet gäller och vad den enskilde vill att
+      myndigheten ska göra, och normalt också vilka omständigheter som ligger till grund för
+      begäran. Lagrum behöver den enskilde inte ange; det är myndighetens uppgift att känna till
+      reglerna. Förvaltningslagen kräver ingen namnteckning, men myndigheten kan begära att en
+      handling bekräftas (21 §). För en ansökan om bygglov gäller dessutom de särskilda kraven i
+      9 kap. 86 § PBL, bl.a. fastighetsbeteckning och de ritningar som behövs.
+    lagrum:
+      - FL 19 §
+      - FL 21 §
+      - PBL 9 kap. 86 §
+    taggar: [ansokan, framstallning, inledning_av_arende]
