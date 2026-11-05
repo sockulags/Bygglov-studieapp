@@ -11,11 +11,23 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
+Inget ännu.
+
+## [0.7.0] - 2026-11-05
+
+### Nytt
+
+- 28 nya frågor om Boverkets föreskrifter, så att det nu finns 650. De handlar om bostäders
+  lämplighet, tillgänglighet, tomter, brand mellan byggnader, buller, energi, cykelparkering
+  och laddning, och om vilka regler som gäller under övergången från BBR.
+- Uppslag har en post för varje föreskrift, och lagrum som BFS 2024:12 2 kap. 4 § visas
+  under rätt föreskrift. Ordlistan har fått begrepp som boendeenhet, angöringsplats,
+  angreppspunkt, byggnadsklass och mindre avvikelse.
+
 ### Rättat
 
-- Frågorna om Boverkets byggregler stämmer nu med reglerna: de flesta krav finns i nya
-  föreskrifter, BBR finns kvar för bland annat energihushållning, och äldre regler får
-  användas samlat om ansökan kom in före 1 juli 2026.
+- Frågorna om Boverkets byggregler stämmer nu med reglerna: BBR upphävdes 1 oktober 2026, kraven
+  finns i nya föreskrifter, och äldre regler får användas samlat under en övergångstid.
 - Rättade förklaringar om allmänna råd, mindre avvikelse och rumsstorlekar.
 - I ärendet på Kopparslagaren 3 är resonemanget om tillgänglighet och varsamhet rättat.
 - I ärendet på Tallen 9 står det nu att avdraget på 15 kvm vid ibruktagande är en tolkning.
@@ -230,7 +242,8 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 - Appen uppdaterar sig själv. När en ny version finns visas en ruta överst, och efter
   uppdateringen ser du vad som är nytt.
 
-[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.6.1...master
+[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.7.0...master
+[0.7.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.7.0
 [0.6.1]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.6.1
 [0.6.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.6.0
 [0.5.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.5.0
