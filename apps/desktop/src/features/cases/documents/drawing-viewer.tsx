@@ -87,7 +87,8 @@ function useMeasurableSvg(src: string) {
 
 /**
  * A drawing (SVG or PNG) with zoom (buttons, scroll wheel, + and −) and panning (drag, or
- * the arrow keys when the drawing has focus). Starts fitted to the panel width. Give it
+ * the arrow keys when the drawing has focus). Starts at 100 %, centred, or smaller when the
+ * panel is narrower than the drawing; "Anpassa" fills the panel width. Give it
  * `key={src}` so a new drawing starts from a fresh view.
  *
  * Generated SVG drawings carry their scale, so they can also be measured: "Mät" (M) gives
@@ -144,13 +145,18 @@ export function DrawingViewer({
     [placement, view],
   );
 
-  /** The view that shows the whole width (or, for `page`, the whole sheet) of `size`. */
-  const fitted = (size: { width: number; height: number }): View => {
+  /**
+   * The view that shows the whole width (or, for `page`, the whole sheet) of `size`,
+   * centred. With `atMostNatural` it never enlarges past 100 %, so a drawing opens at its
+   * real size on a wide panel and only shrinks to fit a narrow one.
+   */
+  const fitted = (size: { width: number; height: number }, atMostNatural = false): View => {
     const width = frame.current?.clientWidth ?? size.width;
     const height = frame.current?.clientHeight ?? 0;
     const byWidth = (width - 32) / size.width;
     const byHeight = initialFit === 'page' && height > 0 ? (height - 32) / size.height : byWidth;
-    const scale = clamp(Math.min(byWidth, byHeight), MIN_SCALE, MAX_SCALE);
+    const best = Math.min(byWidth, byHeight);
+    const scale = clamp(atMostNatural ? Math.min(best, 1) : best, MIN_SCALE, MAX_SCALE);
     return { scale, x: (width - size.width * scale) / 2, y: 16 };
   };
   const fit = () => {
@@ -450,7 +456,7 @@ export function DrawingViewer({
             const img = event.currentTarget;
             const size = { width: img.naturalWidth || 794, height: img.naturalHeight || 1123 };
             setNatural(size);
-            setView(fitted(size));
+            setView(fitted(size, true));
           }}
           onError={() => setFailed(true)}
           className="drawing-sheet absolute top-0 left-0 max-w-none origin-top-left shadow-paper select-none"

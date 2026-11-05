@@ -293,6 +293,25 @@ function CaseWorkspace({
     }
   };
 
+  const workPanel = (
+    <WorkPanel
+      caseFile={caseFile}
+      active={active}
+      onOpenDocument={openDocument}
+      onOpenDecision={() => setDecisionOpen(true)}
+      onOpenComparison={() => setComparisonOpen(true)}
+      onCompareWriting={setWritingStepId}
+    />
+  );
+  const diaryList = (
+    <DiaryPanel
+      caseFile={caseFile}
+      state={state}
+      selectedDocumentId={selectedId}
+      onOpenDocument={openDocument}
+    />
+  );
+
   const panelClass = (id: PanelId) =>
     cn('flex min-h-0 flex-col bg-bg', !wide && panel !== id && 'hidden');
 
@@ -446,89 +465,83 @@ function CaseWorkspace({
         </div>
       )}
 
-      <div
-        className={cn(
-          'min-h-0 flex-1',
-          wide && 'grid grid-cols-[minmax(240px,280px)_minmax(0,1fr)_minmax(360px,420px)]',
-        )}
-      >
-        <section
-          id="panel-diarium"
-          aria-label="Diarium"
-          {...(!wide ? { role: 'tabpanel', 'aria-labelledby': 'tab-diarium' } : {})}
-          className={cn(panelClass('diarium'), 'h-full border-r border-line')}
-        >
-          {wide && (
-            <h2 className="border-b border-line px-4 py-2.5 text-sm font-semibold tracking-[0.06em] text-muted uppercase">
-              Diarium
-            </h2>
-          )}
-          <div className="min-h-0 flex-1 overflow-auto">
-            <div className="px-3 pt-3">
-              <button
-                type="button"
-                onClick={showOverview}
-                aria-current={selectedId === null ? 'page' : undefined}
-                className={cn(
-                  'flex w-full items-center gap-2 rounded-md border px-2.5 py-2 text-left text-sm font-medium',
-                  selectedId === null
-                    ? 'border-accent/40 bg-accent-soft text-ink'
-                    : 'border-transparent text-muted hover:bg-accent-soft hover:text-ink',
-                )}
-              >
-                <LayoutList className="size-4 shrink-0" aria-hidden="true" />
-                Ärendeöversikt
-              </button>
-            </div>
-            <DiaryPanel
-              caseFile={caseFile}
-              state={state}
-              selectedDocumentId={selectedId}
-              onOpenDocument={openDocument}
-            />
-          </div>
-        </section>
-        <section
-          id="panel-handling"
-          aria-label="Handling"
-          {...(!wide ? { role: 'tabpanel', 'aria-labelledby': 'tab-handling' } : {})}
+      {wide && !selected ? (
+        <div className="min-h-0 flex-1 overflow-auto px-6 py-8">
+          <CaseOverview caseFile={caseFile} active={active} work={workPanel} diary={diaryList} />
+        </div>
+      ) : (
+        <div
           className={cn(
-            panelClass('handling'),
-            'h-full bg-[color-mix(in_srgb,var(--bg)_70%,var(--line))]',
+            'min-h-0 flex-1',
+            wide && 'grid grid-cols-[minmax(240px,280px)_minmax(0,1fr)_minmax(360px,420px)]',
           )}
         >
-          {selected ? (
-            <DocumentViewer
-              caseFile={caseFile}
-              document={selected.document}
-              receivedDate={selected.receivedDate}
-              isNew={lastOutcome?.newDocumentIds.includes(selected.document.id) ?? false}
-              onClose={showOverview}
-            />
-          ) : (
-            <div className="min-h-0 flex-1 overflow-auto p-4 sm:p-6">
-              <CaseOverview caseFile={caseFile} active={active} />
+          <section
+            id="panel-diarium"
+            aria-label="Diarium"
+            {...(!wide ? { role: 'tabpanel', 'aria-labelledby': 'tab-diarium' } : {})}
+            className={cn(panelClass('diarium'), 'h-full border-r border-line')}
+          >
+            {wide && (
+              <h2 className="border-b border-line px-4 py-2.5 text-sm font-semibold tracking-[0.06em] text-muted uppercase">
+                Diarium
+              </h2>
+            )}
+            <div className="min-h-0 flex-1 overflow-auto">
+              <div className="px-3 pt-3">
+                <button
+                  type="button"
+                  onClick={showOverview}
+                  aria-current={selectedId === null ? 'page' : undefined}
+                  className={cn(
+                    'flex w-full items-center gap-2 rounded-md border px-2.5 py-2 text-left text-sm font-medium',
+                    selectedId === null
+                      ? 'border-accent/40 bg-accent-soft text-ink'
+                      : 'border-transparent text-muted hover:bg-accent-soft hover:text-ink',
+                  )}
+                >
+                  <LayoutList className="size-4 shrink-0" aria-hidden="true" />
+                  Ärendeöversikt
+                </button>
+              </div>
+              {diaryList}
             </div>
-          )}
-        </section>
-        <section
-          id="panel-arbete"
-          aria-label="Arbetsyta"
-          {...(!wide ? { role: 'tabpanel', 'aria-labelledby': 'tab-arbete' } : {})}
-          className={cn(panelClass('arbete'), 'h-full border-l border-line bg-paper')}
-        >
-          {/* Keeps the heading order (h1 → h2 → the step's h3) in both layouts. */}
-          <h2 className="sr-only">Arbetsyta</h2>
-          <WorkPanel
-            caseFile={caseFile}
-            active={active}
-            onOpenDocument={openDocument}
-            onOpenDecision={() => setDecisionOpen(true)}
-            onOpenComparison={() => setComparisonOpen(true)}
-            onCompareWriting={setWritingStepId}
-          />
-        </section>
-      </div>
+          </section>
+          <section
+            id="panel-handling"
+            aria-label="Handling"
+            {...(!wide ? { role: 'tabpanel', 'aria-labelledby': 'tab-handling' } : {})}
+            className={cn(
+              panelClass('handling'),
+              'h-full bg-[color-mix(in_srgb,var(--bg)_70%,var(--line))]',
+            )}
+          >
+            {selected ? (
+              <DocumentViewer
+                caseFile={caseFile}
+                document={selected.document}
+                receivedDate={selected.receivedDate}
+                isNew={lastOutcome?.newDocumentIds.includes(selected.document.id) ?? false}
+                onClose={showOverview}
+              />
+            ) : (
+              <div className="min-h-0 flex-1 overflow-auto p-4 sm:p-6">
+                <CaseOverview caseFile={caseFile} active={active} />
+              </div>
+            )}
+          </section>
+          <section
+            id="panel-arbete"
+            aria-label="Arbetsyta"
+            {...(!wide ? { role: 'tabpanel', 'aria-labelledby': 'tab-arbete' } : {})}
+            className={cn(panelClass('arbete'), 'h-full border-l border-line bg-paper')}
+          >
+            {/* Keeps the heading order (h1 → h2 → the step's h3) in both layouts. */}
+            <h2 className="sr-only">Arbetsyta</h2>
+            {workPanel}
+          </section>
+        </div>
+      )}
 
       {decisionStep && (
         <DecisionScreen

@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { CaseFile } from '@bygglov/content-schema';
 import { currentStep, visibleDocuments } from '@/engine';
 import { cn } from '@/lib/cn';
@@ -17,11 +18,22 @@ function FactList({ facts }: { facts: Record<string, unknown> }) {
   );
 }
 
+export interface CaseOverviewProps {
+  caseFile: CaseFile;
+  active: ActiveCase;
+  /** The current step (arbetsytan), shown as "Att göra nu" in the single-column layout. */
+  work?: ReactNode;
+  /** The diary, shown last in the single-column layout. */
+  diary?: ReactNode;
+}
+
 /**
- * The middle of the case view when no document is open: what the case is about, what to do
- * now, and the planning provisions and facts from the documents in the diary.
+ * The case before a document is opened: what the case is about, what to do now, the
+ * planning provisions and facts, and the diary. On a wide screen it is one centred column
+ * with the step and the diary in it (`work`, `diary`); on a narrow one it is the middle tab
+ * and the step and the diary have their own tabs.
  */
-export function CaseOverview({ caseFile, active }: { caseFile: CaseFile; active: ActiveCase }) {
+export function CaseOverview({ caseFile, active, work, diary }: CaseOverviewProps) {
   const { state } = active;
   const step = currentStep(caseFile, state);
   const documents = visibleDocuments(caseFile, state).filter(
@@ -31,19 +43,30 @@ export function CaseOverview({ caseFile, active }: { caseFile: CaseFile; active:
   const hasChanged = Object.keys(changed).length > 0;
 
   return (
-    <div className="@container mx-auto flex w-full max-w-4xl flex-col gap-6">
+    <div className="@container mx-auto flex w-full max-w-3xl flex-col gap-8">
       <section aria-labelledby="case-overview-title" className="flex flex-col gap-2">
         <h2 id="case-overview-title" className="text-xl">
-          Ärendeöversikt
+          Ärendet
         </h2>
         <p className="max-w-prose text-[1.0625rem] leading-relaxed">{caseFile.sammanfattning}</p>
-        {step && (
+        {step && !work && (
           <p className="text-sm text-muted">
-            Att göra nu: <span className="font-medium text-ink">{step.rubrik}</span> (i arbetsytan
-            till höger)
+            Att göra nu: <span className="font-medium text-ink">{step.rubrik}</span> (under
+            Arbetsyta)
           </p>
         )}
       </section>
+
+      {work && (
+        <section aria-labelledby="case-work-title" className="flex flex-col gap-3">
+          <h2 id="case-work-title" className="text-lg">
+            Att göra nu
+          </h2>
+          <div className="overflow-hidden rounded-lg border border-line-strong bg-paper shadow-paper">
+            {work}
+          </div>
+        </section>
+      )}
 
       <section aria-labelledby="case-facts-title" className="flex flex-col gap-3">
         <div>
@@ -51,8 +74,7 @@ export function CaseOverview({ caseFile, active }: { caseFile: CaseFile; active:
             Planbestämmelser och fakta
           </h2>
           <p className="text-sm text-muted">
-            Uppgifter ur handlingarna i diariet: planbestämmelser, mått och annat som ärendet bygger
-            på. Öppna en handling i diariet för att läsa den.
+            Uppgifter ur handlingarna: planbestämmelser, mått och annat som ärendet bygger på.
           </p>
         </div>
         {documents.length === 0 && !hasChanged && <p className="text-sm">Inga uppgifter ännu.</p>}
@@ -81,6 +103,20 @@ export function CaseOverview({ caseFile, active }: { caseFile: CaseFile; active:
           )}
         </div>
       </section>
+
+      {diary && (
+        <section aria-labelledby="case-diary-title" className="flex flex-col gap-3">
+          <div>
+            <h2 id="case-diary-title" className="text-lg">
+              Diarium
+            </h2>
+            <p className="text-sm text-muted">
+              Handlingar och händelser i ärendet. Öppna en handling för att läsa den.
+            </p>
+          </div>
+          <div className="rounded-lg border border-line bg-paper">{diary}</div>
+        </section>
+      )}
     </div>
   );
 }

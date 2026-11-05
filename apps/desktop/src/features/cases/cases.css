@@ -4,13 +4,16 @@
  * the design tokens (styles/tokens.css), so light and dark themes both work.
  */
 
-/* A4 sheet: 210 × 297 mm, scaled down with the panel. */
+/*
+ * A4 sheet: 210 × 297 mm at its real size, scaled down only when the panel is narrower. The
+ * aspect ratio gives every sheet the height of A4; a longer text makes the sheet grow.
+ */
 .paper {
   box-sizing: border-box;
   position: relative;
   width: 100%;
   max-width: 210mm;
-  min-height: min(297mm, 100%);
+  aspect-ratio: 210 / 297;
   margin-inline: auto;
   padding: clamp(20px, 6%, 18mm) clamp(20px, 8%, 20mm);
   background: var(--paper);

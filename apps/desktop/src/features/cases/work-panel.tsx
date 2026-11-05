@@ -126,10 +126,14 @@ function StepTab({
     nextButton.current?.focus({ preventScroll: true });
   }, [outcomeKey]);
 
-  // A new step starts at the top of the panel.
+  // A new step starts at the top of the panel; the step shown on mount stays where the page
+  // put it (in the overview column the case summary comes first).
   const stepKey = lastOutcome ? null : (step?.id ?? 'done');
+  const shownStep = useRef(stepKey);
   useEffect(() => {
-    if (stepKey) top.current?.scrollIntoView?.({ block: 'start' });
+    if (!stepKey || stepKey === shownStep.current) return;
+    shownStep.current = stepKey;
+    top.current?.scrollIntoView?.({ block: 'start' });
   }, [stepKey]);
 
   useKeydown((event) => {
