@@ -49,7 +49,17 @@ function renderPlan(p: PlanritningParams, k: number): View {
   const minY = Math.min(...rects.map((r) => r[1]));
   const maxX = Math.max(...rects.map((r) => r[0] + r[2]));
   const maxY = Math.max(...rects.map((r) => r[1] + r[3]));
-  const m = CHAIN_MARGIN_MM;
+  // Balconies outside the walls push the dimension chains out on their side.
+  const outset: Record<Side, number> = { norr: 0, soder: 0, vaster: 0, oster: 0 };
+  for (const {
+    rektangel: [x, y, w, d],
+  } of p.balkonger) {
+    outset.norr = Math.max(outset.norr, (minY - y) * k);
+    outset.soder = Math.max(outset.soder, (y + d - maxY) * k);
+    outset.vaster = Math.max(outset.vaster, (minX - x) * k);
+    outset.oster = Math.max(outset.oster, (x + w - maxX) * k);
+  }
+  const m = CHAIN_MARGIN_MM + Math.max(...Object.values(outset));
   const X = (x: number) => m + (x - minX) * k;
   const Y = (y: number) => m + (y - minY) * k;
   const planW = (maxX - minX) * k;
@@ -71,6 +81,26 @@ function renderPlan(p: PlanritningParams, k: number): View {
     parts.push(
       rect(X(x), Y(y), w * k, d * k, { fill: 'none', stroke: INK, 'stroke-width': LINE.medium }),
     );
+  }
+  // Balconies: slab outline and the railing just inside it.
+  for (const balcony of p.balkonger) {
+    const [x, y, w, d] = balcony.rektangel;
+    const r = 0.05;
+    parts.push(
+      rect(X(x), Y(y), w * k, d * k, { fill: PAPER, stroke: INK, 'stroke-width': LINE.medium }),
+      rect(X(x + r), Y(y + r), (w - 2 * r) * k, (d - 2 * r) * k, {
+        fill: 'none',
+        stroke: INK,
+        'stroke-width': LINE.hair,
+      }),
+    );
+    const name = balcony.namn ?? 'Balkong';
+    const size = Math.min(TEXT.small, ((w * k - 2) / textWidth(name, 1)) * 1);
+    if (size >= 1.2 && d * k > size * 1.6) {
+      parts.push(
+        label(X(x + w / 2), Y(y + d / 2), name, { anchor: 'middle', baseline: 'middle', size }),
+      );
+    }
   }
 
   // Openings: white gap across the wall, jamb lines, then the symbol.
@@ -210,14 +240,16 @@ function renderPlan(p: PlanritningParams, k: number): View {
     }
     const unique = [...best.values()];
     if (unique.length < 2) continue;
-    const at = (offset: number) =>
-      side === 'norr'
+    const at = (base: number) => {
+      const offset = base + outset[side];
+      return side === 'norr'
         ? Y(minY) - offset
         : side === 'soder'
           ? Y(maxY) + offset
           : side === 'vaster'
             ? X(minX) - offset
             : X(maxX) + offset;
+    };
     const textSide = side === 'norr' || side === 'vaster' ? 'before' : 'after';
     chains.push(
       dimensionChain({
@@ -452,5 +484,6 @@ export function renderPlanritning(p: PlanritningParams, context: DrawingContext)
       skala: p.skala,
     }),
     description: `${context.titel}, ${shortProperty(context.fastighet)}`,
+    scale: p.skala,
   });
 }

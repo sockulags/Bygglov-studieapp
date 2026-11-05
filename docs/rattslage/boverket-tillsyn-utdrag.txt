@@ -1,0 +1,65 @@
+BOVERKET, PBL KUNSKAPSBANKEN: TILLSYN OCH BYGGSANKTIONSAVGIFTER (UTDRAG, EGNA SAMMANFATTNINGAR)
+Hämtat 2026-11-05 från https://www.boverket.se/sv/PBL-kunskapsbanken/lov--byggande/tillsyn/
+(undersidor: byggsanktionsavgifter/nar-byggsanktionsavgift-ska-tas-ut/,
+byggsanktionsavgifter/nar-byggsanktionsavgift-ska-sattas-ner-eller-inte-tas-ut/,
+forelagganden/lovforelaggande/, forelagganden/rattelseforelaggande/, exempel-pa-tillsynsomraden/ovk/,
+exempel-pa-tillsynsomraden/lekplatser/tillsynsansvar/,
+exempel-pa-tillsynsomraden/hissar-och-andra-motordrivna-anordningar/, verkstallighetsmedel/vite/).
+Sammanfattningarna nedan är skrivna för appen; läs originalet vid tveksamhet. Lagrummen är
+kontrollerade mot pbl-11-kap.txt och pbf-9-kap.txt.
+
+Skyldigheten att pröva en anmälan (11 kap. 5 § PBL)
+- Nämnden måste pröva om det finns skäl att ingripa, oavsett om anmälan kommer från en granne,
+  någon annan eller är anonym. Den kan inte avstå från prövningen.
+- En grannfastighetsägare som begärt ingripande har rätt till ett formellt, överklagbart beslut
+  även när nämnden inte ingriper, och beslutet ska skickas till anmälaren med
+  överklagandehänvisning (JO 1997-10-09 dnr 3276-1996, JO 2015-01-30 dnr 5379-2014).
+
+Rättelse (11 kap. 54 § PBL)
+- Avgift tas inte ut om rättelse sker innan frågan tagits upp till överläggning vid ett
+  sammanträde med nämnden. Bordläggning utan överläggning i sak hindrar inte rättelse.
+- Påbörjande utan startbesked kan bara rättas genom att det utförda återställs. Att i efterhand
+  få startbesked eller undanröja hindret för startbesked är inte rättelse
+  (MÖD 2014-01-08 P 7235-13, MÖD 2018-10-15 P 2879-18).
+- Olovlig användning som redan har skett (hiss utan godkänt besiktningsprotokoll) rättas inte av
+  att protokollet lämnas in i efterhand (HD 2021-06-17 Ö 2351-20, NJA 2021 s. 446). Samma
+  bedömning för motordrivna portar (MÖD 2020-04-06 P 8258-18 och P 9280-18).
+
+Ibruktagande utan slutbesked (10 kap. 4 § PBL)
+- MÖD anser numera att avgift för ibruktagande utan slutbesked inte kan tas ut när startbesked
+  saknas helt, eftersom förbudet i 10 kap. 4 § gäller "de delar som omfattas av ett startbesked"
+  (MÖD 2016:15, P 343-16, m.fl.).
+
+Åtgärd som avviker från start- och slutbesked
+- Start- och slutbesked hade getts för en lovbefriad carport om 25 kvm, men en lovpliktig
+  komplementbyggnad om cirka 40 kvm uppfördes. Byggnadsdelarna var uppförda i ett sammanhang och
+  bildade en volym som varken till utformning eller storlek stämde med startbeskedet. Åtgärden
+  var i sin helhet nybyggnad utan startbesked och avgiften togs ut för hela byggnaden
+  (MÖD 2021-11-23 P 2412-21).
+
+Byggsanktionsavgift och rättelseföreläggande
+- Byggsanktionsavgift och vitesföreläggande om rättelse avser olika överträdelser; det finns
+  inget hinder mot att döma ut vite för att rättelse inte skett trots att avgift tagits ut för
+  påbörjandet (MÖD 2014:25, P 11322-13).
+- Om lov inte kan ges i efterhand ska det utförda tas bort eller återställas; nämnden kan
+  använda både avgift och rättelseföreläggande, samtidigt eller i följd.
+- Lovföreläggande (11 kap. 17 §) bara om det är sannolikt att lov kan ges. Prövningen av lov i
+  efterhand görs mot förhållandena vid prövningstillfället. I ett lov i efterhand får nämnden
+  bestämma om skyldighet att ändra det utförda (9 kap. 84 § PBL).
+
+Vem som är avgiftsskyldig (11 kap. 57 § PBL)
+- Ägare enligt 4 kap. jordabalken; registrering i fastighetsregistret är en presumtion som kan
+  brytas (MÖD 2017-11-14 P 5479-17). HD har godtagit avgift mot en bostadsrättsförening för
+  ingrepp i bärande vägg som en bostadsrättshavare gjort (HD 2026-02-25 P 6066-24).
+
+OVK, hissar och lekplatser
+- Funktionskontroll av ventilation (OVK): PBF 5 kap. 1–7 §§. Funktionskontrollanten skickar
+  protokollet till nämnden (5 §); ägaren har ingen sådan skyldighet. Nämnden kan med ett
+  åtgärdsföreläggande (11 kap. 19 § PBL) kräva att OVK utförs, men inte att ägaren lämnar in ett
+  protokoll (MÖD 2015:36, P 1666-15, och P 5374-15). PBF 9 kap. innehåller i lydelsen t.o.m.
+  SFS 2026:1722 ingen avgift för utebliven OVK (9 kap. 27–32 §§ är upphävda genom SFS 2025:979).
+- Hissar och andra motordrivna anordningar: besiktning PBF 5 kap. 8–11 §§, användningsförbud
+  5 kap. 12–15 §§, avgift 2 prisbasbelopp vid användning i strid mot 5 kap. 12–15 §§
+  (PBF 9 kap. 5 §), föreläggande om kontroll PBF 8 kap. 6 §.
+- Lekplatser: krav på underhåll i PBL 8 kap. 15 § tredje stycket; byggnadsnämnden har tillsyn
+  enligt PBF 8 kap. 2 § (8 kap. 1–18 §§ PBL).

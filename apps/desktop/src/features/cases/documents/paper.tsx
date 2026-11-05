@@ -34,7 +34,29 @@ export function ArrivalStamp({
  * checkbox without a name is noise for a screen reader, so they are drawn as a box with the
  * state as its name.
  */
+interface TextNode {
+  type: string;
+  value?: string;
+  children?: TextNode[];
+}
+
+const textOf = (node: TextNode): string =>
+  node.type === 'text' ? (node.value ?? '') : (node.children ?? []).map(textOf).join('');
+
 const MARKDOWN_COMPONENTS: Components = {
+  /**
+   * Form-like tables in documents start with an empty header row (`| | |`). Empty column
+   * headers say nothing to a screen reader, so such a header row is left out.
+   */
+  thead({ node, children, ...props }) {
+    if (node && textOf(node as TextNode).trim() === '') return null;
+    return <thead {...props}>{children}</thead>;
+  },
+  /** An empty cell in a header row ("| Uppgifter om byggnaden | |") is not a header. */
+  th({ node, children, ...props }) {
+    if (node && textOf(node as TextNode).trim() === '') return <td {...props}>{children}</td>;
+    return <th {...props}>{children}</th>;
+  },
   input({ type, checked }) {
     if (type !== 'checkbox') return null;
     return (

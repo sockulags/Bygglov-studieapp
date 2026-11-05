@@ -1647,3 +1647,97 @@ begrepp:
     modul: 11-angransande
     status: utkast
     rattslage: "2025-12-01"
+
+  - id: sanktionsarea
+    term: Sanktionsarea
+    definition: >-
+      Den area som en byggsanktionsavgift räknas på: bruttoarean eller öppenarean för den
+      lov- eller anmälningspliktiga åtgärden minskad med 15 kvadratmeter. För en markåtgärd
+      är det den area åtgärden avser.
+    lagrum: [PBF 1 kap. 7 §]
+    relaterade: [byggsanktionsavgift, bruttoarea, oppenarea]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: ingripandeskyldighet
+    term: Skyldighet att pröva ingripande
+    definition: >-
+      Så snart det finns anledning att anta att någon inte följt PBL ska tillsynsmyndigheten
+      pröva om den ska ingripa eller besluta om en påföljd. Nämnden kan alltså inte lägga en
+      anmälan om olovligt byggande åt sidan utan att pröva den.
+    lagrum: [PBL 11 kap. 5 §]
+    relaterade: [tillsyn, olovligt-byggande, ingripandebesked]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: lov-i-efterhand
+    term: Lov i efterhand
+    definition: >-
+      Ett bygglov som söks för en åtgärd som redan är utförd utan lov, ofta efter ett
+      lovföreläggande. Ansökan prövas som vilken lovansökan som helst. Ett lov i efterhand tar
+      inte bort byggsanktionsavgiften för att arbetet påbörjades utan startbesked.
+    lagrum: [PBL 11 kap. 17 §, PBL 9 kap. 99 §]
+    relaterade: [lovforelaggande, olovligt-byggande, byggsanktionsavgift]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: handrackning
+    term: Handräckning
+    definition: >-
+      Kronofogdemyndigheten kan på tillsynsmyndighetens ansökan hjälpa till att genomföra en
+      åtgärd som ett föreläggande gäller, till exempel en rättelse. För de flesta förelägganden
+      gäller det bara om det inte gått mer än tio år sedan överträdelsen.
+    lagrum: [PBL 11 kap. 39 §]
+    relaterade: [rattelseforelaggande, vite, tillsyn]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: laglighetsprovning
+    term: Laglighetsprövning
+    definition: >-
+      Ett sätt att överklaga kommunala beslut där varje kommunmedlem kan få beslutets laglighet
+      prövad av förvaltningsrätten. Domstolen prövar bara om beslutet är lagligt, inte om det är
+      lämpligt. Enligt PBL gäller det bland annat beslut om översiktsplan.
+    lagrum: [KL 13 kap. 1 §, PBL 13 kap. 1 §]
+    relaterade: [overklagande, oversiktsplan, klagoratt]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: gatukostnadsersattning
+    term: Gatukostnadsersättning
+    definition: >-
+      Ersättning som kommunen som huvudman kan ta ut av fastighetsägarna för att anlägga eller
+      förbättra gator och andra allmänna platser. I ett bygglov får nämnden bestämma att
+      arbetena inte får påbörjas förrän ersättningen är betald eller säkerhet ställd.
+    lagrum: [PBL 6 kap. 24 §, PBL 6 kap. 25 §, PBL 9 kap. 82 §]
+    relaterade: [allman-plats, villkorat-lov, startbesked]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: motpart-domstol
+    term: Motpart i mark- och miljödomstolen
+    definition: >-
+      När en enskild överklagar en myndighets beslut blir den myndighet som först beslutade
+      motpart när målet har lämnats över till mark- och miljödomstolen. I mål om planer enligt
+      PBL är kommunen motpart.
+    lagrum: [MMDL 5 kap. 2 §]
+    relaterade: [overklagande, overlamnande]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: attika
+    term: Attika
+    definition: >-
+      En låg vägg som sticker upp ovanför ett platt tak runt takets kant. På en fasadritning
+      syns attikans överkant som husets högsta punkt, och takytan ligger bakom och lägre.
+    relaterade: [byggnadshojd, totalhojd]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"

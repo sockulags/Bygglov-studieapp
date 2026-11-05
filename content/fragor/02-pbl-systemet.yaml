@@ -1,0 +1,998 @@
+# Frågor för modul 02-pbl-systemet. En fil per modul. Valideras med zod (pnpm content:check).
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
+# Källor (hämtade från riksdagen.se 2026-11-05 och sparade i docs/rattslage/):
+#   pbl-1-kap.txt, pbl-2-kap.txt, pbl-3-kap.txt, pbl-4-kap.txt, pbl-5-kap.txt, pbl-12-kap.txt,
+#   pbl-16-kap.txt (PBL ändrad t.o.m. SFS 2026:1583), pbl-9-kap.txt, kl-utdrag.txt (KL 6–7 kap.),
+#   boverket-lista-pbl-andringar.txt. PBF 1, 8 och 10 kap. kontrollerade mot riksdagen.se
+#   2026-11-05 (ändrad t.o.m. SFS 2026:1722).
+# Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
+modul: 02-pbl-systemet
+fragor:
+  # --- Lagens uppbyggnad -----------------------------------------------------------------
+
+  - id: sys-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: I vilket kapitel i plan- och bygglagen finns bestämmelserna om lov och förhandsbesked?
+    alternativ:
+      - text: 9 kap.
+        ratt: true
+      - text: 8 kap.
+      - text: 10 kap.
+      - text: 11 kap.
+    forklaring: >
+      PBL har 16 kapitel och 1 kap. 3 § räknar upp dem. 8 kap. innehåller kraven på byggnadsverk,
+      9 kap. lov och förhandsbesked, 10 kap. genomförandet (tekniskt samråd, startbesked,
+      slutbesked) och 11 kap. tillsyn och påföljder. 9 kap. fick en helt ny lydelse och ny
+      numrering den 1 december 2025.
+    lagrum:
+      - PBL 1 kap. 3 §
+    taggar: [pbl_struktur, kapitel]
+
+  - id: sys-002
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad innebär det att planläggning av mark och vatten är en kommunal angelägenhet?
+    alternativ:
+      - text: Det är kommunen som bestämmer om, när och hur detaljplaner och översiktsplaner tas fram (det kommunala planmonopolet).
+        ratt: true
+      - text: Kommunen ska följa länsstyrelsens anvisningar om var det ska byggas.
+      - text: Varje fastighetsägare har rätt att få en detaljplan för sin mark.
+      - text: Planläggning sköts av Boverket, men kommunen får yttra sig.
+    forklaring: >
+      1 kap. 2 § PBL slår fast att det är en kommunal angelägenhet att planlägga användningen av
+      mark och vatten. Den som vill bygga kan begära ett planbesked (5 kap. 2 §), men har ingen
+      rätt att få en plan. Staten bevakar vissa intressen genom länsstyrelsen, bland annat genom
+      att kunna överpröva kommunens beslut om detaljplan (11 kap. 10–11 §§).
+    lagrum:
+      - PBL 1 kap. 2 §
+      - PBL 5 kap. 2 §
+    taggar: [planmonopol, planlaggning, kommun]
+
+  # --- Definitioner i 1 kap. 4 § -----------------------------------------------------------
+
+  - id: sys-003
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur definieras en komplementbyggnad i 1 kap. 4 § PBL sedan den 1 december 2025?
+    alternativ:
+      - text: En fristående byggnad som kompletterar en byggnad och inte är inredd med en självständig bostad.
+        ratt: true
+      - text: En byggnad på högst 30 kvadratmeter som får byggas utan lov.
+      - text: En tillbyggnad som kompletterar huvudbyggnaden, till exempel ett uterum.
+      - text: En byggnad som kompletterar ett en- eller tvåbostadshus och är inredd med en självständig bostad.
+    forklaring: >
+      Definitionen säger ingenting om storlek; storleksgränserna för när en komplementbyggnad är
+      bygglovsbefriad finns i 9 kap. 4 och 5 §§. Byggnaden ska vara fristående och komplettera en
+      byggnad, vilken sort som helst. Är den inredd med en självständig bostad och kompletterar ett
+      en- eller tvåbostadshus är den i stället ett komplementbostadshus. Definitionerna infördes
+      den 1 december 2025.
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 9 kap. 4 §
+    taggar: [definitioner, komplementbyggnad]
+
+  - id: sys-004
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilket av följande är en ekonomibyggnad enligt 1 kap. 4 § PBL?
+    alternativ:
+      - text: En maskinhall som behövs för ett jordbruk.
+        ratt: true
+      - text: Ett förråd för en villaägares trädgårdsredskap.
+      - text: En lagerbyggnad för ett åkeri.
+      - text: Ett stall för en privatperson som har två ridhästar som hobby.
+    forklaring: >
+      En ekonomibyggnad är en byggnad som behövs för jordbruket, skogsbruket, vattenbruket,
+      fisket eller renskötseln. Det avgörande är att byggnaden behövs för en sådan näring, inte
+      vad den används till i allmänhet. Ekonomibyggnader utanför detaljplan kan vara
+      bygglovsbefriade enligt 9 kap. 6 §, så klassificeringen får stor betydelse.
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 9 kap. 6 §
+    taggar: [definitioner, ekonomibyggnad]
+
+  - id: sys-005
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad räknas som fasadändring enligt definitionen i 1 kap. 4 § PBL?
+    alternativ:
+      - text: En ändring som innebär att byggnaden byter kulör, fasadbeklädnad eller taktäckningsmaterial eller att dess yttre karaktärsdrag påverkas på annat sätt.
+        ratt: true
+      - text: Bara byte av fasadmaterial, inte kulör.
+      - text: Alla ändringar som syns från gatan, även nya planteringar.
+      - text: En ändring som ökar byggnadens volym.
+    forklaring: >
+      Definitionen infördes den 1 december 2025. När en fasadändring kräver lov regleras i
+      9 kap. 15 §: inom detaljplan, på andra byggnader än en- och tvåbostadshus och
+      komplementbyggnader, och bara på fasad eller tak som vetter mot allmän plats. En ändring
+      som ökar volymen är en tillbyggnad, inte en fasadändring.
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 9 kap. 15 §
+    taggar: [definitioner, fasadandring]
+
+  - id: sys-006
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad avses med tillbyggnad i PBL?
+    alternativ:
+      - text: En ändring av en byggnad som innebär en ökning av byggnadens volym.
+        ratt: true
+      - text: En ändring som ökar byggnadens bruttoarea med minst 15 kvadratmeter.
+      - text: En ny byggnad som placeras intill en befintlig.
+      - text: Varje ändring av en byggnads planlösning.
+    forklaring: >
+      Tillbyggnad definieras i 1 kap. 4 § som en ändring som ökar byggnadens volym. Därför är
+      även en takkupa eller en inglasning av en balkong under tak en tillbyggnad, trots att
+      byggnadsarean inte ändras. En ny fristående byggnad är däremot en nybyggnad.
+    lagrum:
+      - PBL 1 kap. 4 §
+    taggar: [definitioner, tillbyggnad]
+
+  - id: sys-007
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Den 1 januari 2027 träder en ny lydelse av 1 kap. 4 § PBL i kraft. Vilken ändring av
+      definitionerna innehåller den?
+    alternativ:
+      - text: Begreppet ombyggnad utgår och ersätts av större byggnadsändring.
+        ratt: true
+      - text: Begreppet komplementbostadshus utgår.
+      - text: Begreppet tomt utgår och ersätts av fastighet.
+      - text: Begreppet ekonomibyggnad utgår och ersätts av jordbruksbyggnad.
+    forklaring: >
+      I lydelsen från 2027-01-01 (lag 2026:746) finns inte ombyggnad längre. I stället definieras
+      större byggnadsändring som en lov- eller anmälningspliktig ändring som innebär en stor
+      ekonomisk investering och så omfattande åtgärder att hela eller en betydande och avgränsbar
+      del av byggnaden förnyas. Regeringen får meddela föreskrifter om när kriterierna är
+      uppfyllda (16 kap. 2 § 8 i den nya lydelsen). Ändringen påverkar främst vilka tekniska krav
+      som ska uppfyllas vid ändring av byggnader.
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 16 kap. 2 §
+    taggar: [definitioner, ombyggnad, kommande_andring]
+
+  # --- Planer -------------------------------------------------------------------------------
+
+  - id: sys-008
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken rättslig verkan har en översiktsplan?
+    alternativ:
+      - text: Den är vägledande för beslut om mark- och vattenanvändning men inte bindande.
+        ratt: true
+      - text: Den är bindande för byggnadsnämnden vid prövning av bygglov.
+      - text: Den är bindande för fastighetsägare men inte för kommunen.
+      - text: Den gäller bara om den har vunnit laga kraft och genomförandetiden inte gått ut.
+    forklaring: >
+      Enligt 3 kap. 2 § ska översiktsplanen ange inriktningen för den långsiktiga utvecklingen och
+      ge vägledning för beslut om hur mark och vatten ska användas och hur den byggda miljön ska
+      användas, utvecklas och bevaras. Planen är uttryckligen inte bindande. I bygglovsärenden
+      utanför detaljplan är den ändå ett viktigt underlag när nämnden prövar lämpligheten enligt
+      2 kap.
+    lagrum:
+      - PBL 3 kap. 2 §
+      - PBL 3 kap. 1 §
+    taggar: [oversiktsplan, rattsverkan]
+
+  - id: sys-009
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad är områdesbestämmelser?
+    alternativ:
+      - text: Bestämmelser som kommunen får anta för att i vissa avseenden reglera begränsade områden som inte omfattas av detaljplan.
+        ratt: true
+      - text: Ett annat namn på planbestämmelserna i en detaljplan.
+      - text: Länsstyrelsens beslut om riksintressen.
+      - text: Bestämmelser som gäller för hela kommunen och ersätter översiktsplanen.
+    forklaring: >
+      Områdesbestämmelser regleras i 4 kap. 41–42 §§. De kan användas för att säkerställa syftet
+      med översiktsplanen eller tillgodose ett riksintresse, till exempel genom att reglera
+      grunddragen för markanvändningen eller skydda en värdefull bebyggelsemiljö. De är bindande
+      vid bygglovsprövningen, men får bara reglera det som anges i 42 §. När en detaljplan för
+      området vinner laga kraft upphör de att gälla (5 kap. 41 §).
+    lagrum:
+      - PBL 4 kap. 41 §
+      - PBL 4 kap. 42 §
+      - PBL 5 kap. 41 §
+    taggar: [omradesbestammelser, planer]
+
+  - id: sys-010
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vem antar en detaljplan?
+    alternativ:
+      - text: Kommunfullmäktige, som får uppdra åt kommunstyrelsen eller byggnadsnämnden att anta planer som inte är av principiell beskaffenhet eller annars av större vikt.
+        ratt: true
+      - text: Byggnadsnämnden i alla fall.
+      - text: Länsstyrelsen efter förslag från kommunen.
+      - text: Den planhandläggare som haft hand om planarbetet, på delegation.
+    forklaring: >
+      Enligt 5 kap. 27 § antas detaljplaner av kommunfullmäktige. Fullmäktige får uppdra åt
+      kommunstyrelsen eller byggnadsnämnden att anta mindre planer, men ett sådant uppdrag får
+      inte delegeras vidare. En tjänsteperson kan alltså aldrig anta en detaljplan. Beslutet
+      gäller först när det vunnit laga kraft (5 kap. 40 §).
+    lagrum:
+      - PBL 5 kap. 27 §
+      - PBL 5 kap. 40 §
+    taggar: [detaljplan, antagande, kommunfullmaktige]
+
+  - id: sys-011
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En detaljplan för kvarteret Lärkan i Åkerslunda har en genomförandetid som löper till
+      2029. Kommunen vill ändra planen nu, men en fastighetsägare i kvarteret motsätter sig.
+      Vad gäller som huvudregel?
+    alternativ:
+      - text: Planen får inte ändras före genomförandetidens utgång om en berörd fastighetsägare motsätter sig det.
+        ratt: true
+      - text: Kommunen får alltid ändra planen, eftersom planläggning är en kommunal angelägenhet.
+      - text: Planen upphör automatiskt att gälla när genomförandetiden går ut, så frågan saknar betydelse.
+      - text: Kommunen får ändra planen om länsstyrelsen godkänner det.
+    forklaring: >
+      Under genomförandetiden har fastighetsägarna en garanterad byggrätt: planen får inte ändras
+      eller upphävas mot en berörd fastighetsägares vilja (4 kap. 39 §), utom vid nya
+      förhållanden av stor allmän vikt som inte kunnat förutses och i vissa andra fall. Efter
+      genomförandetiden fortsätter planen att gälla tills den ändras eller upphävs (4 kap. 38 §),
+      men då hindrar rättigheterna enligt planen inte en ändring (40 §).
+    lagrum:
+      - PBL 4 kap. 39 §
+      - PBL 4 kap. 38 §
+      - PBL 4 kap. 40 §
+    taggar: [detaljplan, genomforandetid, byggratt]
+
+  # --- Allmänna och enskilda intressen ---------------------------------------------------
+
+  - id: sys-012
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad säger 2 kap. 1 § PBL om hur frågor enligt lagen ska prövas?
+    alternativ:
+      - text: Hänsyn ska tas till både allmänna och enskilda intressen.
+        ratt: true
+      - text: Allmänna intressen går alltid före enskilda.
+      - text: Bara sökandens intressen ska beaktas i ett bygglovsärende.
+      - text: Enskilda intressen prövas bara av domstol.
+    forklaring: >
+      2 kap. 1 § är kort men grundläggande: prövningen är en avvägning mellan allmänna intressen
+      (till exempel stads- och landskapsbild, hälsa och säkerhet, natur- och kulturvärden) och
+      enskilda intressen (sökandens intresse av att bygga, grannarnas intresse av ljus och
+      utsikt). Kapitlet räknar sedan upp de allmänna intressen som ska beaktas, bland annat i
+      2 kap. 2–6 §§ och 9 §.
+    lagrum:
+      - PBL 2 kap. 1 §
+    taggar: [allmanna_intressen, enskilda_intressen, avvagning]
+
+  - id: sys-013
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare bygger ett bygglovsbefriat förråd. Gäller kraven i 2 kap. 6 § PBL på att
+      byggnaden ska utformas och placeras lämpligt med hänsyn till stads- och landskapsbilden?
+    alternativ:
+      - text: Ja, 2 kap. 6 § gäller också vid åtgärder avseende byggnader som inte kräver lov.
+        ratt: true
+      - text: Nej, 2 kap. gäller bara vid planläggning.
+      - text: Nej, kraven gäller bara när nämnden prövar en ansökan om bygglov.
+      - text: Bara om förrådet placeras närmare gräns än 4,5 meter.
+    forklaring: >
+      2 kap. 6 § första stycket gäller vid planläggning, i ärenden om bygglov och vid åtgärder
+      avseende byggnader som inte kräver lov. Att något är bygglovsbefriat betyder alltså inte att
+      det är kravbefriat; byggherren ansvarar för att kraven följs, och nämnden kan ingripa genom
+      tillsyn. Varsamhetskravet i tredje stycket gäller på samma sätt.
+    lagrum:
+      - PBL 2 kap. 6 §
+    taggar: [allmanna_intressen, lovbefriad, utformning]
+
+  - id: sys-014
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Enligt 2 kap. 9 § PBL får byggnadsverk inte placeras eller utformas så att de medför en
+      viss påverkan på omgivningen. Vilken?
+    alternativ:
+      - text: En påverkan som innebär fara för människors hälsa och säkerhet eller betydande olägenhet på annat sätt.
+        ratt: true
+      - text: All påverkan som en granne invänder mot.
+      - text: Varje minskning av grannens utsikt.
+      - text: Påverkan som minskar grannfastighetens marknadsvärde med mer än tio procent.
+    forklaring: >
+      2 kap. 9 § skyddar mot fara för hälsa och säkerhet och mot betydande olägenhet, till exempel
+      kraftig skuggning eller insyn. Grannar får tåla en viss påverkan; det som prövas är om den är
+      betydande. Lydelsen ändrades genom lag 2025:974. Bedömningen görs i varje ärende utifrån
+      omständigheterna, och vägledande avgöranden från Mark- och miljööverdomstolen ger stöd.
+    lagrum:
+      - PBL 2 kap. 9 §
+    taggar: [betydande_olagenhet, grannar, allmanna_intressen]
+
+  # --- Byggnadsnämnden och avgifter ------------------------------------------------------
+
+  - id: sys-015
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilket krav ställer PBL på byggnadsnämndens kompetens?
+    alternativ:
+      - text: Nämnden ska ha minst en person med arkitektutbildning till sin hjälp och tillgång till personal med den kompetens som behövs.
+        ratt: true
+      - text: Minst en ledamot i nämnden ska vara utbildad byggnadsingenjör.
+      - text: Varje handläggare ska vara certifierad av Boverket.
+      - text: Nämnden ska ha en jurist som granskar alla beslut.
+    forklaring: >
+      12 kap. 7 § kräver att byggnadsnämnden har minst en person med arkitektutbildning till sin
+      hjälp och i övrigt tillgång till personal med den kompetens som behövs. Det ställs inga
+      kompetenskrav på ledamöterna, som är förtroendevalda. Enligt 12 kap. 1 § ska varje kommun ha
+      en byggnadsnämnd, och kommunallagens bestämmelser om nämnder gäller (12 kap. 5 §).
+    lagrum:
+      - PBL 12 kap. 7 §
+      - PBL 12 kap. 1 §
+      - PBL 12 kap. 5 §
+    taggar: [byggnadsnamnden, kompetens]
+
+  - id: sys-016
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken gräns gäller för hur höga bygglovsavgifterna får vara?
+    alternativ:
+      - text: Avgiften får inte överstiga kommunens genomsnittliga kostnad för den typ av beslut eller handläggning som den avser.
+        ratt: true
+      - text: Avgiften får vara högst ett prisbasbelopp per ärende.
+      - text: Avgiften bestäms fritt av handläggaren utifrån hur mycket arbete ärendet krävt.
+      - text: Avgiften får motsvara högst fem procent av byggkostnaden.
+    forklaring: >
+      12 kap. 10 § innebär en självkostnadsprincip: avgiften får inte överstiga kommunens
+      genomsnittliga kostnad för den typen av beslut eller handläggning. Grunderna ska anges i en
+      taxa som kommunfullmäktige beslutar. Nämnden ska i lovbeslutet redovisa hur avgiften har
+      bestämts (9 kap. 107 §), och den sätts ned om tidsfristen överskrids (12 kap. 8 a §).
+    lagrum:
+      - PBL 12 kap. 10 §
+      - PBL 9 kap. 107 §
+      - PBL 12 kap. 8 a §
+    taggar: [avgift, taxa, sjalvkostnad]
+
+  - id: sys-017
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vem betalar bygglovsavgiften och när får den tas ut?
+    alternativ:
+      - text: Sökanden betalar, och avgiften får tas ut i förskott.
+        ratt: true
+      - text: Fastighetsägaren betalar alltid, även om någon annan är sökande.
+      - text: Sökanden betalar, men först när byggnaden fått slutbesked.
+      - text: Avgiften delas mellan sökanden och de grannar som yttrat sig.
+    forklaring: >
+      Enligt 12 kap. 11 § ska avgiften betalas av den som är sökande eller har gjort anmälan i
+      ärendet, och den får tas ut i förskott. Avgiften ska ändå reduceras om tidsfristen
+      överskrids (12 kap. 8 a §), så en förskottsbetalning kan behöva justeras när beslutet
+      fattas. Avgiften får inte heller överstiga kommunens genomsnittliga kostnad (12 kap. 10 §).
+    lagrum:
+      - PBL 12 kap. 11 §
+      - PBL 12 kap. 8 a §
+      - PBL 12 kap. 10 §
+    taggar: [avgift, sokande]
+
+  # --- Normer och vägledning ---------------------------------------------------------------
+
+  - id: sys-018
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Var kommer Boverkets rätt att meddela föreskrifter om till exempel byggnaders utformning ifrån?
+    alternativ:
+      - text: Från bemyndiganden i PBL 16 kap., som regeringen fört vidare till Boverket i plan- och byggförordningen.
+        ratt: true
+      - text: Boverket har en egen grundlagsfäst rätt att meddela föreskrifter.
+      - text: Från kommunernas delegationsordningar.
+      - text: Föreskrifterna är bara rekommendationer och behöver inget stöd i lag.
+    forklaring: >
+      16 kap. PBL ger regeringen, eller den myndighet regeringen bestämmer, rätt att meddela
+      föreskrifter. Regeringen har i plan- och byggförordningen dels själv meddelat föreskrifter,
+      dels i PBF 10 kap. bemyndigat Boverket att meddela närmare föreskrifter. Boverkets
+      föreskrifter är därför bindande, medan Boverkets allmänna råd bara är rekommendationer om
+      hur föreskrifterna kan uppfyllas.
+    lagrum:
+      - PBL 16 kap. 2 §
+      - PBF 10 kap.
+    taggar: [bemyndigande, boverket, normhierarki]
+
+  - id: sys-019
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad är PBL kunskapsbanken?
+    alternativ:
+      - text: Boverkets webbaserade vägledning om plan- och bygglagen, som stöd för tolkning men utan bindande verkan.
+        ratt: true
+      - text: En databas med bindande föreskrifter som ersätter lagtexten.
+      - text: Länsstyrelsens register över överklagade bygglov.
+      - text: Kommunens interna handbok för delegationsbeslut.
+    forklaring: >
+      PBL kunskapsbanken är Boverkets vägledning, och Boverket ska enligt PBF 8 kap. 19 § ge råd
+      och stöd om tillämpningen av PBL. Vägledningen är ett viktigt arbetsverktyg, särskilt när
+      nya regler kommer, men den är inte bindande. Vid konflikt går lagtexten och domstolarnas
+      avgöranden före.
+    lagrum:
+      - PBF 8 kap. 19 §
+      - Boverket
+    taggar: [boverket, vagledning, rattskallor]
+
+  - id: sys-020
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken myndighet ger tillsynsvägledning direkt till byggnadsnämnderna i ett län och följer upp deras tillsynsarbete?
+    alternativ:
+      - text: Länsstyrelsen.
+        ratt: true
+      - text: Mark- och miljödomstolen.
+      - text: Lantmäteriet.
+      - text: Kommunstyrelsen.
+    forklaring: >
+      Enligt PBF 8 kap. 14 § ska länsstyrelsen ge tillsynsvägledning i länet genom råd och stöd
+      till byggnadsnämnden och följa upp och utvärdera nämndens tillsynsarbete. Boverket ger
+      tillsynsvägledning till länsstyrelserna och till byggnadsnämnderna (15 §). Länsstyrelsen är
+      också den som prövar överklaganden av byggnadsnämndens beslut (13 kap. 3 § PBL).
+    lagrum:
+      - PBF 8 kap. 14 §
+      - PBF 8 kap. 15 §
+      - PBL 13 kap. 3 §
+    taggar: [lansstyrelsen, tillsynsvagledning, roller]
+
+  # --- Flersvar --------------------------------------------------------------------------
+
+  - id: sys-021
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande definitioner infördes i 1 kap. 4 § PBL den 1 december 2025?
+    alternativ:
+      - text: Ekonomibyggnad
+        ratt: true
+      - text: Fasadändring
+        ratt: true
+      - text: Komplementbostadshus
+        ratt: true
+      - text: Komplementbyggnad
+        ratt: true
+      - text: Tillbyggnad
+      - text: Tomt
+    forklaring: >
+      Lag 2025:974 förde in definitionerna ekonomibyggnad, fasadändring, komplementbostadshus och
+      komplementbyggnad i 1 kap. 4 §, eftersom de är centrala i det nya 9 kap. Tillbyggnad och
+      tomt fanns sedan tidigare. Före 2025-12-01 användes i stället begrepp som friggebod och
+      attefallshus, som inte finns i lagen längre.
+    lagrum:
+      - PBL 1 kap. 4 §
+    taggar: [definitioner, lagandring_2025]
+
+  - id: sys-022
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande uppgifter har byggnadsnämnden enligt 12 kap. 2 och 3 §§ PBL?
+    alternativ:
+      - text: Verka för en god byggnadskultur och en god och estetiskt tilltalande stads- och landskapsmiljö.
+        ratt: true
+      - text: Lämna råd och upplysningar i frågor som rör nämndens verksamhet.
+        ratt: true
+      - text: Ge skriftliga upplysningar om planläggning, byggande och fastighetsbildning när någon begär det.
+        ratt: true
+      - text: Anta kommunens översiktsplan.
+      - text: Pröva överklaganden av sina egna beslut om bygglov.
+    forklaring: >
+      12 kap. 2 § räknar upp nämndens allmänna uppgifter, bland annat god byggnadskultur, att
+      följa utvecklingen, att samarbeta och att lämna råd och upplysningar. Enligt 3 § ska nämnden
+      lämna skriftliga upplysningar om någon begär det. Översiktsplanen antas av
+      kommunfullmäktige (3 kap. 19 §), och överklaganden av nämndens beslut prövas av
+      länsstyrelsen (13 kap. 3 §).
+    lagrum:
+      - PBL 12 kap. 2 §
+      - PBL 12 kap. 3 §
+      - PBL 3 kap. 19 §
+      - PBL 13 kap. 3 §
+    taggar: [byggnadsnamnden, radgivning, roller]
+
+  - id: sys-023
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande får byggnadsnämnden ta ut avgift för enligt 12 kap. 8 § PBL?
+    alternativ:
+      - text: Beslut om lov
+        ratt: true
+      - text: Beslut om startbesked och slutbesked
+        ratt: true
+      - text: Tekniska samråd och arbetsplatsbesök
+        ratt: true
+      - text: Upprättande av nybyggnadskartor
+        ratt: true
+      - text: Länsstyrelsens prövning av ett överklagande
+    forklaring: >
+      12 kap. 8 § räknar upp vad nämnden får ta ut avgift för, bland annat beslut om planbesked,
+      förhandsbesked, start- och slutbesked, lov, tekniska samråd, slutsamråd, arbetsplatsbesök,
+      nybyggnadskartor, expediering och kungörelse samt andra tids- eller kostnadskrävande
+      åtgärder. Länsstyrelsens prövning av ett överklagande är inte nämndens handläggning.
+      Planavgift får dessutom tas ut enligt 9 § när ett bygglov ges för en fastighet som har nytta
+      av planen.
+    lagrum:
+      - PBL 12 kap. 8 §
+      - PBL 12 kap. 9 §
+    taggar: [avgift, taxa, byggnadsnamnden]
+
+  - id: sys-024
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilka av följande ska byggnadsverk enligt 2 kap. 6 § PBL utformas och placeras lämpligt
+      med hänsyn till?
+    alternativ:
+      - text: Stads- och landskapsbilden, natur- och kulturvärdena på platsen och intresset av en god helhetsverkan.
+        ratt: true
+      - text: Skydd mot uppkomst och spridning av brand och mot trafikolyckor.
+        ratt: true
+      - text: Möjligheter för personer med nedsatt rörelse- eller orienteringsförmåga att använda området.
+        ratt: true
+      - text: Sökandens möjlighet att sälja fastigheten med vinst.
+      - text: Grannarnas önskemål om husets färg.
+    forklaring: >
+      2 kap. 6 § första stycket räknar upp åtta allmänna intressen, bland annat stads- och
+      landskapsbild, brandskydd, energi och klimat, avfall, trafik, tillgänglighet och behovet av
+      framtida förändringar. Sökandens ekonomi och grannarnas smak är inte allmänna intressen,
+      även om grannar kan ha ett enskilt intresse som ska vägas in enligt 2 kap. 1 § och 9 §.
+    lagrum:
+      - PBL 2 kap. 6 §
+      - PBL 2 kap. 1 §
+    taggar: [allmanna_intressen, utformning, placering]
+
+  # --- Sant/falskt -----------------------------------------------------------------------
+
+  - id: sys-025
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Byggnadsnämnden är bunden av översiktsplanen när den prövar en ansökan om bygglov.
+    svar: false
+    forklaring: >
+      Översiktsplanen är vägledande men inte bindande (3 kap. 2 §). Den är ett viktigt underlag
+      för lämplighetsbedömningen enligt 2 kap., särskilt utanför detaljplan, men en avvikelse från
+      översiktsplanen är inte i sig ett avslagsskäl. Bindande är däremot detaljplaner och
+      områdesbestämmelser.
+    lagrum:
+      - PBL 3 kap. 2 §
+    taggar: [oversiktsplan, rattsverkan]
+
+  - id: sys-026
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: En detaljplan fortsätter att gälla efter att genomförandetiden har gått ut.
+    svar: true
+    forklaring: >
+      En detaljplan gäller till dess den ändras eller upphävs (4 kap. 38 §). Det som ändras när
+      genomförandetiden gått ut är att fastighetsägarna inte längre har en garanterad byggrätt mot
+      planändringar (4 kap. 40 §). Hur länge sedan genomförandetiden gick ut kan också spela roll
+      vid bygglovsprövningen, till exempel vid planstridigt utgångsläge (9 kap. 63 §).
+    lagrum:
+      - PBL 4 kap. 38 §
+      - PBL 4 kap. 40 §
+      - PBL 9 kap. 63 §
+    taggar: [detaljplan, genomforandetid]
+
+  - id: sys-027
+    typ: sant_falskt
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Efter den 1 december 2025 kan kommunen i en ny detaljplan bestämma att det inte krävs
+      bygglov för åtgärder som annars är lovpliktiga.
+    svar: false
+    forklaring: >
+      Sedan 2025-12-01 kan kommunen inte längre bestämma omfattningen av lovplikten i detaljplan
+      eller områdesbestämmelser, med undantag för utökad lovplikt inom eller i anslutning till
+      totalförsvarets riksintresseområden (4 kap. 15 §). Lovplikten följer av 9 kap. (9 kap. 2 §).
+      Enligt Boverket slutar planbestämmelser om minskad lovplikt som beslutats med stöd av PBL
+      att gälla den 1 december 2027, medan bestämmelser om utökad lovplikt fortsätter att gälla.
+    lagrum:
+      - PBL 9 kap. 2 §
+      - PBL 4 kap. 15 §
+      - Boverket
+    taggar: [lovplikt, detaljplan, lagandring_2025]
+
+  - id: sys-028
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Boverkets allmänna råd är lika bindande som Boverkets föreskrifter.
+    svar: false
+    forklaring: >
+      Föreskrifter är bindande regler som Boverket meddelar med stöd av bemyndigande (16 kap.
+      PBL och PBF 10 kap.). Allmänna råd är generella rekommendationer om hur en föreskrift kan
+      eller bör uppfyllas. Den som gör på ett annat sätt måste kunna visa att föreskriften ändå
+      uppfylls. Boverkets byggregler består av både föreskrifter och allmänna råd.
+    lagrum:
+      - PBL 16 kap. 2 §
+      - PBF 10 kap.
+    taggar: [boverket, allmanna_rad, normhierarki]
+
+  # --- Lucktext och beräkning -------------------------------------------------------------
+
+  - id: sys-029
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En detaljplans genomförandetid får inte vara kortare än ___ år och inte längre än ___ år.
+      Om planen saknar uppgift om genomförandetidens längd anses den vara ___ år.
+    svar: ["5", "15", "15"]
+    forklaring: >
+      Genomförandetiden bestäms enligt 4 kap. 21 § och räknas från den dag beslutet att anta
+      planen vinner laga kraft. Saknas uppgift är tiden femton år (23 §). Den får förlängas med
+      högst fem år i sänder före utgången och förnyas med högst fem år i sänder efteråt (24 §).
+    lagrum:
+      - PBL 4 kap. 21 §
+      - PBL 4 kap. 23 §
+      - PBL 4 kap. 24 §
+    taggar: [detaljplan, genomforandetid]
+
+  - id: sys-030
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Varje kommun ska ha en aktuell ___ som omfattar hela kommunen. Ett förslag till sådan plan
+      ska granskas under minst ___ månader.
+    svar:
+      - ["översiktsplan", "oversiktsplan"]
+      - ["2", "två"]
+    forklaring: >
+      Kravet på en aktuell översiktsplan finns i 3 kap. 1 § och granskningstiden på minst två
+      månader i 3 kap. 12 §. Planen är aktuell till 24 månader efter nästa ordinarie val om inte
+      fullmäktige antagit en ny planeringsstrategi (3 kap. 23–25 §§). Planen antas av
+      kommunfullmäktige.
+    lagrum:
+      - PBL 3 kap. 1 §
+      - PBL 3 kap. 12 §
+      - PBL 3 kap. 25 §
+    taggar: [oversiktsplan, planprocess]
+
+  - id: sys-031
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Detaljplanen för området Ekbacken i Åkerslunda vann laga kraft den 1 juni 2012. Planen
+      saknar uppgift om genomförandetidens längd och om när den börjar räknas. Vilket år gick
+      genomförandetiden ut?
+    svar: 2027
+    tolerans: 0
+    enhet: år
+    losning: >
+      Saknas uppgift om längden är genomförandetiden 15 år (4 kap. 23 §), räknat från den dag
+      planen vann laga kraft (4 kap. 21 §). 2012 + 15 = 2027, alltså den 1 juni 2027.
+    forklaring: >
+      Genomförandetiden har betydelse för om planen kan ändras mot fastighetsägarnas vilja och
+      för vissa regler vid bygglovsprövningen. När den gått ut hindrar fastighetsägarnas
+      rättigheter inte att planen ändras (4 kap. 40 §), men planen gäller fortfarande.
+    lagrum:
+      - PBL 4 kap. 21 §
+      - PBL 4 kap. 23 §
+    taggar: [detaljplan, genomforandetid, berakning]
+
+  # --- Para ihop och ordning ---------------------------------------------------------------
+
+  - id: sys-032
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop kapitlet i PBL med vad det handlar om.
+    par:
+      - vanster: 2 kap.
+        hoger: Allmänna och enskilda intressen
+      - vanster: 4 kap.
+        hoger: Reglering med detaljplan och områdesbestämmelser
+      - vanster: 8 kap.
+        hoger: Krav på byggnadsverk, byggprodukter, tomter och allmänna platser
+      - vanster: 10 kap.
+        hoger: Genomförandet av bygg-, rivnings- och markåtgärder
+      - vanster: 11 kap.
+        hoger: Tillsyn, tillträde, ingripanden och påföljder
+      - vanster: 13 kap.
+        hoger: Överklagande
+    forklaring: >
+      PBL följer ungefär samhällsbyggandets kedja: syfte och definitioner (1 kap.), intressen
+      (2 kap.), planering (3–7 kap.), krav på det som byggs (8 kap.), lov (9 kap.), genomförande
+      (10 kap.), tillsyn (11 kap.), byggnadsnämnden (12 kap.), överklagande (13 kap.), ersättning
+      (14 kap.), domstolsprövning (15 kap.) och bemyndiganden (16 kap.). Kan du kapitlen hittar du
+      snabbt rätt i Lagtextens byggregler, där PBL kommer först.
+    lagrum:
+      - PBL 1 kap. 3 §
+    taggar: [pbl_struktur, kapitel]
+
+  - id: sys-033
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop begreppet med definitionen i 1 kap. 4 § PBL.
+    par:
+      - vanster: Komplementbostadshus
+        hoger: Fristående byggnad som kompletterar ett en- eller tvåbostadshus och är inredd med en självständig bostad
+      - vanster: Sammanhållen bebyggelse
+        hoger: Bebyggelse på tomter som gränsar till varandra eller skiljs åt endast av en väg, gata eller parkmark
+      - vanster: Tomt
+        hoger: Område som inte är allmän plats men omfattar mark för byggnader och mark i direkt anslutning som behövs för att de ska kunna användas
+      - vanster: Kvartersmark
+        hoger: Mark som enligt en detaljplan inte ska vara allmän plats eller vattenområde
+      - vanster: Nybyggnad
+        hoger: Uppförande av en ny byggnad eller flyttning av en tidigare uppförd byggnad till en ny plats
+    forklaring: >
+      Definitionerna i 1 kap. 4 § styr hela lagen. Att flytta en byggnad är nybyggnad och kräver
+      därför lov som en ny byggnad. Begreppet sammanhållen bebyggelse avgör bland annat var vissa
+      regler utanför detaljplan gäller, och tomt avgör var bygglovsbefriade komplementbyggnader
+      får placeras.
+    lagrum:
+      - PBL 1 kap. 4 §
+    taggar: [definitioner, begrepp]
+
+  - id: sys-034
+    typ: ordning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna normerna efter rang, med den som väger tyngst först.
+    poster:
+      - Plan- och bygglagen (lag beslutad av riksdagen)
+      - Plan- och byggförordningen (förordning beslutad av regeringen)
+      - Boverkets föreskrifter (bindande regler med stöd av bemyndigande)
+      - Boverkets allmänna råd (rekommendationer om hur föreskrifterna kan uppfyllas)
+      - Vägledning i PBL kunskapsbanken (stöd för tolkning, inte bindande)
+    forklaring: >
+      Lagen går före förordningen, som går före myndighetsföreskrifterna. Regeringens och
+      Boverkets rätt att meddela föreskrifter bygger på bemyndiganden i 16 kap. PBL och, för
+      Boverket, i PBF 10 kap. Allmänna råd och vägledning är inte bindande men visar hur
+      myndigheten tolkar reglerna. Domstolarnas avgöranden, särskilt från Mark- och
+      miljööverdomstolen, styr tolkningen i praktiken.
+    lagrum:
+      - PBL 16 kap. 2 §
+      - PBF 10 kap.
+    taggar: [normhierarki, rattskallor, boverket]
+
+  - id: sys-035
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen när en detaljplan tas fram med standardförfarande.
+    poster:
+      - Kommunen lämnar planbesked på begäran av den som vill bygga.
+      - Kommunen samråder om planförslaget med länsstyrelsen, lantmäterimyndigheten, sakägare och andra.
+      - Kommunen underrättar om förslaget och låter det granskas under granskningstiden.
+      - Kommunen sammanställer synpunkterna i ett granskningsutlåtande.
+      - Kommunfullmäktige, eller den nämnd som fått uppdraget, antar planen.
+      - Beslutet vinner laga kraft och planen börjar gälla.
+    forklaring: >
+      Planbeskedet (5 kap. 2 §) är frivilligt för kommunen att inleda med men ett vanligt
+      startskott. Därefter följer samråd (11–17 §§), granskning (18–22 §§), granskningsutlåtande
+      (23 §) och antagande (27 §). Beslutet gäller först när det vunnit laga kraft (40 §). Bara den
+      som skriftligen lämnat synpunkter som inte tillgodosetts före granskningstidens slut får
+      som huvudregel överklaga (13 kap. 11 §).
+    lagrum:
+      - PBL 5 kap. 2 §
+      - PBL 5 kap. 11 §
+      - PBL 5 kap. 18 §
+      - PBL 5 kap. 27 §
+      - PBL 5 kap. 40 §
+    taggar: [detaljplan, planprocess, ordning]
+
+  # --- Öppna frågor ------------------------------------------------------------------------
+
+  - id: sys-036
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara skillnaden mellan översiktsplan, detaljplan och områdesbestämmelser. Ta upp vem som
+      antar dem, om de är bindande och vilken roll de spelar när du prövar en ansökan om bygglov.
+    bedomningspunkter:
+      - "Översiktsplan: hela kommunen, vägledande men inte bindande (3 kap. 1–2 §§), antas av fullmäktige."
+      - "Detaljplan: bindande reglering av ett begränsat område med plankarta och bestämmelser (4 kap.), genomförandetid 5–15 år."
+      - "Områdesbestämmelser: bindande reglering i vissa avseenden av begränsade områden utan detaljplan (4 kap. 41–42 §§)."
+      - Anger att bygglov inom detaljplan prövas mot planen och utanför plan mot 2 kap. och eventuella områdesbestämmelser.
+      - Anger att detaljplan antas av fullmäktige eller efter uppdrag av byggnadsnämnden eller kommunstyrelsen (5 kap. 27 §).
+    modellsvar: >
+      Översiktsplanen omfattar hela kommunen, visar grunddragen för mark- och vattenanvändningen
+      och ger vägledning, men är inte bindande (3 kap. 1–2 §§). Den antas av fullmäktige. En
+      detaljplan reglerar ett avgränsat område bindande med plankarta och planbestämmelser om
+      användning, byggrätt och utformning (4 kap.). Den har en genomförandetid på 5–15 år och
+      antas av fullmäktige eller, för mindre planer, av byggnadsnämnden eller kommunstyrelsen
+      efter uppdrag (5 kap. 27 §). Områdesbestämmelser är bindande men får bara reglera vissa
+      saker i begränsade områden utan detaljplan (4 kap. 41–42 §§). Inom detaljplan prövar jag ett
+      bygglov mot planen, och utanför plan prövar jag lokaliseringen och utformningen mot 2 kap.
+      och eventuella områdesbestämmelser, med översiktsplanen som vägledning.
+    lagrum:
+      - PBL 3 kap. 2 §
+      - PBL 4 kap. 41 §
+      - PBL 5 kap. 27 §
+    taggar: [planer, oversiktsplan, detaljplan]
+
+  - id: sys-037
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En familj vill bygga ett enbostadshus på en obebyggd tomt utanför detaljplan i Åkerslunda.
+      Grannen motsätter sig och säger att utsikten över sjön försvinner. Förklara hur allmänna och
+      enskilda intressen vägs in i prövningen och vilka bestämmelser i 2 kap. PBL som är centrala.
+    bedomningspunkter:
+      - Utgår från 2 kap. 1 § om att både allmänna och enskilda intressen ska beaktas.
+      - Nämner lämplighet och lokalisering, t.ex. 2 kap. 2, 4 och 5 §§ (hushållning, lämplig mark, hälsa och säkerhet, vatten och avlopp).
+      - Nämner utformning och placering med hänsyn till stads- och landskapsbild (2 kap. 6 §).
+      - Prövar grannens intresse mot 2 kap. 9 § (betydande olägenhet); förlorad utsikt är inte automatiskt en betydande olägenhet.
+      - Anger att nämnden gör en avvägning och motiverar den i beslutet.
+    modellsvar: >
+      Utanför detaljplan gör nämnden en lämplighetsprövning enligt 2 kap. Enligt 1 § ska både
+      allmänna och enskilda intressen beaktas. Platsen ska vara lämplig från allmän synpunkt
+      (2 och 4 §§) och med hänsyn till bland annat hälsa och säkerhet, mark- och
+      vattenförhållanden och möjligheten att ordna vatten och avlopp (5 §). Huset ska utformas och
+      placeras lämpligt med hänsyn till landskapsbilden (6 §). Grannens intresse prövas framför
+      allt mot 9 §: byggnaden får inte medföra betydande olägenhet. Att utsikten försämras är inte
+      i sig en betydande olägenhet; det beror på hur stor påverkan är och vad grannen rimligen
+      kunnat räkna med. Nämnden väger intressena mot varandra och redovisar avvägningen i
+      motiveringen.
+    lagrum:
+      - PBL 2 kap. 1 §
+      - PBL 2 kap. 5 §
+      - PBL 2 kap. 6 §
+      - PBL 2 kap. 9 §
+    taggar: [allmanna_intressen, enskilda_intressen, utanfor_plan]
+
+  - id: sys-038
+    typ: oppen
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Beskriv vem som gör vad i Åkerslunda kommun när en ansökan om bygglov för ett enbostadshus
+      kommer in: kommunfullmäktige, byggnadsnämnden, förvaltningschefen och
+      bygglovshandläggaren.
+    bedomningspunkter:
+      - Fullmäktige beslutar om taxan och reglementet för nämnden och antar planer (12 kap. 10 §, 5 kap. 27 §).
+      - Byggnadsnämnden är den myndighet som prövar ansökan och har ansvaret, och beslutar själv i principiella ärenden.
+      - Nämnden kan delegera beslut till anställda via delegationsordningen; förvaltningschefen kan vidaredelegera (KL 7 kap. 5–6 §§).
+      - Handläggaren utreder, kommunicerar och fattar beslut på delegation eller föredrar ärendet för nämnden.
+      - Anger att ett delegationsbeslut är nämndens beslut och överklagas på samma sätt.
+    modellsvar: >
+      Kommunfullmäktige bestämmer ramarna: taxan för avgifterna (12 kap. 10 § PBL), nämndens
+      reglemente och detaljplanerna. Byggnadsnämnden är den myndighet som prövar ansökan och
+      ansvarar för beslutet. Nämnden har i sin delegationsordning uppdragit åt förvaltningschefen
+      att besluta i vissa ärenden och låtit henne vidaredelegera till handläggarna (7 kap. 5–6 §§
+      KL). Handläggaren granskar ansökan, förelägger om komplettering, underrättar grannar vid
+      behov, kommunicerar underlaget och fattar beslut på delegation om ärendet ryms i
+      delegationen. Är ärendet principiellt föredrar handläggaren det för nämnden. Ett
+      delegationsbeslut är nämndens beslut och överklagas till länsstyrelsen precis som ett
+      nämndbeslut.
+    lagrum:
+      - PBL 12 kap. 10 §
+      - PBL 12 kap. 6 §
+      - KL 7 kap. 5 §
+      - KL 7 kap. 6 §
+    taggar: [roller, delegering, byggnadsnamnden]
+
+  - id: sys-039
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du ska bedöma om ett förråd på en villatomt är bygglovsbefriat. Beskriv i vilken ordning du
+      använder lagtexten, förordningen, Boverkets föreskrifter och allmänna råd, PBL
+      kunskapsbanken och domstolsavgöranden, och vad du ska vara uppmärksam på efter
+      lagändringen den 1 december 2025.
+    bedomningspunkter:
+      - Börjar i lagtexten (definitionen av komplementbyggnad i 1 kap. 4 § och 9 kap. 4–5 §§).
+      - Kontrollerar om förordningen eller Boverkets föreskrifter har kompletterande regler, t.ex. om anmälan (PBF 6 kap.).
+      - Använder allmänna råd och kunskapsbanken som stöd för tolkning, inte som bindande regler.
+      - Använder domstolsavgöranden med försiktighet eftersom äldre praxis kan bygga på den gamla numreringen och gamla begrepp.
+      - Är uppmärksam på att äldre material talar om friggebod och attefallshus, begrepp som bara gällde före 2025-12-01.
+    modellsvar: >
+      Jag börjar i lagen: är förrådet en komplementbyggnad enligt 1 kap. 4 §, och uppfyller det
+      villkoren i 9 kap. 4 § (inom plan) eller 5 § (utanför plan), med hänsyn till potten och
+      utökad lovplikt nära gräns i 34–35 §§? Sedan kontrollerar jag om förordningen kräver något,
+      till exempel anmälan för installationer enligt PBF 6 kap., och om Boverkets föreskrifter
+      ställer krav på utförandet. Allmänna råd och PBL kunskapsbanken använder jag för att förstå
+      hur reglerna ska tolkas, men de är inte bindande. Domstolsavgöranden är viktiga, men äldre
+      avgöranden bygger på det gamla 9 kap. med annan numrering och begrepp som friggebod och
+      attefallshus, som bara gällde före 2025-12-01. Jag kontrollerar därför alltid att källan
+      avser rättsläget efter den 1 december 2025.
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 9 kap. 4 §
+      - PBF 6 kap.
+      - Boverket
+    taggar: [rattskallor, normhierarki, lagandring_2025]
+
+  - id: sys-040
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara varför definitionerna av komplementbyggnad, komplementbostadshus och fasadändring
+      i 1 kap. 4 § PBL har praktisk betydelse för en bygglovshandläggare. Ge ett exempel för
+      vardera.
+    bedomningspunkter:
+      - "Komplementbyggnad: kan komplettera alla sorters byggnader, får inte ha självständig bostad; avgör om 9 kap. 4–5 §§ kan bli tillämpliga."
+      - "Komplementbostadshus: självständig bostad, bara vid en- eller tvåbostadshus; t.ex. en gäststuga med kök vid ett flerbostadshus kan inte vara bygglovsbefriad som komplementbostadshus."
+      - "Fasadändring: byte av kulör, fasadbeklädnad, taktäckningsmaterial eller annan påverkan på yttre karaktärsdrag; lovplikt enligt 9 kap. 15 § bara i vissa fall."
+      - Kopplar definitionerna till att lovplikten och undantagen i 9 kap. bygger på dem.
+    modellsvar: >
+      Definitionerna avgör vilka regler i 9 kap. som alls kan bli tillämpliga. En komplementbyggnad
+      är fristående, kompletterar en byggnad och saknar självständig bostad; ett förråd vid ett
+      kontorshus kan därför vara en bygglovsbefriad komplementbyggnad om villkoren i 9 kap. 4 §
+      är uppfyllda. Ett komplementbostadshus har en självständig bostad och får bara komplettera
+      ett en- eller tvåbostadshus; en gäststuga med kök vid ett flerbostadshus faller därför
+      utanför och kräver bygglov. Fasadändring omfattar byte av kulör, fasadbeklädnad,
+      taktäckningsmaterial och annan påverkan på de yttre karaktärsdragen, och enligt 9 kap. 15 §
+      krävs lov bara inom detaljplan, på andra byggnader än en- och tvåbostadshus och
+      komplementbyggnader, och bara mot allmän plats. Att ommåla en butik mot torget kräver alltså
+      lov, men inte att måla om en villa.
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 15 §
+    taggar: [definitioner, komplementbyggnad, fasadandring]

@@ -1,0 +1,925 @@
+# Frågor för modul 09-genomforande. En fil per modul. Valideras med zod (pnpm content:check).
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
+# Källor (hämtade från riksdagen.se 2026-11-05 och sparade i docs/rattslage/):
+#   pbl-10-kap.txt (PBL 10 kap., ändrad t.o.m. SFS 2026:1583), pbf-6-kap.txt och pbf-7-kap.txt
+#   (PBF, ändrad t.o.m. SFS 2026:1722), pbl-9-kap.txt (105, 114 och 115 §§),
+#   fardigstallandeskydd.txt (lag 2014:227, ändrad t.o.m. SFS 2025:978) och lso-utdrag.txt.
+# 10 kap. PBL ändrades den 1 juli 2026 genom lag (2026:712): avfallshanteringsplan, byggbedömare
+# och nya regler om kontrollansvariga och sakkunniga. Frågorna följer den lydelsen.
+# Lagen om färdigställandeskydd saknar kod i content/uppslag/lagar.yaml och nämns därför bara i
+# texterna; lagrum anges i PBL 10 kap.
+# Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
+modul: 09-genomforande
+fragor:
+  # --- Byggherren och startbeskedet ----------------------------------------------------------
+
+  - id: gen-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vem ansvarar enligt 10 kap. 5 § PBL för att en byggåtgärd uppfyller kraven i PBL och Boverkets byggregler?
+    alternativ:
+      - text: Byggherren.
+        ratt: true
+      - text: Den kontrollansvarige.
+      - text: Byggnadsnämnden, eftersom den gett startbesked.
+      - text: Entreprenören som utför arbetet.
+    forklaring: >
+      Byggherren ansvarar för att varje bygg-, rivnings- och markåtgärd, och projekteringen bakom
+      den, uppfyller kraven enligt PBL och föreskrifter och beslut som meddelats med stöd av lagen.
+      Byggherren är den som för egen räkning utför eller låter utföra åtgärden (1 kap. 4 §).
+      Kontrollansvarig, sakkunniga och nämnden har stödjande och kontrollerande roller, men
+      ansvaret flyttas inte till dem. Byggherren ska också se till att åtgärden kontrolleras enligt
+      den fastställda kontrollplanen och avfallshanteringsplanen (10 kap. 5 a §).
+    lagrum: [PBL 10 kap. 5 §, PBL 10 kap. 5 a §, PBL 1 kap. 4 §]
+    taggar: [byggherre, ansvar]
+
+  - id: gen-002
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Familjen Holm i Åkerslunda har fått bygglov för en tillbyggnad. Lovet gäller omedelbart.
+      När får de börja bygga?
+    alternativ:
+      - text: När byggnadsnämnden har gett ett startbesked.
+        ratt: true
+      - text: Direkt, eftersom lovet gäller omedelbart.
+      - text: När lovet har fått laga kraft.
+      - text: När grannarna har fått meddelande om beslutet.
+    forklaring: >
+      Ett lov gäller omedelbart (9 kap. 114 §), men en lovpliktig åtgärd får ändå inte påbörjas
+      förrän nämnden har gett startbesked (10 kap. 3 §). Beslutet om lov ska upplysa om detta
+      (9 kap. 105 § 4). Den som börjar före laga kraft tar en risk: om lovet ändras efter
+      överklagande kan åtgärden behöva återställas (105 § 5). Fyraveckorsregeln för när lov börjar
+      gälla fanns bara före 2025-12-01.
+    lagrum: [PBL 10 kap. 3 §, PBL 9 kap. 114 §, PBL 9 kap. 105 §]
+    taggar: [startbesked, verkstallighet]
+
+  - id: gen-003
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ett startbesked ska vara skriftligt och gäller först när det har fått laga kraft.
+    svar: false
+    forklaring: >
+      Första delen stämmer: nämnden ska med ett skriftligt startbesked godkänna att åtgärden får
+      påbörjas (10 kap. 23 §). Men startbeskedet gäller omedelbart (10 kap. 24 a §, sedan
+      2025-12-01). Detsamma gäller slutbeskedet (39 §). Det är lovet som har en giltighetstid
+      räknad från laga kraft (9 kap. 115 §), inte startbeskedet.
+    lagrum: [PBL 10 kap. 23 §, PBL 10 kap. 24 a §, PBL 10 kap. 39 §]
+    taggar: [startbesked, verkstallighet]
+
+  - id: gen-004
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande är förutsättningar för startbesked enligt 10 kap. 23 § PBL?
+    alternativ:
+      - text: Åtgärden kan antas komma att uppfylla de krav som gäller enligt PBL och föreskrifterna.
+        ratt: true
+      - text: Bevis om färdigställandeskydd har visats upp, om sådant skydd krävs.
+        ratt: true
+      - text: Villkor som ställts med stöd av 4 kap. 14 § eller 9 kap. 83 § är uppfyllda.
+        ratt: true
+      - text: Lovet har fått laga kraft.
+      - text: Alla grannar har skriftligen godkänt byggstarten.
+    forklaring: >
+      Startbesked ges efter prövning av förslaget till kontrollplan och avfallshanteringsplan,
+      behovet av sakkunnigkontroll och det som framkommit vid tekniskt samråd. Förutsättningarna
+      i 23 § andra stycket är att åtgärden kan antas uppfylla kraven, bevis om färdigställandeskydd
+      när det krävs, kopia av skyddsrumsbeslut när det krävs, redovisning av alternativa
+      energiförsörjningssystem när det krävs och att plan- och lovvillkor är uppfyllda. Laga kraft
+      är inget krav, eftersom lovet gäller omedelbart. Kraven i 23 § är ett exempel på att
+      "kan antas" räcker – nämnden kontrollerar inte allt i förväg.
+    lagrum: [PBL 10 kap. 23 §, PBL 9 kap. 83 §, PBL 4 kap. 14 §]
+    taggar: [startbesked, fardigstallandeskydd]
+
+  - id: gen-005
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska byggnadsnämnden göra i startbeskedet enligt 10 kap. 24 § PBL?
+    alternativ:
+      - text: Fastställa kontrollplanen och avfallshanteringsplanen, med uppgift om vem som är sakkunnig eller kontrollansvarig.
+        ratt: true
+      - text: Pröva om åtgärden följer detaljplanen.
+      - text: Underrätta grannarna om att bygget startar.
+      - text: Bestämma vilken entreprenör som ska utföra arbetet.
+    forklaring: >
+      I startbeskedet fastställs kontrollplanen och avfallshanteringsplanen. Nämnden bestämmer
+      också villkor för att påbörja åtgärden och för utstakning om det behövs, vilka handlingar som
+      ska lämnas in inför slutbeskedet, upplysningar om annan lagstiftning och när åtgärden får
+      påbörjas om lovet är villkorat eller gäller först vid laga kraft. Planenligheten prövades
+      redan i lovet. Används en byggbedömare för kontrollen fastställs ingen kontrollplan för det
+      som byggbedömaren ansvarar för.
+    lagrum: [PBL 10 kap. 24 §]
+    taggar: [startbesked, kontrollplan, avfallshanteringsplan]
+
+  - id: gen-006
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnadsnämnden har gett startbesked för markarbeten och grundläggning för ett nytt
+      flerbostadshus. Byggherren börjar sedan resa stommen innan något mer startbesked har getts.
+      Vad gäller?
+    alternativ:
+      - text: Stommen får inte påbörjas förrän nämnden gett ett startbesked som omfattar den delen.
+        ratt: true
+      - text: Det räcker med ett startbesked för någon del, så stommen får byggas.
+      - text: Stommen får byggas om den kontrollansvarige godkänner det.
+      - text: Stommen får byggas eftersom lovet omfattar hela huset.
+    forklaring: >
+      Nämnden kan ge startbesked för en viss del av en åtgärd. Då får en annan del inte påbörjas
+      förrän det finns ett startbesked som omfattar den (10 kap. 3 a §). Att påbörja en åtgärd utan
+      startbesked kan leda till byggsanktionsavgift enligt PBF 9 kap. och till ingripande enligt
+      11 kap. Delade startbesked är vanliga i stora projekt där projekteringen pågår parallellt
+      med bygget.
+    lagrum: [PBL 10 kap. 3 a §, PBL 10 kap. 3 §, PBF 9 kap.]
+    taggar: [startbesked, etappvis, byggsanktionsavgift]
+
+  - id: gen-007
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ett startbesked för en anmälningspliktig åtgärd gäller tills vidare.
+    svar: false
+    forklaring: >
+      Enligt 10 kap. 25 § upphör ett startbesked för anmälningspliktiga åtgärder att gälla två år
+      efter att det gavs. Har arbetet påbörjats men inte avslutats ska nämnden vid behov kalla till
+      nytt tekniskt samråd, eller till slutsamråd om det finns förutsättningar för det. Ett
+      startbesked för lovpliktiga åtgärder upphör i stället när lovet upphör att gälla, och lovet
+      gäller enligt 9 kap. 115 § i högst fem år från laga kraft för att avsluta åtgärden.
+    lagrum: [PBL 10 kap. 25 §, PBL 9 kap. 115 §]
+    taggar: [startbesked, giltighetstid, anmalan]
+
+  - id: gen-008
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad gäller enligt 10 kap. 4 § PBL innan byggnadsnämnden har gett slutbesked?
+    alternativ:
+      - text: Byggnadsverket får inte tas i bruk i de delar som omfattas av startbeskedet, om nämnden inte beslutar annat.
+        ratt: true
+      - text: Byggnadsverket får tas i bruk så snart den kontrollansvarige lämnat sitt utlåtande.
+      - text: Byggnadsverket får tas i bruk om byggherren själv bedömer att kraven är uppfyllda.
+      - text: Det finns inget förbud, men byggherren riskerar att behöva betala en högre bygglovsavgift.
+    forklaring: >
+      Förbudet att ta i bruk utan slutbesked är en av de viktigaste reglerna i 10 kap. Nämnden kan
+      besluta annat, t.ex. i ett interimistiskt slutbesked (36 §). Att ta ett byggnadsverk i bruk
+      utan slutbesked kan leda till byggsanktionsavgift enligt PBF 9 kap. Därför är det viktigt
+      att beslut och information till byggherren är tydliga om vad som krävs inför slutbeskedet.
+    lagrum: [PBL 10 kap. 4 §, PBL 10 kap. 36 §, PBF 9 kap.]
+    taggar: [slutbesked, ibrukstagande]
+
+  # --- Kontrollplan, avfallshanteringsplan och kontrollansvarig -------------------------------
+
+  - id: gen-009
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken uppgift behöver INTE finnas i en kontrollplan enligt 10 kap. 6 § PBL?
+    alternativ:
+      - text: En tidplan för hela byggprojektet med datum för varje moment.
+        ratt: true
+      - text: Vilka kontroller som ska göras och vilka krav kontrollerna avser.
+      - text: Vem som ska göra kontrollerna och hur de ska utföras.
+      - text: Vilka arbetsplatsbesök nämnden bör göra och när.
+    forklaring: >
+      Kontrollplanen ska innehålla fyra uppgifter: vilka kontroller och vilka krav de avser, vem som
+      gör dem och hur, vilka anmälningar som ska göras till nämnden och vilka arbetsplatsbesök
+      nämnden bör göra och när (10 kap. 6 §). Av planen ska också framgå vad som kontrolleras i
+      byggherrens dokumenterade egenkontroll och vad som kontrolleras av sakkunnig (8 §). En
+      fullständig tidplan behövs inte. Kontrollplan krävs inte för det som omfattas av en
+      byggbedömares kontroll, och nämnden får besluta att den inte behövs för enklare åtgärder (6 a §).
+    lagrum: [PBL 10 kap. 6 §, PBL 10 kap. 6 a §, PBL 10 kap. 8 §]
+    taggar: [kontrollplan, innehall]
+
+  - id: gen-010
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska kontrollplanen säkerställa enligt 10 kap. 7 § PBL?
+    alternativ:
+      - text: Att de tekniska egenskapskraven i 8 kap. 4 § uppfylls, att förvanskningsförbudet följs och att varsamhetskraven uppfylls.
+        ratt: true
+      - text: Att byggnaden följer detaljplanens bestämmelser om byggrätt.
+      - text: Att grannarnas synpunkter tas om hand under byggtiden.
+      - text: Att byggnadsnämndens avgifter betalas.
+    forklaring: >
+      Kontrollplanen ska vara anpassad till det enskilda fallet och säkerställa att alla väsentliga
+      tekniska egenskapskrav uppfylls, att förbudet mot förvanskning i 8 kap. 13 § följs och att
+      varsamhetskraven i 8 kap. 17 och 18 §§ uppfylls. Därför ska en kontrollplan för ett
+      kulturhistoriskt värdefullt hus innehålla mer än kontroller av konstruktion och brand, t.ex.
+      kontroll av material och utförande av fönster och puts.
+    lagrum: [PBL 10 kap. 7 §, PBL 8 kap. 4 §, PBL 8 kap. 13 §, PBL 8 kap. 17 §]
+    taggar: [kontrollplan, varsamhet]
+
+  - id: gen-011
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska en avfallshanteringsplan enligt 10 kap. 8 a § PBL innehålla?
+    alternativ:
+      - text: Vilka byggprodukter som kan återanvändas och hur de tas om hand, och vilket avfall åtgärden ger och hur det tas om hand.
+        ratt: true
+      - text: En plan för hur hushållsavfallet ska hämtas när huset är inflyttat.
+      - text: Ett avtal med kommunens renhållningsbolag.
+      - text: En kalkyl över kostnaderna för containrar.
+    forklaring: >
+      Sedan den 1 juli 2026 ska byggherren se till att det finns en avfallshanteringsplan för
+      åtgärder som kräver startbesked. Den ska ange återanvändbara byggprodukter och vilket avfall
+      som uppkommer, särskilt hur byggherren ska möjliggöra materialåtervinning av hög kvalitet och
+      säker hantering av farliga ämnen. Planen behövs inte om det är uppenbart att den saknar behov.
+      Den fastställs i startbeskedet tillsammans med kontrollplanen (24 §), och den
+      kontrollansvarige ska hjälpa till att identifiera avfall och återanvändbara produkter (11 § 1).
+    lagrum: [PBL 10 kap. 8 a §, PBL 10 kap. 24 §, PBL 10 kap. 11 §]
+    taggar: [avfallshanteringsplan, startbesked]
+
+  - id: gen-012
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En byggfirma ska uppföra ett nytt flerbostadshus med 18 lägenheter i Åkerslunda. Behövs en
+      kontrollansvarig?
+    alternativ:
+      - text: Ja, för den kontroll som omfattas av kontrollplanen och avfallshanteringsplanen ska det finnas en eller flera kontrollansvariga.
+        ratt: true
+      - text: Nej, det räcker att byggfirman gör egenkontroll.
+      - text: Bara om byggnadsnämnden särskilt beslutar det.
+      - text: Bara om huset har fler än fyra våningar.
+    forklaring: >
+      Huvudregeln i 10 kap. 9 § är att det ska finnas kontrollansvarig. Undantagen gäller små
+      ändringar av en- eller tvåbostadshus (10 §) och de åtgärder som räknas upp i 7 kap. 5 § PBF,
+      t.ex. komplementbyggnader, murar, plank, altaner och anmälningspliktiga åtgärder. En
+      nybyggnad av ett flerbostadshus omfattas inte av något undantag. Finns flera kontrollansvariga
+      ska byggherren se till att någon av dem samordnar uppgifterna.
+    lagrum: [PBL 10 kap. 9 §, PBL 10 kap. 10 §, PBF 7 kap. 5 §]
+    taggar: [kontrollansvarig, nybyggnad]
+
+  - id: gen-013
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: För vilka av följande åtgärder krävs det normalt INTE någon kontrollansvarig enligt 10 kap. 10 § PBL och 7 kap. 5 § PBF?
+    alternativ:
+      - text: Nybyggnad av ett komplementbostadshus som kräver bygglov.
+        ratt: true
+      - text: Installation av en eldstad som kräver anmälan.
+        ratt: true
+      - text: Uppförande av ett lovpliktigt plank.
+        ratt: true
+      - text: Inredning av ytterligare en bostad i ett enbostadshus.
+        ratt: true
+      - text: Nybyggnad av ett enbostadshus.
+      - text: Ombyggnad av ett flerbostadshus.
+    forklaring: >
+      7 kap. 5 § PBF räknar upp åtgärder som inte kräver kontrollansvarig, bl.a. anmälningspliktiga
+      åtgärder, åtgärder avseende komplementbyggnader och komplementbostadshus, inredning av
+      ytterligare en bostad i ett enbostadshus och murar, plank och altaner. Nämnden får ändå
+      besluta att det krävs en kontrollansvarig (andra stycket). Ett nytt enbostadshus och en
+      ombyggnad av ett flerbostadshus kräver kontrollansvarig.
+    lagrum: [PBF 7 kap. 5 §, PBL 10 kap. 10 §]
+    taggar: [kontrollansvarig, undantag]
+
+  - id: gen-014
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnadsnämnden får besluta att det krävs en kontrollansvarig även för en anmälningspliktig
+      åtgärd, t.ex. en väsentlig ändring av bärande konstruktion i ett äldre flerbostadshus.
+    svar: true
+    forklaring: >
+      Anmälningspliktiga åtgärder är som huvudregel undantagna från kravet på kontrollansvarig
+      (7 kap. 5 § första stycket 2 PBF), men enligt andra stycket får nämnden besluta att det
+      krävs en kontrollansvarig för åtgärderna i punkterna 2–11. Det kan vara motiverat när
+      åtgärden är komplicerad eller riskfylld. Beslutet bör motiveras.
+    lagrum: [PBF 7 kap. 5 §, PBF 6 kap. 1 §]
+    taggar: [kontrollansvarig, anmalan]
+
+  - id: gen-015
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilket av följande är INTE en uppgift för den kontrollansvarige enligt 10 kap. 11 § PBL?
+    alternativ:
+      - text: Att ansvara för att byggnaden uppfyller kraven i PBL.
+        ratt: true
+      - text: Att biträda byggherren med förslaget till kontrollplan.
+      - text: Att närvara vid tekniskt samråd och vid nämndens arbetsplatsbesök.
+      - text: Att lämna ett utlåtande till byggherren och nämnden som underlag för slutbesked.
+    forklaring: >
+      Den kontrollansvarige är byggherrens stöd och nämndens kontaktperson i projektet. Uppgifterna
+      i 11 § är bl.a. att biträda med kontrollplanen, se till att den följs, informera byggherren om
+      avvikelser och vid behov meddela nämnden, närvara vid samråd och besök, dokumentera sina
+      byggplatsbesök och lämna ett utlåtande inför slutbeskedet. Ansvaret för att kraven uppfylls
+      ligger kvar hos byggherren (5 §). Kontrollansvariga ska vara certifierade, och
+      certifieringen är tidsbegränsad (7 kap. 2 § PBF).
+    lagrum: [PBL 10 kap. 11 §, PBL 10 kap. 5 §, PBF 7 kap. 2 §]
+    taggar: [kontrollansvarig, byggherre]
+
+  - id: gen-016
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Den kontrollansvarige i ett pågående projekt i Åkerslunda lämnar sitt uppdrag mitt under
+      byggtiden. Vad gäller?
+    alternativ:
+      - text: Den kontrollansvarige ska meddela nämnden, och byggherren ska föreslå en ny som nämnden utser.
+        ratt: true
+      - text: Byggherren får fortsätta utan kontrollansvarig resten av projektet.
+      - text: Startbeskedet upphör automatiskt och en ny ansökan om bygglov krävs.
+      - text: Nämnden ska själv ta över den kontrollansvariges uppgifter.
+    forklaring: >
+      Enligt 10 kap. 11 § 8 ska en kontrollansvarig som lämnar sitt uppdrag meddela nämnden. Enligt
+      11 c § ska byggherren då föreslå och nämnden utse en ny. Om en kontrollansvarig inte sköter
+      sina uppgifter ska byggherren omedelbart meddela nämnden (11 b §). Motsvarande regler finns
+      för sakkunniga (12 b–12 d §§).
+    lagrum: [PBL 10 kap. 11 §, PBL 10 kap. 11 b §, PBL 10 kap. 11 c §]
+    taggar: [kontrollansvarig, byte]
+
+  - id: gen-017
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad avgör enligt 10 kap. 8 § PBL om en kontroll ska göras av en sakkunnig i stället för i byggherrens egenkontroll?
+    alternativ:
+      - text: Särskild hänsyn ska tas till risken för allvarliga personskador eller störningar för samhället eller miljön om kraven inte uppfylls.
+        ratt: true
+      - text: Om byggherren är en privatperson.
+      - text: Om byggkostnaden överstiger ett visst belopp.
+      - text: Om grannarna begär det.
+    forklaring: >
+      Kontrollplanen ska ange vad som kontrolleras i byggherrens dokumenterade egenkontroll och vad
+      som kontrolleras av sakkunnig. Vid bedömningen av behovet av sakkunnigkontroll ska särskild
+      hänsyn tas till risken för allvarliga personskador eller störningar. Föreskrifter kan också
+      kräva obligatorisk sakkunnigkontroll. Vid kontroll av bärförmåga, brandskydd och säkerhet
+      vid användning får den sakkunnige inte vara anställd hos eller beroende av byggherren eller
+      den som projekterar eller utför arbetet (12 a §).
+    lagrum: [PBL 10 kap. 8 §, PBL 10 kap. 12 a §]
+    taggar: [sakkunnig, egenkontroll, kontrollplan]
+
+  # --- Tekniskt samråd ------------------------------------------------------------------------
+
+  - id: gen-018
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: När ska byggnadsnämnden kalla till tekniskt samråd enligt 10 kap. 14 § PBL?
+    alternativ:
+      - text: Utan dröjsmål efter att lov getts eller anmälan kommit in, om det krävs kontrollansvarig, om samrådet inte är uppenbart obehövligt eller om byggherren begärt det.
+        ratt: true
+      - text: Bara om byggherren begär det.
+      - text: Innan beslut om lov fattas, så att tekniken kan prövas samtidigt.
+      - text: Först när byggnaden är färdig.
+    forklaring: >
+      Tekniskt samråd hålls efter lov eller anmälan och före startbesked. Kallelsen ska vara
+      skriftlig och skickas till byggherren och kontrollansvariga eller byggbedömare, och till
+      andra som ska eller bör delta, t.ex. arbetsmiljömyndigheten när samrådet gäller
+      arbetslokaler (15 §) och den som svarar för färdigställandeskyddet (16 §). Nämnden ska föra
+      protokoll (21 §). Om inget samråd behövs ger nämnden startbesked direkt eller förelägger om
+      de handlingar som saknas (22 §).
+    lagrum: [PBL 10 kap. 14 §, PBL 10 kap. 15 §, PBL 10 kap. 16 §, PBL 10 kap. 21 §, PBL 10 kap. 22 §]
+    taggar: [tekniskt_samrad, kallelse]
+
+  - id: gen-019
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggherren ska senast ___ arbetsdagar före det tekniska samrådet, eller inom den tid som
+      nämnden bestämmer, lämna förslag till kontrollplan och avfallshanteringsplan och de tekniska
+      handlingar som behövs för att nämnden ska kunna pröva frågan om startbesked.
+    svar: [["5", "fem"]]
+    forklaring: >
+      Regeln finns i 10 kap. 18 §. Fem arbetsdagar ger nämnden och den kontrollansvarige tid att
+      läsa handlingarna, så att samrådet kan ägnas åt det som behöver diskuteras. De tekniska
+      handlingarna kommer utöver ansökningshandlingarna enligt 9 kap. 86 §, t.ex.
+      konstruktionsritningar, brandskyddsbeskrivning och VA- och ventilationsritningar.
+    lagrum: [PBL 10 kap. 18 §, PBL 9 kap. 86 §]
+    taggar: [tekniskt_samrad, handlingar, tidsfrist]
+
+  - id: gen-020
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande frågor ska behandlas vid det tekniska samrådet enligt 10 kap. 19 § PBL?
+    alternativ:
+      - text: Arbetets planering och organisation.
+        ratt: true
+      - text: Byggherrens förslag till kontrollplan och avfallshanteringsplan.
+        ratt: true
+      - text: Behovet av sakkunnigkontroll och av arbetsplatsbesök.
+        ratt: true
+      - text: Behovet av färdigställandeskydd och utstakning.
+        ratt: true
+      - text: Om åtgärden följer detaljplanen.
+      - text: Grannarnas synpunkter på byggnadens placering.
+    forklaring: >
+      Samrådet handlar om hur åtgärden ska genomföras och kontrolleras, inte om den ska få
+      genomföras. Planenligheten och grannarnas synpunkter prövades i lovet. 19 § räknar upp nio
+      punkter, bl.a. planering och organisation, kontrollplan och avfallshanteringsplan,
+      sakkunnigkontroll, identifiering av avfall, arbetsplatsbesök, färdigställandeskydd,
+      utstakning, nämndens behov av fler handlingar och behovet av fler sammanträden. Kräver
+      åtgärden tillstånd eller anmälan enligt annan lag ska nämnden upplysa om det (20 §).
+    lagrum: [PBL 10 kap. 19 §, PBL 10 kap. 20 §]
+    taggar: [tekniskt_samrad, startbesked]
+
+  - id: gen-021
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden bedömer att det är uppenbart obehövligt med tekniskt samråd för ett lovpliktigt plank
+      som inte kräver kontrollansvarig. Vad ska nämnden göra enligt 10 kap. 22 § PBL?
+    alternativ:
+      - text: I lovbeslutet, eller snarast därefter, ge startbesked eller förelägga byggherren att lämna de handlingar som behövs.
+        ratt: true
+      - text: Vänta tills byggherren själv ansöker om startbesked på en särskild blankett.
+      - text: Hålla ett slutsamråd i stället.
+      - text: Låta byggherren börja utan startbesked.
+    forklaring: >
+      När inget tekniskt samråd behövs ska startbeskedet ges i beslutet om lov eller snarast möjligt
+      därefter, eller efter att anmälan kommit in. Saknas underlag förelägger nämnden byggherren att
+      komplettera. För enkla åtgärder ges startbeskedet ofta i samma beslut som lovet, vilket sparar
+      tid för den enskilde. Även då behövs i regel en enkel kontrollplan, om inte nämnden beslutar
+      att den inte behövs (6 a §).
+    lagrum: [PBL 10 kap. 22 §, PBL 10 kap. 14 §, PBL 10 kap. 6 a §]
+    taggar: [startbesked, tekniskt_samrad, enkla_atgarder]
+
+  # --- Utstakning och arbetsplatsbesök --------------------------------------------------------
+
+  - id: gen-022
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt enbostadshus ska placeras 4,5 m från gränsen mot grannfastigheten Linden 3.
+      Nämnden har bestämt i startbeskedet att huset ska stakas ut. Vad gäller enligt 10 kap. 26 §
+      PBL?
+    alternativ:
+      - text: Om husets läge är direkt beroende av gränsen mot grannen ska grannen kallas till utstakningen.
+        ratt: true
+      - text: Grannen måste skriftligen godkänna utstakningen.
+      - text: Utstakningen görs av byggherren själv utan att nämnden är inblandad.
+      - text: Utstakning behövs bara utanför detaljplan.
+    forklaring: >
+      Nämnden ska skyndsamt och inom den tid som anges i startbeskedet låta staka ut byggnaden och
+      märka ut höjdläget, om det behövs med hänsyn till förhållandena. Är läget direkt beroende av
+      gränsen mot en granne ska grannen kallas. Utstakningen minskar risken för att huset hamnar
+      fel, vilket annars kan bli ett tillsynsärende. Behovet av utstakning tas upp vid det tekniska
+      samrådet (19 § 7) och bestäms i startbeskedet (24 § 3).
+    lagrum: [PBL 10 kap. 26 §, PBL 10 kap. 19 §, PBL 10 kap. 24 §]
+    taggar: [utstakning, granne]
+
+  - id: gen-023
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur ofta ska byggnadsnämnden göra arbetsplatsbesök enligt 10 kap. 27 § PBL?
+    alternativ:
+      - text: Minst en gång under arbetets gång, om startbeskedet föregåtts av tekniskt samråd och besöket inte kan anses obehövligt.
+        ratt: true
+      - text: En gång i veckan under hela byggtiden.
+      - text: Bara när någon har klagat.
+      - text: Aldrig; kontrollen sköts helt av den kontrollansvarige.
+    forklaring: >
+      Arbetsplatsbesök ska alltid göras om projektet är stort eller komplicerat, eller om nämnden
+      och byggherren kommit överens om det vid samrådet. Vid besöket går nämnden igenom hur arbetet
+      förhåller sig till lovet, kontrollplanen, avfallshanteringsplanen, startbeskedet och villkoren
+      och för protokoll som skickas till byggherren och den kontrollansvarige (28 §). Används en
+      byggbedömare för kontrollen krävs inget arbetsplatsbesök.
+    lagrum: [PBL 10 kap. 27 §, PBL 10 kap. 28 §]
+    taggar: [arbetsplatsbesok, protokoll]
+
+  # --- Slutsamråd och slutbesked --------------------------------------------------------------
+
+  - id: gen-024
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: När ska byggnadsnämnden kalla till slutsamråd enligt 10 kap. 30 § PBL?
+    alternativ:
+      - text: I samband med att byggåtgärderna avslutas, om åtgärden omfattats av tekniskt samråd eller om en byggbedömare används, och samrådet inte är uppenbart obehövligt.
+        ratt: true
+      - text: Alltid, för alla lov- och anmälningspliktiga åtgärder.
+      - text: Bara om den kontrollansvarige begär det.
+      - text: Innan startbesked ges.
+    forklaring: >
+      Slutsamrådet hålls normalt på platsen (32 §). Där går man igenom hur kontrollplanen,
+      avfallshanteringsplanen och villkoren följts, avvikelser, utlåtanden från kontrollansvarig
+      och sakkunniga, dokumentationen och förutsättningarna för slutbesked. Kallelsen ska vara
+      skriftlig (31 §), och nämnden ska föra protokoll (33 §). Slutsamrådet är alltså spegelbilden
+      av det tekniska samrådet.
+    lagrum: [PBL 10 kap. 30 §, PBL 10 kap. 31 §, PBL 10 kap. 32 §, PBL 10 kap. 33 §]
+    taggar: [slutsamrad, slutbesked]
+
+  - id: gen-025
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska byggherren ha visat för att få slutbesked enligt 10 kap. 34 § PBL?
+    alternativ:
+      - text: Att kraven enligt lovet, kontrollplanen, avfallshanteringsplanen, startbeskedet och kompletterande villkor är uppfyllda.
+        ratt: true
+      - text: Att en klimatdeklaration lämnats in eller att det är sannolikt att någon inte krävs.
+        ratt: true
+      - text: Att lovet har fått laga kraft.
+      - text: Att alla grannar har besiktigat byggnaden.
+    forklaring: >
+      Slutbeskedet är nämndens godkännande av att åtgärden är slutförd och att byggnadsverket får
+      tas i bruk. Byggherren ska ha visat att kraven är uppfyllda och att klimatdeklaration lämnats
+      in när det krävs (lagen 2021:787). Används en byggbedömare ska dennes redogörelse och intyg
+      lämnas in, och nämnden prövar då inte utformnings- och egenskapskraven i den delen. Nämnden
+      får inte ge slutbesked om den funnit skäl att ingripa enligt 11 kap. och bristen inte är
+      åtgärdad.
+    lagrum: [PBL 10 kap. 34 §]
+    taggar: [slutbesked, klimatdeklaration]
+
+  - id: gen-026
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt flerbostadshus i Åkerslunda är klart i november. Allt är kontrollerat utom
+      fasadputsen på en gavel, som inte kan läggas förrän i vår, och den obligatoriska
+      ventilationskontrollen, som görs i januari. Lägenheterna är i övrigt färdiga. Vad kan nämnden
+      göra?
+    alternativ:
+      - text: Ge ett interimistiskt slutbesked som är beroende av att bristen avhjälps och kontrollen görs, och ange vad som gäller för att ta huset i bruk.
+        ratt: true
+      - text: Ge ett vanligt slutbesked med en anmärkning om putsen, eftersom bristen är försumbar.
+      - text: Vägra slutbesked tills allt är klart, så att ingen får flytta in.
+      - text: Låta byggherren ta huset i bruk utan beslut och ge slutbesked i vår.
+    forklaring: >
+      Ett interimistiskt slutbesked enligt 10 kap. 36 § kan ges när en brist som inte är försumbar
+      behöver avhjälpas eller en kontroll behöver göras senare. Nämnden ska vid behov ange vad som
+      gäller för att ta byggnadsverket i bruk, och när bristen är avhjälpt prövas slutbeskedet
+      slutligt. Ett vanligt slutbesked med anmärkningar kan bara ges om bristerna är försumbara
+      (35 §). Att ta huset i bruk utan beslut strider mot 4 § och kan ge byggsanktionsavgift.
+    lagrum: [PBL 10 kap. 36 §, PBL 10 kap. 35 §, PBL 10 kap. 4 §]
+    taggar: [interimistiskt_slutbesked, slutbesked]
+
+  - id: gen-027
+    typ: sant_falskt
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      När byggnadsnämnden har gett slutbesked kan den inte längre ingripa om det senare visar sig
+      att ett krav inte är uppfyllt.
+    svar: false
+    forklaring: >
+      Enligt 10 kap. 40 § hindrar ett slutbesked inte ett ingripande enligt 11 kap. 5 § om det
+      senare visar sig att ett krav inte är uppfyllt. Slutbeskedet bygger på det underlag
+      byggherren lämnat, och byggherren har kvar ansvaret för att kraven uppfylls (5 §).
+      Slutbeskedet gäller omedelbart (39 §).
+    lagrum: [PBL 10 kap. 40 §, PBL 10 kap. 39 §, PBL 10 kap. 5 §]
+    taggar: [slutbesked, tillsyn]
+
+  # --- Anmälan enligt PBF 6 kap. --------------------------------------------------------------
+
+  - id: gen-028
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken av följande åtgärder i ett befintligt enbostadshus kräver anmälan enligt 6 kap. 1 § PBF?
+    alternativ:
+      - text: Att installera en ny eldstad med rökkanal.
+        ratt: true
+      - text: Att byta köksinredning.
+      - text: Att måla om fasaden i samma kulör.
+      - text: Att byta golv i vardagsrummet.
+    forklaring: >
+      Installation eller väsentlig ändring av hiss, eldstad, rökkanal eller ventilation kräver
+      anmälan (6 kap. 1 § 4 PBF), om åtgärden inte redan kräver lov. Åtgärden får inte påbörjas
+      förrän nämnden gett startbesked (10 kap. 3 § och 23 c §). Inför slutbeskedet brukar nämnden
+      begära ett intyg från en skorstensfejare om eldstaden. Ägarens löpande ansvar för brandskyddet
+      finns i lagen om skydd mot olyckor.
+    lagrum: [PBF 6 kap. 1 §, PBL 10 kap. 3 §, PBL 10 kap. 23 c §, LSO 2 kap. 2 §]
+    taggar: [anmalan, eldstad]
+
+  - id: gen-029
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande kräver anmälan enligt 6 kap. 1 § PBF, när åtgärden inte kräver lov?
+    alternativ:
+      - text: En ändring som väsentligt påverkar konstruktionen av byggnadens bärande delar.
+        ratt: true
+      - text: En ändring som väsentligt påverkar byggnadens brandskydd.
+        ratt: true
+      - text: Installation av en anläggning för vattenförsörjning eller avlopp i en byggnad.
+        ratt: true
+      - text: Rivning av en byggnad med en byggnadsarea större än 50 kvm.
+        ratt: true
+      - text: Nybyggnad av en bygglovsbefriad komplementbyggnad på 25 kvm inom detaljplan.
+      - text: Byte av fönster till likadana fönster.
+    forklaring: >
+      Anmälningsplikten gäller sedan 2025-12-01 i PBF 6 kap. (9 kap. 55 § PBL hänvisar dit).
+      Punkterna är rivning av byggnad över 50 kvm byggnadsarea, väsentlig påverkan på bärande
+      konstruktion, väsentlig påverkan på brandskydd, hiss, eldstad, rökkanal, ventilation, VA i
+      byggnad och vindkraftverk. Den bygglovsbefriade komplementbyggnaden kräver inte längre anmälan
+      – före 2025-12-01 var motsvarande "attefallshus" anmälningspliktigt. Undantag finns i
+      6 kap. 2 §, t.ex. för ekonomibyggnader utanför detaljplan.
+    lagrum: [PBF 6 kap. 1 §, PBF 6 kap. 2 §, PBL 9 kap. 55 §]
+    taggar: [anmalan, rivning, barande_konstruktion]
+
+  - id: gen-030
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Tidsfristen för att handlägga en anmälan är ___ veckor. Fristen får förlängas högst en gång
+      med högst ___ veckor.
+    svar: [["4", "fyra"], ["4", "fyra"]]
+    forklaring: >
+      Enligt 6 kap. 5 § PBF gäller reglerna om ansökan i 9 kap. 85, 86, 90, 91, 99–101 och 107 §§ PBL
+      även för en anmälan, men fristen i 99 § är fyra veckor i stället för tio och förlängningen
+      högst fyra veckor. Anmälan ska innehålla de handlingar som krävs för startbesked (6 kap. 6 §).
+      Fristen avslutas med att nämnden ger startbesked eller fattar ett annat beslut i ärendet.
+    lagrum: [PBF 6 kap. 5 §, PBF 6 kap. 6 §, PBL 9 kap. 99 §]
+    taggar: [anmalan, handlaggningstid]
+
+  # --- Färdigställandeskydd och byggbedömare --------------------------------------------------
+
+  - id: gen-031
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Familjen Holm anlitar en byggfirma för att bygga ett nytt enbostadshus för permanentboende.
+      Huset kräver bygglov. Vad gäller om färdigställandeskydd?
+    alternativ:
+      - text: Det ska finnas ett färdigställandeskydd, och startbesked får inte ges förrän bevis om skyddet visats upp.
+        ratt: true
+      - text: Färdigställandeskydd behövs bara om byggfirman begär det.
+      - text: Byggfirman ska själv se till att skyddet finns, och nämnden behöver inte kontrollera det.
+      - text: Färdigställandeskydd krävs bara för flerbostadshus.
+    forklaring: >
+      Lagen (2014:227) om färdigställandeskydd gäller när en näringsidkare åtar sig att utföra
+      arbeten på ett en- eller tvåbostadshus åt en konsument. Vid nybyggnad ska skydd finnas, och
+      konsumenten ska se till att det finns. Nämnden får inte ge startbesked förrän bevis om skyddet
+      visats upp (10 kap. 23 § andra stycket 2), och den som svarar för skyddet ska få delta i det
+      tekniska samrådet (16 §). Om huset inte ska användas för permanent bruk får nämnden besluta
+      att skydd inte behövs.
+    lagrum: [PBL 10 kap. 23 §, PBL 10 kap. 16 §, PBL 10 kap. 19 §]
+    taggar: [fardigstallandeskydd, startbesked]
+
+  - id: gen-032
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Det avtalade priset för familjen Holms nya hus är 3 450 000 kr. Färdigställandeskyddet får
+      begränsas till ett visst belopp. Vilket är det lägsta belopp skyddet måste motsvara?
+    svar: 345000
+    tolerans: 0
+    enhet: kr
+    losning: 10 % av 3 450 000 kr = 345 000 kr.
+    forklaring: >
+      Enligt 8 § lagen (2014:227) om färdigställandeskydd ska skyddet alltid motsvara minst tio
+      procent av det avtalade priset för åtgärden. Skyddet ska täcka skälig ersättning för extra
+      kostnader att slutföra arbetet och för att avhjälpa fel som anmärkts vid slutbesiktningen,
+      om näringsidkaren t.ex. gått i konkurs. Nämnden granskar beviset inför startbeskedet.
+    lagrum: [PBL 10 kap. 23 §]
+    taggar: [fardigstallandeskydd, berakning]
+
+  - id: gen-033
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En byggfirma bygger ett bygglovsbefriat komplementbostadshus enligt 9 kap. 4 § PBL åt en
+      privatperson. Krävs färdigställandeskydd?
+    alternativ:
+      - text: Nej, färdigställandeskydd behövs inte för en byggnad som inte kräver bygglov.
+        ratt: true
+      - text: Ja, alltid när en näringsidkare bygger åt en konsument.
+      - text: Ja, men bara om byggnaden är större än 25 kvm.
+      - text: Det avgör byggnadsnämnden vid det tekniska samrådet.
+    forklaring: >
+      Enligt 2 § andra stycket lagen (2014:227) om färdigställandeskydd behövs inget skydd för en
+      byggnad eller tillbyggnad som inte kräver bygglov. För tillbyggnader och anmälningspliktiga
+      åtgärder som kräver lov eller anmälan prövar nämnden behovet, med hänsyn till de beräknade
+      kostnaderna. Eftersom den bygglovsbefriade byggnaden saknar startbesked finns heller inget
+      tillfälle för nämnden att kontrollera skyddet. Undantaget fick sin nuvarande lydelse genom
+      lag (2025:978), som hör till reformen den 1 december 2025.
+    lagrum: [PBL 9 kap. 4 §, PBL 10 kap. 23 §]
+    taggar: [fardigstallandeskydd, lovbefriad]
+
+  - id: gen-034
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En byggbedömare används för kontroll vid genomförandet av en nybyggnad. Vilket påstående
+      stämmer enligt 10 kap. PBL?
+    alternativ:
+      - text: Nämnden behöver inte göra arbetsplatsbesök, och i slutbeskedet prövar den inte de utformnings- och egenskapskrav som byggbedömaren intygar.
+        ratt: true
+      - text: Byggbedömaren får användas även när åtgärden omfattas av obligatorisk sakkunnigkontroll.
+      - text: Byggbedömaren ersätter byggherren som ansvarig för att kraven uppfylls.
+      - text: Det behövs inget slutsamråd.
+    forklaring: >
+      Byggbedömare får användas för nybyggnad som omfattas av föreskrifter enligt 16 kap. 9 § 2,
+      men inte om någon åtgärd omfattas av obligatorisk sakkunnigkontroll (13 §). Byggbedömaren tar
+      fram en riskbaserad kontrollbeskrivning, ser till att kontrollerna görs och lämnar en
+      redogörelse och ett intyg inför slutbeskedet (13 a §). Nämnden behöver då inte göra
+      arbetsplatsbesök (27 § tredje stycket) och prövar inte kraven i 8 kap. 1 § 1 och 3 och 4 §
+      (34 § andra stycket). Slutsamråd ska däremot hållas (30 § 2). Byggherren har kvar ansvaret.
+    lagrum: [PBL 10 kap. 13 §, PBL 10 kap. 13 a §, PBL 10 kap. 27 §, PBL 10 kap. 30 §, PBL 10 kap. 34 §]
+    taggar: [byggbedomare, slutbesked]
+
+  # --- Processen och rollerna -----------------------------------------------------------------
+
+  - id: gen-035
+    typ: ordning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen för en nybyggnad av ett enbostadshus, från lov till inflyttning.
+    poster:
+      - Byggnadsnämnden beslutar om bygglov.
+      - Byggherren lämnar förslag till kontrollplan och tekniska handlingar.
+      - Tekniskt samråd hålls.
+      - Nämnden ger startbesked och fastställer kontrollplanen.
+      - Huset stakas ut och byggandet pågår, med arbetsplatsbesök.
+      - Slutsamråd hålls och den kontrollansvarige lämnar sitt utlåtande.
+      - Nämnden ger slutbesked och huset får tas i bruk.
+    forklaring: >
+      Kedjan följer 10 kap. PBL: tekniskt samråd (14–21 §§), startbesked (23–24 §§), utstakning
+      (26 §), arbetsplatsbesök (27–28 §§), slutsamråd (30–33 §§) och slutbesked (34–37 §§). Lovet
+      gäller omedelbart, men byggstart kräver startbesked och inflyttning kräver slutbesked
+      (3 och 4 §§).
+    lagrum: [PBL 10 kap. 3 §, PBL 10 kap. 14 §, PBL 10 kap. 23 §, PBL 10 kap. 30 §, PBL 10 kap. 34 §]
+    taggar: [process, startbesked, slutbesked]
+
+  - id: gen-036
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop rollen med dess huvuduppgift i genomförandet.
+    par:
+      - vanster: Byggherre
+        hoger: Ansvarar för att åtgärden uppfyller kraven
+      - vanster: Kontrollansvarig
+        hoger: Biträder byggherren med kontrollplanen och lämnar utlåtande inför slutbesked
+      - vanster: Sakkunnig
+        hoger: Kontrollerar ett visst arbete och lämnar ett utlåtande till den kontrollansvarige
+      - vanster: Byggbedömare
+        hoger: Intygar att utformnings- och egenskapskraven är uppfyllda för vissa nybyggnader
+      - vanster: Byggnadsnämnd
+        hoger: Ger startbesked och slutbesked
+    forklaring: >
+      Rollerna regleras i 10 kap. PBL: byggherren i 5–5 c §§, kontrollansvariga i 9–11 c §§,
+      sakkunniga i 12–12 d §§, byggbedömare i 13–13 e §§ och nämndens beslut i 23 och 34 §§.
+      Kontrollansvariga, sakkunniga och byggbedömare ska vara certifierade (7 kap. 2 § PBF).
+    lagrum: [PBL 10 kap. 5 §, PBL 10 kap. 11 §, PBL 10 kap. 12 §, PBL 10 kap. 13 a §, PBL 10 kap. 23 §]
+    taggar: [roller, kontrollansvarig, byggherre]
+
+  - id: gen-037
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du ska leda det tekniska samrådet för ett nytt enbostadshus i Åkerslunda. Byggherren är en
+      privatperson som har anlitat en byggfirma. Vad tar du upp, och varför?
+    bedomningspunkter:
+      - Går igenom arbetets planering och organisation och byggherrens förslag till kontrollplan och avfallshanteringsplan (10 kap. 19 §).
+      - Bedömer behovet av sakkunnigkontroll, arbetsplatsbesök, utstakning och vilka handlingar som saknas inför startbeskedet.
+      - Tar upp färdigställandeskyddet, eftersom en näringsidkare bygger ett småhus åt en konsument (lagen om färdigställandeskydd, 10 kap. 16 och 23 §§).
+      - Upplyser om tillstånd eller anmälan enligt annan lag, t.ex. avlopp eller anslutning till väg (10 kap. 20 §).
+      - Förklarar byggherrens ansvar och den kontrollansvariges roll och att protokoll förs (10 kap. 5, 11 och 21 §§).
+    modellsvar: >
+      Syftet med samrådet är att se till att bygget planeras och kontrolleras så att kraven
+      uppfylls. Jag går igenom hur arbetet är organiserat och vem som gör vad, byggherrens förslag
+      till kontrollplan och avfallshanteringsplan och de tekniska handlingarna (10 kap. 19 §). Vi
+      bestämmer om någon kontroll ska göras av sakkunnig, om och när jag ska göra arbetsplatsbesök
+      och om huset ska stakas ut. Eftersom en byggfirma bygger åt en privatperson krävs
+      färdigställandeskydd, och jag förklarar att startbesked inte kan ges förrän bevis visats upp
+      (23 §). Kräver något tillstånd enligt annan lag, t.ex. ett enskilt avlopp eller en ny utfart
+      mot allmän väg, upplyser jag om det (20 §). Jag påminner om att det är byggherren som
+      ansvarar för att kraven uppfylls och att den kontrollansvarige ska stödja byggherren och
+      närvara vid kontrollerna. Jag för protokoll (21 §), och om underlaget räcker ger jag sedan
+      startbesked.
+    lagrum: [PBL 10 kap. 19 §, PBL 10 kap. 20 §, PBL 10 kap. 21 §, PBL 10 kap. 23 §, PBL 10 kap. 5 §]
+    taggar: [tekniskt_samrad, process]
+
+  - id: gen-038
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid ett platsbesök upptäcker du att en familj i Åkerslunda har flyttat in i sitt nybyggda hus
+      trots att de inte fått slutbesked. Den kontrollansvarige har inte lämnat sitt utlåtande. Hur
+      hanterar du situationen?
+    bedomningspunkter:
+      - Konstaterar att ett byggnadsverk inte får tas i bruk utan slutbesked (10 kap. 4 §).
+      - Utreder vad som saknas för slutbesked, t.ex. den kontrollansvariges utlåtande och dokumentation, och handlägger skyndsamt (10 kap. 34 och 37 §§).
+      - Överväger interimistiskt slutbesked om det som återstår går att skjuta upp och huset är säkert att använda (10 kap. 36 §).
+      - Inleder tillsyn enligt 11 kap. och prövar byggsanktionsavgift för olovligt ibruktagande enligt PBF 9 kap., med kommunicering före beslut.
+      - Bemöter familjen sakligt och förklarar vad de behöver göra.
+    modellsvar: >
+      Huset har tagits i bruk i strid med 10 kap. 4 § PBL. Först tar jag reda på vad som saknas:
+      varför den kontrollansvarige inte lämnat sitt utlåtande, vilka kontroller i kontrollplanen
+      som återstår och om det finns säkerhetsbrister. Jag förklarar för familjen vad som gäller och
+      vilka handlingar som behövs, och prövar frågan om slutbesked skyndsamt när underlaget kommit
+      in (37 §). Om något återstår som kan vänta, och huset är säkert, kan ett interimistiskt
+      slutbesked vara rätt (36 §). Samtidigt är ibruktagandet en överträdelse som nämnden ska
+      utreda i tillsyn enligt 11 kap., och byggsanktionsavgift enligt PBF 9 kap. ska som huvudregel
+      tas ut. Före beslut om avgift ska familjen få yttra sig.
+    lagrum: [PBL 10 kap. 4 §, PBL 10 kap. 36 §, PBL 10 kap. 37 §, PBL 11 kap., PBF 9 kap.]
+    taggar: [slutbesked, ibrukstagande, tillsyn]
+
+  - id: gen-039
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare i Åkerslunda vill installera en kamin med ny stålskorsten i sitt
+      komplementbostadshus, som byggdes utan bygglov enligt 9 kap. 4 § PBL. Vad behöver hon göra
+      innan hon kan elda, och vad gör byggnadsnämnden?
+    bedomningspunkter:
+      - Installation av eldstad och rökkanal kräver anmälan (6 kap. 1 § 4 PBF), trots att själva byggnaden var bygglovsbefriad.
+      - Anmälan ska innehålla de handlingar som behövs för startbesked, och nämnden har fyra veckor på sig (6 kap. 5–6 §§ PBF).
+      - Ingen kontrollansvarig krävs för en anmälningspliktig åtgärd (7 kap. 5 § PBF), men det behövs en kontrollplan, t.ex. med intyg från skorstensfejare.
+      - Arbetet får inte påbörjas före startbesked och kaminen får inte användas före slutbesked (10 kap. 3–4 §§).
+    modellsvar: >
+      Att själva komplementbostadshuset var bygglovsbefriat betyder inte att alla åtgärder i det är
+      fria. En eldstad med rökkanal kräver anmälan enligt 6 kap. 1 § 4 PBF. Hon lämnar in en
+      anmälan med t.ex. en beskrivning av kaminen och skorstenen och ett förslag till enkel
+      kontrollplan. Nämnden ska handlägga anmälan inom fyra veckor (6 kap. 5 § PBF) och ger
+      startbesked när åtgärden kan antas uppfylla kraven (10 kap. 23 c §). Någon kontrollansvarig
+      behövs inte (7 kap. 5 § PBF). Hon får inte börja installera före startbeskedet och inte elda
+      förrän nämnden gett slutbesked, oftast efter att en skorstensfejare intygat att installationen
+      är rätt utförd.
+    lagrum: [PBF 6 kap. 1 §, PBF 6 kap. 5 §, PBF 7 kap. 5 §, PBL 10 kap. 3 §, PBL 10 kap. 4 §, PBL 10 kap. 23 c §]
+    taggar: [anmalan, eldstad, komplementbostadshus]
+
+  - id: gen-040
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara skillnaden mellan ett slutbesked med anmärkningar enligt 10 kap. 35 § PBL och ett
+      interimistiskt slutbesked enligt 36 §. Ge ett exempel på när vart och ett passar.
+    bedomningspunkter:
+      - Slutbesked med anmärkningar ges när bristerna är försumbara; nämnden gör de anmärkningar som behövs (35 §).
+      - Interimistiskt slutbesked ges när en brist som inte är försumbar behöver avhjälpas eller en kontroll göras senare, och kan avse etapper (36 §).
+      - I ett interimistiskt slutbesked anger nämnden vid behov vad som gäller för att ta byggnadsverket i bruk, och slutbeskedet prövas slutligt när bristen är avhjälpt.
+      - Ger rimliga exempel, t.ex. en saknad dörrstoppare (försumbar) respektive en ventilationskontroll som görs senare eller putsarbete som väntar på våren.
+    modellsvar: >
+      Ett slutbesked med anmärkningar är ett riktigt slutbesked. Det ges när de brister som finns
+      är försumbara, t.ex. en saknad dörrstoppare eller en lucka i dokumentationen utan betydelse
+      för säkerheten, och nämnden antecknar bristerna (35 §). Ett interimistiskt slutbesked är
+      tillfälligt och villkorat. Det ges när en brist som inte är försumbar behöver avhjälpas eller
+      en kontroll behöver göras senare, t.ex. när ventilationen ska kontrolleras efter inflyttning
+      eller fasadputsen inte kan läggas förrän i vår. Nämnden anger då vad som gäller för att ta
+      byggnaden i bruk, och när bristen är åtgärdad prövas frågan om slutbesked slutligt (36 §).
+      Ett interimistiskt slutbesked kan också avse en etapp i ett större projekt.
+    lagrum: [PBL 10 kap. 35 §, PBL 10 kap. 36 §]
+    taggar: [slutbesked, interimistiskt_slutbesked]

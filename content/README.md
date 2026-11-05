@@ -103,6 +103,15 @@ Så tolkar ärendemotorn ärendet (bra att veta när du skriver):
 - `satt_komplett_datum: true` betyder att bristerna avhjälptes den dag händelsen inträffar
   (efter `tid_framat_dagar`). Om föreläggandet skickades inom tre veckor räknas
   tioveckorsfristen från den dagen (9 kap. 99 § första stycket 4).
+- **Nivå 4 är tillsyn.** Ett tillsynsärende har ingen tidsfrist enligt 9 kap. 99 §: rubrikraden
+  visar "Tillsyn, ingen frist", diariet förklarar varför och fristen kan inte förlängas. Kommer en
+  ansökan om lov i efterhand in, skriv `ny_fristdag: ansokan_om_lov_i_efterhand` på händelsen;
+  då räknas tio veckor från den dagen (99 § första stycket 1) och avgiftsreduktionen gäller som
+  vanligt. Ändrar sökanden sedan ansökan på eget initiativ, skriv `ny_fristdag:
+  sokandens_initiativ` på den händelsen; fristen räknas då från den senare dagen (99 § första
+  stycket 2). Beslutet får rubriken "Beslut i tillsynsärende om …" och utfallen avser lov i
+  efterhand. Byggsanktionsavgift och föreläggande skrivs i motiveringen; avgiftsfältet
+  kontrolleras mot taxan för lovet. Se A004.
 - `ny_fristdag: sokandens_initiativ` betyder att sökanden **på eget initiativ** kom in med
   ytterligare underlag eller en ändring av ansökan den dagen. Tioveckorsfristen räknas då
   från den dagen (9 kap. 99 § första stycket 2), och diariet påminner om att sökanden ska
@@ -255,9 +264,15 @@ Gemensamt för alla ritningstyper:
 | `tomt_bredd`, `tomt_djup` | Tomtens mått (öst–väst, nord–syd) |
 | `hus` | Befintlig huvudbyggnad, rektangel. Ange `hus`, `nybyggnad` eller båda. |
 | `nybyggnad` | Ny huvudbyggnad, t.ex. ett nytt bostadshus på en obebyggd tomt (skrafferas) |
+| `huvudbyggnad_namn` | Etikett på huvudbyggnaden, t.ex. "Nytt flerbostadshus" (annars "Befintligt/Nytt bostadshus") |
 | `tillbyggnad`, `komplementbyggnad` | Ny byggnadsdel, rektangel (skrafferas) |
+| `komplementbyggnad_namn` | Etikett på komplementbyggnaden, t.ex. "Miljöhus och cykelförråd" |
 | `ovriga_byggnader` | Befintliga byggnader, lista med `{ rektangel, namn }` |
+| `avvikelse` | Tillsyn: det som byggts utan lov eller i strid med lovet, lista med `{ rektangel, namn }`. Korsskrafferas, får måttkedjor mot gränserna och etiketten `namn` |
+| `lovgivet` | Tillsyn: det som lovet medger, lista med `{ rektangel, namn }`. Ritas som streck-punkt-kontur ovanpå byggnaderna; `namn` blir raden i teckenförklaringen |
 | `prickmark` | Lista med `{ sida, djup }`, t.ex. `[{ sida: soder, djup: 6 }]` |
+| `balkonger` | Utkragande delar ovan mark, lista med rektanglar. Ritas prickade utan etikett |
+| `parkering` | Lista med `{ rektangel, platser, tillgangliga (0), namn }`. Ytan delas i `platser` platser längs den långa sidan; de första `tillgangliga` blir 5 m breda och märks PRH |
 | `anlaggningar` | Annat på tomten (altan, markbädd …), lista med `{ rektangel, namn }`, ritas tunt streckat |
 | `punkter` | Punkter med namn, t.ex. `[{ punkt: [10, 28], namn: Borrad brunn }]` |
 | `utfart` | `{ sida, lage, bredd, langd (6) }`; `lage` räknas från tomtens västra eller norra hörn |
@@ -287,7 +302,14 @@ att de inte skriver över varandra eller anläggningarna, men titta alltid på r
 | `takutsprang` | Takutsprång (0,4) |
 | `ny` | `true` för den sökta delen (grövre linje) |
 | `visa_hojder` | Nivåkotor för BH och NH (`true`) |
-| `oppningar` | Lista med `{ typ: fonster/dorr/altandorr/port, x, bredd, hojd, underkant }`; `x` från delens vänstra kant |
+| `attika` | Platt tak (`takvinkel: 0`) bakom en attika: attikans höjd över takytan. BH blir överkant attika och takytan ritas streckad |
+| `oppningar` | Lista med `{ typ: fonster/dorr/altandorr/port, x, bredd, hojd, underkant, status }`; `x` från delens vänstra kant |
+| `balkonger` | Lista med `{ x, bredd, underkant, racke (1,1), ny }`: platta och räcke framför fasaden |
+| `detaljer` | Lista med `{ typ: skylt/kanal, x, bredd, underkant, hojd, text, fristaende, ny }`. En skylt är en skiva med text, eller fristående bokstäver med `fristaende: true`; en kanal får skarvar, huv och en nivåkota för sin överkant |
+
+Vid ändring av en befintlig fasad: ge öppningarna `status: ny` (grov linje) eller `status: rivs`
+(streckad med kryss, ritas ovanpå det som ersätter den). Anmärkningarna förklarar markeringarna.
+Ett dörrhandtag ritas en meter över dörrens underkant, så balkongdörrar får det på rätt höjd.
 
 **`planritning`** (standardskala 1:100). Använd gärna samma koordinater som situationsplanen.
 
@@ -300,6 +322,7 @@ att de inte skriver över varandra eller anläggningarna, men titta alltid på r
 | `dorrar` | `{ position, vagg: horisontell/vertikal, bredd (0,9), oppnas_mot, gangjarn: start/slut, typ: dorr/oppning, tjocklek }` |
 | `fonster` | `{ position, vagg, bredd, tjocklek }` |
 | `sektion` | Valfri sektion bredvid planen: `{ rubrik, snitt: { fran, till, sikt }, bredd, byggnadshojd, takvinkel, takutsprang, taktjocklek, golv_over_mark, rum }` |
+| `balkonger` | Lista med `{ rektangel, namn }` utanför väggarna (utsida platta). Måttkedjorna flyttas ut förbi dem |
 
 Väggar blir det som ligger mellan rummen. `position` är öppningens början på väggens norra
 (horisontell vägg) eller västra (vertikal vägg) sida, och `tjocklek` är väggens tjocklek där
@@ -311,11 +334,15 @@ Väggar blir det som ligger mellan rummen. `position` är öppningens början p�
 | --- | --- |
 | `plan` | `{ beteckning, namn, laga_kraft, anmarkning }` |
 | `omrade` | Planområdet, rektangel |
-| `kvarter` | Lista med `{ namn, rektangel, anvandning (B), byggnadshojd, byggnadsarea_procent, prickmark, fastigheter }` |
+| `kvarter` | Lista med `{ namn, rektangel, anvandning (B), byggnadshojd, nockhojd, vaningar, byggnadsarea_procent, bestammelser, prickmark, fastigheter }` |
+| `vaningar` | Per kvarter: högsta antal våningar, skrivs med romerska siffror (IV) |
+| `nockhojd` | Per kvarter: högsta nockhöjd i meter (NH 8,5 på kartan) |
+| `bestammelser` | Per kvarter: egna egenskapsbestämmelser, `[{ beteckning: m1, text: "Skydd mot trafikbuller" }]`. En siffra sist blir index (m₁); `text` blir raden i teckenförklaringen, så skriv den kort |
 | `fastigheter` | Per kvarter: `{ beteckning: "7", rektangel, markerad }`; `markerad: true` ritar fastigheten som ansökan avser |
 | `allmanna_platser` | Lista med `{ anvandning: GATA/PARK/NATUR/TORG, namn, rektangel }` |
 
-Teckenförklaringen byggs av det som finns på kartan. Plankartan och planbestämmelserna
+Teckenförklaringen byggs av det som finns på kartan. Kvarter med olika `byggnadsarea_procent` får
+var sin beteckning, e₁, e₂ och så vidare. Plankartan och planbestämmelserna
 (Markdown) ska säga samma sak, och `fakta` på planbestämmelserna ska stämma med båda.
 
 ## Så kör du kontrollen

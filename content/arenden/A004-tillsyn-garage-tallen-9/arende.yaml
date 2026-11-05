@@ -1,0 +1,443 @@
+# Nivå 4-ärende (tillsyn). Fiktiv fastighet, fiktiv kommun, fiktiv detaljplan.
+# Lagrum kontrollerade 2026-11-05 mot docs/rattslage/pbl-11-kap.txt, pbf-9-kap.txt,
+# pbl-9-kap.txt, pbl-10-kap.txt, pbl-12-kap.txt, fl.txt och boverket-tillsyn-utdrag.txt.
+# Prisbasbelopp 2026: 59 200 kr (SCB, docs/rattslage/prisbasbelopp.txt). Byggsanktionsavgiften
+# bestäms med prisbasbeloppet för det år beslutet fattas (PBF 9 kap. 1 §). Simuleringens
+# tidslinje är fast (inga slumphändelser) och beslutet fattas den 15 oktober 2026.
+#
+# Avgiftsberäkningen (se även H4 och facit):
+#   (a) Påbörjande utan startbesked av de delar som avviker från lovet (förrådsdelen och det
+#       högre taket), PBF 9 kap. 6 § första stycket 2, komplementbyggnad:
+#       0,25 pbb + 0,005 pbb × byggnadens sanktionsarea. Sanktionsarea = BTA − 15 kvm
+#       (PBF 1 kap. 7 §) = 56 − 15 = 41 kvm → 0,455 pbb = 26 936 kr. Ingen halvering enligt
+#       9 kap. 3 a §, eftersom de avvikande delarna saknade lov.
+#   (b) Ibruktagande utan slutbesked, PBF 9 kap. 18 § första stycket 2:
+#       0,05 pbb + 0,001 pbb × sanktionsarea. Förbudet i 10 kap. 4 § PBL gäller bara de delar
+#       som omfattas av startbeskedet (40 kvm, garaget enligt lovet), så sanktionsarean är
+#       40 − 15 = 25 kvm (9 kap. 18 § andra stycket) → 0,075 pbb = 4 440 kr.
+#   Summa före rättelse 31 376 kr. Efter att förrådsdelen rivits före sammanträdet (E3,
+#   11 kap. 54 § PBL) är byggnaden 40 kvm: (a) 0,25 + 0,005 × 25 = 0,375 pbb = 22 200 kr,
+#   (b) oförändrad 4 440 kr (ibruktagandet har redan skett och kan inte rättas i efterhand).
+#   Summa 26 640 kr. Belopp avrundas nedåt till hela kronor.
+id: A004
+titel: "Tillsyn: garage byggt större än lovet"
+niva: 4
+status: utkast
+rattslage: "2025-12-01"
+fastighet: Tallen 9, Åkerslunda kommun
+moduler: [10-tillsyn]
+sammanfattning: >
+  En granne anmäler att garaget på Tallen 9 har byggts större och högre än bygglovet från 2024
+  och att det används trots att slutbesked saknas. Du utreder anmälan, gör platsbesök, räknar
+  ut byggsanktionsavgiften, kommunicerar förslaget, bemöter byggherrens invändningar om
+  preskription och nedsättning, prövar om lov kan ges i efterhand och skriver nämndens beslut
+  om avgift och rättelseföreläggande. Strax före sammanträdet rättar byggherren en del av
+  avvikelsen.
+startdatum: 2026-08-17
+larandemal:
+  - Ta ställning till en tillsynsanmälan och nämndens skyldighet att pröva ingripande (11 kap. 5 § PBL)
+  - Dokumentera ett platsbesök och mäta avvikelser mot lov och detaljplan
+  - Beräkna byggsanktionsavgift med sanktionsarea och prisbasbelopp (PBF 9 kap.)
+  - Kommunicera ett förslag till byggsanktionsavgift (11 kap. 58 § PBL) och bemöta invändningar om preskription och nedsättning (11 kap. 53 a och 58 §§)
+  - Avgöra om lov kan ges i efterhand eller om rättelseföreläggande krävs (9 kap. 56 och 60 §§, 11 kap. 17 och 20 §§)
+  - Räkna om avgiften när rättelse delvis sker före sammanträdet (11 kap. 54 §)
+  - Skriva ett tillsynsbeslut med avgift, föreläggande, överklagandehänvisning och rätt expediering
+
+parter:
+  # Ägarna är både sökande av lov i efterhand och avgiftsskyldiga. Anmälaren äger Tallen 8.
+  sokande: [Henrik Ström]
+  fastighetsagare: [Henrik Ström, Lena Ström]
+  grannar:
+    - { fastighet: Tallen 8, namn: [Margareta Lind] }
+
+taxa:
+  # Nämndens avgift för prövningen av ansökan om lov i efterhand (avslag). Byggsanktionsavgiften
+  # är ingen taxa utan följer av PBF 9 kap.; den står i beslutet och i H4.
+  avslag_bygglov_i_efterhand_komplementbyggnad: 5200
+  reduktion_per_vecka: 0.2
+
+handlingar:
+  - id: H1
+    typ: anmalan
+    titel: Anmälan om olovligt byggande
+    fil: handlingar/anmalan.md
+    inkom: 2026-08-17
+  - id: H2
+    typ: beslut
+    titel: Bygglov för garage 2024 (arkiv)
+    fil: handlingar/lovbeslut-2024.md
+    inkom: 2024-04-16
+    fakta:
+      gammalt_beslut: true
+      anmarkning: >
+        Beslutet är fattat 2024 och hänvisar därför till 9 kap. PBL i lydelsen före
+        2025-12-01 (bl.a. 9 kap. 30 §, 42 a § och 43 §). Paragrafnumren gäller inte längre.
+        Motsvarande bestämmelser finns nu i 9 kap. 56, 114 och 115 §§.
+      lovgiven_byggnadsarea_kvm: 40
+      lovgiven_bruttoarea_kvm: 40
+      lovgiven_byggnadshojd_m: 2.9
+      lovgiven_nockhojd_m: 3.9
+      avstand_ostra_gransen_m: 3.0
+  - id: H3
+    typ: beslut
+    titel: Startbesked för garage 2024 (arkiv)
+    fil: handlingar/startbesked-2024.md
+    inkom: 2024-05-20
+    fakta: { startbesked: 2024-05-20, slutbesked: saknas, begaran_om_slutbesked: saknas }
+  - id: H9
+    typ: planbestammelser
+    titel: Detaljplan Dp 1986-03, planbestämmelser
+    fil: handlingar/planbestammelser.md
+    inkom: 2026-08-17
+    fakta:
+      plan: Dp 1986-03
+      genomforandetid_slut: 2001-05-12
+      komplementbyggnader_storsta_byggnadsarea_kvm: 45
+      komplementbyggnader_hogsta_byggnadshojd_m: 3.0
+  - id: H4
+    typ: ovrigt
+    titel: "Rutin: beräkning av byggsanktionsavgift (internt PM)"
+    fil: handlingar/pm-byggsanktionsavgift.md
+    inkom: 2026-08-17
+    fakta:
+      prisbasbelopp_2026: 59200
+      prisbasbelopp_2027: 59600
+      kalla_prisbasbelopp: "SCB, Prisbasbeloppet för år 2026 (2025-07-14) och 2027 (2026-07-15)"
+      sanktionsarea: "BTA och/eller OPA minus 15 kvm (PBF 1 kap. 7 §)"
+      formler_komplementbyggnad:
+        paborjat_nybyggnad: "0,25 pbb + 0,005 pbb per kvm sanktionsarea (PBF 9 kap. 6 § 2)"
+        paborjat_tillbyggnad: "0,08 pbb + 0,005 pbb per kvm sanktionsarea (PBF 9 kap. 7 § 2)"
+        ibruktagen_nybyggnad: "0,05 pbb + 0,001 pbb per kvm sanktionsarea (PBF 9 kap. 18 § 2)"
+        ibruktagen_tillbyggnad: "0,016 pbb + 0,001 pbb per kvm sanktionsarea (PBF 9 kap. 19 § 2)"
+      formler_en_och_tvabostadshus:
+        paborjat_nybyggnad: "1,5 pbb + 0,005 pbb per kvm sanktionsarea (PBF 9 kap. 6 § 1)"
+        paborjat_tillbyggnad: "0,5 pbb + 0,005 pbb per kvm sanktionsarea (PBF 9 kap. 7 § 1)"
+        ibruktagen_nybyggnad: "0,3 pbb + 0,001 pbb per kvm sanktionsarea (PBF 9 kap. 18 § 1)"
+        ibruktagen_tillbyggnad: "0,1 pbb + 0,001 pbb per kvm sanktionsarea (PBF 9 kap. 19 § 1)"
+      halvering: "Hälften om lov fanns för åtgärden eller delen när den påbörjades (PBF 9 kap. 3 a §)"
+      avrundning: nedat_hela_kronor
+  - id: H5
+    typ: protokoll
+    titel: Tillsynsprotokoll med mätprotokoll och foton
+    fil: handlingar/tillsynsprotokoll.md
+    dold_tills: E1
+    fakta:
+      byggd_bruttoarea_kvm: 56
+      byggd_byggnadsarea_kvm: 56
+      garage_matt_m: "5,0 × 8,0 (garagedel) + 2,0 × 8,0 (förrådsdel)"
+      byggnadshojd_garagedel_m: 3.7
+      nockhojd_garagedel_m: 4.7
+      byggnadshojd_forradsdel_m: 2.6
+      avstand_ostra_gransen_m: 1.0
+      i_bruk: true
+  - id: H6
+    typ: situationsplan
+    titel: Situationsplan, inmätning vid tillsynsbesök 1:200
+    fil: handlingar/situationsplan.svg
+    dold_tills: E1
+    parametrar:
+      skala: 200
+      tomt_bredd: 25
+      tomt_djup: 32
+      hus: [4, 6, 12, 9]
+      # Garagedelen (5 × 8 m) har samma läge och mått i plan som bygglovet 2024 och ritas som
+      # befintlig byggnad med lovets kontur (streck-punkt) ovanpå. Förrådsdelen (2 × 8 m) är
+      # byggd utan lov och ritas som avvikelse (korsskrafferad).
+      ovriga_byggnader: [{ rektangel: [17, 21, 5, 8], namn: Garage }]
+      lovgivet: [{ rektangel: [17, 21, 5, 8], namn: Garage enligt bygglov 2024 }]
+      avvikelse: [{ rektangel: [22, 21, 2, 8], namn: Förråd utan lov }]
+      utfart: { sida: soder, lage: 17, bredd: 5, langd: 3 }
+      gata: { sida: soder, namn: Tallvägen, fastighet: "Åkerslunda 2:14" }
+      grannar: { norr: Tallen 4, oster: Tallen 8, soder: Granen 3, vaster: Tallen 10 }
+      grannhus: [[28, 0, 11, 8], [-15, 6, 11, 9]]
+      ritningshuvud:
+        projekt: "Tillsyn: inmätning av garage"
+        ritningstyp: Situationsplan, inmätning
+        datum: 2026-09-04
+        ritad_av: Bygg- och miljöförvaltningen
+        ritningsnummer: T-01
+  - id: H7
+    typ: yttrande
+    titel: Yttrande från fastighetsägarna och ansökan om lov i efterhand
+    fil: handlingar/yttrande-agarna.md
+    dold_tills: E2
+  - id: H8
+    typ: tjansteanteckning
+    titel: Tjänsteanteckning efter kontrollbesök
+    fil: handlingar/tjansteanteckning-rattelse.md
+    dold_tills: E3
+    fakta: { forradsdel_riven: true, bruttoarea_efter_kvm: 40, byggnadshojd_garagedel_m: 3.7 }
+
+steg:
+  - id: S1
+    typ: fraga
+    rubrik: Ta ställning till anmälan
+    fragetyp: flersvar
+    instruktion: >
+      Läs anmälan (H1) och arkivhandlingarna från 2024 (H2, H3). Vad gäller för nämnden nu, och
+      vad gör du innan platsbesöket?
+    fraga: Vilka påståenden stämmer?
+    alternativ:
+      - text: Nämnden måste pröva om det finns skäl att ingripa. Att garaget har bygglov är inget skäl att lägga anmälan åt sidan.
+        ratt: true
+      - text: Registrera anmälan som ett tillsynsärende och ta fram lov, startbesked och godkända ritningar från 2024 ur arkivet.
+        ratt: true
+      - text: Underrätta fastighetsägarna om att ett tillsynsärende har inletts och föreslå en tid för platsbesök.
+        ratt: true
+      - text: Nämnden har rätt till tillträde till fastigheten för att utföra platsbesöket, och polisen ska vid behov biträda.
+        ratt: true
+      - text: Anmälaren blir part i tillsynsärendet och ska få alla handlingar delgivna under utredningen.
+      - text: Nämnden bör vänta tills anmälaren har visat med mätningar att garaget är för stort.
+    forklaring: >
+      Enligt 11 kap. 5 § PBL ska nämnden pröva förutsättningarna för och behovet av att ingripa
+      så snart det finns anledning att anta att lov, startbesked eller andra beslut inte har
+      följts. Det gäller oavsett vem som anmäler, även anonymt. Utredningsansvaret ligger på
+      nämnden (FL 23 §), inte på anmälaren. Nämnden har rätt till tillträde (11 kap. 8 §) och
+      polisen ska lämna biträde (9 §). Anmälaren blir inte part bara genom att anmäla, men en
+      grannfastighetsägare som begärt ingripande har enligt JO rätt till ett överklagbart beslut,
+      även om nämnden inte ingriper.
+    lagrum: [PBL 11 kap. 5 §, PBL 11 kap. 8 §, PBL 11 kap. 9 §, FL 9 §, FL 23 §]
+    tid_framat_dagar: 3
+
+  - id: S2
+    typ: skrivelse
+    rubrik: Skriv underrättelse om tillsynsärende och platsbesök
+    instruktion: >
+      Skriv ett kort brev till Henrik och Lena Ström. Berätta att en anmälan har kommit in, vad
+      den gäller, att nämnden har öppnat ett tillsynsärende och när du vill göra platsbesök.
+      Det är inte ett föreläggande.
+    bedomningspunkter:
+      - Anger vad anmälan gäller (garage större och högre än lovet, i bruk utan slutbesked) och diarienummer
+      - Förklarar att nämnden är skyldig att utreda (11 kap. 5 § PBL) utan att ta ställning i förväg
+      - Föreslår tid för platsbesök och nämner rätten till tillträde (11 kap. 8 § PBL)
+      - Upplyser tidigt om att en byggsanktionsavgift inte tas ut om rättelse sker innan nämnden har tagit upp frågan till överläggning (11 kap. 54 § PBL)
+      - Upplyser om att anmälan är en allmän handling som de har rätt att ta del av
+      - Saklig och begriplig ton, kontaktuppgifter till handläggaren
+    modelltext: handlingar/modell-underrattelse.md
+
+  - id: S3
+    typ: berakning
+    rubrik: Dokumentera platsbesöket
+    instruktion: >
+      Använd tillsynsprotokollet (H5), inmätningen (H6), lovet (H2) och planbestämmelserna (H9).
+    fragor:
+      - { id: byggd_bta, text: "Garagets bruttoarea som det är byggt (kvm)", svar: 56, tolerans: 0.5, enhet: kvm }
+      - { id: merarea_lov, text: "Hur mycket större är garaget än lovet (kvm)?", svar: 16, tolerans: 0.5, enhet: kvm }
+      - { id: over_plan_area, text: "Hur många kvm över planens största byggnadsarea för komplementbyggnader?", svar: 11, tolerans: 0.5, enhet: kvm }
+      - { id: over_plan_hojd, text: "Hur mycket överskrider garagedelens byggnadshöjd planens högsta byggnadshöjd (m)?", svar: 0.7, tolerans: 0.05, enhet: m }
+      - { id: avstand_grans, text: "Förrådsdelens avstånd till gränsen mot Tallen 8 (m)", svar: 1.0, tolerans: 0.1, enhet: m }
+    forklaring: >
+      Garaget är 5,0 + 2,0 = 7,0 m brett och 8,0 m djupt, alltså 56 kvm i stället för lovets
+      40 kvm. Planen tillåter sammanlagt 45 kvm för komplementbyggnader, så garaget ligger 11 kvm
+      (24 procent) över. Garagedelens byggnadshöjd är 3,7 m mot lovets 2,9 m och planens 3,0 m:
+      0,8 m över lovet och 0,7 m (23 procent) över planen. Åtgärden har inte utförts enligt
+      lovet, vilket den ska enligt 10 kap. 2 § PBL. Ett noggrant protokoll med mått, foton och
+      vem som var närvarande är grunden för allt som följer, även om ärendet överklagas.
+    lagrum: [PBL 10 kap. 2 §, PBL 11 kap. 8 §]
+
+  - id: S4
+    typ: berakning
+    rubrik: Beräkna byggsanktionsavgiften
+    instruktion: >
+      Använd PM:et om byggsanktionsavgifter (H4) och prisbasbeloppet för 2026. Räkna med
+      bruttoarean och avrunda nedåt till hela kronor. Tänk på vilka delar av garaget som
+      omfattas av startbeskedet från 2024 (10 kap. 4 § PBL).
+    fragor:
+      - { id: sanktionsarea_a, text: "Sanktionsarea för påbörjande utan startbesked (kvm)", svar: 41, tolerans: 0, enhet: kvm }
+      - { id: avgift_a, text: "Avgift för påbörjande utan startbesked (kr)", svar: 26936, tolerans: 1, enhet: kr }
+      - { id: sanktionsarea_b, text: "Sanktionsarea för ibruktagande utan slutbesked (kvm)", svar: 25, tolerans: 0, enhet: kvm }
+      - { id: avgift_b, text: "Avgift för ibruktagande utan slutbesked (kr)", svar: 4440, tolerans: 1, enhet: kr }
+      - { id: summa, text: "Sammanlagd byggsanktionsavgift (kr)", svar: 31376, tolerans: 2, enhet: kr }
+    forklaring: >
+      Förrådsdelen och det högre taket omfattas inte av startbeskedet. De är en del av en
+      nybyggnad som påbörjats utan startbesked (PBF 9 kap. 6 § första stycket 2, komplementbyggnad):
+      0,25 pbb + 0,005 pbb × byggnadens sanktionsarea. Sanktionsarean är bruttoarean minus
+      15 kvm (PBF 1 kap. 7 §): 56 − 15 = 41 kvm, vilket ger 0,455 × 59 200 = 26 936 kr. Någon
+      halvering enligt 9 kap. 3 a § blir det inte, eftersom de avvikande delarna saknade lov.
+      Förbudet mot att ta i bruk utan slutbesked gäller bara de delar som omfattas av ett
+      startbesked (10 kap. 4 § PBL, MÖD 2016:15), alltså garaget enligt lovet om 40 kvm.
+      Sanktionsarean blir 40 − 15 = 25 kvm (PBF 9 kap. 18 § andra stycket): 0,05 + 0,025 =
+      0,075 × 59 200 = 4 440 kr. Summa 31 376 kr. Prisbasbeloppet är det som gäller det år
+      nämnden beslutar (PBF 9 kap. 1 §), inte det år garaget byggdes.
+    lagrum: [PBL 11 kap. 51 §, PBF 9 kap. 1 §, PBF 9 kap. 3 a §, PBF 9 kap. 6 §, PBF 9 kap. 18 §, PBF 1 kap. 7 §, PBL 10 kap. 4 §]
+
+  - id: S5
+    typ: skrivelse
+    rubrik: Kommunicera förslaget till byggsanktionsavgift
+    instruktion: >
+      Skriv kommuniceringsskrivelsen till ägarna. Den ska ge dem tillfälle att yttra sig över
+      allt underlag innan nämnden beslutar. Nämnden sammanträder den 15 oktober 2026.
+    bedomningspunkter:
+      - Riktas till båda ägarna, som var ägare när överträdelserna begicks (11 kap. 57 § PBL), och nämner att de svarar solidariskt (60 §)
+      - Beskriver överträdelserna konkret med mått och datum och bifogar eller hänvisar till tillsynsprotokoll och inmätning
+      - Anger det föreslagna beloppet med beräkning, lagrum och prisbasbelopp 2026
+      - Ger tillfälle att yttra sig inom bestämd tid (11 kap. 58 § PBL, FL 25 §)
+      - Upplyser om att avgift inte tas ut om rättelse sker före nämndens överläggning (11 kap. 54 §) och anger när nämnden sammanträder
+      - Upplyser om att nämnden överväger rättelseföreläggande, eventuellt med vite, och om möjligheten att söka lov i efterhand
+      - Nämner att avgiften kan sättas ned eller efterges i vissa fall (11 kap. 53 och 53 a §§) och ber om uppgifter om sådana skäl
+    modelltext: handlingar/modell-kommunicering.md
+
+  - id: S6
+    typ: fraga
+    rubrik: Lov i efterhand eller rättelseföreläggande?
+    fragetyp: flerval
+    instruktion: >
+      Ägarna har sökt lov i efterhand (H7). Pröva ansökan mot detaljplanen (H9) och ta ställning
+      till vilket ingripande som behövs.
+    fraga: Vilken bedömning är riktig?
+    alternativ:
+      - text: >
+          Lov kan inte ges i efterhand. Garaget överskrider planens byggnadsarea för
+          komplementbyggnader med 24 procent och byggnadshöjden med 23 procent. Avvikelserna är
+          inte små och motverkar planens syfte (9 kap. 56 och 60 §§). Ett lovföreläggande är
+          inte aktuellt (11 kap. 17 §); nämnden bör förelägga om rättelse (11 kap. 20 §).
+        ratt: true
+      - text: Lov ska ges, eftersom genomförandetiden gick ut för mer än femton år sedan (9 kap. 56 § första stycket 1 b).
+      - text: Nämnden måste först besluta om lovföreläggande och invänta en ny ansökan innan något annat kan göras.
+      - text: Rättelseföreläggande kan inte ges, eftersom garaget har ett bygglov som har fått laga kraft.
+    forklaring: >
+      Lov i efterhand prövas som om åtgärden inte var utförd, mot förhållandena vid
+      prövningen. Garaget strider mot planen (9 kap. 56 § första stycket 2) och kan bara godtas
+      som liten avvikelse förenlig med planens syfte (60 §). Med 11 kvm (24 procent) för stor
+      byggnadsarea och 0,7 m (23 procent) för hög byggnadshöjd, en meter från grannens gräns,
+      är det inte en liten avvikelse; även höjdavvikelsen ensam är för stor. Undantaget i
+      56 § första stycket 1 b gäller avvikelser i det befintliga, inte den sökta åtgärden.
+      Lovföreläggande ges bara om det är sannolikt att lov kan ges (11 kap. 17 §). Lovet från
+      2024 täcker bara det som beviljades; det som byggts utöver lovet är i strid med lagen och
+      kan föreläggas om rättelse inom tio år från överträdelsen (11 kap. 20 §).
+    lagrum: [PBL 9 kap. 56 §, PBL 9 kap. 60 §, PBL 11 kap. 17 §, PBL 11 kap. 20 §]
+
+  - id: S7
+    typ: beslut
+    rubrik: Skriv nämndens beslut
+    instruktion: >
+      Skriv beslutet som läggs fram på nämndens sammanträde. Beslutet ska avgöra ansökan om lov i
+      efterhand, byggsanktionsavgiften och föreläggandet. I fältet Avgift anger du nämndens
+      avgift enligt taxan för prövningen av ansökan om lov i efterhand. Byggsanktionsavgiften och
+      föreläggandet skriver du i motiveringen och under villkor och upplysningar.
+    forvantat_beslut: avsla
+    bedomningspunkter:
+      - Avslår ansökan om bygglov i efterhand för garaget med byggnadshöjd 3,7 m (9 kap. 56 och 60 §§ PBL) och motiverar varför avvikelsen inte är liten
+      - Tar ut byggsanktionsavgift om 26 640 kr av Henrik och Lena Ström solidariskt (11 kap. 51, 57 och 60 §§ PBL, PBF 9 kap. 1, 6 och 18 §§) med redovisad beräkning och prisbasbelopp 2026
+      - Redovisar att förrådsdelen har rättats före sammanträdet (11 kap. 54 §) och att ibruktagandet inte kan rättas i efterhand
+      - Bemöter invändningarna om preskription (11 kap. 58 § andra stycket) och nedsättning (11 kap. 53 och 53 a §§)
+      - Förelägger ägarna att vidta rättelse (11 kap. 20 §) genom att återställa garaget till lovets byggnadshöjd 2,9 m inom en angiven tid, eventuellt med vite (11 kap. 37 §)
+      - Upplyser om betalning inom två månader från delgivning (11 kap. 61 §), att ny avgift med dubbelt belopp tas ut om rättelse inte sker (PBF 9 kap. 2 §) och att föreläggandet skickas till inskrivningsmyndigheten (11 kap. 40 §)
+      - Beslutet fattas av nämnden själv; frågor om byggsanktionsavgift och vitesförelägganden får inte delegeras (12 kap. 6 § PBL)
+      - Avgift för lovprövningen enligt taxan, 5 200 kr
+      - Överklagandehänvisning till länsstyrelsen
+      - Beslutet delges ägarna (11 kap. 59 § PBL) och skickas till anmälaren på Tallen 8 med överklagandehänvisning
+    lagrum: [PBL 9 kap. 56 §, PBL 9 kap. 60 §, PBL 11 kap. 20 §, PBL 11 kap. 51 §, PBL 11 kap. 58 §]
+    modellbeslut: handlingar/modell-beslut.md
+
+handelser:
+  - id: E1
+    namn: Platsbesök genomfört
+    utlosare: { efter_steg: S2 }
+    effekt:
+      tid_framat_dagar: 15
+      visa_handlingar: [H5, H6]
+      meddelande: >
+        Platsbesöket på Tallen 9 gjordes i dag, {{simdatum}}, tillsammans med Henrik Ström.
+        Tillsynsprotokollet med mått och fotobeskrivningar och inmätningen av garaget finns nu i
+        diariet.
+
+  - id: E2
+    namn: Ägarnas yttrande inkommer
+    utlosare: { efter_steg: S5 }
+    effekt:
+      tid_framat_dagar: 21
+      visa_handlingar: [H7]
+      # Ansökan om lov i efterhand startar tioveckorsfristen (9 kap. 99 § första stycket 1).
+      ny_fristdag: ansokan_om_lov_i_efterhand
+      meddelande: >
+        Henrik och Lena Ström har yttrat sig över kommuniceringen. De anser att avgiften är
+        preskriberad eftersom garaget "stod klart för fem år sedan", begär att avgiften sätts ned
+        till en fjärdedel och söker bygglov i efterhand för garaget som det är byggt.
+      nytt_steg:
+        id: S5b
+        typ: fraga
+        rubrik: Bedöm ägarnas invändningar
+        fragetyp: flersvar
+        fraga: Vilka bedömningar är riktiga?
+        alternativ:
+          - text: Avgiften kan beslutas. Överträdelserna skedde 2024–2025 och ägarna har fått tillfälle att yttra sig inom fem år (11 kap. 58 § andra stycket).
+            ratt: true
+          - text: Påståendet att garaget stod klart 2021 motsägs av handlingarna. Lovet söktes och startbeskedet gavs 2024, och 2024 stod en carport på platsen.
+            ratt: true
+          - text: Nedsättning enligt 11 kap. 53 a § förutsätter att avgiften inte står i rimlig proportion till överträdelsen. Här har ägarna byggt 40 procent större än lovet, så det finns inte skäl att sätta ned avgiften.
+            ratt: true
+          - text: Avgiften ska sättas ned eftersom ägarna inte visste att ändringarna krävde lov.
+          - text: Eftersom snickaren föreslog ändringarna kan avgiften bara tas ut av snickaren.
+          - text: När en ansökan om lov i efterhand har kommit in måste nämnden avvakta med byggsanktionsavgiften tills lovet har prövats och vunnit laga kraft.
+        forklaring: >
+          Femårsgränsen i 11 kap. 58 § andra stycket räknas från överträdelsen till den dag den
+          avgiftsskyldige får tillfälle att yttra sig. Överträdelserna skedde när garaget byggdes
+          2024–2025 och ibruktogs, så gränsen är långt borta. Avgiften tas ut även utan uppsåt
+          eller oaktsamhet (53 §); okunskap om reglerna är inte ett skäl. Nedsättning till hälften
+          eller en fjärdedel kräver att avgiften är oproportionerlig (53 a §), vilket den inte är
+          för en så stor avvikelse. Avgiften kan tas ut av ägaren, av den som begick överträdelsen
+          och av den som fått en fördel av den (57 §). Ett lov i efterhand gör inte att det blir
+          lovligt att ha påbörjat utan startbesked; avgiften och lovprövningen kan avgöras i
+          samma beslut.
+        lagrum: [PBL 11 kap. 53 §, PBL 11 kap. 53 a §, PBL 11 kap. 57 §, PBL 11 kap. 58 §]
+
+  - id: E3
+    namn: Ägarna rättar delvis före sammanträdet
+    utlosare: { efter_steg: S6 }
+    effekt:
+      tid_framat_dagar: 14
+      visa_handlingar: [H8]
+      # Ändringen av ansökan om lov i efterhand kommer på sökandens initiativ, så
+      # tioveckorsfristen räknas från i dag (9 kap. 99 § första stycket 2, 100 § 2).
+      ny_fristdag: sokandens_initiativ
+      andrade_fakta: { bruttoarea_kvm: 40, forradsdel_riven: true, byggnadshojd_garagedel_m: 3.7 }
+      meddelande: >
+        Henrik Ström meddelar att förrådsdelen är riven och att garaget är tömt och inte längre
+        används. Han ändrar ansökan om lov i efterhand till att gälla garaget i nuvarande
+        utförande, 40 kvm med byggnadshöjd 3,7 m. En byggnadsinspektör har kontrollerat på plats i
+        dag. Nämnden sammanträder den 15 oktober och har ännu inte överlagt om ärendet.
+      nytt_steg:
+        id: S6b
+        typ: berakning
+        rubrik: Räkna om avgiften efter rättelsen
+        instruktion: >
+          Läs tjänsteanteckningen (H8). Vilken del av överträdelsen har rättats före
+          sammanträdet, och vilken har inte gått att rätta?
+        fragor:
+          - { id: ny_sanktionsarea_a, text: "Ny sanktionsarea för påbörjande utan startbesked (kvm)", svar: 25, tolerans: 0, enhet: kvm }
+          - { id: ny_avgift_a, text: "Ny avgift för påbörjande utan startbesked (kr)", svar: 22200, tolerans: 1, enhet: kr }
+          - { id: ny_avgift_b, text: "Avgift för ibruktagande utan slutbesked (kr)", svar: 4440, tolerans: 1, enhet: kr }
+          - { id: ny_summa, text: "Sammanlagd byggsanktionsavgift (kr)", svar: 26640, tolerans: 2, enhet: kr }
+        forklaring: >
+          Avgift tas inte ut för det som rättats innan nämnden tagit upp frågan till överläggning
+          (11 kap. 54 §). Påbörjande utan startbesked rättas bara genom att det utförda tas bort,
+          och förrådsdelen är riven. Det högre taket finns kvar, så en del av nybyggnaden är
+          fortfarande utförd utan startbesked. Byggnadens sanktionsarea är nu 40 − 15 = 25 kvm:
+          0,25 + 0,125 = 0,375 × 59 200 = 22 200 kr. Ibruktagandet har redan skett och rättas inte
+          av att garaget töms (jfr HD NJA 2021 s. 446 om hiss som använts utan besiktning), så
+          4 440 kr kvarstår. Summa 26 640 kr. Den lägre avgiften bygger på ägarnas egna uppgifter
+          och är till deras fördel, så ny kommunicering är uppenbart obehövlig (FL 25 §).
+        lagrum: [PBL 11 kap. 54 §, PBF 9 kap. 6 §, PBF 9 kap. 18 §, FL 25 §]
+        tid_framat_dagar: 6
+
+facit:
+  sammanfattning: >
+    Nämnden avslår ansökan om bygglov i efterhand, tar ut byggsanktionsavgift om 26 640 kr
+    (22 200 kr för påbörjande utan startbesked av de delar som avviker från lovet och 4 440 kr
+    för ibruktagande utan slutbesked, prisbasbelopp 2026 = 59 200 kr) och förelägger ägarna att
+    återställa garagets byggnadshöjd till lovets 2,9 m. Förrådsdelen revs före sammanträdet och
+    ger därför ingen avgift (11 kap. 54 § PBL). Invändningarna om preskription och nedsättning
+    godtas inte.
+  vanliga_fel:
+    - Räknar avgiften på merarean (16 kvm) i stället för byggnadens sanktionsarea, eller glömmer att dra av 15 kvm
+    - Halverar avgiften enligt PBF 9 kap. 3 a § trots att de avvikande delarna saknade lov
+    - Använder prisbasbeloppet för det år garaget byggdes i stället för beslutsåret
+    - Räknar ibruktagandeavgiften på hela garaget, trots att förbudet i 10 kap. 4 § bara gäller delar som omfattas av startbeskedet
+    - Tror att det är rättelse att sluta använda garaget
+    - Tar ingen avgift alls för det högre taket efter att förrådsdelen rivits
+    - Godtar preskriptionsinvändningen utan att kontrollera datum i arkivet
+    - Ger lovföreläggande fast det inte är sannolikt att lov kan ges
+    - Fattar beslutet på delegation, trots att frågor om byggsanktionsavgift och vitesförelägganden inte får delegeras (12 kap. 6 § PBL)
+    - Glömmer att skicka beslutet till anmälaren och att anmäla föreläggandet till inskrivningsmyndigheten
+  modellbeslut: handlingar/modell-beslut.md

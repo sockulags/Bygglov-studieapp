@@ -7,22 +7,23 @@ instuderingsfrågor, quiz och kopplade ärenden. Ordningen är ungefärlig svår
 
 | # | Modul | Kärnan | Centrala lagrum |
 | --- | --- | --- | --- |
-| 1 | Förvaltningsrätt och myndighetsrollen | Serviceskyldighet, kommunicering, jäv, motivering, överklagandehänvisning, delgivning, offentlighet och sekretess | FL 2017:900 (5–7, 10, 16–18, 23–25, 28, 31–33, 36–37 §§), KL, TF, OSL |
-| 2 | PBL-systemet och begreppen | Lagens uppbyggnad, byggnadsnämndens roll, översiktsplan/detaljplan/områdesbestämmelser, allmänna och enskilda intressen | PBL 1–4 kap, 12 kap |
-| 3 | Lovplikt och anmälningsplikt | Vad kräver bygglov, rivningslov, marklov, anmälan; undantag; Attefall; friggebod; en- och tvåbostadshus utanför plan | PBL 9 kap 1–16 §§, PBF 6 kap |
-| 4 | Detaljplan och planenlighet | Läsa plankarta och planbestämmelser, byggrätt, prickmark, byggnadshöjd/nockhöjd, användning, liten avvikelse, planstridigt utgångsläge | PBL 9 kap 30–31 e §§, PBF 1 kap 3–7 §§, Boverkets allmänna råd om mätning |
-| 5 | Prövning utanför detaljplan | Lokaliseringsprövning, områdesbestämmelser, sammanhållen bebyggelse, förhandsbesked | PBL 9 kap 17–18, 31 §§, 2 kap, 4 kap 2 § |
-| 6 | Handläggningsprocessen | Ankomstregistrering, fullständighetsgranskning, föreläggande om komplettering, handläggningstid 10 veckor, avgiftsreduktion, grannehörande, remisser, kungörelse, laga kraft | PBL 9 kap 20–28, 41–43 §§, PBF 9 kap |
-| 7 | Krav på byggnadsverk | Utformningskrav, tekniska egenskapskrav, tillgänglighet, varsamhet, förvanskningsförbud, tomtkrav | PBL 8 kap, PBF 3 kap, BBR |
+| 1 | Förvaltningsrätt och myndighetsrollen | Serviceskyldighet, kommunicering, jäv, motivering, överklagandehänvisning, delgivning, offentlighet och sekretess | FL 2017:900 (bl.a. 5–7, 16–18, 23–25, 31–33 §§), KL 6 kap. 28–39 §§, TF 2 kap., OSL |
+| 2 | PBL-systemet och begreppen | Lagens uppbyggnad, byggnadsnämndens roll, översiktsplan/detaljplan/områdesbestämmelser, allmänna och enskilda intressen | PBL 1–5 kap., 12 kap., 16 kap. |
+| 3 | Lovplikt och anmälningsplikt | Vad kräver bygglov, rivningslov, marklov, anmälan; undantag; bygglovsbefriade komplementbyggnader och tillbyggnader (före 2025-12-01: friggebod och attefall); en- och tvåbostadshus utanför plan | PBL 9 kap. 2–55 §§, PBF 6 kap. |
+| 4 | Detaljplan och planenlighet | Läsa plankarta och planbestämmelser, byggrätt, prickmark, byggnadshöjd/nockhöjd, användning, liten avvikelse, planstridigt utgångsläge | PBL 9 kap. 56–64 §§, PBL 4 kap., PBF 1 kap. 3–4 §§, Boverkets allmänna råd om mätning |
+| 5 | Prövning utanför detaljplan | Lokaliseringsprövning, områdesbestämmelser, sammanhållen bebyggelse, förhandsbesked | PBL 9 kap. 41–42, 57, 59 och 74 §§, 2 kap., 4 kap. 2 § |
+| 6 | Handläggningsprocessen | Ankomstregistrering, fullständighetsgranskning, föreläggande om komplettering, handläggningstid 10 veckor, avgiftsreduktion, grannehörande, remisser, kungörelse, laga kraft | PBL 9 kap. 85–115 §§, 12 kap. 8 a § |
+| 7 | Krav på byggnadsverk | Utformningskrav, tekniska egenskapskrav, tillgänglighet, varsamhet, förvanskningsförbud, tomtkrav | PBL 8 kap., PBF 3 kap., Boverkets byggregler |
 | 8 | Ritningsläsning och beräkning | Situationsplan, plan/fasad/sektion, skala, byggnadsarea/bruttoarea/öppenarea, byggnadshöjd, våningar, avstånd till gräns | SS 21054:2020, Boverkets vägledning |
-| 9 | Genomförandet | Tekniskt samråd, kontrollansvarig, kontrollplan, startbesked, arbetsplatsbesök, slutsamråd, slutbesked, interimistiskt slutbesked | PBL 10 kap, PBF 7 kap |
+| 9 | Genomförandet | Tekniskt samråd, kontrollansvarig, kontrollplan, startbesked, arbetsplatsbesök, slutsamråd, slutbesked, interimistiskt slutbesked | PBL 10 kap., PBF 7 kap. |
 | 10 | Tillsyn och sanktioner | Olovligt byggande, lovföreläggande, rättelseföreläggande, byggsanktionsavgift, vite, preskription | PBL 11 kap, PBF 9 kap |
 | 11 | Angränsande lagstiftning | Strandskydd, kulturmiljölagen, miljöbalken, väglagen, fastighetsbildning, LSO | MB 7 kap, KML, VägL |
 | 12 | Överklagande och prövningskedjan | Vem får överklaga, tidsfrister, rättidsprövning, länsstyrelse, mark- och miljödomstol, verkställbarhet | PBL 13 kap, FL 40–47 §§ |
 | 13 | Kommunikation och bemötande | Skriva begripliga beslut, svåra samtal, förväntanshantering, service kontra myndighetsutövning | Klarspråk, FL 6 § |
 
 Modullistan är ett utkast. Pappa bör gå igenom den och justera mot vad utbildningen faktiskt
-täcker och vad han vet att handläggare snubblar på i praktiken.
+täcker och vad han vet att handläggare snubblar på i praktiken. Lagrummen per modul i den
+gällande numreringen står i `content/moduler.yaml` (`lagrum_sammanfattning`).
 
 ## Frågetyper
 

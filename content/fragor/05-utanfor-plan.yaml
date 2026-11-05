@@ -1,0 +1,980 @@
+# Frågor för modul 05-utanfor-plan (Prövning utanför detaljplan). Valideras med zod (pnpm content:check).
+# Filen heter som modulens id i moduler.yaml, annars stoppar content:check bygget.
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# Lagrum i 9 kap. är kontrollerade mot docs/rattslage/pbl-9-kap.txt. PBL 1–5 och 13 kap. är
+# kontrollerade mot riksdagen.se 2026-11-05 (PBL ändrad t.o.m. SFS 2026:1583). MB 3, 4 och 7 kap.
+# (t.o.m. SFS 2026:1442), väglagen 39 och 47 §§ (t.o.m. SFS 2025:772) och förordningen om
+# miljöfarlig verksamhet och hälsoskydd 13 § (t.o.m. SFS 2026:1515) är kontrollerade samma dag,
+# se docs/rattslage/mb-3-kap.txt, mb-4-kap.txt, mb-7-kap.txt, vagl-utdrag.txt och fmh-utdrag.txt.
+# Alla exempel är fiktiva.
+modul: 05-utanfor-plan
+fragor:
+  # --- Förutsättningarna för bygglov utanför plan (9 kap. 57 §) --------------------------
+
+  - id: utp-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilket av följande är INTE en förutsättning för bygglov utanför detaljplan enligt 9 kap. 57 § PBL?
+    alternativ:
+      - text: Åtgärden stämmer överens med kommunens översiktsplan.
+        ratt: true
+      - text: Åtgärden strider inte mot områdesbestämmelser.
+      - text: Åtgärden förutsätter inte planläggning enligt 4 kap. 2 eller 3 §.
+      - text: Åtgärden uppfyller kraven i 2 kap. och vissa krav i 8 kap.
+    forklaring: >
+      57 § har tre förutsättningar: inte strida mot områdesbestämmelser, inte kräva detaljplan
+      och uppfylla 2 kap. och de uppräknade kraven i 8 kap. Översiktsplanen är vägledande men
+      inte bindande (3 kap. 2 §). Den är ändå ett viktigt underlag när du bedömer lokaliseringen
+      enligt 2 kap., t.ex. om kommunen pekat ut området för jordbruk eller för ny bebyggelse.
+    lagrum:
+      - PBL 9 kap. 57 §
+      - PBL 3 kap. 2 §
+    taggar: [utanfor_plan, forutsattningar, oversiktsplan]
+
+  - id: utp-002
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid bygglov för ett nytt enbostadshus utanför detaljplan ska nämnden pröva hela 2 kap. PBL,
+      inte bara de bestämmelser som gäller inom detaljplan.
+    svar: true
+    forklaring: >
+      Inom detaljplan hänvisar 9 kap. 56 § bara till vissa delar av 2 kap., eftersom lämpligheten
+      prövades när planen antogs. Utanför plan finns ingen sådan prövning gjord, så 57 § första
+      stycket 3 hänvisar till hela 2 kap. Det är därför lovprövningen utanför plan kallas
+      lokaliseringsprövning: frågan är om platsen alls är lämplig för åtgärden.
+    lagrum:
+      - PBL 9 kap. 57 §
+      - PBL 9 kap. 56 §
+    taggar: [lokaliseringsprovning, utanfor_plan]
+
+  # --- Lokaliseringsprövningen i 2 kap. --------------------------------------------------
+
+  - id: utp-003
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop paragrafen i 2 kap. PBL med vad den kräver.
+    par:
+      - vanster: 2 kap. 2 §
+        hoger: Mark används för det den är mest lämpad för, god hushållning och tillämpning av 3 och 4 kap. miljöbalken
+      - vanster: 2 kap. 4 §
+        hoger: Mark får bebyggas bara om den från allmän synpunkt är lämplig för ändamålet
+      - vanster: 2 kap. 5 §
+        hoger: Lokalisering med hänsyn till hälsa och säkerhet, mark och vatten, trafik, VA, buller och risk för olyckor och översvämning
+      - vanster: 2 kap. 6 §
+        hoger: Utformning och placering med hänsyn till landskapsbilden, natur- och kulturvärden och god helhetsverkan
+      - vanster: 2 kap. 6 a §
+        hoger: Bostäder lokaliseras och utformas så att olägenhet från omgivningsbuller förebyggs
+      - vanster: 2 kap. 9 §
+        hoger: Inte fara för hälsa och säkerhet eller betydande olägenhet för omgivningen
+    forklaring: >
+      Lokaliseringsprövningen bygger på 2 kap. 2, 4, 5, 6 a och 9 §§, och utformningen på 6 §.
+      Gå igenom dem i den ordningen i varje ärende utanför plan och skriv i beslutet hur varje
+      relevant intresse bedömts. 2 kap. 10 § om miljökvalitetsnormer och 11 § om samordning med
+      prövning enligt annan lag gäller också.
+    lagrum:
+      - PBL 2 kap. 2 §
+      - PBL 2 kap. 4 §
+      - PBL 2 kap. 5 §
+      - PBL 2 kap. 6 §
+      - PBL 2 kap. 6 a §
+      - PBL 2 kap. 9 §
+    taggar: [lokaliseringsprovning, allmanna_intressen, paragrafer]
+
+  - id: utp-004
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En markägare ansöker om förhandsbesked för ett enbostadshus mitt på en åker som brukas
+      aktivt. Det finns flera möjliga lägen i skogsbrynet på samma fastighet. Vilken bestämmelse
+      väger tyngst för ett avslag?
+    alternativ:
+      - text: 2 kap. 2 § PBL, som hänvisar till 3 kap. 4 § miljöbalken om att brukningsvärd jordbruksmark får tas i anspråk bara för väsentliga samhällsintressen som inte kan tillgodoses på annan mark.
+        ratt: true
+      - text: 2 kap. 6 § PBL om byggnadens utformning.
+      - text: 8 kap. PBL om tekniska egenskapskrav.
+      - text: 9 kap. 34 § PBL om placering närmare gräns än 4,5 m.
+    forklaring: >
+      2 kap. 2 § PBL säger att bestämmelserna om hushållning i 3 och 4 kap. miljöbalken ska
+      tillämpas. Enligt 3 kap. 4 § miljöbalken är jordbruk av nationell betydelse, och
+      brukningsvärd jordbruksmark får tas i anspråk för bebyggelse bara om det behövs för
+      väsentliga samhällsintressen som inte kan tillgodoses på annan mark. Ett enskilt bostadshus
+      är sällan ett väsentligt samhällsintresse, särskilt när det finns lämpligare lägen på samma
+      fastighet.
+    lagrum:
+      - PBL 2 kap. 2 §
+      - MB 3 kap. 4 §
+    taggar: [jordbruksmark, hushallning, lokaliseringsprovning]
+
+  - id: utp-005
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilka av följande ska nämnden ta hänsyn till enligt 2 kap. 5 § PBL när den prövar var ett
+      nytt bostadshus utanför plan får lokaliseras?
+    alternativ:
+      - text: Risken för översvämning och erosion.
+        ratt: true
+      - text: Möjligheten att ordna vattenförsörjning och avlopp.
+        ratt: true
+      - text: Möjligheten att ordna trafik och avfallshantering.
+        ratt: true
+      - text: Jord-, berg- och vattenförhållandena.
+        ratt: true
+      - text: Sökandens möjlighet att finansiera bygget.
+      - text: Husets färgsättning.
+    forklaring: >
+      2 kap. 5 § räknar upp människors hälsa och säkerhet, jord-, berg- och vattenförhållanden,
+      möjligheterna att ordna trafik, vatten, avlopp, avfall, elektronisk kommunikation och
+      samhällsservice, möjligheterna att förebygga föroreningar och buller samt risken för
+      olyckor, översvämning och erosion. Paragrafen gäller planläggning, bygglov och
+      förhandsbesked. Färgsättning hör till utformningen i 6 §, och ekonomin är sökandens sak.
+    lagrum:
+      - PBL 2 kap. 5 §
+    taggar: [lokaliseringsprovning, va, oversvamning]
+
+  - id: utp-006
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vad innebär kravet i 2 kap. 4 § PBL vid en ansökan om förhandsbesked för ett fritidshus i
+      skogen?
+    alternativ:
+      - text: Marken får tas i anspråk för bebyggelse bara om den från allmän synpunkt är lämplig för ändamålet.
+        ratt: true
+      - text: Marken får bebyggas om sökanden äger den.
+      - text: Marken får bebyggas om ingen granne motsätter sig det.
+      - text: Marken får bebyggas om den inte är jordbruksmark.
+    forklaring: >
+      2 kap. 4 § är grundbulten i lokaliseringsprövningen: det är det allmänna, inte
+      markägaren, som avgör om platsen är lämplig. Vid prövningen ska både allmänna och enskilda
+      intressen beaktas (2 kap. 1 §). Bedömningen fylls ut av 2 kap. 2, 5 och 6 a §§ och av
+      miljöbalkens hushållningsbestämmelser.
+    lagrum:
+      - PBL 2 kap. 4 §
+      - PBL 2 kap. 1 §
+    taggar: [lokaliseringsprovning, allmanna_intressen]
+
+  - id: utp-007
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett enbostadshus ska byggas utanför plan på en kal höjd, synligt från en sjö som är ett
+      populärt friluftsområde. Läget är i övrigt lämpligt. Vilken bestämmelse ger nämnden stöd för
+      att kräva att huset placeras lägre i terrängen och får en utformning som smälter in?
+    alternativ:
+      - text: 2 kap. 6 § första stycket 1, om hänsyn till landskapsbilden, natur- och kulturvärden och en god helhetsverkan.
+        ratt: true
+      - text: 2 kap. 7 §, om behovet av gator, torg och parker.
+      - text: 9 kap. 34 §, om placering nära gräns.
+      - text: 2 kap. 6 a §, om omgivningsbuller.
+    forklaring: >
+      2 kap. 6 § handlar om hur bebyggelsen utformas och placeras på den avsedda marken.
+      Utanför plan prövas hela paragrafen, och landskapsbilden väger ofta tungt på
+      landsbygden. Nämnden kan inte villkora lovet fritt, men den kan avslå en olämplig placering
+      och i dialog med sökanden få fram en bättre. Paragrafen gäller också för åtgärder som inte
+      kräver lov.
+    lagrum:
+      - PBL 2 kap. 6 §
+      - PBL 9 kap. 57 §
+    taggar: [landskapsbild, utformning, lokaliseringsprovning]
+
+  - id: utp-008
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En jordbrukare vill bygga en 14 m hög maskinhall utanför plan, 8 m från grannens
+      bostadshus. Grannen hävdar att hallen skuggar hela trädgården eftermiddag och kväll. Vilken
+      bestämmelse ska nämnden använda för att pröva grannens invändning, om hallen kräver lov?
+    alternativ:
+      - text: 2 kap. 9 § PBL, om betydande olägenhet för omgivningen.
+        ratt: true
+      - text: 2 kap. 4 § PBL, om markens lämplighet från allmän synpunkt.
+      - text: 3 kap. 4 § miljöbalken, om jordbruksmark.
+      - text: Ingen. En granne kan aldrig hindra en ekonomibyggnad.
+    forklaring: >
+      2 kap. 9 § förbjuder placering och utformning som kan medföra betydande olägenhet för
+      omgivningen, och utanför plan har grannen inte haft någon detaljplan att förhålla sig till.
+      Kraftig skuggning och dominans nära ett bostadshus kan vara en betydande olägenhet.
+      Observera att en ekonomibyggnad utanför plan normalt är lovfri (9 kap. 6 §), och då prövas
+      frågan inte i ett lovärende, men 2 kap. 6 § gäller ändå för den.
+    lagrum:
+      - PBL 2 kap. 9 §
+      - PBL 9 kap. 6 §
+    taggar: [betydande_olagenhet, grannar, ekonomibyggnad]
+
+  # --- Detaljplanekravet, sammanhållen bebyggelse och områdesbestämmelser ----------------
+
+  - id: utp-009
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En markägare söker förhandsbesked för åtta enbostadshus på en åker intill en by utan
+      detaljplan. Vad bör nämnden i första hand pröva?
+    alternativ:
+      - text: Om åtgärden förutsätter detaljplan enligt 4 kap. 2 § första stycket 1, eftersom det blir en ny sammanhållen bebyggelse. Då kan förhandsbesked inte ges.
+        ratt: true
+      - text: Om husen uppfyller kraven på tillgänglighet i 8 kap.
+      - text: Om varje hus för sig ryms inom 9 kap. 5 §.
+      - text: Om husen ska ha gemensam avloppsanläggning, eftersom det är det enda som kan motivera ett avslag.
+    forklaring: >
+      Enligt 4 kap. 2 § första stycket 1 ska lämpligheten prövas med detaljplan för en ny
+      sammanhållen bebyggelse med lovpliktiga byggnadsverk, om det behövs med hänsyn till
+      bebyggelsens karaktär, omfattning eller inverkan på omgivningen eller behovet av
+      samordning. Åtta hus på en åker kräver normalt samordning av vägar, VA och grönytor. Då
+      får förhandsbesked och bygglov inte ges (9 kap. 57 § första stycket 2 och 74 § första
+      stycket 2), och sökanden bör hänvisas till planbesked.
+    lagrum:
+      - PBL 4 kap. 2 §
+      - PBL 9 kap. 74 §
+      - PBL 9 kap. 57 §
+    taggar: [detaljplanekrav, sammanhallen_bebyggelse, forhandsbesked]
+
+  - id: utp-010
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur definieras sammanhållen bebyggelse i 1 kap. 4 § PBL?
+    alternativ:
+      - text: Bebyggelse på tomter som gränsar till varandra eller skiljs åt endast av en väg, gata eller parkmark.
+        ratt: true
+      - text: Minst tio bostadshus inom en radie av 500 meter.
+      - text: Bebyggelse inom ett område som kommunen pekat ut i översiktsplanen.
+      - text: Bebyggelse som är ansluten till kommunalt vatten och avlopp.
+    forklaring: >
+      Definitionen tar sikte på hur tomterna ligger i förhållande till varandra, inte på antal
+      hus eller VA. Begreppet används bl.a. i detaljplanekravet för ny sammanhållen bebyggelse
+      (4 kap. 2 §) och i reglerna om vad som får regleras med områdesbestämmelser nära
+      totalförsvarets riksintressen (4 kap. 42 a §). Lägg märke till att detaljplanekravet
+      gäller en ny sammanhållen bebyggelse, inte varje hus i närheten av befintliga hus.
+    lagrum:
+      - PBL 1 kap. 4 §
+      - PBL 4 kap. 2 §
+      - PBL 4 kap. 42 a §
+    taggar: [sammanhallen_bebyggelse, begrepp, definitioner]
+
+  - id: utp-011
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad är områdesbestämmelser?
+    alternativ:
+      - text: Bindande bestämmelser som kommunen kan anta för att i vissa avseenden reglera begränsade områden som inte omfattas av detaljplan.
+        ratt: true
+      - text: Ett annat namn för översiktsplanen, som är vägledande.
+      - text: Bestämmelser som länsstyrelsen beslutar om för riksintressen.
+      - text: Bestämmelser i en detaljplan om vilka områden som får bebyggas.
+    forklaring: >
+      4 kap. 41–43 §§ PBL. Med områdesbestämmelser får kommunen bara reglera det som räknas upp
+      i 42 §, t.ex. grunddragen för markanvändningen, största byggnadsarea för fritidshus och
+      placering och utformning av byggnadsverk. De ger ingen byggrätt och har ingen
+      genomförandetid. Generalplaner som fastställts enligt äldre lag gäller som
+      områdesbestämmelser.
+    lagrum:
+      - PBL 4 kap. 41 §
+      - PBL 4 kap. 42 §
+    taggar: [omradesbestammelser, begrepp]
+
+  - id: utp-012
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett fritidshusområde omfattas av områdesbestämmelser som säger att fritidshus får ha
+      högst 80 kvm byggnadsarea. En ansökan avser ett fritidshus på 78 kvm. Vad prövar nämnden?
+    alternativ:
+      - text: Att huset inte strider mot områdesbestämmelserna, och de frågor i 2 kap. som inte redan avgjorts genom bestämmelserna, t.ex. lokalisering, VA och landskapsbild.
+        ratt: true
+      - text: Bara att huset ryms inom 80 kvm, eftersom områdesbestämmelserna avgör allt.
+      - text: Samma saker som inom detaljplan, eftersom områdesbestämmelser är en sorts detaljplan.
+      - text: Ingenting, eftersom fritidshus inom områdesbestämmelser är lovfria.
+    forklaring: >
+      Enligt 9 kap. 57 § ska åtgärden inte strida mot områdesbestämmelserna och uppfylla
+      kraven i 2 kap. och 8 kap., om frågan inte redan är avgjord genom områdesbestämmelserna.
+      Bestämmelser om största byggnadsarea avgör storleken men inte om just den här platsen är
+      lämplig. Lokaliseringsprövningen görs alltså fortfarande i de delar som inte reglerats.
+    lagrum:
+      - PBL 9 kap. 57 §
+      - PBL 4 kap. 42 §
+    taggar: [omradesbestammelser, lokaliseringsprovning, fritidshus]
+
+  - id: utp-013
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Samma fritidshus som i förra frågan skulle i stället få 84 kvm byggnadsarea. Kan bygglov
+      ges?
+    alternativ:
+      - text: Ja, om avvikelsen från områdesbestämmelserna kan godtas enligt 9 kap. 60 §, t.ex. som en liten avvikelse förenlig med syftet.
+        ratt: true
+      - text: Nej. Avvikelse är bara möjlig från en detaljplan.
+      - text: Ja, alltid, eftersom områdesbestämmelser bara är vägledande.
+      - text: Bara om kommunen först ändrar områdesbestämmelserna.
+    forklaring: >
+      9 kap. 60 § gäller både detaljplaner och områdesbestämmelser: lov får ges trots 57 §
+      första stycket 1 om avvikelsen är förenlig med syftet och liten, eller om den är begränsad
+      och nödvändig. Spärren i 62 § och den samlade bedömningen i 64 § gäller också. En avvikelse
+      från områdesbestämmelser kräver underrättelse till grannarna (94 § första stycket 1).
+    lagrum:
+      - PBL 9 kap. 60 §
+      - PBL 9 kap. 57 §
+      - PBL 9 kap. 94 §
+    taggar: [omradesbestammelser, liten_avvikelse]
+
+  # --- Förhandsbesked ------------------------------------------------------------------
+
+  - id: utp-014
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken fråga prövas i ett förhandsbesked enligt 9 kap. 41 § PBL?
+    alternativ:
+      - text: Om en bygglovspliktig åtgärd kan lokaliseras till en viss plats utanför detaljplan.
+        ratt: true
+      - text: Om en åtgärd inom detaljplan är planenlig.
+      - text: Om byggnadens utformning, material och färg är lämpliga.
+      - text: Om åtgärden uppfyller de tekniska egenskapskraven.
+    forklaring: >
+      Sedan den 1 december 2025 gäller förhandsbesked bara i områden utan detaljplan och bara
+      lokaliseringsfrågan. Förutsättningarna står i 74 §: inte strida mot områdesbestämmelser,
+      inte förutsätta planläggning och uppfylla kraven på lokalisering i 2 kap. Före 2025-12-01
+      kunde förhandsbesked avse även andra frågor och sökas inom detaljplan.
+    lagrum:
+      - PBL 9 kap. 41 §
+      - PBL 9 kap. 74 §
+    taggar: [forhandsbesked, lokaliseringsprovning, fore_och_nu]
+
+  - id: utp-015
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett positivt förhandsbesked är bindande vid den kommande bygglovsprövningen, om ansökan om
+      bygglov görs inom ___ år från den dag då förhandsbeskedet fick laga kraft.
+    svar: [["2", "två"]]
+    forklaring: >
+      9 kap. 42 § PBL. Det är dagen för laga kraft som räknas, inte beslutsdagen. Söker man
+      bygglov senare prövas lokaliseringen på nytt, och förutsättningarna kan ha ändrats, t.ex.
+      genom en ny översiktsplan eller nya riksintressen. Skriv därför alltid ut tvåårsfristen i
+      beslutets upplysningar.
+    lagrum:
+      - PBL 9 kap. 42 §
+    taggar: [forhandsbesked, giltighet, tidsfrist]
+
+  - id: utp-016
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ett positivt förhandsbesked ger rätt att börja bygga när det fått laga kraft.
+    svar: false
+    forklaring: >
+      Förhandsbeskedet säger bara att åtgärden kan lokaliseras till platsen. Därefter krävs
+      bygglov, där bl.a. utformning och de tekniska kraven prövas, och sedan startbesked innan
+      arbetet får påbörjas (10 kap. 3 §). Förklara det tydligt för sökanden, som annars kan tro
+      att allt är klart.
+    lagrum:
+      - PBL 9 kap. 42 §
+      - PBL 10 kap. 3 §
+    taggar: [forhandsbesked, startbesked]
+
+  - id: utp-017
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare inom detaljplan vill veta om ett uterum som hon planerar blir planenligt,
+      innan hon lägger pengar på ritningar. Hon frågar efter förhandsbesked. Vad kan nämnden
+      erbjuda?
+    alternativ:
+      - text: Inget förhandsbesked, eftersom det bara kan ges utanför detaljplan, men rådgivning inom serviceskyldigheten och möjlighet att ansöka om bygglov.
+        ratt: true
+      - text: Ett förhandsbesked om planenligheten, som är bindande i två år.
+      - text: Ett villkorsbesked enligt 9 kap. PBL.
+      - text: Ett planbesked om uterummets planenlighet.
+    forklaring: >
+      Förhandsbesked kan bara sökas för åtgärder i områden som inte omfattas av detaljplan
+      (9 kap. 41 §). Villkorsbeskedet är borttaget sedan 2025-12-01. Nämnden har ändå
+      serviceskyldighet enligt 6 § förvaltningslagen och kan ge råd om hur planen ska läsas, men
+      rådet är inte bindande. Planbesked gäller frågan om kommunen vill ändra planen.
+    lagrum:
+      - PBL 9 kap. 41 §
+      - FL 6 §
+    taggar: [forhandsbesked, service, fore_och_nu]
+
+  - id: utp-018
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande frågor kan avgöras i ett förhandsbesked?
+    alternativ:
+      - text: Om platsen är lämplig med hänsyn till risken för översvämning.
+        ratt: true
+      - text: Om det går att ordna vatten och avlopp på platsen.
+        ratt: true
+      - text: Om åtgärden förutsätter detaljplan.
+        ratt: true
+      - text: Om fasaden ska vara av trä eller puts.
+      - text: Om bostaden uppfyller kraven på tillgänglighet.
+      - text: Takvinkeln på huset.
+    forklaring: >
+      Förhandsbeskedet prövar lokaliseringen enligt 74 §: områdesbestämmelser, detaljplanekravet
+      och lokaliseringskraven i 2 kap., som bl.a. omfattar VA, trafik och risker enligt 2 kap.
+      5 §. Utformning och tekniska krav prövas först i bygglovet. Ansökan behöver därför inte vara
+      lika detaljerad som en bygglovsansökan, men den måste visa platsen och ungefär vad som ska
+      byggas.
+    lagrum:
+      - PBL 9 kap. 74 §
+      - PBL 2 kap. 5 §
+    taggar: [forhandsbesked, lokaliseringsprovning]
+
+  - id: utp-019
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen i ett ärende om förhandsbesked för ett nytt enbostadshus utanför plan.
+    poster:
+      - Ansökan kommer in och registreras; fristen på tio veckor börjar löpa.
+      - Nämnden kontrollerar att ansökan är fullständig och förelägger vid behov om komplettering.
+      - Nämnden underrättar grannarna och skickar remisser, t.ex. till miljöenheten och väghållaren.
+      - Sökanden och fastighetsägaren får yttra sig över grannarnas synpunkter och remissvaren.
+      - Nämnden fattar beslut om förhandsbesked och expedierar och kungör det.
+      - Förhandsbeskedet får laga kraft, och sökanden har två år på sig att söka bygglov.
+    forklaring: >
+      Reglerna om handläggning gäller både lov och förhandsbesked: tidsfristen (99 §),
+      underrättelse när åtgärden ligger utanför plan (94 §) och kommunicering (98 §). Den
+      bindande verkan i två år räknas från laga kraft (42 §). Missar nämnden
+      grannunderrättelsen kan beslutet upphävas vid ett överklagande.
+    lagrum:
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 98 §
+      - PBL 9 kap. 42 §
+    taggar: [forhandsbesked, handlaggning, arbetsgang]
+
+  - id: utp-020
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ska grannarna underrättas när nämnden prövar en ansökan om bygglov för ett nytt
+      enbostadshus utanför detaljplan, i ett område utan områdesbestämmelser?
+    alternativ:
+      - text: Ja. Underrättelse krävs för åtgärder utanför plan som inte regleras i områdesbestämmelser, utom när ett en- eller tvåbostadshus bara kompletteras med en liten tillbyggnad eller komplementbyggnad.
+        ratt: true
+      - text: Nej. Underrättelse krävs bara vid avvikelse från detaljplan.
+      - text: Bara om grannarna bor närmare än 4,5 m.
+      - text: Bara om nämnden tänker avslå ansökan.
+    forklaring: >
+      Enligt 9 kap. 94 § första stycket 2 ska nämnden underrätta när åtgärden ska utföras utanför
+      plan, inte är reglerad i områdesbestämmelser och inte bara kompletterar ett en- eller
+      tvåbostadshus enligt 59 § 1. Meddelandet skickas till ägare och innehavare av särskild
+      rätt till gränsande fastigheter och kungörs på kommunens anslagstavla (96 §). Underrättelse
+      behövs inte om det är uppenbart att lov inte kan ges.
+    lagrum:
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 96 §
+    taggar: [underrattelse, grannar, utanfor_plan]
+
+  - id: utp-021
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ägaren till en villa på 180 kvm utanför plan söker bygglov för en tillbyggnad på 40 kvm
+      bruttoarea. Den är lovpliktig eftersom den är större än 30 kvm, och nämnden bedömer att den
+      är liten i förhållande till huset. Det finns inga områdesbestämmelser. Vad gäller för
+      prövningen?
+    alternativ:
+      - text: Enligt 59 § ska 57 § första stycket inte tillämpas för en liten tillbyggnad till ett en- eller tvåbostadshus. I stället prövas bl.a. 2 kap. 6 § första stycket 1 och 5, 8 och 9 §§ och vissa krav i 8 kap.
+        ratt: true
+      - text: Full lokaliseringsprövning enligt hela 2 kap., eftersom åtgärden ligger utanför plan.
+      - text: Samma prövning som för förhandsbesked.
+      - text: Ingen prövning alls, eftersom villan redan finns på platsen.
+    forklaring: >
+      59 § säger att 57 § första stycket inte ska tillämpas när ett en- eller tvåbostadshus
+      kompletteras med en liten tillbyggnad eller komplementbyggnad, så länge åtgärden inte
+      strider mot vissa områdesbestämmelser. Platsen är redan bebyggd, så lokaliseringen behöver
+      inte prövas på nytt. Grannarna behöver då inte heller underrättas (94 § första stycket 2 c).
+      Vad som är "litet" avgörs i det enskilda fallet; en tillbyggnad som fördubblar huset är
+      knappast liten.
+    lagrum:
+      - PBL 9 kap. 59 §
+      - PBL 9 kap. 57 §
+      - PBL 9 kap. 94 §
+    taggar: [utanfor_plan, tillbyggnad, komplettering_av_bostadshus]
+
+  # --- Lovbefriat utanför plan ---------------------------------------------------------
+
+  - id: utp-022
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Utanför detaljplan vill en villaägare bygga ett gästhus med egen bostad (ett
+      komplementbostadshus) på 45 kvm byggnadsarea och 4,3 m nockhöjd, 10 m från tomtgränsen.
+      Huvudbyggnaden har 150 kvm byggnadsarea och det finns inga andra komplementbyggnader. Krävs
+      bygglov?
+    alternativ:
+      - text: Nej. Utanför plan får ett komplementbostadshus ha högst 50 kvm byggnadsarea och 4,5 m nockhöjd, och potten är 65 kvm.
+        ratt: true
+      - text: Ja, eftersom gränsen utanför plan är 30 kvm.
+      - text: Ja, eftersom ett komplementbostadshus alltid kräver bygglov.
+      - text: Nej, men det krävs anmälan och startbesked för själva byggnaden.
+    forklaring: >
+      9 kap. 5 § ger större utrymme utanför plan än 4 § inom plan: 50 kvm per byggnad, 4,5 m
+      nockhöjd och 65 kvm sammanlagt. Byggnaden ska vara mindre än huvudbyggnaden och ligga inom
+      tomten. Anmälningsplikten för själva byggnaden är slopad, men installationer som VA och
+      eldstad kan kräva anmälan enligt PBF 6 kap., och ett enskilt avlopp kan kräva tillstånd
+      från miljönämnden. Före 2025-12-01 hette motsvarande byggnad attefallshus och fick vara 30
+      kvm.
+    lagrum:
+      - PBL 9 kap. 5 §
+      - PBF 6 kap.
+    taggar: [komplementbostadshus, lovbefriad, utanfor_plan, fore_och_nu]
+
+  - id: utp-023
+    typ: berakning
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Utanför plan finns på en tomt ett enbostadshus på 160 kvm byggnadsarea, en lovbefriad
+      komplementbyggnad (garage) på 35 kvm och ett lovbefriat förråd på 20 kvm. Ägaren vill bygga
+      till garaget utan bygglov. Hur många kvadratmeter byggnadsarea får tillbyggnaden högst
+      ha?
+    svar: 10
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Gräns per byggnad (12 § 1): garaget får bli högst 50 kvm, alltså 50 − 35 = 15 kvm.
+      Potten (12 § 5): 65 − (35 + 20) = 10 kvm. Det lägsta värdet avgör: 10 kvm.
+    forklaring: >
+      Tillbyggnad av en komplementbyggnad utanför plan regleras i 9 kap. 12 §, inte i 10 §, som
+      gäller andra byggnader. Byggnaden måste efter tillbyggnaden klara samma gränser som en ny
+      komplementbyggnad: högst 50 kvm, mindre än huvudbyggnaden, högst 4,5 m nockhöjd och inom
+      potten på 65 kvm. Räkna alltid båda gränserna och ta den lägsta.
+    lagrum:
+      - PBL 9 kap. 12 §
+      - PBL 9 kap. 5 §
+    taggar: [pott, berakning, komplementbyggnad, utanfor_plan]
+
+  - id: utp-024
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En lantbrukare med yrkesmässig spannmålsodling vill bygga en ny maskinhall utanför
+      detaljplan, 3 m från gränsen mot grannens skog. Krävs bygglov?
+    alternativ:
+      - text: Nej. En ekonomibyggnad utanför plan är lovbefriad, och kravet på lov nära gräns gäller inte ekonomibyggnader utanför plan.
+        ratt: true
+      - text: Ja, eftersom hallen ligger närmare gränsen än 4,5 m.
+      - text: Ja, eftersom alla byggnader över 50 kvm kräver lov.
+      - text: Nej, men det krävs grannens skriftliga medgivande.
+    forklaring: >
+      Enligt 9 kap. 6 § krävs inte bygglov för en ekonomibyggnad utanför plan, och 35 § 1 undantar
+      ekonomibyggnader utanför plan från lovplikten nära gräns i 34 §. Lov kan ändå krävas i
+      totalförsvarets områden och i särskilt värdefulla miljöer (36–37 §§), och kraven i 2 kap.
+      6 § och 8 kap. ska följas. Ekonomibyggnad betyder enligt 1 kap. 4 § en byggnad som behövs
+      för jordbruk, skogsbruk, vattenbruk, fiske eller renskötsel.
+    lagrum:
+      - PBL 9 kap. 6 §
+      - PBL 9 kap. 35 §
+      - PBL 9 kap. 8 §
+      - PBL 1 kap. 4 §
+    taggar: [ekonomibyggnad, lovbefriad, utanfor_plan]
+
+  # --- Strandskydd, riksintressen, VA och väg --------------------------------------------
+
+  - id: utp-025
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov avser ett enbostadshus 60 m från stranden vid Åkerslundasjön, där
+      strandskydd gäller. Sökanden har ännu inte sökt dispens. Hur hänger lovet och strandskyddet
+      ihop?
+    alternativ:
+      - text: Det är två skilda prövningar. Kommunen prövar dispensen enligt miljöbalken, och byggnadsnämnden kan låta lovärendet vila tills dispensfrågan är avgjord.
+        ratt: true
+      - text: Bygglovet ersätter strandskyddsdispensen.
+      - text: Strandskyddet gäller bara byggnader som är lovpliktiga.
+      - text: Länsstyrelsen prövar alltid dispensen inom bygglovsärendet.
+    forklaring: >
+      Inom strandskyddsområdet får nya byggnader inte uppföras (7 kap. 15 § miljöbalken) utan
+      dispens. Kommunen prövar dispensen enligt 7 kap. 18 c § i de flesta fall; länsstyrelsen
+      bara i vissa fall enligt 18 b §. Byggnadsnämnden ska upplysa sökanden om att dispens krävs
+      (9 kap. 92 § PBL) och får besluta att lovärendet inte ska avgöras förrän dispensfrågan
+      avgjorts (102 §). Dispensen upphör om åtgärden inte påbörjats inom två år eller avslutats
+      inom fem år från laga kraft (7 kap. 18 k §).
+    lagrum:
+      - MB 7 kap. 15 §
+      - MB 7 kap. 18 c §
+      - PBL 9 kap. 92 §
+      - PBL 9 kap. 102 §
+      - MB 7 kap. 18 k §
+    taggar: [strandskydd, dispens, vilande]
+
+  - id: utp-026
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villa ska byggas 40 m från en damm med en vattenyta på 0,8 hektar. Länsstyrelsen har
+      inte fattat något särskilt beslut om dammen. Gäller strandskydd?
+    alternativ:
+      - text: Nej. Strandskydd gäller inte vid insjöar som vid normalt medelvattenstånd är en hektar eller mindre, om inte länsstyrelsen beslutat det.
+        ratt: true
+      - text: Ja. Strandskydd gäller vid alla sjöar och vattendrag.
+      - text: Ja, men bara 25 m från strandlinjen.
+      - text: Nej, eftersom strandskydd bara gäller vid havet.
+    forklaring: >
+      Sedan ändringarna i miljöbalken 2025 (lag 2025:512) gäller strandskydd inte vid insjöar
+      på högst en hektar, vid vattendrag som är högst två meter breda eller vid sjöar och
+      vattendrag som anlagts efter den 30 juni 1975 (7 kap. 13 a–13 c §§). Länsstyrelsen får
+      besluta att strandskydd ska gälla vid en liten sjö eller ett smalt vattendrag om det har
+      särskild betydelse. Kontrollera därför alltid länsstyrelsens beslut och kartor.
+    lagrum:
+      - MB 7 kap. 13 §
+      - MB 7 kap. 13 a §
+      - MB 7 kap. 13 b §
+      - MB 7 kap. 13 c §
+    taggar: [strandskydd, fore_och_nu]
+
+  - id: utp-027
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett förhandsbesked avser ett enbostadshus i ett område av riksintresse för friluftslivet
+      enligt 3 kap. 6 § miljöbalken. Vilken fråga ska nämnden ställa?
+    alternativ:
+      - text: Om åtgärden kan påtagligt skada riksintresset.
+        ratt: true
+      - text: Om länsstyrelsen har godkänt huset i förväg.
+      - text: Om huset kan byggas helt utan påverkan på området.
+      - text: Ingen, eftersom riksintressen bara prövas vid detaljplanering.
+    forklaring: >
+      Enligt 2 kap. 2 § PBL ska 3 och 4 kap. miljöbalken tillämpas vid lov och förhandsbesked.
+      Riksintressen för naturvård, kulturmiljövård och friluftsliv ska skyddas mot åtgärder som
+      kan påtagligt skada natur- eller kulturmiljön (3 kap. 6 § andra stycket). Ett enstaka hus
+      skadar sällan ett stort riksintresse påtagligt, men flera hus eller ett känsligt läge kan
+      göra det. Läs riksintressets värdebeskrivning och översiktsplanens redovisning (3 kap. 4 §
+      PBL).
+    lagrum:
+      - PBL 2 kap. 2 §
+      - MB 3 kap. 6 §
+      - PBL 3 kap. 4 §
+    taggar: [riksintresse, lokaliseringsprovning, hushallning]
+
+  - id: utp-028
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt enbostadshus utanför plan ligger utanför kommunens verksamhetsområde för vatten
+      och avlopp. Sökanden vill ha vattentoalett och en egen avloppsanläggning. Vad gäller?
+    alternativ:
+      - text: Avloppsanläggningen kräver tillstånd från kommunens miljönämnd. Byggnadsnämnden ska i lovet bedöma om det går att ordna vatten och avlopp på platsen och upplysa om tillståndsplikten.
+        ratt: true
+      - text: Avloppet prövas helt i bygglovet och kräver inget annat beslut.
+      - text: Avloppet kräver bara anmälan till byggnadsnämnden.
+      - text: Det går inte att ge bygglov utanför kommunalt VA.
+    forklaring: >
+      Enligt 13 § förordningen om miljöfarlig verksamhet och hälsoskydd krävs tillstånd för att
+      inrätta en avloppsanordning som vattentoaletter ska anslutas till, och den prövas av den
+      kommunala nämnden på miljöområdet. I lov- eller förhandsbeskedsärendet ska byggnadsnämnden
+      pröva möjligheten att ordna vatten och avlopp (2 kap. 5 § 3 PBL), ofta genom remiss till
+      miljöenheten, och upplysa om tillståndsplikten (9 kap. 92 §). Kan VA inte ordnas på
+      platsen är lokaliseringen olämplig.
+    lagrum:
+      - FMH 13 §
+      - PBL 2 kap. 5 §
+      - PBL 9 kap. 92 §
+    taggar: [va, avlopp, lokaliseringsprovning]
+
+  - id: utp-029
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt enbostadshus utanför plan behöver en ny utfart mot en allmän väg där Trafikverket
+      är väghållare. Vad krävs för utfarten?
+    alternativ:
+      - text: Tillstånd från väghållningsmyndigheten enligt 39 § väglagen. Byggnadsnämnden bör remittera ärendet till Trafikverket och pröva trafiksäkerheten.
+        ratt: true
+      - text: Bara bygglovet, eftersom utfarten är en del av tomten.
+      - text: Tillstånd från länsstyrelsen enligt miljöbalken.
+      - text: Ingenting, om utfarten är kortare än 6 m.
+    forklaring: >
+      En enskild utfart får inte anslutas till en allmän väg utan väghållningsmyndighetens
+      tillstånd (39 § väglagen). Det är en separat prövning, men den påverkar
+      lokaliseringsprövningen: möjligheten att ordna trafik och en god trafikmiljö ingår i
+      2 kap. 5 § 3 och 6 § första stycket 6 PBL. Säger Trafikverket nej till utfarten kan platsen
+      vara olämplig.
+    lagrum:
+      - VägL 39 §
+      - PBL 2 kap. 5 §
+      - PBL 2 kap. 6 §
+    taggar: [vag, utfart, remiss]
+
+  - id: utp-030
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Utanför plan vill en villaägare bygga en lovbefriad komplementbyggnad 8 m från vägområdet
+      till en allmän väg. Vad gäller enligt 47 § väglagen?
+    alternativ:
+      - text: Det krävs länsstyrelsens tillstånd, eftersom byggnaden ligger inom 12 m från vägområdet och inte kräver bygglov.
+        ratt: true
+      - text: Inget tillstånd krävs, eftersom byggnaden är lovbefriad.
+      - text: Det krävs bygglov, eftersom alla byggnader inom 12 m från väg är lovpliktiga.
+      - text: Det krävs Trafikverkets tillstånd enligt 39 § väglagen.
+    forklaring: >
+      Inom tolv meter från ett vägområde får byggnader inte uppföras utan länsstyrelsens
+      tillstånd (47 § väglagen), och länsstyrelsen kan utöka avståndet till högst 50 m. Kravet
+      gäller inte inom detaljplan och inte för åtgärder som kräver bygglov; då prövar
+      byggnadsnämnden trafiksäkerheten i lovet. För en lovbefriad byggnad gäller alltså
+      tillståndskravet, och nämnden bör upplysa om det när någon frågar.
+    lagrum:
+      - VägL 47 §
+      - PBL 9 kap. 5 §
+    taggar: [vag, byggnadsfritt_avstand, lovbefriad]
+
+  - id: utp-031
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt enbostadshus ska byggas utanför plan, 70 m från en kraftigt trafikerad statlig
+      väg. Vilken bestämmelse gäller särskilt för bostadens lokalisering med hänsyn till buller,
+      och gäller den även för förhandsbesked?
+    alternativ:
+      - text: 2 kap. 6 a § PBL. Kravet på lokalisering med hänsyn till omgivningsbuller gäller även i ärenden om förhandsbesked.
+        ratt: true
+      - text: 2 kap. 6 a § PBL, men den gäller bara vid detaljplanering.
+      - text: 8 kap. PBL om tekniska egenskapskrav, och den prövas bara i startbeskedet.
+      - text: 47 § väglagen, eftersom huset ligger nära en allmän väg.
+    forklaring: >
+      2 kap. 6 a § kräver att bostadsbyggnader lokaliseras och utformas så att olägenhet för
+      människors hälsa från omgivningsbuller förebyggs, och första stycket 1 om lokalisering
+      gäller även förhandsbesked. I ett bygglov utanför plan ska beslutet dessutom normalt
+      innehålla beräknade bullervärden vid fasad och uteplats (9 kap. 105 §). 47 § väglagen
+      handlar om trafiksäkerhet och gäller inte för lovpliktiga byggnader.
+    lagrum:
+      - PBL 2 kap. 6 a §
+      - PBL 9 kap. 105 §
+      - VägL 47 §
+    taggar: [buller, lokaliseringsprovning, forhandsbesked]
+
+  # --- Instuderingsfrågor ---------------------------------------------------------------
+
+  - id: utp-032
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Jämför förhandsbesked och bygglov utanför detaljplan. Vad prövas i vart och ett, hur länge
+      gäller beskeden och varför kan det vara klokt för en sökande att börja med ett förhandsbesked?
+    bedomningspunkter:
+      - Förhandsbesked prövar bara lokaliseringen och kan bara ges utanför detaljplan (9 kap. 41 och 74 §§).
+      - Bygglovet prövar även utformning, placering på tomten och de tekniska krav som 57 § hänvisar till.
+      - Förhandsbeskedet är bindande om bygglov söks inom två år från laga kraft (42 §); bygglovet ska påbörjas inom två och avslutas inom fem år (115 §).
+      - Fördelen är att sökanden får besked om platsen innan hon lägger pengar på ritningar, och kan köpa eller stycka av mark med större säkerhet.
+      - Båda kräver underrättelse till grannar utanför plan och kan överklagas.
+    modellsvar: >
+      Ett förhandsbesked kan bara ges utanför detaljplan och prövar bara om åtgärden kan
+      lokaliseras till platsen: områdesbestämmelser, detaljplanekravet och lokaliseringskraven i
+      2 kap. (9 kap. 41 och 74 §§). Bygglovet prövar dessutom utformning, placering på tomten och
+      vissa krav i 8 kap. (57 §). Ett positivt förhandsbesked är bindande om bygglov söks inom två
+      år från att det fick laga kraft (42 §). Ett bygglov upphör om åtgärden inte påbörjats inom
+      två år och avslutats inom fem år från laga kraft (115 §). Förhandsbeskedet är klokt när
+      platsen är osäker: sökanden får besked innan hon betalar för ritningar och kan använda
+      beskedet vid köp eller avstyckning. Grannarna underrättas i båda fallen (94 §) och båda
+      besluten kan överklagas.
+    lagrum:
+      - PBL 9 kap. 41 §
+      - PBL 9 kap. 42 §
+      - PBL 9 kap. 74 §
+      - PBL 9 kap. 57 §
+      - PBL 9 kap. 115 §
+    taggar: [forhandsbesked, bygglov, jamforelse, instudering]
+
+  - id: utp-033
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Skriv skälen för ett positivt förhandsbesked för ett enbostadshus på fastigheten Ekbacken
+      1:7, i skogsmark intill två befintliga hus. Det finns ingen detaljplan eller
+      områdesbestämmelser. Miljöenheten bedömer att enskilt avlopp går att ordna, och Trafikverket
+      har inget att invända mot utfarten mot den enskilda vägen. En granne vars hus ligger 40 m
+      från den tänkta platsen har invänt att utsikten försämras.
+    bedomningspunkter:
+      - Konstaterar att området saknar detaljplan och områdesbestämmelser och att förhandsbesked kan prövas (9 kap. 41 och 74 §§).
+      - Bedömer att ett enstaka hus intill befintlig bebyggelse inte förutsätter detaljplan (4 kap. 2 §).
+      - Går igenom lokaliseringskraven i 2 kap. 2, 4, 5 och 6 a §§ med stöd av remissvaren (VA, trafik, risker, buller).
+      - Bemöter grannens invändning mot 2 kap. 9 § och förklarar varför försämrad utsikt inte är en betydande olägenhet.
+      - Upplyser om tvåårsfristen (42 §), att bygglov och startbesked krävs och att avloppet kräver tillstånd.
+    modellsvar: >
+      Fastigheten ligger utanför detaljplan och omfattas inte av områdesbestämmelser.
+      Förhandsbesked kan därför prövas (9 kap. 41 och 74 §§ PBL). Ett enstaka enbostadshus i
+      anslutning till två befintliga hus kräver ingen samordning som förutsätter detaljplan
+      (4 kap. 2 §). Marken är skogsmark utan särskilda natur- eller kulturvärden och är från
+      allmän synpunkt lämplig för bostad (2 kap. 2 och 4 §§). Enligt miljöenhetens yttrande kan
+      vatten och avlopp ordnas på fastigheten, och utfart kan ordnas mot den enskilda vägen
+      (2 kap. 5 §). Platsen ligger inte i ett bullerutsatt läge (2 kap. 6 a §). Grannen har invänt
+      att utsikten försämras. Huset placeras 40 m från grannens bostad, och en försämrad utsikt
+      är inte en sådan betydande olägenhet som avses i 2 kap. 9 §. Åtgärden kan därmed lokaliseras
+      till platsen. Upplysningar: Förhandsbeskedet är bindande om bygglov söks inom två år från
+      att det fått laga kraft (42 §). Åtgärden kräver bygglov och startbesked, och avloppet
+      kräver tillstånd från miljönämnden.
+    lagrum:
+      - PBL 9 kap. 74 §
+      - PBL 4 kap. 2 §
+      - PBL 2 kap. 4 §
+      - PBL 2 kap. 5 §
+      - PBL 2 kap. 9 §
+      - PBL 9 kap. 42 §
+    taggar: [forhandsbesked, motivering, lokaliseringsprovning, instudering]
+
+  - id: utp-034
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov avser ett fritidshus 50 m från en sjö, inom strandskyddsområde och
+      inom riksintresse för friluftslivet. Beskriv hur du lägger upp handläggningen och i vilken
+      ordning frågorna bör avgöras.
+    bedomningspunkter:
+      - Konstaterar att strandskyddsdispens krävs (MB 7 kap. 15 §) och att det är en separat prövning, oftast hos kommunen (18 c §).
+      - Upplyser sökanden om dispensplikten (9 kap. 92 §) och överväger att låta lovärendet vila (102 §) så att fristen inte löper.
+      - "Prövar riksintresset enligt 2 kap. 2 § PBL och MB 3 kap. 6 §: kan åtgärden påtagligt skada friluftslivet?"
+      - Prövar övrig lokalisering (2 kap. 4, 5 §§), underrättar grannarna (94 §) och samordnar besluten.
+      - Tar hänsyn till att ett avslag i en av prövningarna gör den andra meningslös och resonerar om ordningen.
+    modellsvar: >
+      Huset ligger inom strandskyddsområde, så det får inte uppföras utan dispens (7 kap. 15 §
+      miljöbalken). Dispensen prövas av kommunen enligt 18 c §, eftersom inget av fallen i 18 b §
+      är aktuellt. Jag upplyser sökanden om det (9 kap. 92 § PBL) och föreslår att nämnden låter
+      lovärendet vila tills dispensfrågan är avgjord (102 §), så att tioveckorsfristen inte löper.
+      Samtidigt utreder jag lokaliseringen: riksintresset för friluftslivet ska skyddas mot
+      åtgärder som kan påtagligt skada det (2 kap. 2 § PBL och 3 kap. 6 § miljöbalken), och jag
+      prövar 2 kap. 4 och 5 §§, t.ex. VA och väg. Grannarna underrättas (94 §). Avslås dispensen
+      kan lov inte ges i praktiken, och bedömer jag att lokaliseringen är olämplig är det bättre
+      att säga det tidigt. Besluten bör meddelas samordnat så att sökanden förstår helheten.
+    lagrum:
+      - MB 7 kap. 15 §
+      - MB 7 kap. 18 c §
+      - PBL 9 kap. 92 §
+      - PBL 9 kap. 102 §
+      - PBL 2 kap. 2 §
+      - MB 3 kap. 6 §
+    taggar: [strandskydd, riksintresse, handlaggning, instudering]
+
+  - id: utp-035
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En markägare vill stycka av och bygga sex villatomter i en åkerkant nära en tätort utan
+      detaljplan. Förklara för honom varför nämnden sannolikt inte kan ge förhandsbesked, och vad
+      han kan göra i stället.
+    bedomningspunkter:
+      - Förklarar detaljplanekravet för ny sammanhållen bebyggelse (4 kap. 2 § första stycket 1) och att förhandsbesked då inte får ges (74 § första stycket 2).
+      - Nämner hushållningen med jordbruksmark (2 kap. 2 § PBL och MB 3 kap. 4 §).
+      - Pekar på planbesked (5 kap. 2 §) som rätt väg och vad en begäran ska innehålla.
+      - Förklarar att översiktsplanen visar kommunens syn men inte är bindande.
+      - Använder ett begripligt språk och bemöter förväntningar på ett vänligt sätt.
+    modellsvar: >
+      Sex nya villor tillsammans blir en ny sammanhållen bebyggelse, och då ska lämpligheten
+      enligt 4 kap. 2 § första stycket 1 PBL normalt prövas i en detaljplan, eftersom vägar,
+      vatten, avlopp och grönytor behöver samordnas. När en åtgärd förutsätter detaljplan får
+      förhandsbesked inte ges (9 kap. 74 § första stycket 2). Därtill är åkermark skyddad: enligt
+      3 kap. 4 § miljöbalken, som tillämpas genom 2 kap. 2 § PBL, får brukningsvärd jordbruksmark
+      bebyggas bara för väsentliga samhällsintressen. Det du kan göra är att begära planbesked
+      (5 kap. 2 §) med en beskrivning av projektet och en karta. Kommunen svarar inom fyra
+      månader om den vill planlägga. Titta gärna i översiktsplanen först; den visar hur kommunen
+      ser på området, även om den inte är bindande.
+    lagrum:
+      - PBL 4 kap. 2 §
+      - PBL 9 kap. 74 §
+      - PBL 2 kap. 2 §
+      - MB 3 kap. 4 §
+      - PBL 5 kap. 2 §
+    taggar: [detaljplanekrav, forhandsbesked, planbesked, instudering]
+
+  - id: utp-036
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilka frågor om väg och VA behöver du utreda i ett ärende om förhandsbesked för ett nytt
+      enbostadshus utanför plan, och vem yttrar sig om dem?
+    bedomningspunkter:
+      - Utfart mot allmän väg kräver väghållningsmyndighetens tillstånd (39 § väglagen); remiss till Trafikverket eller kommunen som väghållare.
+      - Trafiksäkerhet och möjligheten att ordna trafik prövas i lokaliseringen (2 kap. 5 § 3 och 6 § PBL).
+      - Byggnadsfritt avstånd enligt 47 § väglagen gäller inte för lovpliktiga åtgärder, men trafiksäkerheten prövas i ärendet.
+      - "Vatten och avlopp: remiss till miljöenheten; enskilt avlopp med vattentoalett kräver tillstånd (13 § FMH)."
+      - Kontroll av om fastigheten ligger inom eller nära kommunens verksamhetsområde för VA.
+    modellsvar: >
+      För vägen behöver jag veta om utfarten ska anslutas till en allmän väg; i så fall krävs
+      väghållningsmyndighetens tillstånd (39 § väglagen), så jag remitterar till Trafikverket eller
+      den kommunala väghållaren. Trafiksäkerheten och möjligheten att ordna trafik prövas i
+      lokaliseringen (2 kap. 5 § 3 och 6 § PBL). Länsstyrelsens tillstånd enligt 47 § väglagen
+      behövs inte för lovpliktiga åtgärder, men samma trafiksäkerhetsfrågor prövas då i ärendet.
+      För VA kontrollerar jag om fastigheten ligger inom kommunens verksamhetsområde. Annars
+      remitterar jag till miljöenheten, som bedömer om dricksvatten och ett enskilt avlopp kan
+      ordnas; avlopp med vattentoalett kräver tillstånd enligt 13 § förordningen om miljöfarlig
+      verksamhet och hälsoskydd. Är svaren negativa är platsen inte lämplig enligt 2 kap. 5 §.
+    lagrum:
+      - VägL 39 §
+      - VägL 47 §
+      - PBL 2 kap. 5 §
+      - FMH 13 §
+    taggar: [vag, va, remiss, instudering]

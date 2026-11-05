@@ -17,11 +17,14 @@
   --accent: #2f5d50;
   --accent-ink: #ffffff;
   --accent-soft: #e4ede9;
-  --brick: #b5543a;
+  /* #a44b33 (was #B5543A): 4.7:1 on --brick-soft and 5.3:1 on --bg, so small brick
+     text on the soft surfaces reaches WCAG AA. */
+  --brick: #a44b33;
   --brick-soft: #f5e4de;
   --plan-yellow: #e9c46a;
   --plan-yellow-soft: #f8edcd;
-  --success: #3a7d44;
+  /* #357240 (was #3A7D44): 4.9:1 on --success-soft (WCAG AA for small text). */
+  --success: #357240;
   --success-soft: #e1efe3;
   --line: #e4e1da;
   --line-strong: #cfcbc2;

@@ -1,0 +1,1037 @@
+# Frågor för modul 12-overklagande. En fil per modul. Valideras med zod (pnpm content:check).
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
+# Källor (hämtade från riksdagen.se 2026-11-05 och sparade i docs/rattslage/):
+#   pbl-13-kap.txt (PBL 13 kap., ändrad t.o.m. SFS 2026:1583), pbl-9-kap.txt, fl.txt (FL 40–49 §§),
+#   kl-utdrag.txt (KL 6 kap. 38 § och 13 kap.), mmdl-5-kap.txt (lag 2010:921 om mark- och
+#   miljödomstolar), boverket-lista-pbl-andringar.txt (avsnittet Överklagande).
+# Lagen om mark- och miljödomstolar och lagen om domstolsärenden saknar kod i
+# content/uppslag/lagar.yaml och nämns därför bara i förklaringarna.
+# Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
+modul: 12-overklagande
+fragor:
+  # --- Prövningskedjan ---------------------------------------------------------------------
+
+  - id: overk-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Till vilken instans överklagas byggnadsnämndens beslut om bygglov?
+    alternativ:
+      - text: Länsstyrelsen.
+        ratt: true
+      - text: Förvaltningsrätten.
+      - text: Mark- och miljödomstolen.
+      - text: Kommunfullmäktige.
+    forklaring: >
+      Andra kommunala beslut enligt PBL än de som laglighetsprövas eller går direkt till mark- och
+      miljödomstolen överklagas till länsstyrelsen (13 kap. 3 § PBL). Hit hör beslut om lov,
+      förhandsbesked, startbesked och förelägganden. Länsstyrelsen är alltså första
+      överinstans för nästan alla bygglovsbeslut.
+    lagrum:
+      - PBL 13 kap. 3 §
+    taggar: [provningskedja, lansstyrelsen]
+
+  - id: overk-002
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vart överklagas länsstyrelsens beslut i ett överklagat bygglovsärende?
+    alternativ:
+      - text: Till mark- och miljödomstolen.
+        ratt: true
+      - text: Till förvaltningsrätten.
+      - text: Till regeringen.
+      - text: Det går inte att överklaga länsstyrelsens beslut.
+    forklaring: >
+      Länsstyrelsens beslut enligt PBL överklagas till mark- och miljödomstolen (13 kap. 6 §),
+      med de undantag som anges i 4, 5 och 5 a §§. Mark- och miljödomstolarna finns vid fem
+      tingsrätter, och Mark- och miljööverdomstolen vid Svea hovrätt är nästa instans.
+    lagrum:
+      - PBL 13 kap. 6 §
+    taggar: [provningskedja, mark_och_miljodomstol]
+
+  - id: overk-003
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Mark- och miljödomstolen har avslagit en grannes överklagande av ett bygglov. Grannen vill
+      gå vidare till Mark- och miljööverdomstolen. Vad krävs?
+    alternativ:
+      - text: Att Mark- och miljööverdomstolen meddelar prövningstillstånd.
+        ratt: true
+      - text: Att länsstyrelsen godkänner att målet förs vidare.
+      - text: Ingenting, alla har rätt till prövning i två domstolar.
+      - text: Att byggnadsnämnden yttrar sig först.
+    forklaring: >
+      I mål som överklagats till mark- och miljödomstolen tillämpas lagen om domstolsärenden
+      (5 kap. 1 § lagen om mark- och miljödomstolar), och för att Mark- och miljööverdomstolen
+      ska pröva ett överklagande krävs prövningstillstånd. I praktiken slutar de flesta
+      bygglovsärenden därför i mark- och miljödomstolen. Paragrafen om prövningstillstånd finns i
+      lagen om domstolsärenden och har inte kontrollerats här.
+    lagrum:
+      - PBL 13 kap. 6 §
+    lagrum_osaker: true
+    taggar: [provningstillstand, mark_och_miljooverdomstolen, provningskedja]
+
+  - id: overk-004
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Kan Mark- och miljööverdomstolens avgörande i ett bygglovsmål överklagas till Högsta domstolen?
+    alternativ:
+      - text: Bara om Mark- och miljööverdomstolen tillåter det därför att det är av vikt för ledning av rättstillämpningen.
+        ratt: true
+      - text: Ja, alltid, om klaganden betalar en ansökningsavgift.
+      - text: Ja, men bara av byggnadsnämnden.
+      - text: Nej, aldrig.
+    forklaring: >
+      Enligt 5 kap. 5 § lagen om mark- och miljödomstolar får domar och beslut av Mark- och
+      miljööverdomstolen i mål som överklagats till mark- och miljödomstol inte överklagas.
+      Domstolen får dock tillåta överklagande till Högsta domstolen i annat mål än mål enligt
+      miljöbalken, om det är av vikt för ledning av rättstillämpningen. Mark- och
+      miljööverdomstolen är därför i praktiken sista instans och dess avgöranden är vägledande
+      praxis.
+    lagrum:
+      - PBL 13 kap. 6 §
+    taggar: [provningskedja, mark_och_miljooverdomstolen, prejudikat]
+
+  - id: overk-005
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vart överklagas kommunens beslut att anta en detaljplan?
+    alternativ:
+      - text: Direkt till mark- och miljödomstolen.
+        ratt: true
+      - text: Till länsstyrelsen.
+      - text: Till förvaltningsrätten genom laglighetsprövning.
+      - text: Till regeringen.
+    forklaring: >
+      Beslut att anta, ändra eller upphäva en detaljplan eller områdesbestämmelser överklagas
+      direkt till mark- och miljödomstolen (13 kap. 2 a §). Tiden räknas från den dag då beslutet
+      eller protokollsjusteringen tillkännagetts på kommunens anslagstavla (13 kap. 16 § andra
+      stycket). Bara den som skriftligen lämnat synpunkter som inte tillgodosetts före
+      granskningstidens slut får som huvudregel överklaga (13 kap. 11 §).
+    lagrum:
+      - PBL 13 kap. 2 a §
+      - PBL 13 kap. 16 §
+      - PBL 13 kap. 11 §
+    taggar: [detaljplan, provningskedja, mark_och_miljodomstol]
+
+  - id: overk-006
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En kommunmedlem i Åkerslunda anser att fullmäktiges nya taxa för bygglov är olaglig. Hur
+      kan beslutet prövas?
+    alternativ:
+      - text: Genom laglighetsprövning hos förvaltningsrätten, enligt 13 kap. kommunallagen.
+        ratt: true
+      - text: Genom överklagande till länsstyrelsen enligt 13 kap. 3 § PBL.
+      - text: Genom överklagande till mark- och miljödomstolen.
+      - text: Taxan kan inte prövas, bara enskilda avgiftsbeslut.
+    forklaring: >
+      Fullmäktiges beslut om taxa i ärenden hos byggnadsnämnden överklagas i den ordning som
+      gäller för laglighetsprövning (13 kap. 1 § 7 PBL). Varje kommunmedlem får överklaga till
+      förvaltningsrätten inom tre veckor från att protokollsjusteringen tillkännagetts på
+      anslagstavlan (13 kap. 1 och 5 §§ KL). Domstolen prövar bara lagligheten och kan upphäva men
+      inte ändra beslutet (13 kap. 8 § KL). Avgiften i ett enskilt lovbeslut överklagas däremot
+      till länsstyrelsen tillsammans med lovbeslutet.
+    lagrum:
+      - PBL 13 kap. 1 §
+      - KL 13 kap. 1 §
+      - KL 13 kap. 5 §
+      - KL 13 kap. 8 §
+    taggar: [laglighetsprovning, taxa, forvaltningsratten]
+
+  # --- Vad får överklagas och av vem ------------------------------------------------------
+
+  - id: overk-007
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden har förlängt handläggningstiden för ett bygglov med tio veckor. Sökanden är missnöjd
+      och vill överklaga förlängningsbeslutet. Vad gäller?
+    alternativ:
+      - text: Beslutet får inte överklagas.
+        ratt: true
+      - text: Beslutet överklagas till länsstyrelsen inom tre veckor.
+      - text: Beslutet får överklagas bara om förlängningen saknar skäl.
+      - text: Beslutet laglighetsprövas av förvaltningsrätten.
+    forklaring: >
+      Kommunala beslut enligt PBL får inte överklagas i den del de avser förlängd handläggningstid
+      enligt 9 kap. 99 § (13 kap. 2 § 4). Sökandens skydd är i stället att avgiften reduceras om
+      även den förlängda fristen överskrids (12 kap. 8 a §), och att han efter sex månader kan
+      begära att ärendet avgörs (12 § FL).
+    lagrum:
+      - PBL 13 kap. 2 §
+      - PBL 9 kap. 99 §
+      - PBL 12 kap. 8 a §
+    taggar: [overklagbarhet, handlaggningstid]
+
+  - id: overk-008
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vem får överklaga ett beslut om startbesked?
+    alternativ:
+      - text: Bara sökanden eller anmälaren i ärendet.
+        ratt: true
+      - text: Sökanden och alla grannar som underrättats om bygglovet.
+      - text: Alla som bor i kommunen.
+      - text: Ingen, startbesked kan inte överklagas.
+    forklaring: >
+      13 kap. 15 § begränsar klagorätten mot startbesked till sökanden eller anmälaren. Grannar
+      som vill angripa en åtgärd får i stället överklaga lovet, eller begära att nämnden
+      ingriper genom tillsyn. Observera också att beslut om behovet av kontrollplan,
+      kontrollansvarig, tekniskt samråd och slutsamråd inte alls får överklagas (13 kap. 2 § 5).
+    lagrum:
+      - PBL 13 kap. 15 §
+      - PBL 13 kap. 2 §
+    taggar: [startbesked, klagoratt]
+
+  - id: overk-009
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Var finns huvudregeln om vem som får överklaga ett beslut om bygglov?
+    alternativ:
+      - text: I 42 § förvaltningslagen, som 13 kap. 8 § PBL hänvisar till; beslutet får överklagas av den som det angår, om det gått honom eller henne emot.
+        ratt: true
+      - text: I 9 kap. 94 § PBL; alla som fått underrättelse får överklaga.
+      - text: I kommunallagen; alla kommunmedlemmar får överklaga.
+      - text: I 13 kap. 3 § PBL; bara sökanden får överklaga.
+    forklaring: >
+      13 kap. 8 § PBL hänvisar till 42 § FL. Vem som beslutet angår har utvecklats i praxis: utöver
+      sökanden är det främst ägare till grannfastigheter och andra som berörs på ett påtagligt
+      sätt. Att någon har underrättats eller borde ha underrättats ger inte i sig klagorätt
+      (13 kap. 9 §).
+    lagrum:
+      - PBL 13 kap. 8 §
+      - FL 42 §
+      - PBL 13 kap. 9 §
+    taggar: [klagoratt, sakagare, fl]
+
+  - id: overk-010
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne två kvarter bort fick ett meddelande om ett beviljat bygglov och vill överklaga.
+      Han kan inte se bygget från sin tomt. Vilken regel är viktigast för om han får överklaga?
+    alternativ:
+      - text: Att enbart det förhållandet att någon underrättats inte ger rätt att överklaga; han måste själv beröras av beslutet.
+        ratt: true
+      - text: Att alla som fått ett meddelande om beslutet har rätt att överklaga.
+      - text: Att bara grannar med gemensam tomtgräns får överklaga.
+      - text: Att klagorätten avgörs av byggnadsnämnden när den rättidsprövar.
+    forklaring: >
+      13 kap. 9 § säger uttryckligen att enbart det förhållandet att någon underrättats eller ska
+      ha underrättats inte ger rätt att överklaga. Klagorätten avgörs enligt 42 § FL utifrån om
+      beslutet angår honom och gått honom emot. Det är överinstansen som prövar klagorätten och
+      avvisar överklagandet om den saknas (47 § FL); byggnadsnämnden prövar bara om det kommit in
+      i tid.
+    lagrum:
+      - PBL 13 kap. 9 §
+      - FL 42 §
+      - FL 47 §
+    taggar: [klagoratt, avvisning, sakagare]
+
+  # --- Överklagandetid och rättidsprövning ------------------------------------------------
+
+  - id: overk-011
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bygglov kungörs på Åkerslunda kommuns anslagstavla. En granne som inte ska delges
+      beslutet vill överklaga. Från vilken dag räknas hennes överklagandetid?
+    alternativ:
+      - text: Från den dag som infaller en vecka efter att beslutet kungjorts på anslagstavlan.
+        ratt: true
+      - text: Från den dag beslutet fattades.
+      - text: Från den dag hon fick meddelandet om beslutet i brevlådan.
+      - text: Från den dag protokollet med beslutet justerades.
+    forklaring: >
+      För alla som inte ska delges beslutet enligt 9 kap. 108 § räknas tiden från den dag som
+      infaller en vecka efter att beslutet kungjorts på kommunens anslagstavla (13 kap. 16 §
+      tredje stycket). Därefter löper tre veckor (44 § FL). Kungörelse i Post- och Inrikes
+      Tidningar gällde före 2025-12-01; numera kungörs beslutet på anslagstavlan (9 kap. 109 §).
+    lagrum:
+      - PBL 13 kap. 16 §
+      - PBL 9 kap. 109 §
+      - FL 44 §
+    taggar: [overklagandetid, kungorelse, anslagstavla]
+
+  - id: overk-014
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I ett bygglovsbeslut stod det felaktigt att överklagandet skulle ha kommit in inom fyra
+      veckor från delgivningen. Sökandens överklagande kommer in efter tre och en halv vecka. Vad
+      ska nämnden göra?
+    alternativ:
+      - text: Inte avvisa överklagandet, eftersom förseningen beror på en felaktig överklagandehänvisning, och skicka det till länsstyrelsen.
+        ratt: true
+      - text: Avvisa överklagandet, eftersom tre veckor är lagens tid.
+      - text: Rätta beslutet och be sökanden överklaga på nytt.
+      - text: Pröva överklagandet själv i stället för att skicka det vidare.
+    forklaring: >
+      Ett överklagande ska inte avvisas om förseningen beror på att myndigheten inte lämnat en
+      korrekt underrättelse om hur man överklagar (45 § andra stycket 1 FL). Nämnden ska därför
+      skyndsamt överlämna det till länsstyrelsen (46 § FL). Fallet visar varför
+      överklagandehänvisningen i beslutet måste vara korrekt (33 § FL).
+    lagrum:
+      - FL 45 §
+      - FL 46 §
+      - FL 33 §
+    taggar: [rattidsprovning, overklagandehanvisning, fl]
+
+  - id: overk-015
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne skickar sitt överklagande direkt till länsstyrelsen i stället för till
+      byggnadsnämnden. Det kommer in till länsstyrelsen inom överklagandetiden men till nämnden
+      först en vecka senare. Vad gäller?
+    alternativ:
+      - text: Överklagandet ska inte avvisas, eftersom det kom in till överinstansen inom överklagandetiden.
+        ratt: true
+      - text: Överklagandet ska avvisas, eftersom det kom in för sent till nämnden.
+      - text: Länsstyrelsen ska avvisa överklagandet eftersom det getts in på fel ställe.
+      - text: Grannen måste skicka in ett nytt överklagande till nämnden.
+    forklaring: >
+      Ett överklagande som felaktigt getts in till överinstansen ska vidarebefordras till
+      beslutsmyndigheten med uppgift om vilken dag det kom in dit (47 § andra stycket FL). Det får
+      inte avvisas om det har kommit in till överinstansen inom överklagandetiden (45 § andra
+      stycket 2 FL).
+    lagrum:
+      - FL 45 §
+      - FL 47 §
+    taggar: [rattidsprovning, ingivande, fl]
+
+  - id: overk-016
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne överklagar ett beviljat bygglov och begär att bygget ska stoppas medan
+      överklagandet prövas. Vem kan besluta om det?
+    alternativ:
+      - text: Länsstyrelsen som överinstans, genom att bestämma att beslutet tills vidare inte ska gälla (inhibition).
+        ratt: true
+      - text: Byggnadsnämnden, som alltid ska stoppa bygget när ett överklagande kommit in.
+      - text: Grannen själv, genom att skriva i överklagandet att lovet inte får användas.
+      - text: Ingen, ett bygglov gäller alltid omedelbart och kan inte stoppas.
+    forklaring: >
+      Överinstansen får bestämma att det överklagade beslutet tills vidare inte ska gälla (48 §
+      FL). Eftersom ett bygglov gäller omedelbart (9 kap. 114 § PBL) är inhibition grannens sätt
+      att stoppa ett bygge under prövningen. Byggnadsnämnden kan inte inhibera sitt eget beslut,
+      men ska redan i lovbeslutet bestämma att det gäller först vid laga kraft om det finns risk
+      för skador som inte kan återställas på natur- eller kulturvärden.
+    lagrum:
+      - FL 48 §
+      - PBL 9 kap. 114 §
+    taggar: [inhibition, verkstallighet, lansstyrelsen]
+
+  # --- Verkställighet och laga kraft ------------------------------------------------------
+
+  - id: overk-017
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bygglov för en tillbyggnad beviljas i Åkerslunda. Ingen har ännu överklagat. När får
+      byggherren börja bygga?
+    alternativ:
+      - text: När nämnden gett startbesked, eftersom lovet gäller omedelbart; men han bygger på egen risk tills lovet fått laga kraft.
+        ratt: true
+      - text: Först när lovet fått laga kraft, som tidigast fyra veckor efter kungörelsen.
+      - text: Direkt när lovet beviljats, utan startbesked.
+      - text: När länsstyrelsen bekräftat att ingen överklagat.
+    forklaring: >
+      Ett beslut om lov gäller omedelbart, även innan det fått laga kraft (9 kap. 114 §). Åtgärden
+      får ändå inte påbörjas förrän nämnden gett startbesked enligt 10 kap. Beslutet ska upplysa om
+      att en åtgärd som påbörjas innan beslutet fått laga kraft kan behöva återställas om
+      beslutet ändras vid en överprövning (9 kap. 105 § 4–5). Före 2025-12-01 gällde lovet
+      först fyra veckor efter kungörelsen.
+    lagrum:
+      - PBL 9 kap. 114 §
+      - PBL 9 kap. 105 §
+    taggar: [verkstallighet, laga_kraft, startbesked]
+
+  - id: overk-018
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: I vilket fall ska byggnadsnämnden bestämma att ett bygglov ska gälla först när det fått laga kraft?
+    alternativ:
+      - text: Om det finns risk för att genomförandet medför skador som inte kan återställas på natur- eller kulturvärden eller på totalförsvarets intressen i vissa områden.
+        ratt: true
+      - text: Alltid när en granne har lämnat synpunkter under handläggningen.
+      - text: När sökanden begär det.
+      - text: När bygglovet avser ett enbostadshus utanför detaljplan.
+    forklaring: >
+      9 kap. 114 § andra stycket kräver ett sådant beslut när det finns risk för oåterkalleliga
+      skador på natur- eller kulturvärden eller på totalförsvarets intressen inom eller i
+      anslutning till riksintresseområden för totalförsvaret. Ett exempel är rivning av en
+      kulturhistoriskt värdefull byggnad: river man innan ett överklagande prövats går det inte
+      att återställa. Bedömningen ska framgå av beslutet.
+    lagrum:
+      - PBL 9 kap. 114 §
+    taggar: [verkstallighet, kulturvarden, laga_kraft]
+
+  # --- Länsstyrelsens överprövning, ändring och yttrande -----------------------------------
+
+  - id: overk-020
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Länsstyrelsen har beslutat att överpröva ett bygglov enligt 11 kap. PBL, men kommer fram
+      till att inte upphäva det. En granne vill överklaga länsstyrelsens beslut. Vad gäller?
+    alternativ:
+      - text: Länsstyrelsens beslut att inte upphäva kommunens beslut får inte överklagas.
+        ratt: true
+      - text: Beslutet överklagas till mark- och miljödomstolen.
+      - text: Beslutet överklagas till regeringen.
+      - text: Beslutet laglighetsprövas av förvaltningsrätten.
+    forklaring: >
+      Vid länsstyrelsens överprövning enligt 11 kap. 11 § får ett beslut att helt eller delvis
+      upphäva kommunens beslut överklagas hos regeringen, men ett beslut att inte upphäva får inte
+      överklagas (13 kap. 5 §). Det förtydligades den 1 december 2025. Överprövningen är statens
+      kontroll och något annat än när länsstyrelsen prövar ett vanligt överklagande; ett sådant
+      beslut går att överklaga till mark- och miljödomstolen (13 kap. 6 §).
+    lagrum:
+      - PBL 13 kap. 5 §
+      - PBL 13 kap. 6 §
+      - PBL 11 kap. 11 §
+    taggar: [overprovning, lansstyrelsen, overklagbarhet]
+
+  - id: overk-021
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Länsstyrelsen ber byggnadsnämnden i Åkerslunda yttra sig över ett överklagande. Det
+      överklagade beslutet fattades av nämnden i dess helhet. Kan nämnden delegera yttrandet till
+      en handläggare?
+    alternativ:
+      - text: Nej, yttranden med anledning av att ett beslut av nämnden i dess helhet har överklagats får inte delegeras.
+        ratt: true
+      - text: Ja, yttranden är alltid rena verkställighetsåtgärder.
+      - text: Ja, men bara till förvaltningschefen.
+      - text: Nämnden behöver inte yttra sig, eftersom den inte är part.
+    forklaring: >
+      6 kap. 38 § 2 KL förbjuder delegering av yttranden med anledning av att ett beslut av
+      nämnden i dess helhet har överklagats. Har beslutet i stället fattats på delegation får även
+      yttrandet delegeras, om delegationsordningen tillåter det. Nämnden kan behöva sammanträda
+      eller använda brådskandebeslut (6 kap. 39 § KL) för att hinna svara inom länsstyrelsens
+      tid.
+    lagrum:
+      - KL 6 kap. 38 §
+      - KL 6 kap. 39 §
+    taggar: [yttrande, delegering, lansstyrelsen]
+
+  - id: overk-022
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne överklagar ett bygglov. När handläggaren läser överklagandet ser hon att beslutet
+      innehåller ett uppenbart fel i en villkorsformulering som kan rättas snabbt och utan nackdel
+      för någon. Handlingarna har ännu inte skickats till länsstyrelsen. Får nämnden ändra
+      beslutet?
+    alternativ:
+      - text: Ja, om beslutet är uppenbart felaktigt i något väsentligt hänseende och kan ändras snabbt, enkelt och utan nackdel för någon enskild part, så länge handlingarna inte överlämnats.
+        ratt: true
+      - text: Nej, ett beslut som överklagats får aldrig ändras av beslutsmyndigheten.
+      - text: Ja, nämnden får ändra beslutet hur den vill fram till dess länsstyrelsen avgjort målet.
+      - text: Ja, men bara om grannen återkallar sitt överklagande.
+    forklaring: >
+      Ett överklagat beslut får ändras av beslutsmyndigheten bara i de fall som avses i 38 § FL
+      och bara innan överklagandet och övriga handlingar överlämnats till överinstansen (39 § FL).
+      Om nämnden ändrar beslutet ska det nya beslutet skickas med, och överklagandet anses omfatta
+      det (46 § andra stycket FL). Ett rent skrivfel kan i stället rättas enligt 36 § FL.
+    lagrum:
+      - FL 38 §
+      - FL 39 §
+      - FL 46 §
+    taggar: [omprovning, andring, fl]
+
+  - id: overk-023
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Länsstyrelsen har avslagit sökandens överklagande av ett avslag på bygglov, och sökanden
+      överklagar till mark- och miljödomstolen. Vem är sökandens motpart i domstolen?
+    alternativ:
+      - text: Byggnadsnämnden, som först beslutade i saken.
+        ratt: true
+      - text: Länsstyrelsen.
+      - text: De grannar som yttrade sig under handläggningen.
+      - text: Det finns ingen motpart i mål om bygglov.
+    forklaring: >
+      Enligt 5 kap. 2 § lagen om mark- och miljödomstolar är den förvaltningsmyndighet som först
+      beslutat i saken motpart till den enskilde när målet överlämnats till mark- och
+      miljödomstolen. I mål om planer är kommunen motpart. Byggnadsnämnden behöver därför följa
+      ärendet även efter sitt eget beslut och kan få yttra sig i domstolen.
+    lagrum:
+      - PBL 13 kap. 6 §
+    taggar: [mark_och_miljodomstol, motpart, byggnadsnamnden]
+
+  - id: overk-024
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Mark- och miljödomstolen upphäver nämndens avslag och visar ärendet åter till nämnden för
+      ny handläggning. Från vilken dag räknas tioveckorsfristen för det nya beslutet?
+    alternativ:
+      - text: Från den dag beslutet om återförvisning fick laga kraft.
+        ratt: true
+      - text: Från den ursprungliga ansökningsdagen.
+      - text: Från den dag domen meddelades.
+      - text: Det finns ingen tidsfrist för återförvisade ärenden.
+    forklaring: >
+      Enligt 9 kap. 101 § ska tidsfristerna och informationsskyldigheten i 99–100 §§ tillämpas
+      även när ett ärende återförvisats. Det som sägs om ansökningsdagen gäller då den dag
+      beslutet om återförvisning fick laga kraft. Nämnden ska alltså informera sökanden om
+      fristen på nytt och kan få sätta ned avgiften om den överskrids.
+    lagrum:
+      - PBL 9 kap. 101 §
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 100 §
+    taggar: [aterforvisning, handlaggningstid]
+
+  # --- Flersvar --------------------------------------------------------------------------
+
+  - id: overk-025
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande kommunala beslut enligt PBL får inte överklagas?
+    alternativ:
+      - text: Planbesked
+        ratt: true
+      - text: Beslut om förlängd handläggningstid
+        ratt: true
+      - text: Beslut om behovet av kontrollplan
+        ratt: true
+      - text: Ingripandebesked
+        ratt: true
+      - text: Avslag på en ansökan om bygglov
+      - text: Föreläggande om rättelse med vite
+    forklaring: >
+      13 kap. 2 § räknar upp beslut som inte får överklagas, bland annat planbesked, förlängd
+      handläggningstid, behovet av kontrollplan, kontrollansvarig, tekniskt samråd och
+      slutsamråd, ingripandebesked och frågor som redan avgjorts i detaljplan eller förhandsbesked.
+      Avslag på lov och förelägganden överklagas till länsstyrelsen enligt 13 kap. 3 §.
+    lagrum:
+      - PBL 13 kap. 2 §
+      - PBL 13 kap. 3 §
+    taggar: [overklagbarhet, planbesked, kontrollplan]
+
+  - id: overk-026
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka ska delges ett beslut om bygglov enligt 9 kap. 108 § PBL?
+    alternativ:
+      - text: Sökanden
+        ratt: true
+      - text: Fastighetsägaren
+        ratt: true
+      - text: Grannar som lämnat synpunkter som inte blivit tillgodosedda
+        ratt: true
+      - text: Alla grannar som underrättats under handläggningen, även de som inte yttrat sig
+      - text: Hyresgäster i grannfastigheten
+    forklaring: >
+      108 § kräver delgivning med sökanden, fastighetsägaren och de grannar (enligt 96 § första
+      stycket 1) som lämnat synpunkter som inte tillgodosetts. Övriga grannar får ett meddelande
+      om kungörelsen (110 §), och deras överklagandetid räknas från en vecka efter kungörelsen.
+      Hyresgäster och bostadsrättshavare underrättas inte längre efter den 1 december 2025.
+    lagrum:
+      - PBL 9 kap. 108 §
+      - PBL 9 kap. 110 §
+      - PBL 13 kap. 16 §
+    taggar: [delgivning, grannar, kungorelse]
+
+  - id: overk-027
+    typ: flersvar
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bygglov beviljas inom ett skyddsområde kring en civil flygplats. Vilka av följande kan
+      ha rätt att överklaga beslutet?
+    alternativ:
+      - text: Ägaren till en grannfastighet som påverkas påtagligt och vars synpunkter inte tillgodosetts
+        ratt: true
+      - text: Transportstyrelsen
+        ratt: true
+      - text: Sökanden, om lovet förenats med villkor han inte vill ha
+        ratt: true
+      - text: En kommunmedlem som bor i en annan stadsdel och tycker att bygget är fult
+      - text: Alla som fått ett meddelande om kungörelsen, oavsett om de berörs
+    forklaring: >
+      Klagorätt har den som beslutet angår om det gått honom emot (42 § FL via 13 kap. 8 § PBL),
+      till exempel påtagligt berörda grannar och sökanden när beslutet delvis gått honom emot.
+      13 kap. 14 § ger Transportstyrelsen klagorätt för lov inom skydds- och säkerhetsområden
+      kring civila flygplatser. Att man fått ett meddelande ger inte i sig klagorätt (13 kap. 9 §),
+      och allmänintresse räcker inte.
+    lagrum:
+      - FL 42 §
+      - PBL 13 kap. 8 §
+      - PBL 13 kap. 9 §
+      - PBL 13 kap. 14 §
+    taggar: [klagoratt, sakagare, myndigheter]
+
+  # --- Sant/falskt -----------------------------------------------------------------------
+
+  - id: overk-028
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggherren får påbörja en tillbyggnad efter startbesked även om bygglovet ännu inte fått
+      laga kraft, men om lovet upphävs efter ett överklagande kan han behöva återställa.
+    svar: true
+    forklaring: >
+      Lovet gäller omedelbart (9 kap. 114 §) och startbeskedet gäller också omedelbart. Risken
+      ligger hos byggherren, och därför ska lovbeslutet upplysa om att en åtgärd som påbörjas före
+      laga kraft kan behöva återställas om beslutet ändras (9 kap. 105 § 5). Det här är något
+      handläggaren bör förklara för sökanden när grannar har invänt.
+    lagrum:
+      - PBL 9 kap. 114 §
+      - PBL 9 kap. 105 §
+    taggar: [verkstallighet, laga_kraft, byggherrens_risk]
+
+  - id: overk-029
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Om länsstyrelsen, efter en grannes överklagande, beslutar att inte ändra byggnadsnämndens
+      bygglov kan grannen överklaga länsstyrelsens beslut till mark- och miljödomstolen.
+    svar: true
+    forklaring: >
+      Länsstyrelsens beslut i ett vanligt överklagandeärende överklagas till mark- och
+      miljödomstolen (13 kap. 6 §). Det som inte får överklagas enligt 13 kap. 5 § är
+      länsstyrelsens beslut att inte upphäva kommunens beslut vid en överprövning enligt
+      11 kap. 11 §, alltså när länsstyrelsen självmant prövar beslutet för statens räkning.
+      Skilj på de två situationerna.
+    lagrum:
+      - PBL 13 kap. 6 §
+      - PBL 13 kap. 5 §
+    taggar: [overprovning, lansstyrelsen, provningskedja]
+
+  - id: overk-030
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Efter den 1 december 2025 räknas överklagandetiden för grannar som inte delges från den dag
+      bygglovet kungjordes i Post- och Inrikes Tidningar.
+    svar: false
+    forklaring: >
+      Före 2025-12-01 kungjordes beslut om lov i Post- och Inrikes Tidningar. Nu kungörs de på
+      kommunens anslagstavla (9 kap. 109 §), och tiden för den som inte delges räknas från dagen
+      en vecka efter kungörelsen (13 kap. 16 §). Därefter gäller tre veckor enligt 44 § FL.
+    lagrum:
+      - PBL 9 kap. 109 §
+      - PBL 13 kap. 16 §
+      - FL 44 §
+    taggar: [kungorelse, overklagandetid, lagandring_2025]
+
+  # --- Lucktext, beräkning, para ihop och ordning -----------------------------------------
+
+  - id: overk-032
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      För den som inte ska delges ett beslut om lov räknas överklagandetiden från den dag som
+      infaller ___ vecka efter att beslutet kungjorts på kommunens anslagstavla. Överklagandet ska
+      sedan ha kommit in inom ___ veckor.
+    svar:
+      - ["1", "en"]
+      - ["3", "tre"]
+    forklaring: >
+      Regeln om en vecka efter kungörelsen finns i 13 kap. 16 § tredje stycket och infördes den
+      1 december 2025. Treveckorstiden följer av 44 § FL, som 13 kap. 16 § första stycket
+      hänvisar till. Tillsammans blir det fyra veckor från kungörelsedagen.
+    lagrum:
+      - PBL 13 kap. 16 §
+      - FL 44 §
+    taggar: [overklagandetid, kungorelse]
+
+  - id: overk-033
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bygglov upphör att gälla om åtgärden inte har påbörjats inom ___ år och avslutats inom
+      ___ år från den dag då beslutet fick laga kraft.
+    svar:
+      - ["2", "två"]
+      - ["5", "fem"]
+    forklaring: >
+      9 kap. 115 § anger giltighetstiden för bygglov, rivningslov och marklov. Beslutet ska
+      upplysa om giltighetstiden (9 kap. 105 § 1). Eftersom tiden räknas från laga kraft är det
+      viktigt att kunna avgöra när beslutet fick laga kraft, särskilt när det överklagats.
+    lagrum:
+      - PBL 9 kap. 115 §
+      - PBL 9 kap. 105 §
+    taggar: [giltighetstid, laga_kraft]
+
+  - id: overk-034
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bygglov kungjordes på Åkerslunda kommuns anslagstavla måndagen den 2 mars 2026. Hur många
+      dagar efter kungörelsedagen infaller den sista dagen för en granne som inte delgetts att
+      överklaga? Sista dagen är en vardag.
+    svar: 28
+    tolerans: 0
+    enhet: dagar
+    losning: >
+      Tiden räknas från den dag som infaller en vecka efter kungörelsen, alltså måndag 9 mars
+      (2 mars + 7 dagar). Tre veckor därifrån (44 § FL) ger måndag 30 mars. 7 + 21 = 28 dagar
+      efter kungörelsedagen.
+    forklaring: >
+      Kombinationen av 13 kap. 16 § PBL och 44 § FL gör att grannar har fyra veckor från
+      kungörelsedagen på sig. Om sista dagen hade fallit på en lördag, söndag eller helgdag hade
+      den flyttats till nästa vardag enligt lagen om beräkning av lagstadgad tid.
+    lagrum:
+      - PBL 13 kap. 16 §
+      - FL 44 §
+    taggar: [overklagandetid, berakning, kungorelse]
+
+  - id: overk-035
+    typ: berakning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Sökanden delgavs ett avslag på bygglov tisdagen den 10 mars 2026. Vilket datum i mars är
+      sista dagen för överklagandet att komma in till byggnadsnämnden? Svara med dagens nummer.
+    svar: 31
+    tolerans: 0
+    enhet: mars
+    losning: >
+      Tre veckor räknas från den dag sökanden fick del av beslutet (44 § FL): 10 mars + 21 dagar =
+      31 mars, som är en tisdag.
+    forklaring: >
+      För den som delges räknas överklagandetiden från delgivningen, inte från beslutsdagen eller
+      kungörelsen. Överklagandet ska ha kommit in till byggnadsnämnden (43 § FL) senast den dagen.
+      Nämnden behöver därför veta när delgivningen skedde, till exempel genom ett
+      delgivningskvitto.
+    lagrum:
+      - FL 44 §
+      - FL 43 §
+    taggar: [overklagandetid, delgivning, berakning]
+
+  - id: overk-036
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop beslutet med den instans där det prövas efter överklagande.
+    par:
+      - vanster: Byggnadsnämndens beslut om bygglov
+        hoger: Länsstyrelsen
+      - vanster: Länsstyrelsens beslut i ett överklagat bygglovsärende
+        hoger: Mark- och miljödomstolen
+      - vanster: Kommunens beslut att anta en detaljplan
+        hoger: Mark- och miljödomstolen direkt
+      - vanster: Fullmäktiges beslut om taxa för byggnadsnämnden
+        hoger: Förvaltningsrätten (laglighetsprövning)
+      - vanster: Länsstyrelsens beslut att upphäva ett lov vid överprövning enligt 11 kap.
+        hoger: Regeringen
+    forklaring: >
+      Huvudvägen för bygglov är byggnadsnämnden, länsstyrelsen, mark- och miljödomstolen och
+      Mark- och miljööverdomstolen med prövningstillstånd (13 kap. 3 och 6 §§). Detaljplaner går
+      direkt till mark- och miljödomstolen (2 a §). Taxan laglighetsprövas (1 § 7), och
+      länsstyrelsens upphävande vid överprövning går till regeringen (5 §).
+    lagrum:
+      - PBL 13 kap. 1 §
+      - PBL 13 kap. 2 a §
+      - PBL 13 kap. 3 §
+      - PBL 13 kap. 5 §
+      - PBL 13 kap. 6 §
+    taggar: [provningskedja, instanser]
+
+  - id: overk-037
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop paragrafen i förvaltningslagen med vad den reglerar vid överklagande.
+    par:
+      - vanster: 43 § FL
+        hoger: Överklagandet ska vara skriftligt och ges in till beslutsmyndigheten
+      - vanster: 44 § FL
+        hoger: Överklagandetiden är tre veckor
+      - vanster: 45 § FL
+        hoger: Beslutsmyndigheten prövar om överklagandet kommit in i rätt tid
+      - vanster: 46 § FL
+        hoger: Beslutsmyndigheten överlämnar skyndsamt överklagandet till överinstansen
+      - vanster: 47 § FL
+        hoger: Överinstansen prövar avvisning på andra grunder än att överklagandet är för sent
+      - vanster: 48 § FL
+        hoger: Överinstansen får besluta om inhibition
+    forklaring: >
+      13 kap. 16 § PBL hänvisar till 43–47 §§ FL för överklagande av bland annat lovbeslut.
+      Arbetsfördelningen är tydlig: byggnadsnämnden tar emot, rättidsprövar och skickar vidare,
+      medan länsstyrelsen prövar klagorätt, inhibition och själva saken.
+    lagrum:
+      - FL 43 §
+      - FL 44 §
+      - FL 45 §
+      - FL 46 §
+      - FL 47 §
+      - FL 48 §
+    taggar: [fl, overklagande, rattidsprovning]
+
+  - id: overk-038
+    typ: ordning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen när en granne överklagar ett bygglov i Åkerslunda.
+    poster:
+      - Grannens skriftliga överklagande kommer in till byggnadsnämnden.
+      - Nämnden prövar om överklagandet kommit in i rätt tid.
+      - Nämnden överväger om beslutet ska ändras enligt 38–39 §§ FL.
+      - Nämnden överlämnar överklagandet och handlingarna till länsstyrelsen.
+      - Länsstyrelsen prövar klagorätten och begär vid behov yttranden.
+      - Länsstyrelsen avgör överklagandet.
+      - Den som är missnöjd överklagar till mark- och miljödomstolen.
+    forklaring: >
+      Rättidsprövningen (45 § FL) kommer först, därefter en eventuell ändring av beslutet, som
+      bara får ske innan handlingarna lämnats över (39 § FL). Överlämnandet ska ske skyndsamt
+      (46 § FL). Länsstyrelsen prövar klagorätten (47 § FL) och saken, och dess beslut kan
+      överklagas till mark- och miljödomstolen (13 kap. 6 § PBL).
+    lagrum:
+      - FL 45 §
+      - FL 39 §
+      - FL 46 §
+      - FL 47 §
+      - PBL 13 kap. 6 §
+    taggar: [overklagande, process, ordning]
+
+  - id: overk-039
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna händelserna efter ett beviljat bygglov, om sökanden delges före kungörelsen och ingen överklagar.
+    poster:
+      - Nämnden beslutar om bygglov, som gäller omedelbart.
+      - Sökanden och fastighetsägaren delges beslutet.
+      - Beslutet kungörs på kommunens anslagstavla och meddelande skickas till grannarna.
+      - En vecka efter kungörelsen börjar grannarnas överklagandetid löpa.
+      - Tre veckor senare går grannarnas överklagandetid ut.
+      - Beslutet har fått laga kraft och giltighetstiden börjar räknas.
+    forklaring: >
+      Lovet gäller direkt (9 kap. 114 §), men laga kraft dröjer tills ingen längre kan överklaga.
+      Sökanden har tre veckor från delgivningen (44 § FL), grannarna tre veckor från dagen en
+      vecka efter kungörelsen (13 kap. 16 §). Giltighetstiden på två respektive fem år räknas från
+      laga kraft (9 kap. 115 §).
+    lagrum:
+      - PBL 9 kap. 114 §
+      - PBL 9 kap. 108 §
+      - PBL 9 kap. 109 §
+      - PBL 13 kap. 16 §
+      - PBL 9 kap. 115 §
+    taggar: [laga_kraft, kungorelse, ordning]
+
+  # --- Öppna frågor ------------------------------------------------------------------------
+
+  - id: overk-040
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bygglov kungjordes på anslagstavlan den 2 mars 2026. En granne som inte delgetts lämnar
+      in ett överklagande till byggnadsnämnden den 1 april 2026. Hur hanterar du överklagandet?
+      Motivera med lagrum.
+    bedomningspunkter:
+      - Räknar ut att tiden började löpa 9 mars och att sista dag var 30 mars (13 kap. 16 § PBL, 44 § FL).
+      - Konstaterar att överklagandet kom in för sent.
+      - Kontrollerar undantagen i 45 § andra stycket FL (felaktig överklagandehänvisning, inkommet till länsstyrelsen i tid).
+      - Avvisar överklagandet genom ett eget beslut med överklagandehänvisning, om inget undantag gäller.
+      - Nämner att grannen kan begära tillsyn om bygget avviker från lovet, men att lovet står fast.
+    modellsvar: >
+      Grannen ska inte delges, så tiden räknas från den dag som infaller en vecka efter
+      kungörelsen, 9 mars (13 kap. 16 § PBL). Tre veckor därifrån (44 § FL) ger måndag 30 mars som
+      sista dag. Överklagandet kom in 1 april och är alltså för sent. Innan jag avvisar
+      kontrollerar jag att meddelandet till grannarna och kungörelsen innehöll en korrekt
+      upplysning om hur man överklagar, och att överklagandet inte kommit in till länsstyrelsen
+      inom tiden (45 § andra stycket FL). Gäller inget undantag avvisar nämnden överklagandet
+      (45 § FL) i ett beslut med egen överklagandehänvisning, eftersom avvisningen kan överklagas.
+      Lovet står fast, men grannen kan anmäla till nämnden om bygget sedan inte följer lovet.
+    lagrum:
+      - PBL 13 kap. 16 §
+      - FL 44 §
+      - FL 45 §
+    taggar: [rattidsprovning, avvisning, overklagandetid]
+
+  - id: overk-041
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Beskriv prövningskedjan för ett bygglov från byggnadsnämnden till högsta instans. Ange
+      vilka beslut som går andra vägar.
+    bedomningspunkter:
+      - Byggnadsnämnden, länsstyrelsen (13 kap. 3 §), mark- och miljödomstolen (13 kap. 6 §).
+      - Mark- och miljööverdomstolen kräver prövningstillstånd och är i praktiken sista instans.
+      - Högsta domstolen bara om Mark- och miljööverdomstolen tillåter det (prejudikatfrågor).
+      - Detaljplaner direkt till mark- och miljödomstolen (13 kap. 2 a §); taxa laglighetsprövas i förvaltningsrätten (13 kap. 1 §).
+      - Vissa beslut får inte överklagas alls (13 kap. 2 §).
+    modellsvar: >
+      Byggnadsnämndens beslut om lov överklagas till länsstyrelsen (13 kap. 3 § PBL).
+      Länsstyrelsens beslut överklagas till mark- och miljödomstolen (13 kap. 6 §). Därefter kan
+      målet gå till Mark- och miljööverdomstolen, men bara om den meddelar prövningstillstånd.
+      Mark- och miljööverdomstolens avgörande får inte överklagas, utom när domstolen själv
+      tillåter det för att Högsta domstolen ska pröva en prejudikatfråga. Andra vägar gäller för
+      detaljplaner och områdesbestämmelser, som överklagas direkt till mark- och miljödomstolen
+      (2 a §), och för fullmäktiges taxa, som laglighetsprövas av förvaltningsrätten (1 § 7).
+      Vissa beslut, som planbesked och förlängd handläggningstid, får inte överklagas alls (2 §).
+    lagrum:
+      - PBL 13 kap. 1 §
+      - PBL 13 kap. 2 §
+      - PBL 13 kap. 2 a §
+      - PBL 13 kap. 3 §
+      - PBL 13 kap. 6 §
+    taggar: [provningskedja, instanser]
+
+  - id: overk-042
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Länsstyrelsen ber byggnadsnämnden yttra sig över en grannes överklagande av ett bygglov för
+      en tillbyggnad. Beskriv vad yttrandet bör innehålla och vem som får besluta om det.
+    bedomningspunkter:
+      - Anger om nämnden vidhåller sitt beslut och varför, med hänvisning till tillämpade regler och omständigheter.
+      - Bemöter grannens konkreta invändningar sakligt, t.ex. om betydande olägenhet (2 kap. 9 § PBL) eller planenlighet.
+      - Kan påpeka formella frågor, t.ex. klagorätt eller rättidsprövning, men lämnar avgörandet till länsstyrelsen.
+      - Anger att yttrandet inte får delegeras om beslutet fattades av nämnden i dess helhet (KL 6 kap. 38 § 2).
+      - Håller tidsfristen och skriver begripligt.
+    modellsvar: >
+      Yttrandet ska tala om att nämnden vidhåller beslutet, eller i vilka delar den inte gör det,
+      och varför. Nämnden bemöter grannens invändningar en i taget: om grannen till exempel menar
+      att tillbyggnaden skuggar hans trädgård förklarar nämnden varför påverkan inte är en
+      betydande olägenhet enligt 2 kap. 9 § PBL, med hänvisning till solstudien och avstånden. Har
+      nämnden synpunkter på grannens klagorätt kan den framföra dem, men det är länsstyrelsen som
+      avgör frågan (47 § FL). Om lovet beslutades av nämnden i dess helhet får yttrandet inte
+      delegeras (6 kap. 38 § 2 KL); beslutades det på delegation får delegationsordningen
+      tillåta att handläggaren yttrar sig. Yttrandet ska komma in i tid och vara skrivet så att
+      både länsstyrelsen och grannen förstår det.
+    lagrum:
+      - KL 6 kap. 38 §
+      - FL 47 §
+      - PBL 2 kap. 9 §
+    taggar: [yttrande, delegering, lansstyrelsen]
+
+  - id: overk-043
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara skillnaden mellan att en granne överklagar ett bygglov och att länsstyrelsen
+      överprövar det enligt 11 kap. PBL. Vad händer med möjligheten att överklaga länsstyrelsens
+      beslut i de två fallen?
+    bedomningspunkter:
+      - "Överklagande: initieras av en klagande med klagorätt, prövas av länsstyrelsen enligt 13 kap. 3 §."
+      - "Överprövning: statlig kontroll som länsstyrelsen inleder, för lov bara inom områden som regeringen eller länsstyrelsen bestämt (11 kap. 12 §)."
+      - Länsstyrelsens beslut i ett överklagande kan överklagas till mark- och miljödomstolen (13 kap. 6 §).
+      - Vid överprövning kan ett upphävande överklagas till regeringen, men ett beslut att inte upphäva får inte överklagas (13 kap. 5 §).
+    modellsvar: >
+      Ett överklagande startar när någon med klagorätt, till exempel en berörd granne, angriper
+      beslutet. Länsstyrelsen prövar det som överinstans (13 kap. 3 § PBL) och dess beslut kan
+      överklagas vidare till mark- och miljödomstolen (13 kap. 6 §). Överprövning är i stället
+      statens kontroll: för lov kan den bara ske inom geografiska områden som regeringen eller
+      länsstyrelsen beslutat om (11 kap. 12 §), och länsstyrelsen prövar då beslutet på eget
+      initiativ. Upphäver länsstyrelsen lovet får det beslutet överklagas till regeringen, men
+      beslutar länsstyrelsen att inte upphäva lovet får det inte överklagas (13 kap. 5 §), vilket
+      förtydligades den 1 december 2025. Länsstyrelsen kan också bestämma att ett överklagande av
+      samma beslut ska vänta tills överprövningen är avgjord (13 kap. 18 §).
+    lagrum:
+      - PBL 11 kap. 12 §
+      - PBL 13 kap. 3 §
+      - PBL 13 kap. 5 §
+      - PBL 13 kap. 6 §
+      - PBL 13 kap. 18 §
+    taggar: [overprovning, overklagande, lansstyrelsen]
+
+  - id: overk-044
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande har fått bygglov för ett garage. En granne har sagt att hon tänker överklaga.
+      Sökanden ringer och undrar om han kan börja bygga. Vad säger du?
+    bedomningspunkter:
+      - Lovet gäller omedelbart (9 kap. 114 §), men bygget får inte påbörjas förrän startbesked getts (10 kap.).
+      - Förklarar att lovet inte fått laga kraft förrän överklagandetiden gått ut för alla.
+      - Förklarar risken att behöva återställa om lovet upphävs (9 kap. 105 § 5) och att länsstyrelsen kan besluta om inhibition (48 § FL).
+      - Ger ingen garanti om utgången och rekommenderar inte något, men ger underlag för hans eget beslut.
+    modellsvar: >
+      Bygglovet gäller redan nu (9 kap. 114 § PBL), men du får inte börja förrän du har fått
+      startbesked. När du har det får du bygga, men lovet har inte fått laga kraft förrän
+      grannarnas överklagandetid har gått ut, fyra veckor efter kungörelsen. Om grannen överklagar
+      och lovet upphävs kan du behöva riva det du byggt, och det står också i beslutet
+      (9 kap. 105 § 5). Länsstyrelsen kan dessutom besluta att lovet tills vidare inte ska gälla
+      (48 § FL). Jag kan inte säga hur ett överklagande skulle gå, så det är ditt beslut om du vill
+      vänta eller ta risken.
+    lagrum:
+      - PBL 9 kap. 114 §
+      - PBL 9 kap. 105 §
+      - FL 48 §
+    taggar: [verkstallighet, byggherrens_risk, laga_kraft]

@@ -1,0 +1,796 @@
+# Nivå 3-ärende. Fiktiv fastighet, fiktiv kommun, fiktiv detaljplan.
+# Lagrum i 9 kap. PBL är kontrollerade mot docs/rattslage/pbl-9-kap.txt (lydelse 2025:974,
+# 105 § i lydelse 2026:712). PBL 1, 2, 4, 6, 8, 10, 12 och 13 kap., PBF 1 och 6 kap., FL,
+# lagen (2010:921) om mark- och miljödomstolar och förordningen (2015:216) om trafikbuller
+# vid bostadsbyggnader är kontrollerade mot utdragen i docs/rattslage/ (riksdagen.se,
+# hämtade 2026-11-04–05). PBL 6 kap. hämtades 2026-11-05 och sparades som pbl-6-kap.txt.
+# Ärendet utspelar sig under 2026, före 2027-01-01, så 9 kap. 56 § och 8 kap. gäller i
+# nuvarande lydelse.
+# Koordinater: situationsplanen och typplanen använder samma system, origo i tomtens
+# nordvästra hörn. Sett från Humlegatan (norr) ligger öster till vänster, så fasaden mot
+# norr har x = 35 − (situationsplanens x + bredd); fasaden mot söder har x = situationsplanens x − 5.
+# Marknivå invid huset +24,6, Humlegatans medelnivå invid tomten +24,2, takets och
+# takfotens överkant +37,0. Fasadritningen mäter från marken (12,4 m).
+id: A006
+titel: Flerbostadshus på Humlan 3
+niva: 3
+status: utkast
+rattslage: "2025-12-01"
+fastighet: Humlan 3, Åkerslunda kommun
+sammanfattning: >
+  En byggherre vill bygga ett flerbostadshus i fyra våningar med tolv lägenheter på en
+  obebyggd tomt vid Humlegatan. Detaljplanen från 2019 reglerar höjd, våningsantal,
+  byggnadsarea, prickmark mot gatan, buller och markens genomsläpplighet. Balkongerna mot
+  gatan kragar ut över prickmarken. Ärendet kräver planenlighetsprövning med beräkningar,
+  remisser, underrättelse av grannar, kommunicering och ett beslut med villkor om
+  gatukostnader. En bostadsrättsförening mitt emot överklagar, och länsstyrelsen avgör saken.
+startdatum: 2026-02-16
+moduler: [04-detaljplan, 08-ritning-berakning, 06-handlaggning, 07-krav-byggnadsverk, 12-overklagande, 09-genomforande]
+larandemal:
+  - Pröva planenligheten i flera delar och räkna ut byggnadshöjd (1 kap. 3 § PBF), våningsantal, byggnadsarea, intrång på prickmark och parkeringsbehov
+  - Bedöma om balkonger över prickmark är en liten avvikelse förenlig med planens syfte (9 kap. 56 och 60 §§) och vad det kräver av handläggningen (94 §)
+  - Förstå hur buller prövas inom detaljplan (planbestämmelse, 2 kap. 6 a §, 4 kap. 33 a §) och när beslutet måste innehålla bullervärden (9 kap. 105 § andra stycket)
+  - Pröva tomtkraven i 8 kap. 9 §, parkering, friyta och tillgänglighet, och se att marklov inte behövs när markåtgärden ingår i bygglovet (9 kap. 50 §)
+  - Skicka remisser, underrätta grannar (94–96 §§) och kommunicera underlaget (98 §)
+  - Besluta om villkor enligt 9 kap. 82 § och upplysa om kontrollansvarig, tekniskt samråd och startbesked (10 kap.)
+  - Expediera och kungöra rätt (108–110 §§), skriva nämndens yttrande över ett överklagande och förstå hur prövningskedjan fortsätter efter länsstyrelsen (13 kap.)
+
+parter:
+  sokande: [Humlegården Bygg AB, Johan Berglund]
+  fastighetsagare: [Humlegården Bygg AB]
+  grannar:
+    - { fastighet: Humlan 2, namn: [Ahmed Karimi, Sara Karimi] }
+    - { fastighet: Humlan 4, namn: [Åkerslunda Bostäder AB] }
+    - { fastighet: Humlan 6, namn: [Gunnar Holmberg] }
+    - { fastighet: Getingen 2, namn: [Bostadsrättsföreningen Getingen, Brf Getingen] }
+    - { fastighet: Åkerslunda 3:1, namn: [Åkerslunda kommun] }
+
+taxa:
+  # Förenklad fiktiv taxa. Posten omfattar lovprövning av flerbostadshus med 10–19
+  # lägenheter, med underrättelse, remisser och kungörelse.
+  bygglov_nybyggnad_flerbostadshus_10_19_lägenheter: 68400
+  reduktion_per_vecka: 0.2
+
+handlingar:
+  - id: H1
+    typ: ansokan
+    titel: Ansökan om bygglov
+    fil: handlingar/ansokan.md
+    inkom: 2026-02-16
+    fakta:
+      atgard: nybyggnad av flerbostadshus med 12 lägenheter, parkering och miljöhus
+      lagenheter: 12
+      vaningar: 4
+      byggnadsarea_huvudbyggnad_kvm: 360
+      byggnadsarea_miljohus_kvm: 40
+      bruttoarea_kvm: 1440
+      markniva_invid_huset: 24.6
+      gatans_medelniva: 24.2
+      overkant_tak: 37.0
+      balkong_utkragning_m: 1.4
+      parkeringsplatser: 9
+      cykelplatser: 32
+      kontrollansvarig: Annika Vall
+  - id: H2
+    typ: situationsplan
+    titel: Situationsplan 1:400
+    fil: handlingar/situationsplan.svg
+    inkom: 2026-02-16
+    fakta:
+      tomt_bredd_m: 40
+      tomt_djup_m: 36
+      tomtarea_kvm: 1440
+      huvudbyggnad: [5, 4, 30, 12]
+      miljohus: [29, 31, 10, 4]
+      prickmark_norr_m: 4
+      balkonger_over_prickmark: "[6, 2.6, 3.6, 1.4] och [30.4, 2.6, 3.6, 1.4]"
+    parametrar:
+      skala: 400
+      tomt_bredd: 40
+      tomt_djup: 36
+      nybyggnad: [5, 4, 30, 12]
+      huvudbyggnad_namn: Nytt flerbostadshus
+      komplementbyggnad: [29, 31, 10, 4]
+      komplementbyggnad_namn: Miljöhus och cykelförråd
+      prickmark: [{ sida: norr, djup: 4 }]
+      # Balkongerna på plan 2–4 kragar ut 1,4 m. De två mot norr ligger över prickmarken.
+      balkonger: [[6, 2.6, 3.6, 1.4], [30.4, 2.6, 3.6, 1.4], [18.2, 16, 3.6, 1.4]]
+      parkering:
+        - { rektangel: [0.5, 30.5, 25, 5], platser: 9, tillgangliga: 1, namn: "9 bilplatser" }
+      anlaggningar:
+        - { rektangel: [0.5, 24.5, 25, 6], namn: Körbana }
+        - { rektangel: [27, 21.5, 12, 6], namn: Gemensam uteplats och lek }
+      punkter:
+        - { punkt: [12, 22], namn: Dagvattenkassett 18 m³ }
+        - { punkt: [24, 1], namn: Förbindelsepunkt VA }
+      utfart: { sida: norr, lage: 0.5, bredd: 4, langd: 24 }
+      gata: { sida: norr, namn: Humlegatan, bredd: 12, fastighet: "Åkerslunda 3:1" }
+      grannar: { norr: Getingen 2, oster: Humlan 4, soder: Humlan 6, vaster: Humlan 2 }
+      grannhus: [[-28, 6, 18, 10], [48, 5, 20, 11], [8, 44, 20, 10], [2, -30, 36, 12]]
+      ritningshuvud: { datum: 2026-02-09, ritad_av: Humlegården Arkitekter, ritningsnummer: A-01 }
+  - id: H3
+    typ: fasadritning
+    titel: Fasader mot norr och söder 1:100
+    fil: handlingar/fasader.svg
+    inkom: 2026-02-16
+    fakta:
+      hojd_fran_mark_m: 12.4
+      tak: platt tak med sedum, takfot och tak i samma nivå
+      balkonger: "kragar ut 1,4 m, underkant ca +28,0 (3,4 m över mark)"
+    parametrar:
+      skala: 100
+      fasader:
+        - rubrik: Fasad mot norr (Humlegatan)
+          delar:
+            - namn: Nytt flerbostadshus
+              bredd: 30
+              byggnadshojd: 12.4
+              takvinkel: 0
+              vy: langsida
+              djup: 12
+              takutsprang: 0
+              attika: 0.3
+              ny: true
+              balkonger:
+                - { x: 1.0, bredd: 3.6, underkant: 3.5 }
+                - { x: 1.0, bredd: 3.6, underkant: 6.5 }
+                - { x: 1.0, bredd: 3.6, underkant: 9.5 }
+                - { x: 25.4, bredd: 3.6, underkant: 3.5 }
+                - { x: 25.4, bredd: 3.6, underkant: 6.5 }
+                - { x: 25.4, bredd: 3.6, underkant: 9.5 }
+              oppningar:
+                - { typ: fonster, x: 28.1, bredd: 0.9, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 25.4, bredd: 1.6, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 21.0, bredd: 1.2, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 18.0, bredd: 1.2, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 11.0, bredd: 1.2, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 8.2, bredd: 1.2, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 4.4, bredd: 1.6, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 1.5, bredd: 0.9, hojd: 1.4, underkant: 1.2 }
+                - { typ: dorr, x: 14.2, bredd: 1.6, hojd: 2.3 }
+                - { typ: fonster, x: 25.4, bredd: 1.6, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 21.0, bredd: 1.2, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 18.0, bredd: 1.2, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 14.4, bredd: 1.2, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 11.0, bredd: 1.2, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 8.2, bredd: 1.2, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 4.4, bredd: 1.6, hojd: 1.4, underkant: 4.4 }
+                - { typ: dorr, x: 28.1, bredd: 0.9, hojd: 2.1, underkant: 3.5 }
+                - { typ: dorr, x: 1.5, bredd: 0.9, hojd: 2.1, underkant: 3.5 }
+                - { typ: fonster, x: 25.4, bredd: 1.6, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 21.0, bredd: 1.2, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 18.0, bredd: 1.2, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 14.4, bredd: 1.2, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 11.0, bredd: 1.2, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 8.2, bredd: 1.2, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 4.4, bredd: 1.6, hojd: 1.4, underkant: 7.4 }
+                - { typ: dorr, x: 28.1, bredd: 0.9, hojd: 2.1, underkant: 6.5 }
+                - { typ: dorr, x: 1.5, bredd: 0.9, hojd: 2.1, underkant: 6.5 }
+                - { typ: fonster, x: 25.4, bredd: 1.6, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 21.0, bredd: 1.2, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 18.0, bredd: 1.2, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 14.4, bredd: 1.2, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 11.0, bredd: 1.2, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 8.2, bredd: 1.2, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 4.4, bredd: 1.6, hojd: 1.4, underkant: 10.4 }
+                - { typ: dorr, x: 28.1, bredd: 0.9, hojd: 2.1, underkant: 9.5 }
+                - { typ: dorr, x: 1.5, bredd: 0.9, hojd: 2.1, underkant: 9.5 }
+        - rubrik: Fasad mot söder (gården)
+          delar:
+            - namn: Nytt flerbostadshus
+              bredd: 30
+              byggnadshojd: 12.4
+              takvinkel: 0
+              vy: langsida
+              djup: 12
+              takutsprang: 0
+              attika: 0.3
+              ny: true
+              balkonger:
+                - { x: 13.2, bredd: 3.6, underkant: 3.5 }
+                - { x: 13.2, bredd: 3.6, underkant: 6.5 }
+                - { x: 13.2, bredd: 3.6, underkant: 9.5 }
+              oppningar:
+                - { typ: fonster, x: 1.8, bredd: 1.2, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 5.4, bredd: 1.0, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 8.1, bredd: 1.0, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 11.2, bredd: 1.6, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 20.7, bredd: 1.0, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 23.4, bredd: 1.0, hojd: 1.4, underkant: 1.2 }
+                - { typ: fonster, x: 26.9, bredd: 1.2, hojd: 1.4, underkant: 1.2 }
+                - { typ: dorr, x: 14.0, bredd: 1.2, hojd: 2.3 }
+                - { typ: fonster, x: 1.8, bredd: 1.2, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 5.4, bredd: 1.0, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 8.1, bredd: 1.0, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 11.2, bredd: 1.6, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 20.7, bredd: 1.0, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 23.4, bredd: 1.0, hojd: 1.4, underkant: 4.4 }
+                - { typ: fonster, x: 26.9, bredd: 1.2, hojd: 1.4, underkant: 4.4 }
+                - { typ: dorr, x: 14.0, bredd: 0.9, hojd: 2.1, underkant: 3.5 }
+                - { typ: fonster, x: 1.8, bredd: 1.2, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 5.4, bredd: 1.0, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 8.1, bredd: 1.0, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 11.2, bredd: 1.6, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 20.7, bredd: 1.0, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 23.4, bredd: 1.0, hojd: 1.4, underkant: 7.4 }
+                - { typ: fonster, x: 26.9, bredd: 1.2, hojd: 1.4, underkant: 7.4 }
+                - { typ: dorr, x: 14.0, bredd: 0.9, hojd: 2.1, underkant: 6.5 }
+                - { typ: fonster, x: 1.8, bredd: 1.2, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 5.4, bredd: 1.0, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 8.1, bredd: 1.0, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 11.2, bredd: 1.6, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 20.7, bredd: 1.0, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 23.4, bredd: 1.0, hojd: 1.4, underkant: 10.4 }
+                - { typ: fonster, x: 26.9, bredd: 1.2, hojd: 1.4, underkant: 10.4 }
+                - { typ: dorr, x: 14.0, bredd: 0.9, hojd: 2.1, underkant: 9.5 }
+      ritningshuvud: { datum: 2026-02-09, ritad_av: Humlegården Arkitekter, ritningsnummer: A-03 }
+  - id: H4
+    typ: planritning
+    titel: Planritning typplan, plan 2–4 1:100
+    fil: handlingar/planritning.svg
+    inkom: 2026-02-16
+    fakta:
+      lagenheter_per_plan: "A 4 rok, B 1 rok, C 4 rok"
+      bostadsrum_mot_garden: "A 3 av 4, B 1 av 1, C 3 av 4"
+    parametrar:
+      skala: 100
+      rubrik: Typplan, plan 2–4
+      balkonger:
+        - { rektangel: [6, 2.6, 3.6, 1.4] }
+        - { rektangel: [30.4, 2.6, 3.6, 1.4] }
+        - { rektangel: [18.2, 16, 3.6, 1.4] }
+      vaggtjocklek: 0.4
+      byggnader:
+        - { namn: Flerbostadshus, rektangel: [5, 4, 30, 12], ny: true }
+      rum:
+        - { namn: Vardagsrum A, rektangel: [5.4, 4.4, 6.4, 4.5] }
+        - { namn: Kök A, rektangel: [11.9, 4.4, 6.0, 4.5] }
+        - { namn: Bad A, rektangel: [5.4, 9.0, 2.8, 2.1] }
+        - { namn: Hall A, rektangel: [8.3, 9.0, 9.6, 2.1] }
+        - { namn: Sovrum A, rektangel: [5.4, 11.2, 4.2, 4.4] }
+        - { namn: Sovrum A, rektangel: [9.7, 11.2, 2.6, 4.4] }
+        - { namn: Sovrum A, rektangel: [12.4, 11.2, 2.6, 4.4] }
+        - { namn: Trapphus och hiss, rektangel: [18.0, 4.4, 4.0, 6.7] }
+        - { namn: Rum och kök B, rektangel: [15.1, 11.2, 7.0, 4.4] }
+        - { namn: Bad B, rektangel: [22.2, 11.2, 2.7, 4.4] }
+        - { namn: Kök C, rektangel: [22.1, 4.4, 6.0, 4.5] }
+        - { namn: Vardagsrum C, rektangel: [28.2, 4.4, 6.4, 4.5] }
+        - { namn: Hall C, rektangel: [22.1, 9.0, 9.6, 2.1] }
+        - { namn: Bad C, rektangel: [31.8, 9.0, 2.8, 2.1] }
+        - { namn: Sovrum C, rektangel: [25.0, 11.2, 2.6, 4.4] }
+        - { namn: Sovrum C, rektangel: [27.7, 11.2, 2.6, 4.4] }
+        - { namn: Sovrum C, rektangel: [30.4, 11.2, 4.2, 4.4] }
+      dorrar:
+        - { position: [17.9, 9.4], vagg: vertikal, tjocklek: 0.1, bredd: 1.0, oppnas_mot: vaster }
+        - { position: [22.0, 9.4], vagg: vertikal, tjocklek: 0.1, bredd: 1.0, oppnas_mot: oster }
+        - { position: [19.0, 11.1], vagg: horisontell, tjocklek: 0.1, bredd: 1.0, oppnas_mot: soder }
+        - { position: [9.0, 8.9], vagg: horisontell, typ: oppning, tjocklek: 0.1, bredd: 1.4 }
+        - { position: [14.5, 8.9], vagg: horisontell, typ: oppning, tjocklek: 0.1, bredd: 1.2 }
+        - { position: [8.2, 9.3], vagg: vertikal, tjocklek: 0.1, bredd: 0.8, oppnas_mot: vaster }
+        - { position: [8.6, 11.1], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: soder }
+        - { position: [10.6, 11.1], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: soder }
+        - { position: [13.3, 11.1], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: soder }
+        - { position: [24.5, 8.9], vagg: horisontell, typ: oppning, tjocklek: 0.1, bredd: 1.2 }
+        - { position: [29.0, 8.9], vagg: horisontell, typ: oppning, tjocklek: 0.1, bredd: 1.4 }
+        - { position: [31.7, 9.3], vagg: vertikal, tjocklek: 0.1, bredd: 0.8, oppnas_mot: oster }
+        - { position: [25.8, 11.1], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: soder }
+        - { position: [28.5, 11.1], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: soder }
+        - { position: [30.8, 11.1], vagg: horisontell, tjocklek: 0.1, bredd: 0.8, oppnas_mot: soder }
+        - { position: [22.1, 12.5], vagg: vertikal, tjocklek: 0.1, bredd: 0.8, oppnas_mot: oster }
+        - { position: [6.0, 4.0], vagg: horisontell, bredd: 0.9, oppnas_mot: soder }
+        - { position: [32.6, 4.0], vagg: horisontell, bredd: 0.9, oppnas_mot: soder }
+        - { position: [19.0, 15.6], vagg: horisontell, bredd: 0.9, oppnas_mot: norr }
+      fonster:
+        - { position: [8.0, 4.0], vagg: horisontell, bredd: 1.6 }
+        - { position: [12.8, 4.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [15.8, 4.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [19.4, 4.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [22.8, 4.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [25.6, 4.0], vagg: horisontell, bredd: 1.2 }
+        - { position: [29.0, 4.0], vagg: horisontell, bredd: 1.6 }
+        - { position: [6.8, 15.6], vagg: horisontell, bredd: 1.2 }
+        - { position: [10.4, 15.6], vagg: horisontell, bredd: 1.0 }
+        - { position: [13.1, 15.6], vagg: horisontell, bredd: 1.0 }
+        - { position: [16.2, 15.6], vagg: horisontell, bredd: 1.6 }
+        - { position: [25.7, 15.6], vagg: horisontell, bredd: 1.0 }
+        - { position: [28.4, 15.6], vagg: horisontell, bredd: 1.0 }
+        - { position: [31.9, 15.6], vagg: horisontell, bredd: 1.2 }
+        - { position: [5.0, 6.0], vagg: vertikal, bredd: 1.2 }
+        - { position: [5.0, 12.8], vagg: vertikal, bredd: 1.2 }
+        - { position: [34.6, 6.0], vagg: vertikal, bredd: 1.2 }
+        - { position: [34.6, 12.8], vagg: vertikal, bredd: 1.2 }
+      ritningshuvud: { datum: 2026-02-09, ritad_av: Humlegården Arkitekter, ritningsnummer: A-02 }
+  - id: H5
+    typ: plankarta
+    titel: Detaljplan Dp 2019-03, plankarta 1:1000
+    fil: handlingar/plankarta.svg
+    inkom: 2026-02-16
+    parametrar:
+      skala: 1000
+      plan:
+        beteckning: Dp 2019-03
+        namn: Detaljplan för kvarteret Humlan m.fl.
+        laga_kraft: 2019-05-20
+        anmarkning: "Genomförandetiden pågår till 2029-05-20. Bestämmelsernas fulla lydelse, se planbestämmelserna."
+      omrade: [0, 0, 140, 88]
+      kvarter:
+        - namn: Humlan
+          rektangel: [0, 12, 140, 36]
+          anvandning: B
+          byggnadshojd: 13
+          byggnadsarea_procent: 35
+          vaningar: 4
+          bestammelser:
+            - { beteckning: m1, text: "Skydd mot trafikbuller, se planbestämmelserna" }
+            - { beteckning: n1, text: Minst 40 % genomsläpplig mark }
+          prickmark: [{ sida: norr, djup: 4 }]
+          fastigheter:
+            - { beteckning: "2", rektangel: [0, 12, 50, 36] }
+            - { beteckning: "3", rektangel: [50, 12, 40, 36], markerad: true }
+            - { beteckning: "4", rektangel: [90, 12, 50, 36] }
+        - namn: Humlan
+          rektangel: [0, 48, 140, 30]
+          anvandning: B
+          byggnadshojd: 7.5
+          fastigheter:
+            - { beteckning: "5", rektangel: [0, 48, 50, 30] }
+            - { beteckning: "6", rektangel: [50, 48, 40, 30] }
+            - { beteckning: "7", rektangel: [90, 48, 50, 30] }
+      allmanna_platser:
+        - { anvandning: GATA, namn: Humlegatan, rektangel: [0, 0, 140, 12] }
+        - { anvandning: PARK, namn: Humleparken, rektangel: [0, 78, 140, 10] }
+      ritningshuvud:
+        projekt: Utdrag ur detaljplan Dp 2019-03
+        ritningstyp: Plankarta
+        datum: 2026-02-16
+        ritad_av: Åkerslunda kommun
+  - id: H6
+    typ: planbestammelser
+    titel: Detaljplan Dp 2019-03, planbestämmelser och utdrag ur planbeskrivningen
+    fil: handlingar/planbestammelser.md
+    inkom: 2026-02-16
+    fakta:
+      anvandning: B
+      hogsta_byggnadshojd: 13.0
+      hogsta_antal_vaningar: 4
+      storsta_byggnadsarea_procent: 35
+      prickmark: "4 m mot Humlegatan"
+      m1: "minst hälften av bostadsrummen mot sida med högst 55 dBA ekvivalent ljudnivå; uteplats högst 50 dBA ekvivalent och 70 dBA maximal"
+      n1: "minst 40 % av fastighetsarean ska vara genomsläpplig"
+      parkeringstal_bil: 0.7
+      parkeringstal_cykel: 2.5
+      genomforandetid_till: 2029-05-20
+      gatukostnad_humlan_3_kr: 386000
+  - id: H7
+    typ: bullerutredning
+    titel: Trafikbullerutredning
+    fil: handlingar/bullerutredning.md
+    inkom: 2026-02-16
+    fakta:
+      gatufasad_ekv_dba: 63
+      gardsfasad_ekv_dba: 48
+      gavlar_ekv_dba: "56–59"
+      uteplats_ekv_dba: 47
+      uteplats_max_dba: 64
+  - id: H8
+    typ: ovrigt
+    titel: PM dagvatten och markplanering
+    fil: handlingar/pm-dagvatten.md
+    inkom: 2026-02-16
+    fakta:
+      hardgjord_yta_kvm: 760
+      genomslapplig_yta_kvm: 680
+      genomslapplig_andel_procent: 47.2
+      fordrojning_m3: 18
+      fyllning_gard_m: 0.6
+  - id: H9
+    typ: remissvar
+    titel: Yttrande från räddningstjänsten
+    fil: handlingar/remissvar-raddningstjansten.md
+    dold_tills: E1
+  - id: H10
+    typ: remissvar
+    titel: Yttrande från trafikenheten
+    fil: handlingar/remissvar-trafikenheten.md
+    dold_tills: E1
+  - id: H11
+    typ: remissvar
+    titel: Yttrande från Åkerslunda Vatten AB
+    fil: handlingar/remissvar-va.md
+    dold_tills: E1
+  - id: H12
+    typ: grannyttrande
+    titel: Yttrande från Brf Getingen, ägare till Getingen 2
+    fil: handlingar/yttrande-getingen-2.md
+    dold_tills: E1
+    fakta: { fastighet: Getingen 2 }
+  - id: H13
+    typ: overklagande
+    titel: Överklagande från Brf Getingen
+    fil: handlingar/overklagande-getingen-2.md
+    dold_tills: E2
+    fakta: { fastighet: Getingen 2 }
+  - id: H14
+    typ: beslut
+    titel: Länsstyrelsens beslut
+    fil: handlingar/lansstyrelsens-beslut.md
+    dold_tills: E3
+
+steg:
+  - id: S1
+    typ: checklista
+    rubrik: Är ansökan komplett?
+    instruktion: >
+      Gå igenom handlingarna. Markera vad som finns. Skilj på det som behövs för
+      lovprövningen och det som lämnas in till det tekniska samrådet.
+    poster:
+      - { text: Ifylld och undertecknad ansökan, finns: true }
+      - { text: "Situationsplan med byggnader, prickmark, utfart, parkering och friyta", finns: true }
+      - { text: Fasadritningar, finns: true }
+      - { text: Planritningar, finns: true }
+      - { text: "Marknivåer, gatans nivå och takets höjd", finns: true, kommentar: "Behövs för att räkna byggnadshöjden. Står i ansökan, punkt 2." }
+      - { text: Bullerutredning, finns: true, kommentar: "Behövs för att visa att planbestämmelsen m1 följs." }
+      - { text: Redovisning av dagvatten och genomsläpplig mark, finns: true, kommentar: "Behövs för planbestämmelsen n1." }
+      - { text: Uppgift om kontrollansvarig, finns: true, kommentar: "Ett flerbostadshus kräver kontrollansvarig (10 kap. 9 § PBL), och ansökan ska ange vem som föreslås (9 kap. 86 § 3 b)." }
+      - { text: Brandskyddsbeskrivning, finns: false, kommentar: "Lämnas till det tekniska samrådet (10 kap. 18 §)." }
+      - { text: Förslag till kontrollplan, finns: false, kommentar: "Lämnas till det tekniska samrådet (10 kap. 18 §)." }
+    forklaring: >
+      Ansökan innehåller det som behövs för lovprövningen (9 kap. 86 §), så något
+      föreläggande om komplettering behövs inte (91 §). Tioveckorsfristen räknas därför från
+      ansökningsdagen den 16 februari 2026 och löper ut den 27 april 2026 (9 kap. 99 § första
+      stycket 1). Sökanden ska skriftligen informeras om fristen, om att avgiften reduceras om
+      den överskrids och om möjligheten att överklaga (100 § 1). Brandskyddsbeskrivning och
+      kontrollplan behövs först inför startbeskedet.
+    lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 91 §, PBL 9 kap. 99 §, PBL 9 kap. 100 §, PBL 10 kap. 9 §, PBL 10 kap. 18 §]
+    tid_framat_dagar: 2
+
+  - id: S2
+    typ: fraga
+    rubrik: Vad kräver lov?
+    instruktion: Läs ansökan, situationsplanen och PM om dagvatten och markplanering.
+    fragetyp: flersvar
+    fraga: >
+      Ansökan omfattar ett flerbostadshus, en parkering med nio platser och körbana, ett
+      miljöhus med cykelförråd på 40 m² och en uppfyllnad av gården med 0,6 m. Vilka
+      påståenden stämmer?
+    alternativ:
+      - text: Flerbostadshuset kräver bygglov för nybyggnad (9 kap. 3 §).
+        ratt: true
+      - text: Parkeringen kräver bygglov, eftersom den tillsammans med körbanan upptar mer än 50 m² inom detaljplan, och prövas i samma ärende (9 kap. 22 §).
+        ratt: true
+      - text: Miljöhuset kräver bygglov, eftersom en lovbefriad komplementbyggnad inom detaljplan får vara högst 30 m² (9 kap. 4 §).
+        ratt: true
+      - text: Uppfyllnaden av gården kräver ett separat marklov, eftersom höjdläget ändras med mer än 0,5 m.
+      - text: Komplementbyggnader kan aldrig vara lovbefriade vid ett flerbostadshus.
+      - text: Hissen kräver en separat anmälan enligt 6 kap. 1 § 4 PBF.
+    forklaring: >
+      Nybyggnad kräver bygglov (9 kap. 3 §), och parkeringsplatser större än 50 m² inom
+      detaljplan också (22 §). Sedan 2025-12-01 kan en bygglovsbefriad komplementbyggnad
+      byggas vid alla slags byggnader, inte bara vid en- och tvåbostadshus som friggeboden
+      och attefallshuset före 2025-12-01. Men den får inom detaljplan vara högst 30 m² (4 §),
+      så miljöhuset på 40 m² kräver lov. Fyllning som ändrar höjdläget mer än 0,5 m kräver
+      marklov inom detaljplan (47 §), men inte när markåtgärden omfattas av ett bygglov
+      (50 §), som här. Gårdens höjder och planbestämmelsen om genomsläpplig mark prövas alltså
+      i bygglovet. Anmälan enligt 6 kap. 1 § PBF gäller bara åtgärder som inte kräver lov;
+      hissen ingår i nybyggnaden och kontrolleras genom startbeskedet och kontrollplanen.
+    lagrum: [PBL 9 kap. 3 §, PBL 9 kap. 4 §, PBL 9 kap. 22 §, PBL 9 kap. 47 §, PBL 9 kap. 50 §, PBF 6 kap. 1 §]
+    tid_framat_dagar: 1
+
+  - id: S3
+    typ: berakning
+    rubrik: Planenlighet i siffror
+    instruktion: >
+      Använd situationsplanen, fasaderna, ansökan, PM om dagvatten och planbestämmelserna.
+      Avrunda till en decimal.
+    fragor:
+      - { id: byggnadsarea_procent, text: "Byggnadsarea i procent av fastighetsarean (huvudbyggnad och miljöhus)", svar: 27.8, tolerans: 1.5, enhet: "%" }
+      - { id: byggnadshojd, text: "Byggnadshöjd enligt 1 kap. 3 § PBF (m)", svar: 12.8, tolerans: 0.1, enhet: m }
+      - { id: vaningar, text: "Antal våningar enligt 1 kap. 4 § PBF", svar: 4, tolerans: 0 }
+      - { id: balkong_prickmark, text: "Hur långt in över prickmarken kragar balkongerna mot Humlegatan ut (m)?", svar: 1.4, tolerans: 0.1, enhet: m }
+      - { id: parkering, text: "Antal bilplatser enligt planbeskrivningens parkeringstal", svar: 9, tolerans: 0 }
+      - { id: genomslapplig, text: "Andel genomsläpplig mark (%)", svar: 47.2, tolerans: 1, enhet: "%" }
+    forklaring: >
+      Byggnadsarean är 30 × 12 = 360 m² för huset och 10 × 4 = 40 m² för miljöhuset, 400 m²
+      av tomtens 40 × 36 = 1 440 m², alltså 27,8 %. Planen tillåter 35 %; även om du räknar in
+      de utkragande balkongerna ryms det. Byggnadshöjden räknas från den allmänna platsens
+      medelnivå eftersom huset ligger mindre än sex meter från Humlegatan (1 kap. 3 § PBF):
+      +37,0 − 24,2 = 12,8 m. Från marken hade det blivit 12,4 m, som fasadritningen visar.
+      Planen tillåter 13,0 m. Huset har fyra våningar utan vind eller källare som räknas som
+      våning (1 kap. 4 § PBF), och planen tillåter IV. Huset står precis i prickmarkens gräns,
+      fyra meter från gatan, men balkongerna på plan 2–4 kragar ut 1,4 m över prickmarken. Det
+      är planens enda avvikelse. Parkeringstalet 0,7 × 12 = 8,4 avrundas uppåt till 9 platser,
+      och ansökan har 9. Hårdgjord yta är 760 m², så 680 m² eller 47,2 % är genomsläpplig;
+      planen kräver minst 40 %.
+    lagrum: [PBF 1 kap. 3 §, PBF 1 kap. 4 §, PBL 9 kap. 56 §, PBL 8 kap. 9 §]
+    tid_framat_dagar: 1
+
+  - id: S4
+    typ: fraga
+    rubrik: Balkongerna över prickmarken
+    fragetyp: flerval
+    fraga: Balkongerna mot Humlegatan kragar ut 1,4 m över prickmarken på plan 2–4. Hur ska det bedömas?
+    alternativ:
+      - text: >-
+          Balkongerna avviker från planen, eftersom prickmarken gäller även utkragande delar.
+          Avvikelsen kan godtas som liten och förenlig med planens syfte, men grannarna ska
+          underrättas och få yttra sig först.
+        ratt: true
+      - text: Balkonger är inte byggnadsverk, så prickmarken gäller inte för dem.
+      - text: Avvikelser kan inte godtas så länge planens genomförandetid pågår.
+      - text: Vid nybyggnad godtas aldrig avvikelser, eftersom huset kan ritas om så att det följer planen.
+    forklaring: >
+      Mark som inte får förses med byggnadsverk omfattar också utrymmet ovanför marken, så
+      balkonger som kragar ut över prickmarken avviker från planen. Lov kan ändå ges om
+      avvikelsen är förenlig med planens syfte och liten (9 kap. 60 § 1). Prickmarken ska
+      enligt planbeskrivningen ge förgårdsmark för träd och grönska mot gatan. Balkongerna
+      sitter 3,4 m upp, är 1,4 m djupa, finns bara på två ställen per våning och hindrar inte
+      planteringar på marken under. Avvikelsen medför ingen betydande miljöpåverkan och
+      begränsar ingen rättighet (62 §), och inga tidigare avvikelser har godtagits (64 §).
+      60 § kan tillämpas även under genomförandetiden; det är 61 § som kräver att den har gått
+      ut. Vid nybyggnad finns större möjlighet att anpassa huset efter planen, och det vägs in
+      i bedömningen, men det utesluter inte en liten avvikelse. Eftersom åtgärden avviker från
+      planen ska grannarna underrättas (94 § första stycket 1).
+    lagrum: [PBL 9 kap. 56 §, PBL 9 kap. 60 §, PBL 9 kap. 61 §, PBL 9 kap. 62 §, PBL 9 kap. 64 §, PBL 9 kap. 94 §]
+
+  - id: S5
+    typ: fraga
+    rubrik: Buller från Humlegatan
+    instruktion: Läs bullerutredningen och planbestämmelsen m1.
+    fragetyp: flerval
+    fraga: Humlegatan ger 63 dBA ekvivalent ljudnivå vid gatufasaden. Hur hanteras bullret i bygglovsprövningen?
+    alternativ:
+      - text: >-
+          Planbestämmelsen m1 ska följas, och bullerutredningen visar att den gör det: i varje
+          lägenhet vetter minst hälften av bostadsrummen mot gården, där 55 dBA inte
+          överskrids, och den gemensamma uteplatsen klarar 50 och 70 dBA. Beslutet behöver
+          inte innehålla bullervärden enligt 9 kap. 105 § andra stycket, men värdena bör
+          redovisas i skälen.
+        ratt: true
+      - text: Beslutet måste innehålla beräknade bullervärden enligt 9 kap. 105 § andra stycket, annars är det felaktigt.
+      - text: Lov kan inte ges, eftersom 60 dBA överskrids vid gatufasaden.
+      - text: Buller prövas inte alls i bygglov inom detaljplan.
+    forklaring: >
+      Bostäder ska lokaliseras, placeras och utformas så att olägenheter från omgivningsbuller
+      förebyggs (2 kap. 6 a § PBL). Inom detaljplan görs den bedömningen i planläggningen:
+      planbeskrivningen redovisar bullervärdena (4 kap. 33 a §), och planen har en bestämmelse
+      om skydd mot störningar (4 kap. 12 §). I bygglovet prövas att åtgärden inte strider mot
+      den bestämmelsen (9 kap. 56 § första stycket 2). Kravet på att beslutet ska innehålla
+      beräknade bullervärden i 9 kap. 105 § andra stycket gäller bara bostadsbyggnader
+      utanför detaljplan. Att 60 dBA överskrids vid gatufasaden hindrar inte lov: enligt 4 §
+      förordningen (2015:216) om trafikbuller vid bostadsbyggnader räcker det då att minst
+      hälften av bostadsrummen vetter mot en sida där 55 dBA inte överskrids, och det är
+      vad m1 kräver. Beräkningen ska ta hänsyn till framtida trafik (8 § samma förordning),
+      och utredningen räknar med trafiken år 2040.
+    lagrum: [PBL 2 kap. 6 a §, PBL 4 kap. 12 §, PBL 4 kap. 33 a §, PBL 9 kap. 56 §, PBL 9 kap. 105 §]
+
+  - id: S6
+    typ: fraga
+    rubrik: Remisser
+    fragetyp: flersvar
+    fraga: Vilka ska få ansökan på remiss?
+    alternativ:
+      - text: Räddningstjänsten, om utrymning, insatsväg och brandvatten.
+        ratt: true
+      - text: Kommunens trafikenhet, om utfart, sikt, parkering och cykelparkering.
+        ratt: true
+      - text: Åkerslunda Vatten AB som VA-huvudman, om förbindelsepunkt och dagvatten.
+        ratt: true
+      - text: Trafikverket, eftersom huset ligger vid en trafikerad gata.
+      - text: Länsstyrelsen, eftersom huset har fyra våningar.
+      - text: Brf Getingen, eftersom föreningen äger huset mitt emot.
+    forklaring: >
+      Nämnden ska se till att ärendet blir utrett och kan begära yttranden från andra
+      myndigheter och organ (23 och 26 §§ förvaltningslagen). Räddningstjänsten bedömer
+      möjligheten att utrymma med höjdfordon och framkomligheten. Trafikenheten är
+      väghållare för Humlegatan och bedömer utfarten och parkeringen mot 8 kap. 9 § PBL.
+      VA-huvudmannen anger förbindelsepunkt och krav på dagvattenhantering. Humlegatan är en
+      kommunal gata, så Trafikverket berörs inte, och länsstyrelsen har ingen roll när inga
+      riksintressen eller strandskydd berörs. Grannar hörs inte genom remiss utan genom
+      underrättelse enligt 9 kap. 94–96 §§.
+    lagrum: [FL 23 §, FL 26 §, PBL 8 kap. 9 §]
+    tid_framat_dagar: 3
+
+  - id: S7
+    typ: urval
+    rubrik: Vilka ska underrättas?
+    instruktion: >
+      Balkongerna avviker från planen. Använd situationsplanen och plankartan och välj vilka
+      som ska få underrättelsen.
+    alternativ:
+      - { text: "Humlan 2, väster (Ahmed och Sara Karimi)", ratt: true }
+      - { text: "Humlan 4, öster (Åkerslunda Bostäder AB)", ratt: true }
+      - { text: "Humlan 6, söder (Gunnar Holmberg)", ratt: true }
+      - { text: "Getingen 2, norr om Humlegatan (Bostadsrättsföreningen Getingen)", ratt: true, kommentar: "Skiljs från Humlan 3 endast av gatan (9 kap. 96 § första stycket 1)." }
+      - { text: "Åkerslunda 3:1, Humlegatan (Åkerslunda kommun)", ratt: true, kommentar: "Gatufastigheten gränsar till tomten; kommunen är ägare." }
+      - { text: "Getingen 3, snett över gatan i nordost", ratt: false, kommentar: "Gränsar inte till Humlan 3 och ligger inte mitt emot den." }
+      - { text: "Var och en av bostadsrättshavarna i Brf Getingen", ratt: false, kommentar: "Underrättelsen går till ägaren, föreningen. Bostadsrättshavare och hyresgäster underrättas inte längre." }
+    forklaring: >
+      Underrättelse krävs eftersom åtgärden avviker från detaljplanen (9 kap. 94 § första
+      stycket 1). Meddelandet ska innehålla ansökans huvudsakliga innehåll, var den hålls
+      tillgänglig och hur, till vem och när synpunkter kan lämnas (95 §). Det skickas till
+      ägare och innehavare av särskild rätt till fastigheter som gränsar till Humlan 3 eller
+      skiljs från den endast av en gata, och kungörs på kommunens anslagstavla (96 §).
+      Underrättelsen skickas den 23 februari med svar senast den 9 mars.
+    lagrum: [PBL 9 kap. 94 §, PBL 9 kap. 95 §, PBL 9 kap. 96 §]
+    tid_framat_dagar: 14
+
+  - id: S8
+    typ: skrivelse
+    rubrik: Kommunicera underlaget
+    instruktion: >
+      Remissvaren och grannyttrandet har kommit in. Skriv kommuniceringsbrevet till
+      byggherren innan du beslutar.
+    bedomningspunkter:
+      - Riktas till Humlegården Bygg AB, som är både sökande och fastighetsägare
+      - Räknar upp underlaget av betydelse som tillkommit, de tre remissvaren och yttrandet från Brf Getingen, och bifogar det
+      - Berättar att nämnden avser att förena lovet med villkor om gatukostnader enligt 9 kap. 82 § och varför
+      - Anger en bestämd tid för att yttra sig och att nämnden annars kan besluta på befintligt underlag
+      - Skriver inte som om beslutet redan var fattat
+      - Hänvisar till 9 kap. 98 § PBL
+    modelltext: handlingar/modell-kommunicering.md
+    forklaring: >
+      Före beslut om lov ska sökanden och fastighetsägaren få ta del av allt underlag av
+      betydelse och yttra sig inom en bestämd tid, om det inte är uppenbart obehövligt
+      (9 kap. 98 § PBL). Ett villkor som påverkar när byggherren får börja bygga är sådant som
+      byggherren ska få veta i förväg.
+    lagrum: [PBL 9 kap. 98 §, FL 25 §]
+    tid_framat_dagar: 11
+
+  - id: S9
+    typ: beslut
+    rubrik: Fatta beslut
+    instruktion: >
+      Skriv beslutet. Tänk på avvikelsen, bullret, tomtkraven, villkoret om gatukostnader,
+      upplysningarna i 9 kap. 105 § och vem som ska delges och vem som ska få meddelande.
+    forvantat_beslut: bevilja_med_villkor
+    godtagbara_utfall:
+      - utfall: bevilja
+        motivering: >-
+          Villkoret enligt 9 kap. 82 § är en möjlighet, inte en skyldighet. Utan villkoret kan
+          kommunen ändå kräva ersättningen när gatan är färdig (6 kap. 34 och 35 §§ PBL), men
+          kommunen har då ingen säkerhet om betalningen.
+    lagrum: [PBL 9 kap. 56 §, PBL 9 kap. 60 §]
+    bedomningspunkter:
+      - Beviljar bygglov för nybyggnad av flerbostadshus med 12 lägenheter, parkering och miljöhus med stöd av 9 kap. 56 § och, för balkongerna över prickmarken, 60 § PBL
+      - Redovisar planenligheten med siffror, byggnadshöjd 12,8 m (13,0), fyra våningar (IV), byggnadsarea 27,8 % (35 %), genomsläpplig mark 47 % (40 %)
+      - Motiverar varför balkongerna är en liten avvikelse förenlig med planens syfte, och konstaterar att 62 § inte hindrar
+      - Redovisar bullervärdena och att planbestämmelsen m1 följs, utan att påstå att 9 kap. 105 § andra stycket gäller inom detaljplan
+      - Prövar tomtkraven i 8 kap. 9 §, parkering, friyta för lek och utevistelse, tillgänglig parkering och angöring
+      - Bestämmer med stöd av 9 kap. 82 § att byggnadsarbetena inte får påbörjas förrän fastighetsägaren betalat gatukostnadsersättningen eller ställt säkerhet för den
+      - Bemöter Brf Getingens invändningar sakligt, och konstaterar att höjden och skuggningen följer av detaljplanen
+      - Har upplysningarna i 105 §, giltighetstid, att byggbedömare inte används, kontrollansvarig Annika Vall, startbesked och tekniskt samråd (10 kap. 3 och 14 §§), att startbeskedet anger när arbetena får påbörjas med hänsyn till villkoret (10 kap. 24 § 6) och risken med att påbörja innan beslutet fått laga kraft
+      - Avgiften 68 400 kr redovisas (107 §) och reduceras inte, eftersom beslutet fattas inom tio veckor från ansökningsdagen
+      - Överklagandehänvisning med tre veckor från delgivningen och, för den som inte delges, från en vecka efter kungörelsen (13 kap. 16 §)
+      - Delges Humlegården Bygg AB och Brf Getingen, som lämnat synpunkter som inte tillgodosetts (108 §); kungörs på anslagstavlan (109 §); meddelande till ägarna av Humlan 2, 4 och 6 och Åkerslunda 3:1 (110 §)
+    modellbeslut: handlingar/modell-beslut.md
+
+handelser:
+  - id: E1
+    namn: Remissvar och grannyttrande
+    utlosare: { efter_steg: S7 }
+    effekt:
+      tid_framat_dagar: 3
+      visa_handlingar: [H9, H10, H11, H12]
+      meddelande: >
+        Svarstiden för underrättelsen har gått ut. Räddningstjänsten, trafikenheten och
+        Åkerslunda Vatten AB har svarat utan erinran men med upplysningar. Brf Getingen, som
+        äger flerbostadshuset mitt emot på Humlegatan, motsätter sig bygget.
+      nytt_steg:
+        id: S7b
+        typ: fraga
+        rubrik: Ta ställning till Brf Getingens yttrande
+        fragetyp: oppen
+        fraga: >
+          Föreningen anför skuggning, insyn från balkongerna, för få parkeringsplatser och mer
+          trafik. Hur bedömer du varje invändning?
+        bedomningspunkter:
+          - Konstaterar att husets höjd och placering följer detaljplanen, och att skuggningen därför är en följd av planen och inte kan prövas på nytt i bygglovet
+          - Bedömer insynen från balkongerna med hänsyn till avståndet (cirka 22 m mellan fasaderna, över en gata) och kommer fram till att den inte är en betydande olägenhet (2 kap. 9 §)
+          - Konstaterar att antalet bilplatser följer planbeskrivningens parkeringstal och att tomten ska ha parkering i skälig utsträckning, med friyta i första hand (8 kap. 9 §)
+          - Bedömer trafiken från nio platser som marginell och hänvisar till trafikenhetens yttrande
+          - Noterar att föreningens synpunkter inte tillgodoses och att föreningen därför ska delges beslutet (9 kap. 108 §)
+        modellsvar: >
+          Huset håller sig inom planens byggnadshöjd, våningsantal och byggrätt. Att det
+          skuggar Getingen 2 under delar av vinterhalvåret följer av planen, som prövade
+          bebyggelsens höjd och placering, och den frågan kan inte prövas på nytt i bygglovet
+          (13 kap. 2 § 7 PBL). Balkongerna är den enda avvikelsen. Avståndet mellan fasaderna är
+          cirka 22 meter över en gata, vilket är normalt i en stadsmiljö, och insynen från sex
+          balkonger är inte en betydande olägenhet (2 kap. 9 §). Parkeringen följer
+          planbeskrivningens tal på 0,7 platser per lägenhet, och 8 kap. 9 § kräver parkering i
+          skälig utsträckning, med friyta i första hand. Trafiken från nio platser är marginell
+          på en gata med cirka 4 800 fordon per dygn, och trafikenheten har inga invändningar.
+          Föreningens synpunkter tillgodoses inte, så föreningen ska delges beslutet (108 §).
+        lagrum: [PBL 2 kap. 9 §, PBL 8 kap. 9 §, PBL 13 kap. 2 §, PBL 9 kap. 108 §]
+
+  - id: E2
+    namn: Brf Getingen överklagar
+    utlosare: { efter_steg: S9, vid_beslut: bevilja }
+    effekt:
+      # Beslutet delges föreningen tre dagar efter beslutet; överklagandet kommer in
+      # 19 dagar senare, 22 dagar efter beslutet (på huvudvägen en tisdag), inom tre veckor
+      # från delgivningen.
+      tid_framat_dagar: 22
+      visa_handlingar: [H13]
+      meddelande: >
+        Brf Getingen delgavs beslutet den {{beslutsdatum+3}}. I dag har föreningens
+        överklagande kommit in till nämnden. Du har konstaterat att det kommit in i rätt tid
+        och överlämnat det till länsstyrelsen, som har förelagt nämnden att yttra sig inom
+        tre veckor.
+      nytt_steg:
+        id: S10
+        typ: skrivelse
+        rubrik: Yttrande till länsstyrelsen
+        instruktion: >
+          Kontrollera först själv att överklagandet kommit in i rätt tid. Skriv sedan nämndens
+          yttrande. Ta ställning till vad nämnden yrkar och bemöt varje grund föreningen anför.
+        bedomningspunkter:
+          - "Konstaterar att överklagandet kommit in i rätt tid: föreningen delgavs den {{beslutsdatum+3}} och tiden gick ut den {{beslutsdatum+24|vardag}} (44 och 45 §§ förvaltningslagen)"
+          - Anger att nämnden vidhåller beslutet och anser att överklagandet ska avslås
+          - Bemöter grunden om höjd och skuggning, en fråga som är avgjord i detaljplanen och som inte kan prövas (13 kap. 2 § 7 PBL)
+          - Bemöter grunden om att avvikelsen inte är liten, med syftet med prickmarken och balkongernas läge och storlek, och förklarar varför MÖD 2018:4 om byggnadsarea inte är jämförbar
+          - Bemöter grunderna om parkering och trafik med 8 kap. 9 § och trafikenhetens yttrande
+          - Redovisar handläggningen kort med datum, underrättelse, kommunicering och delgivning, och hänvisar till handlingarna
+          - Tar inte ställning till föreningens klagorätt som om nämnden avgjorde den; det gör länsstyrelsen
+        modelltext: handlingar/modell-yttrande.md
+        lagrum: [PBL 13 kap. 3 §, PBL 13 kap. 2 §, PBL 9 kap. 60 §, FL 44 §, FL 45 §, FL 46 §]
+
+  - id: E3
+    namn: Länsstyrelsens beslut
+    utlosare: { efter_steg: S10 }
+    effekt:
+      tid_framat_dagar: 72 # H14 är daterat två dagar före; på huvudvägen en tisdag
+      visa_handlingar: [H14]
+      meddelande: >
+        Länsstyrelsens beslut har kommit in. Länsstyrelsen avvisar överklagandet i den del det
+        gäller husets höjd och skuggningen och avslår det i övrigt. Brf Getingens ordförande
+        ringer och frågar om det går att gå vidare.
+      nytt_steg:
+        id: S11
+        typ: fraga
+        rubrik: Kan länsstyrelsens beslut överklagas?
+        fragetyp: flersvar
+        fraga: Vilka påståenden om länsstyrelsens beslut stämmer?
+        alternativ:
+          - text: Brf Getingen kan överklaga beslutet till mark- och miljödomstolen, eftersom det har gått föreningen emot.
+            ratt: true
+          - text: Överklagandet ska skickas till länsstyrelsen och ha kommit in inom tre veckor från den dag föreningen fick del av beslutet.
+            ratt: true
+          - text: Föreningen kan också överklaga avvisningen, men domstolen prövar då bara om länsstyrelsen gjorde rätt som avvisade den delen.
+            ratt: true
+          - text: Humlegården Bygg AB kan överklaga för att få lovet bekräftat i domstol.
+          - text: Bygg- och miljönämnden kan överklaga, eftersom nämnden är part i ärendet.
+          - text: Länsstyrelsen är sista instans i ärenden om bygglov.
+          - text: Föreningen kan överklaga direkt till Mark- och miljööverdomstolen.
+        forklaring: >
+          Länsstyrelsens beslut enligt PBL får överklagas till mark- och miljödomstolen
+          (13 kap. 6 § PBL). Den som beslutet angår får överklaga om det har gått honom eller
+          henne emot (13 kap. 8 § PBL och 42 § förvaltningslagen), alltså föreningen, inte
+          byggherren eller nämnden, vars beslut står fast. Överklagandet ges in till
+          länsstyrelsen inom tre veckor från den dag föreningen fick del av beslutet (43 och
+          44 §§ förvaltningslagen). I domstolen blir nämnden föreningens motpart (5 kap. 2 §
+          lagen (2010:921) om mark- och miljödomstolar). Mark- och miljödomstolens avgörande
+          kan i sin tur överklagas till Mark- och miljööverdomstolen, som kräver
+          prövningstillstånd, och dess avgörande får som huvudregel inte överklagas (5 kap. 5 §
+          samma lag). Lovet gäller omedelbart (9 kap. 114 § PBL), så byggherren kan börja bygga
+          efter startbesked, men på egen risk så länge beslutet inte fått laga kraft (105 § 5).
+        lagrum: [PBL 13 kap. 6 §, PBL 13 kap. 8 §, FL 42 §, FL 43 §, FL 44 §, PBL 9 kap. 114 §]
+
+facit:
+  sammanfattning: >
+    Huset följer planen i höjd, våningar, byggnadsarea, buller och genomsläpplighet. Den enda
+    avvikelsen, balkonger som kragar ut 1,4 m över prickmarken mot gatan, är liten och förenlig
+    med planens syfte (9 kap. 60 § 1). Grannarna underrättas och Brf Getingen invänder.
+    Efter remisser och kommunicering ges lov med villkor om gatukostnader (82 §), med
+    upplysningar enligt 105 §, delgivning av byggherren och föreningen, kungörelse och
+    meddelande till övriga grannar. Föreningen överklagar i rätt tid, nämnden yttrar sig och
+    länsstyrelsen avvisar delen om höjden och avslår i övrigt. Föreningen kan gå vidare till
+    mark- och miljödomstolen.
+  vanliga_fel:
+    - Att räkna byggnadshöjden från marken invid huset i stället för från gatans medelnivå när huset ligger mindre än sex meter från allmän plats (1 kap. 3 § PBF)
+    - Att missa att prickmarken gäller även utkragande balkonger, eller att godta avvikelsen utan att underrätta grannarna
+    - Att kräva bullervärden i beslutet med stöd av 9 kap. 105 § andra stycket, som bara gäller utanför detaljplan, i stället för att pröva planbestämmelsen m1
+    - Att kräva separat marklov för gårdens uppfyllnad, trots att markåtgärden ingår i bygglovet (9 kap. 50 §)
+    - Att pröva skuggningen på nytt trots att höjden följer planen
+    - Att glömma att den granne som lämnat synpunkter som inte tillgodosetts ska delges, inte bara få meddelande (9 kap. 108 §)
+    - Att tro att nämnden eller byggherren kan överklaga länsstyrelsens beslut, eller att länsstyrelsen är sista instans
+  modellbeslut: handlingar/modell-beslut.md

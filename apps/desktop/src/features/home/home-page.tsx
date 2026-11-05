@@ -374,8 +374,9 @@ export function HomePage() {
                 ))}
                 <p className="text-xs text-muted">
                   Behärskning räknas på repetitionsdata, inte bara antal rätt: en fråga räknas fullt
-                  först när du kan den flera veckor framåt. Övriga moduler fylls på i kommande
-                  versioner.
+                  först när du kan den flera veckor framåt.
+                  {modulesWithQuestions.length < overview.modules.length &&
+                    ' Övriga moduler fylls på i kommande versioner.'}
                 </p>
               </CardContent>
             </Card>

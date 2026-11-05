@@ -1,0 +1,1076 @@
+# Frågor för modul 01-forvaltningsratt. En fil per modul. Valideras med zod (pnpm content:check).
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
+# Källor (hämtade från riksdagen.se 2026-11-05 och sparade i docs/rattslage/):
+#   fl.txt (FL 2017:900, ändrad t.o.m. SFS 2025:582), kl-utdrag.txt (KL 2017:725, t.o.m. SFS 2026:836),
+#   tf-2-kap.txt (TF 2 kap.), osl-utdrag.txt (OSL 2009:400, t.o.m. SFS 2026:1648),
+#   pbl-12-kap.txt och pbl-9-kap.txt (PBL t.o.m. SFS 2026:1583).
+# Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
+modul: 01-forvaltningsratt
+fragor:
+  # --- Service, tillgänglighet och tolk ------------------------------------------------
+
+  - id: forv-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En privatperson ringer bygglovsenheten i Åkerslunda och undrar vilka handlingar hon
+      behöver skicka in för att bygga ut sitt fritidshus. Vad kräver serviceskyldigheten i
+      förvaltningslagen?
+    alternativ:
+      - text: Att handläggaren ger henne den hjälp hon behöver för att ta till vara sina intressen, i rimlig omfattning och utan onödigt dröjsmål.
+        ratt: true
+      - text: Att handläggaren hänvisar henne till kommunens webbplats, eftersom myndigheten inte får ge råd i enskilda ärenden.
+      - text: Att handläggaren bara svarar om hon först lämnar in en skriftlig fråga.
+      - text: Att handläggaren fyller i ansökan åt henne så att den blir komplett.
+    forklaring: >
+      Enligt 6 § FL ska myndigheten se till att kontakterna med enskilda blir smidiga och enkla
+      och lämna den hjälp som behövs för att den enskilde ska kunna ta till vara sina
+      intressen. Hjälpen anpassas efter frågans art, personens behov och myndighetens
+      verksamhet. Byggnadsnämnden har dessutom en egen skyldighet att lämna råd och
+      upplysningar (12 kap. 2 § 4 PBL). Att fylla i ansökan åt sökanden går längre än service och
+      kan ifrågasätta myndighetens opartiskhet.
+    lagrum:
+      - FL 6 §
+      - PBL 12 kap. 2 §
+    taggar: [service, radgivning, fl]
+
+  - id: forv-002
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande som nyligen flyttat till Sverige behärskar inte svenska. Han ska yttra sig över
+      ett grannyttrande inför beslutet om bygglov. Vad gäller?
+    alternativ:
+      - text: Myndigheten ska använda tolk och vid behov översätta handlingar om det behövs för att han ska kunna ta till vara sin rätt.
+        ratt: true
+      - text: Sökanden ska själv ordna och betala tolk, annars kan ärendet avvisas.
+      - text: Myndigheten får använda tolk bara om sökanden har ett ombud.
+      - text: Tolk behövs inte eftersom handläggningen alltid ska vara skriftlig.
+    forklaring: >
+      13 § FL säger att myndigheten ska använda tolk och se till att handlingar översätts när
+      det behövs för att den enskilde ska kunna ta till vara sin rätt. Samma skyldighet gäller
+      vid kontakt med den som har en funktionsnedsättning som allvarligt begränsar förmågan att
+      se, höra eller tala. Bedömningen görs utifrån vad ärendet kräver, och ett kommuniceringsbrev
+      inför beslut är typiskt ett sådant läge.
+    lagrum:
+      - FL 13 §
+    taggar: [tolk, service, fl]
+
+  # --- Partsinsyn, utredning och kommunicering -------------------------------------------
+
+  - id: forv-004
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vad är skillnaden mellan sökandens partsinsyn enligt 10 § FL och den rätt som alla har att
+      ta del av allmänna handlingar enligt tryckfrihetsförordningen?
+    alternativ:
+      - text: Partsinsynen gäller allt material som tillförts ärendet och bryter i princip sekretess, med begränsningarna i 10 kap. 3 § OSL.
+        ratt: true
+      - text: Partsinsynen gäller bara handlingar som myndigheten själv har upprättat.
+      - text: Partsinsynen gäller först när beslutet har fattats.
+      - text: Det finns ingen skillnad, båda reglerna ger samma rätt.
+    forklaring: >
+      Var och en får ta del av allmänna handlingar som inte är sekretessbelagda (2 kap. 1 § TF).
+      Den som är part har enligt 10 § FL rätt att ta del av allt material som tillförts ärendet.
+      Sekretess hindrar inte partsinsyn, men en uppgift får undanhållas i den utsträckning det
+      av hänsyn till allmänt eller enskilt intresse är av synnerlig vikt att den inte röjs
+      (10 kap. 3 § OSL). Även då ska parten på annat sätt få veta vad materialet innehåller om det
+      behövs för att kunna ta till vara sin rätt.
+    lagrum:
+      - FL 10 §
+      - OSL 10 kap. 3 §
+      - TF 2 kap. 1 §
+    taggar: [partsinsyn, sekretess, allman_handling]
+
+  - id: forv-005
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vem har ansvaret för att ett bygglovsärende blir tillräckligt utrett?
+    alternativ:
+      - text: Byggnadsnämnden, medan sökanden ska medverka genom att ge in den utredning han eller hon vill åberopa.
+        ratt: true
+      - text: Sökanden ensam, nämnden prövar bara det som skickas in.
+      - text: Grannarna, genom sina yttranden.
+      - text: Länsstyrelsen, som har tillsyn över byggnadsnämnden.
+    forklaring: >
+      23 § FL lägger utredningsansvaret på myndigheten: ärendet ska utredas i den omfattning
+      dess beskaffenhet kräver. Den som inleder ett ärende ska så långt som möjligt ge in
+      utredningen till stöd för sin ansökan, och myndigheten ska vid behov ställa frågor och
+      göra påpekanden. I bygglovsärenden konkretiseras detta av kraven på ansökans innehåll och
+      av möjligheten att förelägga om komplettering (9 kap. 91 § PBL).
+    lagrum:
+      - FL 23 §
+      - PBL 9 kap. 91 §
+    taggar: [utredningsansvar, komplettering, fl]
+
+  - id: forv-006
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Inför ett beslut om bygglov ska nämnden låta sökanden och fastighetsägaren yttra sig över
+      underlaget. Vilken regel är det som styr detta i ett bygglovsärende?
+    alternativ:
+      - text: 9 kap. 98 § PBL, som kräver att de får yttra sig över allt underlag av betydelse för beslutet.
+        ratt: true
+      - text: Bara 25 § FL, eftersom PBL saknar egna regler om kommunicering.
+      - text: 9 kap. 94 § PBL, som gäller underrättelse till grannar.
+      - text: Ingen regel, kommunicering är frivillig i bygglovsärenden.
+    forklaring: >
+      25 § FL är den allmänna regeln om kommunicering med parter. För lov och förhandsbesked
+      finns en egen regel i 9 kap. 98 § PBL: sökanden och fastighetsägaren ska, om det inte är
+      uppenbart obehövligt, underrättas om allt underlag av betydelse för beslutet och få yttra
+      sig inom en bestämd tid. Sedan 2025-12-01 gäller det allt underlag, även det nämnden själv
+      tagit fram, inte bara det som någon annan tillfört ärendet. En avvikande regel i en annan
+      lag går före förvaltningslagen (4 § FL).
+    lagrum:
+      - PBL 9 kap. 98 §
+      - FL 25 §
+      - FL 4 §
+    taggar: [kommunicering, beslutsunderlag, pbl_och_fl]
+
+  - id: forv-007
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne ringer och berättar att det finns en enskild dricksvattenbrunn tre meter från
+      platsen där sökanden vill bygga. Uppgiften finns inte i ärendet. Vad ska handläggaren göra?
+    alternativ:
+      - text: Snarast dokumentera uppgiften i ärendet, med uppgift om när och av vem anteckningen gjordes.
+        ratt: true
+      - text: Komma ihåg uppgiften och ta upp den om ärendet överklagas.
+      - text: Be grannen skicka in uppgiften skriftligen, annars får den inte beaktas.
+      - text: Ingenting, muntliga uppgifter från grannar saknar betydelse.
+    forklaring: >
+      27 § FL kräver att uppgifter som myndigheten får på annat sätt än genom en handling snarast
+      dokumenteras om de kan ha betydelse för beslutet. Av dokumentationen ska det framgå när den
+      gjordes och av vem. Tjänsteanteckningen blir en del av underlaget och ska därmed också
+      kommuniceras med sökanden och fastighetsägaren före beslut (9 kap. 98 § PBL).
+    lagrum:
+      - FL 27 §
+      - PBL 9 kap. 98 §
+    taggar: [dokumentation, tjansteanteckning, kommunicering]
+
+  # --- Jäv -------------------------------------------------------------------------------
+
+  - id: forv-008
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Handläggaren Lina får ett bygglovsärende där den närmaste grannen, som redan protesterat
+      mot bygget, är hennes syster. Vad gäller?
+    alternativ:
+      - text: Lina är jävig och får inte handlägga ärendet eller närvara när det avgörs.
+        ratt: true
+      - text: Lina får handlägga ärendet om hon är extra noggrann med motiveringen.
+      - text: Lina är jävig bara om systern formellt är part i ärendet som sökande.
+      - text: Det räcker att Lina antecknar släktskapen i ärendet.
+    forklaring: >
+      En närstående som kan antas bli påverkad av beslutet i en inte oväsentlig utsträckning ger
+      jäv (6 kap. 28 § 1 KL, som gäller för kommunens anställda enligt 7 kap. 4 § KL; samma
+      grund finns i 16 § 1 FL). Den som är jävig får inte delta i handläggningen och inte närvara
+      när ärendet avgörs. Lina ska själv anmäla omständigheten direkt, så att ärendet kan
+      lämnas till någon annan.
+    lagrum:
+      - KL 6 kap. 28 §
+      - KL 6 kap. 30 §
+      - KL 7 kap. 4 §
+      - FL 16 §
+    taggar: [jav, narstaende, handlaggare]
+
+  - id: forv-009
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ledamot i bygg- och miljönämnden äger fastigheten närmast ett omstritt bygglov. Hur ska
+      han göra när ärendet tas upp på sammanträdet?
+    alternativ:
+      - text: Anmäla jävet och lämna sammanträdet medan ärendet behandlas; han får varken delta eller närvara.
+        ratt: true
+      - text: Stanna kvar och delta i diskussionen, men avstå från att rösta.
+      - text: Delta som vanligt, eftersom ledamöter inte omfattas av jävsregler.
+      - text: Rösta, men låta anteckna en avvikande mening.
+    forklaring: >
+      För förtroendevalda i kommunen gäller 6 kap. 28–32 §§ KL. Den som är jävig får inte delta
+      eller närvara vid handläggningen av ärendet (30 §) och ska självmant uppge omständigheten.
+      Att bara avstå från att rösta räcker inte, eftersom även närvaron kan påverka. Om det är
+      uppenbart att frågan om opartiskhet saknar betydelse ska nämnden bortse från jäv (29 §),
+      men det gäller inte en granne till ett omstritt lov.
+    lagrum:
+      - KL 6 kap. 28 §
+      - KL 6 kap. 29 §
+      - KL 6 kap. 30 §
+    taggar: [jav, fortroendevald, namnd]
+
+  - id: forv-010
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Handläggaren Omar har under flera år haft en uppmärksammad konflikt med en sökande i en
+      tvist om en samfällighet. Han är inte släkt med sökanden och har inget ekonomiskt intresse
+      i ärendet. Vilken jävsgrund kan bli aktuell?
+    alternativ:
+      - text: Annan särskild omständighet som gör att hans opartiskhet kan ifrågasättas (delikatessjäv).
+        ratt: true
+      - text: Ingen, jäv kräver släktskap eller ekonomiskt intresse.
+      - text: Ombudsjäv, eftersom han tidigare varit motpart.
+      - text: Tvåinstansjäv.
+    forklaring: >
+      Den sista punkten i jävskatalogen (6 kap. 28 § 4 KL och 16 § 4 FL) fångar situationer där
+      opartiskheten kan ifrågasättas av andra skäl, till exempel vänskap, ovänskap eller ett
+      tidigare starkt engagemang i saken. Det avgörande är hur det ser ut utifrån, inte om Omar
+      själv känner sig opåverkad. Förtroendet för myndighetens objektivitet (5 § FL) är det som
+      skyddas.
+    lagrum:
+      - KL 6 kap. 28 §
+      - FL 16 §
+      - FL 5 §
+    taggar: [jav, delikatessjav, objektivitet]
+
+  - id: forv-011
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Både förvaltningslagen och kommunallagen har jävsregler. Vilka regler gäller för en
+      bygglovshandläggare som är anställd i Åkerslunda kommun?
+    alternativ:
+      - text: Kommunallagens regler i 6 kap. 28–32 §§, som enligt 7 kap. 4 § KL gäller för de anställda och går före FL eftersom de avviker från den.
+        ratt: true
+      - text: Bara FL 16–18 §§, eftersom bygglov är myndighetsutövning.
+      - text: Inga jävsregler alls, eftersom handläggaren inte fattar beslutet utan bara bereder ärendet.
+      - text: Kommunallagens regler, men bara om nämnden har delegerat beslutet till handläggaren.
+    forklaring: >
+      Kommunallagen har egna jävsregler för förtroendevalda (6 kap. 28–32 §§) och gör dem
+      tillämpliga på anställda (7 kap. 4 §). När en annan lag avviker från förvaltningslagen
+      gäller den lagen (4 § FL). Reglerna är i sak mycket lika FL:s, men KL har en egen grund om
+      tillsyn över verksamhet man själv är knuten till (6 kap. 28 § 3). Jävsreglerna gäller också
+      den som bara bereder ärendet, eftersom beredningen kan påverka beslutet.
+    lagrum:
+      - KL 6 kap. 28 §
+      - KL 7 kap. 4 §
+      - FL 4 §
+      - FL 16 §
+    taggar: [jav, kommunallagen, handlaggare]
+
+  # --- Beslut, motivering och underrättelse -----------------------------------------------
+
+  - id: forv-012
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska en motivering till ett avslag på en bygglovsansökan innehålla enligt 32 § FL?
+    alternativ:
+      - text: Vilka föreskrifter som tillämpats och vilka omständigheter som varit avgörande för ställningstagandet.
+        ratt: true
+      - text: En hänvisning till rätt paragraf räcker.
+      - text: En sammanfattning av alla handlingar i ärendet.
+      - text: Handläggarens personliga bedömning av om åtgärden är vacker.
+    forklaring: >
+      Ett beslut som kan antas påverka någons situation på ett inte obetydligt sätt ska innehålla
+      en klargörande motivering. Den ska visa både regeln (till exempel 9 kap. 56 § PBL och
+      detaljplanens bestämmelse om byggnadshöjd) och fakta (byggnaden blir 1,2 m för hög).
+      Bara en paragrafhänvisning gör det omöjligt för sökanden att förstå beslutet och att
+      överklaga det på ett meningsfullt sätt.
+    lagrum:
+      - FL 32 §
+    taggar: [motivering, beslut, avslag]
+
+  - id: forv-013
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilken uppgift behöver INTE finnas i den handling som dokumenterar ett skriftligt beslut
+      enligt 31 § FL?
+    alternativ:
+      - text: Sökandens personnummer.
+        ratt: true
+      - text: Dagen för beslutet.
+      - text: Vad beslutet innehåller.
+      - text: Vem eller vilka som har fattat beslutet och vem som varit föredragande.
+    forklaring: >
+      31 § FL räknar upp dagen för beslutet, vad det innehåller, vem som fattat det, vem som varit
+      föredragande och vem som medverkat vid den slutliga handläggningen utan att delta i
+      avgörandet. Syftet är att det i efterhand ska gå att se vem som ansvarar för beslutet. I ett
+      delegationsbeslut ska det därför framgå vilken delegat som beslutat och med stöd av vilken
+      punkt i delegationsordningen.
+    lagrum:
+      - FL 31 §
+    taggar: [beslut, dokumentation, delegering]
+
+  - id: forv-014
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett beviljat bygglov anger avgiften 18 400 kr, men taxan och beräkningen i beslutet visar
+      tydligt att den ska vara 14 800 kr. Siffrorna har kastats om. Hur kan nämnden hantera felet?
+    alternativ:
+      - text: Rätta beslutet, eftersom det är en uppenbar felaktighet till följd av skrivfel.
+        ratt: true
+      - text: Felet kan bara rättas genom att sökanden överklagar.
+      - text: Fatta ett helt nytt beslut om bygglov och kungöra det på nytt.
+      - text: Ingenting, ett fattat beslut får aldrig ändras.
+    forklaring: >
+      36 § FL tillåter att ett beslut som innehåller en uppenbar felaktighet till följd av
+      skrivfel, räknefel eller liknande förbiseende rättas av den myndighet som meddelat det.
+      Rättelsen ska dokumenteras och skickas till dem som fått beslutet. Rättelse används bara för
+      fel som är uppenbara; en ändrad bedömning i sak är i stället en ändring enligt 37–38 §§.
+    lagrum:
+      - FL 36 §
+    taggar: [rattelse, skrivfel, avgift]
+
+  - id: forv-015
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden har beviljat bygglov för ett garage. Efter beslutet upptäcker handläggaren att
+      sökanden lämnat felaktiga uppgifter om avståndet till tomtgränsen. Kan nämnden ändra
+      beslutet till sökandens nackdel?
+    alternativ:
+      - text: Ja, ett gynnande beslut får ändras till nackdel om felaktigheten beror på att parten lämnat oriktiga eller vilseledande uppgifter.
+        ratt: true
+      - text: Nej, ett gynnande beslut får aldrig ändras till den enskildes nackdel.
+      - text: Ja, nämnden får alltid ändra sina beslut så länge de inte fått laga kraft.
+      - text: Nej, bara länsstyrelsen kan ändra ett beviljat bygglov.
+    forklaring: >
+      37 § FL ger myndigheten rätt att ändra beslut den meddelat som första instans, men ett
+      gynnande beslut får ändras till den enskildes nackdel bara i tre fall: om det framgår av
+      beslutet eller föreskrifterna att det får återkallas, om tvingande säkerhetsskäl kräver det
+      eller om felaktigheten beror på att parten lämnat oriktiga eller vilseledande uppgifter.
+      Ett bygglov är typiskt ett gynnande beslut, så utgångspunkten är att det står fast.
+    lagrum:
+      - FL 37 §
+    taggar: [andring, gynnande_beslut, oriktiga_uppgifter]
+
+  - id: forv-016
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Enligt 2 § FL gäller stora delar av förvaltningslagen inte i kommunala ärenden där
+      besluten kan laglighetsprövas enligt 13 kap. KL. Varför gäller ändå hela förvaltningslagen
+      i ett bygglovsärende?
+    alternativ:
+      - text: Därför att beslut om lov överklagas enligt PBL (förvaltningsbesvär) och inte laglighetsprövas.
+        ratt: true
+      - text: Därför att byggnadsnämnden är en statlig myndighet.
+      - text: Därför att PBL hänvisar till förvaltningslagen i varje paragraf.
+      - text: Det gör den inte, i bygglovsärenden gäller bara 5–8 §§ FL.
+    forklaring: >
+      Undantaget i 2 § FL gäller ärenden där besluten överklagas genom laglighetsprövning, till
+      exempel fullmäktiges beslut om taxa (13 kap. 1 § PBL). Beslut om lov överklagas i stället
+      till länsstyrelsen enligt 13 kap. 3 § PBL, och då gäller förvaltningslagens regler om
+      partsinsyn, jäv, utredning, kommunicering, motivering och överklagande fullt ut, om inte
+      PBL har en avvikande regel.
+    lagrum:
+      - FL 2 §
+      - PBL 13 kap. 1 §
+      - PBL 13 kap. 3 §
+    taggar: [fl, laglighetsprovning, forvaltningsbesvar]
+
+  # --- Allmänna handlingar, diarium och sekretess ---------------------------------------
+
+  - id: forv-017
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov kommer in med e-post till bygglovsenheten på måndag morgon. När blir
+      den en allmän handling?
+    alternativ:
+      - text: Direkt när den har kommit in till myndigheten.
+        ratt: true
+      - text: När den har diarieförts.
+      - text: När handläggaren har bedömt den som komplett.
+      - text: När nämnden har fattat beslut i ärendet.
+    forklaring: >
+      En handling är allmän om den förvaras hos en myndighet och är inkommen eller upprättad där
+      (2 kap. 4 § TF). En handling anses inkommen när den har anlänt till myndigheten eller kommit
+      behörig befattningshavare till handa (2 kap. 9 § TF). Diarieföringen är en följd av att
+      handlingen är allmän (5 kap. 1 § OSL), inte en förutsättning för det.
+    lagrum:
+      - TF 2 kap. 4 §
+      - TF 2 kap. 9 §
+      - OSL 5 kap. 1 §
+    taggar: [allman_handling, inkommen_handling, diarieforing]
+
+  - id: forv-018
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En journalist begär att få se handläggarens utkast till beslut i ett pågående och
+      omdiskuterat bygglovsärende. Utkastet har inte skickats till någon. Vad gäller?
+    alternativ:
+      - text: Utkastet är inte en allmän handling så länge det inte expedierats eller tagits om hand för arkivering.
+        ratt: true
+      - text: Utkastet är en allmän handling och ska lämnas ut genast.
+      - text: Utkastet är allmänt men alltid sekretessbelagt.
+      - text: Journalisten måste först tala om varför han vill se utkastet.
+    forklaring: >
+      Utkast och koncept till myndighetens beslut som inte har expedierats anses inte som
+      allmänna handlingar, om de inte tas om hand för arkivering (2 kap. 12 § TF). Det slutliga
+      beslutet blir allmänt när det expedieras (2 kap. 10 § TF). Inkomna handlingar i ärendet,
+      som ansökan och grannyttranden, är däremot allmänna redan nu. Myndigheten får inte heller
+      efterforska vem som begär ut något eller varför i större utsträckning än som behövs för
+      prövningen (2 kap. 18 § TF).
+    lagrum:
+      - TF 2 kap. 12 §
+      - TF 2 kap. 10 §
+      - TF 2 kap. 18 §
+    taggar: [allman_handling, utkast, offentlighet]
+
+  - id: forv-019
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad ska det minst framgå av diariet när en handling i ett bygglovsärende registreras?
+    alternativ:
+      - text: Datum då den kom in eller upprättades, diarienummer, i förekommande fall avsändare eller mottagare och i korthet vad den rör.
+        ratt: true
+      - text: Bara diarienumret och handläggarens namn.
+      - text: Hela handlingens innehåll, så att allmänheten kan läsa den i diariet.
+      - text: Fastighetsägarens personnummer och telefonnummer.
+    forklaring: >
+      Allmänna handlingar ska registreras så snart de kommit in eller upprättats (5 kap. 1 § OSL),
+      och registret ska visa de fyra uppgifterna i 5 kap. 2 § OSL. Uppgift om avsändare eller vad
+      handlingen rör ska utelämnas eller särskiljas om det behövs för att registret i övrigt ska
+      kunna vara offentligt. Diariet är i sig en allmän handling som vem som helst får ta del av.
+    lagrum:
+      - OSL 5 kap. 1 §
+      - OSL 5 kap. 2 §
+    taggar: [diarieforing, registrering, osl]
+
+  - id: forv-020
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande har skyddade personuppgifter och har uppgett att hon riskerar att utsättas för
+      hot. Hon söker bygglov för en tillbyggnad. Vilken uppgift kan typiskt INTE hållas hemlig
+      med stöd av 21 kap. 3 § OSL?
+    alternativ:
+      - text: Fastighetsbeteckningen.
+        ratt: true
+      - text: Hennes telefonnummer.
+      - text: Hennes e-postadress.
+      - text: Hennes bostadsadress.
+    forklaring: >
+      21 kap. 3 § OSL ger sekretess för bland annat bostadsadress, telefonnummer och e-postadress
+      om det av särskild anledning kan antas att den enskilde kan utsättas för hot eller våld.
+      Sekretessen gäller uttryckligen inte för uppgift om beteckning på fastighet. Det ställer
+      till det i bygglovsärenden, där fastighetsbeteckningen syns i diariet och i kungörelsen
+      på anslagstavlan. Handläggaren bör därför i god tid tala med sökanden om vad som blir
+      offentligt och sekretessmarkera de uppgifter som kan skyddas (5 kap. 5 § OSL).
+    lagrum:
+      - OSL 21 kap. 3 §
+      - OSL 5 kap. 5 §
+    taggar: [sekretess, skyddade_personuppgifter, osl]
+
+  # --- Delegering ------------------------------------------------------------------------
+
+  - id: forv-021
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnadsnämnden i Åkerslunda har delegerat beslut om bygglov för en- och tvåbostadshus
+      till förvaltningschefen och låtit henne vidaredelegera till bygglovshandläggarna. Vilket
+      ärende får en handläggare ändå inte avgöra på delegation?
+    alternativ:
+      - text: Ett ärende av principiell beskaffenhet eller annars av större vikt.
+        ratt: true
+      - text: Ett ärende där grannar har lämnat synpunkter.
+      - text: Ett ärende om bygglov utanför detaljplan.
+      - text: Ett ärende där avgiften överstiger 10 000 kr.
+    forklaring: >
+      En nämnd får uppdra åt en anställd att besluta på dess vägnar, och åt förvaltningschefen
+      att vidaredelegera (7 kap. 5–6 §§ KL). Ärenden som rör myndighetsutövning mot enskilda och
+      är av principiell beskaffenhet eller annars av större vikt får dock inte delegeras
+      (6 kap. 38 § 3 KL), och samma begränsning upprepas för byggnadsnämnden i 12 kap. 6 § 1 PBL.
+      Var gränsen går ska framgå av nämndens delegationsordning.
+    lagrum:
+      - KL 7 kap. 5 §
+      - KL 7 kap. 6 §
+      - KL 6 kap. 38 §
+      - PBL 12 kap. 6 §
+    taggar: [delegering, namnd, principiell_beskaffenhet]
+
+  - id: forv-022
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En underrättelse om hur man överklagar ett beslut ska enligt 33 § FL innehålla information
+      om vissa saker. Vilket alternativ beskriver dem?
+    alternativ:
+      - text: Vilka krav som ställs på överklagandets form och innehåll, och vad som gäller för ingivande och överklagandetid.
+        ratt: true
+      - text: Bara att beslutet kan överklagas till länsstyrelsen.
+      - text: En bedömning av hur stor chans klaganden har att vinna.
+      - text: Namnet på den handläggare på länsstyrelsen som kommer att pröva överklagandet.
+    forklaring: >
+      Underrättelsen om hur man överklagar ska enligt 33 § andra stycket FL tala om hur
+      överklagandet ska se ut, vart det ska skickas och inom vilken tid. I ett bygglovsbeslut
+      betyder det att överklagandet ska vara skriftligt, ställas till länsstyrelsen men skickas
+      till byggnadsnämnden och ha kommit in inom tre veckor (43–44 §§ FL). En felaktig
+      överklagandehänvisning gör att ett för sent inkommet överklagande inte får avvisas
+      (45 § andra stycket 1 FL).
+    lagrum:
+      - FL 33 §
+      - FL 43 §
+      - FL 44 §
+      - FL 45 §
+    taggar: [overklagandehanvisning, beslut, fl]
+
+  # --- Flersvar --------------------------------------------------------------------------
+
+  - id: forv-023
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande är jävsgrunder enligt kommunallagen och förvaltningslagen?
+    alternativ:
+      - text: Handläggarens make är sökande i ärendet.
+        ratt: true
+      - text: Handläggaren har tidigare varit ombud för sökanden i samma sak.
+        ratt: true
+      - text: Det finns en annan särskild omständighet som gör att opartiskheten kan ifrågasättas.
+        ratt: true
+      - text: Handläggaren bor i samma kommun som sökanden.
+      - text: Handläggaren har handlagt ett tidigare, avslutat bygglov för en helt annan sökande i samma kvarter.
+    forklaring: >
+      Jävsgrunderna är partsjäv och intressejäv (själv eller närstående part eller påverkad),
+      ställföreträdar- och ombudsjäv samt den allmänna grunden om annan särskild omständighet
+      (6 kap. 28 § KL, 16 § FL). Att bo i samma kommun eller ha handlagt andra ärenden i området
+      ger inte jäv i sig. Den som känner till en omständighet som kan ge jäv ska själv anmäla
+      den (6 kap. 30 § KL, 18 § FL).
+    lagrum:
+      - KL 6 kap. 28 §
+      - KL 6 kap. 30 §
+      - FL 16 §
+      - FL 18 §
+    taggar: [jav, kommunallagen, fl]
+
+  - id: forv-024
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande är allmänna handlingar i ett pågående bygglovsärende?
+    alternativ:
+      - text: Ansökan med ritningar som kommit in till nämnden.
+        ratt: true
+      - text: Ett grannyttrande som kommit in med post.
+        ratt: true
+      - text: Ett föreläggande om komplettering som skickats till sökanden.
+        ratt: true
+      - text: Handläggarens egen minnesanteckning inför föredragningen, som inte expedierats eller arkiverats.
+      - text: Ett utkast till beslut som bara finns i handläggarens dator.
+    forklaring: >
+      Inkomna handlingar är allmänna när de kommit in (2 kap. 9 § TF) och upprättade handlingar
+      när de expedierats (2 kap. 10 § TF), så föreläggandet blir allmänt när det skickas.
+      Minnesanteckningar och utkast som inte expedierats eller tagits om hand för arkivering är
+      inte allmänna (2 kap. 12 § TF). Uppgifter av betydelse för beslutet ska ändå dokumenteras
+      i ärendet enligt 27 § FL, och en sådan tjänsteanteckning är inte en minnesanteckning.
+    lagrum:
+      - TF 2 kap. 9 §
+      - TF 2 kap. 10 §
+      - TF 2 kap. 12 §
+      - FL 27 §
+    taggar: [allman_handling, minnesanteckning, offentlighet]
+
+  - id: forv-025
+    typ: flersvar
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilka av följande beslut får byggnadsnämnden inte delegera till en tjänsteperson enligt
+      12 kap. 6 § PBL och 6 kap. 38 § KL?
+    alternativ:
+      - text: Ett ärende om lov som är av principiell beskaffenhet.
+        ratt: true
+      - text: Ett beslut om byggsanktionsavgift.
+        ratt: true
+      - text: Ett föreläggande med upplysning om att åtgärden kan utföras genom nämndens försorg på den enskildes bekostnad.
+        ratt: true
+      - text: Ett rutinmässigt beslut om bygglov för en tillbyggnad som följer detaljplanen.
+      - text: Ett föreläggande om komplettering av en ansökan.
+    forklaring: >
+      12 kap. 6 § PBL begränsar delegering utöver kommunallagen: delegaten får inte avgöra
+      principiella ärenden, besluta om vitesförelägganden (utom i vissa fall i 11 kap.),
+      förelägganden med upplysning om utförande på den enskildes bekostnad eller
+      byggsanktionsavgifter. Rutinärenden och förelägganden om komplettering delegeras ofta.
+      Delegationsordningen bestämmer vad som faktiskt är delegerat i kommunen.
+    lagrum:
+      - PBL 12 kap. 6 §
+      - KL 6 kap. 38 §
+    taggar: [delegering, byggsanktionsavgift, namnd]
+
+  - id: forv-026
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En grannes ombud begär ut ritningarna i ett bygglovsärende. Ritningarna visar bland annat
+      placeringen av en bankfilials värdeskåp och larmsystem. Vilka påståenden stämmer?
+    alternativ:
+      - text: Ritningarna är allmänna handlingar och utgångspunkten är att de ska lämnas ut.
+        ratt: true
+      - text: Uppgifter om säkerhets- och bevakningsåtgärder kan omfattas av sekretess om syftet med åtgärden motverkas om de röjs.
+        ratt: true
+      - text: Om myndigheten vägrar lämna ut handlingen ska den på begäran fatta ett skriftligt beslut som kan överklagas.
+        ratt: true
+      - text: Ritningar i bygglovsärenden är alltid sekretessbelagda.
+      - text: Ombudet måste visa en fullmakt från grannen för att få ta del av ritningarna.
+    forklaring: >
+      Bygglovshandlingar är allmänna och i regel offentliga. 18 kap. 8 § OSL ger sekretess för
+      uppgifter om säkerhets- eller bevakningsåtgärder för byggnader om syftet motverkas om de
+      röjs, och då lämnas resten av handlingen ut med de känsliga delarna maskerade (2 kap. 15 §
+      TF). Vägrar handläggaren ska den som begärt handlingen få veta att den kan begära
+      myndighetens prövning och få ett skriftligt, överklagbart beslut (6 kap. 3 § OSL). Rätten
+      att ta del av allmänna handlingar gäller var och en, så ingen fullmakt behövs.
+    lagrum:
+      - OSL 18 kap. 8 §
+      - OSL 6 kap. 3 §
+      - TF 2 kap. 15 §
+    taggar: [sekretess, allman_handling, ritningar]
+
+  # --- Sant/falskt -----------------------------------------------------------------------
+
+  - id: forv-027
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En uppgift som handläggaren fått muntligt vid ett platsbesök behöver inte dokumenteras om
+      handläggaren är säker på att hon kommer ihåg den till beslutet.
+    svar: false
+    forklaring: >
+      Uppgifter som kan ha betydelse för beslutet ska snarast dokumenteras, med uppgift om när
+      och av vem (27 § FL). Dokumentationen behövs för att sökanden ska kunna yttra sig över
+      underlaget, för att en annan handläggare ska kunna ta över och för att överinstansen ska
+      kunna pröva beslutet.
+    lagrum:
+      - FL 27 §
+    taggar: [dokumentation, platsbesok, fl]
+
+  - id: forv-028
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Regeln i 35 § FL om att ett beslut får verkställas först när överklagandetiden gått ut
+      gäller också för ett beviljat bygglov.
+    svar: false
+    forklaring: >
+      PBL har en egen regel som går före förvaltningslagen (4 § FL): ett beslut om bygglov,
+      rivningslov eller marklov gäller omedelbart, även innan det fått laga kraft (9 kap. 114 §
+      PBL). Nämnden ska dock bestämma att lovet gäller först vid laga kraft om genomförandet kan
+      skada natur- eller kulturvärden eller totalförsvarets intressen så att det inte kan
+      återställas. Före 2025-12-01 gällde ett lov först fyra veckor efter kungörelsen.
+    lagrum:
+      - FL 35 §
+      - FL 4 §
+      - PBL 9 kap. 114 §
+    taggar: [verkstallighet, laga_kraft, pbl_och_fl]
+
+  - id: forv-029
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      När en bygglovshandläggare beslutar på delegation fattar hon beslutet på nämndens vägnar,
+      och beslutet kan överklagas på samma sätt som om nämnden själv hade fattat det.
+    svar: true
+    forklaring: >
+      Ett delegationsbeslut är nämndens beslut (7 kap. 5 § KL) och överklagas enligt 13 kap. PBL
+      precis som ett nämndbeslut. Nämnden bestämmer i vilken utsträckning delegationsbesluten ska
+      anmälas till den (7 kap. 8 § KL). Nämnden kan alltid återkalla delegeringen eller själv ta
+      över ett ärende, men den kan inte ändra ett enskilt delegationsbeslut bara för att den
+      tycker annorlunda.
+    lagrum:
+      - KL 7 kap. 5 §
+      - KL 7 kap. 8 §
+    taggar: [delegering, namnd, overklagande]
+
+  - id: forv-030
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Om ett bygglovsärende inte har avgjorts inom sex månader får sökanden skriftligen begära
+      att nämnden avgör det, och nämnden ska då inom fyra veckor antingen avgöra ärendet eller
+      avslå begäran i ett särskilt beslut.
+    svar: true
+    forklaring: >
+      Det är den så kallade dröjsmålstalan i 12 § FL, och den gäller även i bygglovsärenden. I
+      praktiken är tioveckorsfristen i 9 kap. 99 § PBL den viktigare tidsgränsen, eftersom
+      avgiften sätts ned om den överskrids (12 kap. 8 a § PBL). Om nämnden bedömer att avgörandet
+      blir väsentligt försenat ska den också underrätta sökanden och förklara varför (11 § FL).
+    lagrum:
+      - FL 11 §
+      - FL 12 §
+      - PBL 9 kap. 99 §
+    taggar: [handlaggningstid, drojsmal, fl]
+
+  # --- Lucktext --------------------------------------------------------------------------
+
+  - id: forv-031
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett överklagande ska ha kommit in till beslutsmyndigheten inom ___ veckor från den dag då
+      klaganden fick del av beslutet. Om det kommer in för sent ska beslutsmyndigheten ___ det.
+    svar:
+      - ["3", "tre"]
+      - ["avvisa", "avvisa överklagandet"]
+    forklaring: >
+      Överklagandetiden är tre veckor (44 § FL). Det är beslutsmyndigheten, alltså
+      byggnadsnämnden, som prövar om överklagandet kommit in i rätt tid och avvisar det om det
+      är för sent (45 § FL). Undantag gäller om förseningen beror på en felaktig
+      överklagandehänvisning eller om överklagandet kommit in till överinstansen i tid.
+    lagrum:
+      - FL 44 §
+      - FL 45 §
+    taggar: [overklagande, rattidsprovning, tidsfrist]
+
+  - id: forv-032
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Enligt 9 § FL ska ett ärende handläggas så enkelt, snabbt och ___ som möjligt utan att
+      rättssäkerheten eftersätts. Handläggningen ska som huvudregel vara ___.
+    svar:
+      - ["kostnadseffektivt"]
+      - ["skriftlig"]
+    forklaring: >
+      9 § FL anger utgångspunkterna för all handläggning. Myndigheten får besluta att
+      handläggningen helt eller delvis ska vara muntlig om det inte är olämpligt, och en part
+      som vill lämna uppgifter muntligt ska få tillfälle till det om det inte är obehövligt
+      (24 § FL). Det som sägs muntligt och har betydelse ska dokumenteras (27 § FL).
+    lagrum:
+      - FL 9 §
+      - FL 24 §
+      - FL 27 §
+    taggar: [handlaggning, skriftlighet, fl]
+
+  # --- Para ihop och ordning ---------------------------------------------------------------
+
+  - id: forv-033
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop paragrafen i förvaltningslagen med vad den handlar om.
+    par:
+      - vanster: 6 § FL
+        hoger: Serviceskyldighet
+      - vanster: 13 § FL
+        hoger: Tolkning och översättning
+      - vanster: 23 § FL
+        hoger: Utredningsansvaret
+      - vanster: 25 § FL
+        hoger: Kommunikation innan beslut
+      - vanster: 27 § FL
+        hoger: Dokumentation av uppgifter som lämnats muntligt
+      - vanster: 32 § FL
+        hoger: Motivering av beslut
+    forklaring: >
+      Förvaltningslagen följer ärendets gång: först grunderna för god förvaltning och service
+      (5–8 §§), sedan allmänna krav på handläggningen (9–18 §§), beredningen (23–27 §§),
+      beslutet (28–35 §§), rättelse och ändring (36–39 §§) och sist överklagande (40–48 §§).
+      Kan du strukturen hittar du snabbt rätt paragraf.
+    lagrum:
+      - FL 6 §
+      - FL 13 §
+      - FL 23 §
+      - FL 25 §
+      - FL 27 §
+      - FL 32 §
+    taggar: [fl, lagrum, struktur]
+
+  - id: forv-034
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop författningen med det den reglerar i en bygglovshandläggares vardag.
+    par:
+      - vanster: Tryckfrihetsförordningen 2 kap.
+        hoger: Rätten att ta del av allmänna handlingar
+      - vanster: Offentlighets- och sekretesslagen
+        hoger: Registrering av handlingar och sekretess
+      - vanster: Kommunallagen 6 och 7 kap.
+        hoger: Jäv och delegering i nämnden och för anställda
+      - vanster: Förvaltningslagen
+        hoger: Hur ärenden handläggs, beslutas och överklagas
+      - vanster: PBL 12 kap.
+        hoger: Byggnadsnämndens uppgifter, delegeringsgränser och avgifter
+    forklaring: >
+      Bygglovshandläggaren arbetar med flera lagar samtidigt. PBL säger vad som ska prövas och
+      har egna förfaranderegler, förvaltningslagen fyller i där PBL inte säger något, och
+      kommunallagen styr hur nämnden är organiserad. Offentlighetsprincipen i TF och reglerna i
+      OSL avgör vad som kan lämnas ut.
+    lagrum:
+      - TF 2 kap. 1 §
+      - OSL 5 kap. 1 §
+      - KL 6 kap. 28 §
+      - FL 1 §
+      - PBL 12 kap. 6 §
+    taggar: [lagstruktur, rattskallor, myndighetsroll]
+
+  - id: forv-035
+    typ: ordning
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne begär ut en ritning som handläggaren anser innehåller sekretessbelagda uppgifter.
+      Ordna stegen.
+    poster:
+      - Handläggaren som ansvarar för handlingen prövar begäran skyndsamt.
+      - Handläggaren lämnar ut handlingen med de sekretessbelagda delarna maskerade.
+      - Grannen får veta att hon kan begära myndighetens prövning och att det krävs ett skriftligt beslut för att kunna överklaga.
+      - Grannen begär myndighetens prövning.
+      - Myndigheten fattar ett skriftligt beslut med överklagandehänvisning.
+      - Grannen överklagar beslutet till kammarrätten.
+    forklaring: >
+      Den anställde som har hand om handlingen gör den första prövningen (6 kap. 3 § OSL).
+      Vägrar han eller lämnar han ut med förbehåll ska den enskilde informeras om rätten att
+      begära myndighetens prövning. Bara myndighetens skriftliga beslut kan överklagas, och
+      beslut om att inte lämna ut en handling överklagas till kammarrätten (6 kap. 7–8 §§ OSL).
+      Begäran ska behandlas skyndsamt (2 kap. 15–16 §§ TF).
+    lagrum:
+      - OSL 6 kap. 3 §
+      - OSL 6 kap. 7 §
+      - OSL 6 kap. 8 §
+      - TF 2 kap. 15 §
+    taggar: [allman_handling, sekretess, overklagande]
+
+  - id: forv-036
+    typ: ordning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna förvaltningslagens stora avsnitt i den ordning de kommer i lagen.
+    poster:
+      - Grunderna för god förvaltning (legalitet, objektivitet, service, tillgänglighet)
+      - Allmänna krav på handläggningen (partsinsyn, tolk, ombud, jäv)
+      - Hur ärenden inleds och brister i framställningar
+      - Beredning (utredning, kommunikation, remiss, dokumentation)
+      - Beslutet (dokumentation, motivering, underrättelse)
+      - Rättelse och ändring av beslut
+      - Överklagande
+    forklaring: >
+      Förvaltningslagen är byggd i samma ordning som ett ärende går: grunder (5–8 §§),
+      handläggning (9–18 §§), inledning (19–22 §§), beredning (23–27 §§), beslut (28–35 §§),
+      rättelse och ändring (36–39 §§) och överklagande (40–49 §§). Strukturen är ett bra stöd när
+      du letar i lagen under en tenta.
+    lagrum:
+      - FL 5 §
+      - FL 23 §
+      - FL 36 §
+      - FL 40 §
+    taggar: [fl, struktur, lagrum]
+
+  # --- Öppna frågor ------------------------------------------------------------------------
+
+  - id: forv-037
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du får ett bygglovsärende och ser att sökanden är din tidigare chef, som du har haft en
+      uppmärksammad konflikt med. Beskriv hur du hanterar situationen, vilka regler som gäller och
+      vad som händer om jäv förbises.
+    bedomningspunkter:
+      - Identifierar att det kan röra sig om jäv på grund av annan särskild omständighet (6 kap. 28 § 4 KL, jfr 16 § 4 FL).
+      - Anmäler omständigheten själv och direkt till chefen (6 kap. 30 § KL, 18 § FL).
+      - Lämnar ärendet och deltar inte i handläggningen eller beslutet; får bara vidta åtgärder som ingen annan kan göra utan avsevärd försening.
+      - Förklarar att bedömningen gäller hur det ser ut utifrån, inte om hon själv känner sig påverkad.
+      - Nämner att jäv kan leda till att beslutet upphävs vid överklagande och skadar förtroendet för myndigheten.
+    modellsvar: >
+      En uppmärksammad konflikt med sökanden är en sådan särskild omständighet som kan göra att
+      min opartiskhet kan ifrågasättas (6 kap. 28 § 4 KL, som gäller anställda enligt 7 kap. 4 §;
+      motsvarande regel finns i 16 § 4 FL). Jag ska självmant och direkt tala om det för min
+      chef, som avgör jävsfrågan och lämnar ärendet till en kollega. Jag får inte delta i
+      beredningen eller beslutet, bara göra brådskande saker som ingen annan kan göra. Det spelar
+      ingen roll att jag själv tror att jag kan vara objektiv; det som avgör är om en utomstående
+      kan ifrågasätta det. Förbises jävet kan beslutet upphävas vid ett överklagande och
+      förtroendet för nämnden skadas.
+    lagrum:
+      - KL 6 kap. 28 §
+      - KL 6 kap. 30 §
+      - KL 7 kap. 4 §
+      - FL 16 §
+    taggar: [jav, delikatessjav, handlaggare]
+
+  - id: forv-038
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden tänker avslå en ansökan om bygglov för ett plank. Under handläggningen har en
+      granne ringt och lämnat uppgifter, och handläggaren har själv gjort ett platsbesök och tagit
+      foton. Förklara vilket underlag som ska kommuniceras med sökanden och fastighetsägaren,
+      enligt vilken regel, och när kommunicering kan underlåtas.
+    bedomningspunkter:
+      - Anger att 9 kap. 98 § PBL gäller i bygglovsärenden och går före den allmänna regeln i 25 § FL.
+      - Anger att allt underlag av betydelse för beslutet ska kommuniceras, även nämndens egna foton och tjänsteanteckningar.
+      - Anger att grannens telefonuppgifter först ska dokumenteras (27 § FL) och därefter kommuniceras.
+      - Anger att sökanden och fastighetsägaren ska få en bestämd tid att yttra sig.
+      - Anger att kommunicering får underlåtas bara om den är uppenbart obehövlig, t.ex. när ansökan beviljas helt utan att något underlag talar emot.
+    modellsvar: >
+      I ärenden om lov gäller 9 kap. 98 § PBL: innan nämnden beslutar ska sökanden och
+      fastighetsägaren, om det inte är uppenbart obehövligt, underrättas om allt underlag av
+      betydelse för beslutet och få yttra sig inom en bestämd tid. Regeln går före 25 § FL (4 §
+      FL). Sedan 2025-12-01 gäller det allt underlag, även det nämnden själv tagit fram. Grannens
+      telefonuppgifter ska först dokumenteras i en tjänsteanteckning (27 § FL), och sedan
+      kommuniceras tillsammans med fotona från platsbesöket och den bedömning som ligger till
+      grund för avslaget. Eftersom beslutet går sökanden emot är kommunicering inte obehövlig här.
+    lagrum:
+      - PBL 9 kap. 98 §
+      - FL 25 §
+      - FL 27 §
+    taggar: [kommunicering, beslutsunderlag, avslag]
+
+  - id: forv-039
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Hur långt sträcker sig serviceskyldigheten? En sökande ber dig formulera hans ansökan så att
+      den ska bli beviljad, och en granne ber dig berätta hur hon bäst stoppar samma bygge.
+      Resonera om vad du kan och inte kan göra, och varför.
+    bedomningspunkter:
+      - Beskriver serviceskyldigheten i 6 § FL och nämndens rådgivning enligt 12 kap. 2 § 4 PBL.
+      - Kan förklara regler, vilka handlingar som krävs, hur prövningen går till och vad grannen kan göra (yttra sig, överklaga).
+      - Kan inte ta ställning för en part eller skriva ansökan åt sökanden; objektivitetskravet i 5 § FL.
+      - Behandlar sökanden och grannen lika och ger båda saklig information.
+      - Dokumenterar råd som kan ha betydelse för ärendet.
+    modellsvar: >
+      Serviceskyldigheten innebär att jag ska hjälpa båda att ta till vara sina intressen (6 § FL),
+      och nämnden ska lämna råd och upplysningar (12 kap. 2 § 4 PBL). Sökanden kan jag förklara
+      vilka krav som gäller, vilka handlingar som behövs och vad i förslaget som kan bli
+      problematiskt. Grannen kan jag förklara hur hon kan lämna synpunkter, vad nämnden prövar och
+      hur man överklagar. Jag kan däremot inte skriva ansökan åt sökanden eller ge grannen en
+      strategi för att stoppa bygget, eftersom jag måste vara saklig och opartisk (5 § FL) och
+      sedan ska pröva ärendet. Båda ska få samma sorts saklig information, och sådant som har
+      betydelse för ärendet dokumenterar jag.
+    lagrum:
+      - FL 5 §
+      - FL 6 §
+      - PBL 12 kap. 2 §
+    taggar: [service, objektivitet, myndighetsroll]
+
+  - id: forv-040
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En lokaltidning begär ut alla handlingar i ett omstritt bygglovsärende om en ny
+      kontorsbyggnad. Ärendet är inte avgjort. Beskriv hur du går tillväga och vilka typer av
+      handlingar eller uppgifter du behöver bedöma särskilt.
+    bedomningspunkter:
+      - Prövar begäran skyndsamt och frågar inte efter identitet eller syfte mer än som behövs (2 kap. 15 och 18 §§ TF).
+      - Skiljer allmänna handlingar (inkomna, expedierade) från utkast och minnesanteckningar som inte är allmänna (2 kap. 9–12 §§ TF).
+      - Gör en sekretessprövning, t.ex. säkerhetsåtgärder i ritningar (18 kap. 8 § OSL) eller uppgifter om personer med skyddade personuppgifter (21 kap. 3 § OSL).
+      - Lämnar ut resten av handlingen när bara en del är hemlig (maskering).
+      - Vid vägran upplyser om rätten till myndighetens prövning och ett skriftligt, överklagbart beslut (6 kap. 3 § OSL).
+    modellsvar: >
+      Begäran ska behandlas skyndsamt och jag får inte efterforska vem som frågar eller varför mer
+      än vad som behövs för prövningen (2 kap. 15 och 18 §§ TF). Allt som kommit in, som ansökan,
+      ritningar, remissvar och grannyttranden, är allmänt, liksom föreläggandet som skickats.
+      Mina utkast och minnesanteckningar är inte allmänna (2 kap. 12 § TF). Jag går igenom
+      handlingarna och prövar om någon sekretessregel är tillämplig, till exempel uppgifter om
+      larm och säkerhetsåtgärder (18 kap. 8 § OSL) eller adresser till personer som riskerar hot
+      (21 kap. 3 § OSL). Sådana uppgifter maskeras och resten lämnas ut. Om jag vägrar lämna ut
+      något ska tidningen få veta att den kan begära myndighetens prövning och få ett skriftligt
+      beslut som kan överklagas till kammarrätten.
+    lagrum:
+      - TF 2 kap. 12 §
+      - TF 2 kap. 18 §
+      - OSL 18 kap. 8 §
+      - OSL 21 kap. 3 §
+      - OSL 6 kap. 3 §
+    taggar: [offentlighet, sekretess, allman_handling]
+
+  - id: forv-041
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Skriv de delar av ett avslagsbeslut som förvaltningslagen kräver utöver själva
+      beslutsmeningen, och förklara varför varje del behövs.
+    bedomningspunkter:
+      - Motivering med tillämpade föreskrifter och avgörande omständigheter (32 § FL).
+      - Uppgift om dag, vem som beslutat och föredragande eller delegat (31 § FL).
+      - Underrättelse om hur man överklagar, med form, innehåll, vart det skickas och tid (33 § FL).
+      - Uppgift om avvikande mening om en sådan har antecknats.
+      - Förklarar att delarna gör beslutet begripligt, kontrollerbart och möjligt att överklaga.
+    modellsvar: >
+      Beslutet behöver en motivering som anger vilka regler som tillämpats och vilka
+      omständigheter som varit avgörande, till exempel att byggnadshöjden blir 5,4 m där planen
+      tillåter 4,0 m och att avvikelsen inte är liten enligt 9 kap. 60 § PBL (32 § FL). Det ska
+      framgå när beslutet fattades, vem som fattade det och vem som var föredragande, eller vilken
+      delegat som beslutat (31 § FL). Sökanden ska underrättas om beslutet och om hur man
+      överklagar: skriftligt, till länsstyrelsen men inskickat till byggnadsnämnden, med uppgift
+      om beslutet och vilken ändring som begärs, inom tre veckor (33 § FL). Har någon anmält
+      avvikande mening ska sökanden upplysas om den. Tillsammans gör delarna att sökanden förstår
+      beslutet, kan kontrollera det och kan överklaga.
+    lagrum:
+      - FL 31 §
+      - FL 32 §
+      - FL 33 §
+    taggar: [motivering, beslut, overklagandehanvisning]

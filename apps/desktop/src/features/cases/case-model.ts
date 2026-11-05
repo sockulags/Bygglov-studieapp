@@ -90,6 +90,8 @@ export interface DeadlineSummary {
 
 /** What the ten weeks run from, for "N dagar sedan …". */
 const DEADLINE_START_LABELS: Record<DeadlineBasis, string> = {
+  tillsyn: 'anmälan',
+  lov_i_efterhand: 'ansökan om lov i efterhand',
   ansokningsdagen: 'ansökningsdagen',
   andring_pa_sokandens_initiativ: 'ändringen av ansökan',
   komplettering: 'kompletteringen',
@@ -124,6 +126,9 @@ export function deadlineSummary(state: CaseState): DeadlineSummary {
       detail: `Ärendet är vilande sedan ${status.suspendedSince} (9 kap. 102 §). Tioveckorsfristen löper inte förrän vilandeförklaringen upphör, och avgiften reduceras inte för den tiden (12 kap. 8 a §).`,
       tone: 'paused',
     };
+  }
+  if (status.basis === 'tillsyn') {
+    return { label: 'Tillsyn, ingen frist', detail: status.explanation, tone: 'normal' };
   }
   if (status.deadlineDate === null || status.daysLeft === null) {
     return {
@@ -170,6 +175,13 @@ export type ExtensionAvailability = { allowed: true } | { allowed: false; reason
  * runs and has not run out (9 kap. 99 § andra stycket, 100 § 3). The engine checks the same.
  */
 export function extensionAvailability(state: CaseState): ExtensionAvailability {
+  if (state.supervision && state.deadlineDate === null) {
+    return {
+      allowed: false,
+      reason:
+        'Ett tillsynsärende har ingen tidsfrist att förlänga. Fristen i 9 kap. 99 § gäller först om en ansökan om lov i efterhand kommer in.',
+    };
+  }
   if (state.decisions.length > 0) {
     return { allowed: false, reason: 'Beslutet är fattat, så fristen kan inte förlängas.' };
   }

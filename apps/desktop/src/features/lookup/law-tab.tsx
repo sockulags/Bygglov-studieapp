@@ -106,7 +106,7 @@ function SectionRow({
                 type="button"
                 aria-expanded={showComing}
                 onClick={() => setShowComing((v) => !v)}
-                className="text-sm text-accent underline-offset-2 hover:underline"
+                className="inline-flex min-h-6 items-center text-sm text-accent underline-offset-2 hover:underline"
               >
                 {showComing ? 'Dölj' : 'Visa'} lydelsen från {formatDay(section.kommande.fran)}
               </button>
@@ -153,9 +153,9 @@ function ChapterBlock({
       <header className="flex flex-wrap items-end justify-between gap-2">
         <div>
           <p className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">{lawName}</p>
-          <h3 id={`kapitel-${chapter.lag}-${chapter.kapitel}`} className="text-xl">
+          <h2 id={`kapitel-${chapter.lag}-${chapter.kapitel}`} className="text-xl">
             {chapter.lag} {chapter.kapitel} kap. {chapter.rubrik}
-          </h3>
+          </h2>
           <p className="mt-1 text-sm text-muted">
             En mening per paragraf, skriven för appen. Lagtexten är{' '}
             {chapter.andrad_tom.replace('SFS', 'ändrad t.o.m. SFS')}, hämtad{' '}
@@ -166,9 +166,9 @@ function ChapterBlock({
       </header>
       {headings.map((group, index) => (
         <div key={`${group.rubrik ?? 'inledning'}-${index}`} className="flex flex-col gap-2">
-          <h4 className="pt-2 text-sm font-semibold text-muted">
+          <h3 className="pt-2 text-sm font-semibold text-muted">
             {group.rubrik ?? 'Inledande bestämmelser'}
-          </h4>
+          </h3>
           <ul className="flex flex-col gap-2">
             {group.entries.map((entry, i) => (
               <SectionRow
@@ -267,9 +267,9 @@ export function LawTab({
 
       <section aria-labelledby="ovriga-lagrum" className="flex flex-col gap-6">
         <div>
-          <h3 id="ovriga-lagrum" className="text-xl">
+          <h2 id="ovriga-lagrum" className="text-xl">
             Övriga lagrum
-          </h3>
+          </h2>
           <p className="mt-1 text-sm text-muted">
             Lag, kapitel och var lagrummet används. Följ länken för att läsa lagtexten.
           </p>
@@ -281,9 +281,9 @@ export function LawTab({
             className="flex flex-col gap-3"
           >
             <header className="flex flex-wrap items-baseline justify-between gap-2 border-b border-line pb-1">
-              <h4 id={`lag-${group.code}`} className="font-semibold">
+              <h3 id={`lag-${group.code}`} className="font-semibold">
                 {group.name}
-              </h4>
+              </h3>
               {group.url && (
                 <ExternalLink href={group.url} className="text-sm">
                   {group.url.includes('riksdagen.se') ? 'Lagen på riksdagen.se' : 'Till källan'}
@@ -318,7 +318,7 @@ export function LawTab({
                               key={id}
                               type="button"
                               onClick={() => nav.open({ kind: 'term', id })}
-                              className="text-accent underline-offset-2 hover:underline"
+                              className="inline-flex min-h-6 items-center text-accent underline-offset-2 hover:underline"
                             >
                               {lookup.glossary.find((t) => t.id === id)?.term ?? id}
                             </button>

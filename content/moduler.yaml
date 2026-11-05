@@ -9,8 +9,13 @@ moduler:
     beskrivning: >
       Serviceskyldighet, kommunicering, jäv, motivering, överklagandehänvisning, delgivning,
       offentlighet och sekretess.
-    lagrum_sammanfattning: Förvaltningslagen (2017:900), kommunallagen, tryckfrihetsförordningen, offentlighets- och sekretesslagen
-    lagrum: [FL, KL, TF, OSL]
+    # Kontrollerat mot docs/rattslage/fl.txt, kl-utdrag.txt, tf-2-kap.txt, osl-utdrag.txt och
+    # pbl-12-kap.txt (riksdagen.se 2026-11-05).
+    lagrum_sammanfattning: >-
+      Förvaltningslagen (2017:900) 2–13, 16–18, 23–27 och 31–48 §§; kommunallagen 6 kap. 28–39 §§
+      och 7 kap. 4–8 §§ (jäv och delegering); TF 2 kap. (allmänna handlingar); OSL 5, 6, 10, 18 och
+      21 kap. (registrering, utlämnande och sekretess); PBL 12 kap. 6 § och 9 kap. 98 §
+    lagrum: [FL, KL 6 kap., KL 7 kap., TF 2 kap., OSL, PBL 12 kap. 6 §]
 
   - id: 02-pbl-systemet
     ordning: 2
@@ -18,8 +23,14 @@ moduler:
     beskrivning: >
       Lagens uppbyggnad, byggnadsnämndens roll, översiktsplan, detaljplan och
       områdesbestämmelser, allmänna och enskilda intressen.
-    lagrum_sammanfattning: PBL 1–4 kap., PBL 12 kap.
-    lagrum: [PBL 1 kap., PBL 2 kap., PBL 3 kap., PBL 4 kap., PBL 12 kap.]
+    # Kontrollerat mot docs/rattslage/pbl-1-kap.txt–pbl-5-kap.txt, pbl-12-kap.txt och
+    # pbl-16-kap.txt (riksdagen.se 2026-11-05) samt PBF 8 och 10 kap.
+    lagrum_sammanfattning: >-
+      PBL 1 kap. 2–4 §§ (definitioner), 2 kap. 1–9 §§ (allmänna och enskilda intressen), 3 kap.
+      (översiktsplan), 4 kap. 21–24 och 38–42 §§ (genomförandetid och områdesbestämmelser), 5 kap.
+      (planprocessen), 12 kap. 1–11 §§ (byggnadsnämnden och avgifter), 16 kap. (bemyndiganden),
+      PBF 8 och 10 kap., Boverkets föreskrifter och allmänna råd
+    lagrum: [PBL 1 kap., PBL 2 kap., PBL 3 kap., PBL 4 kap., PBL 5 kap., PBL 12 kap., PBL 16 kap., PBF 8 kap., PBF 10 kap.]
 
   - id: 03-lovplikt
     ordning: 3
@@ -39,20 +50,37 @@ moduler:
     ordning: 4
     titel: Detaljplan och planenlighet
     beskrivning: >
-      Läsa plankarta och planbestämmelser, byggrätt, prickmark, byggnadshöjd och nockhöjd,
-      användning, liten avvikelse och planstridigt utgångsläge.
-    lagrum_sammanfattning: PBL 9 kap. (planenlighet och liten avvikelse), PBF 1 kap., Boverkets allmänna råd om mätning
-    lagrum: [PBL 9 kap., PBF 1 kap.]
-    lagrum_osaker: true
+      Läsa plankarta och planbestämmelser, byggrätt, prickmark, höjder och utnyttjandegrad,
+      genomförandetid, liten avvikelse, planstridigt utgångsläge, lovfria åtgärder i strid med
+      planen, äldre planer och planbesked.
+    # Kontrollerat 2026-11-05 mot docs/rattslage/pbl-9-kap.txt, pbl-2-kap.txt, pbl-4-kap.txt,
+    # pbl-5-kap.txt, pbl-10-kap.txt, byggnadsstadgan-1959-39-40.txt och
+    # boverket-matt-och-planbestammelser.txt.
+    lagrum_sammanfattning: >-
+      PBL 9 kap. 56–64 §§ (förutsättningar inom detaljplan, avvikelser, planstridigt utgångsläge
+      och samlad bedömning), PBL 10 kap. 2–2 b §§ (lovfria åtgärder i strid med planen), PBL
+      4 kap. 5–40 §§ (planens innehåll, genomförandetid och giltighet), PBL 5 kap. 2–5 §§
+      (planbesked), PBL 2 kap. 6, 8 och 9 §§, övergångsbestämmelserna om äldre planer (39 §
+      byggnadsstadgan), Boverkets föreskrifter och allmänna råd om detaljplan
+    lagrum: [PBL 9 kap., PBL 10 kap., PBL 4 kap., PBL 5 kap., PBL 2 kap.]
 
   - id: 05-utanfor-plan
     ordning: 5
     titel: Prövning utanför detaljplan
     beskrivning: >
-      Lokaliseringsprövning, områdesbestämmelser, sammanhållen bebyggelse och förhandsbesked.
-    lagrum_sammanfattning: PBL 9 kap., PBL 2 kap., PBL 4 kap.
-    lagrum: [PBL 9 kap., PBL 2 kap., PBL 4 kap.]
-    lagrum_osaker: true
+      Lokaliseringsprövning, detaljplanekravet, sammanhållen bebyggelse, områdesbestämmelser,
+      förhandsbesked, bygglovsbefriat utanför plan samt strandskydd, riksintressen, VA och väg
+      som prövningsgrunder.
+    # Kontrollerat 2026-11-05 mot docs/rattslage/pbl-9-kap.txt, pbl-1-kap.txt, pbl-2-kap.txt,
+    # pbl-4-kap.txt, mb-3-kap.txt, mb-7-kap.txt, vagl-utdrag.txt och fmh-utdrag.txt.
+    lagrum_sammanfattning: >-
+      PBL 9 kap. 57, 59 och 74 §§ (förutsättningar utanför plan och för förhandsbesked), PBL
+      9 kap. 41–42 §§ (förhandsbesked), PBL 9 kap. 5, 6 och 12 §§ (bygglovsbefriat utanför plan),
+      PBL 2 kap. (lokaliseringsprövning), PBL 4 kap. 2 och 41–42 §§ (detaljplanekrav och
+      områdesbestämmelser), MB 3 kap. och 7 kap. 13–18 k §§ (hushållning, riksintressen och
+      strandskydd), väglagen 39 och 47 §§, 13 § förordningen om miljöfarlig verksamhet och
+      hälsoskydd (avlopp)
+    lagrum: [PBL 9 kap., PBL 2 kap., PBL 4 kap., MB 3 kap., MB 7 kap., VägL]
 
   - id: 06-handlaggning
     ordning: 6
@@ -72,16 +100,31 @@ moduler:
     beskrivning: >
       Utformningskrav, tekniska egenskapskrav, tillgänglighet, varsamhet, förvanskningsförbud
       och tomtkrav.
-    lagrum_sammanfattning: PBL 8 kap., PBF 3 kap., Boverkets byggregler
-    lagrum: [PBL 8 kap., PBF 3 kap.]
+    # Kontrollerat mot docs/rattslage/pbl-8-kap.txt, pbf-3-kap.txt, pbl-9-kap.txt, pbl-10-kap.txt,
+    # pbl-2-kap.txt och trafikbullerforordningen.txt (riksdagen.se 2026-11-05).
+    lagrum_sammanfattning: >-
+      PBL 8 kap. 1–2, 4, 4 a, 6–15, 17, 24 §§ (utformningskrav, tekniska egenskapskrav,
+      tillgänglighet och undantag, tomter, förvanskning, underhåll och varsamhet), PBF 3 kap. 1,
+      4–5, 8–10, 17–20 b och 23 §§, PBL 9 kap. 37, 56, 57, 68 och 105 §§ (vad som prövas i lovet),
+      PBL 10 kap. 7 och 23 §§, PBL 2 kap. 6 a § och förordningen (2015:216) om trafikbuller,
+      Boverkets byggregler
+    lagrum: [PBL 8 kap., PBF 3 kap., PBL 9 kap. 56 §, PBL 9 kap. 105 §, PBL 2 kap. 6 a §]
 
   - id: 08-ritning-berakning
     ordning: 8
     titel: Ritningsläsning och beräkning
     beskrivning: >
       Situationsplan, plan, fasad och sektion, skala, byggnadsarea, bruttoarea och öppenarea,
-      byggnadshöjd, våningar och avstånd till gräns.
-    lagrum_sammanfattning: SS 21054:2020 (area och volym för husbyggnader), Boverkets vägledning om mätning
+      byggnadshöjd, nockhöjd och totalhöjd, medelmarknivå, våningar, källare och suterräng,
+      avstånd till gräns och beräkningar av byggrätt och pott.
+    # PBF 1 kap. kontrollerat 2026-11-05 mot docs/rattslage/pbf-1-kap.txt. SS 21054:2020 har inte
+    # kunnat läsas; areabegreppen bygger på Boverkets återgivning i
+    # docs/rattslage/boverket-matt-och-planbestammelser.txt.
+    lagrum_sammanfattning: >-
+      PBF 1 kap. 3–4 §§ (byggnadshöjd och våning), Boverkets föreskrifter och allmänna råd om
+      detaljplan (nockhöjd och totalhöjd), SS 21054:2020 (area och volym för byggnader), PBL
+      9 kap. 4, 10, 47 och 86 §§
+    lagrum: [PBF 1 kap., SS 21054:2020, PBL 9 kap.]
 
   - id: 09-genomforande
     ordning: 9
@@ -89,17 +132,33 @@ moduler:
     beskrivning: >
       Tekniskt samråd, kontrollansvarig, kontrollplan, startbesked, arbetsplatsbesök,
       slutsamråd, slutbesked och interimistiskt slutbesked.
-    lagrum_sammanfattning: PBL 10 kap., PBF 7 kap.
-    lagrum: [PBL 10 kap., PBF 7 kap.]
+    # Kontrollerat mot docs/rattslage/pbl-10-kap.txt, pbf-6-kap.txt, pbf-7-kap.txt och
+    # fardigstallandeskydd.txt (riksdagen.se 2026-11-05).
+    lagrum_sammanfattning: >-
+      PBL 10 kap. 3–40 §§ (startbesked, förbud mot ibruktagande, byggherrens ansvar, kontrollplan,
+      avfallshanteringsplan, kontrollansvariga, sakkunniga, byggbedömare, tekniskt samråd,
+      utstakning, arbetsplatsbesök, slutsamråd och slutbesked), PBF 6 kap. 1–6 §§ (anmälan) och
+      7 kap. 2 och 5 §§ (certifiering och när kontrollansvarig inte krävs), lagen (2014:227) om
+      färdigställandeskydd
+    lagrum: [PBL 10 kap., PBF 6 kap., PBF 7 kap.]
 
   - id: 10-tillsyn
     ordning: 10
     titel: Tillsyn och sanktioner
     beskrivning: >
-      Olovligt byggande, lovföreläggande, rättelseföreläggande, byggsanktionsavgift, vite och
-      preskription.
-    lagrum_sammanfattning: PBL 11 kap., PBF 9 kap.
-    lagrum: [PBL 11 kap., PBF 9 kap.]
+      Olovligt byggande, tillsynsansvar och anmälan, lovföreläggande, rättelseföreläggande,
+      åtgärdsföreläggande, förbud, vite, handräckning, byggsanktionsavgift med beräkning,
+      rättelse, nedsättning och preskription samt tillsyn över OVK, hissar och lekplatser.
+    # Kontrollerat 2026-11-05 mot docs/rattslage/pbl-11-kap.txt, pbf-9-kap.txt,
+    # pbf-5-och-8-kap.txt, pbl-8-kap.txt, pbl-10-kap.txt, pbl-12-kap.txt, fl.txt,
+    # prisbasbelopp.txt och boverket-tillsyn-utdrag.txt.
+    lagrum_sammanfattning: >-
+      PBL 11 kap. 3, 5, 8–9, 17–21, 27–33, 37–48 och 51–64 §§ (tillsyn, förelägganden, förbud,
+      vite, handräckning, anteckning i fastighetsregistret och byggsanktionsavgifter), PBL 10 kap.
+      2–4 §§ (lovet, startbesked och slutbesked), PBL 8 kap. 14–15 §§ (underhåll och lekplatser),
+      PBL 12 kap. 6 § (delegation), PBF 1 kap. 7 § (sanktionsarea), PBF 9 kap. 1–3 a, 5–7 och
+      18 §§ (avgiftsbelopp), PBF 5 och 8 kap. (OVK, hissar och tillsyn), FL 23, 25, 32 och 33 §§
+    lagrum: [PBL 11 kap., PBL 10 kap., PBL 12 kap. 6 §, PBF 9 kap., PBF 1 kap. 7 §, PBF 5 kap., PBF 8 kap., FL]
 
   - id: 11-angransande
     ordning: 11
@@ -107,8 +166,17 @@ moduler:
     beskrivning: >
       Strandskydd, kulturmiljölagen, miljöbalken, väglagen, fastighetsbildning och lagen om
       skydd mot olyckor.
-    lagrum_sammanfattning: Miljöbalken 7 kap., kulturmiljölagen, väglagen, fastighetsbildningslagen, LSO
-    lagrum: [MB 7 kap., KML, VägL, FBL, LSO]
+    # Kontrollerat mot docs/rattslage/mb-7-kap.txt, mb-utdrag-8-10-19-kap.txt, fmh-utdrag.txt,
+    # kml-2-4-kap.txt, vagl-utdrag.txt, lso-utdrag.txt, jb-utdrag.txt och
+    # fastighetsratt-utdrag.txt (riksdagen.se 2026-11-05).
+    lagrum_sammanfattning: >-
+      MB 7 kap. 13–18 k §§ (strandskydd i lydelsen från 2025-07-01) och 27–29 b §§ (Natura 2000),
+      MB 8 kap. 1–2 §§ (artskydd), 9 kap. 1, 6 c och 7 §§ (miljöfarlig verksamhet och avlopp),
+      10 kap. 1–3 §§ (förorenade områden) och 19 kap. 3 a–3 b §§, FMH 13 §, KML 2 kap. (fornlämningar),
+      3 kap. (byggnadsminnen) och 4 kap. (kyrkliga kulturminnen), VägL 39 och 47 §§, LSO 2 kap. 2 och
+      4 §§ och 3 kap. 4 §, anläggningslagen 1–9 §§, FBL 7 kap. 1 §, JB 3 kap. och 14 kap. 1 §,
+      PBL 2 kap. 5 och 11 §§, 4 kap. 14 § och 9 kap. 92, 93 och 102 §§
+    lagrum: [MB 7 kap., MB 10 kap., KML, VägL, FBL, LSO, FMH, PBL 9 kap. 92 §]
 
   - id: 12-overklagande
     ordning: 12
@@ -116,8 +184,14 @@ moduler:
     beskrivning: >
       Vem som får överklaga, tidsfrister, rättidsprövning, länsstyrelsen, mark- och
       miljödomstolen och verkställbarhet.
-    lagrum_sammanfattning: PBL 13 kap., förvaltningslagens bestämmelser om överklagande (FL 40–47 §§)
-    lagrum: [PBL 13 kap., FL 40–47 §§]
+    # Kontrollerat mot docs/rattslage/pbl-13-kap.txt, pbl-9-kap.txt, fl.txt, kl-utdrag.txt och
+    # mmdl-5-kap.txt (riksdagen.se 2026-11-05).
+    lagrum_sammanfattning: >-
+      PBL 13 kap. 1–18 §§ (överklagbarhet, instanser, klagorätt och överklagandetid), PBL 9 kap.
+      101, 105, 108–110, 114 och 115 §§ (återförvisning, delgivning, kungörelse, verkställbarhet
+      och giltighetstid), FL 38–48 §§, KL 6 kap. 38 § och 13 kap. (laglighetsprövning), lagen
+      (2010:921) om mark- och miljödomstolar 5 kap.
+    lagrum: [PBL 13 kap., PBL 9 kap. 114 §, FL 38–48 §§, KL 13 kap.]
 
   - id: 13-kommunikation
     ordning: 13
@@ -125,5 +199,8 @@ moduler:
     beskrivning: >
       Skriva begripliga beslut, svåra samtal, förväntanshantering, service kontra
       myndighetsutövning.
-    lagrum_sammanfattning: Språklagen (klarspråk), förvaltningslagen om service
-    lagrum: [FL 6 §]
+    # Kontrollerat mot docs/rattslage/sprl.txt, fl.txt och pbl-9-kap.txt (riksdagen.se 2026-11-05).
+    lagrum_sammanfattning: >-
+      Språklagen (2009:600) 11 § (klarspråk), FL 5–7, 11, 13, 27, 32 och 33 §§ (objektivitet,
+      service, tillgänglighet, tolk, dokumentation och beslut), PBL 9 kap. 91, 98–100 och 114 §§
+    lagrum: [SprL 11 §, FL 6 §, FL 13 §, FL 32 §, PBL 9 kap.]

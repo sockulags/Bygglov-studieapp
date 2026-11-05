@@ -3,6 +3,8 @@ import {
   defaultOpeningHeight,
   defaultSill,
   type Facade,
+  type FacadeBalcony,
+  type FacadeDetail,
   type FacadeOpening,
   type FacadePart,
   type FasadritningParams,
@@ -33,6 +35,10 @@ const ROOF_THICKNESS = 0.25;
 const GROUND_EXTENSION_MM = 10;
 const LEVEL_GAP_MM = 12;
 const MIN_LABEL_SPACING_MM = 3.6;
+const REMOVED_DASH = '1.2 0.8';
+/** Thickness of a balcony slab and of a parapet coping, in metres. */
+const SLAB = 0.2;
+const COPING = 0.12;
 
 interface PartGeometry {
   part: FacadePart;
@@ -42,6 +48,8 @@ interface PartGeometry {
   nock: number;
   tan: number;
 }
+
+const isFlat = (part: FacadePart) => part.takvinkel === 0 && part.nockhojd === undefined;
 
 function geometry(part: FacadePart): PartGeometry {
   const tan = Math.tan((part.takvinkel * Math.PI) / 180);
@@ -156,8 +164,25 @@ function renderOpening(
   const pw = X(x + w) - left;
   const ph = Z(sill) - top;
   const k = pw / w;
+  if (o.status === 'rivs') {
+    // Removed or filled in: dashed outline with a cross, on top of whatever replaces it.
+    return [
+      rect(left, top, pw, ph, {
+        fill: 'none',
+        stroke: INK,
+        'stroke-width': LINE.thin,
+        'stroke-dasharray': REMOVED_DASH,
+      }),
+      line(left, top, left + pw, top + ph, LINE.hair, { 'stroke-dasharray': REMOVED_DASH }),
+      line(left, top + ph, left + pw, top, LINE.hair, { 'stroke-dasharray': REMOVED_DASH }),
+    ].join('');
+  }
   const parts: string[] = [
-    rect(left, top, pw, ph, { fill: PAPER, stroke: INK, 'stroke-width': LINE.medium }),
+    rect(left, top, pw, ph, {
+      fill: PAPER,
+      stroke: INK,
+      'stroke-width': o.status === 'ny' ? LINE.bold : LINE.medium,
+    }),
   ];
   const inner = (inset: number, bottomInset = inset) =>
     rect(left + inset * k, top + inset * k, pw - 2 * inset * k, ph - (inset + bottomInset) * k, {
@@ -196,7 +221,9 @@ function renderOpening(
     }
   } else if (o.typ === 'dorr') {
     parts.push(inner(0.1, 0.12));
-    parts.push(el('circle', { cx: left + pw - 0.12 * k, cy: Z(1.0), r: 0.04 * k, fill: INK }));
+    parts.push(
+      el('circle', { cx: left + pw - 0.12 * k, cy: Z(sill + 1.0), r: 0.04 * k, fill: INK }),
+    );
   } else {
     for (let z = sill + 0.5; z < sill + h - 0.1; z += 0.5) {
       parts.push(line(left, Z(z), left + pw, Z(z), LINE.hair));
@@ -205,11 +232,113 @@ function renderOpening(
   return parts.join('');
 }
 
+/** Openings to be removed last, so they are drawn on top of what replaces them. */
+const byStatus = (openings: FacadeOpening[]) => [
+  ...openings.filter((o) => o.status !== 'rivs'),
+  ...openings.filter((o) => o.status === 'rivs'),
+];
+
+/** A balcony in front of the facade: slab, railing with balusters and a top rail. */
+function renderBalcony(
+  b: FacadeBalcony,
+  g: PartGeometry,
+  X: (x: number) => number,
+  Z: (z: number) => number,
+): string {
+  const x0 = X(g.x0 + b.x);
+  const x1 = X(g.x0 + b.x + b.bredd);
+  const weight = (b.ny ?? g.part.ny) ? LINE.heavy : LINE.medium;
+  const parts: string[] = [
+    rect(x0, Z(b.underkant + b.racke), x1 - x0, Z(b.underkant) - Z(b.underkant + b.racke), {
+      fill: PAPER,
+      stroke: INK,
+      'stroke-width': LINE.thin,
+    }),
+  ];
+  const spacing = 0.15;
+  const count = Math.max(1, Math.round(b.bredd / spacing));
+  for (let i = 1; i < count; i += 1) {
+    const x = x0 + ((x1 - x0) * i) / count;
+    parts.push(line(x, Z(b.underkant + b.racke - 0.06), x, Z(b.underkant), LINE.hair));
+  }
+  parts.push(
+    rect(x0, Z(b.underkant), x1 - x0, Z(b.underkant - SLAB) - Z(b.underkant), {
+      fill: PAPER,
+      stroke: INK,
+      'stroke-width': weight,
+    }),
+    line(x0, Z(b.underkant + b.racke), x1, Z(b.underkant + b.racke), weight),
+  );
+  return group(parts, { class: 'balkong' });
+}
+
+/** A sign (board with text, or free-standing letters) or a ventilation duct. */
+function renderDetail(
+  d: FacadeDetail,
+  g: PartGeometry,
+  X: (x: number) => number,
+  Z: (z: number) => number,
+): string {
+  const x0 = X(g.x0 + d.x);
+  const x1 = X(g.x0 + d.x + d.bredd);
+  const top = Z(d.underkant + d.hojd);
+  const bottom = Z(d.underkant);
+  const weight = d.ny ? LINE.heavy : LINE.medium;
+  const parts: string[] = [];
+  if (d.typ === 'skylt') {
+    if (!d.fristaende) {
+      parts.push(
+        rect(x0, top, x1 - x0, bottom - top, { fill: PAPER, stroke: INK, 'stroke-width': weight }),
+      );
+    }
+    if (d.text) {
+      const height = (bottom - top) * (d.fristaende ? 0.95 : 0.6);
+      const size = Math.min(height / 0.72, ((x1 - x0) * 0.9) / textWidth(d.text, 1, true));
+      parts.push(
+        label((x0 + x1) / 2, (top + bottom) / 2, d.text, {
+          anchor: 'middle',
+          baseline: 'middle',
+          size,
+          weight: 'bold',
+          letterSpacing: d.fristaende ? size * 0.12 : undefined,
+        }),
+      );
+    }
+  } else {
+    parts.push(
+      rect(x0, top, x1 - x0, bottom - top, { fill: PAPER, stroke: INK, 'stroke-width': weight }),
+    );
+    // Joints in the cladding every metre, and a cap at the outlet.
+    const joints: string[] = [];
+    for (let z = d.underkant + 1; z < d.underkant + d.hojd - 0.3; z += 1) {
+      joints.push(line(x0, Z(z), x1, Z(z), LINE.hair));
+    }
+    parts.push(group(joints));
+    const cap = (x1 - x0) * 0.25;
+    parts.push(
+      rect(x0 - cap, top - 0.6, x1 - x0 + 2 * cap, 0.6, {
+        fill: PAPER,
+        stroke: INK,
+        'stroke-width': weight,
+      }),
+    );
+    if (d.text) {
+      parts.push(
+        label(x1 + cap + 1.5, top + 4, d.text, { size: TEXT.small, halo: true, italic: true }),
+      );
+    }
+  }
+  return group(parts, { class: d.typ });
+}
+
 function renderFacade(f: Facade, k: number, groundId: string): Rendered {
   const geoms = f.delar.map(geometry);
   const minX = Math.min(...geoms.map((g) => g.x0 - g.part.takutsprang));
   const maxX = Math.max(...geoms.map((g) => g.x1 + g.part.takutsprang));
-  const topZ = Math.max(...geoms.map((g) => g.nock));
+  const topZ = Math.max(
+    ...geoms.map((g) => g.nock),
+    ...geoms.flatMap((g) => g.part.detaljer.map((d) => d.underkant + d.hojd)),
+  );
 
   // Level labels decide the width to the right.
   const showsHeights = geoms.filter((g) => g.part.visa_hojder);
@@ -217,13 +346,40 @@ function renderFacade(f: Facade, k: number, groundId: string): Rendered {
   const marks: LevelMark[] = [{ z: 0, featureX: maxX, text: level(0), note: 'mark' }];
   for (const g of showsHeights) {
     const note = named ? g.part.namn?.toLowerCase() : undefined;
-    marks.push({ z: g.bh, featureX: g.x1, text: `${level(g.bh)} BH`, note });
-    marks.push({
-      z: g.nock,
-      featureX: g.part.vy === 'gavel' ? (g.x0 + g.x1) / 2 : g.x1 + g.part.takutsprang,
-      text: `${level(g.nock)} NH`,
-      note,
-    });
+    if (isFlat(g.part)) {
+      // A flat roof has one height: the top of the facade (the parapet, if there is one).
+      marks.push({
+        z: g.bh,
+        featureX: g.x1,
+        text: `${level(g.bh)} BH`,
+        note: note ?? (g.part.attika !== undefined ? 'överkant attika' : 'platt tak'),
+      });
+      if (g.part.attika !== undefined) {
+        marks.push({
+          z: g.bh - g.part.attika,
+          featureX: g.x1,
+          text: level(g.bh - g.part.attika),
+          note: 'takyta',
+        });
+      }
+    } else {
+      marks.push({ z: g.bh, featureX: g.x1, text: `${level(g.bh)} BH`, note });
+      marks.push({
+        z: g.nock,
+        featureX: g.part.vy === 'gavel' ? (g.x0 + g.x1) / 2 : g.x1 + g.part.takutsprang,
+        text: `${level(g.nock)} NH`,
+        note,
+      });
+    }
+    for (const d of g.part.detaljer) {
+      if (d.typ !== 'kanal') continue;
+      marks.push({
+        z: d.underkant + d.hojd,
+        featureX: g.x0 + d.x + d.bredd,
+        text: level(d.underkant + d.hojd),
+        note: 'kanal',
+      });
+    }
   }
   const labelWidth = levelLabelWidth(marks);
 
@@ -264,7 +420,7 @@ function renderFacade(f: Facade, k: number, groundId: string): Rendered {
           { fill: PAPER, stroke: INK, 'stroke-width': weight, 'stroke-linejoin': 'miter' },
         ),
       );
-      for (const opening of p.oppningar) parts.push(renderOpening(opening, g, X, Z));
+      for (const opening of byStatus(p.oppningar)) parts.push(renderOpening(opening, g, X, Z));
       const eave = g.bh - o * g.tan;
       parts.push(
         polygon(
@@ -301,6 +457,30 @@ function renderFacade(f: Facade, k: number, groundId: string): Rendered {
           }),
         );
       }
+    } else if (isFlat(p)) {
+      // Flat roof: the facade up to its top, a coping, and the roof surface behind a parapet.
+      parts.push(
+        rect(X(g.x0), Z(g.bh), X(g.x1) - X(g.x0), Z(0) - Z(g.bh), {
+          fill: PAPER,
+          stroke: INK,
+          'stroke-width': weight,
+        }),
+      );
+      for (const opening of byStatus(p.oppningar)) parts.push(renderOpening(opening, g, X, Z));
+      parts.push(
+        rect(X(g.x0 - 0.05), Z(g.bh), X(g.x1 + 0.05) - X(g.x0 - 0.05), COPING * k, {
+          fill: PAPER,
+          stroke: INK,
+          'stroke-width': weight,
+        }),
+      );
+      if (p.attika !== undefined) {
+        parts.push(
+          line(X(g.x0), Z(g.bh - p.attika), X(g.x1), Z(g.bh - p.attika), LINE.thin, {
+            'stroke-dasharray': '3 1.5',
+          }),
+        );
+      }
     } else {
       const eave = g.bh - o * g.tan;
       parts.push(
@@ -310,7 +490,7 @@ function renderFacade(f: Facade, k: number, groundId: string): Rendered {
           'stroke-width': weight,
         }),
       );
-      for (const opening of p.oppningar) parts.push(renderOpening(opening, g, X, Z));
+      for (const opening of byStatus(p.oppningar)) parts.push(renderOpening(opening, g, X, Z));
       const rx = X(g.x0 - o);
       const rw = X(g.x1 + o) - rx;
       parts.push(
@@ -338,6 +518,8 @@ function renderFacade(f: Facade, k: number, groundId: string): Rendered {
         );
       }
     }
+    for (const b of p.balkonger) parts.push(renderBalcony(b, g, X, Z));
+    for (const d of p.detaljer) parts.push(renderDetail(d, g, X, Z));
   });
 
   parts.push(
@@ -399,11 +581,18 @@ export function renderFasadritning(p: FasadritningParams, context: DrawingContex
   const defs = [hatchPattern(groundId, { angle: 45, spacing: 1.1, width: LINE.hair })];
   const facades = p.fasader.map((f) => renderFacade(f, k, groundId));
 
+  const openings = p.fasader.flatMap((f) => f.delar.flatMap((d) => d.oppningar));
   const footerLines = [
     'BH = byggnadshöjd, NH = nockhöjd.',
     'Höjder i meter över medelmarknivå (±0,00).',
     'Mått i millimeter. Ny del ritas med grövre linje.',
   ];
+  if (openings.some((o) => o.status === 'ny')) {
+    footerLines.push('Ny eller ändrad öppning ritas med grov linje.');
+  }
+  if (openings.some((o) => o.status === 'rivs')) {
+    footerLines.push('Streckad öppning med kryss tas bort eller sätts igen.');
+  }
   const footer = {
     width: Math.max(...footerLines.map((l) => textWidth(l, TEXT.small))),
     height: footerLines.length * 3.4 + 5,
@@ -453,6 +642,7 @@ export function renderFasadritning(p: FasadritningParams, context: DrawingContex
     defs,
     title: titleData(context, p.ritningshuvud, { ritningstyp: 'Fasadritning', skala: p.skala }),
     description: `${context.titel}, ${shortProperty(context.fastighet)}`,
+    scale: p.skala,
   });
 }
 

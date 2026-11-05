@@ -1,0 +1,902 @@
+# Frågor för modul 07-krav-byggnadsverk. En fil per modul. Valideras med zod (pnpm content:check).
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
+# Källor (hämtade från riksdagen.se 2026-11-05 och sparade i docs/rattslage/):
+#   pbl-8-kap.txt (PBL 8 kap., ändrad t.o.m. SFS 2026:1583), pbf-3-kap.txt (PBF 3 kap., ändrad
+#   t.o.m. SFS 2026:1722), pbl-9-kap.txt (56, 57, 68 och 105 §§), pbl-10-kap.txt (7 och 23 §§),
+#   pbl-2-kap.txt (5, 6 och 6 a §§), pbl-16-kap.txt (2 §), trafikbullerforordningen.txt
+#   (förordning 2015:216) och lso-utdrag.txt.
+# Frågorna följer lydelsen som gäller i dag. Där en ändring redan är beslutad (lag 2026:746 och
+# förordning 2026:1265, i kraft 2027-01-01) säger förklaringen det.
+# Boverkets byggregler: BBR är ersatt av nya föreskrifter, och från 1 juli 2026 gäller bara de
+# nya. Frågorna hänvisar därför till "Boverkets byggregler" allmänt, aldrig till BBR-avsnitt.
+# Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
+modul: 07-krav-byggnadsverk
+fragor:
+  # --- Utformningskrav och tekniska egenskapskrav --------------------------------------------
+
+  - id: krav-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka är de tre utformningskraven för en byggnad enligt 8 kap. 1 § PBL?
+    alternativ:
+      - text: >-
+          Byggnaden ska vara lämplig för sitt ändamål, ha en god form-, färg- och materialverkan
+          och vara tillgänglig och användbar för personer med nedsatt rörelse- eller
+          orienteringsförmåga.
+        ratt: true
+      - text: Byggnaden ska vara bärande, brandsäker och energisnål.
+      - text: Byggnaden ska följa detaljplanen, ha en god helhetsverkan och placeras minst 4,5 m från gräns.
+      - text: Byggnaden ska vara lämplig för sitt ändamål, ha tillräcklig bärförmåga och skydda mot buller.
+    forklaring: >
+      8 kap. 1 § PBL innehåller utformningskraven: lämplighet för ändamålet, god form-, färg- och
+      materialverkan samt tillgänglighet och användbarhet. Bärförmåga, brandskydd, buller och
+      energi är i stället tekniska egenskapskrav i 8 kap. 4 §. Skillnaden är viktig eftersom
+      utformningskraven prövas i bygglovet medan de tekniska egenskapskraven hanteras inför
+      startbeskedet.
+    lagrum: [PBL 8 kap. 1 §, PBL 8 kap. 4 §]
+    taggar: [utformningskrav, grundbegrepp]
+
+  - id: krav-002
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande är tekniska egenskapskrav enligt 8 kap. 4 § PBL?
+    alternativ:
+      - text: Bärförmåga, stadga och beständighet
+        ratt: true
+      - text: Säkerhet i händelse av brand
+        ratt: true
+      - text: Skydd mot buller
+        ratt: true
+      - text: Hållbar mobilitet
+        ratt: true
+      - text: God form-, färg- och materialverkan
+      - text: Hänsyn till stads- och landskapsbilden
+    forklaring: >
+      8 kap. 4 § räknar upp elva tekniska egenskapskrav, bl.a. bärförmåga, brandsäkerhet, hygien,
+      hälsa och miljö, säkerhet vid användning, buller, energihushållning, tillgänglighet,
+      bredbandsanslutning och hållbar mobilitet (utrustning för laddning av elfordon och
+      cykelparkering, se 3 kap. 20 b § PBF). Form-, färg- och materialverkan är ett
+      utformningskrav i 8 kap. 1 §, och stads- och landskapsbilden är ett krav på placering och
+      utformning i 2 kap. 6 §. Vad som krävs i detalj står i Boverkets byggregler.
+    lagrum: [PBL 8 kap. 4 §, PBL 8 kap. 1 §, PBL 2 kap. 6 §, PBF 3 kap. 20 b §]
+    taggar: [tekniska_egenskapskrav, grundbegrepp]
+
+  - id: krav-003
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilket av följande prövar byggnadsnämnden normalt INTE i bygglovsprövningen för ett nytt
+      enbostadshus inom detaljplan, utan först inför startbeskedet?
+    alternativ:
+      - text: Att bjälklagen har tillräcklig bärförmåga.
+        ratt: true
+      - text: Att huset har en god form-, färg- och materialverkan.
+      - text: Att tomten har en lämpligt belägen utfart.
+      - text: Att huset är lämpligt för sitt ändamål.
+    forklaring: >
+      I bygglovet prövas enligt 9 kap. 56 § första stycket 4 bl.a. utformningskraven i 8 kap. 1 §,
+      tomtkraven i 8 kap. 9–11 §§, förvanskningsförbudet och varsamhetskraven (13, 17 och 18 §§).
+      De tekniska egenskapskraven i 8 kap. 4 §, som bärförmåga, finns inte med i uppräkningen.
+      De hanteras i genomförandet: startbesked ges om åtgärden kan antas uppfylla kraven
+      (10 kap. 23 §), och kontrollplanen ska säkerställa att de uppfylls (10 kap. 7 §).
+    lagrum: [PBL 9 kap. 56 §, PBL 10 kap. 23 §, PBL 10 kap. 7 §, PBL 8 kap. 4 §]
+    taggar: [lovprovning, startbesked, tekniska_egenskapskrav]
+
+  - id: krav-004
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I bygglovet för ett nytt flerbostadshus ska byggnadsnämnden pröva att byggnadens
+      energiprestanda uppfyller Boverkets byggregler.
+    svar: false
+    forklaring: >
+      Energihushållning är ett tekniskt egenskapskrav (8 kap. 4 § första stycket 6) och ingår inte
+      i det som prövas i bygglovet enligt 9 kap. 56 § första stycket 4. Frågan hör hemma i det
+      tekniska samrådet och startbeskedet, där nämnden bedömer om åtgärden kan antas uppfylla
+      kraven, och i kontrollplanen. Byggherren ansvarar för att kraven uppfylls (10 kap. 5 §).
+    lagrum: [PBL 8 kap. 4 §, PBL 9 kap. 56 §, PBL 10 kap. 23 §, PBL 10 kap. 5 §]
+    taggar: [lovprovning, tekniska_egenskapskrav, energi]
+
+  - id: krav-005
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad gäller för Boverkets byggregler i dag?
+    alternativ:
+      - text: BBR har ersatts av nya föreskrifter, och från den 1 juli 2026 gäller bara de nya.
+        ratt: true
+      - text: BBR gäller parallellt med de nya föreskrifterna till 2030, och byggherren väljer fritt.
+      - text: Varje kommun beslutar själv vilken version av byggreglerna som gäller i kommunen.
+      - text: BBR gäller fortfarande, men avsnittsnumren har ändrats.
+    forklaring: >
+      PBL och PBF säger vad som ska uppnås (8 kap. 4 § PBL och 3 kap. PBF). Hur kraven uppfylls
+      preciseras i Boverkets föreskrifter, som meddelas med stöd av bemyndigandet i 16 kap. 2 §.
+      Boverkets byggregler (BBR) har ersatts av nya föreskrifter, och från den 1 juli 2026 gäller
+      enbart de nya. I äldre kurslitteratur och gamla beslut ser du fortfarande hänvisningar till
+      BBR-avsnitt, men skriv själv "Boverkets byggregler" och kontrollera vilka regler som gäller
+      för det aktuella ärendet.
+    lagrum: [PBL 16 kap. 2 §, PBL 8 kap. 4 §, PBF 3 kap.]
+    taggar: [boverkets_byggregler, rattslage]
+
+  - id: krav-006
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Åkerslunda kommun vill att alla nya bostadshus i ett planområde ska byggas med en
+      energiprestanda som är 30 procent bättre än Boverkets byggregler och skriver in det i
+      detaljplanen. Kommunen är inte fastighetsägare. Vad gäller?
+    alternativ:
+      - text: Kravet är utan verkan, eftersom en kommun inte får ställa egna krav på tekniska egenskaper.
+        ratt: true
+      - text: Kravet gäller, eftersom detaljplanen är bindande.
+      - text: Kravet gäller bara om länsstyrelsen godkänt det.
+      - text: Kravet gäller som ett allmänt råd som byggherren bör följa.
+    forklaring: >
+      Enligt 8 kap. 4 a § PBL får en kommun inte ställa egna krav på ett byggnadsverks tekniska
+      egenskaper vid planläggning, i ärenden enligt PBL eller vid genomförandet av detaljplaner.
+      Undantagen gäller de planbestämmelser som 4 kap. 12 och 16 §§ tillåter och de fall där
+      kommunen själv är byggherre eller fastighetsägare. Ställer kommunen ändå sådana krav är de
+      utan verkan. Tanken är att samma tekniska krav ska gälla i hela landet.
+    lagrum: [PBL 8 kap. 4 a §, PBL 4 kap. 12 §, PBL 4 kap. 16 §]
+    taggar: [tekniska_egenskapskrav, kommunala_sarkrav, detaljplan]
+
+  - id: krav-007
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En fastighetsägare gör en annan ändring än ombyggnad: hon byter alla fönster på en
+      fasad i ett kontorshus. I vilken omfattning ska utformningskraven och de tekniska
+      egenskapskraven uppfyllas enligt lydelsen som gäller 2026?
+    alternativ:
+      - text: I fråga om ändringen, alltså de nya fönstren.
+        ratt: true
+      - text: För hela byggnaden, eftersom ändringen kräver lov.
+      - text: För hela den fasad som berörs, inklusive väggar och tak.
+      - text: Inte alls, kraven gäller bara vid nybyggnad.
+    forklaring: >
+      Enligt 8 kap. 2 § första stycket och 5 § PBL ska kraven vid nybyggnad uppfyllas för hela
+      byggnaden, vid ombyggnad för hela byggnaden eller den betydande och avgränsbara del som
+      påtagligt förnyas, och vid annan ändring än ombyggnad i fråga om ändringen. Från den
+      1 januari 2027 ersätts uppdelningen av nya regler (8 kap. 2–2 c och 5–5 d §§ i lydelsen
+      enligt lag 2026:746): kraven gäller för det som ändras och anpassas efter bl.a. ändringens
+      omfattning, och vid en större byggnadsändring tillkommer krav på hela byggnaden.
+    lagrum: [PBL 8 kap. 2 §, PBL 8 kap. 5 §]
+    taggar: [andring, ombyggnad, omfattning_krav]
+
+  - id: krav-008
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En komplementbyggnad som är bygglovsbefriad enligt 9 kap. 4 § PBL behöver inte uppfylla
+      några tekniska egenskapskrav, eftersom ingen myndighet prövar den.
+    svar: false
+    forklaring: >
+      Kraven i 8 kap. gäller även åtgärder som inte kräver lov eller anmälan. Enligt 8 kap. 8 § får
+      kraven i 1 och 4 §§ då anpassas och avsteg göras i den utsträckning som är skälig med hänsyn
+      till åtgärdens art och omfattning, men de gäller. Byggherren ansvarar för att åtgärden
+      uppfyller kraven (10 kap. 5 §), och byggnadsnämnden kan ingripa i tillsyn om de inte gör
+      det. Även placeringskraven i 2 kap. 6 § gäller åtgärder som inte kräver lov.
+    lagrum: [PBL 8 kap. 8 §, PBL 10 kap. 5 §, PBL 2 kap. 6 §, PBL 9 kap. 4 §]
+    taggar: [lovbefriad, komplementbyggnad, tekniska_egenskapskrav]
+
+  # --- Tillgänglighet och användbarhet --------------------------------------------------------
+
+  - id: krav-009
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken av följande byggnader omfattas inte av kraven på tillgänglighet och användbarhet enligt 8 kap. 6 § PBL?
+    alternativ:
+      - text: Ett fritidshus med två bostäder.
+        ratt: true
+      - text: Ett enbostadshus för permanentboende på plan mark.
+      - text: Ett flerbostadshus i tre våningar.
+      - text: En butikslokal i bottenvåningen på ett bostadshus.
+    forklaring: >
+      8 kap. 6 § PBL undantar bl.a. fritidshus med högst två bostäder från kraven på tillgänglighet
+      och användbarhet i 1 § 3 och 4 § första stycket 8. Undantaget gäller inte permanentbostäder,
+      och för ett en- eller tvåbostadshus gäller undantaget bara tillgängligheten till huset och
+      bara om terrängen gör det orimligt att uppfylla kraven. Butiker och andra lokaler dit
+      allmänheten har tillträde omfattas fullt ut.
+    lagrum: [PBL 8 kap. 6 §, PBL 8 kap. 1 §]
+    taggar: [tillganglighet, undantag]
+
+  - id: krav-010
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande omfattas av undantagen från tillgänglighetskraven i 8 kap. 6 § PBL?
+    alternativ:
+      - text: En arbetslokal, om kraven är obefogade med hänsyn till arten av verksamheten.
+        ratt: true
+      - text: Tillgängligheten till ett enbostadshus, om det med hänsyn till terrängen inte är rimligt att uppfylla kraven.
+        ratt: true
+      - text: Högst 80 procent av studentbostäderna i en byggnad.
+        ratt: true
+      - text: Alla bostäder som är mindre än 35 kvm.
+      - text: Bostäder i bostadsrättsföreningar.
+    forklaring: >
+      8 kap. 6 § första stycket räknar upp fyra undantag: arbetslokaler där kraven är obefogade,
+      fritidshus med högst två bostäder, tillgängligheten till en- och tvåbostadshus i besvärlig
+      terräng och högst 80 procent av studentbostäderna. En studentbostad som undantas ska ändå
+      kunna besökas av en person med nedsatt rörelse- eller orienteringsförmåga (andra stycket och
+      3 kap. 19 a § PBF). Bostadens storlek eller upplåtelseform är inget undantag i 6 §.
+    lagrum: [PBL 8 kap. 6 §, PBF 3 kap. 19 a §]
+    taggar: [tillganglighet, undantag, studentbostader]
+
+  - id: krav-011
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt studenthus i Åkerslunda ska innehålla 120 studentbostäder. Byggherren vill utnyttja
+      undantaget i 8 kap. 6 § PBL fullt ut. Hur många studentbostäder måste minst uppfylla kraven
+      på tillgänglighet och användbarhet?
+    svar: 24
+    tolerans: 0
+    enhet: studentbostäder
+    losning: >
+      Högst 80 procent får undantas: 0,80 × 120 = 96. Kvar blir 120 − 96 = 24 bostäder som ska
+      vara tillgängliga och användbara.
+    forklaring: >
+      Undantaget i 8 kap. 6 § första stycket 4 gäller högst 80 procent av studentbostäderna, så
+      minst 20 procent ska uppfylla kraven fullt ut. De undantagna bostäderna ska ändå kunna
+      besökas: besökaren ska kunna nå våningen och komma in, det ska finnas ett utrymme för
+      samvaro och ett tillgängligt toalettrum i närheten (3 kap. 19 a § PBF).
+    lagrum: [PBL 8 kap. 6 §, PBF 3 kap. 19 a §]
+    taggar: [tillganglighet, studentbostader, berakning]
+
+  - id: krav-012
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt flerbostadshus ska ha två våningar. Bostäderna på övre planet kan inte nås från
+      marken. Vad gäller enligt 3 kap. PBF om hiss?
+    alternativ:
+      - text: Hiss krävs inte, men byggnaden ska vara utförd så att en hiss eller annan lyftanordning kan installeras utan svårighet.
+        ratt: true
+      - text: Hiss krävs alltid när bostäder inte kan nås från marken.
+      - text: Hiss krävs inte och byggnaden behöver inte förberedas för hiss.
+      - text: Hiss krävs bara om någon av de boende har en funktionsnedsättning.
+    forklaring: >
+      Enligt 3 kap. 4 och 18 §§ PBF ska en byggnad ha hiss eller annan lyftanordning om det behövs
+      för tillgängligheten. En bostad behöver ändå inte vara tillgänglig via hiss om byggnaden har
+      färre än tre våningar. Kan bostaden inte nås från marken ska byggnaden vara förberedd så att
+      hiss kan installeras utan svårighet. En vind med bostad räknas som våning. Från den 1 januari
+      2027 flyttas regeln till nya paragrafer (4 a och 18 a §§) och det kommer en särskild regel
+      om hiss vid ändring av byggnader med färre än fyra våningar.
+    lagrum: [PBF 3 kap. 4 §, PBF 3 kap. 18 §, PBL 8 kap. 24 §]
+    taggar: [tillganglighet, hiss]
+
+  - id: krav-013
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En bostad behöver inte vara tillgänglig genom hiss om byggnaden har färre än ___ våningar.
+      Avsteg från tillgänglighetskraven får enligt 8 kap. 7 § PBL alltid göras om bostäder på
+      högst ___ kvadratmeter inreds på en vind.
+    svar: [["3", "tre"], "35"]
+    forklaring: >
+      Hissregeln finns i 3 kap. 4 och 18 §§ PBF. Vindsregeln i 8 kap. 7 § första stycket gör det
+      möjligt att inreda små vindsbostäder utan hiss. Från den 1 januari 2027 får 7 § en ny
+      lydelse: kraven på tillgänglighet gäller då inte alls för bostäder som inreds på en vind
+      eller i suterräng, oavsett storlek.
+    lagrum: [PBF 3 kap. 4 §, PBL 8 kap. 7 §]
+    taggar: [tillganglighet, hiss, vindsinredning]
+
+  - id: krav-014
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid en ombyggnad får byggherren göra avsteg från kraven på tillgänglighet så snart det blir
+      dyrare att uppfylla dem.
+    svar: false
+    forklaring: >
+      Enligt 8 kap. 7 § första stycket får avsteg från kraven i 1 § 3 och 4 § första stycket 8
+      göras endast om det med hänsyn till ändringens omfattning och byggnadens standard är
+      uppenbart oskäligt att uppfylla kraven. 3 kap. 23 § PBF förtydligar att det vid ombyggnad
+      bara får ske om det är uppenbart oskäligt. Att det kostar mer räcker inte. Tillgänglighet är
+      det krav som skyddas starkast när byggnader ändras.
+    lagrum: [PBL 8 kap. 7 §, PBF 3 kap. 23 §]
+    taggar: [tillganglighet, ombyggnad, avsteg]
+
+  - id: krav-015
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I en butik i Åkerslunda centrum finns en tröskel på 5 cm vid entrén och en tung dörr utan
+      automatisk öppning. Ingen byggåtgärd planeras. Vad gäller enligt 8 kap. 2 § andra stycket
+      PBL?
+    alternativ:
+      - text: Hinder mot tillgänglighet i lokaler dit allmänheten har tillträde ska alltid avhjälpas om de är enkla att avhjälpa.
+        ratt: true
+      - text: Hindret behöver bara åtgärdas om butiken söker bygglov för en ändring.
+      - text: Hindret får finnas kvar eftersom byggnaden uppfördes innan kraven fanns.
+      - text: Det är en fråga för arbetsmiljölagen och inte för PBL.
+    forklaring: >
+      Kravet på att avhjälpa enkelt avhjälpta hinder gäller lokaler dit allmänheten har tillträde,
+      oberoende av om någon ändring görs. Hindret ska avhjälpas om det med hänsyn till de praktiska
+      och ekonomiska förutsättningarna är enkelt att avhjälpa. Motsvarande krav gäller allmänna
+      platser (8 kap. 12 § andra stycket). Från den 1 januari 2027 flyttas regeln för lokaler till
+      8 kap. 2 b §.
+    lagrum: [PBL 8 kap. 2 §, PBL 8 kap. 12 §]
+    taggar: [tillganglighet, enkelt_avhjalpta_hinder]
+
+  - id: krav-016
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken av följande anläggningar omfattas INTE av kravet på tillgänglighet och användbarhet enligt 3 kap. PBF?
+    alternativ:
+      - text: Ett plank.
+        ratt: true
+      - text: En lovpliktig idrottsplats.
+      - text: En lovpliktig campingplats.
+      - text: Ett lovpliktigt parkeringsområde.
+    forklaring: >
+      Tillgänglighetskravet gäller även lovpliktiga anläggningar, men bara i den utsträckning det
+      behövs med hänsyn till anläggningens syfte och allmänhetens behov av tillträde (3 kap. 5 och
+      19 §§ PBF). Kravet gäller inte murar och plank, transformatorstationer, skorstenar,
+      vindkraftverk och fasta förvaringsanläggningar.
+    lagrum: [PBF 3 kap. 5 §, PBF 3 kap. 19 §]
+    taggar: [tillganglighet, anlaggningar]
+
+  # --- Kulturvärden, varsamhet och underhåll -------------------------------------------------
+
+  - id: krav-017
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad innebär förbudet mot förvanskning i 8 kap. 13 § PBL?
+    alternativ:
+      - text: En byggnad som är särskilt värdefull från historisk, kulturhistorisk, miljömässig eller konstnärlig synpunkt får inte förvanskas.
+        ratt: true
+      - text: Ingen byggnad som är äldre än 100 år får ändras utan rivningslov.
+      - text: Byggnader som är byggnadsminnen enligt kulturmiljölagen får inte ändras.
+      - text: Fasader mot allmän plats får inte målas om utan lov.
+    forklaring: >
+      Förvanskningsförbudet gäller särskilt värdefulla byggnader, oavsett om de har
+      skyddsbestämmelser i en detaljplan eller inte, och oavsett om åtgärden kräver lov.
+      Förbudet gäller också lovpliktiga anläggningar, tomter med skyddsbestämmelser, allmänna
+      platser och bebyggelseområden (andra stycket). Byggnadsminnen skyddas i första hand av
+      kulturmiljölagen, och skyddet beslutas av länsstyrelsen.
+    lagrum: [PBL 8 kap. 13 §]
+    taggar: [forvanskning, kulturvarden]
+
+  - id: krav-018
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad är skillnaden mellan varsamhetskravet i 8 kap. 17 § och förvanskningsförbudet i 8 kap. 13 § PBL?
+    alternativ:
+      - text: Varsamhetskravet gäller alla byggnader när de ändras eller flyttas, förvanskningsförbudet bara särskilt värdefulla byggnader.
+        ratt: true
+      - text: Varsamhetskravet gäller bara byggnader med q-bestämmelse, förvanskningsförbudet alla byggnader.
+      - text: Varsamhetskravet gäller bara utanför detaljplan, förvanskningsförbudet bara inom detaljplan.
+      - text: Det finns ingen skillnad; båda gäller bara byggnadsminnen.
+    forklaring: >
+      Varsamhetskravet i 17 § gäller varje ändring och flyttning av en byggnad: man ska ta hänsyn
+      till byggnadens karaktärsdrag och ta till vara dess tekniska, historiska, kulturhistoriska,
+      miljömässiga och konstnärliga värden. Förvanskningsförbudet i 13 § är skarpare men gäller bara
+      det som är särskilt värdefullt. En vanlig villa omfattas alltså av varsamhetskravet men
+      oftast inte av förvanskningsförbudet. Båda prövas i bygglovet (9 kap. 56 § första stycket 4)
+      och ska säkerställas i kontrollplanen (10 kap. 7 §).
+    lagrum: [PBL 8 kap. 17 §, PBL 8 kap. 13 §, PBL 9 kap. 56 §, PBL 10 kap. 7 §]
+    taggar: [varsamhet, forvanskning, kulturvarden]
+
+  - id: krav-019
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Varsamhetskravet i 8 kap. 17 § PBL gäller bara byggnader som pekats ut i en detaljplan eller i områdesbestämmelser.
+    svar: false
+    forklaring: >
+      Varsamhetskravet gäller alla byggnader när de ändras eller flyttas, även utanför detaljplan och
+      även när ändringen inte kräver lov. Planbestämmelser om varsamhet (k-bestämmelser) preciserar
+      kravet för en viss byggnad, men kravet i lagen gäller ändå. För lovpliktiga anläggningar
+      gäller samma sak enligt 18 §.
+    lagrum: [PBL 8 kap. 17 §, PBL 8 kap. 18 §]
+    taggar: [varsamhet, kulturvarden]
+
+  - id: krav-020
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett enbostadshus från 1910 på landsbygden utanför Åkerslunda saknar skyddsbestämmelser men
+      är enligt kommunens kulturmiljöprogram särskilt värdefullt enligt 8 kap. 13 § PBL. Ägaren
+      vill bygga till huset med 20 kvm. Vad gäller?
+    alternativ:
+      - text: Tillbyggnaden kräver bygglov, och i prövningen ingår förvanskningsförbudet och varsamhetskravet.
+        ratt: true
+      - text: Tillbyggnaden är bygglovsbefriad eftersom den är mindre än 30 kvm.
+      - text: Tillbyggnaden kräver tillstånd av länsstyrelsen enligt kulturmiljölagen.
+      - text: Tillbyggnaden får inte göras alls eftersom huset är särskilt värdefullt.
+    forklaring: >
+      En tillbyggnad om högst 30 kvm kan annars vara bygglovsbefriad (9 kap. 10 §), men enligt
+      9 kap. 37 § krävs bygglov för bl.a. tillbyggnad av en särskilt värdefull byggnad enligt
+      8 kap. 13 § första stycket, även när den saknar skyddsbestämmelser. I lovprövningen ingår
+      8 kap. 13, 17 och 18 §§ (9 kap. 57 § första stycket 3 utanför plan). Förbudet hindrar inte
+      alla ändringar, bara sådana som förvanskar byggnaden. Länsstyrelsens tillstånd behövs bara
+      om huset är byggnadsminne enligt kulturmiljölagen.
+    lagrum: [PBL 9 kap. 37 §, PBL 9 kap. 10 §, PBL 8 kap. 13 §, PBL 9 kap. 57 §]
+    taggar: [forvanskning, lovplikt, kulturvarden]
+
+  - id: krav-021
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad kräver 8 kap. 14 § PBL av ägaren till ett byggnadsverk?
+    alternativ:
+      - text: Att byggnadsverket hålls i vårdat skick och underhålls så att dess utformning och tekniska egenskaper i huvudsak bevaras.
+        ratt: true
+      - text: Att byggnadsverket renoveras minst vart tionde år.
+      - text: Att byggnadsverket alltid uppfyller de krav som gäller för nya byggnader.
+      - text: Att ägaren anmäler varje underhållsåtgärd till byggnadsnämnden.
+    forklaring: >
+      Underhållskravet innebär att byggnadsverket ska behålla de egenskaper det fick när det
+      byggdes, inte att det ska uppgraderas till dagens krav. Underhållet ska anpassas till
+      omgivningens karaktär och byggnadsverkets kulturvärden, och särskilt värdefulla
+      byggnadsverk ska underhållas så att de särskilda värdena bevaras. Anordningar för t.ex.
+      bärförmåga, brandskydd, säkerhet vid användning och tillgänglighet ska alltid fylla sitt
+      ändamål (tredje stycket). Bristande underhåll hanteras i tillsyn enligt 11 kap.
+    lagrum: [PBL 8 kap. 14 §]
+    taggar: [underhall, tillsyn]
+
+  # --- Tomter, friyta, lekplatser och parkering ----------------------------------------------
+
+  - id: krav-022
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka krav ställer 8 kap. 9 § PBL på en obebyggd tomt som ska bebyggas?
+    alternativ:
+      - text: Naturförutsättningarna ska så långt möjligt tas till vara.
+        ratt: true
+      - text: Det ska finnas en lämpligt belägen utfart och framkomlighet för utryckningsfordon.
+        ratt: true
+      - text: Det ska i skälig utsträckning finnas lämpligt utrymme för parkering, lastning och lossning på tomten eller i närheten.
+        ratt: true
+      - text: Risken för olycksfall ska begränsas.
+        ratt: true
+      - text: Tomten ska vara inhägnad mot gata.
+      - text: Det ska finnas minst två bilparkeringsplatser per bostad.
+    forklaring: >
+      9 § räknar upp sex krav på hur tomten ordnas, bl.a. naturförutsättningar, olägenheter för
+      omgivningen, utfart och utryckningsfordon, parkering, tillgänglighet på tomten och risken
+      för olycksfall. Lagen anger inget antal parkeringsplatser; det bestäms i bedömningen av vad
+      som är skäligt, ofta med stöd av kommunens parkeringsnorm eller riktlinjer. Tomtkraven
+      prövas i bygglovet (9 kap. 56 § första stycket 4).
+    lagrum: [PBL 8 kap. 9 §, PBL 9 kap. 56 §]
+    taggar: [tomt, parkering, utfart]
+
+  - id: krav-023
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På en tomt för ett nytt flerbostadshus finns inte plats för både tillräcklig friyta för lek
+      och utevistelse och den parkering byggherren vill ha. Vad ska prioriteras enligt 8 kap. 9 §
+      PBL?
+    alternativ:
+      - text: Friytan.
+        ratt: true
+      - text: Parkeringen, eftersom den behövs för att tomten ska kunna användas.
+      - text: Byggherren väljer fritt.
+      - text: Ingen av dem; bygglov ska vägras tills båda ryms.
+    forklaring: >
+      Enligt 9 § andra stycket ska det för byggnader med bostäder, fritidshem, förskola, skola och
+      liknande finnas en tillräckligt stor friyta som är lämplig för lek och utevistelse på tomten
+      eller i närheten. Om utrymmet inte räcker till både friyta och parkering ska man i första hand
+      ordna friyta. Parkeringen kan då lösas i närheten, t.ex. i ett gemensamt garage.
+    lagrum: [PBL 8 kap. 9 §]
+    taggar: [tomt, friyta, parkering]
+
+  - id: krav-024
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En fastighetsägare söker bygglov för att inreda tre nya lägenheter på vinden i ett
+      flerbostadshus från 1930-talet. Tomten är liten och helt bebyggd. I vilken utsträckning
+      ska tomtkraven i 8 kap. 9 § tillämpas?
+    alternativ:
+      - text: I den utsträckning som är skälig med hänsyn till kostnaderna och tomtens särskilda egenskaper.
+        ratt: true
+      - text: Fullt ut, som om tomten vore obebyggd.
+      - text: Inte alls, eftersom tomten redan är bebyggd.
+      - text: Bara i fråga om parkering.
+    forklaring: >
+      Enligt 8 kap. 11 § ska 9 § tillämpas vid lovpliktiga ändringar på en bebyggd tomt i den
+      utsträckning som är skälig med hänsyn till kostnaderna för arbetet och tomtens särskilda
+      egenskaper. 10 § säger dessutom att kraven på parkering, lastning och lossning och friyta i
+      skälig utsträckning gäller även på bebyggda tomter. Bedömningen blir en avvägning, inte ett
+      ja eller nej.
+    lagrum: [PBL 8 kap. 11 §, PBL 8 kap. 10 §, PBL 8 kap. 9 §]
+    taggar: [tomt, bebyggd_tomt, skalighet]
+
+  - id: krav-025
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad säger 8 kap. 15 § PBL om lekplatser?
+    alternativ:
+      - text: Lekplatser och fasta anordningar på lekplatser ska underhållas så att risken för olycksfall begränsas.
+        ratt: true
+      - text: Varje tomt med bostäder ska ha en egen inhägnad lekplats.
+      - text: Lekplatser kräver alltid bygglov.
+      - text: Lekplatser ska besiktigas av byggnadsnämnden varje år.
+    forklaring: >
+      15 § handlar om skötseln av tomter: tomten ska hållas i vårdat skick, anordningar som ska
+      uppfylla kraven i 9 § ska fylla sitt ändamål, och lekplatser ska underhållas så att risken
+      för olycksfall begränsas. Nämnden får också besluta att det ska planteras eller att
+      växtlighet ska bevaras om det behövs för att uppfylla kraven. Behovet av friyta för lek
+      följer av 9 § andra stycket.
+    lagrum: [PBL 8 kap. 15 §, PBL 8 kap. 9 §]
+    taggar: [tomt, lekplats, underhall]
+
+  # --- Bostadsutformning, brandskydd och buller ----------------------------------------------
+
+  - id: krav-026
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad kräver 3 kap. 1 § PBF av bostäder för att de ska vara lämpliga för sitt ändamål?
+    alternativ:
+      - text: Att de i skälig utsträckning har avskiljbara utrymmen för sömn och vila, samvaro, matlagning, måltider, hygien och förvaring.
+        ratt: true
+      - text: Att varje bostad har minst två rum och kök.
+      - text: Att varje sovrum har fönster åt två håll.
+      - text: Att bostaden är minst 35 kvm.
+    forklaring: >
+      Kravet preciserar lämplighetskravet i 8 kap. 1 § 1 PBL (och motsvarande tekniska krav i 3 kap.
+      17 § PBF). Bostäderna ska också ha inredning och utrustning för matlagning och hygien.
+      "Avskiljbara" betyder att utrymmena ska gå att skilja av, inte att de måste vara egna rum.
+      Detaljerna om rumsstorlekar och planlösning finns i Boverkets byggregler.
+    lagrum: [PBF 3 kap. 1 §, PBF 3 kap. 17 §, PBL 8 kap. 1 §]
+    taggar: [bostadsutformning, lamplighet]
+
+  - id: krav-027
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilket av följande hör INTE till kraven på säkerhet i händelse av brand i 3 kap. 8 § PBF?
+    alternativ:
+      - text: Alla byggnader ska ha automatisk sprinkleranläggning.
+        ratt: true
+      - text: Bärförmågan vid brand ska kunna antas bestå under en bestämd tid.
+      - text: Spridning av brand till närliggande byggnadsverk ska begränsas.
+      - text: Hänsyn ska tas till räddningsmanskapets säkerhet vid brand.
+    forklaring: >
+      3 kap. 8 § PBF har fem funktionskrav: bärförmåga vid brand under bestämd tid, begränsad
+      utveckling och spridning av brand och rök inom byggnadsverket, begränsad spridning till
+      närliggande byggnadsverk, möjlighet att utrymma eller räddas och räddningsmanskapets
+      säkerhet. Hur kraven uppfylls (t.ex. brandceller, avstånd, utrymningsvägar och ibland
+      sprinkler) bestäms i Boverkets byggregler och i projekteringen. Brandskyddet granskas
+      inför startbeskedet, och ägarens löpande ansvar för brandskyddet finns i lagen om skydd mot
+      olyckor (2 kap. 2 §).
+    lagrum: [PBF 3 kap. 8 §, PBL 8 kap. 4 §, LSO 2 kap. 2 §]
+    taggar: [brandskydd, tekniska_egenskapskrav]
+
+  - id: krav-028
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      När ska ett beslut om bygglov innehålla beräknade värden för omgivningsbuller vid
+      bostadsbyggnadens fasad och uteplats enligt 9 kap. 105 § andra stycket PBL?
+    alternativ:
+      - text: Vid nybyggnad eller tillbyggnad av en bostadsbyggnad utanför detaljplan, om det inte är obehövligt med hänsyn till bullersituationen.
+        ratt: true
+      - text: I alla bygglov för bostäder, inom och utanför detaljplan.
+      - text: Bara om en granne har klagat på buller.
+      - text: Bara när Trafikverket begär det.
+    forklaring: >
+      Inom detaljplan har bullerfrågan i regel redovisats i planen. Utanför plan ska därför själva
+      lovbeslutet innehålla beräknade värden vid fasad och vid en uteplats som ska anordnas, om
+      det inte är obehövligt. Bedömningen görs mot kravet i 2 kap. 6 a § PBL och riktvärdena i
+      förordningen (2015:216) om trafikbuller vid bostadsbyggnader. Bullerskydd inomhus är ett
+      tekniskt egenskapskrav (8 kap. 4 § första stycket 5) som hanteras inför startbeskedet.
+    lagrum: [PBL 9 kap. 105 §, PBL 2 kap. 6 a §, PBL 8 kap. 4 §]
+    taggar: [buller, beslut, utanfor_plan]
+
+  - id: krav-029
+    typ: lucktext
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Enligt förordningen (2015:216) om trafikbuller vid bostadsbyggnader bör buller från vägar
+      inte överskrida ___ dBA ekvivalent ljudnivå vid en bostadsbyggnads fasad. Vid en uteplats
+      bör bullret inte överskrida ___ dBA ekvivalent ljudnivå och ___ dBA maximal ljudnivå.
+    svar: ["60", "50", "70"]
+    forklaring: >
+      Riktvärdena finns i 3 § i förordningen, som ska tillämpas vid bedömningen av kravet i
+      2 kap. 6 a § PBL i planläggning, bygglov och förhandsbesked. För bostäder om högst 35 kvm
+      är riktvärdet vid fasad 65 dBA. Överskrids 60 dBA bör minst hälften av bostadsrummen vara
+      vända mot en sida med högst 55 dBA ekvivalent ljudnivå (4 §). Hänsyn ska tas till framtida
+      trafik (8 §).
+    lagrum: [PBL 2 kap. 6 a §]
+    taggar: [buller, riktvarden, bostad]
+
+  # --- Begrepp och system ---------------------------------------------------------------------
+
+  - id: krav-030
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop exemplet med det tekniska egenskapskrav i 8 kap. 4 § PBL som det främst hör till.
+    par:
+      - vanster: Räcke vid en trappa och halkfria golv
+        hoger: Säkerhet vid användning
+      - vanster: Brandcellsgränser och utrymningsvägar
+        hoger: Säkerhet i händelse av brand
+      - vanster: Laddutrustning för elbilar och cykelparkering
+        hoger: Hållbar mobilitet
+      - vanster: Klimatskärmens värmeisolering
+        hoger: Energihushållning och värmeisolering
+      - vanster: Fuktsäker konstruktion och ventilation
+        hoger: Skydd med hänsyn till hygien, hälsa och miljön
+      - vanster: Förberedelse för höghastighetsnät
+        hoger: Bredbandsanslutning
+    forklaring: >
+      Varje krav i 8 kap. 4 § preciseras i en paragraf i 3 kap. PBF, t.ex. brand i 8 §, hygien och
+      hälsa i 9 §, säkerhet vid användning i 10 §, energi i 14 §, bredband i 20 a § och hållbar
+      mobilitet i 20 b §. Boverkets byggregler anger sedan hur kraven uppfylls. Fukt och
+      ventilation hör till hygien, hälsa och miljö (3 kap. 9 § 6 PBF).
+    lagrum: [PBL 8 kap. 4 §, PBF 3 kap. 8 §, PBF 3 kap. 9 §, PBF 3 kap. 10 §, PBF 3 kap. 20 b §]
+    taggar: [tekniska_egenskapskrav, begrepp]
+
+  - id: krav-031
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop paragrafen i 8 kap. PBL med vad den handlar om.
+    par:
+      - vanster: 8 kap. 1 §
+        hoger: Utformningskrav
+      - vanster: 8 kap. 4 §
+        hoger: Tekniska egenskapskrav
+      - vanster: 8 kap. 9 §
+        hoger: Krav på obebyggda tomter som ska bebyggas
+      - vanster: 8 kap. 13 §
+        hoger: Förbud mot förvanskning
+      - vanster: 8 kap. 14 §
+        hoger: Underhåll av byggnadsverk
+      - vanster: 8 kap. 17 §
+        hoger: Varsamhet vid ändring och flyttning
+    forklaring: >
+      8 kap. PBL är den materiella grunden för både lovprövning, startbesked och tillsyn. Lär dig
+      paragraferna 1, 4, 9, 13, 14 och 17 utantill; de återkommer i beslut och i uppräkningen i
+      9 kap. 56 § första stycket 4. Undantag och anpassningar finns i 6–8 §§, och hissar i 24 §.
+    lagrum: [PBL 8 kap. 1 §, PBL 8 kap. 4 §, PBL 8 kap. 9 §, PBL 8 kap. 13 §, PBL 8 kap. 14 §, PBL 8 kap. 17 §]
+    taggar: [paragrafer, begrepp]
+
+  - id: krav-032
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt flerbostadshus ska byggas i Åkerslunda. Ordna i tidsordning när kraven i 8 kap. PBL
+      prövas eller kontrolleras.
+    poster:
+      - Bygglov – nämnden prövar bl.a. utformningskraven, tomtkraven och varsamhet.
+      - Tekniskt samråd – byggherrens förslag till kontrollplan och de tekniska handlingarna gås igenom.
+      - Startbesked – nämnden bedömer att åtgärden kan antas uppfylla de tekniska egenskapskraven.
+      - Byggskedet – kontroller görs enligt kontrollplanen, och nämnden gör arbetsplatsbesök.
+      - Slutsamråd och slutbesked – byggherren visar att kraven är uppfyllda och huset får tas i bruk.
+    forklaring: >
+      Lovprövningen omfattar det som räknas upp i 9 kap. 56 § första stycket 4. Tekniska
+      egenskapskrav hanteras i genomförandet enligt 10 kap.: tekniskt samråd (14 och 19 §§),
+      startbesked (23 §), arbetsplatsbesök (27 §) och slutbesked (34 §). Under hela kedjan
+      ansvarar byggherren för att kraven uppfylls (10 kap. 5 §).
+    lagrum: [PBL 9 kap. 56 §, PBL 10 kap. 14 §, PBL 10 kap. 23 §, PBL 10 kap. 27 §, PBL 10 kap. 34 §]
+    taggar: [lovprovning, startbesked, slutbesked, process]
+
+  - id: krav-033
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt flerbostadshus prövas med en certifierad byggbedömare för lovprövningen. Vad
+      innebär det för byggnadsnämndens prövning av utformningskraven?
+    alternativ:
+      - text: Bygglov ges utan att nämnden prövar om kraven i 8 kap. 1 § 1 och 3 (lämplighet och tillgänglighet) är uppfyllda.
+        ratt: true
+      - text: Nämnden prövar inte detaljplanen, eftersom byggbedömaren gör det.
+      - text: Nämnden prövar alla krav som vanligt, och byggbedömarens intyg är bara ett underlag.
+      - text: Byggbedömaren fattar själv beslutet om bygglov.
+    forklaring: >
+      Enligt 9 kap. 68 § ska bygglov för nybyggnad som omfattas av föreskrifter enligt 16 kap.
+      9 § 2 ges utan prövning av om kraven i 8 kap. 1 § 1 och 3 är uppfyllda, när en byggbedömare
+      används för lovprövningen. Byggbedömaren intygar i stället att kraven är uppfyllda (9 kap.
+      86 §). Nämnden prövar fortfarande planenligheten, form-, färg- och materialverkan och övriga
+      krav, och fattar beslutet. Systemet med byggbedömare infördes genom lag (2026:712).
+    lagrum: [PBL 9 kap. 68 §, PBL 9 kap. 86 §, PBL 8 kap. 1 §]
+    taggar: [byggbedomare, lovprovning, utformningskrav]
+
+  - id: krav-034
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande frågar varför byggnadsnämnden inte kontrollerade bärförmågan och brandskyddet
+      redan i bygglovet, när den ändå "godkände huset". Förklara hur kraven i 8 kap. PBL fördelas
+      mellan lovprövningen och genomförandet, och vem som ansvarar för vad.
+    bedomningspunkter:
+      - Bygglovet prövar det som räknas upp i 9 kap. 56 § första stycket 4 (inom plan) eller 57 § första stycket 3 (utanför plan), bl.a. utformningskraven i 8 kap. 1 §, tomtkraven och kulturvärdena, men inte de tekniska egenskapskraven i 8 kap. 4 §.
+      - De tekniska egenskapskraven hanteras i genomförandet enligt 10 kap. – tekniskt samråd, kontrollplan och startbesked, där nämnden bedömer om åtgärden kan antas uppfylla kraven (10 kap. 23 §).
+      - Byggherren ansvarar för att åtgärden uppfyller alla krav (10 kap. 5 §), och kontrollen sker enligt kontrollplanen med kontrollansvarig och vid behov sakkunniga.
+      - Boverkets byggregler anger hur kraven uppfylls; kommunen får inte ställa egna tekniska krav (8 kap. 4 a §).
+      - Slutbeskedet förutsätter att byggherren visat att kraven är uppfyllda (10 kap. 34 §).
+    modellsvar: >
+      Bygglovet är en prövning av om åtgärden är lämplig på platsen och följer detaljplanen. Enligt
+      9 kap. 56 § första stycket 4 PBL prövar nämnden bl.a. utformningskraven i 8 kap. 1 §,
+      tomtkraven i 9–11 §§ och kraven på varsamhet och förbud mot förvanskning, men inte de
+      tekniska egenskapskraven i 8 kap. 4 §, som bärförmåga och brandskydd. De frågorna hanteras
+      när byggnadsarbetet förbereds: vid det tekniska samrådet går nämnden igenom byggherrens
+      tekniska handlingar och förslag till kontrollplan, och startbesked ges först när åtgärden
+      kan antas uppfylla kraven (10 kap. 23 §). Det är byggherren som ansvarar för att alla krav
+      uppfylls (10 kap. 5 §); nämndens roll är att se till att det finns en fungerande kontroll.
+      Hur kraven uppfylls i detalj står i Boverkets byggregler, och kommunen får inte ställa egna
+      tekniska krav (8 kap. 4 a §). Innan huset får tas i bruk ska byggherren visa att kraven är
+      uppfyllda, och då ger nämnden slutbesked (10 kap. 34 §).
+    lagrum: [PBL 9 kap. 56 §, PBL 10 kap. 5 §, PBL 10 kap. 23 §, PBL 8 kap. 4 a §, PBL 10 kap. 34 §]
+    taggar: [lovprovning, startbesked, byggherrens_ansvar]
+
+  - id: krav-035
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ägaren till ett särskilt värdefullt bostadshus från 1880-talet i Åkerslunda centrum (q-märkt
+      i detaljplanen) söker bygglov för att byta de spröjsade träfönstren mot nya fönster i plast
+      utan spröjs. Hur resonerar du i prövningen?
+    bedomningspunkter:
+      - Åtgärden kräver bygglov eftersom den är en fasadändring på en byggnad med skyddsbestämmelser (9 kap. 37 § och planens q-bestämmelse).
+      - Förvanskningsförbudet i 8 kap. 13 § och varsamhetskravet i 8 kap. 17 § ingår i lovprövningen (9 kap. 56 § första stycket 4), liksom planens skyddsbestämmelse.
+      - Bedömer om bytet förvanskar byggnaden – fönstren är ofta ett bärande karaktärsdrag, och material, proportioner och spröjsning har betydelse.
+      - Tar in kunskapsunderlag, t.ex. kulturmiljöprogram eller antikvarisk kompetens, och kommunicerar en negativ bedömning med sökanden före beslut (9 kap. 98 §).
+      - Möjliga utfall – avslag, eller lov efter ändrad ansökan (t.ex. renovering eller nya träfönster med spröjs), och motiverar beslutet.
+    modellsvar: >
+      Fönsterbytet är en fasadändring som kräver bygglov eftersom byggnaden omfattas av
+      skyddsbestämmelser (9 kap. 37 § PBL). I prövningen ingår planens q-bestämmelse och kraven i
+      8 kap. 13 och 17 §§ (9 kap. 56 § första stycket 4). Spröjsade träfönster är ofta ett viktigt
+      karaktärsdrag på ett hus från 1880-talet, och plastfönster utan spröjs ändrar både material,
+      proportioner och skuggverkan. Jag skulle hämta stöd i kulturmiljöprogrammet eller hos en
+      antikvarie, och om bedömningen blir att åtgärden förvanskar byggnaden kommunicera det med
+      sökanden (9 kap. 98 §) och föreslå alternativ, t.ex. renovering av befintliga fönster eller
+      nya träfönster med samma indelning. Står sökanden fast vid ansökan bör den avslås med en
+      tydlig motivering som pekar på vilka värden som går förlorade.
+    lagrum: [PBL 8 kap. 13 §, PBL 8 kap. 17 §, PBL 9 kap. 37 §, PBL 9 kap. 56 §, PBL 9 kap. 98 §]
+    taggar: [forvanskning, varsamhet, fasadandring]
+
+  - id: krav-036
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En bostadsrättsförening vill bygga ett nytt flerbostadshus på en del av gården och söker
+      bygglov. Situationsplanen visar 24 bilparkeringsplatser men nästan ingen friyta för lek.
+      Vilka krav i 8 kap. PBL ska du pröva, och hur bör du hantera konflikten mellan friyta och
+      parkering?
+    bedomningspunkter:
+      - Tomtkraven i 8 kap. 9 § ingår i lovprövningen (9 kap. 56 § första stycket 4), och för en bebyggd tomt gäller 10–11 §§ (skälig utsträckning).
+      - Bostäder kräver tillräckligt stor friyta för lek och utevistelse på tomten eller i närheten, och friytan ska prioriteras före parkering (9 § andra stycket).
+      - Parkering behövs bara i skälig utsträckning och kan ordnas i närheten; kommunens riktlinjer kan ge stöd men är inte bindande lag.
+      - Nämner tillgänglighet på tomten, utfart och framkomlighet för utryckningsfordon samt risk för olycksfall (9 § första stycket).
+      - Föreslår att sökanden ändrar situationsplanen före beslut, och att lov annars kan behöva vägras.
+    modellsvar: >
+      I bygglovet prövar jag bl.a. tomtkraven i 8 kap. 9–11 §§ (9 kap. 56 § första stycket 4).
+      Eftersom det nya huset innehåller bostäder ska det finnas en tillräckligt stor friyta som är
+      lämplig för lek och utevistelse, på tomten eller i närheten. Om det inte finns plats för både
+      friyta och parkering ska friytan ordnas i första hand (9 § andra stycket). Parkering ska bara
+      finnas i skälig utsträckning och kan lösas i närheten, t.ex. genom avtal om platser i ett
+      garage. Jag kontrollerar också utfart, framkomlighet för räddningstjänsten, tillgänglighet på
+      tomten och risken för olycksfall. Eftersom tomten redan är bebyggd tillämpas kraven i skälig
+      utsträckning (10–11 §§), men ett nytt hus på gården gör att kravet väger tungt. Jag skulle
+      be föreningen revidera situationsplanen med färre bilplatser och en redovisad friyta, och
+      annars förbereda ett avslag med motivering.
+    lagrum: [PBL 8 kap. 9 §, PBL 8 kap. 10 §, PBL 8 kap. 11 §, PBL 9 kap. 56 §]
+    taggar: [tomt, friyta, parkering]
+
+  - id: krav-037
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Kommunen får en ansökan om bygglov för ett nytt enbostadshus utanför detaljplan, 40 m från en
+      starkt trafikerad landsväg. Hur hanterar du bullerfrågan i prövningen och i beslutet?
+    bedomningspunkter:
+      - Lokaliseringen ska vara lämplig med hänsyn till möjligheterna att förebygga olägenhet för människors hälsa i fråga om omgivningsbuller (2 kap. 6 a § PBL, även 2 kap. 5 §).
+      - Bedömer mot riktvärdena i förordningen (2015:216) om trafikbuller vid bostadsbyggnader – 60 dBA ekvivalent vid fasad, 50 dBA ekvivalent och 70 dBA maximal vid uteplats – med hänsyn till framtida trafik.
+      - Begär en bullerberäkning från sökanden vid behov och kan styra placering, planlösning och uteplats.
+      - Beslutet ska innehålla beräknade värden vid fasad och uteplats (9 kap. 105 § andra stycket), om det inte är obehövligt.
+      - Skiljer på omgivningsbuller i lovet och ljudkrav inomhus, som är ett tekniskt egenskapskrav (8 kap. 4 § första stycket 5) och hanteras inför startbeskedet.
+    modellsvar: >
+      Utanför detaljplan prövar jag själv om platsen är lämplig för en bostad med hänsyn till
+      omgivningsbuller (2 kap. 6 a § PBL). Jag bedömer bullret mot riktvärdena i förordningen
+      (2015:216) om trafikbuller vid bostadsbyggnader: högst 60 dBA ekvivalent ljudnivå vid fasad,
+      och vid en uteplats högst 50 dBA ekvivalent och 70 dBA maximal ljudnivå, med hänsyn till
+      framtida trafik. Med 40 m till en tung väg behövs troligen en bullerberäkning från sökanden.
+      Överskrids fasadvärdet kan huset placeras eller planeras så att minst hälften av
+      bostadsrummen vetter mot en tystare sida, och uteplatsen kan skärmas. I beslutet ska jag
+      redovisa de beräknade värdena vid fasad och uteplats (9 kap. 105 § andra stycket). Ljudet
+      inomhus är ett tekniskt egenskapskrav som byggherren ska klara och som hanteras inför
+      startbeskedet. Ligger huset inom 12 m från vägområdet för en allmän väg behövs ingen separat
+      prövning enligt väglagen, eftersom åtgärden kräver bygglov, men Trafikverket bör få yttra sig.
+    lagrum: [PBL 2 kap. 6 a §, PBL 9 kap. 105 §, PBL 8 kap. 4 §, VägL 47 §]
+    taggar: [buller, utanfor_plan, lokalisering]
+
+  - id: krav-038
+    typ: oppen
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara med egna ord vad som skiljer utformningskraven i 8 kap. 1 § PBL från de tekniska
+      egenskapskraven i 8 kap. 4 §. Ge två exempel på varje.
+    bedomningspunkter:
+      - Utformningskraven handlar om byggnadens lämplighet för ändamålet, form-, färg- och materialverkan samt tillgänglighet och användbarhet.
+      - De tekniska egenskapskraven handlar om hur byggnaden fungerar tekniskt, t.ex. bärförmåga, brand, hygien och hälsa, buller, energi, bredband och hållbar mobilitet.
+      - Ger rimliga exempel, t.ex. avskiljbara utrymmen och fasadmaterial (utformning) respektive brandceller och värmeisolering (tekniska).
+      - Nämner att utformningskraven prövas i bygglovet och de tekniska egenskapskraven inför startbeskedet.
+    modellsvar: >
+      Utformningskraven i 8 kap. 1 § säger att en byggnad ska vara lämplig för sitt ändamål, ha en
+      god form-, färg- och materialverkan och vara tillgänglig och användbar. Exempel är att en
+      bostad har avskiljbara utrymmen för sömn och matlagning (3 kap. 1 § PBF) och att fasadens
+      material och kulör passar in. De tekniska egenskapskraven i 4 § gäller hur byggnaden fungerar
+      tekniskt: bärförmåga, brandsäkerhet, hygien och hälsa, säkerhet vid användning, buller,
+      energi, tillgänglighet, vatten och avfall, bredband och hållbar mobilitet. Exempel är
+      brandcellsgränser och klimatskärmens värmeisolering. Utformningskraven prövas i bygglovet,
+      medan de tekniska kraven hanteras inför startbeskedet och i kontrollplanen.
+    lagrum: [PBL 8 kap. 1 §, PBL 8 kap. 4 §, PBF 3 kap. 1 §]
+    taggar: [utformningskrav, tekniska_egenskapskrav, grundbegrepp]

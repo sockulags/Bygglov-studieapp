@@ -1,0 +1,946 @@
+# Frågor för modul 10-tillsyn. En fil per modul. Valideras med zod (pnpm content:check).
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
+# Källor (hämtade 2026-11-05 och sparade i docs/rattslage/):
+#   pbl-11-kap.txt (PBL 11 kap., riksdagen.se, ändrad t.o.m. SFS 2026:1583),
+#   pbf-9-kap.txt och pbf-5-och-8-kap.txt (PBF, ändrad t.o.m. SFS 2026:1722),
+#   pbl-8-kap.txt, pbl-10-kap.txt, pbl-12-kap.txt, pbl-9-kap.txt, fl.txt,
+#   prisbasbelopp.txt (SCB) och boverket-tillsyn-utdrag.txt (Boverkets PBL kunskapsbanken,
+#   sammanfattning av JO-, MÖD- och HD-avgöranden som nämns i förklaringarna).
+# Prisbasbelopp 2026 = 59 200 kr. Belopp avrundas nedåt till hela kronor.
+# Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
+modul: 10-tillsyn
+fragor:
+  # --- Tillsynsansvar och anmälan ----------------------------------------------------------
+
+  - id: tills-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka är tillsynsmyndigheter enligt 11 kap. PBL?
+    alternativ:
+      - text: Regeringen, länsstyrelsen, de statliga myndigheter som regeringen bestämmer och byggnadsnämnden.
+        ratt: true
+      - text: Bara byggnadsnämnden.
+      - text: Byggnadsnämnden och Boverket, men inte länsstyrelsen.
+      - text: Länsstyrelsen och mark- och miljödomstolen.
+    forklaring: >
+      11 kap. 3 § PBL räknar upp tillsynsmyndigheterna och säger att de ska samarbeta med
+      varandra. I praktiken är det byggnadsnämnden som har tillsynen över byggande och
+      förvaltning av byggnadsverk i kommunen (PBF 8 kap. 2 §), medan länsstyrelsen bl.a.
+      överprövar kommunens planbeslut (11 kap. 10–12 §§) och ger tillsynsvägledning till nämnden
+      (PBF 8 kap. 14 §).
+    lagrum: [PBL 11 kap. 3 §, PBF 8 kap. 2 §, PBF 8 kap. 14 §]
+    taggar: [tillsyn, tillsynsansvar]
+
+  - id: tills-002
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne mejlar nämnden och skriver att det byggs ett stort förråd på tomten bredvid.
+      Vad är nämnden skyldig att göra?
+    alternativ:
+      - text: Pröva förutsättningarna för och behovet av att ingripa, så snart det finns anledning att anta att reglerna inte följts.
+        ratt: true
+      - text: Ingenting, om grannen inte kan visa att han eller hon är sakägare.
+      - text: Vidarebefordra mejlet till fastighetsägaren och be dem lösa saken sinsemellan.
+      - text: Pröva frågan först om grannen betalar tillsynsavgift.
+    forklaring: >
+      Enligt 11 kap. 5 § PBL ska tillsynsmyndigheten pröva förutsättningarna för och behovet av
+      att ingripa eller besluta om en påföljd så snart det finns anledning att anta att någon
+      inte följt lagen, föreskrifter eller beslut. Skyldigheten gäller oavsett vem som anmäler.
+      Nämnden har utredningsansvaret (FL 23 §) och kan inte lägga det på den som anmäler.
+    lagrum: [PBL 11 kap. 5 §, FL 23 §]
+    taggar: [tillsyn, anmalan, utredningsansvar]
+
+  - id: tills-003
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Nämnden kan lägga en anonym anmälan om olovligt byggande åt sidan utan att pröva den.
+    svar: false
+    forklaring: >
+      Skyldigheten i 11 kap. 5 § PBL utlöses av att det finns anledning att anta att någon inte
+      följt reglerna, inte av vem som har anmält. Boverket och JO är tydliga med att även en
+      anonym anmälan ska prövas. Nämnden får förstås bedöma att uppgifterna är så vaga att det
+      inte finns skäl att ingripa, men den bedömningen ska göras.
+    lagrum: [PBL 11 kap. 5 §]
+    taggar: [tillsyn, anmalan]
+
+  - id: tills-004
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ägaren till grannfastigheten har begärt att nämnden ska ingripa mot ett plank. Nämnden
+      kommer fram till att planket är lovbefriat och att det inte finns skäl att ingripa. Vad
+      gäller?
+    alternativ:
+      - text: Nämnden ska fatta ett formellt beslut om att inte ingripa och skicka det till grannen med överklagandehänvisning.
+        ratt: true
+      - text: Det räcker att handläggaren ringer grannen och förklarar varför inget görs.
+      - text: Ärendet kan skrivas av i diariet utan beslut, eftersom inget ingripande sker.
+      - text: Grannen kan aldrig överklaga ett beslut om att inte ingripa.
+    forklaring: >
+      Enligt JO har en grannfastighetsägare som begärt ingripande rätt till ett överklagbart
+      beslut, även när nämnden inte ingriper. JO har kritiserat nämnder som inte fattat beslut i
+      ett tillsynsärende efter en anmälan, eller som inte skickat beslutet till anmälaren med
+      överklagandehänvisning. Beslutet ska motiveras och innehålla uppgift om hur man överklagar
+      (FL 32 och 33 §§).
+    lagrum: [PBL 11 kap. 5 §, FL 32 §, FL 33 §]
+    taggar: [tillsyn, anmalan, beslut, overklagande]
+
+  - id: tills-005
+    typ: ordning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen i ett typiskt tillsynsärende om olovligt byggande.
+    poster:
+      - En anmälan kommer in och registreras som tillsynsärende.
+      - Nämnden underrättar fastighetsägaren och gör platsbesök.
+      - Handläggaren dokumenterar avvikelserna och prövar om lov kan ges i efterhand.
+      - Fastighetsägaren får yttra sig över förslaget till byggsanktionsavgift och föreläggande.
+      - Nämnden beslutar om avgift och eventuellt föreläggande.
+      - Beslutet delges ägaren och skickas till anmälaren.
+    forklaring: >
+      Ordningen följer 11 kap. PBL och förvaltningslagen: skyldigheten att pröva (11 kap. 5 §),
+      tillträde för utredning (8 §), kommunicering före beslut om byggsanktionsavgift (58 §)
+      och delgivning av beslutet (59 §). Att pröva lov i efterhand tidigt avgör om nämnden ska
+      ge ett lovföreläggande (17 §) eller förelägga om rättelse (20 §).
+    lagrum: [PBL 11 kap. 5 §, PBL 11 kap. 8 §, PBL 11 kap. 58 §, PBL 11 kap. 59 §]
+    taggar: [tillsyn, process]
+
+  # --- Förelägganden -----------------------------------------------------------------------
+
+  - id: tills-006
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: När ska nämnden ge ett lovföreläggande enligt 11 kap. 17 § PBL?
+    alternativ:
+      - text: När en lovpliktig åtgärd har vidtagits utan lov och det är sannolikt att lov kan ges.
+        ratt: true
+      - text: Alltid när något har byggts utan lov, innan nämnden får ta ut byggsanktionsavgift.
+      - text: När en lovbefriad åtgärd strider mot detaljplanen.
+      - text: När ett beviljat lov har upphävts av länsstyrelsen.
+    forklaring: >
+      Lovföreläggande ger ägaren tillfälle att inom viss tid söka lov i efterhand. Förutsättningen
+      är att det är sannolikt att lov kan ges. Är det inte sannolikt är rättelseföreläggande
+      (20 §) rätt verktyg. Följs ett lovföreläggande inte får nämnden på ägarens bekostnad låta
+      ta fram de ritningar och beskrivningar som behövs för att pröva lovfrågan (27 §).
+      Byggsanktionsavgiften ska tas ut oberoende av om lov ges i efterhand.
+    lagrum: [PBL 11 kap. 17 §, PBL 11 kap. 20 §, PBL 11 kap. 27 §]
+    taggar: [lovforelaggande, lov_i_efterhand]
+
+  - id: tills-007
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Mot vem riktas ett rättelseföreläggande enligt 11 kap. 20 § PBL?
+    alternativ:
+      - text: Mot den som äger fastigheten eller byggnadsverket.
+        ratt: true
+      - text: Mot den entreprenör som utförde arbetet.
+      - text: Mot den som har fått en fördel av överträdelsen.
+      - text: Mot den som var byggherre, även om han eller hon sålt fastigheten.
+    forklaring: >
+      Rättelseföreläggande riktas mot ägaren, eftersom det är ägaren som har rådighet att rätta.
+      Byter fastigheten ägare gäller föreläggandet mot den nya ägaren (11 kap. 46 §), och därför
+      antecknas det i fastighetsregistret (40–41 §§). Byggsanktionsavgift kan däremot också tas
+      ut av den som begick överträdelsen eller fick en fördel av den (57 §).
+    lagrum: [PBL 11 kap. 20 §, PBL 11 kap. 46 §, PBL 11 kap. 57 §]
+    taggar: [rattelseforelaggande, agare]
+
+  - id: tills-008
+    typ: lucktext
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden får inte besluta om rättelseföreläggande om det har förflutit mer än ___ år från
+      överträdelsen. Gränsen gäller inte om någon olovligen har tagit en ___ i anspråk för ett
+      väsentligen annat ändamål än bostadsändamål.
+    svar: [["10", "tio"], ["bostadslägenhet", "bostad", "lägenhet"]]
+    forklaring: >
+      Tioårsgränsen står i 11 kap. 20 § andra stycket PBL och undantaget i tredje stycket. Samma
+      gräns gäller handräckning för att genomföra ett föreläggande (39 §). Byggsanktionsavgiften
+      har en kortare gräns: den som avgiften riktas mot måste ha fått tillfälle att yttra sig
+      inom fem år efter överträdelsen (58 §).
+    lagrum: [PBL 11 kap. 20 §, PBL 11 kap. 39 §, PBL 11 kap. 58 §]
+    taggar: [rattelseforelaggande, preskription, tioarsregeln]
+
+  - id: tills-009
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bygglov för en tillbyggnad överklagades. Byggherren byggde ändå, eftersom lovet
+      gällde omedelbart. Mark- och miljödomstolen upphävde sedan lovet och domen har fått laga
+      kraft. Vad kan nämnden göra?
+    alternativ:
+      - text: Förelägga ägaren att vidta rättelse, eftersom 11 kap. 20 § uttryckligen gäller åtgärder som vidtagits med stöd av ett lov som upphävts genom ett lagakraftvunnet beslut.
+        ratt: true
+      - text: Ingenting, eftersom tillbyggnaden hade lov när den byggdes.
+      - text: Bara ta ut byggsanktionsavgift för påbörjande utan lov.
+      - text: Bevilja nytt lov utan prövning, eftersom åtgärden redan är utförd.
+    forklaring: >
+      Sedan den 1 december 2025 framgår det direkt av 11 kap. 20 § första stycket 2 PBL att
+      nämnden får förelägga om rättelse när en åtgärd har vidtagits med stöd av ett lov som har
+      ändrats eller upphävts genom en dom eller ett beslut som fått laga kraft. Regeln hänger
+      ihop med att lov numera gäller omedelbart (9 kap. 114 §); den som bygger innan lovet fått
+      laga kraft gör det på egen risk (9 kap. 105 § 5). Någon byggsanktionsavgift blir det inte
+      om startbesked fanns, eftersom det då inte skett någon överträdelse när arbetet påbörjades.
+    lagrum: [PBL 11 kap. 20 §, PBL 9 kap. 114 §, PBL 9 kap. 105 §]
+    taggar: [rattelseforelaggande, upphavt_lov, fore_och_nu]
+
+  - id: tills-010
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett flerbostadshus har lösa takpannor och en balkong med rostiga infästningar. Ägaren har
+      inte gjort något trots påpekanden. Vilket föreläggande passar bäst för att få ägaren att
+      åtgärda bristerna?
+    alternativ:
+      - text: Åtgärdsföreläggande enligt 11 kap. 19 § PBL.
+        ratt: true
+      - text: Lovföreläggande enligt 11 kap. 17 § PBL.
+      - text: Rättelseföreläggande enligt 11 kap. 20 § PBL.
+      - text: Rivningsföreläggande enligt 11 kap. 21 § PBL.
+    forklaring: >
+      Underhållskravet står i 8 kap. 14 § PBL. När ägaren låter bli att vidta en åtgärd och
+      därigenom bryter mot en skyldighet får nämnden förelägga om åtgärden
+      (åtgärdsföreläggande, 11 kap. 19 §), vid behov med vite (37 §) och omedelbart genomförande
+      (38 §). Behövs först en kontroll av byggnadsverket finns kontrollföreläggande (17 a §) och
+      vid oklara underhållsbehov uppdrag om underhållsutredning (18 §). Rivningsföreläggande
+      förutsätter att byggnadsverket är förfallet eller skadat i väsentlig omfattning och ska
+      normalt föregås av ett föreläggande enligt 19 § (21 §).
+    lagrum: [PBL 8 kap. 14 §, PBL 11 kap. 19 §, PBL 11 kap. 17 a §, PBL 11 kap. 21 §]
+    taggar: [atgardsforelaggande, underhall]
+
+  - id: tills-011
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop föreläggandet med rätt paragraf i 11 kap. PBL.
+    par:
+      - vanster: Lovföreläggande
+        hoger: 17 §
+      - vanster: Kontrollföreläggande
+        hoger: 17 a §
+      - vanster: Föreläggande om underhållsutredning
+        hoger: 18 §
+      - vanster: Åtgärdsföreläggande
+        hoger: 19 §
+      - vanster: Rättelseföreläggande
+        hoger: 20 §
+      - vanster: Rivningsföreläggande
+        hoger: 21 §
+    forklaring: >
+      Rubrikerna i 11 kap. följer verktygen i den ordning de brukar användas: först lov i
+      efterhand (17 §), sedan kontroll och utredning av underhåll (17 a–18 §§), därefter att
+      vidta en åtgärd (19 §), rätta det olovliga (20 §) och som sista utväg riva (21 §).
+      Förelägganden enligt 17 a, 19, 20 och 21 §§ får förenas med vite (37 §).
+    lagrum: [PBL 11 kap. 17 §, PBL 11 kap. 17 a §, PBL 11 kap. 18 §, PBL 11 kap. 19 §, PBL 11 kap. 20 §, PBL 11 kap. 21 §]
+    taggar: [forelagganden, begrepp]
+
+  # --- Förbud, vite och verkställighet -----------------------------------------------------
+
+  - id: tills-012
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid ett arbetsplatsbesök ser byggnadsinspektören att en bärande vägg har tagits bort utan
+      att någon avväxling har gjorts, och bjälklaget har börjat svikta. Vad gäller?
+    alternativ:
+      - text: Nämnden ska förbjuda att arbetet fortsätter, eftersom det är uppenbart att det äventyrar hållfastheten eller medför fara för liv eller hälsa.
+        ratt: true
+      - text: Nämnden får förbjuda arbetet, men bara om byggherren först fått yttra sig.
+      - text: Nämnden ska förelägga om rättelse inom sex månader.
+      - text: Nämnden kan bara ta ut byggsanktionsavgift.
+    forklaring: >
+      11 kap. 30 § PBL är ett skall-krav: är det uppenbart att arbetet äventyrar en byggnads
+      hållfasthet eller medför fara för människors liv eller hälsa ska nämnden förbjuda att det
+      fortsätter. Enligt 31 § får nämnden förbjuda fortsatt arbete som uppenbart strider mot
+      lagen, t.ex. byggande utan startbesked. Förbud gäller omedelbart om inget annat bestäms
+      (38 § andra stycket).
+    lagrum: [PBL 11 kap. 30 §, PBL 11 kap. 31 §, PBL 11 kap. 38 §]
+    taggar: [forbud, sakerhet]
+
+  - id: tills-013
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En lokal har byggts om till gym och tagits i bruk utan slutbesked. Utrymningsvägarna är
+      blockerade av utrustning. När får nämnden förbjuda användningen enligt 11 kap. 33 § PBL?
+    alternativ:
+      - text: När byggnadsverket har brister som kan äventyra säkerheten, eller när det inte finns förutsättningar för slutbesked.
+        ratt: true
+      - text: Bara om det har dömts ut vite tidigare.
+      - text: Bara om länsstyrelsen har godkänt förbudet.
+      - text: Aldrig, eftersom användningsförbud bara finns för hissar.
+    forklaring: >
+      Användningsförbud enligt 11 kap. 33 § får riktas mot ägaren eller nyttjanderättshavaren
+      om byggnadsverket har brister som kan äventyra säkerheten (1) eller om det inte finns
+      förutsättningar för slutbesked enligt 10 kap. 34 eller 35 § (2). Har byggnaden tagits i
+      bruk med interimistiskt slutbesked krävs synnerliga skäl för förbud enligt punkt 2.
+      Förbudet får förenas med vite (37 §) och antecknas i fastighetsregistret (40 §).
+    lagrum: [PBL 11 kap. 33 §, PBL 10 kap. 34 §, PBL 11 kap. 37 §]
+    taggar: [forbud, anvandningsforbud, slutbesked]
+
+  - id: tills-014
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vem prövar om ett vite som nämnden har förelagt ska dömas ut?
+    alternativ:
+      - text: Mark- och miljödomstolen, efter ansökan av nämnden.
+        ratt: true
+      - text: Nämnden själv, i ett nytt beslut.
+      - text: Länsstyrelsen.
+      - text: Kronofogdemyndigheten.
+    forklaring: >
+      Enligt 11 kap. 37 § tredje stycket PBL prövas frågor om utdömande av vite av mark- och
+      miljödomstol. Nämnden beslutar om vitesföreläggandet men måste ansöka hos domstolen för
+      att vitet ska dömas ut. Kronofogdemyndigheten kommer in vid handräckning (39 §) och
+      indrivning.
+    lagrum: [PBL 11 kap. 37 §]
+    taggar: [vite, mark_och_miljodomstol]
+
+  - id: tills-015
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ett vite som inte betalas kan förvandlas till fängelse.
+    svar: false
+    forklaring: >
+      11 kap. 37 § andra stycket PBL säger uttryckligen att vitet inte får förvandlas till
+      fängelse. Vite är ett påtryckningsmedel för att få föreläggandet följt, inte ett straff.
+      Följs föreläggandet ändå inte kan nämnden i stället, om föreläggandet innehöll en upplysning
+      om det, låta utföra åtgärden på den försumliges bekostnad (27–28 §§).
+    lagrum: [PBL 11 kap. 37 §, PBL 11 kap. 27 §, PBL 11 kap. 28 §]
+    taggar: [vite, mark_och_miljodomstol]
+
+  - id: tills-016
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett rättelseföreläggande om att ta bort en olovlig tillbyggnad har vunnit laga kraft men
+      följs inte. Vilken myndighet kan efter ansökan av nämnden besluta om handräckning, och
+      vilken tidsgräns gäller?
+    alternativ:
+      - text: Kronofogdemyndigheten, om det inte har gått mer än tio år från överträdelsen.
+        ratt: true
+      - text: Polismyndigheten, om det inte har gått mer än fem år från föreläggandet.
+      - text: Mark- och miljödomstolen, utan någon tidsgräns.
+      - text: Länsstyrelsen, om det inte har gått mer än två år från beslutet.
+    forklaring: >
+      Enligt 11 kap. 39 § PBL får Kronofogdemyndigheten besluta om handräckning för att
+      genomföra en åtgärd enligt ett föreläggande enligt 19–25 §§, om det inte har förflutit
+      mer än tio år från överträdelsen. Tioårsgränsen gäller inte olovligt ianspråktagna
+      bostadslägenheter. Polisens roll är att ge biträde vid tillträde (9 §).
+    lagrum: [PBL 11 kap. 39 §, PBL 11 kap. 9 §]
+    taggar: [handrackning, verkstallighet, tioarsregeln]
+
+  - id: tills-017
+    typ: flersvar
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden har förelagt ägaren till Granen 5 att vidta rättelse vid vite. Ägaren säljer
+      sedan fastigheten genom köp. Vilka påståenden stämmer?
+    alternativ:
+      - text: Nämnden ska genast ha skickat föreläggandet till inskrivningsmyndigheten, som antecknar det i fastighetsregistret.
+        ratt: true
+      - text: Föreläggandet gäller i stället mot den nya ägaren.
+        ratt: true
+      - text: Ett löpande vite gäller mot den nya ägaren från den första tidsperiod som börjar efter äganderättsövergången, om vitesföreläggandet antecknats före köpet.
+        ratt: true
+      - text: Ett engångsvite gäller automatiskt mot den nya ägaren.
+      - text: Föreläggandet upphör att gälla vid försäljningen och nämnden måste börja om från början.
+    forklaring: >
+      Förelägganden enligt bl.a. 19 och 20 §§ och användningsförbud ska skickas till
+      inskrivningsmyndigheten och antecknas (11 kap. 40–41 §§), så att en köpare kan se dem.
+      Föreläggandet gäller mot den nya ägaren (46 §). Löpande vite följer med enligt 47 §, men
+      andra viten gäller inte mot den nya ägaren; nämnden får i stället besluta om ett nytt
+      vitesföreläggande (48 §).
+    lagrum: [PBL 11 kap. 40 §, PBL 11 kap. 41 §, PBL 11 kap. 46 §, PBL 11 kap. 47 §, PBL 11 kap. 48 §]
+    taggar: [vite, inskrivning, agarbyte]
+
+  - id: tills-018
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Får en bygglovshandläggare på delegation besluta om byggsanktionsavgift eller om ett
+      rättelseföreläggande med vite?
+    alternativ:
+      - text: Nej. Sådana frågor får inte delegeras utan avgörs av nämnden.
+        ratt: true
+      - text: Ja, om delegationsordningen tillåter det.
+      - text: Ja för byggsanktionsavgift, men inte för vitesföreläggande.
+      - text: Ja, om beloppet är lägre än ett prisbasbelopp.
+    forklaring: >
+      12 kap. 6 § PBL begränsar delegationen: ett delegationsuppdrag får inte omfatta att avgöra
+      frågor om byggsanktionsavgift (4) eller att besluta förelägganden eller förbud med vite,
+      utom förbud enligt 11 kap. 30–32 §§ och 33 § 1 (2). Inte heller förelägganden med upplysning
+      om genomförande på den försumliges bekostnad får delegeras (3). Ett akut förbud mot fortsatt
+      arbete vid fara kan alltså fattas på delegation, men inte en byggsanktionsavgift.
+    lagrum: [PBL 12 kap. 6 §, PBL 11 kap. 30 §]
+    taggar: [delegation, byggsanktionsavgift, vite]
+
+  # --- Byggsanktionsavgift ------------------------------------------------------------------
+
+  - id: tills-019
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare säger att hon inte visste att hon behövde startbesked innan hon började
+      bygga sitt beviljade uterum. Påverkar det om byggsanktionsavgift ska tas ut?
+    alternativ:
+      - text: Nej. Avgiften ska tas ut även om överträdelsen inte skett uppsåtligen eller av oaktsamhet.
+        ratt: true
+      - text: Ja. Utan uppsåt kan avgift inte tas ut.
+      - text: Ja. Okunskap leder alltid till nedsättning till hälften.
+      - text: Det beror på om grannarna har klagat.
+    forklaring: >
+      Byggsanktionsavgiften bygger på strikt ansvar (11 kap. 53 § första stycket PBL). Avgiften
+      behöver bara efterges om det är oskäligt på grund av sjukdom, omständigheter som inte gått
+      att förutse eller påverka, eller vad den avgiftsskyldige gjort för att undvika
+      överträdelsen (53 § andra stycket). Att överträdelsen inte skett uppsåtligen eller av
+      oaktsamhet ska särskilt beaktas vid en nedsättningsprövning (53 a §), men okunskap om
+      reglerna är normalt inget skäl. Eftersom hon hade lov halveras avgiften enligt PBF
+      9 kap. 3 a §.
+    lagrum: [PBL 11 kap. 53 §, PBL 11 kap. 53 a §, PBF 9 kap. 3 a §]
+    taggar: [byggsanktionsavgift, strikt_ansvar]
+
+  - id: tills-020
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Av vem kan byggsanktionsavgift tas ut enligt 11 kap. 57 § PBL?
+    alternativ:
+      - text: Den som var ägare till fastigheten eller byggnadsverket när överträdelsen begicks.
+        ratt: true
+      - text: Den som begick överträdelsen.
+        ratt: true
+      - text: Den som har fått en fördel av överträdelsen.
+        ratt: true
+      - text: Den som äger fastigheten när nämnden beslutar, även om överträdelsen skedde före köpet.
+      - text: Kommunen, om nämnden borde ha upptäckt överträdelsen tidigare.
+    forklaring: >
+      11 kap. 57 § PBL räknar upp tre kategorier. Den nya ägaren som köpt efter överträdelsen
+      är inte avgiftsskyldig som ägare, men kan ha rätt till prisavdrag eller hävning enligt
+      4 kap. 12 § jordabalken om säljaren inte upplyst om överträdelsen (64 §). Är flera
+      avgiftsskyldiga för samma överträdelse svarar de solidariskt (60 §).
+    lagrum: [PBL 11 kap. 57 §, PBL 11 kap. 60 §, PBL 11 kap. 64 §]
+    taggar: [byggsanktionsavgift, avgiftsskyldig]
+
+  - id: tills-021
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En byggsanktionsavgift får uppgå till högst ___ prisbasbelopp. Avgiften fastställs med
+      det prisbasbelopp som gäller det år då beslutet fattas. Beslutar nämnden i januari 2027
+      används ___ kronor.
+    svar: [["50", "femtio"], ["59600", "59 600"]]
+    forklaring: >
+      Taket på 50 prisbasbelopp står i 11 kap. 52 § PBL och PBF 9 kap. 1 §, som också säger att
+      prisbasbeloppet för beslutsåret ska användas. Prisbasbeloppet är 59 200 kronor för 2026 och
+      59 600 kronor för 2027 enligt SCB. En överträdelse som skedde 2025 men beslutas 2027 räknas
+      alltså med 2027 års belopp.
+    lagrum: [PBL 11 kap. 52 §, PBF 9 kap. 1 §]
+    taggar: [byggsanktionsavgift, prisbasbelopp]
+
+  - id: tills-022
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur mycket får en byggsanktionsavgift sättas ned enligt 11 kap. 53 a § PBL?
+    alternativ:
+      - text: Till hälften eller en fjärdedel, om avgiften inte står i rimlig proportion till överträdelsen.
+        ratt: true
+      - text: Till valfritt belopp som nämnden anser skäligt.
+      - text: Med en femtedel för varje påbörjad vecka handläggningen tagit.
+      - text: Till noll, om ägaren rättar inom sex månader efter beslutet.
+    forklaring: >
+      Nedsättning enligt 53 a § kan bara ske i två steg: till hälften eller till en fjärdedel.
+      Nämnden ska särskilt beakta om överträdelsen inte skett uppsåtligen eller av oaktsamhet
+      eller annars är av mindre allvarlig art, t.ex. när en villa tagits i bruk före slutbesked
+      men allt i övrigt är rätt utfört. Reduktionen med en femtedel per vecka gäller
+      lovavgiften vid överskriden handläggningstid (12 kap. 8 a §), inte sanktionsavgifter.
+    lagrum: [PBL 11 kap. 53 a §, PBL 12 kap. 8 a §]
+    taggar: [byggsanktionsavgift, nedsattning]
+
+  - id: tills-023
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur länge kan en byggherre rätta en överträdelse för att slippa byggsanktionsavgift?
+    alternativ:
+      - text: Fram till att nämnden har tagit upp frågan till överläggning vid ett sammanträde.
+        ratt: true
+      - text: Fram till att beslutet om avgift har fått laga kraft.
+      - text: Inom två månader från delgivningen av beslutet.
+      - text: Bara innan nämnden har kommunicerat förslaget till avgift.
+    forklaring: >
+      Enligt 11 kap. 54 § PBL tas avgift inte ut om rättelse sker innan frågan om sanktion
+      eller ingripande har tagits upp till överläggning vid ett sammanträde med nämnden. Bordläggs
+      ärendet utan överläggning i sak finns möjligheten kvar. Informera därför tidigt om 54 §;
+      det är ett effektivt sätt att få olovliga åtgärder rättade.
+    lagrum: [PBL 11 kap. 54 §]
+    taggar: [byggsanktionsavgift, rattelse]
+
+  - id: tills-024
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En byggherre som har påbörjat en tillbyggnad utan startbesked har rättat överträdelsen om
+      han får startbesked innan nämnden sammanträder.
+    svar: false
+    forklaring: >
+      Mark- och miljööverdomstolen har slagit fast att påbörjande utan startbesked bara kan
+      rättas genom att det utförda återställs. Att i efterhand få startbesked, eller undanröja
+      hindret för startbesked, är inte rättelse enligt 11 kap. 54 § PBL. På samma sätt rättas
+      inte användning av en hiss utan godkänt besiktningsprotokoll av att protokollet lämnas in
+      i efterhand (HD i NJA 2021 s. 446).
+    lagrum: [PBL 11 kap. 54 §, PBL 10 kap. 3 §]
+    taggar: [byggsanktionsavgift, rattelse, startbesked]
+
+  - id: tills-025
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En carport byggdes utan lov i juni 2021. Nämnden får kännedom om den i augusti 2026. Kan
+      nämnden ta ut byggsanktionsavgift?
+    alternativ:
+      - text: Nej. Avgift får inte beslutas om den som anspråket riktas mot inte har fått tillfälle att yttra sig inom fem år efter överträdelsen.
+        ratt: true
+      - text: Ja, eftersom tioårsgränsen inte har passerats.
+      - text: Ja, om nämnden beslutar innan årets slut.
+      - text: Ja, men bara med halva beloppet.
+    forklaring: >
+      Femårsgränsen i 11 kap. 58 § andra stycket PBL räknas från överträdelsen till den dag den
+      avgiftsskyldige får tillfälle att yttra sig, inte till beslutet. Här har mer än fem år
+      gått. Nämnden kan ändå förelägga om rättelse, eftersom tioårsgränsen i 20 § inte har
+      passerats. Kontrollera alltid datum i arkiv, flygbilder och andra underlag innan du
+      godtar en preskriptionsinvändning.
+    lagrum: [PBL 11 kap. 58 §, PBL 11 kap. 20 §]
+    taggar: [byggsanktionsavgift, preskription]
+
+  - id: tills-026
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden har förelagt en ägare vid vite att riva ett olovligt uthus. Ägaren river inte och
+      mark- och miljödomstolen dömer ut vitet. Kan nämnden därefter ta ut byggsanktionsavgift
+      för samma överträdelse?
+    alternativ:
+      - text: Nej. Avgift tas inte ut om överträdelsen har medfört att ett vite har dömts ut.
+        ratt: true
+      - text: Ja, avgift och vite kan alltid kombineras för samma överträdelse.
+      - text: Ja, men bara om vitet var lägre än avgiften.
+      - text: Nej, eftersom vite och avgift aldrig får användas i samma ärende.
+    forklaring: >
+      11 kap. 55 § PBL uttrycker förbudet mot dubbelbestraffning: ingen avgift om överträdelsen
+      har lett till att vite dömts ut. Det gäller samma överträdelse. MÖD har bedömt att
+      påbörjande utan startbesked (avgift) och att inte följa ett föreläggande om att ta bort det
+      påbörjade (vite) är två olika överträdelser, så båda kan förekomma i samma ärende
+      (MÖD 2014:25).
+    lagrum: [PBL 11 kap. 55 §, PBL 11 kap. 37 §]
+    taggar: [byggsanktionsavgift, vite, dubbelbestraffning]
+
+  - id: tills-027
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad gäller för betalning av en beslutad byggsanktionsavgift?
+    alternativ:
+      - text: Den ska betalas inom två månader efter delgivning, får därefter verkställas som en lagakraftvunnen dom och behöver inte betalas om den inte verkställts inom tio år från laga kraft.
+        ratt: true
+      - text: Den ska betalas inom tre veckor från beslutet och tillfaller staten.
+      - text: Den får inte drivas in förrän ägaren har sålt fastigheten.
+      - text: Den ska betalas först när mark- och miljödomstolen har fastställt den.
+    forklaring: >
+      11 kap. 61 § PBL: betalning inom två månader efter delgivning (eller den senare dag som
+      nämnden bestämt), därefter verkställbar som lagakraftvunnen dom, och tioårsgräns för
+      verkställighet. Beslutet ska delges den avgiftsskyldige (59 §). Avgiften tillfaller
+      kommunen när byggnadsnämnden beslutat den (62 §). Upphävs beslutet ska avgiften betalas
+      tillbaka med ränta (63 §).
+    lagrum: [PBL 11 kap. 59 §, PBL 11 kap. 61 §, PBL 11 kap. 62 §, PBL 11 kap. 63 §]
+    taggar: [byggsanktionsavgift, betalning, delgivning]
+
+  - id: tills-028
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Nämnden har tagit ut byggsanktionsavgift för ett olovligt plank. Ägaren tar inte bort det
+      trots att han fått skälig tid. Vad följer av 9 kap. 2 § PBF?
+    alternativ:
+      - text: En ny avgift ska tas ut med det dubbla beloppet mot den senaste, dock sammanlagt högst 50 prisbasbelopp.
+        ratt: true
+      - text: Samma avgift tas ut en gång till.
+      - text: Ingen ny avgift får tas ut; nämnden måste använda vite.
+      - text: Avgiften räknas upp med 300 procent.
+    forklaring: >
+      Enligt PBF 9 kap. 2 § ska en ny avgift tas ut med dubbla det belopp som togs ut senast,
+      om rättelse inte sker. Den avgiftsskyldige ska först ha fått skälig tid och, enligt
+      11 kap. 58 § PBL, tillfälle att yttra sig. Uppräkning med 300 procent gäller rivning av
+      byggnader som bör bevaras enligt 9 kap. 76 § PBL (PBF 9 kap. 15–16 §§). Dubbel avgift
+      gäller också vid ny överträdelse av samma slag inom två år (9 kap. 3 §).
+    lagrum: [PBF 9 kap. 2 §, PBF 9 kap. 3 §, PBL 11 kap. 58 §]
+    taggar: [byggsanktionsavgift, dubbel_avgift]
+
+  - id: tills-029
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur bestäms sanktionsarean när avgiften för ett olovligt garage ska räknas ut?
+    alternativ:
+      - text: Bruttoarean eller öppenarean, eller en kombination av dem, minskad med 15 kvm.
+        ratt: true
+      - text: Byggnadsarean minskad med 25 kvm.
+      - text: Bruttoarean utan avdrag.
+      - text: Tomtarean minskad med den bebyggda arean.
+    forklaring: >
+      Sanktionsarean definieras i PBF 1 kap. 7 §: för en lov- eller anmälningspliktig åtgärd
+      bruttoarea och/eller öppenarea minus 15 kvm; för en markåtgärd den area åtgärden avser.
+      Ett garage på 40 kvm bruttoarea får alltså sanktionsarean 25 kvm. Beloppen i PBF 9 kap.
+      består av ett grundbelopp och ett tillägg per kvadratmeter sanktionsarea.
+    lagrum: [PBF 1 kap. 7 §, PBF 9 kap. 6 §]
+    taggar: [byggsanktionsavgift, sanktionsarea]
+
+  - id: tills-030
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På Linden 4 har ägaren byggt ett nytt enbostadshus med 140 kvm bruttoarea utan bygglov och
+      utan startbesked. Nämnden beslutar om byggsanktionsavgift 2026. Hur stor blir avgiften?
+      Prisbasbeloppet 2026 är 59 200 kr.
+    svar: 125800
+    tolerans: 1
+    enhet: kr
+    losning: >
+      PBF 9 kap. 6 § första stycket 1: 1,5 pbb + 0,005 pbb per kvm sanktionsarea. Sanktionsarea
+      140 − 15 = 125 kvm. 1,5 + 0,005 × 125 = 1,5 + 0,625 = 2,125 pbb. 2,125 × 59 200 =
+      125 800 kr.
+    forklaring: >
+      Nybyggnad av ett en- eller tvåbostadshus utan startbesked har ett högt grundbelopp,
+      1,5 prisbasbelopp. Ingen halvering enligt 9 kap. 3 a § eftersom lov saknades. Nämnden
+      prövar också om lov kan ges i efterhand; om inte kan rättelseföreläggande komma i fråga.
+      Hade huset dessutom tagits i bruk kan avgift för ibruktagande utan slutbesked inte tas ut,
+      eftersom startbesked saknas (MÖD 2016:15).
+    lagrum: [PBF 9 kap. 6 §, PBF 1 kap. 7 §, PBF 9 kap. 3 a §]
+    taggar: [byggsanktionsavgift, berakning, prisbasbelopp]
+
+  - id: tills-031
+    typ: berakning
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ägarna till Lärken 2 fick bygglov för en tillbyggnad av sitt enbostadshus med 30 kvm
+      bruttoarea. De började gjuta grunden innan nämnden gett startbesked. Nämnden beslutar om
+      avgift 2026 (prisbasbelopp 59 200 kr). Hur stor blir avgiften? Avrunda nedåt till hela
+      kronor.
+    svar: 17020
+    tolerans: 1
+    enhet: kr
+    losning: >
+      PBF 9 kap. 7 § första stycket 1: 0,5 pbb + 0,005 pbb per kvm sanktionsarea. Sanktionsarea
+      30 − 15 = 15 kvm. 0,5 + 0,075 = 0,575 pbb. Lov fanns, så avgiften halveras (9 kap. 3 a §):
+      0,2875 pbb × 59 200 = 17 020 kr.
+    forklaring: >
+      Halveringen i PBF 9 kap. 3 a § infördes för att skilja mellan den som har lov men inte
+      väntat på startbesked och den som byggt helt utan prövning. Den gäller bara avgift för
+      påbörjande före startbesked och bara om lov (eller fullgjord anmälan) fanns när åtgärden
+      eller delen påbörjades. Att de bara hunnit gjuta grunden spelar ingen roll för beloppet;
+      avgiften räknas på tillbyggnadens sanktionsarea.
+    lagrum: [PBF 9 kap. 7 §, PBF 9 kap. 3 a §, PBF 1 kap. 7 §]
+    taggar: [byggsanktionsavgift, berakning, startbesked, halvering]
+
+  - id: tills-032
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En familj har byggt ett enbostadshus med 150 kvm bruttoarea med lov och startbesked. De
+      flyttar in innan nämnden gett slutbesked. Nämnden beslutar 2026 (prisbasbelopp 59 200 kr).
+      Hur stor blir avgiften för ibruktagande utan slutbesked?
+    svar: 25752
+    tolerans: 1
+    enhet: kr
+    losning: >
+      PBF 9 kap. 18 § första stycket 1: 0,3 pbb + 0,001 pbb per kvm sanktionsarea. Sanktionsarea
+      150 − 15 = 135 kvm. 0,3 + 0,135 = 0,435 pbb. 0,435 × 59 200 = 25 752 kr.
+    forklaring: >
+      Ibruktagande före slutbesked strider mot 10 kap. 4 § PBL. Har bara en del av huset tagits i
+      bruk räknas sanktionsarean på den delen (PBF 9 kap. 18 § andra stycket). Om huset i
+      övrigt är korrekt utfört och kraven uppfyllda kan överträdelsen anses mindre allvarlig och
+      avgiften sättas ned (11 kap. 53 a § PBL). Att flytta ut igen är inte rättelse, eftersom
+      användningen redan har skett.
+    lagrum: [PBF 9 kap. 18 §, PBL 10 kap. 4 §, PBL 11 kap. 53 a §]
+    taggar: [byggsanktionsavgift, berakning, slutbesked, ibruktagande]
+
+  - id: tills-033
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En komplementbyggnad som krävde bygglov har byggts helt utan lov och startbesked och
+      används som gästhus. Kan nämnden ta ut avgift både för påbörjande utan startbesked och för
+      ibruktagande utan slutbesked?
+    alternativ:
+      - text: Nej, bara för påbörjande. Förbudet mot ibruktagande gäller de delar som omfattas av ett startbesked, och här finns inget.
+        ratt: true
+      - text: Ja, eftersom det är två olika överträdelser.
+      - text: Nej, bara för ibruktagande, eftersom det är den senaste överträdelsen.
+      - text: Ja, men ibruktagandeavgiften halveras.
+    forklaring: >
+      10 kap. 4 § PBL säger att ett byggnadsverk inte får tas i bruk "i de delar som omfattas av
+      ett startbesked" förrän slutbesked getts. MÖD har därför ändrat sin tidigare praxis och
+      anser att avgift för ibruktagande utan slutbesked inte kan tas ut när startbesked saknas
+      helt (MÖD 2016:15). Avgiften för påbörjande utan startbesked tas ut, och nämnden kan
+      förbjuda användningen (11 kap. 33 §).
+    lagrum: [PBL 10 kap. 4 §, PBF 9 kap. 6 §, PBF 9 kap. 18 §, PBL 11 kap. 33 §]
+    taggar: [byggsanktionsavgift, ibruktagande, slutbesked, praxis]
+
+  # --- OVK, hissar och lekplatser -----------------------------------------------------------
+
+  - id: tills-034
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka påståenden om nämndens tillsyn över OVK, hissar och lekplatser stämmer?
+    alternativ:
+      - text: Den som utför funktionskontroll av ventilationen ska skicka ett exemplar av protokollet till byggnadsnämnden.
+        ratt: true
+      - text: Byggsanktionsavgiften för att använda en hiss i strid med användningsförbudet i PBF 5 kap. är 2 prisbasbelopp.
+        ratt: true
+      - text: Lekplatser och fasta anordningar på lekplatser ska underhållas så att risken för olycksfall begränsas, och nämnden har tillsyn över det.
+        ratt: true
+      - text: Nämnden ska godkänna varje OVK-protokoll innan ventilationen får användas.
+      - text: Lösa gungor och studsmattor på en förskolegård omfattas av nämndens tillsyn enligt PBL.
+    forklaring: >
+      OVK regleras i PBF 5 kap. 1–7 §§; protokollet skickas till nämnden (5 §), men nämnden
+      godkänner det inte. Motordrivna anordningar som hissar ska besiktas (PBF 5 kap. 8–11 §§)
+      och får inte användas utan godkänt protokoll (12–15 §§); avgiften för otillåten användning
+      är 2 prisbasbelopp (PBF 9 kap. 5 §). Kravet på lekplatser står i 8 kap. 15 § tredje
+      stycket PBL och nämnden har tillsyn över det (PBF 8 kap. 2 §). Lösa lekredskap är leksaker
+      och omfattas av annan lagstiftning.
+    lagrum: [PBF 5 kap. 5 §, PBF 9 kap. 5 §, PBL 8 kap. 15 §, PBF 8 kap. 2 §]
+    taggar: [ovk, hiss, lekplats, tillsyn]
+
+  - id: tills-035
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett flerbostadshus har inte haft någon återkommande OVK på åtta år. Vad kan nämnden
+      förelägga ägaren?
+    alternativ:
+      - text: Att låta utföra OVK, genom ett åtgärdsföreläggande, vid behov med vite.
+        ratt: true
+      - text: Att lämna in ett godkänt OVK-protokoll inom en månad, vid vite.
+      - text: Att betala byggsanktionsavgift för varje år utan OVK.
+      - text: Ingenting, eftersom OVK är en fråga för Arbetsmiljöverket.
+    forklaring: >
+      Ägaren ansvarar för att funktionskontroll görs (PBF 5 kap. 1 §), men det är
+      funktionskontrollanten som ska skicka protokollet till nämnden. MÖD har därför ansett att
+      nämnden inte kan förelägga ägaren att lämna in ett protokoll, men väl att låta utföra OVK
+      genom åtgärdsföreläggande (11 kap. 19 § PBL) med vite (37 §). I PBF 9 kap. finns i dag ingen
+      särskild byggsanktionsavgift för utebliven OVK.
+    lagrum: [PBF 5 kap. 1 §, PBF 5 kap. 5 §, PBL 11 kap. 19 §, PBL 11 kap. 37 §]
+    taggar: [ovk, atgardsforelaggande, vite]
+
+  # --- Öppna frågor -------------------------------------------------------------------------
+
+  - id: tills-036
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara när nämnden ska ge ett lovföreläggande och när den i stället ska förelägga om
+      rättelse. Ge ett exempel på vardera.
+    bedomningspunkter:
+      - Lovföreläggande (11 kap. 17 § PBL) när en lovpliktig åtgärd utförts utan lov och det är sannolikt att lov kan ges
+      - Rättelseföreläggande (11 kap. 20 §) när åtgärden strider mot lagen, lov eller beslut och lov inte kan ges i efterhand, eller när lovet upphävts
+      - Lov i efterhand prövas som om åtgärden inte var utförd, mot förhållandena vid prövningen
+      - Tioårsgränsen för rättelseföreläggande och att det riktas mot ägaren
+      - Byggsanktionsavgift tas ut oberoende av vilket föreläggande som blir aktuellt
+    modellsvar: >
+      Har någon byggt något lovpliktigt utan lov ska nämnden först fråga sig om lov hade kunnat
+      ges. Är det sannolikt, t.ex. ett planenligt uterum som byggts utan att ägaren sökt lov,
+      ska nämnden ge ett lovföreläggande så att ägaren söker lov i efterhand (11 kap. 17 § PBL).
+      Följs det inte får nämnden ta fram underlaget på ägarens bekostnad (27 §). Är det inte
+      sannolikt att lov kan ges, t.ex. ett garage som byggts en meter från gränsen och mycket
+      högre än planen tillåter, får nämnden förelägga ägaren att vidta rättelse inom viss tid
+      (20 §), vid behov med vite (37 §). Rättelseföreläggande får inte beslutas mer än tio år
+      efter överträdelsen. I båda fallen ska byggsanktionsavgift tas ut om åtgärden påbörjats
+      utan startbesked (51 §), om inte rättelse sker innan nämnden överlagt om ärendet (54 §).
+    lagrum: [PBL 11 kap. 17 §, PBL 11 kap. 20 §, PBL 11 kap. 27 §, PBL 11 kap. 54 §]
+    taggar: [lovforelaggande, rattelseforelaggande, lov_i_efterhand]
+
+  - id: tills-037
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vad ska en kommuniceringsskrivelse innehålla när nämnden överväger att ta ut
+      byggsanktionsavgift? Varför är kommuniceringen särskilt viktig just här?
+    bedomningspunkter:
+      - Kommunicering krävs enligt 11 kap. 58 § första stycket PBL (och FL 25 §) innan avgift beslutas
+      - Avgift får inte beslutas om tillfälle att yttra sig inte getts inom fem år efter överträdelsen (58 § andra stycket)
+      - Beskriver överträdelsen konkret med underlag (protokoll, mått, datum)
+      - Anger föreslaget belopp med beräkning, sanktionsarea och prisbasbelopp
+      - Upplyser om rättelse före sammanträdet (54 §) och anger när nämnden sammanträder
+      - Ger tid att yttra sig och ber om omständigheter som kan motivera nedsättning eller eftergift (53 och 53 a §§)
+      - Riktas till alla som avgiften ska tas ut av (57 §)
+    modellsvar: >
+      Kommuniceringen är obligatorisk före beslut om byggsanktionsavgift (11 kap. 58 § första
+      stycket PBL). Den har också betydelse för preskriptionen: avgift får inte beslutas om den
+      avgiftsskyldige inte har fått tillfälle att yttra sig inom fem år efter överträdelsen
+      (58 § andra stycket). Det är alltså tidpunkten för kommuniceringen som räknas. Skrivelsen
+      ska rikta sig till alla som avgiften ska tas ut av, beskriva överträdelsen med mått och
+      datum, bifoga eller hänvisa till protokoll och foton, ange beloppet med beräkning och
+      prisbasbelopp och ge en bestämd tid för yttrande. Den ska upplysa om att avgift inte tas
+      ut för det som rättas innan nämnden överlagt om ärendet (54 §), när sammanträdet är, och be
+      om uppgifter som kan motivera att avgiften efterges eller sätts ned (53 och 53 a §§).
+      Eftersom avgiften har straffliknande karaktär är rättssäkerheten extra viktig.
+    lagrum: [PBL 11 kap. 58 §, PBL 11 kap. 54 §, PBL 11 kap. 53 a §, FL 25 §]
+    taggar: [kommunicering, byggsanktionsavgift, preskription]
+
+  - id: tills-038
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett garage har byggts 16 kvm större och 0,8 m högre än lovet och tagits i bruk utan
+      slutbesked. Förklara steg för steg hur du räknar fram byggsanktionsavgiften och vad som
+      händer om ägaren river den större delen före nämndens sammanträde men slutar använda
+      garaget.
+    bedomningspunkter:
+      - Väljer rätt bestämmelser i PBF 9 kap. (6 § för påbörjande, 18 § för ibruktagande, komplementbyggnad)
+      - Sanktionsarea = bruttoarea minus 15 kvm (PBF 1 kap. 7 §)
+      - Prisbasbelopp för beslutsåret (PBF 9 kap. 1 §)
+      - Ingen halvering enligt 9 kap. 3 a § för delar som saknade lov
+      - Förbudet i 10 kap. 4 § gäller delar som omfattas av startbeskedet
+      - Rivning före sammanträdet är rättelse för den delen (11 kap. 54 §), men att sluta använda garaget rättar inte ibruktagandet
+      - Kommunicering före beslut (11 kap. 58 §)
+    modellsvar: >
+      Först konstaterar jag vad som saknar startbesked: den extra delen och det höjda taket är
+      en del av nybyggnaden som påbörjats utan startbesked. Avgiften för en komplementbyggnad är
+      0,25 prisbasbelopp plus 0,005 prisbasbelopp per kvm av byggnadens sanktionsarea (PBF 9 kap.
+      6 § första stycket 2), där sanktionsarean är bruttoarean minus 15 kvm (1 kap. 7 §). Någon
+      halvering blir det inte, eftersom de avvikande delarna saknade lov (9 kap. 3 a §). För
+      ibruktagandet gäller 9 kap. 18 § första stycket 2: 0,05 plus 0,001 prisbasbelopp per kvm,
+      räknat på de delar som omfattas av startbeskedet (10 kap. 4 § PBL). Jag använder
+      prisbasbeloppet för det år nämnden beslutar och kommunicerar förslaget (11 kap. 58 §). River
+      ägaren den större delen innan nämnden överlagt är den delen rättad (54 §) och avgiften
+      räknas om på den byggnad som återstår; det höjda taket finns kvar och ger fortfarande
+      avgift. Att sluta använda garaget rättar inte ibruktagandet, eftersom användningen redan
+      har skett.
+    lagrum: [PBF 9 kap. 6 §, PBF 9 kap. 18 §, PBF 1 kap. 7 §, PBF 9 kap. 3 a §, PBL 10 kap. 4 §, PBL 11 kap. 54 §]
+    taggar: [byggsanktionsavgift, berakning, rattelse]
+
+  - id: tills-039
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En byggherre invänder att byggsanktionsavgiften är orimlig eftersom hans snickare byggde
+      fel. Hur bemöter du invändningen i beslutet?
+    bedomningspunkter:
+      - Strikt ansvar; avgift tas ut även utan uppsåt eller oaktsamhet (11 kap. 53 § första stycket)
+      - Prövar om det är oskäligt att ta ut avgiften (53 § andra stycket) och förklarar varför inte
+      - Prövar nedsättning till hälften eller en fjärdedel (53 a §) med hänsyn till överträdelsens art
+      - Ägaren kan vara avgiftsskyldig även om någon annan utfört arbetet (57 §)
+      - Saklig och begriplig motivering (FL 32 §)
+    modellsvar: >
+      Byggsanktionsavgift ska tas ut även om överträdelsen inte skett uppsåtligen eller av
+      oaktsamhet (11 kap. 53 § första stycket PBL). Nämnden har prövat om det är oskäligt att ta
+      ut avgiften på grund av sjukdom, en omständighet som byggherren inte kunnat förutse eller
+      påverka, eller vad han gjort för att undvika överträdelsen (53 § andra stycket). Att
+      snickaren föreslog ändringen är något byggherren kunnat påverka; han godkände den och
+      kunde ha frågat nämnden. Avgiften kan sättas ned till hälften eller en fjärdedel om den inte
+      står i rimlig proportion till överträdelsen (53 a §), men avvikelsen är betydande och
+      avgiften bedöms vara proportionerlig. Avgiften tas ut av ägaren även om någon annan har
+      utfört arbetet (57 §); ett eventuellt anspråk mot snickaren är en civilrättslig fråga
+      mellan dem.
+    lagrum: [PBL 11 kap. 53 §, PBL 11 kap. 53 a §, PBL 11 kap. 57 §, FL 32 §]
+    taggar: [byggsanktionsavgift, nedsattning, motivering]
+
+  - id: tills-040
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Beskriv vilka verktyg nämnden har om ett beslutat rättelseföreläggande inte följs, och
+      vilka förutsättningar som gäller för vart och ett.
+    bedomningspunkter:
+      - Utdömande av vite hos mark- och miljödomstolen, om föreläggandet förenats med vite (11 kap. 37 §)
+      - Genomförande på den försumliges bekostnad, om föreläggandet innehöll en upplysning om det (27–28 §§), utan oskäliga kostnader
+      - Handräckning genom Kronofogdemyndigheten inom tio år från överträdelsen (39 §)
+      - Ny byggsanktionsavgift med dubbelt belopp om avgift beslutats och rättelse inte skett (PBF 9 kap. 2 §)
+      - Beslut om föreläggande med vite eller med upplysning om genomförande på bekostnad fattas av nämnden (12 kap. 6 §)
+    modellsvar: >
+      Om föreläggandet förenats med vite kan nämnden ansöka hos mark- och miljödomstolen om att
+      vitet döms ut (11 kap. 37 § PBL); vitet kan inte förvandlas till fängelse. Om föreläggandet
+      innehöll en upplysning om det får nämnden besluta att åtgärden ska genomföras på den
+      försumliges bekostnad (27–28 §§), men nämnden ska se till att kostnaderna inte blir
+      oskäliga. Kronofogdemyndigheten kan efter ansökan besluta om handräckning, om det inte gått
+      mer än tio år från överträdelsen (39 §). Har nämnden tagit ut byggsanktionsavgift och
+      rättelse ändå inte sker ska en ny avgift tas ut med dubbla beloppet, efter skälig tid och
+      kommunicering, upp till 50 prisbasbelopp (PBF 9 kap. 2 §). Vitesförelägganden och
+      förelägganden med upplysning om genomförande på bekostnad får inte delegeras (12 kap. 6 §).
+    lagrum: [PBL 11 kap. 27 §, PBL 11 kap. 28 §, PBL 11 kap. 37 §, PBL 11 kap. 39 §, PBF 9 kap. 2 §, PBL 12 kap. 6 §]
+    taggar: [vite, handrackning, verkstallighet]

@@ -6,6 +6,7 @@ import {
   PAPER,
   TEXT,
   composeSheet,
+  crossHatchPattern,
   dimensionChain,
   dotPattern,
   el,
@@ -29,8 +30,14 @@ const SURROUNDINGS_MM = 34;
 interface Building {
   r: Rectangle;
   lines: string[];
-  kind: 'befintlig' | 'ny' | 'ovrig';
+  kind: 'befintlig' | 'ny' | 'ovrig' | 'avvikelse';
 }
+
+/** Parking spaces for disabled persons are drawn at least this wide where there is room. */
+const ACCESSIBLE_SPACE_M = 5;
+const MIN_SPACE_M = 2.3;
+const LOVGIVET_DASH = '4 1 0.8 1 0.8 1';
+const BALCONY_DASH = '0.6 0.6';
 
 const isHorizontalSide = (s: Side) => s === 'norr' || s === 'soder';
 
@@ -64,6 +71,25 @@ function spans(
     });
   }
   return result;
+}
+
+/** A name as two or three balanced lines, e.g. "Befintligt / bostads- och / affärshus". */
+export function wrapName(name: string): string[] {
+  const words = name.split(/\s+/).filter(Boolean);
+  if (words.length <= 2) return words;
+  const total = name.length;
+  const count = total > 24 ? 3 : 2;
+  const target = Math.max(...words.map((w) => w.length), Math.ceil(total / count) + 2);
+  const lines: string[] = [];
+  for (const word of words) {
+    const last = lines.at(-1);
+    if (last !== undefined && last.length + 1 + word.length <= target) {
+      lines[lines.length - 1] = `${last} ${word}`;
+    } else {
+      lines.push(word);
+    }
+  }
+  return lines;
 }
 
 /** Font size that makes every line fit inside `width` mm. */
@@ -103,6 +129,7 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     ny: `${id}-ny`,
     utfart: `${id}-utfart`,
     vatten: `${id}-vatten`,
+    avvikelse: `${id}-avvikelse`,
   };
   const defs = [
     el('clipPath', { id: ids.clip }, rect(0, 0, width, height)),
@@ -111,6 +138,7 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   ];
   if (p.utfart) defs.push(dotPattern(ids.utfart, { spacing: 1.2, radius: 0.12 }));
   if (shore) defs.push(hatchPattern(ids.vatten, { angle: 90, spacing: 1.4, width: LINE.hair }));
+  if (p.avvikelse.length > 0) defs.push(crossHatchPattern(ids.avvikelse, { spacing: 1.3 }));
 
   // The main building is the existing house, or the new house on an empty plot.
   const main: Rectangle = p.hus ?? (p.nybyggnad as Rectangle);
@@ -122,11 +150,32 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
       kind: 'ovrig',
     })),
   ];
-  if (p.hus) buildings.push({ r: p.hus, lines: ['Befintligt', 'bostadshus'], kind: 'befintlig' });
-  if (p.nybyggnad) buildings.push({ r: p.nybyggnad, lines: ['Nytt', 'bostadshus'], kind: 'ny' });
+  const mainLines = p.huvudbyggnad_namn ? wrapName(p.huvudbyggnad_namn) : undefined;
+  if (p.hus)
+    buildings.push({
+      r: p.hus,
+      lines: (!p.nybyggnad && mainLines) || ['Befintligt', 'bostadshus'],
+      kind: 'befintlig',
+    });
+  if (p.nybyggnad)
+    buildings.push({ r: p.nybyggnad, lines: mainLines ?? ['Nytt', 'bostadshus'], kind: 'ny' });
   if (p.tillbyggnad) buildings.push({ r: p.tillbyggnad, lines: ['Ny', 'tillbyggnad'], kind: 'ny' });
   if (p.komplementbyggnad)
-    buildings.push({ r: p.komplementbyggnad, lines: ['Ny komplement-', 'byggnad'], kind: 'ny' });
+    buildings.push({
+      r: p.komplementbyggnad,
+      lines: (p.komplementbyggnad_namn && wrapName(p.komplementbyggnad_namn)) || [
+        'Ny komplement-',
+        'byggnad',
+      ],
+      kind: 'ny',
+    });
+  for (const a of p.avvikelse) {
+    buildings.push({
+      r: a.rektangel,
+      lines: a.namn ? wrapName(a.namn) : [],
+      kind: 'avvikelse',
+    });
+  }
 
   const parts: string[] = [];
   const clipped: string[] = [];
@@ -310,6 +359,58 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     occupied.push(boxOf(a.rektangel, mm(1)));
   }
 
+  // Parking: the area divided into spaces across its longer side.
+  for (const park of p.parkering) {
+    const [x, y, w, d] = park.rektangel;
+    parts.push(
+      rect(X(x), Y(y), w * k, d * k, { fill: PAPER, stroke: INK, 'stroke-width': LINE.normal }),
+    );
+    const along = w >= d;
+    const total = along ? w : d;
+    const ordinary = park.platser - park.tillgangliga;
+    const wide =
+      park.tillgangliga > 0 &&
+      (ordinary === 0 ||
+        (total - park.tillgangliga * ACCESSIBLE_SPACE_M) / ordinary >= MIN_SPACE_M);
+    const accessibleWidth = wide
+      ? ordinary === 0
+        ? total / park.platser
+        : ACCESSIBLE_SPACE_M
+      : total / park.platser;
+    const ordinaryWidth =
+      ordinary === 0 ? 0 : (total - park.tillgangliga * accessibleWidth) / ordinary;
+    let at = 0;
+    for (let i = 0; i < park.platser; i += 1) {
+      const size = i < park.tillgangliga ? accessibleWidth : ordinaryWidth;
+      const mid = at + size / 2;
+      if (i < park.tillgangliga) {
+        const [cx, cy] = along ? [x + mid, y + d / 2] : [x + w / 2, y + mid];
+        parts.push(
+          label(X(cx), Y(cy), 'PRH', {
+            anchor: 'middle',
+            baseline: 'middle',
+            size: Math.min(TEXT.small, size * k * 0.3),
+            weight: 'bold',
+          }),
+        );
+      }
+      at += size;
+      if (i < park.platser - 1) {
+        parts.push(
+          along
+            ? line(X(x + at), Y(y), X(x + at), Y(y + d), LINE.thin)
+            : line(X(x), Y(y + at), X(x + w), Y(y + at), LINE.thin),
+        );
+      }
+    }
+    occupied.push(boxOf(park.rektangel, mm(1)));
+  }
+
+  // Balconies and other projecting parts: dashed, above the ground.
+  for (const b of p.balkonger) {
+    occupied.push(boxOf(b, mm(0.5)));
+  }
+
   // Driveway.
   const driveway: Rectangle | undefined = p.utfart
     ? p.utfart.sida === 'norr'
@@ -358,15 +459,48 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     const [x, y, w, d] = b.r;
     parts.push(rect(X(x), Y(y), w * k, d * k, { fill: PAPER }));
     if (b.kind === 'ny') parts.push(rect(X(x), Y(y), w * k, d * k, { fill: `url(#${ids.ny})` }));
+    if (b.kind === 'avvikelse')
+      parts.push(rect(X(x), Y(y), w * k, d * k, { fill: `url(#${ids.avvikelse})` }));
     parts.push(
       rect(X(x), Y(y), w * k, d * k, {
         fill: 'none',
         stroke: INK,
         'stroke-width':
-          b.kind === 'ny' ? LINE.bold : b.kind === 'befintlig' ? LINE.heavy : LINE.medium,
+          b.kind === 'ny' || b.kind === 'avvikelse'
+            ? LINE.bold
+            : b.kind === 'befintlig'
+              ? LINE.heavy
+              : LINE.medium,
       }),
     );
     occupied.push(boxOf(b.r, mm(1)));
+  }
+
+  // Balconies on top of the building outlines, dashed.
+  for (const [x, y, w, d] of p.balkonger) {
+    parts.push(
+      rect(X(x), Y(y), w * k, d * k, {
+        fill: 'none',
+        stroke: INK,
+        'stroke-width': LINE.medium,
+        'stroke-dasharray': BALCONY_DASH,
+      }),
+    );
+  }
+
+  // What the permit allows, on top so the difference shows.
+  // Drawn just inside the outline, so that it shows also where it coincides with a building.
+  for (const g of p.lovgivet) {
+    const [x, y, w, d] = g.rektangel;
+    const inset = 0.8;
+    parts.push(
+      rect(X(x) + inset, Y(y) + inset, w * k - 2 * inset, d * k - 2 * inset, {
+        fill: 'none',
+        stroke: INK,
+        'stroke-width': LINE.heavy,
+        'stroke-dasharray': LOVGIVET_DASH,
+      }),
+    );
   }
 
   // Prickmark boundaries on top, so an intrusion shows across the building.
@@ -389,13 +523,41 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     const text = 'Prickmark, mark som inte får bebyggas';
     const textLength = mm(textWidth(text, TEXT.small));
     if (isHorizontalSide(zone.sida)) {
+      // The first spot from the west where the text keeps clear of what is drawn in the zone.
+      const textBox = (tx: number): Box => [
+        tx,
+        zy + zh - mm(4),
+        tx + textLength,
+        zy + zh + mm(0.5),
+      ];
+      // Only the glyphs, for finding a free spot (the box above also covers the halo).
+      const glyphs = (tx: number): Box => [
+        tx,
+        zy + zh - mm(3.8),
+        tx + textLength,
+        zy + zh - mm(1.1),
+      ];
+      const pointBoxes = p.punkter.map(({ punkt: [px, py], namn }): Box => [
+        px - mm(1.6),
+        py - mm(1.6),
+        px + mm(2.6 + textWidth(namn, TEXT.small)),
+        py + mm(1.6),
+      ]);
+      const blockers = [...occupied, ...pointBoxes];
+      let tx = zx + mm(2);
+      for (let candidate = tx; candidate + textLength <= zx + zw - mm(2); candidate += mm(1)) {
+        if (!blockers.some((o) => overlaps(o, glyphs(candidate)))) {
+          tx = candidate;
+          break;
+        }
+      }
       parts.push(
-        label(X(zx) + 2, Y(zy + zh) - 1.6, text, {
+        label(X(tx), Y(zy + zh) - 1.6, text, {
           size: TEXT.small,
           halo: true,
         }),
       );
-      occupied.push([zx + mm(2), zy + zh - mm(4), zx + mm(2) + textLength, zy + zh + mm(0.5)]);
+      occupied.push(textBox(tx));
     } else {
       parts.push(
         label(X(zx + zw / 2) + TEXT.small * 0.35, Y(zy) + 2 + textWidth(text, TEXT.small), text, {
@@ -417,7 +579,7 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     parts.push(
       textBlock(X(x + w / 2), Y(y + d / 2), b.lines, {
         size,
-        halo: b.kind === 'ny',
+        halo: b.kind === 'ny' || b.kind === 'avvikelse',
         firstBold: false,
       }),
     );
@@ -425,16 +587,30 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
 
   // Labels of other features: inside when they fit, otherwise to the east.
   for (const a of p.anlaggningar) {
-    if (!a.namn) continue;
+    const name = a.namn ?? '';
+    if (!name) continue;
     const [x, y, w, d] = a.rektangel;
-    const size = fitSize([a.namn], w * k, 2, 1.6);
-    if (textWidth(a.namn, size) <= w * k - 1.2 && size * 1.3 <= d * k) {
+    const textEnd = x + w + mm(1.2 + textWidth(name, TEXT.small));
+    const size = fitSize([name], w * k, 2, 1.6);
+    if (textWidth(name, size) <= w * k - 1.2 && size * 1.3 <= d * k) {
       parts.push(
-        label(X(x + w / 2), Y(y + d / 2), a.namn, { anchor: 'middle', baseline: 'middle', size }),
+        label(X(x + w / 2), Y(y + d / 2), name, { anchor: 'middle', baseline: 'middle', size }),
       );
+    } else if (
+      textEnd > W &&
+      p.grannhus.some((g) =>
+        overlaps(boxOf(g), [x + w, y + d / 2 - mm(1.5), textEnd, y + d / 2 + mm(1.5)]),
+      )
+    ) {
+      // The text would run into a neighbour's house: under the feature, inside the plot.
+      const half = mm(textWidth(name, TEXT.small) / 2);
+      const cx = Math.min(Math.max(x + w / 2, half + mm(1)), W - half - mm(1));
+      const cy = y + d + mm(2.6);
+      parts.push(label(X(cx), Y(cy), name, { anchor: 'middle', size: TEXT.small, halo: true }));
+      occupied.push([cx - half, cy - mm(2), cx + half, cy + mm(0.6)]);
     } else {
       parts.push(
-        label(X(x + w) + 1.2, Y(y + d / 2), a.namn, {
+        label(X(x + w) + 1.2, Y(y + d / 2), name, {
           baseline: 'middle',
           size: TEXT.small,
           halo: true,
@@ -443,10 +619,27 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
       occupied.push([
         x + w,
         y + d / 2 - mm(1.5),
-        x + w + mm(1.5 + textWidth(a.namn, TEXT.small)),
+        x + w + mm(1.5 + textWidth(name, TEXT.small)),
         y + d / 2 + mm(1.5),
       ]);
     }
+  }
+
+  // Parking names across the spaces, with a halo.
+  for (const park of p.parkering) {
+    if (!park.namn) continue;
+    const [x, y, w, d] = park.rektangel;
+    const along = w >= d;
+    parts.push(
+      label(
+        X(x + w / 2),
+        along ? Y(y + d) - 1.2 : Y(y + d / 2),
+        park.namn,
+        along
+          ? { anchor: 'middle', size: TEXT.small, halo: true }
+          : { anchor: 'middle', baseline: 'middle', size: TEXT.small, halo: true, rotate: -90 },
+      ),
+    );
   }
 
   // Point features: a circle with a cross and the name to the east.
@@ -519,7 +712,11 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   };
   // Horizontal chains claim a band across the plot (text above the line).
   const chainBand = (y: number): Box => [0, y - mm(3.5), W, y + mm(1)];
-  const features: Box[] = p.anlaggningar.map((a) => boxOf(a.rektangel, mm(1)));
+  const features: Box[] = [
+    ...p.anlaggningar.map((a) => boxOf(a.rektangel, mm(1))),
+    ...p.parkering.map((a) => boxOf(a.rektangel, mm(1))),
+    ...p.balkonger.map((b) => boxOf(b, mm(1))),
+  ];
   if (driveway) features.push(boxOf(driveway, mm(1)));
   for (const pt of p.punkter) {
     const [px, py] = pt.punkt;
@@ -530,7 +727,12 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
       py + mm(1.6),
     ]);
   }
-  const anchors = p.anlaggningar.length + p.punkter.length + (driveway ? 1 : 0);
+  const anchors =
+    p.anlaggningar.length +
+    p.parkering.length +
+    p.balkonger.length +
+    p.punkter.length +
+    (driveway ? 1 : 0);
   const northLimit = Math.max(
     0,
     ...p.prickmark.filter((z) => z.sida === 'norr').map((z) => z.djup),
@@ -544,8 +746,11 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   const mainBottom = main[1] + main[3];
   const inBand = (top: number, bottom: number) =>
     features.filter((f) => overlaps(f, [0, top, W, bottom]));
-  const aboveHits = inBand(mainTop - mm(9), mainTop);
-  const belowHits = inBand(mainBottom, mainBottom + mm(9));
+  // Features that run alongside the main building (a long driveway) do not push the chain away.
+  const aboveHits = inBand(mainTop - mm(9), mainTop).filter((f) => f[3] <= mainTop + mm(1.5));
+  const belowHits = inBand(mainBottom, mainBottom + mm(9)).filter(
+    (f) => f[1] >= mainBottom - mm(1.5),
+  );
   const aboveY = Math.min(mainTop, ...aboveHits.map((f) => f[1])) - mm(6);
   const belowY = Math.max(mainBottom, ...belowHits.map((f) => f[3])) + mm(6);
   const aboveOk = mainTop * k >= 14 && aboveY - mm(8) >= northLimit - 1e-9;
@@ -571,9 +776,12 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   chains.push(horizontalChain(mainChainY, main, mainChainFrom));
   occupied.push(chainBand(mainChainY));
   const mainCenter = main[1] + main[3] / 2;
-  for (const b of buildings.filter((x) => x.kind === 'ny' && x.r !== main)) {
+  for (const b of buildings.filter(
+    (x) => (x.kind === 'ny' || x.kind === 'avvikelse') && x.r !== main,
+  )) {
     const [, y, , d] = b.r;
-    const below = y + d / 2 > mainCenter;
+    // Below when the building lies south of the main building, unless that is on the boundary.
+    const below = y + d / 2 > mainCenter && (y + d + mm(4) <= D - mm(3) || y - mm(8) < 0);
     const at = below ? y + d + mm(4) : y - mm(4);
     chains.push(horizontalChain(at, b.r, below ? y + d : y));
     occupied.push(chainBand(at));
@@ -586,7 +794,13 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     const end = horizontal ? W : D;
     const points = [0, u.lage, u.lage + u.bredd, end];
     if (horizontal) {
-      const at = u.sida === 'norr' ? u.langd + mm(5) : D - u.langd - mm(3);
+      let at = u.sida === 'norr' ? u.langd + mm(5) : D - u.langd - mm(3);
+      // A chain that would cross a building moves out to the street side of the boundary.
+      const band: Box = [0, at - mm(3.5), u.lage + u.bredd, at + mm(1)];
+      const long = u.langd * k > 40 && street?.sida === u.sida;
+      if (long || buildings.some((b) => overlaps(boxOf(b.r), band))) {
+        at = u.sida === 'norr' ? -mm(5) : D + mm(6);
+      }
       chains.push(
         dimensionChain({
           axis: 'x',
@@ -618,13 +832,23 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     const textAt: [number, number] = horizontal
       ? [u.lage + u.bredd + mm(1.5), u.sida === 'norr' ? u.langd / 2 : D - u.langd / 2]
       : [u.sida === 'vaster' ? u.langd + mm(1.5) : W - u.langd - mm(1.5), u.lage + u.bredd / 2];
+    // A long driveway carries its name inside, along it.
+    const inside = u.langd * k >= textWidth('Utfart', TEXT.small) + 20;
     parts.push(
-      label(X(textAt[0]), Y(textAt[1]), 'Utfart', {
-        baseline: 'middle',
-        size: TEXT.small,
-        halo: true,
-        anchor: horizontal || u.sida === 'vaster' ? 'start' : 'end',
-      }),
+      inside
+        ? label(X(driveway[0] + driveway[2] / 2), Y(driveway[1] + driveway[3] / 2), 'Utfart', {
+            anchor: 'middle',
+            baseline: 'middle',
+            size: TEXT.small,
+            halo: true,
+            rotate: horizontal ? -90 : 0,
+          })
+        : label(X(textAt[0]), Y(textAt[1]), 'Utfart', {
+            baseline: 'middle',
+            size: TEXT.small,
+            halo: true,
+            anchor: horizontal || u.sida === 'vaster' ? 'start' : 'end',
+          }),
     );
   }
 
@@ -635,6 +859,7 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   let east = W - right >= left - 1;
   // Between the buildings and the boundary, a little closer to the boundary.
   let chainX = east ? right + (W - right) * 0.6 : left * 0.4;
+  let narrowStrips = false;
   if (anchors > 0) {
     // Other features: look for the widest free strip on either side, with room for the text.
     const textRoom = mm(5);
@@ -655,6 +880,10 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     if (best) {
       east = best.east;
       chainX = best.from + (best.to - best.from) * (east ? 0.6 : 0.4);
+    }
+    // No strip wide enough for a chain with its values: outside the plot instead.
+    if ((!best || best.to - best.from < mm(4)) && p.balkonger.length + p.parkering.length > 0) {
+      narrowStrips = true;
     }
   }
   // When its values would land on the values of a horizontal chain, the chain moves outside
@@ -677,7 +906,9 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
   const verticalTexts = chainTexts('y', chainX, [0, D, ...collectEdges(east).keys()], !east);
   const clash = verticalTexts.some((v) => horizontalTexts.some((h) => overlaps(v, h)));
   const outsideFree = street?.sida !== 'vaster' && street?.sida !== 'oster';
-  if (clash && outsideFree) {
+  // A building from boundary to boundary leaves no room inside the plot.
+  const fullWidth = left <= 1e-9 && right >= W - 1e-9;
+  if ((clash || narrowStrips || fullWidth) && outsideFree) {
     outside = true;
     east = true;
     chainX = W + mm(5);
@@ -868,10 +1099,57 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
           },
         ]
       : []),
-    {
-      swatch: { type: 'fill' as const, fill: `url(#${ids.ny})`, strokeWidth: LINE.bold },
-      text: 'Ny byggnad eller tillbyggnad',
-    },
+    ...(buildings.some((b) => b.kind === 'ny')
+      ? [
+          {
+            swatch: { type: 'fill' as const, fill: `url(#${ids.ny})`, strokeWidth: LINE.bold },
+            text: 'Ny byggnad eller tillbyggnad',
+          },
+        ]
+      : []),
+    ...(p.avvikelse.length > 0
+      ? [
+          {
+            swatch: {
+              type: 'fill' as const,
+              fill: `url(#${ids.avvikelse})`,
+              strokeWidth: LINE.bold,
+            },
+            text: 'Utfört utan lov eller i strid med lovet',
+          },
+        ]
+      : []),
+    ...(p.lovgivet.length > 0
+      ? [
+          {
+            swatch: { type: 'line' as const, width: LINE.heavy, dash: LOVGIVET_DASH },
+            text: p.lovgivet[0]?.namn ?? 'Enligt beviljat lov',
+          },
+        ]
+      : []),
+    ...(p.balkonger.length > 0
+      ? [
+          {
+            swatch: {
+              type: 'fill' as const,
+              fill: 'none',
+              strokeWidth: LINE.medium,
+              dash: BALCONY_DASH,
+            },
+            text: 'Balkong, ovan mark',
+          },
+        ]
+      : []),
+    ...(p.parkering.length > 0
+      ? [
+          {
+            swatch: { type: 'fill' as const, fill: PAPER, strokeWidth: LINE.normal },
+            text: p.parkering.some((x) => x.tillgangliga > 0)
+              ? 'Parkering, PRH = plats för rörelsehindrade'
+              : 'Parkering',
+          },
+        ]
+      : []),
     ...(p.anlaggningar.length > 0
       ? [
           {
@@ -942,5 +1220,7 @@ export function renderSituationsplan(p: SituationsplanParams, context: DrawingCo
     defs,
     title: titleData(context, p.ritningshuvud, { ritningstyp: 'Situationsplan', skala: p.skala }),
     description: `${context.titel}, ${shortProperty(context.fastighet)}`,
+    scale: p.skala,
+    origin: [X(0), Y(0)],
   });
 }

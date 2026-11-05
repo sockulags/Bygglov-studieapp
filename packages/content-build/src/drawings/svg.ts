@@ -216,6 +216,19 @@ export function hatchPattern(
   );
 }
 
+/** Diagonal cross-hatching, as a fill pattern (built without or in breach of a permit). */
+export function crossHatchPattern(
+  id: string,
+  options: { spacing: number; width?: number },
+): string {
+  const s = options.spacing;
+  const w = options.width ?? LINE.hair;
+  return el('pattern', { id, patternUnits: 'userSpaceOnUse', width: s, height: s }, [
+    line(0, 0, s, s, w),
+    line(0, s, s, 0, w),
+  ]);
+}
+
 /** Regular dots, as a fill pattern (prickmark on a plan map). */
 export function dotPattern(id: string, options: { spacing: number; radius: number }): string {
   const s = options.spacing;
@@ -542,7 +555,7 @@ function titleBlock(x: number, y: number, data: TitleBlockData): string {
   cell(split, top, x + w - split, rows[4]!, 'Ritningsnummer', data.ritningsnummer ?? '–');
   parts.push(line(third, top, third, top + rows[4]!, LINE.thin));
   parts.push(line(split, top, split, top + rows[4]!, LINE.thin));
-  return group(parts, { class: 'ritningshuvud' });
+  return group(parts, { class: 'ritningshuvud', 'data-layer': 'ritningshuvud' });
 }
 
 /** Index in `SHEETS` of the smallest sheet that fits, or -1. */
@@ -569,6 +582,27 @@ export function chooseSheet(content: SheetContent): SheetSize {
   );
 }
 
+/**
+ * Scale and coordinate system as data attributes on the SVG root, so a viewer can measure:
+ * one user unit is one millimetre on paper, `data-meters-per-unit` converts it to metres in
+ * reality, `data-drawing-area` is the drawn content (x y width height) and `data-origin` the
+ * model's origin (x east, y south), both in user units.
+ */
+export function scaleMetadata(
+  scale: number,
+  area: { x: number; y: number; width: number; height: number },
+  origin?: [number, number],
+): Attrs {
+  return {
+    'data-scale': `1:${scale}`,
+    'data-units': 'mm',
+    // Not `n()`: 1:25 is 0.025 m per mm and must not be rounded to two decimals.
+    'data-meters-per-unit': String(scale / 1000),
+    'data-drawing-area': [area.x, area.y, area.width, area.height].map(n).join(' '),
+    'data-origin': origin ? `${n(area.x + origin[0])} ${n(area.y + origin[1])}` : undefined,
+  };
+}
+
 /** Wraps content in a sheet with frame and title block. Deterministic for equal input. */
 export function composeSheet(options: {
   content: SheetContent;
@@ -577,6 +611,13 @@ export function composeSheet(options: {
   description: string;
   /** Prefix for ids in `defs`, unique per document. */
   defs?: string[];
+  /** Scale denominator of the drawn content, e.g. 500 for 1:500. */
+  scale: number;
+  /**
+   * Where the model's origin (x = 0, y = 0 in the parameters, x east and y south) lies in the
+   * content's own coordinates (mm). Left out for drawings without one shared origin.
+   */
+  origin?: [number, number];
 }): string {
   const { content } = options;
   const sheet = chooseSheet(content);
@@ -594,19 +635,29 @@ export function composeSheet(options: {
   const parts: string[] = [
     el('title', {}, escapeXml(options.description)),
     options.defs && options.defs.length > 0 ? el('defs', {}, options.defs) : '',
-    rect(0, 0, W, H, { fill: PAPER }),
-    rect(FRAME.left, FRAME.top, W - FRAME.left - FRAME.right, H - FRAME.top - FRAME.bottom, {
-      fill: 'none',
-      stroke: INK,
-      'stroke-width': LINE.heavy,
+    group(
+      [
+        rect(0, 0, W, H, { fill: PAPER }),
+        rect(FRAME.left, FRAME.top, W - FRAME.left - FRAME.right, H - FRAME.top - FRAME.bottom, {
+          fill: 'none',
+          stroke: INK,
+          'stroke-width': LINE.heavy,
+        }),
+      ],
+      { 'data-layer': 'ram' },
+    ),
+    group([content.svg], {
+      transform: `translate(${n(cx)} ${n(cy)})`,
+      class: 'ritning',
+      'data-layer': 'ritning',
     }),
-    group([content.svg], { transform: `translate(${n(cx)} ${n(cy)})`, class: 'ritning' }),
   ];
   if (content.footer) {
     parts.push(
       group([content.footer.svg], {
         transform: `translate(${n(FRAME.left + 3)} ${n(titleY + (TITLE_H - content.footer.height) / 2)})`,
         class: 'fot',
+        'data-layer': 'fot',
       }),
     );
   }
@@ -623,6 +674,11 @@ export function composeSheet(options: {
       role: 'img',
       'aria-label': options.description,
       'data-papper': sheet.name,
+      ...scaleMetadata(
+        options.scale,
+        { x: cx, y: cy, width: content.width, height: content.height },
+        options.origin,
+      ),
     },
     parts,
   )}\n`;

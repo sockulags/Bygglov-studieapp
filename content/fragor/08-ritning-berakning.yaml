@@ -1,0 +1,967 @@
+# Frågor för modul 08-ritning-berakning (Ritningsläsning och beräkning). Valideras med zod
+# (pnpm content:check). Filen heter som modulens id i moduler.yaml.
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# Mätreglerna för byggnadshöjd och våning är kontrollerade mot PBF 1 kap. 3 och 4 §§
+# (docs/rattslage/pbf-1-kap.txt, riksdagen.se 2026-11-05, ändrad t.o.m. SFS 2026:1722).
+# Nockhöjd, totalhöjd, byggnadsarea, bruttoarea och öppenarea bygger på Boverkets PBL
+# kunskapsbanken (docs/rattslage/boverket-matt-och-planbestammelser.txt). SS 21054:2020 är en
+# betald standard som inte kunnat läsas; frågor som bygger på detaljer ur standarden utöver det
+# Boverket återger har lagrum_osaker: true. Lagrum i 9 kap. PBL är kontrollerade mot
+# docs/rattslage/pbl-9-kap.txt. Alla exempel är fiktiva.
+modul: 08-ritning-berakning
+fragor:
+  # --- Skalor och ritningstyper ---------------------------------------------------------
+
+  - id: rit-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad betyder skalan 1:100 på en planritning?
+    alternativ:
+      - text: 1 cm på ritningen motsvarar 1 m i verkligheten.
+        ratt: true
+      - text: 1 cm på ritningen motsvarar 10 m i verkligheten.
+      - text: 1 mm på ritningen motsvarar 1 m i verkligheten.
+      - text: 1 m på ritningen motsvarar 100 cm i verkligheten.
+    forklaring: >
+      Skalan 1:100 betyder att allt i verkligheten är 100 gånger större än på ritningen: 1 cm blir
+      100 cm, alltså 1 m. Med en skalstock för 1:100 kan du läsa av metrar direkt. I 1:500, som
+      är vanlig för situationsplaner, är 1 cm i stället 5 m. Lita i första hand på måttsatta mått
+      och mät bara när måtten saknas.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [skala, ritningslasning]
+
+  - id: rit-002
+    typ: berakning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På en situationsplan i skala 1:500 mäter du avståndet från huset till tomtgränsen till
+      2,4 cm. Hur långt är det i verkligheten?
+    svar: 12
+    tolerans: 0
+    enhet: m
+    losning: >
+      2,4 cm × 500 = 1 200 cm = 12 m.
+    forklaring: >
+      Multiplicera det uppmätta måttet med skaltalet och omvandla enheten. Kontrollera alltid att
+      ritningen är utskriven i rätt pappersformat, annars stämmer inte skalan. Står avståndet
+      måttsatt på ritningen gäller det måttet.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [skala, situationsplan, berakning]
+
+  - id: rit-003
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken skala är vanligast för plan-, fasad- och sektionsritningar i en bygglovsansökan för en villa?
+    alternativ:
+      - text: 1:100
+        ratt: true
+      - text: 1:1000
+      - text: 1:10
+      - text: 1:2000
+    forklaring: >
+      Plan, fasad och sektion ritas oftast i 1:100, ibland 1:50 för små byggnader. Situationsplaner
+      ritas i 1:400 eller 1:500, och plankartor ofta i 1:1000 eller 1:2000. Skalan ska framgå av
+      ritningen, gärna med en skalstock, så att handlingen går att mäta på.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [skala, ritningstyper]
+
+  - id: rit-004
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop ritningstypen med vad du främst kontrollerar på den.
+    par:
+      - vanster: Situationsplan
+        hoger: Byggnadens placering på tomten, avstånd till gränser, utfart och prickmark
+      - vanster: Planritning
+        hoger: Rumsindelning, mått och användning på varje våning
+      - vanster: Fasadritning
+        hoger: Utseende, material, fönster och höjder sett från sidan
+      - vanster: Sektionsritning
+        hoger: Ett vertikalt snitt med bjälklag, rumshöjder, takvinkel och marknivåer
+      - vanster: Nybyggnadskarta
+        hoger: Kommunens karta med fastighetsgränser, höjder och planbestämmelser som underlag för situationsplanen
+    forklaring: >
+      Ansökan ska innehålla de ritningar och uppgifter som behövs för prövningen (9 kap. 86 § 7).
+      Vilka ritningar som behövs beror på åtgärden: en fasadändring kräver fasadritningar, en
+      nybyggnad nästan alltid alla typerna. Lär dig vad varje ritning är bäst på, så vet du var du
+      ska leta efter ett visst mått.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [ritningstyper, ritningslasning]
+
+  - id: rit-005
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du vill kontrollera om en ny carport placeras på prickmark och hur långt från tomtgränsen
+      den hamnar. Vilken handling tittar du i?
+    alternativ:
+      - text: Situationsplanen, gärna upprättad på en nybyggnadskarta.
+        ratt: true
+      - text: Fasadritningen.
+      - text: Planritningen.
+      - text: Sektionsritningen.
+    forklaring: >
+      Situationsplanen visar tomten uppifrån med byggnader, gränser och mått mellan dem. Är den
+      ritad på en nybyggnadskarta finns fastighetsgränserna och planens prickmark inritade av
+      kommunen, vilket gör den mer tillförlitlig än en skiss på ett flygfoto. Kontrollera att
+      måttkedjor finns till närmaste gräns.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [situationsplan, prickmark, ritningslasning]
+
+  - id: rit-006
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad visar en sektionsritning som varken plan- eller fasadritningen visar lika tydligt?
+    alternativ:
+      - text: Ett vertikalt snitt genom huset med bjälklag, rumshöjder, takkonstruktion och nivåer i förhållande till marken.
+        ratt: true
+      - text: Byggnadens placering på tomten.
+      - text: Fasadens färg och material.
+      - text: Fastighetsgränserna.
+    forklaring: >
+      Sektionen är ritningen där du ser hur högt golven ligger över marken, hur stor rumshöjden
+      är och hur taket är uppbyggt. Den behövs bl.a. för att avgöra om en vind eller källare
+      räknas som våning enligt 1 kap. 4 § PBF och för att kontrollera byggnadshöjd och takvinkel.
+      Snittets läge ska vara markerat på planritningen.
+    lagrum:
+      - PBF 1 kap. 4 §
+      - PBL 9 kap. 86 §
+    taggar: [sektion, ritningstyper, vaning]
+
+  - id: rit-007
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad skiljer en nybyggnadskarta från en situationsplan som sökanden själv ritat?
+    alternativ:
+      - text: Nybyggnadskartan tas fram av kommunens mätningsenhet och redovisar bl.a. fastighetsgränser, höjder, gällande planbestämmelser och anslutningspunkter, så att placeringen kan bedömas säkert.
+        ratt: true
+      - text: Nybyggnadskartan visar byggnadens fasader och färgsättning.
+      - text: Nybyggnadskartan är detsamma som plankartan i detaljplanen.
+      - text: Det finns ingen skillnad; båda är skisser som sökanden ritar.
+    forklaring: >
+      Många kommuner kräver att situationsplanen för en nybyggnad inom detaljplan ritas på en
+      nybyggnadskarta. Kartan bygger på kommunens grundkarta och visar det läge som gäller, så att
+      du kan kontrollera avstånd till gräns, prickmark och höjder. En skiss på ett flygfoto kan
+      vara tillräcklig för en enkel åtgärd, men inte när några decimeter avgör om åtgärden är
+      planenlig.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [nybyggnadskarta, situationsplan]
+
+  - id: rit-008
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Sökanden har ritat situationsplanen på ett flygfoto och anger att huset står 4,6 m från
+      gränsen. Grannen hävdar att gränsen egentligen går en meter närmare huset. Vad gör du?
+    alternativ:
+      - text: Kontrollerar gränsen mot kommunens grundkarta eller begär en situationsplan på nybyggnadskarta. Är gränsen osäker kan en fastighetsbestämning hos lantmäterimyndigheten behövas.
+        ratt: true
+      - text: Utgår från sökandens mått, eftersom sökanden ansvarar för uppgifterna.
+      - text: Utgår från grannens uppgift, eftersom grannen bott där längst.
+      - text: Mäter själv på flygfotot med linjal.
+    forklaring: >
+      Avståndet avgör både lovplikten för vissa åtgärder (9 kap. 34 § om 4,5 m) och om en
+      placeringsbestämmelse i planen följs. Ett flygfoto visar inte var gränsen går, bara staket
+      och häckar. Utred gränsen innan du fattar beslut, och var tydlig med sökanden om vilket
+      underlag som behövs.
+    lagrum:
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 86 §
+    taggar: [situationsplan, avstand_till_grans, nybyggnadskarta]
+
+  - id: rit-009
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ritning i en ansökan är skickad som pdf, saknar skalstock och har skrivits ut på A4 fast
+      den är gjord för A3. Hur bör du göra när du kontrollerar mått?
+    alternativ:
+      - text: Använda måttsatta mått och, om de saknas, begära en ritning med skala och skalstock i rätt format.
+        ratt: true
+      - text: Mäta med linjal och räkna med den skala som står i ritningshuvudet.
+      - text: Halvera alla uppmätta mått.
+      - text: Godta ritningen, eftersom mått bara kontrolleras i startbeskedet.
+    forklaring: >
+      När en A3-ritning skrivs ut på A4 förminskas den till ungefär 71 procent, och skalan i
+      ritningshuvudet stämmer inte längre. En skalstock på ritningen krymper med i utskriften och
+      räddar mätningen. Måttsatta mått gäller oavsett utskrift. Saknas det som behövs för
+      prövningen ska nämnden förelägga om komplettering (9 kap. 91 §).
+    lagrum:
+      - PBL 9 kap. 86 §
+      - PBL 9 kap. 91 §
+    taggar: [skala, ritningslasning, komplettering]
+
+  # --- Areabegrepp: BYA, BTA och OPA ----------------------------------------------------
+
+  - id: rit-010
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad är byggnadsarea (BYA)?
+    alternativ:
+      - text: Den yta som en byggnad upptar på marken.
+        ratt: true
+      - text: Summan av alla våningsplans area.
+      - text: Golvarean i bostadsrummen.
+      - text: Tomtens area minus prickmarken.
+    forklaring: >
+      Byggnadsarea är kort sagt byggnadens "fotavtryck" på marken, mätt enligt SS 21054:2020. Det
+      är byggnadsarea som används i 9 kap. 4 och 5 §§ om komplementbyggnader och i de flesta
+      villaplaners utnyttjandegrad. Observera att viss öppenarea, t.ex. under tak, kan ingå i
+      byggnadsarean. Bruttoarea (BTA) är något annat: summan av alla våningsplan.
+    lagrum:
+      - SS 21054:2020
+      - Boverket
+      - PBL 9 kap. 4 §
+    taggar: [byggnadsarea, areabegrepp]
+
+  - id: rit-011
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad är bruttoarea (BTA)?
+    alternativ:
+      - text: Den sammanlagda arean av alla våningsplan, mätt till ytterväggarnas utsida. Öppenarea ingår inte.
+        ratt: true
+      - text: Den yta som byggnaden upptar på marken, inklusive carport.
+      - text: Golvarean innanför ytterväggarna i bostadsrummen.
+      - text: Byggnadsarean multiplicerad med antalet våningar enligt detaljplanen.
+    forklaring: >
+      Bruttoarea är summan av våningsplanens area, inklusive källare och vind som är mätvärda, och
+      mäts till de omslutande väggarnas utsida. Öppenarea, t.ex. balkonger och carportar, ingår
+      inte. BTA används ofta i planer för flerbostadshus och lokaler och i 9 kap. 10 § om
+      bygglovsbefriade tillbyggnader. Bostadsarea och biarea mäts i stället innanför väggarna.
+    lagrum:
+      - SS 21054:2020
+      - Boverket
+      - PBL 9 kap. 10 §
+    lagrum_osaker: true
+    taggar: [bruttoarea, areabegrepp]
+
+  - id: rit-012
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett garage har en öppen carport under samma tak. Hur räknas carportens yta?
+    alternativ:
+      - text: Den är öppenarea. Den ingår i byggnadsarean men inte i bruttoarean.
+        ratt: true
+      - text: Den ingår i både byggnadsarea och bruttoarea.
+      - text: Den ingår varken i byggnadsarea eller bruttoarea.
+      - text: Den ingår i bruttoarean men inte i byggnadsarean.
+    forklaring: >
+      Öppenarea är en helt eller delvis öppen yta för vistelse eller förvaring i anslutning till
+      en byggnad. Boverket påpekar att viss öppenarea ingår i byggnadsarean men att öppenarea
+      aldrig ingår i bruttoarean. En carport under tak tar mark i anspråk och räknas därför in i
+      byggnadsarean, bl.a. i potten för bygglovsbefriade komplementbyggnader. I 9 kap. 10 § om
+      tillbyggnader räknas bruttoarea och öppenarea ihop.
+    lagrum:
+      - SS 21054:2020
+      - Boverket
+      - PBL 9 kap. 10 §
+    lagrum_osaker: true
+    taggar: [oppenarea, byggnadsarea, bruttoarea]
+
+  - id: rit-013
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande ingår i en villas bruttoarea?
+    alternativ:
+      - text: En källare med full rumshöjd.
+        ratt: true
+      - text: En inredd vindsvåning med full rumshöjd i mittpartiet.
+        ratt: true
+      - text: Ytterväggarnas tjocklek.
+        ratt: true
+      - text: En öppen balkong.
+      - text: En carport under tak.
+      - text: En uteplats på marken.
+    forklaring: >
+      Bruttoarean omfattar alla mätvärda våningsplan, även källare och vind, och mäts till
+      ytterväggarnas utsida. Balkonger och carportar är öppenarea och ingår inte. En uteplats på
+      marken är varken byggnadsarea eller bruttoarea. Hur låg takhöjd som räknas som mätvärd
+      avgörs av SS 21054:2020, så kontrollera sektionsritningen vid snedtak.
+    lagrum:
+      - SS 21054:2020
+      - Boverket
+    lagrum_osaker: true
+    taggar: [bruttoarea, oppenarea, areabegrepp]
+
+  - id: rit-014
+    typ: berakning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett L-format enplanshus består av en huvuddel på 12,0 × 8,0 m och en flygel på 5,0 × 4,0 m
+      som skjuter ut från huvuddelens långsida. Alla mått är till ytterväggarnas utsida och huset
+      har inga utskjutande delar. Hur stor är byggnadsarean?
+    svar: 116
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Huvuddel: 12,0 × 8,0 = 96 kvm. Flygel: 5,0 × 4,0 = 20 kvm. Summa: 96 + 20 = 116 kvm.
+    forklaring: >
+      Dela upp en sammansatt byggnad i rektanglar som inte överlappar och lägg ihop dem. Ett
+      alternativ är att räkna den omslutande rektangeln och dra ifrån det som saknas, vilket ger
+      samma svar och är en bra kontroll. Använd måtten till ytterväggarnas utsida, inte
+      rumsmåtten på planritningen.
+    lagrum:
+      - SS 21054:2020
+      - Boverket
+    taggar: [byggnadsarea, berakning, l_form]
+
+  - id: rit-015
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett hus har två våningar ovan mark och en källare med full rumshöjd. Alla tre planen mäter
+      10,0 × 8,0 m till ytterväggarnas utsida. Vinden är inte mätvärd. Hur stor är bruttoarean?
+    svar: 240
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Ett plan: 10,0 × 8,0 = 80 kvm. Tre plan: 3 × 80 = 240 kvm.
+    forklaring: >
+      Källaren ingår i bruttoarean även om den inte räknas som våning enligt 1 kap. 4 § PBF; det
+      är två olika frågor. Byggnadsarean för samma hus är bara 80 kvm. Läs därför alltid vilket
+      areamått en planbestämmelse använder innan du räknar.
+    lagrum:
+      - SS 21054:2020
+      - PBF 1 kap. 4 §
+    lagrum_osaker: true
+    taggar: [bruttoarea, berakning, kallare]
+
+  - id: rit-016
+    typ: berakning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Tomten är 30,0 × 28,0 m. På den finns ett hus på 120 kvm byggnadsarea, och ägaren söker lov
+      för ett garage på 6,0 × 6,0 m. Hur många procent av tomtarean blir bebyggd efter
+      garagebygget? Svara med en decimal.
+    svar: 18.6
+    tolerans: 0.1
+    enhet: "%"
+    losning: >
+      Tomtarea: 30,0 × 28,0 = 840 kvm. Byggnadsarea: 120 + 36 = 156 kvm. Andel: 156 / 840 = 0,1857,
+      alltså cirka 18,6 %.
+    forklaring: >
+      En vanlig planbestämmelse är att högst en viss andel av fastighetsarean får bebyggas, t.ex.
+      20 eller 25 procent. Här klarar garaget en gräns på 20 procent. Räkna alltid med hela
+      byggnadsarean på tomten, inte bara den nya byggnaden, och kontrollera om bestämmelsen gäller
+      fastighetsarean eller bara delen inom ett visst användningsområde.
+    lagrum:
+      - PBL 4 kap. 11 §
+      - Boverket
+    taggar: [utnyttjandegrad, berakning, byggnadsarea]
+
+  - id: rit-017
+    typ: berakning
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Fastigheten är 760 kvm och planen säger "Största byggnadsarea är 25 procent av
+      fastighetsarean". På tomten finns ett hus på 140 kvm byggnadsarea och en fristående carport
+      under tak på 3,0 × 6,0 m, byggd med bygglov. Hur stor byggnadsarea får en planenlig
+      tillbyggnad av huset högst ha?
+    svar: 32
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Byggrätt: 0,25 × 760 = 190 kvm. Carporten: 3,0 × 6,0 = 18 kvm, som räknas in i
+      byggnadsarean. Befintligt: 140 + 18 = 158 kvm. Kvar: 190 − 158 = 32 kvm.
+    forklaring: >
+      Öppenarea under tak, som en carport, tar mark i anspråk och räknas in i byggnadsarean. Den
+      som glömmer carporten får 50 kvm och beviljar en planstridig tillbyggnad. Fråga efter alla
+      byggnader på tomten och kontrollera dem mot situationsplanen och arkivet.
+    lagrum:
+      - SS 21054:2020
+      - Boverket
+    lagrum_osaker: true
+    taggar: [utnyttjandegrad, oppenarea, berakning]
+
+  - id: rit-018
+    typ: berakning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På en tomt inom detaljplan finns en bygglovsbefriad komplementbyggnad på 3,0 × 4,0 m (en
+      friggebod byggd 2015) och ett bygglovsbefriat komplementbostadshus på 5,0 × 5,0 m. Hur stor
+      byggnadsarea får ytterligare en bygglovsbefriad komplementbyggnad högst ha?
+    svar: 8
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Befintligt: 3,0 × 4,0 = 12 kvm och 5,0 × 5,0 = 25 kvm, sammanlagt 37 kvm. Potten inom plan
+      är 45 kvm: 45 − 37 = 8 kvm.
+    forklaring: >
+      Enligt 9 kap. 4 § får lovbefriade komplementbyggnader och komplementbostadshus på tomten ha
+      högst 45 kvm byggnadsarea sammanlagt inom detaljplan. Byggnader som undantagits från lov
+      enligt äldre bestämmelser, som en friggebod före 2025-12-01, räknas in. Räkna själv fram
+      areorna ur måtten i stället för att lita på sökandens summering.
+    lagrum:
+      - PBL 9 kap. 4 §
+    taggar: [pott, berakning, komplementbyggnad]
+
+  - id: rit-019
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett enbostadshus fick 2019 en tillbyggnad på 3,0 × 5,0 m bruttoarea som var undantagen från
+      bygglov enligt de regler som gällde före 2025-12-01. Hur stor bruttoarea får ägaren nu
+      bygga till utan bygglov, om tillbyggnaden inte överstiger taknocken?
+    svar: 15
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Tidigare lovfri tillbyggnad: 3,0 × 5,0 = 15 kvm. Gräns enligt 9 kap. 10 §: 30 kvm
+      sammanlagt. Kvar: 30 − 15 = 15 kvm.
+    forklaring: >
+      9 kap. 10 § tillåter tillbyggnader utan lov på högst 30 kvm bruttoarea eller öppenarea, och
+      tidigare lovfria tillbyggnader på byggnaden räknas in, även de som var lovfria enligt äldre
+      bestämmelser. Tillbyggnader som byggts med bygglov räknas inte. Kom ihåg att 34 § kan kräva
+      lov ändå om tillbyggnaden hamnar närmare gränsen än 4,5 m.
+    lagrum:
+      - PBL 9 kap. 10 §
+      - PBL 9 kap. 34 §
+    taggar: [tillbyggnad, lovbefriad, berakning, fore_och_nu]
+
+  - id: rit-020
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En byggnad mäter 2,4 × 1,6 cm på en situationsplan i skala 1:500. Hur stor är dess
+      byggnadsarea?
+    alternativ:
+      - text: 96 kvm
+        ratt: true
+      - text: 3,84 kvm
+      - text: 19,2 kvm
+      - text: 960 kvm
+    forklaring: >
+      Räkna om varje sida för sig: 2,4 cm × 500 = 12 m och 1,6 cm × 500 = 8 m, så arean blir
+      12 × 8 = 96 kvm. Den som skalar papperets area (3,84 cm²) som en längd, t.ex. 3,84 × 5 =
+      19,2, får fel svar: arean skalas med kvadraten, så i 1:500 motsvarar 1 cm² hela 25 kvm.
+      Kontrollera rimligheten: 96 kvm är ett normalt enplanshus.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [skala, byggnadsarea, berakning]
+
+  # --- Höjder och medelmarknivå -----------------------------------------------------
+
+  - id: rit-021
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop höjdbegreppet med hur det mäts.
+    par:
+      - vanster: Byggnadshöjd
+        hoger: Från markens medelnivå till där fasadplanet skärs av ett 45-gradigt plan som berör taket
+      - vanster: Nockhöjd
+        hoger: Från markens medelnivå invid byggnaden till yttertakets högsta del
+      - vanster: Totalhöjd
+        hoger: Från markens medelnivå invid byggnadsverket till dess högsta punkt, även skorsten och antenn
+      - vanster: Taknockshöjd i 9 kap. 4 §
+        hoger: Gränsen 4,0 m för bygglovsbefriade komplementbyggnader inom detaljplan
+    forklaring: >
+      Byggnadshöjd definieras i 1 kap. 3 § PBF. Nockhöjd och totalhöjd definieras i Boverkets
+      föreskrifter om detaljplan och används i planer som antagits enligt dem. I äldre planer är
+      byggnadshöjd vanligast, och den har tolkats i omfattande praxis. Kontrollera alltid vilket
+      mått planen faktiskt använder.
+    lagrum:
+      - PBF 1 kap. 3 §
+      - Boverket
+      - PBL 9 kap. 4 §
+    taggar: [byggnadshojd, nockhojd, totalhojd]
+
+  - id: rit-022
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett hus har sadeltak med takvinkeln 27°. Mot långsidan ligger takets ovansida vid
+      takfotens yttersta kant 3,1 m över markens medelnivå invid byggnaden. Takfoten skjuter ut
+      0,5 m horisontellt från fasadplanet. Hur stor är byggnadshöjden mot långsidan enligt
+      1 kap. 3 § PBF?
+    svar: 3.6
+    tolerans: 0.05
+    enhet: m
+    losning: >
+      Taket lutar mindre än 45°, så det 45-gradiga planet berör taket vid takfotens yttersta
+      kant. Därifrån stiger planet 1 m per meter inåt. Fram till fasadplanet är det 0,5 m, så
+      skärningen ligger 3,1 + 0,5 = 3,6 m över markens medelnivå.
+    forklaring: >
+      Byggnadshöjden mäts från markens medelnivå till skärningen mellan fasadplanet och ett plan
+      som lutar 45° inåt och berör taket. Vid flacka tak (under 45°) blir det takfotens ytterkant
+      som avgör, så ett större takutsprång ger högre byggnadshöjd. Det är därför
+      fasadritningarnas takfot och takutsprång är viktiga att kontrollera mot planens högsta
+      byggnadshöjd.
+    lagrum:
+      - PBF 1 kap. 3 §
+    taggar: [byggnadshojd, berakning, takutsprang]
+
+  - id: rit-023
+    typ: berakning
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett hus har brant sadeltak med takvinkeln 50°. Taknocken ligger 8,2 m över markens
+      medelnivå och 4,0 m horisontellt innanför fasadplanet på långsidan. Hur stor är
+      byggnadshöjden mot långsidan enligt 1 kap. 3 § PBF?
+    svar: 4.2
+    tolerans: 0.05
+    enhet: m
+    losning: >
+      Taket lutar brantare än 45°, så det 45-gradiga planet som berör taket går genom nocken.
+      Från nocken sjunker planet 1 m per meter utåt. Vid fasadplanet, 4,0 m ut, ligger det
+      8,2 − 4,0 = 4,2 m över markens medelnivå.
+    forklaring: >
+      Vid tak brantare än 45° är det nocken, inte takfoten, som bestämmer byggnadshöjden, och
+      byggnadshöjden blir nockhöjden minus det horisontella avståndet från fasaden till nocken.
+      Därför kan ett brant tak få en låg byggnadshöjd trots en hög nock, vilket är skälet till att
+      nyare planer ofta reglerar nockhöjd i stället. Rita gärna en enkel skiss med 45-gradslinjen
+      för att se vilken punkt som avgör.
+    lagrum:
+      - PBF 1 kap. 3 §
+    taggar: [byggnadshojd, berakning, takvinkel]
+
+  - id: rit-024
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Marken lutar jämnt runt ett rektangulärt hus. Markens nivå vid husets fyra hörn är +10,2,
+      +10,6, +11,0 och +10,6. Taknocken ligger på +16,4. Hur stor är nockhöjden?
+    svar: 5.8
+    tolerans: 0.05
+    enhet: m
+    losning: >
+      Medelnivå: (10,2 + 10,6 + 11,0 + 10,6) / 4 = 42,4 / 4 = 10,6. Nockhöjd: 16,4 − 10,6 = 5,8 m.
+    forklaring: >
+      Nockhöjd mäts från den medelnivå som marken har invid byggnaden, efter att marken
+      färdigställts. När marken lutar jämnt ger medelvärdet av hörnens nivåer en bra
+      uppskattning; vid oregelbunden mark behövs fler punkter längs fasaderna. Nivåerna läser du
+      på situationsplanen eller sektionen, och jämför dem med nybyggnadskartans befintliga höjder.
+    lagrum:
+      - Boverket
+    taggar: [medelmarkniva, nockhojd, berakning]
+
+  - id: rit-025
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett hus placeras 4 m från gatan (allmän plats). Gatans medelnivå invid tomten är +12,0 och
+      marken invid huset ligger på +12,8. Planen reglerar byggnadshöjd. Från vilken nivå räknas
+      byggnadshöjden?
+    alternativ:
+      - text: Från gatans medelnivå +12,0, eftersom huset ligger mindre än sex meter från allmän plats.
+        ratt: true
+      - text: Från markens medelnivå invid huset, +12,8.
+      - text: Från husets färdiga golv.
+      - text: Från medelvärdet av +12,0 och +12,8.
+    forklaring: >
+      Enligt 1 kap. 3 § PBF räknas byggnadshöjden normalt från markens medelnivå invid byggnaden,
+      men om byggnaden ligger mindre än sex meter från allmän plats utgår beräkningen från den
+      allmänna platsens medelnivå invid tomten, om inte särskilda skäl föranleder annat. Här blir
+      byggnadshöjden alltså 0,8 m högre än den annars hade blivit. Regeln gäller bara
+      byggnadshöjd, inte nockhöjd eller totalhöjd enligt Boverkets föreskrifter om detaljplan.
+    lagrum:
+      - PBF 1 kap. 3 §
+      - Boverket
+    taggar: [byggnadshojd, medelmarkniva, allman_plats]
+
+  - id: rit-026
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid ett sadeltak med takvinkeln 30° och ett takutsprång på 0,6 m: var berör det
+      45-gradiga planet taket när byggnadshöjden ska bestämmas mot långsidan?
+    alternativ:
+      - text: Vid takfotens yttersta kant, eftersom taket lutar flackare än planet.
+        ratt: true
+      - text: Vid taknocken.
+      - text: Där fasadplanet möter takets undersida.
+      - text: Vid skorstenens topp.
+    forklaring: >
+      Ett plan som lutar 45° inåt stiger snabbare än ett tak som lutar 30°. Det enda stället där
+      planet kan nudda taket utan att skära igenom det är därför takets yttersta kant vid
+      takfoten. Byggnadshöjden blir då höjden vid takfotens kant plus takutsprånget mätt
+      horisontellt. Vid tak brantare än 45° är det i stället nocken som avgör.
+    lagrum:
+      - PBF 1 kap. 3 §
+    taggar: [byggnadshojd, takutsprang, takvinkel]
+
+  - id: rit-027
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En fasadritning har nivåkotor i förhållande till färdigt golv. Färdigt golv ±0,0 motsvarar
+      +24,50 i kommunens höjdsystem, markens medelnivå invid huset är +24,10 och taknocken ligger
+      på +5,90 i förhållande till färdigt golv. Hur stor är nockhöjden?
+    alternativ:
+      - text: 6,3 m
+        ratt: true
+      - text: 5,9 m
+      - text: 5,5 m
+      - text: 6,7 m
+    forklaring: >
+      Räkna om allt till samma höjdsystem: nocken ligger på 24,50 + 5,90 = 30,40. Nockhöjden mäts
+      från markens medelnivå: 30,40 − 24,10 = 6,30 m. Ett vanligt fel är att läsa av höjden från
+      golvet. Golvet ligger här 0,4 m över marken, och det ska läggas till.
+    lagrum:
+      - Boverket
+    taggar: [nockhojd, nivakotor, fasad]
+
+  - id: rit-028
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Nockhöjd mäts till toppen av husets skorsten.
+    svar: false
+    forklaring: >
+      Nockhöjd mäts till yttertakets högsta del. Skorstenar och ventilationshuvar räknas inte. Det
+      mått som tar med dem är totalhöjd, som mäts till byggnadsverkets högsta punkt.
+    lagrum:
+      - Boverket
+    taggar: [nockhojd, totalhojd]
+
+  - id: rit-029
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen när du kontrollerar byggnadshöjden på en fasadritning mot en äldre detaljplan.
+    poster:
+      - Läs planbestämmelsen och kontrollera att den gäller byggnadshöjd och inte nock- eller totalhöjd.
+      - Bestäm utgångsnivån, markens medelnivå invid byggnaden eller allmän plats medelnivå om huset ligger närmare än sex meter från den.
+      - Välj fasaden och dra ett plan i 45° inåt byggnaden som berör taket.
+      - Läs av var planet skär fasadplanet.
+      - Räkna ut höjdskillnaden mellan skärningen och utgångsnivån och jämför med planens högsta byggnadshöjd.
+    forklaring: >
+      Arbetsgången följer 1 kap. 3 § PBF. Det vanligaste felet är att börja mäta innan
+      utgångsnivån är bestämd, eller att använda färdigt golv i stället för marken. Spara en
+      skiss med 45-gradslinjen i ärendet, så kan andra följa din bedömning.
+    lagrum:
+      - PBF 1 kap. 3 §
+    taggar: [byggnadshojd, arbetsgang, fasad]
+
+  # --- Våning, källare och suterräng -------------------------------------------------
+
+  - id: rit-030
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Enligt 1 kap. 4 § PBF räknas en källare som våning bara om golvets översida i våningen
+      närmast ovanför ligger mer än ___ m över markens medelnivå invid byggnaden. En vind räknas
+      som våning bara om ett bostadsrum eller en arbetslokal kan inredas där och byggnadshöjden
+      är mer än ___ m högre än vindsbjälklagets översida.
+    svar: [["1,5", "1.5"], ["0,7", "0.7"]]
+    forklaring: >
+      Våningsantalet är vanligt i äldre planer, t.ex. "högst två våningar". Därför behöver du
+      kunna avgöra om källare och vind räknas. Måtten läser du på sektionsritningen, och
+      byggnadshöjden räknar du ut enligt 1 kap. 3 § PBF.
+    lagrum:
+      - PBF 1 kap. 4 §
+    taggar: [vaning, kallare, vind]
+
+  - id: rit-031
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vinden i ett nytt hus är hög nog att inreda med ett sovrum. Byggnadshöjden ligger 0,5 m
+      över vindsbjälklagets översida. Räknas vinden som en våning?
+    alternativ:
+      - text: Nej. Båda villkoren måste vara uppfyllda, och byggnadshöjden är inte mer än 0,7 m över vindsbjälklaget.
+        ratt: true
+      - text: Ja, eftersom ett bostadsrum kan inredas.
+      - text: Ja, eftersom alla vindar räknas som våning.
+      - text: Nej, eftersom vindar aldrig räknas som våning.
+    forklaring: >
+      1 kap. 4 § PBF har två villkor för att en vind ska vara en våning: att bostadsrum eller
+      arbetslokal kan inredas och att byggnadshöjden är mer än 0,7 m högre än vindsbjälklagets
+      översida. Med låga väggar vid takfoten (knäväggar) blir byggnadshöjden låg och vinden räknas
+      inte. Det spelar roll i planer som begränsar antalet våningar.
+    lagrum:
+      - PBF 1 kap. 4 §
+      - PBF 1 kap. 3 §
+    taggar: [vaning, vind]
+
+  - id: rit-032
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I ett hus ligger golvets översida i bottenvåningen 1,8 m över markens medelnivå invid
+      byggnaden. Under bottenvåningen finns en källare. Räknas källaren som en våning?
+    alternativ:
+      - text: Ja, eftersom golvet ovanför ligger mer än 1,5 m över markens medelnivå.
+        ratt: true
+      - text: Nej, källare räknas aldrig som våning.
+      - text: Nej, eftersom källaren ligger delvis under mark.
+      - text: Bara om källaren är inredd med bostadsrum.
+    forklaring: >
+      Enligt 1 kap. 4 § PBF räknas en källare som våning när golvets översida i våningen ovanför
+      ligger mer än 1,5 m över markens medelnivå. Ju mer av källaren som sticker upp ovan mark,
+      desto mer liknar den en vanlig våning. Inredningen spelar ingen roll för den här regeln.
+    lagrum:
+      - PBF 1 kap. 4 §
+    taggar: [vaning, kallare]
+
+  - id: rit-033
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett hus i en slänt har en suterrängvåning som är helt ovan mark på dalsidan, ett entréplan
+      och en vind där bostadsrum inte kan inredas. Golvet i entréplanet ligger 1,7 m över markens
+      medelnivå invid byggnaden. Hur många våningar har huset enligt 1 kap. 4 § PBF?
+    alternativ:
+      - text: Två
+        ratt: true
+      - text: En
+      - text: Tre
+      - text: En och en halv
+    forklaring: >
+      Suterrängvåningen bedöms med källarregeln: den räknas som våning eftersom golvet ovanför
+      ligger mer än 1,5 m över markens medelnivå. Entréplanet är en våning. Vinden räknas inte,
+      eftersom bostadsrum inte kan inredas där. Medelnivån räknas runt hela byggnaden, så i en
+      slänt kan samma hus vara tvåvåningshus på ena sidan och ett enplanshus på den andra.
+    lagrum:
+      - PBF 1 kap. 4 §
+    taggar: [vaning, suterrang, kallare]
+
+  - id: rit-034
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Planen anger att takvinkeln ska vara 27–38 grader. På vilken ritning kontrollerar du
+      takvinkeln enklast?
+    alternativ:
+      - text: Gavelfasaden eller sektionsritningen, där takfallet syns i profil.
+        ratt: true
+      - text: Situationsplanen.
+      - text: Planritningen över bottenvåningen.
+      - text: Långsidans fasad, där takfallet syns rakt framifrån.
+    forklaring: >
+      Takvinkeln är vinkeln mellan takfallet och horisontalplanet, och den syns bara när taket ses
+      i profil. På långsidans fasad ser du takfallet rakt framifrån och kan inte mäta vinkeln.
+      Ofta är takvinkeln dessutom angiven i siffror på sektionen; kontrollera att den stämmer med
+      gavelns mått.
+    lagrum:
+      - PBL 9 kap. 86 §
+    taggar: [takvinkel, fasad, sektion]
+
+  # --- Instuderingsfrågor ---------------------------------------------------------------
+
+  - id: rit-035
+    typ: oppen
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare frågar vad skillnaden är mellan byggnadsarea, bruttoarea och öppenarea, och
+      varför det spelar roll för honom. Förklara med exempel från en villa med källare, carport och
+      balkong.
+    bedomningspunkter:
+      - Byggnadsarea är den yta byggnaden upptar på marken, inklusive viss öppenarea som carport.
+      - Bruttoarea är summan av alla våningsplan, inklusive mätvärd källare och vind, mätt till ytterväggarnas utsida.
+      - Öppenarea är öppna ytor under tak eller i anslutning till byggnaden, t.ex. carport och balkong, och ingår inte i bruttoarean.
+      - Kopplar till regler där måtten används, t.ex. potten i 9 kap. 4 § (byggnadsarea) och tillbyggnader i 9 kap. 10 § (bruttoarea eller öppenarea).
+      - Förklarar begripligt och utan facktermer som inte förklaras.
+    modellsvar: >
+      Byggnadsarean är husets fotavtryck på marken. Carporten räknas in, eftersom den också tar
+      mark i anspråk, men inte källaren eller övervåningen. Bruttoarean är summan av alla våningar,
+      mätt till ytterväggarnas utsida, så källaren och en inredd vind räknas, men inte carporten
+      eller balkongen. Carporten och balkongen är öppenarea: ytor under tak eller utanför väggarna
+      som inte är slutna rum. Det spelar roll eftersom reglerna använder olika mått. Planens
+      byggrätt anges ofta i byggnadsarea, potten för lovfria komplementbyggnader (9 kap. 4 § PBL)
+      också, och lovfria tillbyggnader får vara högst 30 kvm bruttoarea eller öppenarea
+      (9 kap. 10 §), så även en inglasad eller öppen altan under tak räknas där.
+    lagrum:
+      - SS 21054:2020
+      - Boverket
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 10 §
+    taggar: [areabegrepp, bemotande, instudering]
+
+  - id: rit-036
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Gör en checklista över vad du kontrollerar på situationsplanen i en ansökan om bygglov för
+      ett nytt enbostadshus inom detaljplan.
+    bedomningspunkter:
+      - Skala, norrpil, fastighetsbeteckning och att planen bygger på nybyggnadskarta eller annat säkert underlag.
+      - Husets och andra byggnaders placering med måttkedjor till fastighetsgränserna.
+      - Prickmark, placeringsbestämmelser och avstånd till gräns enligt planen.
+      - Byggnadsarea för alla byggnader och andel av fastighetsarean.
+      - Utfart, parkering, höjder (befintlig och ny mark, färdigt golv) och anslutningspunkter för VA.
+      - Nya markhöjder som kan kräva marklov (mer än 0,5 m inom plan, 9 kap. 47 §).
+    modellsvar: >
+      Jag börjar med underlaget: skala, norrpil, fastighetsbeteckning och att situationsplanen är
+      ritad på en nybyggnadskarta så att gränser och plangränser stämmer. Sedan kontrollerar jag
+      placeringen: måttkedjor från husets alla hörn till närmaste gränser, prickmark och övriga
+      placeringsbestämmelser. Jag räknar byggnadsarea för alla byggnader på tomten och jämför med
+      planens utnyttjandegrad. Jag tittar på utfart och parkering, på befintliga och nya
+      marknivåer och färdigt golv, och på anslutningspunkterna för vatten och avlopp. Ändras
+      markens höjdläge mer än 0,5 m kan det krävas marklov enligt 9 kap. 47 §. Saknas något som
+      behövs förelägger jag om komplettering inom tre veckor.
+    lagrum:
+      - PBL 9 kap. 86 §
+      - PBL 9 kap. 47 §
+      - PBL 9 kap. 91 §
+    taggar: [situationsplan, checklista, instudering]
+
+  - id: rit-037
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande vill fylla upp marken runt sitt nya hus med 0,8 m för att få en plan trädgård.
+      Planen reglerar nockhöjden till 7,0 m och huset har nock 7,4 m över befintlig mark. Förklara
+      vad uppfyllnaden betyder för höjdberäkningen och för lovplikten.
+    bedomningspunkter:
+      - Nockhöjd mäts från markens medelnivå invid byggnaden efter att marken färdigställts, om planen inte anger annat nollplan.
+      - Uppfyllnaden kan alltså sänka den beräknade nockhöjden, vilket gör det viktigt att granska den nya marknivån.
+      - Fyllning som ändrar höjdläget mer än 0,5 m inom detaljplan kräver marklov (9 kap. 47 §), om den inte bara anpassar marken till en nivå som planen bestämt.
+      - Bedömer om uppfyllnaden är lämplig med hänsyn till grannar, dagvatten och stadsbilden (2 kap. 6 och 9 §§).
+      - Pekar på att höjder ska redovisas på situationsplan och sektion, med befintliga och nya nivåer.
+    modellsvar: >
+      Boverkets definition av nockhöjd utgår från markens medelnivå invid byggnaden, och mätningen
+      görs från den färdiga marknivån. Fyller sökanden upp 0,8 m runt huset blir nockhöjden räknad
+      från den nya marken 6,6 m och alltså planenlig. Det gör uppfyllnaden till en del av
+      prövningen. Inom detaljplan kräver fyllning som ändrar höjdläget mer än 0,5 m marklov
+      (9 kap. 47 §), om den inte bara höjer marken till en nivå som planen bestämt. Jag prövar då
+      om uppfyllnaden är lämplig: hur den påverkar grannarna, dagvattnet och gatubilden (2 kap. 6
+      och 9 §§), och om den i praktiken används för att kringgå höjdbestämmelsen. Jag begär
+      situationsplan och sektioner med både befintliga och nya marknivåer.
+    lagrum:
+      - Boverket
+      - PBL 9 kap. 47 §
+      - PBL 2 kap. 6 §
+      - PBL 2 kap. 9 §
+    taggar: [medelmarkniva, marklov, nockhojd, instudering]
+
+  - id: rit-038
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En äldre plan tillåter "högst en våning och byggnadshöjd högst 4,0 m". Ett nytt hus ska
+      byggas i en slänt med en suterrängvåning. Beskriv hur du avgör om huset följer planen och
+      vilka ritningar och uppgifter du behöver.
+    bedomningspunkter:
+      - Använder 1 kap. 4 § PBF för att avgöra om suterrängvåningen räknas som våning (golvet ovanför mer än 1,5 m över markens medelnivå).
+      - Prövar om vinden är våning (bostadsrum och byggnadshöjd mer än 0,7 m över vindsbjälklaget).
+      - Räknar byggnadshöjden enligt 1 kap. 3 § PBF från markens medelnivå, och kontrollerar regeln om allmän plats inom sex meter.
+      - Begär sektion, fasader och situationsplan med befintliga och nya marknivåer.
+      - Tolkar planen efter de regler som gällde när den antogs och prövar en eventuell avvikelse enligt 9 kap. 60 §.
+    modellsvar: >
+      Jag behöver sektioner genom huset, alla fasader och en situationsplan med befintliga och nya
+      marknivåer runt huset. Först räknar jag ut markens medelnivå invid byggnaden. Ligger golvet
+      i entréplanet mer än 1,5 m över medelnivån räknas suterrängvåningen som våning (1 kap. 4 §
+      PBF), och då har huset två våningar och strider mot planen. Jag kontrollerar också vinden:
+      den räknas som våning om bostadsrum kan inredas och byggnadshöjden ligger mer än 0,7 m
+      över vindsbjälklaget. Byggnadshöjden räknar jag enligt 1 kap. 3 § från medelnivån, eller
+      från gatans medelnivå om huset ligger närmare än sex meter från gatan. Eftersom planen är
+      äldre tolkar jag begreppen efter de regler som gällde när den antogs. Om huset avviker
+      prövar jag om avvikelsen är liten enligt 9 kap. 60 §, och i en slänt kan en suterrängvåning
+      ibland vara en sådan avvikelse som är förenlig med planens syfte.
+    lagrum:
+      - PBF 1 kap. 3 §
+      - PBF 1 kap. 4 §
+      - PBL 9 kap. 60 §
+    taggar: [vaning, suterrang, byggnadshojd, instudering]
+
+  - id: rit-039
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Planen för kvarteret Asken anger högsta byggnadshöjd 4,5 m, högsta nockhöjd 7,0 m och
+      takvinkel 27–38°. Beskriv hur du kontrollerar fasadritningarna för ett nytt enbostadshus mot
+      de tre bestämmelserna.
+    bedomningspunkter:
+      - Bestämmer markens medelnivå invid huset och kontrollerar regeln om allmän plats inom sex meter för byggnadshöjden.
+      - Räknar byggnadshöjden mot långsidorna med 45-gradsplanet och tar hänsyn till takutsprånget.
+      - Räknar nockhöjden till yttertakets högsta del, utan skorsten.
+      - Kontrollerar takvinkeln på gavelfasaden eller sektionen.
+      - Jämför uträknade värden med planen och redovisar eventuell avvikelse i meter och procent.
+    modellsvar: >
+      Jag räknar först ut markens medelnivå invid huset från nivåerna på situationsplanen. För
+      byggnadshöjden kontrollerar jag om huset ligger närmare gatan än sex meter, för då räknas den
+      från gatans medelnivå (1 kap. 3 § PBF). Mot långsidorna lägger jag ett 45-gradigt plan mot
+      taket; med takvinkel under 45° berör det takfotens ytterkant, så byggnadshöjden blir höjden
+      där plus takutsprånget. Nockhöjden räknar jag till yttertakets högsta del, utan skorsten.
+      Takvinkeln kontrollerar jag på gavelfasaden eller sektionen och räknar om den med måtten om
+      den inte står angiven. Sedan jämför jag med planens 4,5 m, 7,0 m och 27–38° och redovisar en
+      eventuell avvikelse i meter och procent, så att den kan prövas enligt 9 kap. 60 §.
+    lagrum:
+      - PBF 1 kap. 3 §
+      - Boverket
+      - PBL 9 kap. 60 §
+    taggar: [byggnadshojd, nockhojd, takvinkel, instudering]

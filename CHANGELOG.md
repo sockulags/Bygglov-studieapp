@@ -11,7 +11,40 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
-Inget ännu.
+### Nytt
+
+- Alla 13 moduler har nu frågor: 526 frågor i stället för 98. Nya är Förvaltningsrätt och
+  myndighetsrollen, PBL-systemet och begreppen, Detaljplan och planenlighet, Prövning utanför
+  detaljplan, Krav på byggnadsverk, Ritningsläsning och beräkning, Genomförandet, Tillsyn och
+  sanktioner, Angränsande lagstiftning, Överklagande och prövningskedjan och Kommunikation och
+  bemötande. Snabbquiz, modulgenomgång, repetition och tentaläge fungerar i alla.
+- Tre nya ärenden, så att det nu finns sex. Tallen 9 är ditt första tillsynsärende: en granne
+  anmäler att garaget byggts större än lovet, och du gör platsbesök, räknar ut
+  byggsanktionsavgiften, bemöter ägarnas invändningar och skriver nämndens beslut.
+  Kopparslagaren 3 handlar om en restaurang i ett kulturhistoriskt värdefullt hus i centrum,
+  och på Humlan 3 ska ett flerbostadshus byggas med balkonger över prickmarken. Där överklagar en
+  granne, och du skriver nämndens yttrande till länsstyrelsen.
+- Ett tillsynsärende har ingen tioveckorsfrist. Fristen börjar först när ägarna söker lov i
+  efterhand, och rubrikraden säger det.
+- Mätverktyg i ritningarna: tryck M eller Mät och klicka på två punkter för att mäta ett
+  avstånd, eller välj Yta och klicka runt en yta. Punkterna fastnar i hörn och linjer, och
+  måtten följer med när du zoomar.
+- Ritningarna kan visa mer: det som byggts utan lov med kryss, lovets kontur, parkeringsplatser,
+  balkonger, fönster som tas bort eller är nya, skyltar, ventilationskanaler och platta tak.
+  Plankartan visar våningsantal och egna bestämmelser som m₁.
+- Kommandopalett: tryck Ctrl + K var du än är och skriv vad du söker, till exempel en modul, ett
+  ärende, ett begrepp eller "9:60". Därifrån kan du också starta ett snabbquiz eller fråga
+  handledaren.
+- Kortkommandon överallt: g och sedan h, p, ä, u eller r byter vy, / söker och ? visar alla
+  kortkommandon.
+- Åtta nya begrepp i ordlistan, bland annat sanktionsarea, lov i efterhand, laglighetsprövning
+  och gatukostnadsersättning, och fyra nya lagar i lagregistret.
+
+### Ändrat
+
+- Röd och grön text är lite mörkare, så att den syns bättre mot ljusa ytor.
+- Det syns bättre var du är när du använder tangentbordet, och skärmläsare får veta när något
+  nytt kommer in i diariet.
 
 ## [0.3.0] - 2026-11-05
 

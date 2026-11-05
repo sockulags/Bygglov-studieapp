@@ -83,12 +83,12 @@ export function GlossaryTab({
 
       {byLetter.map(([letter, list]) => (
         <section key={letter} aria-labelledby={letterId(letter)}>
-          <h3
+          <h2
             id={letterId(letter)}
             className="mb-2 scroll-mt-4 border-b border-line pb-1 font-serif text-xl text-muted"
           >
             {letter}
-          </h3>
+          </h2>
           <ul className="grid gap-3 lg:grid-cols-2">
             {list.map((term) => {
               const steps = usedInSteps.get(term.id) ?? [];
@@ -101,9 +101,9 @@ export function GlossaryTab({
                     className="flex h-full scroll-mt-24 flex-col gap-2 rounded-md border border-line bg-paper p-4 outline-none transition-colors duration-500 focus-visible:border-accent data-[flash=true]:border-plan-yellow data-[flash=true]:bg-plan-yellow-soft"
                   >
                     <header className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-0.5">
-                      <h4 id={`${termElementId(term.id)}-term`} className="text-base font-semibold">
+                      <h3 id={`${termElementId(term.id)}-term`} className="text-base font-semibold">
                         {term.term}
-                      </h4>
+                      </h3>
                       <span className="text-xs text-muted">
                         {moduleTitles.get(term.modul) ?? term.modul}
                       </span>
@@ -133,7 +133,7 @@ export function GlossaryTab({
                             key={id}
                             type="button"
                             onClick={() => nav.open({ kind: 'term', id })}
-                            className="rounded-sm px-1 text-accent underline-offset-2 hover:underline"
+                            className="inline-flex min-h-6 items-center rounded-sm px-1 text-accent underline-offset-2 hover:underline"
                           >
                             {terms.get(id)?.term ?? id}
                           </button>
@@ -154,7 +154,7 @@ export function GlossaryTab({
                                 stepId: s.stepId,
                               })
                             }
-                            className="rounded-sm underline-offset-2 hover:text-ink hover:underline"
+                            className="inline-flex min-h-6 items-center rounded-sm underline-offset-2 hover:text-ink hover:underline"
                           >
                             {s.label}
                           </button>

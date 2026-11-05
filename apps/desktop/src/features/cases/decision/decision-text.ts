@@ -50,9 +50,23 @@ export const DELIVERY_OPTIONS: { value: DeliveryMethod; label: string; hint: str
   { value: 'skickas', label: 'Skickas', hint: 'För kännedom' },
 ];
 
+/** A supervision case (nivå 4): the decision concerns a retroactive permit and sanctions. */
+export function isSupervisionCase(caseFile: Pick<CaseFile, 'niva'>): boolean {
+  return caseFile.niva === 4;
+}
+
+/** The case title as an object in a sentence: "Tillsyn: garage …" → "garage …". */
+function caseObject(caseFile: CaseFile): string {
+  const title = isSupervisionCase(caseFile)
+    ? caseFile.titel.replace(/^Tillsyn:\s*/i, '')
+    : caseFile.titel;
+  return title.charAt(0).toLowerCase() + title.slice(1);
+}
+
 /** Heading of the decision document. */
 export function decisionTitle(outcome: DecisionOutcome, caseFile: CaseFile): string {
-  const what = caseFile.titel.charAt(0).toLowerCase() + caseFile.titel.slice(1);
+  const what = caseObject(caseFile);
+  if (isSupervisionCase(caseFile)) return `Beslut i tillsynsärende om ${what}`;
   switch (outcome) {
     case 'bevilja':
     case 'bevilja_med_villkor':
@@ -74,6 +88,14 @@ const VERB: Record<DecisionOutcome, string> = {
   avskriva: 'avskriver ärendet',
 };
 
+const SUPERVISION_VERB: Record<DecisionOutcome, string> = {
+  bevilja: 'beviljar bygglov i efterhand',
+  bevilja_med_villkor: 'beviljar bygglov i efterhand med villkor',
+  avsla: 'avslår ansökan om bygglov i efterhand',
+  avvisa: 'avvisar ansökan om bygglov i efterhand',
+  avskriva: 'avskriver ärendet',
+};
+
 /** "Bygg- och miljönämnden beviljar bygglov … med stöd av 9 kap. 56 § PBL." */
 export function decisionSentence(
   draft: DecisionDraft,
@@ -83,10 +105,13 @@ export function decisionSentence(
   verb: string;
   rest: string;
 } {
-  const what = caseFile.titel.charAt(0).toLowerCase() + caseFile.titel.slice(1);
-  const object = draft.utfall === 'avskriva' ? '' : ` för ${what}`;
+  const what = caseObject(caseFile);
+  const supervision = isSupervisionCase(caseFile);
+  const object =
+    draft.utfall === 'avskriva' ? '' : supervision ? ` i ärendet om ${what}` : ` för ${what}`;
   const basis = draft.lagstod.length > 0 ? `, med stöd av ${joinSwedish(draft.lagstod)}` : '';
-  return { body: DECIDING_BODY, verb: VERB[draft.utfall], rest: `${object}${basis}.` };
+  const verb = (supervision ? SUPERVISION_VERB : VERB)[draft.utfall];
+  return { body: DECIDING_BODY, verb, rest: `${object}${basis}.` };
 }
 
 /** "a, b och c". */

@@ -327,7 +327,10 @@ export const EVENT_EFFECT_KEYS = [
 ] as const;
 
 /** Why the ten-week clock restarts (`ny_fristdag`). */
-export const NEW_DEADLINE_START_REASONS = ['sokandens_initiativ'] as const;
+export const NEW_DEADLINE_START_REASONS = [
+  'sokandens_initiativ',
+  'ansokan_om_lov_i_efterhand',
+] as const;
 
 export const EventEffectSchema = z
   .strictObject({
@@ -346,12 +349,14 @@ export const EventEffectSchema = z
     /**
      * The ten-week clock (9 kap. 99 § första stycket 2 PBL) restarts on the event date:
      * `sokandens_initiativ` means the applicant, on their own initiative, handed in more
-     * material or changed the application that day.
+     * material or changed the application that day. `ansokan_om_lov_i_efterhand` is for
+     * supervision cases (nivå 4), which have no deadline until an application for a
+     * retroactive permit comes in; the ten weeks then run from that day (första stycket 1).
      */
     ny_fristdag: z
       .enum(NEW_DEADLINE_START_REASONS, {
         error: fieldError(
-          `ny_fristdag ska vara ${NEW_DEADLINE_START_REASONS.join(' eller ')} (9 kap. 99 § första stycket 2).`,
+          `ny_fristdag ska vara ${NEW_DEADLINE_START_REASONS.join(' eller ')} (9 kap. 99 § första stycket 1–2).`,
         ),
       })
       .optional(),

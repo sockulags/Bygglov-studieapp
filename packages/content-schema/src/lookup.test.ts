@@ -45,18 +45,23 @@ const processFile = (steg: unknown[], extra: Record<string, unknown> = {}) => ({
 });
 
 describe('uppslag files in the repository', () => {
-  it('validates the glossary with 100–140 draft terms', () => {
+  it('validates the glossary with at least 100 draft terms', () => {
     const result = parseGlossaryFile(load('uppslag/begrepp.yaml'));
     if (!result.success) throw new Error(formatIssues(result.issues));
     const { begrepp } = result.data;
     expect(begrepp.length).toBeGreaterThanOrEqual(100);
-    expect(begrepp.length).toBeLessThanOrEqual(140);
     for (const t of begrepp) {
       expect(t.status).toBe('utkast');
       expect(t.rattslage).toBe('2025-12-01');
     }
     expect(begrepp.map((t) => t.id)).toEqual(
-      expect.arrayContaining(['byggnadsarea', 'liten-avvikelse', 'startbesked', 'strandskydd']),
+      expect.arrayContaining([
+        'byggnadsarea',
+        'liten-avvikelse',
+        'startbesked',
+        'strandskydd',
+        'sanktionsarea',
+      ]),
     );
   });
 

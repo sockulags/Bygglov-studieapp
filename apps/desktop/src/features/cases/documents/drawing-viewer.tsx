@@ -1,17 +1,43 @@
-import { ImageOff, Maximize2, Minus, Plus } from 'lucide-react';
+import { Eraser, ImageOff, Maximize2, Minus, Pentagon, Plus, Ruler } from 'lucide-react';
 import {
   useCallback,
   useEffect,
+  useEffectEvent,
+  useMemo,
   useRef,
   useState,
   type KeyboardEvent,
   type PointerEvent,
 } from 'react';
 import { Button } from '@/components/ui/button';
+import { isTypingTarget } from '@/lib/use-keydown';
+import { cn } from '@/lib/cn';
+import {
+  distance,
+  findSnap,
+  frameToSheet,
+  parseMeasurableSvg,
+  sheetPlacement,
+  sheetToFrame,
+  describeMeasurement,
+  type DrawingMetadata,
+  type MeasureKind,
+  type Measurement,
+  type Point,
+  type Snap,
+  type SnapTargets,
+} from './measure-geometry';
+import { MeasureList, MeasureOverlay } from './measure-overlay';
 
 const MIN_SCALE = 0.1;
 const MAX_SCALE = 8;
 const STEP = 1.25;
+/** Pointer movement (px) that turns a click into a drag. */
+const DRAG_THRESHOLD = 4;
+/** A pressed tool button. */
+const PRESSED = 'border-accent bg-accent-soft font-semibold';
+/** Snap distance in screen pixels. */
+const SNAP_RADIUS = 8;
 
 interface View {
   scale: number;
@@ -19,21 +45,83 @@ interface View {
   y: number;
 }
 
+type Tool = 'pan' | MeasureKind;
+
+interface Draft {
+  kind: MeasureKind;
+  points: Point[];
+}
+
 function clamp(value: number, min: number, max: number): number {
   return Math.min(max, Math.max(min, value));
+}
+
+function isSvg(src: string): boolean {
+  return /\.svg(?:$|[?#])/i.test(src);
+}
+
+/** The drawing's scale and snap targets, read from the SVG source. Null for PNG and old SVGs. */
+function useMeasurableSvg(src: string) {
+  const [result, setResult] = useState<{
+    metadata: DrawingMetadata;
+    targets: SnapTargets;
+  } | null>(null);
+  useEffect(() => {
+    if (!isSvg(src)) return;
+    let cancelled = false;
+    fetch(src)
+      .then((response) => (response.ok ? response.text() : ''))
+      .then((text) => {
+        if (!cancelled && text) setResult(parseMeasurableSvg(text));
+      })
+      .catch(() => {
+        // Without metadata the drawing can still be viewed, just not measured.
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [src]);
+  return result;
 }
 
 /**
  * A drawing (SVG or PNG) with zoom (buttons, scroll wheel, + and −) and panning (drag, or
  * the arrow keys when the drawing has focus). Starts fitted to the panel width. Give it
  * `key={src}` so a new drawing starts from a fresh view.
+ *
+ * Generated SVG drawings carry their scale, so they can also be measured: "Mät" (M) gives
+ * distances between two clicks and areas of polygons (double-click or Enter closes), snapping
+ * to the drawing's corners and lines.
  */
 export function DrawingViewer({ src, title }: { src: string; title: string }) {
   const frame = useRef<HTMLDivElement>(null);
   const [natural, setNatural] = useState<{ width: number; height: number } | null>(null);
   const [view, setView] = useState<View>({ scale: 1, x: 0, y: 0 });
   const [failed, setFailed] = useState(false);
-  const drag = useRef<{ id: number; x: number; y: number } | null>(null);
+  const drag = useRef<{ id: number; x: number; y: number; moved: boolean; start: Point } | null>(
+    null,
+  );
+
+  const measurable = useMeasurableSvg(src);
+  const [tool, setTool] = useState<Tool>('pan');
+  const [measurements, setMeasurements] = useState<Measurement[]>([]);
+  const [draft, setDraft] = useState<Draft | null>(null);
+  const [hover, setHover] = useState<{ frame: Point; snap: Snap | null } | null>(null);
+  const [announcement, setAnnouncement] = useState('');
+  const nextId = useRef(1);
+
+  const placement = useMemo(
+    () => (measurable && natural ? sheetPlacement(measurable.metadata.viewBox, natural) : null),
+    [measurable, natural],
+  );
+  const canMeasure = placement !== null && measurable !== null;
+  const measuring = canMeasure && tool !== 'pan';
+  const metersPerUnit = measurable?.metadata.metersPerUnit ?? 1;
+
+  const toFrame = useCallback(
+    (p: Point) => (placement ? sheetToFrame(p, view, placement) : p),
+    [placement, view],
+  );
 
   /** The view that shows the whole width of a drawing of `size`. */
   const fitted = (size: { width: number; height: number }): View => {
@@ -70,18 +158,135 @@ export function DrawingViewer({ src, title }: { src: string; title: string }) {
     return () => el.removeEventListener('wheel', onWheel);
   }, [zoomAt]);
 
+  // ---------------------------------------------------------------------------------------
+  // Measuring
+
+  const local = (event: { clientX: number; clientY: number }): Point => {
+    const rect = frame.current?.getBoundingClientRect();
+    return { x: event.clientX - (rect?.left ?? 0), y: event.clientY - (rect?.top ?? 0) };
+  };
+
+  const snapFor = (at: Point): Snap | null =>
+    measurable ? findSnap(at, measurable.targets, toFrame, SNAP_RADIUS) : null;
+
+  /** The sheet point for a pointer at `at` (frame px), snapped when a target is close. */
+  const sheetPointFor = (at: Point): Point | null => {
+    if (!placement) return null;
+    return snapFor(at)?.point ?? frameToSheet(at, view, placement);
+  };
+
+  const commit = (kind: MeasureKind, points: Point[]) => {
+    const measurement: Measurement = { id: nextId.current, kind, points };
+    nextId.current += 1;
+    setMeasurements((list) => [...list, measurement]);
+    setDraft(null);
+    setAnnouncement(`${describeMeasurement(measurement, metersPerUnit)}.`);
+  };
+
+  const finishArea = () => {
+    if (draft?.kind === 'area' && draft.points.length >= 3) commit('area', draft.points);
+  };
+
+  const addPoint = (at: Point) => {
+    const point = sheetPointFor(at);
+    if (!point || tool === 'pan') return;
+    const near = (p: Point | undefined, radius: number) =>
+      p !== undefined && distance(toFrame(p), toFrame(point)) <= radius;
+    if (!draft || draft.kind !== tool) {
+      setDraft({ kind: tool, points: [point] });
+      return;
+    }
+    if (tool === 'distance') {
+      if (near(draft.points[0], 1)) return;
+      commit('distance', [draft.points[0]!, point]);
+      return;
+    }
+    // The second click of a double-click lands on the last point: ignore it.
+    if (near(draft.points.at(-1), DRAG_THRESHOLD)) return;
+    // Clicking the first point again closes the polygon.
+    if (draft.points.length >= 3 && near(draft.points[0], SNAP_RADIUS)) {
+      commit('area', draft.points);
+      return;
+    }
+    setDraft({ kind: 'area', points: [...draft.points, point] });
+  };
+
+  const clearMeasurements = () => {
+    setMeasurements([]);
+    setDraft(null);
+    setAnnouncement('Alla mått är borttagna.');
+  };
+
+  const chooseTool = (next: Tool) => {
+    setTool(next);
+    setDraft(null);
+    setHover(null);
+  };
+
+  // M and Esc work wherever focus is in the case view (but not while typing or in a dialog
+  // on top). Capture phase, so Esc cancels a measurement before it closes the document.
+  const onWindowKey = useEffectEvent((event: globalThis.KeyboardEvent) => {
+    if (!canMeasure || event.ctrlKey || event.metaKey || event.altKey) return;
+    if (isTypingTarget(event.target)) return;
+    const target = event.target instanceof Element ? event.target : null;
+    const dialog = target?.closest('[role="dialog"], [role="alertdialog"]');
+    if (dialog && !dialog.contains(frame.current)) return;
+    if (event.key === 'm' || event.key === 'M') {
+      event.preventDefault();
+      chooseTool(tool === 'pan' ? 'distance' : 'pan');
+    } else if (event.key === 'Escape') {
+      if (draft) {
+        setDraft(null);
+        setAnnouncement('Mätningen avbröts.');
+      } else if (tool !== 'pan' || measurements.length > 0) {
+        setMeasurements([]);
+        chooseTool('pan');
+        setAnnouncement('Mätningen är avslutad och måtten är borttagna.');
+      } else {
+        return;
+      }
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  });
+  useEffect(() => {
+    const listener = (event: globalThis.KeyboardEvent) => onWindowKey(event);
+    window.addEventListener('keydown', listener, { capture: true });
+    return () => window.removeEventListener('keydown', listener, { capture: true });
+  }, []);
+
+  // ---------------------------------------------------------------------------------------
+  // Pointer
+
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if (event.button !== 0) return;
-    drag.current = { id: event.pointerId, x: event.clientX, y: event.clientY };
+    const start = { x: event.clientX, y: event.clientY };
+    drag.current = { id: event.pointerId, ...start, moved: false, start };
     event.currentTarget.setPointerCapture?.(event.pointerId);
   };
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
-    const start = drag.current;
-    if (!start || start.id !== event.pointerId) return;
-    const dx = event.clientX - start.x;
-    const dy = event.clientY - start.y;
-    drag.current = { ...start, x: event.clientX, y: event.clientY };
+    if (measuring) {
+      const at = local(event);
+      setHover({ frame: at, snap: snapFor(at) });
+    }
+    const current = drag.current;
+    if (!current || current.id !== event.pointerId) return;
+    if (
+      !current.moved &&
+      distance(current.start, { x: event.clientX, y: event.clientY }) < DRAG_THRESHOLD
+    ) {
+      return;
+    }
+    const dx = event.clientX - current.x;
+    const dy = event.clientY - current.y;
+    drag.current = { ...current, x: event.clientX, y: event.clientY, moved: true };
     setView((v) => ({ ...v, x: v.x + dx, y: v.y + dy }));
+  };
+  const onPointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    const current = drag.current;
+    drag.current = null;
+    if (!current || current.id !== event.pointerId || current.moved || !measuring) return;
+    addPoint(local(event));
   };
   const endDrag = () => {
     drag.current = null;
@@ -108,6 +313,9 @@ export function DrawingViewer({ src, title }: { src: string; title: string }) {
     } else if (event.key === '0') {
       event.preventDefault();
       fit();
+    } else if (event.key === 'Enter' && draft?.kind === 'area' && draft.points.length >= 3) {
+      event.preventDefault();
+      finishArea();
     }
   };
 
@@ -121,9 +329,16 @@ export function DrawingViewer({ src, title }: { src: string; title: string }) {
     );
   }
 
+  const hint = !measuring
+    ? 'Scrolla för att zooma, dra för att flytta'
+    : tool === 'distance'
+      ? 'Klicka på två punkter. Esc avbryter'
+      : 'Klicka runt ytan, dubbelklicka eller Enter avslutar. Esc avbryter';
+  const pointer = measuring && hover && placement ? sheetPointFor(hover.frame) : null;
+
   return (
     <div className="flex h-full min-h-[360px] flex-col gap-2">
-      <div className="flex flex-wrap items-center gap-1" role="toolbar" aria-label="Zoom">
+      <div className="flex flex-wrap items-center gap-1" role="toolbar" aria-label="Zoom och mät">
         <Button
           variant="secondary"
           size="sm"
@@ -142,21 +357,65 @@ export function DrawingViewer({ src, title }: { src: string; title: string }) {
           <Maximize2 aria-hidden="true" />
           Anpassa
         </Button>
-        <span className="ml-auto hidden text-xs text-muted sm:inline">
-          Scrolla för att zooma, dra för att flytta
-        </span>
+        {canMeasure && (
+          <>
+            <span className="mx-1 h-5 w-px bg-line" aria-hidden="true" />
+            <Button
+              variant="secondary"
+              size="sm"
+              className={cn(tool === 'distance' && PRESSED)}
+              aria-pressed={tool === 'distance'}
+              aria-keyshortcuts="M"
+              title={`Mät avstånd i meter (M). Skala ${measurable.metadata.scaleLabel}`}
+              onClick={() => chooseTool(tool === 'distance' ? 'pan' : 'distance')}
+            >
+              <Ruler aria-hidden="true" />
+              Mät
+            </Button>
+            <Button
+              variant="secondary"
+              size="sm"
+              className={cn(tool === 'area' && PRESSED)}
+              aria-pressed={tool === 'area'}
+              title="Mät en yta i kvadratmeter"
+              onClick={() => chooseTool(tool === 'area' ? 'pan' : 'area')}
+            >
+              <Pentagon aria-hidden="true" />
+              Yta
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={clearMeasurements}
+              disabled={measurements.length === 0 && !draft}
+            >
+              <Eraser aria-hidden="true" />
+              Rensa
+            </Button>
+          </>
+        )}
       </div>
+      <p className="sr-only" aria-live="polite">
+        {announcement}
+      </p>
       <div
         ref={frame}
         tabIndex={0}
         role="img"
-        aria-label={`${title}. Piltangenterna flyttar, plus och minus zoomar, 0 anpassar.`}
+        aria-label={`${title}. Piltangenterna flyttar, plus och minus zoomar, 0 anpassar.${
+          canMeasure ? ' M mäter.' : ''
+        }`}
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
-        onPointerUp={endDrag}
+        onPointerUp={onPointerUp}
         onPointerCancel={endDrag}
+        onPointerLeave={() => setHover(null)}
+        onDoubleClick={finishArea}
         onKeyDown={onKeyDown}
-        className="relative min-h-0 flex-1 cursor-grab touch-none overflow-hidden rounded-md border border-line bg-bg active:cursor-grabbing"
+        className={cn(
+          'relative min-h-0 flex-1 touch-none overflow-hidden rounded-md border border-line bg-bg',
+          measuring ? 'cursor-crosshair' : 'cursor-grab active:cursor-grabbing',
+        )}
       >
         <img
           src={src}
@@ -176,7 +435,26 @@ export function DrawingViewer({ src, title }: { src: string; title: string }) {
             visibility: natural ? 'visible' : 'hidden',
           }}
         />
+        {canMeasure && (measurements.length > 0 || draft || measuring) && (
+          <MeasureOverlay
+            measurements={measurements}
+            draft={draft}
+            pointer={pointer}
+            snap={measuring ? (hover?.snap ?? null) : null}
+            metersPerUnit={metersPerUnit}
+            toFrame={toFrame}
+          />
+        )}
       </div>
+      {/* Below the drawing, so the drawing does not move when the text or the list changes. */}
+      <p className="hidden text-xs text-muted sm:block">{hint}</p>
+      {canMeasure && (
+        <MeasureList
+          measurements={measurements}
+          metersPerUnit={metersPerUnit}
+          onRemove={(id) => setMeasurements((list) => list.filter((m) => m.id !== id))}
+        />
+      )}
     </div>
   );
 }

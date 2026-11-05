@@ -108,6 +108,22 @@ lagar:
     namn: Språklagen (2009:600)
     lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/spraklag-2009600_sfs-2009-600/
 
+  - kod: MMDL
+    namn: Lagen (2010:921) om mark- och miljödomstolar
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2010921-om-mark-och-miljodomstolar_sfs-2010-921/
+
+  - kod: JB
+    namn: Jordabalken (1970:994)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/jordabalk-1970994_sfs-1970-994/
+
+  - kod: AL
+    namn: Anläggningslagen (1973:1149)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/anlaggningslag-19731149_sfs-1973-1149/
+
+  - kod: TbF
+    namn: Förordningen (2015:216) om trafikbuller vid bostadsbyggnader
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/forordning-2015216-om-trafikbuller-vid_sfs-2015-216/
+
   - kod: SS
     namn: Svensk standard (SIS), t.ex. SS 21054:2020 om area och volym för husbyggnader
     lank: https://www.sis.se/

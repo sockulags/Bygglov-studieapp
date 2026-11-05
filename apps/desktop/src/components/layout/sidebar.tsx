@@ -1,9 +1,11 @@
 import { Link } from '@tanstack/react-router';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
-import { PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { PanelLeftClose, PanelLeftOpen, Search } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { primaryNav, secondaryNav, type NavItem } from '@/app/navigation';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
+import { KeyCombo } from '@/components/ui/kbd';
+import { modKey, setPaletteOpen } from '@/features/command-palette';
 import { AppMark } from '@/components/layout/app-mark';
 import { useUiStore } from '@/store/ui';
 import { cn } from '@/lib/cn';
@@ -13,7 +15,7 @@ function SideTooltip({
   enabled,
   children,
 }: {
-  label: string;
+  label: ReactNode;
   enabled: boolean;
   children: ReactNode;
 }) {
@@ -21,23 +23,32 @@ function SideTooltip({
   return (
     <TooltipPrimitive.Root>
       <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
-      <TooltipPrimitive.Portal>
-        <TooltipPrimitive.Content
-          side="right"
-          sideOffset={8}
-          className="z-50 rounded-sm border border-line bg-paper px-2 py-1 text-xs text-ink shadow-paper"
-        >
-          {label}
-        </TooltipPrimitive.Content>
-      </TooltipPrimitive.Portal>
+      {/* No portal: the tooltip stays inside the navigation landmark. */}
+      <TooltipPrimitive.Content
+        side="right"
+        sideOffset={8}
+        className="z-50 flex items-center gap-2 rounded-sm border border-line bg-paper px-2 py-1 text-xs text-ink shadow-paper"
+      >
+        {label}
+      </TooltipPrimitive.Content>
     </TooltipPrimitive.Root>
+  );
+}
+
+/** Tooltip text for a navigation link: the name (when collapsed) and the shortcut as <kbd>. */
+function NavTooltip({ item, collapsed }: { item: NavItem; collapsed: boolean }) {
+  return (
+    <>
+      {collapsed ? <span>{item.label}</span> : <span className="sr-only">{item.label}</span>}
+      <KeyCombo keys={item.shortcut} mode="sequence" size="sm" />
+    </>
   );
 }
 
 function NavLink({ item, collapsed }: { item: NavItem; collapsed: boolean }) {
   const Icon = item.icon;
   return (
-    <SideTooltip label={item.label} enabled={collapsed}>
+    <SideTooltip label={<NavTooltip item={item} collapsed={collapsed} />} enabled>
       <Link
         to={item.to}
         activeOptions={{ exact: item.to === '/' }}
@@ -84,7 +95,34 @@ export function Sidebar() {
         )}
       </div>
 
-      <nav className="flex flex-1 flex-col gap-1 p-2 pt-3">
+      <div className="p-2 pb-0">
+        <SideTooltip label="Sök i appen" enabled={collapsed}>
+          <button
+            type="button"
+            onClick={() => setPaletteOpen(true)}
+            aria-haspopup="dialog"
+            aria-keyshortcuts={modKey() === '⌘' ? 'Meta+K' : 'Control+K'}
+            aria-label={collapsed ? 'Sök i appen' : undefined}
+            className={cn(
+              'flex h-9 w-full items-center gap-2 rounded-md border border-line-strong bg-bg px-3 text-sm text-muted',
+              'transition-colors duration-[var(--duration-fast)] hover:border-accent/50 hover:text-ink',
+              collapsed && 'justify-center px-0',
+            )}
+          >
+            <Search className="size-4 shrink-0" strokeWidth={1.75} aria-hidden="true" />
+            {!collapsed && (
+              <>
+                <span className="flex-1 text-left">Sök …</span>
+                <span aria-hidden="true">
+                  <KeyCombo keys={[modKey(), 'K']} size="sm" />
+                </span>
+              </>
+            )}
+          </button>
+        </SideTooltip>
+      </div>
+
+      <nav aria-label="Vyer" className="flex flex-1 flex-col gap-1 p-2 pt-3">
         {primaryNav.map((item) => (
           <NavLink key={item.to} item={item} collapsed={collapsed} />
         ))}

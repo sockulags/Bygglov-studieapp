@@ -1,0 +1,44 @@
+FASTIGHETSRÄTT, UTDRAG: anläggningslagen (1973:1149) 1–9 §§ och fastighetsbildningslagen (1970:988) 7 kap. 1 §
+Lydelse enligt riksdagen.se, ändrad t.o.m. SFS 2022:362 (AL) respektive SFS 2020:921 (FBL). Hämtad 2026-11-05 från
+https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/anlaggningslag-19731149_sfs-1973-1149/ och https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/fastighetsbildningslag-1970988_sfs-1970-988/
+Lagtext är fri att återge. Servitut enligt jordabalken 14 kap. finns i jb-utdrag.txt.
+
+ANLÄGGNINGSLAG (1973:1149)
+
+Inledande bestämmelser
+1 §   Enligt denna lag kan inrättas anläggning som är gemensam för flera fastigheter och som tillgodoser ändamål av stadigvarande betydelse för dem (gemensamhetsanläggning). Fråga om gemensamhetsanläggning prövas vid förrättning.
+Kan enligt bestämmelser i annan författning än fastighetsbildningslagen (1970:988) fråga om inrättande av anläggning gemensamt för flera fastigheter prövas av domstol eller annan myndighet, gäller inte denna lag. Den gäller inte heller en allmän vatten- och avloppsanläggning.
+Lag (2006:413).
+2 §   Lagens bestämmelser om fastighet tillämpas även på
+   1. inskriven tomträtt, och
+   2. gruva.
+Om det är lämpligt, ska bestämmelserna tillämpas även på
+   1. byggnader och andra anläggningar som inte hör till en fastighet,
+   2. naturreservat, och
+   3. kulturreservat.
+Lag (2015:373).
+3 §   Den som innehar en fastighet på grund av ett testamentariskt förordnande, utan att någon har äganderätten till den, anses vid tillämpning av lagen som fastighetens ägare. Som ägare av ett naturreservat eller ett kulturreservat anses den som har beslutat om reservatet.
+Lag (2015:373).
+Förrättningsmyndighet
+4 §   Anläggningsförrättning handlägges av lantmäterimyndighet.
+Om det är lämpligt, får lantmäterimyndigheten förordna särskild förrättningsman. Denne skall äga den kunskap och erfarenhet som uppdraget kräver och även i övrigt vara lämplig till detta. Vad som i denna lag föreskrives om lantmäterimyndighet gäller i tillämpliga delar sådan särskild förrättningsman.
+Lag (1995:1405).
+Villkor för inrättande av gemensamhetsanläggning m. m.
+5 §   Gemensamhetsanläggning får ej inrättas för annan fastighet än sådan för vilken det är av väsentlig betydelse att ha del i anläggningen.
+6 §   Gemensamhetsanläggning får inrättas endast om fördelarna av ekonomisk eller annan art av anläggningen överväger de kostnader och olägenheter som anläggningen medför.
+Gemensamhetsanläggning får icke inrättas för byggnad eller annan anläggning som ej hör till fastighet, om ökad kostnad eller annan olägenhet av betydelse därigenom kan komma att uppstå för annan deltagare i gemensamhetsanläggningen. Lag (1987:126).
+6 a §   Bestämmelserna i 5 och 6 §§ ska inte tillämpas om det i en detaljplan har meddelats bestämmelser om en gemensamhetsanläggning och anläggningsbeslut meddelas under detaljplanens genomförandetid. Lag (2010:1005).
+7 §   Gemensamhetsanläggning får ej inrättas, om ägarna av de fastigheter som skall deltaga i anläggningen och hyresgästerna i sådana fastigheter mera allmänt motsätter sig åtgärden och har beaktansvärda skäl för det.
+Vid denna prövning skall främst deras mening beaktas som har störst nytta av anläggningen. Hyresgästerna företräds av den eller de organisationer av hyresgäster som har avtal om förhandlingsordning för berörda fastigheter eller, om förhandlingsordning inte gäller, riksorganisation av hyresgäster eller förening, som är ansluten till sådan organisation och inom vars verksamhetsområde fastigheterna är belägna (hyresgästorganisation).
+Första stycket gäller icke, om behovet av anläggningen är synnerligen angeläget. Lag (1989:726).
+8 §   Gemensamhetsanläggning skall förläggas och utföras på sådant sätt att ändamålet med anläggningen vinnes med minsta intrång och olägenhet utan oskälig kostnad. Åtgärd för att underlätta framtida tillbyggnad eller ökat utnyttjande av anläggningen får vidtagas, om åtgärden medför endast ringa ökning av kostnaden.
+9 §   Inom ett område med detaljplan eller områdesbestämmelser får en gemensamhetsanläggning inte inrättas i strid mot planen eller bestämmelserna. Om syftet med planen eller bestämmelserna inte motverkas, får dock mindre avvikelser göras.
+Gäller naturvårdsföreskrifter eller andra särskilda bestämmelser för bebyggande eller användning av mark än de som avses i första stycket, ska anläggning inrättas så att syftet med bestämmelserna inte motverkas. Lag (2014:207).
+
+FASTIGHETSBILDNINGSLAG (1970:988)
+7 kap. Särskilda bestämmelser om servitut, ledningsrätt och överföring av fastighetstillbehör
+1 §   Servitut som bildas genom fastighetsreglering ska vara av väsentlig betydelse för fastighets ändamålsenliga användning.
+Vid detta bedömande ska hänsyn inte tas till rättighet som är grundad på frivillig upplåtelse.
+Utan stöd av överenskommelse mellan ägaren av den härskande fastigheten och ägaren av den tjänande fastigheten får servitutet inte innefatta skyldighet för den senare att underhålla väg, byggnad eller annan anläggning som avses med servitutet. Servitut får inte bildas för viss tid eller göras beroende av villkor. Dock får bestämmas att servitut ska gälla endast så länge ändamålet inte tillgodosetts på annat sätt som särskilt anges.
+För bildande av servitut som det har meddelats bestämmelser om i en detaljplan gäller inte första stycket och 5 kap. 8 §.
+Lag (2010:1003).

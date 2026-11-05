@@ -12,6 +12,10 @@ const SHORTCUTS: [string, string][] = [
   ['Ctrl + Enter', 'Lämna in en text (skrivelse, öppen fråga)'],
   ['Esc', 'Stäng den öppna handlingen eller helskärmsvyn'],
   ['Piltangenter, + och −', 'Flytta och zooma i en ritning (när ritningen har fokus), 0 anpassar'],
+  [
+    'M',
+    'Mät i ritningen: klicka två punkter för ett avstånd. Esc avbryter mätningen, sedan rensas måtten',
+  ],
   ['?', 'Visa eller dölj den här hjälpen'],
 ];
 

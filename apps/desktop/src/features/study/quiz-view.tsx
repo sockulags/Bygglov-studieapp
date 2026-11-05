@@ -171,9 +171,9 @@ export function QuizView({ run }: { run: StudyRun }) {
       <header className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="min-w-0">
-            <p className="truncate text-xs font-semibold tracking-[0.08em] text-muted uppercase">
+            <h1 className="truncate text-xs font-semibold tracking-[0.08em] text-muted uppercase">
               {run.title}
-            </p>
+            </h1>
             <p className="text-sm text-muted tabular-nums" aria-live="polite">
               Fråga {position} av {total}
             </p>

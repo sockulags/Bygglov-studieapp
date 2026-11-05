@@ -1,0 +1,14 @@
+PRISBASBELOPP ENLIGT SOCIALFÖRSÄKRINGSBALKEN (2010:110) 2 KAP. 6–7 §§
+Källa: SCB, statistiknyheter "Prisbasbeloppet för år 2026" (publicerad 2025-07-14) och
+"Prisbasbeloppet för år 2027" (publicerad 2026-07-15). Hämtade 2026-11-05 från
+https://www.scb.se/hitta-statistik/statistik-efter-amne/priser-och-ekonomiska-tendenser/priser/konsumentprisindex-kpi/pong/statistiknyhet/prisbasbeloppet-for-ar-2026/
+https://www.scb.se/hitta-statistik/statistik-efter-amne/priser-och-ekonomiska-tendenser/priser/konsumentprisindex-kpi/pong/statistiknyhet/prisbasbeloppet-for-ar-2027/
+
+År    Prisbasbelopp
+2026  59 200 kr  ("har för år 2026 beräknats till 59 200 kronor", 400 kr högre än 2025)
+2027  59 600 kr  (SCB:s beräkning; 400 kr högre än 2026)
+2025  58 800 kr  (härlett ur SCB:s uppgift att 2026 är 400 kr högre än 2025)
+
+Användning i appen: byggsanktionsavgiften fastställs med det prisbasbelopp som gäller för det
+år då beslutet om avgiften fattas (PBF 9 kap. 1 §), inte året för överträdelsen. Ett beslut i
+december 2026 använder 59 200 kr, ett beslut i januari 2027 59 600 kr.

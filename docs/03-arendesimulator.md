@@ -54,7 +54,7 @@ Tre paneler, som ett ärendehanteringssystem fast snyggare:
 | Panel | Innehåll |
 | --- | --- |
 | **Diarium** (vänster) | Händelselogg med datum och handlingar. Nya handlingar markeras "NY". Klick öppnar handlingen. |
-| **Handling** (mitten) | Visning av vald handling: PDF, bild eller renderad SVG-ritning. Zoom, mätverktyg på ritningar (senare). |
+| **Handling** (mitten) | Visning av vald handling: PDF, bild eller renderad SVG-ritning. Zoom och mätverktyg på ritningar (avstånd och yta, tangenten M). |
 | **Arbetsyta** (höger) | Aktuellt steg med uppgift, checklista, anteckningar, och formuläret för beslut när det är dags. Flik för planbestämmelser och uppslag. |
 
 Ovanför: ärendets rubrik, fastighetsbeteckning, dagens datum i simuleringen, dagar sedan
@@ -200,8 +200,29 @@ Planen ovan är byggd. Det här är hur den faktiskt fungerar och var den avvike
   "Bedömt". Handledarportalen är fortfarande fas 3.
 - **Handlingar** är Markdown (visas som A4-papper med INKOM-stämpel) och SVG-ritningar som
   genereras från parametrar (situationsplan, fasader, planritning med sektion, plankarta).
-  PDF-handlingar visas utan pdf.js och mätverktyget kommer i fas 4.
+  PDF-handlingar visas utan pdf.js. Mätverktyget kom i fas 4, se nedan.
 - **Ärendena** i v0.2: A001 komplementbyggnad nära gräns (nivå 1, slutar med avskrivning),
   A002 tillbyggnad med liten avvikelse (nivå 2) och A003 nybyggnad utanför plan vid strand
   (nivå 3, med remisser, ändrad ansökan, rättidsprövning av ett överklagande och nämndens
   yttrande). Alla har status `utkast` tills handledaren granskat dem.
+
+## Fas 4: tillsyn, fler ärenden och mätverktyget
+
+- **Sex ärenden.** Till A001–A003 kommer A004 (nivå 4, tillsyn: garage byggt större än lovet på
+  Tallen 9, med byggsanktionsavgift, preskriptionsinvändning, lov i efterhand och rättelse före
+  sammanträdet), A005 (nivå 2, restaurang i en kulturhistoriskt värdefull byggnad på
+  Kopparslagaren 3, med föreläggande, revidering på sökandens initiativ och en hyresgästs
+  skrivelse) och A006 (nivå 3, flerbostadshus med balkonger över prickmark på Humlan 3, med
+  bullerbestämmelse, gatukostnadsvillkor, överklagande och länsstyrelsens beslut).
+- **Tillsyn i motorn.** Nivå 4 räknas som tillsynsärende: ingen tidsfrist enligt 9 kap. 99 §
+  förrän en ansökan om lov i efterhand kommer in (`ny_fristdag: ansokan_om_lov_i_efterhand`),
+  ny frist om sökanden sedan ändrar ansökan på eget initiativ (99 § första stycket 2, så i A004),
+  ingen förlängning dessförinnan, och beslutet heter "Beslut i tillsynsärende om …". Ett eget
+  beslutsutfall för ingripande finns inte än; avgiften och föreläggandet skrivs i motiveringen.
+- **Mätverktyget.** Generatorn skriver skala och koordinatsystem i varje ritning. I visaren mäter
+  hon avstånd (Mät, tangenten M) och ytor (Yta) i meter och kvadratmeter, med snäppning till
+  hörn och linjer, även när ritningen är zoomad.
+- **Ritningsgeneratorn** kan visa avvikelse mot lov och lovets kontur (situationsplan),
+  parkering med platser, balkonger, öppningar som är nya eller ska bort, skyltar,
+  ventilationskanaler, platt tak med attika (fasad) och våningsantal, nockhöjd och egna
+  bestämmelser som m₁ (plankarta). Se `content/README.md`.

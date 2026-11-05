@@ -492,6 +492,8 @@ function CaseWorkspace({
           {...(!wide ? { role: 'tabpanel', 'aria-labelledby': 'tab-arbete' } : {})}
           className={cn(panelClass('arbete'), 'h-full border-l border-line bg-paper')}
         >
+          {/* Keeps the heading order (h1 → h2 → the step's h3) in both layouts. */}
+          <h2 className="sr-only">Arbetsyta</h2>
           <WorkPanel
             caseFile={caseFile}
             active={active}

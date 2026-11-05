@@ -1,0 +1,747 @@
+# Nivå 2-ärende. Fiktiv fastighet, fiktiv kommun, fiktiv detaljplan och fiktivt kulturmiljöprogram.
+# Lagrum i 9 kap. PBL är kontrollerade mot docs/rattslage/pbl-9-kap.txt (lydelse 2025:974).
+# PBL 1, 2, 8, 10, 12 och 13 kap., PBF 5 och 6 kap., FL, MB 9 kap. och KML 3 kap. är
+# kontrollerade mot utdragen i docs/rattslage/ (hämtade från riksdagen.se 2026-11-04–05).
+# Ärendet utspelar sig under 2026, alltså före 2027-01-01: 8 kap. 2 och 7 §§ PBL och
+# 9 kap. 56 § gäller i nuvarande lydelse.
+# Lokalen ligger i husets östra del. Situationsplanens x-axel går åt öster; sedd från
+# Storgatan (norr) ligger öster till vänster, så fasadritningens x = 18 − situationsplanens x.
+# Planritningen har egna koordinater: x = 0 är lokalens västra vägg (situationsplanens x = 7).
+id: A005
+titel: Fasadändring och ny restaurang i centrum
+niva: 2
+status: utkast
+rattslage: "2025-12-01"
+fastighet: Kopparslagaren 3, Åkerslunda kommun
+sammanfattning: >
+  En butikslokal i bottenvåningen på ett bostads- och affärshus från 1924 vid Storgatan ska
+  bli restaurang. Sökanden, som hyr lokalen, vill slå samman skyltfönstren, bredda entrén,
+  sätta upp en skylt och dra en köksventilationskanal på gårdsfasaden. Huset ligger inom
+  detaljplan med centrumändamål och är utpekat som särskilt värdefullt i kommunens
+  kulturmiljöprogram, men planen saknar skyddsbestämmelser. Ansökan behöver kompletteras,
+  stadsantikvarien kräver en annan entrélösning och en hyresgäst i huset oroar sig för buller.
+startdatum: 2026-04-13
+moduler: [03-lovplikt, 07-krav-byggnadsverk, 06-handlaggning, 01-forvaltningsratt]
+larandemal:
+  - Avgöra lovplikten för ändrad användning (9 kap. 15 § 1), fasadändring mot allmän plats (15 § 3) och åtgärder på en särskilt värdefull byggnad (37 och 38 §§)
+  - Förstå att skyltar inte längre är generellt lovpliktiga efter 2025-12-01, men kan kräva lov som fasadändring eller i särskilt värdefulla miljöer
+  - Pröva förvanskningsförbudet och varsamhetskravet (8 kap. 13 och 17 §§) för en byggnad som saknar q-bestämmelse men pekas ut i kulturmiljöprogrammet
+  - Väga varsamhet mot kravet på tillgänglig entré till en publik lokal (8 kap. 1 § 3 och 4 § första stycket 8)
+  - Förelägga om komplettering (9 kap. 91 §) och hantera ändrade ritningar som kommer in på sökandens initiativ (99 § första stycket 2, 100 § 2)
+  - Skicka remisser till stadsantikvarien och miljöenheten och hålla isär lovprövningen och miljöbalkens regler om störningar
+  - Se att en planenlig åtgärd inte kräver underrättelse (94 §) men att beslutet ändå kungörs och meddelas (109–110 §§)
+  - Skriva ett beslut med preciserade villkor om utförande, upplysningar enligt 105 § och rätt expediering
+
+parter:
+  # Grannarna är ägarna till fastigheterna som gränsar till Kopparslagaren 3 eller ligger
+  # mitt emot på andra sidan Storgatan. De ska få meddelande om kungörelsen (9 kap. 110 § 1).
+  sokande: [Bistro Kopparn AB, Leila Haddad]
+  fastighetsagare: [Fastighets AB Kopparslagaren]
+  grannar:
+    - { fastighet: Kopparslagaren 2, namn: [Åkerslunda Bostäder AB] }
+    - { fastighet: Kopparslagaren 4, namn: [Margareta Wiklund, Lars Wiklund] }
+    - { fastighet: Kopparslagaren 7, namn: [Bostadsrättsföreningen Kopparslagaren 7] }
+    - { fastighet: Smeden 5, namn: [Smedjan Fastigheter AB] }
+
+taxa:
+  # Förenklad fiktiv taxa. Posten omfattar ändrad användning med fasadändring, remisser och
+  # kungörelse.
+  bygglov_ändrad_användning_med_fasadändring: 15800
+  reduktion_per_vecka: 0.2
+
+handlingar:
+  - id: H1
+    typ: ansokan
+    titel: Ansökan om bygglov
+    fil: handlingar/ansokan.md
+    inkom: 2026-04-13
+    fakta:
+      atgard: ändrad användning från butik till restaurang, fasadändring, skylt och ventilationskanal
+      lokal_bruttoarea_kvm: 132
+      sittplatser: 48
+      kontrollansvarig: Peter Lund
+      byggbedomare: false
+      fasadritning_mot_garden: false
+      antikvarisk_konsekvensbeskrivning: false
+  - id: H2
+    typ: fasadritning
+    titel: Fasad mot Storgatan, befintlig och föreslagen 1:100
+    fil: handlingar/fasader.svg
+    inkom: 2026-04-13
+    fakta:
+      skyltfonster_befintliga: "tre fönster 1,6 m breda med pelare emellan"
+      skyltfonster_foreslaget: "ett fönster 7,0 m brett, bröstning 0,3 m"
+      entre_befintlig: "portal 1,4 m med kalkstensomfattning"
+      entre_foreslagen: "2,0 m bred glasdörr, portalens omfattning tas bort"
+    parametrar:
+      skala: 100
+      fasader:
+        - rubrik: Fasad mot Storgatan, befintlig utformning
+          delar:
+            - namn: Befintlig byggnad (lokalen till vänster om porten)
+              bredd: 18
+              byggnadshojd: 13.6
+              takvinkel: 38
+              vy: langsida
+              djup: 12
+              takutsprang: 0.3
+              oppningar:
+                - { typ: fonster, x: 0.9, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: fonster, x: 3.4, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: fonster, x: 5.9, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: dorr, x: 8.4, bredd: 1.4, hojd: 2.6 }
+                - { typ: port, x: 12.0, bredd: 1.6, hojd: 2.8 }
+                - { typ: fonster, x: 15.4, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+        - rubrik: Fasad mot Storgatan, föreslagen utformning
+          delar:
+            - namn: Ändrad bottenvåning (sammanslaget skyltfönster, breddad entré)
+              bredd: 18
+              byggnadshojd: 13.6
+              takvinkel: 38
+              vy: langsida
+              djup: 12
+              takutsprang: 0.3
+              detaljer:
+                - { typ: skylt, x: 1.8, bredd: 4.6, underkant: 3.2, hojd: 0.7, text: KOPPARN, ny: true }
+              oppningar:
+                - { typ: fonster, x: 0.6, bredd: 7.0, hojd: 2.6, underkant: 0.3, status: ny }
+                - { typ: dorr, x: 8.0, bredd: 2.0, hojd: 2.6, status: ny }
+                - { typ: fonster, x: 0.9, bredd: 1.6, hojd: 2.0, underkant: 0.8, status: rivs }
+                - { typ: fonster, x: 3.4, bredd: 1.6, hojd: 2.0, underkant: 0.8, status: rivs }
+                - { typ: fonster, x: 5.9, bredd: 1.6, hojd: 2.0, underkant: 0.8, status: rivs }
+                - { typ: dorr, x: 8.4, bredd: 1.4, hojd: 2.6, status: rivs }
+                - { typ: port, x: 12.0, bredd: 1.6, hojd: 2.8 }
+                - { typ: fonster, x: 15.4, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+      ritningshuvud: { datum: 2026-04-02, ritad_av: Arkitektkontoret Torget, ritningsnummer: A-11 }
+  - id: H3
+    typ: planritning
+    titel: Planritning, lokal i bottenvåningen 1:100
+    fil: handlingar/planritning.svg
+    inkom: 2026-04-13
+    parametrar:
+      skala: 100
+      rubrik: Bottenvåning, restaurang
+      vaggtjocklek: 0.5
+      byggnader:
+        - { namn: "Lokal, Storgatan 14", rektangel: [0, 0, 11, 12] }
+      rum:
+        - { namn: Entré med ramp, rektangel: [0.5, 0.5, 2.8, 4.0] }
+        - { namn: Matsal, rektangel: [3.4, 0.5, 7.1, 6.4] }
+        - { namn: Bar, rektangel: [0.5, 4.6, 2.8, 2.3] }
+        - { namn: Kök, rektangel: [0.5, 7.0, 4.6, 4.5] }
+        - { namn: Disk, rektangel: [5.2, 7.0, 2.0, 4.5] }
+        - { namn: WC (tillgängligt), rektangel: [7.3, 7.0, 3.2, 2.4] }
+        - { namn: Personal, rektangel: [7.3, 9.5, 3.2, 2.0] }
+      dorrar:
+        - { position: [1.2, 0.0], vagg: horisontell, bredd: 1.4, oppnas_mot: soder }
+        - { position: [3.3, 1.0], vagg: vertikal, typ: oppning, tjocklek: 0.1, bredd: 1.8 }
+        - { position: [0.8, 4.5], vagg: horisontell, typ: oppning, tjocklek: 0.1, bredd: 1.6 }
+        - { position: [3.3, 5.0], vagg: vertikal, typ: oppning, tjocklek: 0.1, bredd: 1.4 }
+        - { position: [3.8, 6.9], vagg: horisontell, tjocklek: 0.1, bredd: 0.9, oppnas_mot: soder }
+        - { position: [5.1, 8.0], vagg: vertikal, tjocklek: 0.1, bredd: 0.9, oppnas_mot: oster }
+        - { position: [8.0, 6.9], vagg: horisontell, tjocklek: 0.1, bredd: 0.9, oppnas_mot: soder }
+        - { position: [7.2, 10.0], vagg: vertikal, tjocklek: 0.1, bredd: 0.8, oppnas_mot: oster }
+        - { position: [1.5, 11.5], vagg: horisontell, bredd: 1.0, oppnas_mot: soder }
+      fonster:
+        - { position: [3.5, 0.0], vagg: horisontell, bredd: 1.6 }
+        - { position: [6.0, 0.0], vagg: horisontell, bredd: 1.6 }
+        - { position: [8.5, 0.0], vagg: horisontell, bredd: 1.6 }
+        - { position: [3.0, 11.5], vagg: horisontell, bredd: 1.2 }
+      ritningshuvud: { datum: 2026-04-02, ritad_av: Arkitektkontoret Torget, ritningsnummer: A-12 }
+  - id: H4
+    typ: situationsplan
+    titel: Situationsplan 1:400
+    fil: handlingar/situationsplan.svg
+    inkom: 2026-04-13
+    parametrar:
+      skala: 400
+      tomt_bredd: 18
+      tomt_djup: 34
+      hus: [0, 0, 18, 12]
+      huvudbyggnad_namn: Befintligt bostads- och affärshus
+      ovriga_byggnader:
+        - { rektangel: [0, 26, 10, 8], namn: Gårdshus (förråd) }
+      anlaggningar:
+        - { rektangel: [11.4, 12, 0.9, 0.6], namn: Ny ventilationskanal }
+      gata: { sida: norr, namn: Storgatan, bredd: 14, fastighet: "Åkerslunda 2:5" }
+      grannar: { norr: Smeden 5, oster: Kopparslagaren 4, soder: Kopparslagaren 7, vaster: Kopparslagaren 2 }
+      grannhus: [[-18, 0, 18, 12], [18, 0, 18, 12], [0, 34, 18, 10], [-6, 26, 6, 8]]
+      ritningshuvud: { datum: 2026-04-02, ritad_av: Arkitektkontoret Torget, ritningsnummer: A-10 }
+  - id: H5
+    typ: kulturmiljoprogram
+    titel: Kulturmiljöprogrammet, objektsblad för Kopparslagaren 3
+    fil: handlingar/kulturmiljoprogram.md
+    inkom: 2026-04-13
+    fakta:
+      klass: 1
+      sarskilt_vardefull_8_kap_13: true
+      q_bestammelse: false
+      bebyggelseomrade_sarskilt_vardefullt: Storgatan mellan Stora torget och Kyrkbacken
+  - id: H6
+    typ: planbestammelser
+    titel: Detaljplan Dp 1987-02, planbestämmelser
+    fil: handlingar/planbestammelser.md
+    inkom: 2026-04-13
+    fakta:
+      anvandning: BC
+      centrumandamal_omfattar_restaurang: true
+      hogsta_byggnadshojd: 15.0
+      skyddsbestammelser: false
+      genomforandetid_utgatt: true
+  - id: H7
+    typ: plankarta
+    titel: Detaljplan Dp 1987-02, plankarta 1:1000
+    fil: handlingar/plankarta.svg
+    inkom: 2026-04-13
+    parametrar:
+      skala: 1000
+      plan:
+        beteckning: Dp 1987-02
+        namn: Detaljplan för kvarteren Kopparslagaren och Smeden
+        laga_kraft: 1987-09-14
+        anmarkning: Genomförandetiden har gått ut. Planen saknar skydds- och varsamhetsbestämmelser.
+      omrade: [0, 0, 108, 80]
+      kvarter:
+        - namn: Smeden
+          rektangel: [0, 0, 108, 8]
+          anvandning: BC
+          byggnadshojd: 15
+          fastigheter:
+            - { beteckning: "5", rektangel: [36, 0, 30, 8] }
+        - namn: Kopparslagaren
+          rektangel: [0, 22, 108, 34]
+          anvandning: BC
+          byggnadshojd: 15
+          fastigheter:
+            - { beteckning: "1", rektangel: [0, 22, 24, 34] }
+            - { beteckning: "2", rektangel: [24, 22, 18, 34] }
+            - { beteckning: "3", rektangel: [42, 22, 18, 34], markerad: true }
+            - { beteckning: "4", rektangel: [60, 22, 24, 34] }
+            - { beteckning: "5", rektangel: [84, 22, 24, 34] }
+        - namn: Kopparslagaren
+          rektangel: [0, 56, 108, 24]
+          anvandning: BC
+          byggnadshojd: 11
+          fastigheter:
+            - { beteckning: "8", rektangel: [0, 56, 42, 24] }
+            - { beteckning: "7", rektangel: [42, 56, 18, 24] }
+            - { beteckning: "6", rektangel: [60, 56, 48, 24] }
+      allmanna_platser:
+        - { anvandning: GATA, namn: Storgatan, rektangel: [0, 8, 108, 14] }
+      ritningshuvud:
+        projekt: Utdrag ur detaljplan Dp 1987-02
+        ritningstyp: Plankarta
+        datum: 2026-04-13
+        ritad_av: Åkerslunda kommun
+  - id: H8
+    typ: antikvarisk_konsekvensbeskrivning
+    titel: Antikvarisk konsekvensbeskrivning
+    fil: handlingar/antikvarisk-konsekvensbeskrivning.md
+    dold_tills: E1
+  - id: H9
+    typ: fasadritning
+    titel: Fasad mot gården med ventilationskanal 1:100
+    fil: handlingar/fasad-gard.svg
+    dold_tills: E1
+    fakta:
+      kanal_dimension: "Ø 400 mm, i plåtinklädnad 0,5 × 0,5 m"
+      kanal_hojd_over_nock_m: 1.0
+      nockhojd_m: 18.3
+    parametrar:
+      skala: 100
+      fasader:
+        - rubrik: Fasad mot gården (söder)
+          delar:
+            - namn: Befintlig byggnad
+              bredd: 18
+              byggnadshojd: 13.6
+              takvinkel: 38
+              vy: langsida
+              djup: 12
+              takutsprang: 0.3
+              detaljer:
+                - { typ: kanal, x: 11.6, bredd: 0.5, underkant: 2.4, hojd: 16.9, text: Ny ventilationskanal, ny: true }
+              oppningar:
+                - { typ: fonster, x: 1.2, bredd: 1.2, hojd: 1.4, underkant: 1.2 }
+                - { typ: dorr, x: 4.6, bredd: 1.0, hojd: 2.2 }
+                - { typ: dorr, x: 8.5, bredd: 1.0, hojd: 2.2 }
+                - { typ: fonster, x: 10.0, bredd: 1.2, hojd: 1.2, underkant: 1.2 }
+                - { typ: fonster, x: 15.4, bredd: 1.2, hojd: 1.2, underkant: 1.2 }
+                - { typ: fonster, x: 1.2, bredd: 1.1, hojd: 1.6, underkant: 5.0 }
+                - { typ: fonster, x: 5.0, bredd: 1.1, hojd: 1.6, underkant: 5.0 }
+                - { typ: fonster, x: 8.0, bredd: 1.1, hojd: 1.6, underkant: 5.0 }
+                - { typ: fonster, x: 13.0, bredd: 1.1, hojd: 1.6, underkant: 5.0 }
+                - { typ: fonster, x: 15.8, bredd: 1.1, hojd: 1.6, underkant: 5.0 }
+                - { typ: fonster, x: 1.2, bredd: 1.1, hojd: 1.6, underkant: 8.1 }
+                - { typ: fonster, x: 5.0, bredd: 1.1, hojd: 1.6, underkant: 8.1 }
+                - { typ: fonster, x: 8.0, bredd: 1.1, hojd: 1.6, underkant: 8.1 }
+                - { typ: fonster, x: 13.0, bredd: 1.1, hojd: 1.6, underkant: 8.1 }
+                - { typ: fonster, x: 15.8, bredd: 1.1, hojd: 1.6, underkant: 8.1 }
+                - { typ: fonster, x: 1.2, bredd: 1.1, hojd: 1.6, underkant: 11.2 }
+                - { typ: fonster, x: 5.0, bredd: 1.1, hojd: 1.6, underkant: 11.2 }
+                - { typ: fonster, x: 8.0, bredd: 1.1, hojd: 1.6, underkant: 11.2 }
+                - { typ: fonster, x: 13.0, bredd: 1.1, hojd: 1.6, underkant: 11.2 }
+                - { typ: fonster, x: 15.8, bredd: 1.1, hojd: 1.6, underkant: 11.2 }
+      ritningshuvud: { datum: 2026-04-24, ritad_av: Arkitektkontoret Torget, ritningsnummer: A-13 }
+  - id: H10
+    typ: remissvar
+    titel: Yttrande från stadsantikvarien
+    fil: handlingar/remissvar-stadsantikvarien.md
+    dold_tills: E2
+  - id: H11
+    typ: remissvar
+    titel: Yttrande från miljöenheten
+    fil: handlingar/remissvar-miljoenheten.md
+    dold_tills: E2
+  - id: H12
+    typ: fasadritning
+    titel: Fasad mot Storgatan, revidering A 1:100
+    fil: handlingar/fasader-rev-a.svg
+    dold_tills: E2
+    fakta:
+      skyltfonster: "tre fönster 1,6 m breda, bröstningen sänkt till sockelns överkant 0,6 m, pelarna behålls"
+      entre: "befintlig portal 1,4 m med kalkstensomfattning behålls, ny glasad pardörr i trä"
+      tillganglighet: "invändig ramp 1:12 i entrén, automatisk dörröppnare"
+      andrat_mot_H2: skyltfönster och entré
+    parametrar:
+      skala: 100
+      fasader:
+        - rubrik: Fasad mot Storgatan, befintlig utformning
+          delar:
+            - namn: Befintlig byggnad
+              bredd: 18
+              byggnadshojd: 13.6
+              takvinkel: 38
+              vy: langsida
+              djup: 12
+              takutsprang: 0.3
+              oppningar:
+                - { typ: fonster, x: 0.9, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: fonster, x: 3.4, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: fonster, x: 5.9, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: dorr, x: 8.4, bredd: 1.4, hojd: 2.6 }
+                - { typ: port, x: 12.0, bredd: 1.6, hojd: 2.8 }
+                - { typ: fonster, x: 15.4, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+        - rubrik: Fasad mot Storgatan, revidering A
+          delar:
+            - namn: Ändrad bottenvåning (pelare och portal behålls)
+              bredd: 18
+              byggnadshojd: 13.6
+              takvinkel: 38
+              vy: langsida
+              djup: 12
+              takutsprang: 0.3
+              detaljer:
+                - { typ: skylt, x: 2.9, bredd: 2.6, underkant: 3.2, hojd: 0.35, text: KOPPARN, fristaende: true, ny: true }
+              oppningar:
+                - { typ: fonster, x: 0.9, bredd: 1.6, hojd: 2.2, underkant: 0.6, status: ny }
+                - { typ: fonster, x: 3.4, bredd: 1.6, hojd: 2.2, underkant: 0.6, status: ny }
+                - { typ: fonster, x: 5.9, bredd: 1.6, hojd: 2.2, underkant: 0.6, status: ny }
+                - { typ: dorr, x: 8.4, bredd: 1.4, hojd: 2.6, status: ny }
+                - { typ: port, x: 12.0, bredd: 1.6, hojd: 2.8 }
+                - { typ: fonster, x: 15.4, bredd: 1.6, hojd: 2.0, underkant: 0.8 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 4.9 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 8.0 }
+                - { typ: fonster, x: 1.3, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 4.0, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 6.7, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 9.4, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 12.2, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+                - { typ: fonster, x: 15.6, bredd: 1.2, hojd: 1.7, underkant: 11.1 }
+      ritningshuvud: { datum: 2026-05-20, ritad_av: Arkitektkontoret Torget, ritningsnummer: A-11 rev A }
+  - id: H13
+    typ: skrivelse
+    titel: Skrivelse från sökanden om ändrade ritningar
+    fil: handlingar/skrivelse-sokanden-revidering.md
+    dold_tills: E2
+  - id: H14
+    # En hyresgäst i huset är inte granne i den mening som avses i 9 kap. 96 § och ska inte
+    # delges enligt 108 §. Därför typ skrivelse och inte grannyttrande.
+    typ: skrivelse
+    titel: Skrivelse från hyresgäst på Storgatan 14
+    fil: handlingar/skrivelse-hyresgast.md
+    dold_tills: E3
+
+steg:
+  - id: S1
+    typ: checklista
+    rubrik: Är ansökan komplett?
+    instruktion: >
+      Gå igenom ansökan, ritningarna och kulturmiljöprogrammets blad. Markera vad som finns.
+      Skilj på det som behövs för lovprövningen och det som behövs först till det tekniska
+      samrådet.
+    poster:
+      - { text: Ifylld och undertecknad ansökan, finns: true }
+      - { text: Fastighetsägarens medgivande, finns: true, kommentar: "PBL kräver det inte, men det är bra att ha. Fastighetsägaren är part och ska få yttra sig och delges beslutet (9 kap. 98 och 108 §§)." }
+      - { text: Situationsplan, finns: true }
+      - { text: Planritning över lokalen, finns: true }
+      - { text: "Fasadritning mot Storgatan, befintlig och föreslagen", finns: true }
+      - { text: "Redovisning av skylten (mått, material, belysning)", finns: true, kommentar: "Finns i ansökan, punkt 2." }
+      - { text: Fasadritning mot gården med ventilationskanalen, finns: false, kommentar: "Kanalen beskrivs bara i text. Den är en fasadändring på en särskilt värdefull byggnad och behöver redovisas på ritning med placering, mått och höjd över taknocken." }
+      - { text: Antikvarisk konsekvensbeskrivning, finns: false, kommentar: "Kulturmiljöprogrammet säger att ändringar av byggnader i klass 1 ska redovisas med en sådan. Den behövs för prövningen enligt 8 kap. 13 och 17 §§." }
+      - { text: Uppgift om kontrollansvarig, finns: true }
+      - { text: Brandskyddsbeskrivning och förslag till kontrollplan, finns: false, kommentar: "Behövs till det tekniska samrådet och startbeskedet (10 kap. 18 §), inte för lovprövningen." }
+    forklaring: >
+      En ansökan ska innehålla de ritningar, beskrivningar och andra uppgifter som behövs för
+      prövningen (9 kap. 86 § 7). Här saknas en ritning över gårdsfasaden med kanalen och den
+      antikvariska konsekvensbeskrivning som behövs för att bedöma om ändringarna förvanskar
+      byggnaden. Förelägg sökanden att komplettera (9 kap. 91 §). Ansökan kom in den 13 april
+      2026. Skickas föreläggandet senast den 4 maj, inom tre veckor, räknas tioveckorsfristen
+      från den dag kompletteringen kommer in (9 kap. 99 § första stycket 4). Brandskydd och
+      kontrollplan hör till startbeskedet.
+    lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 91 §, PBL 9 kap. 99 §, PBL 10 kap. 18 §]
+    tid_framat_dagar: 2
+
+  - id: S2
+    typ: skrivelse
+    rubrik: Skriv föreläggande om komplettering
+    instruktion: >
+      Skriv föreläggandet till sökanden. Ange vad som saknas och varför, en svarstid och vad
+      som händer om föreläggandet inte följs.
+    ar_forelaggande: true
+    bedomningspunkter:
+      - Begär en fasadritning mot gården som visar kanalens placering, mått, material, kulör och höjd över taknocken
+      - Begär en antikvarisk konsekvensbeskrivning och förklarar varför, med hänvisning till kulturmiljöprogrammet och 8 kap. 13 och 17 §§ PBL
+      - Anger en bestämd svarstid, t.ex. tre veckor
+      - Upplyser om att ansökan kan avvisas eller ärendet avgöras i befintligt skick om föreläggandet inte följs (9 kap. 91 §)
+      - Skickas inom tre veckor från ansökningsdagen och säger att tidsfristen för beslut räknas från den dag kompletteringen kommer in (9 kap. 99 § första stycket 4 och 100 § 2)
+      - Begriplig och vänlig ton, med kontaktuppgifter till handläggaren
+    modelltext: handlingar/modell-forelaggande.md
+
+  - id: S3
+    typ: fraga
+    rubrik: Vad kräver lov?
+    instruktion: Läs ansökan, kulturmiljöprogrammets blad och planbestämmelserna.
+    fragetyp: flersvar
+    fraga: >
+      Ansökan gäller ny användning av lokalen, nya skyltfönster och entré mot Storgatan, en
+      skylt och en ventilationskanal på gårdsfasaden. Vilka påståenden stämmer?
+    alternativ:
+      - text: Att göra om butiken till restaurang kräver bygglov som ändrad användning, eftersom lokalen tas i anspråk för ett väsentligen annat ändamål (9 kap. 15 § 1).
+        ratt: true
+      - text: Skyltfönstren och entrén kräver bygglov som fasadändring, eftersom huset är ett flerbostadshus inom detaljplan och fasaden vetter mot Storgatan, som är allmän plats (9 kap. 15 § 3).
+        ratt: true
+      - text: Ventilationskanalen kräver bygglov trots att gården inte är allmän plats, eftersom byggnaden är särskilt värdefull enligt 8 kap. 13 § (9 kap. 37 § 2).
+        ratt: true
+      - text: Skylten kräver bygglov eftersom alla skyltar inom detaljplan är lovpliktiga.
+      - text: Skylten kräver bygglov här, men inte för att den är en skylt. Den påverkar fasadens yttre karaktärsdrag mot allmän plats och sitter på en särskilt värdefull byggnad i en särskilt värdefull stadsmiljö (9 kap. 15 § 3, 37 § 2 och 38 § 2 b).
+        ratt: true
+      - text: Ventilationsinstallationen kräver dessutom en egen anmälan enligt 6 kap. 1 § 4 PBF.
+      - text: Ingenting kräver lov, eftersom restaurang ryms i planens centrumändamål.
+    forklaring: >
+      Butik till restaurang är en ändrad användning (15 § 1): lukt, ljud, ventilation,
+      brandskydd och hygienkrav gör ändamålet väsentligen annat. Att användningen stämmer med
+      planen gör inte åtgärden lovfri, den gör bara att lov ska ges om kraven är uppfyllda.
+      Fasadändring definieras i 1 kap. 4 § som en ändring som påverkar byggnadens yttre
+      karaktärsdrag. Mot allmän plats är den lovpliktig på andra byggnader än en- och
+      tvåbostadshus (15 § 3). Kanalen sitter mot gården, men eftersom byggnaden är särskilt
+      värdefull krävs lov för fasadändringar på alla sidor (37 § 2), oavsett att planen saknar
+      q-bestämmelse. Före 2025-12-01 krävdes bygglov för de flesta skyltar inom detaljplan.
+      Den generella lovplikten är borttagen, men en skylt på en fasad mot allmän plats kan
+      vara en fasadändring, och 38 § 2 b kräver lov för skyltar i särskilt värdefulla
+      bebyggelseområden om de påverkar områdets karaktär eller byggnadens yttre karaktärsdrag.
+      Anmälan enligt 6 kap. 1 § PBF gäller bara åtgärder som inte kräver lov. Ventilationen
+      ingår i inredningen av restaurangen, som kräver lov, och prövas i stället vid det
+      tekniska samrådet och startbeskedet (10 kap. 3 §).
+    lagrum: [PBL 9 kap. 15 §, PBL 1 kap. 4 §, PBL 9 kap. 37 §, PBL 9 kap. 38 §, PBL 8 kap. 13 §, PBF 6 kap. 1 §, PBL 10 kap. 3 §]
+    tid_framat_dagar: 1
+
+  - id: S4
+    typ: fraga
+    rubrik: Remisser och andra tillstånd
+    instruktion: Kompletteringen har kommit in. Bestäm vilka som ska yttra sig och vad sökanden ska upplysas om.
+    fragetyp: flersvar
+    fraga: Vilka av följande ska du göra?
+    alternativ:
+      - text: Skicka ansökan på remiss till stadsantikvarien, för en bedömning av förvanskning och varsamhet.
+        ratt: true
+      - text: Skicka ansökan på remiss till miljöenheten, om lukt och buller från köksventilationen och om livsmedelsregistreringen.
+        ratt: true
+      - text: Upplysa sökanden om att restaurangen ska registreras som livsmedelsanläggning innan verksamheten startar och att serveringstillstånd för alkohol söks separat.
+        ratt: true
+      - text: Begära länsstyrelsens tillstånd enligt kulturmiljölagen, eftersom huset finns i kulturmiljöprogrammet.
+      - text: Skicka ansökan på remiss till Trafikverket, eftersom flaggskylten hänger ut över gatan.
+      - text: Underrätta grannarna, så att de kan yttra sig över restaurangen innan beslut.
+    forklaring: >
+      Nämnden ska se till att ärendet blir utrett och kan begära yttranden från andra (23 och
+      26 §§ förvaltningslagen). Stadsantikvarien ger nämnden kunskap om kulturvärdena, men
+      bedömningen enligt 8 kap. 13 och 17 §§ gör nämnden själv. Miljöenheten bedömer lukt och
+      buller, som en restaurang kan orsaka som miljöfarlig verksamhet (9 kap. 1 § miljöbalken),
+      och hanterar livsmedelsregistreringen. Nämnden ska upplysa sökanden om andra tillstånd som
+      behövs (9 kap. 92 § PBL). Länsstyrelsens tillstånd krävs bara för ändringar av ett
+      byggnadsminne (3 kap. 14 § kulturmiljölagen), och ett kulturmiljöprogram gör inte en
+      byggnad till byggnadsminne. Storgatan är en kommunal gata, så Trafikverket berörs inte.
+      Underrättelse till grannar krävs bara när åtgärden avviker från planen eller ligger
+      utanför plan (9 kap. 94 §), och restaurangen är planenlig.
+    lagrum: [FL 23 §, FL 26 §, PBL 9 kap. 92 §, MB 9 kap. 1 §, KML 3 kap. 14 §, PBL 8 kap. 13 §, PBL 8 kap. 17 §]
+
+  - id: S5
+    typ: fraga
+    rubrik: Förvanskning, varsamhet och tillgänglighet
+    instruktion: >
+      Remissvaren och de reviderade ritningarna har kommit in. Läs kulturmiljöprogrammets
+      blad, konsekvensbeskrivningen, stadsantikvariens yttrande och revidering A. Skriv några
+      stycken som underlag för beslutet.
+    fragetyp: oppen
+    fraga: >
+      Uppfyller den reviderade ansökan förbudet mot förvanskning och kravet på varsamhet
+      (8 kap. 13 och 17 §§ PBL)? Blir entrén tillgänglig (8 kap. 1 § 3 och 4 § första stycket
+      8)? Hur väger du varsamhet mot tillgänglighet?
+    bedomningspunkter:
+      - Konstaterar att byggnaden är särskilt värdefull enligt 8 kap. 13 § även utan q-bestämmelse; kulturmiljöprogrammet är ett kunskapsunderlag och nämnden gör bedömningen
+      - Pekar ut karaktärsdragen som ska bevaras, portalen med kalkstensomfattning, granitsockeln, skyltfönstrens indelning med pelare, träsnickerierna och kulören
+      - Bedömer att den ursprungliga ansökan med sammanslaget skyltfönster och borttagen portal hade förvanskat byggnaden, och att revidering A inte gör det
+      - Prövar varsamhetskravet (8 kap. 17 §) för skylten och kanalen, fristående bokstäver inom bottenvåningen, kanal på gårdsfasaden i fasadens kulör
+      - Konstaterar att entrén till en lokal dit allmänheten har tillträde ska vara tillgänglig och användbar, och att den invändiga rampen och den automatiska dörröppnaren löser det utan att portalen ändras
+      - Påpekar att avsteg från tillgänglighetskraven bara får göras om det är uppenbart oskäligt (8 kap. 7 §), så varsamheten ensam motiverar inte en otillgänglig entré
+    modellsvar: >
+      Kopparslagaren 3 pekas i kulturmiljöprogrammet ut som en särskilt värdefull byggnad i en
+      värdefull stadsmiljö. Detaljplanen saknar skyddsbestämmelser, men förbudet mot
+      förvanskning i 8 kap. 13 § gäller direkt enligt lagen, och nämnden bedömer liksom
+      programmet att byggnaden är särskilt värdefull. Det är bottenvåningens tre skyltfönster
+      med pelare, portalen med kalkstensomfattning och granitsockeln som bär fasadens
+      symmetri. Att slå samman fönstren och ta bort portalen hade förvanskat byggnaden.
+      Revidering A behåller pelarna, portalen och sockeln och sänker bara bröstningen till
+      sockelns överkant. Med trädetaljer och kulör enligt material- och kulörbeskrivningen
+      uppfyller ändringen varsamhetskravet i 8 kap. 17 §. Skylten med fristående bokstäver
+      inom bottenvåningen och kanalen på gårdsfasaden, målad i fasadens kulör, är också
+      varsamma. Restaurangen är en lokal dit allmänheten har tillträde, och entrén ska vara
+      tillgänglig och användbar (8 kap. 1 § 3 och 4 § första stycket 8). Avsteg kan bara göras
+      om det är uppenbart oskäligt att uppfylla kraven (8 kap. 7 §). Här tas nivåskillnaden på
+      0,35 meter upp med en invändig ramp och dörren får automatisk öppnare, så både
+      tillgängligheten och portalen klaras.
+    lagrum: [PBL 8 kap. 13 §, PBL 8 kap. 17 §, PBL 8 kap. 1 §, PBL 8 kap. 2 §, PBL 8 kap. 4 §, PBL 8 kap. 7 §, PBL 9 kap. 56 §]
+    tid_framat_dagar: 4
+
+  - id: S6
+    typ: fraga
+    rubrik: Vem ska höras före beslut?
+    instruktion: Ansökan är komplett och remissvaren har kommit in. Bestäm vem som ska få yttra sig innan du beslutar.
+    fragetyp: flersvar
+    fraga: Vilka ska få tillfälle att yttra sig över underlaget innan beslutet?
+    alternativ:
+      - text: Bistro Kopparn AB som sökande, över remissvaren, konsekvensbeskrivningen, hyresgästens skrivelse och de villkor nämnden tänker ställa.
+        ratt: true
+      - text: Fastighets AB Kopparslagaren som fastighetsägare, över samma underlag.
+        ratt: true
+      - text: Ägarna till Kopparslagaren 2, 4 och 7 och Smeden 5, genom en underrättelse, eftersom en restaurang kan störa.
+      - text: Alla hyresgäster i huset.
+      - text: Ingen, eftersom underlaget är positivt för sökanden.
+    forklaring: >
+      Innan nämnden beslutar ska sökanden och fastighetsägaren få veta allt underlag av
+      betydelse och få yttra sig inom en bestämd tid, om det inte är uppenbart obehövligt
+      (9 kap. 98 § PBL, jfr 25 § förvaltningslagen). Här har det kommit remissvar med krav,
+      en skrivelse från en hyresgäst, och nämnden tänker ställa villkor, så kommunicering
+      behövs. Grannar underrättas bara om åtgärden avviker från planen eller ligger utanför
+      plan (9 kap. 94 §). Grannarna får ändå veta om beslutet: det kungörs på kommunens
+      anslagstavla, och meddelandet skickas till ägarna av grannfastigheterna och till den som
+      lämnat synpunkter som inte tillgodosetts (109 och 110 §§).
+    lagrum: [PBL 9 kap. 98 §, FL 25 §, PBL 9 kap. 109 §, PBL 9 kap. 110 §]
+    tid_framat_dagar: 12
+
+  - id: S7
+    typ: beslut
+    rubrik: Fatta beslut
+    instruktion: >
+      Skriv beslutet. Tänk på vilka villkor om utförande som behövs och är tydliga nog, vilka
+      upplysningar 9 kap. 105 § kräver, hur avgiften har bestämts och vem som ska delges och
+      vem som ska få meddelande om kungörelsen.
+    forvantat_beslut: bevilja_med_villkor
+    godtagbara_utfall:
+      - utfall: bevilja
+        motivering: >-
+          Lov utan särskilda villkor godtas om utförandet (trädetaljer, kulör, skyltens
+          utformning, kanalens kulör) i stället är låst i de godkända ritningarna och
+          material- och kulörbeskrivningen, som beslutet hänvisar till.
+    lagrum: [PBL 9 kap. 56 §]
+    bedomningspunkter:
+      - Beviljar bygglov för ändrad användning från butik till restaurang, fasadändring mot Storgatan, skylt och ventilationskanal enligt revidering A, med stöd av 9 kap. 56 § PBL
+      - Motiverar planenligheten (restaurang ryms i centrumändamål) och att åtgärden uppfyller 8 kap. 1, 13 och 17 §§ och 2 kap. 9 §; noterar att 56 § första stycket 1 inte tillämpas på en ändring (58 §)
+      - Förenar lovet med preciserade villkor om utförande som sökanden har godtagit (trä i skyltfönster och dörr, kulör, fristående bokstäver, kanalens kulör), med stöd av 9 kap. 105 § 6
+      - Bemöter hyresgästens skrivelse sakligt och förklarar skillnaden mellan lovprövningen (2 kap. 9 §, ljudisolering enligt 8 kap. 4 § första stycket 5) och miljöenhetens tillsyn över störningar
+      - Har upplysningarna i 105 §, giltighetstid (115 §), att byggbedömare inte används, kontrollansvarig, att åtgärden inte får påbörjas förrän startbesked getts och risken med att påbörja innan beslutet fått laga kraft
+      - Upplyser om att ventilationen ingår i lovet och hanteras vid det tekniska samrådet utan separat anmälan (6 kap. 1 § PBF), och om funktionskontroll innan ventilationen tas i bruk (5 kap. 1 § PBF)
+      - Upplyser om andra tillstånd (92 §), livsmedelsregistrering, serveringstillstånd och fettavskiljare
+      - Tar ställning till om lovet ska gälla först när det fått laga kraft (114 § andra stycket) med hänsyn till kulturvärdena
+      - Avgiften 15 800 kr redovisas (107 §), utan reduktion, eftersom fristen räknas från de reviderade ritningarna den 21 maj 2026 (99 § första stycket 2)
+      - Överklagandehänvisningen anger tre veckor från delgivningen och, för den som inte delges, från en vecka efter kungörelsen (13 kap. 16 §)
+      - Delges sökanden och fastighetsägaren (108 §), kungörs på anslagstavlan (109 §) och meddelande skickas till ägarna av Kopparslagaren 2, 4 och 7 och Smeden 5 och till Ingrid Ståhl (110 §)
+    modellbeslut: handlingar/modell-beslut.md
+
+handelser:
+  - id: E1
+    namn: Kompletteringen kommer in
+    utlosare: { efter_steg: S2 }
+    effekt:
+      tid_framat_dagar: 13
+      visa_handlingar: [H8, H9]
+      meddelande: >
+        Bistro Kopparn AB har kommit in med en fasadritning mot gården och en antikvarisk
+        konsekvensbeskrivning. Ansökan är nu komplett. Eftersom föreläggandet skickades inom
+        tre veckor räknas tioveckorsfristen från i dag, den {{simdatum}} (9 kap. 99 § första
+        stycket 4).
+      satt_komplett_datum: true
+      andrade_fakta: { fasadritning_mot_garden: true, antikvarisk_konsekvensbeskrivning: true }
+
+  - id: E2
+    namn: Remissvar och ändrade ritningar
+    utlosare: { efter_steg: S4 }
+    effekt:
+      # Remisstiden tre veckor; ritningarna kommer in dagen efter att remissvaren skickats
+      # vidare till sökanden. Ändringen kom på sökandens initiativ: 99 § första stycket 2.
+      tid_framat_dagar: 22
+      visa_handlingar: [H10, H11, H12, H13]
+      ny_fristdag: sokandens_initiativ
+      andrade_fakta: { portal_behalls: true, skyltfonster_sammanslagna: false, invandig_ramp: true }
+      meddelande: >
+        Stadsantikvarien avstyrker det sammanslagna skyltfönstret och den breddade entrén men
+        tillstyrker en lösning där pelarna och portalen behålls. Miljöenheten har inget att
+        invända mot kanalen om den mynnar över taknocken. Du skickade yttrandena till sökanden
+        för kännedom. I dag har Bistro Kopparn AB på eget initiativ kommit in med reviderade
+        ritningar och en material- och kulörbeskrivning. Något föreläggande har inte skickats.
+      nytt_steg:
+        id: S4b
+        typ: fraga
+        rubrik: Ändrade ritningar och tidsfristen
+        fragetyp: flerval
+        fraga: Sökanden har på eget initiativ kommit in med reviderade ritningar. Vad gäller för tidsfristen?
+        alternativ:
+          - text: Tioveckorsfristen räknas nu från den dag de reviderade ritningarna kom in, och sökanden ska skriftligen informeras om den nya tidpunkten.
+            ratt: true
+          - text: Fristen räknas fortfarande från kompletteringen i april, eftersom ändringen bara var en följd av remissvaret.
+          - text: Fristen förlängs automatiskt med tio veckor när ansökan ändras.
+          - text: Ändringen räknas inte förrän nämnden har förelagt sökanden att lämna in den.
+        forklaring: >
+          Kommer sökanden efter ansökningsdagen på eget initiativ in med ytterligare underlag
+          eller en ändring av ansökan räknas tioveckorsfristen från den dagen (9 kap. 99 §
+          första stycket 2), och nämnden ska skriftligen informera sökanden om den ändrade
+          tidpunkten (100 § 2). Att ändringen föranleddes av ett remissvar som du skickade
+          vidare ändrar inte det, så länge nämnden inte förelagt sökanden att ändra. En
+          förlängning är något annat: den kräver ett beslut som meddelas innan den
+          ursprungliga fristen gått ut, med skäl (99 § andra stycket och 100 § 3). Fristen
+          löper nu ut den {{frist}}. Stadsantikvariens yttrande binder inte nämnden, men här
+          har sökanden valt att ändra ansökan.
+        lagrum: [PBL 9 kap. 99 §, PBL 9 kap. 100 §]
+
+  - id: E3
+    namn: Skrivelse från en hyresgäst
+    utlosare: { efter_steg: S5 }
+    effekt:
+      tid_framat_dagar: 2
+      visa_handlingar: [H14]
+      meddelande: >
+        Ingrid Ståhl, som hyr lägenheten ovanför lokalen, har skrivit till nämnden. Hon har sett
+        ansökan uppsatt i skyltfönstret och är orolig för buller och matos från restaurangen.
+      nytt_steg:
+        id: S5b
+        typ: fraga
+        rubrik: Hur hanterar du skrivelsen?
+        fragetyp: oppen
+        fraga: >
+          Ingrid Ståhl är hyresgäst i huset. Vilken ställning har hon i ärendet, vad av det hon
+          tar upp prövas i bygglovet, och hur ska skrivelsen hanteras?
+        bedomningspunkter:
+          - Konstaterar att hon inte är part i lovärendet och inte skulle ha underrättats, både för att åtgärden är planenlig (9 kap. 94 §) och för att underrättelser går till ägare och innehavare av särskild rätt, inte hyresgäster (96 §)
+          - Skrivelsen diarieförs och vägs in i prövningen, och den bemöts i beslutet
+          - Skiljer på det som prövas i bygglovet (lämplig användning enligt planen, betydande olägenhet enligt 2 kap. 9 §, skydd mot buller mellan lokalen och bostäderna enligt 8 kap. 4 § första stycket 5) och störningar från verksamheten som miljöenheten hanterar enligt miljöbalken
+          - Hon ska få meddelande om kungörelsen, eftersom hennes synpunkter inte tillgodosetts (9 kap. 110 § 2)
+          - Om hon får överklaga avgör länsstyrelsen, inte nämnden
+          - Svarar henne begripligt och vänligt och berättar vart hon kan vända sig om det blir störningar (6 § förvaltningslagen)
+        modellsvar: >
+          Ingrid Ståhl är hyresgäst och inte part. Hon skulle inte ha underrättats, dels för att
+          restaurangen är planenlig, dels för att underrättelser bara går till ägare och
+          innehavare av särskild rätt till grannfastigheter (9 kap. 94 och 96 §§). Skrivelsen
+          ska ändå diarieföras, vägas in och bemötas i beslutet. Planen tillåter centrumändamål i
+          bottenvåningen, och en restaurang är en sådan användning som planen räknat med, så
+          den medför i sig ingen betydande olägenhet (2 kap. 9 §). Det som prövas i lov och
+          startbesked är att lokalen byggs så att bostäderna skyddas mot buller och lukt, alltså
+          ljudisolering mot lägenheterna och ventilation som mynnar över taknocken (8 kap. 4 §
+          första stycket 5). Musik, öppettider och störningar från gästerna är frågor för
+          miljöenheten enligt miljöbalken. Eftersom hennes oro inte helt tillgodoses ska hon
+          få meddelande om kungörelsen (110 § 2). Om hon kan överklaga prövar länsstyrelsen.
+        lagrum: [PBL 9 kap. 110 §, PBL 2 kap. 9 §, PBL 8 kap. 4 §, MB 9 kap. 1 §, FL 6 §]
+
+facit:
+  sammanfattning: >
+    Restaurangen kräver lov som ändrad användning, fasadändring mot allmän plats och, för
+    kanalen och skylten, som åtgärder på en särskilt värdefull byggnad i en värdefull
+    stadsmiljö. Ansökan kompletteras med gårdsfasad och konsekvensbeskrivning efter ett
+    föreläggande inom tre veckor. Stadsantikvariens yttrande leder till en revidering som
+    behåller portalen och pelarna, och fristen räknas från den dag revideringen kom in.
+    Åtgärden är planenlig, så grannarna underrättas inte, men sökanden och fastighetsägaren
+    kommuniceras. Lov ges med preciserade villkor om utförande, upplysningar enligt 105 §,
+    kungörelse och meddelande till grannarna och till hyresgästen som skrivit.
+  vanliga_fel:
+    - Att tro att skyltar fortfarande är generellt lovpliktiga, eller tvärtom att skylten är lovfri utan att pröva fasadändring och 38 § 2 b
+    - Att anse att byggnaden saknar skydd eftersom planen saknar q-bestämmelse (8 kap. 13 § gäller direkt)
+    - Att kräva länsstyrelsens tillstånd enligt kulturmiljölagen för en byggnad som inte är byggnadsminne
+    - Att låta varsamheten motivera en otillgänglig entré till en restaurang (8 kap. 7 §)
+    - Att underrätta grannarna enligt 94 § trots att åtgärden är planenlig, eller att glömma meddelandet om kungörelsen enligt 110 §
+    - Att kräva en separat anmälan för ventilationen enligt 6 kap. PBF, trots att den ingår i den lovpliktiga åtgärden
+    - Att skriva vaga villkor som "ska utföras i samråd med stadsantikvarien" i stället för preciserade villkor
+    - Att räkna tidsfristen från kompletteringen i april trots att reviderade ritningar kom in på sökandens initiativ i maj
+  modellbeslut: handlingar/modell-beslut.md

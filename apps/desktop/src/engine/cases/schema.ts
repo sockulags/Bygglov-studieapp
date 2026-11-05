@@ -65,6 +65,8 @@ const deadlineFields = {
   applicationDate: isoDate,
   startDate: isoDate.nullable(),
   basis: z.enum([
+    'tillsyn',
+    'lov_i_efterhand',
     'ansokningsdagen',
     'andring_pa_sokandens_initiativ',
     'komplettering',
@@ -136,6 +138,8 @@ export const CaseStateSchema: z.ZodType<CaseState> = z.object({
   completionDate: isoDate.nullable(),
   // Missing in states stored before 99 § första stycket 2 was modelled.
   amendmentDates: z.array(isoDate).default([]),
+  // Missing in states stored before supervision cases (nivå 4) existed.
+  supervision: z.boolean().default(false),
   extensionWeeks: z.number().int().min(0),
   // Missing in states stored before the extension button and vilande (102 §) existed.
   extensionReason: z.string().nullable().default(null),

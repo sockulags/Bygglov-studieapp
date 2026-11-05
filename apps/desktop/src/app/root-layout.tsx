@@ -1,5 +1,11 @@
 import { Outlet } from '@tanstack/react-router';
 import { Sidebar } from '@/components/layout/sidebar';
+import {
+  CommandPalette,
+  GlobalTutor,
+  ShortcutsHelpDialog,
+  useGlobalShortcuts,
+} from '@/features/command-palette';
 import { UpdatePrompt, WhatsNewDialog } from '@/features/updates';
 import { useUiStore } from '@/store/ui';
 import { cn } from '@/lib/cn';
@@ -7,6 +13,7 @@ import { isTauri } from '@/lib/tauri';
 
 export function RootLayout() {
   const collapsed = useUiStore((s) => s.sidebarCollapsed);
+  useGlobalShortcuts();
   return (
     <div className="flex min-h-screen bg-bg text-ink">
       <a
@@ -20,7 +27,8 @@ export function RootLayout() {
         id="main"
         tabIndex={-1}
         className={cn(
-          'min-w-0 flex-1 transition-[padding] duration-[var(--duration-base)] ease-[var(--ease-out)]',
+          // Focused only as a target (skip link, after the palette changes view), never by Tab.
+          'min-w-0 flex-1 transition-[padding] duration-[var(--duration-base)] ease-[var(--ease-out)] focus-visible:outline-none',
           collapsed ? 'pl-[var(--sidebar-width-collapsed)]' : 'pl-[var(--sidebar-width)]',
         )}
       >
@@ -30,6 +38,9 @@ export function RootLayout() {
         </div>
       </main>
       <WhatsNewDialog />
+      <CommandPalette />
+      <ShortcutsHelpDialog />
+      <GlobalTutor />
       {!isTauri() && <BrowserModeBanner />}
     </div>
   );
@@ -41,11 +52,13 @@ export function RootLayout() {
  */
 function BrowserModeBanner() {
   return (
-    <p
-      role="note"
-      className="pointer-events-none fixed right-3 bottom-3 z-40 rounded-full border border-line-strong bg-paper px-3 py-1 text-xs text-ink shadow-paper"
-    >
-      Testläge i webbläsaren: inget sparas
-    </p>
+    <footer className="pointer-events-none fixed right-3 bottom-3 z-40">
+      <p
+        role="note"
+        className="rounded-full border border-line-strong bg-paper px-3 py-1 text-xs text-ink shadow-paper"
+      >
+        Testläge i webbläsaren: inget sparas
+      </p>
+    </footer>
   );
 }

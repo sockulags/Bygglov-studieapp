@@ -72,6 +72,7 @@ export function startCase(caseFile: CaseFile, options: StartCaseOptions): CaseSt
     applicationDate: date,
     completionDate: null,
     amendmentDates: [],
+    supervision: caseFile.niva === 4,
     extensionWeeks: 0,
     extensionReason: null,
     suspensions: [],
@@ -377,6 +378,12 @@ export function advanceDays(state: CaseState, days: number): CaseState {
  * deadline expires (9 kap. 100 § 3). `reason` is logged in the diary.
  */
 export function extendDeadline(state: CaseState, weeks: number, reason?: string): CaseState {
+  if (state.supervision && state.deadlineDate === null) {
+    throw new CaseEngineError(
+      'invalid_extension',
+      'Ett tillsynsärende har ingen tidsfrist att förlänga. Fristen i 9 kap. 99 § gäller först om en ansökan om lov i efterhand kommer in.',
+    );
+  }
   if (state.extensionWeeks > 0) {
     throw new CaseEngineError(
       'invalid_extension',
@@ -605,7 +612,7 @@ function applyEvent(
     state.completionDate = state.simDate;
     updateDeadline(state);
   }
-  if (effekt.ny_fristdag === 'sokandens_initiativ') {
+  if (effekt.ny_fristdag !== undefined) {
     if (!state.amendmentDates.includes(state.simDate)) state.amendmentDates.push(state.simDate);
     // Logged even when the date stays the same (e.g. while the case rests): the applicant
     // is to be told about the new start (100 § 2).

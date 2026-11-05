@@ -83,13 +83,28 @@ export function DecisionPreview({
               <td>Åtgärd</td>
               <td>{caseFile.titel}</td>
             </tr>
-            <tr>
-              <td>Ansökan kom in</td>
-              <td>
-                {state.applicationDate}
-                {state.completionDate ? `, komplett ${state.completionDate}` : ''}
-              </td>
-            </tr>
+            {state.supervision ? (
+              <>
+                <tr>
+                  <td>Ärendet inleddes</td>
+                  <td>{state.applicationDate}</td>
+                </tr>
+                {state.amendmentDates[0] && (
+                  <tr>
+                    <td>Ansökan om lov i efterhand</td>
+                    <td>{state.amendmentDates[0]}</td>
+                  </tr>
+                )}
+              </>
+            ) : (
+              <tr>
+                <td>Ansökan kom in</td>
+                <td>
+                  {state.applicationDate}
+                  {state.completionDate ? `, komplett ${state.completionDate}` : ''}
+                </td>
+              </tr>
+            )}
             <tr>
               <td>Beslutsdatum</td>
               <td>{date}</td>

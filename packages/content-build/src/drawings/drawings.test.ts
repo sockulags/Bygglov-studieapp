@@ -13,6 +13,7 @@ import {
   type DrawingContext,
   type DrawingKind,
 } from './index';
+import { scaleMetadata } from './svg';
 
 const caseFile = fileURLToPath(
   new URL('../../../../content/arenden/A002-tillbyggnad-bjorken-7/arende.yaml', import.meta.url),
@@ -147,6 +148,55 @@ describe('drawing generator', () => {
   });
 });
 
+describe('scale metadata for measuring', () => {
+  const attr = (svg: string, name: string) =>
+    new RegExp(`<svg[^>]* ${name}="([^"]*)"`).exec(svg)?.[1];
+
+  it('writes the scale and coordinate system on the root', () => {
+    const svg = render('situationsplan', a002Params('situationsplan'));
+    expect(attr(svg, 'data-scale')).toBe('1:500');
+    expect(attr(svg, 'data-units')).toBe('mm');
+    expect(attr(svg, 'data-meters-per-unit')).toBe('0.5');
+    const [ax, ay, aw, ah] = attr(svg, 'data-drawing-area')!.split(' ').map(Number);
+    expect(aw).toBeGreaterThan(0);
+    expect(ah).toBeGreaterThan(0);
+    // The drawing group is placed at the drawing area.
+    expect(svg).toContain(
+      `<g transform="translate(${ax} ${ay})" class="ritning" data-layer="ritning">`,
+    );
+    // The origin is the plot's north-west corner, where the plot boundary starts.
+    const [ox, oy] = attr(svg, 'data-origin')!.split(' ').map(Number);
+    const boundary =
+      /<rect x="([\d.]+)" y="([\d.]+)" width="[\d.]+" height="[\d.]+" fill="none" stroke="#000" stroke-width="0.7" stroke-dasharray/.exec(
+        svg,
+      );
+    expect(boundary).not.toBeNull();
+    expect(Number(boundary![1]) + ax!).toBeCloseTo(ox!, 2);
+    expect(Number(boundary![2]) + ay!).toBeCloseTo(oy!, 2);
+  });
+
+  it('keeps every scale exact and leaves out the origin when there is none', () => {
+    const facade = render('fasadritning', a002Params('fasadritning'));
+    expect(attr(facade, 'data-scale')).toBe('1:100');
+    expect(attr(facade, 'data-meters-per-unit')).toBe('0.1');
+    expect(attr(facade, 'data-origin')).toBeUndefined();
+    expect(scaleMetadata(25, { x: 0, y: 0, width: 10, height: 10 })['data-meters-per-unit']).toBe(
+      '0.025',
+    );
+    expect(attr(render('plankarta', a002Params('plankarta')), 'data-meters-per-unit')).toBe('1');
+  });
+
+  it('groups the sheet in invisible layers', () => {
+    for (const kind of DRAWING_KINDS) {
+      const svg = render(kind, a002Params(kind));
+      const layers = [...svg.matchAll(/data-layer="([a-z]+)"/g)].map((m) => m[1]);
+      // The footer (legend, notes) is there when the drawing has one.
+      expect(layers.filter((l) => l !== 'fot')).toEqual(['ram', 'ritning', 'ritningshuvud']);
+      expect(svg).not.toMatch(/data-layer="[a-z]+"[^>]*(display|visibility|opacity)=/);
+    }
+  });
+});
+
 describe('situationsplan for a new house by a lake', () => {
   const lakePlot = {
     skala: 1000,
@@ -206,6 +256,199 @@ describe('situationsplan for a new house by a lake', () => {
         anlaggningar: [{ rektangel: [58, 0, 5, 5], namn: 'Bod' }],
       }),
     ).toEqual(['anlaggningar[1].rektangel: Anläggningen ligger utanför tomten (0–60 × 0–70 m).']);
+  });
+});
+
+describe('fas 4: supervision, alterations and apartment blocks', () => {
+  const supervision = {
+    skala: 200,
+    tomt_bredd: 25,
+    tomt_djup: 32,
+    hus: [4, 6, 12, 9],
+    ovriga_byggnader: [{ rektangel: [17, 21, 5, 8], namn: 'Garage' }],
+    lovgivet: [{ rektangel: [17, 21, 5, 8], namn: 'Garage enligt bygglov 2024' }],
+    avvikelse: [{ rektangel: [22, 21, 2, 8], namn: 'Förråd utan lov' }],
+    utfart: { sida: 'soder', lage: 17, bredd: 5, langd: 3 },
+    gata: { sida: 'soder', namn: 'Tallvägen' },
+  };
+
+  it('draws a deviation from the permit with its own hatch, outline and legend', () => {
+    const svg = render('situationsplan', supervision);
+    assertWellFormed(svg);
+    expect(svg).toContain('id="TEST-H1-avvikelse"');
+    expect(svg).toContain('fill="url(#TEST-H1-avvikelse)"');
+    expect(svg).toContain('Utfört utan lov eller i strid med lovet</text>');
+    expect(svg).toContain('Garage enligt bygglov 2024</text>');
+    expect(svg).toContain('stroke-dasharray="4 1 0.8 1 0.8 1"');
+    expect(svg).toContain('Förråd</text>');
+    // The deviation is measured to the boundaries like an extension: 22 + 2 + 1 m.
+    expect(svg).toContain('>1,0</text>');
+    // Nothing new is applied for, so the legend does not offer it.
+    expect(svg).not.toContain('Ny byggnad eller tillbyggnad</text>');
+    expect(svg).not.toContain('Ny</text>');
+  });
+
+  it('divides parking into spaces, draws balconies and names the main building', () => {
+    const svg = render('situationsplan', {
+      skala: 400,
+      tomt_bredd: 40,
+      tomt_djup: 36,
+      nybyggnad: [5, 4, 30, 12],
+      huvudbyggnad_namn: 'Nytt flerbostadshus',
+      komplementbyggnad: [29, 31, 10, 4],
+      komplementbyggnad_namn: 'Miljöhus',
+      prickmark: [{ sida: 'norr', djup: 4 }],
+      balkonger: [[6, 2.6, 3.6, 1.4]],
+      parkering: [{ rektangel: [0.5, 30.5, 25, 5], platser: 9, tillgangliga: 1 }],
+    });
+    assertWellFormed(svg);
+    expect(svg).toContain('flerbostadshus</text>');
+    expect(svg).toContain('Miljöhus</text>');
+    expect(svg).not.toContain('>bostadshus</text>');
+    expect(svg).toContain('PRH</text>');
+    expect(svg).toContain('Parkering, PRH = plats för rörelsehindrade</text>');
+    expect(svg).toContain('Balkong, ovan mark</text>');
+    // 9 spaces need 8 lines between them, the first after the 5 m wide accessible space.
+    const stalls = [...svg.matchAll(/<line x1="([\d.]+)" y1="110.25" x2="\1" y2="122.75"/g)];
+    expect(stalls.map((m) => Number(m[1]))).toEqual([
+      47.75, 54, 60.25, 66.5, 72.75, 79, 85.25, 91.5,
+    ]);
+    expect(
+      issues('situationsplan', {
+        skala: 400,
+        tomt_bredd: 40,
+        tomt_djup: 36,
+        nybyggnad: [5, 4, 30, 12],
+        parkering: [{ rektangel: [0, 30, 25, 5], platser: 2, tillgangliga: 3 }],
+      }),
+    ).toEqual(['parkering[1].tillgangliga: tillgangliga kan inte vara fler än platser.']);
+  });
+
+  const facadePart = {
+    bredd: 18,
+    byggnadshojd: 13.6,
+    takvinkel: 38,
+    vy: 'langsida',
+    djup: 12,
+  };
+
+  it('marks new and removed openings, signs and ducts in a facade', () => {
+    const svg = render('fasadritning', {
+      fasader: [
+        {
+          rubrik: 'Fasad mot gatan',
+          delar: [
+            {
+              ...facadePart,
+              oppningar: [
+                { typ: 'fonster', x: 0.6, bredd: 7, hojd: 2.6, underkant: 0.3, status: 'ny' },
+                { typ: 'fonster', x: 0.9, bredd: 1.6, hojd: 2, underkant: 0.8, status: 'rivs' },
+              ],
+              detaljer: [
+                { typ: 'skylt', x: 1.8, bredd: 4.6, underkant: 3.2, hojd: 0.7, text: 'KOPPARN' },
+                { typ: 'kanal', x: 11.6, bredd: 0.5, underkant: 2.4, hojd: 16.9, ny: true },
+              ],
+            },
+          ],
+        },
+      ],
+    });
+    assertWellFormed(svg);
+    expect(svg).toContain('KOPPARN</text>');
+    expect(svg).toContain('stroke-dasharray="1.2 0.8"');
+    expect(svg).toContain('Streckad öppning med kryss tas bort eller sätts igen.</text>');
+    expect(svg).toContain('Ny eller ändrad öppning ritas med grov linje.</text>');
+    expect(svg).toContain('+19,30</text>');
+    expect(svg).toContain('kanal</text>');
+  });
+
+  it('draws a flat roof with a parapet and balconies, and puts the door handle on the door', () => {
+    const svg = render('fasadritning', {
+      fasader: [
+        {
+          rubrik: 'Fasad mot norr',
+          delar: [
+            {
+              bredd: 30,
+              byggnadshojd: 12.4,
+              takvinkel: 0,
+              vy: 'langsida',
+              djup: 12,
+              takutsprang: 0,
+              attika: 0.3,
+              balkonger: [{ x: 1, bredd: 3.6, underkant: 3.5 }],
+              oppningar: [{ typ: 'dorr', x: 1.5, bredd: 0.9, hojd: 2.1, underkant: 3.5 }],
+            },
+          ],
+        },
+      ],
+    });
+    assertWellFormed(svg);
+    expect(svg).toContain('+12,40 BH</text>');
+    expect(svg).toContain('överkant attika</text>');
+    expect(svg).toContain('+12,10</text>');
+    expect(svg).not.toContain(' NH</text>');
+    expect(svg).toContain('class="balkong"');
+    // The handle sits 1 m above the door's sill (3.5 m), not 1 m above the ground.
+    const handle = /<circle cx="[\d.]+" cy="([\d.]+)" r="0.4" fill="#000"\/>/.exec(svg);
+    const ground =
+      /<line x1="[\d.]+" y1="([\d.]+)" x2="[\d.]+" y2="\1" stroke="#000" stroke-width="0.7"/.exec(
+        svg,
+      );
+    expect(handle && ground).toBeTruthy();
+    expect(Number(ground![1]) - Number(handle![1])).toBeCloseTo(45, 0);
+    expect(
+      issues('fasadritning', {
+        fasader: [{ rubrik: 'A', delar: [{ ...facadePart, attika: 0.5 }] }],
+      }),
+    ).toEqual(['fasader[1].delar[1].attika: attika gäller bara platta tak (takvinkel 0).']);
+  });
+
+  it('writes storeys, ridge height, free provisions and one e-index per percentage', () => {
+    const svg = render('plankarta', {
+      plan: { beteckning: 'Dp 2019-03', namn: 'Humlan' },
+      omrade: [0, 0, 140, 88],
+      kvarter: [
+        {
+          namn: 'Humlan',
+          rektangel: [0, 12, 140, 36],
+          byggnadsarea_procent: 35,
+          vaningar: 4,
+          bestammelser: [{ beteckning: 'm1', text: 'Skydd mot trafikbuller' }],
+        },
+        {
+          namn: 'Humlan',
+          rektangel: [0, 48, 140, 30],
+          byggnadsarea_procent: 25,
+          nockhojd: 8.5,
+        },
+      ],
+    });
+    assertWellFormed(svg);
+    expect(svg).toContain('>IV</text>');
+    expect(svg).toContain('Högsta antal våningar</text>');
+    expect(svg).toContain('NH 8,5</text>');
+    expect(svg).toContain('Högsta nockhöjd i meter</text>');
+    expect(svg).toContain('Skydd mot trafikbuller</text>');
+    expect(svg).toContain('Största byggnadsarea 35 % av fastighetsarean</text>');
+    expect(svg).toContain('Största byggnadsarea 25 % av fastighetsarean</text>');
+    expect(svg).toMatch(/>e<tspan[^>]*>2<\/tspan><\/text>/);
+    expect(svg).toMatch(/>m<tspan[^>]*>1<\/tspan><\/text>/);
+  });
+
+  it('draws balconies in a floor plan and moves the dimension chains out', () => {
+    const base = {
+      byggnader: [{ rektangel: [0, 0, 10, 8], ny: true }],
+      rum: [{ namn: 'Rum', rektangel: [0.3, 0.3, 9.4, 7.4] }],
+    };
+    const plain = render('planritning', base);
+    const withBalcony = render('planritning', {
+      ...base,
+      balkonger: [{ rektangel: [2, -1.4, 3.6, 1.4] }],
+    });
+    assertWellFormed(withBalcony);
+    expect(withBalcony).toContain('Balkong</text>');
+    expect(plain).not.toContain('Balkong</text>');
   });
 });
 

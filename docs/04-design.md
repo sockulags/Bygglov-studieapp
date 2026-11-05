@@ -21,9 +21,9 @@ och stämplar (textur och allvar).
 | `--ink` | `#1B1F24` | `#E8E6E1` | Text |
 | `--muted` | `#6B7280` | `#9AA3AF` | Sekundär text |
 | `--accent` | skogsgrön `#2F5D50` | `#7FB8A4` | Primära knappar, aktiv navigation |
-| `--brick` | tegel `#B5543A` | `#E07A5F` | Varningar, "NY handling", stämplar |
+| `--brick` | tegel `#A44B33` | `#E07A5F` | Varningar, "NY handling", stämplar |
 | `--plan-yellow` | `#E9C46A` | `#E9C46A` | Markering i plankartor, highlights |
-| `--success` | `#3A7D44` | `#7BC47F` | Rätt svar, godkänt |
+| `--success` | `#357240` | `#7BC47F` | Rätt svar, godkänt |
 
 **Typografi**: en humanistisk sans för gränssnittet (Inter eller Source Sans 3) och en
 läsvänlig serif för handlingar och beslutstexter (Source Serif 4 eller Newsreader), så att

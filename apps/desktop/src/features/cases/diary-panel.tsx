@@ -9,9 +9,15 @@ import {
   SkipForward,
   type LucideIcon,
 } from 'lucide-react';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { CaseFile } from '@bygglov/content-schema';
-import { diary, formatSwedishDate, type CaseState, type DiaryKind } from '@/engine';
+import {
+  diary,
+  formatSwedishDate,
+  type CaseState,
+  type DiaryEntry,
+  type DiaryKind,
+} from '@/engine';
 import { cn } from '@/lib/cn';
 
 const KIND: Record<DiaryKind, { icon: LucideIcon; label: string }> = {
@@ -24,6 +30,21 @@ const KIND: Record<DiaryKind, { icon: LucideIcon; label: string }> = {
   frist: { icon: CalendarClock, label: 'Tidsfrist' },
   beslut: { icon: Gavel, label: 'Beslut' },
 };
+
+/** Kinds read out by screen readers when they arrive; her own steps and time are not. */
+const ANNOUNCED: ReadonlySet<DiaryKind> = new Set(['handling', 'handelse', 'beslut']);
+
+/** "Nytt i diariet: Yttrande från grannen." for entries that arrived, or '' for none. */
+function announcementFor(entries: readonly DiaryEntry[], caseFile: CaseFile): string {
+  const texts = entries
+    .filter((entry) => ANNOUNCED.has(entry.kind))
+    .map((entry) =>
+      entry.kind === 'handling' && entry.documentId
+        ? (caseFile.handlingar.find((d) => d.id === entry.documentId)?.titel ?? entry.text)
+        : entry.text,
+    );
+  return texts.length === 0 ? '' : `Nytt i diariet: ${texts.join('; ')}.`;
+}
 
 export interface DiaryPanelProps {
   caseFile: CaseFile;
@@ -47,6 +68,14 @@ export function DiaryPanel({
   const list = useRef<HTMLOListElement>(null);
   const count = entries.length;
 
+  // Read out what arrives in the diary (a new handling, an event), not what was there.
+  const [seenCount, setSeenCount] = useState(count);
+  const [announcement, setAnnouncement] = useState('');
+  if (count !== seenCount) {
+    setSeenCount(count);
+    setAnnouncement(count > seenCount ? announcementFor(entries.slice(seenCount), caseFile) : '');
+  }
+
   // Keep the newest entry in view when something is added.
   useEffect(() => {
     const el = list.current?.parentElement;
@@ -54,77 +83,84 @@ export function DiaryPanel({
   }, [count]);
 
   return (
-    <ol ref={list} className="flex flex-col gap-0.5 p-3" aria-label="Diarieposter">
-      {entries.map((entry, index) => {
-        const showDate = index === 0 || entries[index - 1]?.date !== entry.date;
-        const kind = KIND[entry.kind];
-        const Icon = kind.icon;
-        const document =
-          entry.kind === 'handling' && entry.documentId
-            ? caseFile.handlingar.find((d) => d.id === entry.documentId)
-            : undefined;
-        const subtle = entry.kind === 'tid' || entry.kind === 'frist';
-        return (
-          <li key={index} className="flex flex-col">
-            {showDate && (
-              <p className="mt-3 mb-1 px-2 text-xs font-semibold tracking-[0.06em] text-muted uppercase first:mt-0">
-                <time dateTime={entry.date}>{formatSwedishDate(entry.date)}</time>
-              </p>
-            )}
-            {document ? (
-              <button
-                type="button"
-                onClick={() => onOpenDocument(document.id)}
-                aria-current={selectedDocumentId === document.id ? 'true' : undefined}
-                className={cn(
-                  'group flex w-full items-start gap-2.5 rounded-md border px-2.5 py-2 text-left text-sm',
-                  'transition-colors duration-[var(--duration-fast)]',
-                  selectedDocumentId === document.id
-                    ? 'border-accent/50 bg-accent-soft'
-                    : 'border-transparent hover:border-line-strong hover:bg-paper',
-                )}
-              >
-                <Icon className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
-                <span className="min-w-0 flex-1">
-                  <span className="block font-medium leading-snug text-ink">{document.titel}</span>
-                  <span className="text-xs text-muted">
-                    <span className="sr-only">, </span>
-                    {document.id}
-                  </span>
-                </span>
-                {unseen.has(document.id) && (
-                  <span className="fade-in-up mt-0.5 shrink-0 rounded-sm bg-brick px-1.5 py-0.5 text-[0.625rem] font-bold tracking-[0.1em] text-paper">
-                    <span className="sr-only">, </span>NY
-                    <span className="sr-only"> handling, inte öppnad</span>
-                  </span>
-                )}
-              </button>
-            ) : (
-              <p
-                className={cn(
-                  'flex items-start gap-2.5 px-2.5 py-1.5 text-sm leading-snug',
-                  subtle ? 'text-xs text-muted' : 'text-ink',
-                  entry.kind === 'handelse' && 'rounded-md bg-plan-yellow-soft py-2',
-                  entry.kind === 'beslut' && 'font-medium',
-                )}
-              >
-                <Icon
+    <>
+      <p role="status" className="sr-only">
+        {announcement}
+      </p>
+      <ol ref={list} className="flex flex-col gap-0.5 p-3" aria-label="Diarieposter">
+        {entries.map((entry, index) => {
+          const showDate = index === 0 || entries[index - 1]?.date !== entry.date;
+          const kind = KIND[entry.kind];
+          const Icon = kind.icon;
+          const document =
+            entry.kind === 'handling' && entry.documentId
+              ? caseFile.handlingar.find((d) => d.id === entry.documentId)
+              : undefined;
+          const subtle = entry.kind === 'tid' || entry.kind === 'frist';
+          return (
+            <li key={index} className="flex flex-col">
+              {showDate && (
+                <p className="mt-3 mb-1 px-2 text-xs font-semibold tracking-[0.06em] text-muted uppercase first:mt-0">
+                  <time dateTime={entry.date}>{formatSwedishDate(entry.date)}</time>
+                </p>
+              )}
+              {document ? (
+                <button
+                  type="button"
+                  onClick={() => onOpenDocument(document.id)}
+                  aria-current={selectedDocumentId === document.id ? 'true' : undefined}
                   className={cn(
-                    'mt-0.5 shrink-0',
-                    subtle ? 'size-3.5' : 'size-4',
-                    entry.kind === 'handelse' || entry.kind === 'hoppat'
-                      ? 'text-brick'
-                      : 'text-muted',
+                    'group flex w-full items-start gap-2.5 rounded-md border px-2.5 py-2 text-left text-sm',
+                    'transition-colors duration-[var(--duration-fast)]',
+                    selectedDocumentId === document.id
+                      ? 'border-accent/50 bg-accent-soft'
+                      : 'border-transparent hover:border-line-strong hover:bg-paper',
                   )}
-                  role="img"
-                  aria-label={kind.label}
-                />
-                <span className="min-w-0 flex-1">{entry.text}</span>
-              </p>
-            )}
-          </li>
-        );
-      })}
-    </ol>
+                >
+                  <Icon className="mt-0.5 size-4 shrink-0 text-accent" aria-hidden="true" />
+                  <span className="min-w-0 flex-1">
+                    <span className="block font-medium leading-snug text-ink">
+                      {document.titel}
+                    </span>
+                    <span className="text-xs text-muted">
+                      <span className="sr-only">, </span>
+                      {document.id}
+                    </span>
+                  </span>
+                  {unseen.has(document.id) && (
+                    <span className="fade-in-up mt-0.5 shrink-0 rounded-sm bg-brick px-1.5 py-0.5 text-[0.625rem] font-bold tracking-[0.1em] text-paper">
+                      <span className="sr-only">, </span>NY
+                      <span className="sr-only"> handling, inte öppnad</span>
+                    </span>
+                  )}
+                </button>
+              ) : (
+                <p
+                  className={cn(
+                    'flex items-start gap-2.5 px-2.5 py-1.5 text-sm leading-snug',
+                    subtle ? 'text-xs text-muted' : 'text-ink',
+                    entry.kind === 'handelse' && 'rounded-md bg-plan-yellow-soft py-2',
+                    entry.kind === 'beslut' && 'font-medium',
+                  )}
+                >
+                  <Icon
+                    className={cn(
+                      'mt-0.5 shrink-0',
+                      subtle ? 'size-3.5' : 'size-4',
+                      entry.kind === 'handelse' || entry.kind === 'hoppat'
+                        ? 'text-brick'
+                        : 'text-muted',
+                    )}
+                    role="img"
+                    aria-label={kind.label}
+                  />
+                  <span className="min-w-0 flex-1">{entry.text}</span>
+                </p>
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </>
   );
 }

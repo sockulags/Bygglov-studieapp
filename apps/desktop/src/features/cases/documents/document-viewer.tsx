@@ -76,7 +76,14 @@ export function DocumentViewer({
           </Button>
         )}
       </div>
-      <div className="min-h-0 flex-1 overflow-auto p-4 sm:p-6" aria-labelledby="document-title">
+      <div
+        className="min-h-0 flex-1 overflow-auto p-4 sm:p-6"
+        role="region"
+        aria-labelledby="document-title"
+        // A Markdown document often has no links, so the scrolling area itself takes focus
+        // and can be scrolled with the arrow keys (WCAG 2.1.1). Drawings have their own.
+        tabIndex={format === 'markdown' ? 0 : undefined}
+      >
         {format === 'markdown' && (
           <MarkdownDocument
             caseFile={caseFile}

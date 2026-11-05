@@ -101,12 +101,38 @@ Kvar i fas 2:
 
 ## Fas 4 · Bredd och finish (v0.8 → 1.0)
 
-- 15+ ärenden inklusive tillsyn (nivå 4) och överklagandeflöde
-- 600+ frågor över alla 13 moduler
-- Mätverktyg i ritningsvisaren
-- Kommandopalett, tangentbordsgenvägar överallt
-- Tillgänglighetsgenomgång
-- 1.0 när pappa säger att ett case känns "på riktigt"
+- [x] Alla 13 moduler har frågor: 526 frågor (40 + 40 + 51 + 39 + 36 + 47 + 38 + 39 + 40 + 40 +
+  40 + 40 + 36), alla med status `utkast`. Varje fråga i de elva nya modulerna är besvarad och
+  rättad genom appen i webbläsarläget.
+- [x] Tillsyn (nivå 4) och överklagandeflöde: A004 tillsyn av ett garage byggt större än lovet
+  (byggsanktionsavgift, preskription, lov i efterhand, rättelse), A005 restaurang i en
+  kulturhistoriskt värdefull byggnad och A006 flerbostadshus med överklagande till länsstyrelsen.
+  Motorn behandlar nivå 4 som tillsyn utan 99 §-frist tills en ansökan om lov i efterhand kommer in.
+- [ ] 15+ ärenden (sex finns)
+- [ ] 600+ frågor (526 finns)
+- [x] Mätverktyg i ritningsvisaren: avstånd och yta i meter, snäppning, fungerar med zoom
+- [x] Ritningsgeneratorn: avvikelse mot lov, parkering, balkonger, ny/igensatt öppning, skylt,
+  ventilationskanal, platt tak med attika, våningsantal, nockhöjd och egna planbestämmelser
+- [x] Kommandopalett (Ctrl/Cmd + K), tangentbordsgenvägar överallt och en hjälpruta (`?`), se
+  [tangentbord.md](tangentbord.md)
+- [x] Tillgänglighetsgenomgång med axe (WCAG 2.2 AA, ljust och mörkt läge) av alla vyer, paletten
+  och ärendevyn; `--brick` och `--success` mörkare så att liten text klarar 4,5:1
+- [x] Rättslägesutdrag för PBL 1–6, 8, 10–13 och 16 kap., PBF 1, 3, 5–9 kap., FL, KL, MB, KML,
+  väglagen och fler i `docs/rattslage/`
+
+Kvar till 1.0:
+
+- [ ] **Handledarens granskning.** Pappa går igenom de 526 frågorna, de sex ärendena och
+  ordlistan mot *Lagtextens byggregler 2026-01-01* och sätter `status: granskad`. Börja med det
+  agenterna själva flaggade: avgiftsberäkningen i A004 (sanktionsarea för den avvikande delen,
+  ibruktagande och rättelse), måtten enligt SS 21054:2020 i modul 8 (`lagrum_osaker`), praxis om
+  sakägare och liten avvikelse och bemötandefrågorna i modul 13.
+- [ ] 1.0 när pappa säger att ett case känns "på riktigt"
+- [ ] Fler ärenden (mål 15+), helst efter hans muntliga berättelser
+- [ ] Ett eget beslutsutfall för ingripande i tillsynsärenden (i dag skrivs avgift och
+  föreläggande i motiveringen)
+- [ ] Frågetypen `ritning` med egna ritningsparametrar på frågan, så att modul 8 kan mäta i
+  fristående ritningar
 
 ## Beslut som tagits
 

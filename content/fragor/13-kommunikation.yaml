@@ -1,0 +1,887 @@
+# Frågor för modul 13-kommunikation. En fil per modul. Valideras med zod (pnpm content:check).
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
+# Källor (hämtade från riksdagen.se 2026-11-05 och sparade i docs/rattslage/):
+#   sprl.txt (språklagen 2009:600), fl.txt (FL 2017:900), pbl-9-kap.txt, tf-2-kap.txt,
+#   pbl-12-kap.txt. Många frågor handlar om lämpligt bemötande och har inget lagrum; svaren
+#   bygger på klarspråksprinciperna och god förvaltningssed och ska granskas av handledaren.
+# Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
+modul: 13-kommunikation
+fragor:
+  # --- Klarspråk i beslut och förelägganden ----------------------------------------------
+
+  - id: kom-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad kräver språklagen av språket i myndigheternas beslut och brev?
+    alternativ:
+      - text: Att det är vårdat, enkelt och begripligt.
+        ratt: true
+      - text: Att det följer lagtextens formuleringar ordagrant.
+      - text: Att det är skrivet på både svenska och engelska.
+      - text: Att det granskas av en jurist innan det skickas.
+    forklaring: >
+      11 § språklagen säger att språket i offentlig verksamhet ska vara vårdat, enkelt och
+      begripligt. Det är grunden för klarspråksarbetet. För bygglovshandläggaren betyder det att
+      beslut och förelägganden ska kunna förstås av den som får dem, inte bara av andra jurister.
+      Begripligheten hänger också ihop med kravet på en klargörande motivering (32 § FL).
+    lagrum:
+      - SprL 11 §
+      - FL 32 §
+    taggar: [klarsprak, sprakkrav, beslut]
+
+  - id: kom-002
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur bör ett beslut om avslag på bygglov inledas för att vara lätt att förstå?
+    alternativ:
+      - text: Med själva beslutet, till exempel ”Bygg- och miljönämnden avslår ansökan om bygglov för tillbyggnad av enbostadshus på Björkhagen 3”.
+        ratt: true
+      - text: Med en redogörelse för alla handlingar som kommit in, i datumordning.
+      - text: Med en sammanfattning av de lagrum som gäller för bygglov.
+      - text: Med en beskrivning av nämndens organisation och delegationsordning.
+    forklaring: >
+      Det viktigaste ska stå först. Mottagaren vill veta vad som har bestämts, och därefter
+      varför. Därför har beslut rubrikerna Beslut, Avgift, Skäl för beslutet, Upplysningar, Hur
+      man överklagar och Expediering, i den ordningen. Bakgrund och lagrum hör hemma under skälen.
+    lagrum:
+      - FL 32 §
+      - FL 33 §
+    taggar: [klarsprak, beslutsstruktur, avslag]
+
+  - id: kom-003
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilken motivering av ett avslag är bäst?
+    alternativ:
+      - text: ”Detaljplanen tillåter en byggnadshöjd på högst 4,0 m. Tillbyggnaden får en byggnadshöjd på 5,2 m, alltså 1,2 m mer. Nämnden bedömer att avvikelsen inte är liten och därför inte kan godtas enligt 9 kap. 60 § PBL.”
+        ratt: true
+      - text: ”Åtgärden strider mot gällande detaljplan och avvikelsen kan inte betraktas som liten, varför ansökan avslås med stöd av 9 kap. PBL.”
+      - text: ”Nämnden finner inte skäl att bevilja ansökan.”
+      - text: ”Ansökan avslås eftersom grannarna är emot tillbyggnaden.”
+    forklaring: >
+      En bra motivering anger både regeln och de omständigheter som avgjort saken (32 § FL), med
+      konkreta siffror som mottagaren kan kontrollera. Det andra alternativet låter juridiskt men
+      säger inte vad som är fel eller hur mycket. Grannarnas inställning är inte i sig ett skäl;
+      det som avgör är om åtgärden uppfyller kraven.
+    lagrum:
+      - FL 32 §
+      - PBL 9 kap. 60 §
+    taggar: [motivering, klarsprak, avslag]
+
+  - id: kom-004
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur skriver du om meningen ”Det åligger sökanden att inkomma med kompletterande handlingar” i klarspråk?
+    alternativ:
+      - text: ”Du behöver skicka in de handlingar som saknas, se listan nedan.”
+        ratt: true
+      - text: ”Sökanden ska inkomma med kompletteringar.”
+      - text: ”Komplettering erfordras.”
+      - text: ”Det åligger er att inkomma med handlingar enligt 9 kap. 91 § PBL.”
+    forklaring: >
+      Tilltala mottagaren direkt med du eller ni, använd aktiv form och vardagliga ord som
+      ”skicka in” i stället för ”inkomma” och ”behöver” i stället för ”åligger”. Tala om exakt vad
+      som saknas. Lagrummet kan stå med, men det ersätter inte en begriplig förklaring
+      (11 § språklagen).
+    lagrum:
+      - SprL 11 §
+    taggar: [klarsprak, tilltal, komplettering]
+
+  - id: kom-005
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad måste ett föreläggande om komplettering av en bygglovsansökan innehålla för att vara både korrekt och begripligt?
+    alternativ:
+      - text: Vilka brister som ska åtgärdas, inom vilken tid, och att ansökan kan avvisas eller avgöras i befintligt skick om föreläggandet inte följs.
+        ratt: true
+      - text: En hänvisning till 9 kap. PBL och en svarstid; bristerna kan sökanden räkna ut själv.
+      - text: En lista över alla handlingar som en ansökan kan innehålla.
+      - text: En uppmaning att ringa handläggaren för att få veta vad som saknas.
+    forklaring: >
+      9 kap. 91 § PBL kräver att föreläggandet upplyser om att ansökan kan avvisas eller avgöras i
+      befintligt skick om det inte följs. För att det ska vara rättssäkert måste varje brist vara
+      konkret beskriven, till exempel ”fasadritning mot öster saknas” eller ”situationsplanen
+      saknar avstånd till tomtgräns”. Ett tydligt föreläggande minskar också risken för en andra
+      kompletteringsrunda.
+    lagrum:
+      - PBL 9 kap. 91 §
+    taggar: [forelaggande, komplettering, klarsprak]
+
+  - id: kom-006
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett beslut innehåller ordet ”prickmark”. Mottagaren är en privatperson. Hur gör du enligt
+      klarspråksprinciperna?
+    alternativ:
+      - text: Använder ordet, eftersom det är detaljplanens term, men förklarar det första gången, t.ex. mark som inte får förses med byggnad.
+        ratt: true
+      - text: Ersätter ordet med ”förbjuden mark” överallt, även om planen säger prickmark.
+      - text: Använder ordet utan förklaring; sökanden kan slå upp det.
+      - text: Undviker att nämna planbestämmelsen alls.
+    forklaring: >
+      Klarspråk betyder inte att termer med rättslig betydelse ska bort. De behövs för att
+      beslutet ska vara korrekt och gå att jämföra med planen. Däremot ska facktermer förklaras
+      så att mottagaren förstår dem (11 § språklagen). En kort förklaring inom parentes eller en
+      bisats räcker ofta.
+    lagrum:
+      - SprL 11 §
+    taggar: [klarsprak, facktermer, beslut]
+
+  # --- Förväntanshantering och information --------------------------------------------------
+
+  - id: kom-007
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov har kommit in. Vilken information är viktigast att ge sökanden direkt,
+      för att hantera hans förväntningar?
+    alternativ:
+      - text: Vilka tidsfrister som gäller för handläggningen och vad som händer om ansökan behöver kompletteras.
+        ratt: true
+      - text: Att handläggaren tror att lovet kommer att beviljas.
+      - text: Hur många ärenden handläggaren har just nu.
+      - text: Att han kan börja bygga om han inte hört något inom tio veckor.
+    forklaring: >
+      Nämnden ska skriftligen informera sökanden om tidsfristen och vad som påverkar den (9 kap.
+      100 §), vanligen i ett mottagningsbevis. Då vet sökanden att beslut ska komma inom tio
+      veckor från ansökningsdagen och att fristen räknas om om nämnden förelägger om komplettering
+      inom tre veckor (99 §). Ett uteblivet beslut betyder aldrig att lov har beviljats.
+    lagrum:
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 100 §
+    taggar: [forvantningar, tidsfrist, mottagningsbevis]
+
+  - id: kom-008
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande ringer innan ansökan har prövats och frågar: ”Kommer jag att få lov?” Vad är
+      det lämpligaste svaret?
+    alternativ:
+      - text: Att du förklarar vad nämnden kommer att pröva och vilka delar som kan bli svåra, men att du inte kan lova något innan ärendet är utrett och beslutat.
+        ratt: true
+      - text: ”Ja, det brukar gå bra.”
+      - text: ”Det kan jag inte svara på” utan vidare förklaring.
+      - text: ”Nej, sådant brukar nämnden inte bevilja.”
+    forklaring: >
+      Serviceskyldigheten (6 § FL) innebär att sökanden ska få hjälp att förstå prövningen, men
+      handläggaren får inte föregripa beslutet. Ett löfte som sedan inte håller skadar förtroendet,
+      och ett förhastat nej kan vara fel. Att peka ut riskerna tidigt, till exempel en möjlig
+      planavvikelse, ger sökanden chansen att ändra ansökan.
+    lagrum:
+      - FL 6 §
+    taggar: [forvantningar, service, telefonsamtal]
+
+  - id: kom-009
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du inser att ett ärende kommer att bli väsentligt försenat eftersom ett remissvar dröjer.
+      Vad ska du göra enligt förvaltningslagen?
+    alternativ:
+      - text: Underrätta sökanden om förseningen och förklara varför den uppstått.
+        ratt: true
+      - text: Vänta med att säga något tills remissvaret kommit.
+      - text: Avslå ansökan, eftersom den inte kan prövas i tid.
+      - text: Be sökanden återkalla ansökan och söka igen senare.
+    forklaring: >
+      Om avgörandet i ett ärende som inletts av en enskild bedöms bli väsentligt försenat ska
+      myndigheten underrätta parten och redovisa anledningen (11 § FL). I bygglovsärenden kan
+      nämnden också behöva förlänga tioveckorsfristen en gång med högst tio veckor och informera
+      sökanden om det (9 kap. 99–100 §§). Att informera i tid är god förväntanshantering.
+    lagrum:
+      - FL 11 §
+      - PBL 9 kap. 99 §
+      - PBL 9 kap. 100 §
+    taggar: [forsening, information, forvantningar]
+
+  - id: kom-010
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande ringer och frågar om du inte kan ”bara säga att det är okej” att bygga
+      tillbyggnaden, så slipper han vänta på beslutet. Vad är rätt att säga?
+    alternativ:
+      - text: Att ett lov är ett skriftligt beslut som måste fattas av nämnden eller en delegat, och att ett muntligt besked i telefon inte ger rätt att bygga.
+        ratt: true
+      - text: Att det går bra om du antecknar samtalet.
+      - text: Att han kan börja bygga och söka lov i efterhand.
+      - text: Att du får ge muntliga lov i enkla ärenden.
+    forklaring: >
+      Ett lov är ett beslut med innehåll som PBL kräver, bland annat upplysningar om
+      giltighetstid och startbesked (9 kap. 105 §), och det ska delges och kungöras (108–109 §§).
+      Ett telefonbesked är inget beslut. Att bygga utan lov kan leda till byggsanktionsavgift och
+      krav på rättelse. Förklara gärna hur han kan påskynda handläggningen genom en komplett
+      ansökan.
+    lagrum:
+      - PBL 9 kap. 105 §
+      - PBL 9 kap. 108 §
+    taggar: [muntliga_besked, beslut, forvantningar]
+
+  - id: kom-011
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad kräver förvaltningslagen av kommunens information om hur man kontaktar bygglovsenheten?
+    alternativ:
+      - text: Att kommunen informerar allmänheten om hur och när kontakter kan tas, till exempel telefontider och e-postadress.
+        ratt: true
+      - text: Att varje handläggares mobilnummer finns på webbplatsen.
+      - text: Att bygglovsenheten har öppet dygnet runt.
+      - text: Ingenting; information om kontaktvägar är frivillig.
+    forklaring: >
+      7 § FL kräver att myndigheten är tillgänglig för kontakter och informerar allmänheten om hur
+      och när kontakter kan tas. Bra information på webbplatsen, med kontaktvägar, vad en ansökan
+      ska innehålla och hur lång tid det tar, minskar också antalet onödiga samtal och
+      ofullständiga ansökningar.
+    lagrum:
+      - FL 7 §
+    taggar: [tillganglighet, information, webb]
+
+  # --- Svåra samtal och bemötande ----------------------------------------------------------
+
+  - id: kom-012
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En upprörd granne ringer och kräver att du ”stoppar bygget” på grannfastigheten, där
+      bygglov beviljats förra veckan. Vad är bäst att göra först?
+    alternativ:
+      - text: Lyssna, sammanfatta vad hon är orolig för och förklara sedan vilka möjligheter hon har, som att överklaga lovet.
+        ratt: true
+      - text: Förklara direkt att beslutet är fattat och att det inte finns något att göra.
+      - text: Lova att titta på saken och höra av dig, utan att säga vad som kan hända.
+      - text: Hänvisa henne till länsstyrelsen.
+    forklaring: >
+      I ett svårt samtal behöver personen först känna sig lyssnad på. En sammanfattning visar att
+      du förstått och gör det lättare att gå vidare till fakta. Sedan förklarar du hennes
+      möjligheter: överklaga till länsstyrelsen inom tiden, begära inhibition och anmäla om
+      bygget inte följer lovet. Ge inga löften du inte kan hålla, och dokumentera uppgifter som
+      kan ha betydelse för ärendet (27 § FL).
+    lagrum:
+      - FL 6 §
+      - FL 27 §
+      - FL 48 §
+    taggar: [svara_samtal, grannar, bemotande]
+
+  - id: kom-013
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande som fått avslag ringer och är mycket ledsen. Han har redan köpt material till
+      tillbyggnaden. Vad är det lämpligaste bemötandet?
+    alternativ:
+      - text: Visa förståelse, förklara skälen för avslaget på ett enkelt sätt och tala om vilka vägar som finns framåt, som att ändra ansökan eller överklaga.
+        ratt: true
+      - text: Säga att du håller med honom och att beslutet nog kommer att ändras.
+      - text: Upprepa beslutets formuleringar ordagrant och avsluta samtalet.
+      - text: Föreslå att han bygger ändå och söker lov i efterhand.
+    forklaring: >
+      Ett avslag blir lättare att ta emot när mottagaren förstår skälen och ser vad han kan göra.
+      Handläggaren ska vara empatisk men saklig (5 § FL) och får inte ifrågasätta nämndens beslut
+      eller ge falska förhoppningar. Konkreta vägar framåt är till exempel en ny ansökan med ändrad
+      utformning som ryms i planen, eller ett överklagande till länsstyrelsen inom tre veckor.
+    lagrum:
+      - FL 5 §
+      - FL 6 §
+      - FL 44 §
+    taggar: [svara_samtal, avslag, bemotande]
+
+  - id: kom-014
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Sökanden i ett ärende är god vän med nämndens ordförande och påpekar det i telefon. Hur bör
+      du som handläggare agera?
+    alternativ:
+      - text: Handlägga ärendet på samma sätt som alla andra och vid behov uppmärksamma ordföranden på att han kan vara jävig.
+        ratt: true
+      - text: Prioritera ärendet så att ordföranden blir nöjd.
+      - text: Vara extra sträng för att ingen ska misstänka favorisering.
+      - text: Lämna ärendet till ordföranden att avgöra.
+    forklaring: >
+      Myndigheten ska vara saklig och opartisk (5 § FL), så sökanden ska varken gynnas eller
+      missgynnas. En nära vänskap kan göra ordföranden jävig enligt 6 kap. 28 § 4 KL om ärendet
+      ska avgöras av nämnden. Det är ordföranden själv som ska anmäla jävet, men du kan påminna om
+      reglerna. Att förklara lugnt att alla ärenden handläggs lika är också god kommunikation.
+    lagrum:
+      - FL 5 §
+      - KL 6 kap. 28 §
+    taggar: [objektivitet, jav, bemotande]
+
+  - id: kom-015
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande har publicerat ditt namn och ditt beslut i en lokal grupp i sociala medier, med
+      hårda omdömen om dig. Han ringer nu om en ny fråga i samma ärende. Vad är mest lämpligt?
+    alternativ:
+      - text: Informera din chef, dokumentera det som behövs och fortsätta handlägga sakfrågan korrekt; chefen avgör om ärendet ska flyttas.
+        ratt: true
+      - text: Vägra prata med honom tills inlägget tagits bort.
+      - text: Svara i samma grupp och förklara varför beslutet var rätt.
+      - text: Prioritera ned hans ärende tills vidare.
+    forklaring: >
+      Myndighetens skyldighet att vara saklig och ge service (5–6 §§ FL) gäller även när
+      relationen är ansträngd. Chefen ansvarar för arbetsmiljön och kan bedöma om situationen gör
+      att din opartiskhet kan ifrågasättas eller om ärendet av andra skäl bör flyttas. Kritik av
+      ett myndighetsbeslut är tillåten, men hot och trakasserier ska hanteras enligt arbetsgivarens
+      rutiner. Kommentera aldrig enskilda ärenden i sociala medier.
+    lagrum:
+      - FL 5 §
+      - FL 6 §
+    taggar: [bemotande, sociala_medier, arbetsmiljo]
+
+  - id: kom-016
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne ringer och vill se ansökan och ritningarna för ett bygglov på grannfastigheten.
+      Hur svarar du?
+    alternativ:
+      - text: Att hon kan få ta del av handlingarna eftersom de är allmänna, utan att behöva tala om vem hon är eller varför.
+        ratt: true
+      - text: Att hon först måste få sökandens tillstånd.
+      - text: Att handlingarna blir offentliga först när beslutet är fattat.
+      - text: Att hon måste förklara varför hon vill se dem.
+    forklaring: >
+      Ansökan och ritningarna är allmänna handlingar från det att de kom in (2 kap. 4 och 9 §§ TF)
+      och är som regel offentliga. Myndigheten får inte efterforska vem som frågar eller varför i
+      större utsträckning än vad som behövs för att pröva om något hindrar utlämnandet (2 kap.
+      18 § TF). Ett enkelt och vänligt besked om hur hon får se handlingarna är god service.
+    lagrum:
+      - TF 2 kap. 4 §
+      - TF 2 kap. 18 §
+    taggar: [offentlighet, grannar, service]
+
+  - id: kom-017
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Grannarna i ett kvarter ber om ett möte med kommunen om ett planerat flerbostadshus som
+      kräver en avvikelse från planen. Ansökan är inte avgjord. Hur bör handläggaren agera på
+      mötet?
+    alternativ:
+      - text: Lyssna, förklara hur prövningen går till och hur de kan lämna skriftliga synpunkter, dokumentera det som framförs, men inte ta ställning i sakfrågan.
+        ratt: true
+      - text: Försäkra grannarna om att ansökan kommer att avslås.
+      - text: Förklara att nämnden redan bestämt sig.
+      - text: Avstå från att dokumentera mötet eftersom det är informellt.
+    forklaring: >
+      Vid en planavvikelse ska grannarna underrättas och få tillfälle att yttra sig (9 kap. 94 §).
+      Ett möte kan vara bra service, men handläggaren får inte föregripa prövningen. Synpunkter
+      som framförs muntligt och kan ha betydelse ska dokumenteras (27 § FL) och kommuniceras med
+      sökanden (9 kap. 98 §). Ge grannarna samma information som sökanden skulle få.
+    lagrum:
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 98 §
+      - FL 27 §
+    taggar: [grannar, dialog, dokumentation]
+
+  - id: kom-018
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En sökande med hörselnedsättning har svårt att föra samtal i telefon om sitt ärende. Vad är
+      lämpligast?
+    alternativ:
+      - text: Erbjuda kontakt på ett sätt som fungerar för henne, till exempel skriftligt eller med tolk, och se till att hon kan ta del av innehållet i handlingarna.
+        ratt: true
+      - text: Be henne skicka ett ombud.
+      - text: Fortsätta i telefon men tala högre.
+      - text: Bara kommunicera genom beslutet.
+    forklaring: >
+      13 § andra stycket FL kräver att myndigheten använder tolk och gör innehållet i handlingar
+      tillgängligt när den har kontakt med någon som har en funktionsnedsättning som allvarligt
+      begränsar förmågan att se, höra eller tala. Det hänger ihop med serviceskyldigheten och
+      kravet på att kontakterna ska vara smidiga och enkla (6 § FL).
+    lagrum:
+      - FL 13 §
+      - FL 6 §
+    taggar: [tillganglighet, tolk, service]
+
+  # --- Flersvar --------------------------------------------------------------------------
+
+  - id: kom-019
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande är goda klarspråksråd för ett bygglovsbeslut?
+    alternativ:
+      - text: Skriv det viktigaste först.
+        ratt: true
+      - text: Använd aktiv form och tilltala mottagaren direkt.
+        ratt: true
+      - text: Förklara facktermer som har rättslig betydelse i stället för att ta bort dem.
+        ratt: true
+      - text: Skriv korta meningar med en tanke per mening.
+        ratt: true
+      - text: Skriv av lagtexten ordagrant så att inget blir fel.
+      - text: Använd förkortningar som BN, DP och BTA utan förklaring för att spara plats.
+    forklaring: >
+      Klarspråk handlar om att mottagaren ska förstå texten första gången (11 § språklagen).
+      Struktur, aktiv form, direkt tilltal och korta meningar hjälper. Lagtext ska citeras där det
+      behövs, men en lång avskrift ersätter inte en förklaring av hur regeln tillämpas i just det
+      här fallet. Oförklarade förkortningar stänger ute läsaren.
+    lagrum:
+      - SprL 11 §
+    taggar: [klarsprak, skrivrad, beslut]
+
+  - id: kom-020
+    typ: flersvar
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande är myndighetsutövning, och inte bara service?
+    alternativ:
+      - text: Beslut om bygglov
+        ratt: true
+      - text: Föreläggande om komplettering av en ansökan
+        ratt: true
+      - text: Beslut om byggsanktionsavgift
+        ratt: true
+      - text: Allmän rådgivning i telefon om vad som brukar krävas för en altan
+      - text: Ett informationsmöte om de nya reglerna för komplementbyggnader
+    forklaring: >
+      Myndighetsutövning är beslut som ensidigt bestämmer en enskilds rättigheter eller
+      skyldigheter, som lov, förelägganden och sanktionsavgifter. Rådgivning och information är
+      service enligt 6 § FL och 12 kap. 2 § 4 PBL. Skillnaden har praktisk betydelse: ett råd i
+      telefon binder inte nämnden, och det måste den som ger rådet vara tydlig med.
+    lagrum:
+      - FL 6 §
+      - PBL 12 kap. 2 §
+    taggar: [myndighetsutovning, service, roller]
+
+  - id: kom-021
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande är lämpligt att göra i ett telefonsamtal med en arg sökande?
+    alternativ:
+      - text: Låta honom tala till punkt och sammanfatta vad du uppfattat.
+        ratt: true
+      - text: Förklara vad som händer härnäst i ärendet och när.
+        ratt: true
+      - text: Dokumentera uppgifter som kan ha betydelse för ärendet.
+        ratt: true
+      - text: Lova ett snabbt positivt beslut för att lugna honom.
+      - text: Berätta vad andra grannar sagt om honom i telefon.
+    forklaring: >
+      Att lyssna, bekräfta och ge konkreta nästa steg minskar ofta ilskan. Uppgifter av betydelse
+      ska dokumenteras (27 § FL). Löften om utgången kan inte hållas, och information om vad andra
+      sagt ska hanteras korrekt: skriftliga yttranden i ärendet är allmänna handlingar som ska
+      kommuniceras, men skvaller hör inte hemma i ett myndighetssamtal.
+    lagrum:
+      - FL 27 §
+      - FL 6 §
+    taggar: [svara_samtal, bemotande, dokumentation]
+
+  - id: kom-022
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vad gör en upplysning om hur man överklagar begriplig för en privatperson? Välj de
+      formuleringar som hjälper.
+    alternativ:
+      - text: Att överklagandet ska skickas till byggnadsnämnden, med adress, även om länsstyrelsen prövar det.
+        ratt: true
+      - text: Att överklagandet ska ha kommit in inom tre veckor från den dag du fick del av beslutet.
+        ratt: true
+      - text: Att du ska skriva vilket beslut du överklagar och hur du vill att det ändras.
+        ratt: true
+      - text: En hänvisning till 40–48 §§ FL utan förklaring.
+      - text: Uppgiften att beslutet kan överklagas, utan att tala om hur.
+    forklaring: >
+      33 § FL kräver att underrättelsen innehåller vilka krav som ställs på form och innehåll och
+      vad som gäller för ingivande och överklagandetid. Konkret språk och adress gör det lätt att
+      göra rätt. En felaktig eller otydlig hänvisning kan göra att ett sent överklagande inte får
+      avvisas (45 § FL).
+    lagrum:
+      - FL 33 §
+      - FL 43 §
+      - FL 44 §
+    taggar: [overklagandehanvisning, klarsprak, beslut]
+
+  # --- Sant/falskt -----------------------------------------------------------------------
+
+  - id: kom-023
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Serviceskyldigheten innebär att handläggaren ska hjälpa sökanden att utforma ansökan så att den blir beviljad.
+    svar: false
+    forklaring: >
+      Serviceskyldigheten innebär hjälp att ta till vara sina intressen, till exempel att förstå
+      reglerna och vad ansökan ska innehålla (6 § FL). Handläggaren ska samtidigt vara saklig och
+      opartisk (5 § FL) och sedan pröva ärendet. Att utforma sökandens projekt åt honom skulle göra
+      handläggaren till partsföreträdare.
+    lagrum:
+      - FL 5 §
+      - FL 6 §
+    taggar: [service, objektivitet]
+
+  - id: kom-024
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Klarspråk innebär att juridiska termer som ”avvisa” och ”bygglov” inte får användas i beslut.
+    svar: false
+    forklaring: >
+      Termer med bestämd rättslig betydelse behövs för att beslutet ska bli rätt; ”avvisa” och
+      ”avslå” betyder olika saker. Klarspråk innebär att termerna förklaras och att texten runt
+      omkring är enkel (11 § språklagen).
+    lagrum:
+      - SprL 11 §
+    taggar: [klarsprak, facktermer]
+
+  - id: kom-025
+    typ: sant_falskt
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett råd som en bygglovshandläggare ger i telefon om att en åtgärd inte kräver lov binder
+      nämnden om frågan senare prövas i ett tillsynsärende.
+    svar: false
+    forklaring: >
+      Ett telefonråd är service, inte ett beslut, och binder inte nämnden. Den som vill ha ett
+      bindande besked kan söka lov, och sedan 2025-12-01 går det att söka frivilligt lov för
+      åtgärder som inte kräver lov (9 kap. 52 §). Handläggaren bör vara tydlig med att rådet är en
+      bedömning utifrån de uppgifter som lämnats, och dokumentera rådet om det kan få betydelse.
+    lagrum:
+      - FL 6 §
+      - PBL 9 kap. 52 §
+    taggar: [radgivning, frivilligt_lov, service]
+
+  # --- Lucktext, para ihop och ordning ---------------------------------------------------
+
+  - id: kom-026
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Språket i offentlig verksamhet ska vara ___, ___ och ___.
+    svar: ["vårdat", "enkelt", "begripligt"]
+    forklaring: >
+      Formuleringen kommer från 11 § språklagen och är en bra minnesregel. Vårdat betyder korrekt
+      och respektfullt, enkelt betyder utan onödigt krångel och begripligt betyder att mottagaren
+      förstår. Alla tre gäller lika mycket ett mejl till en sökande som ett nämndbeslut.
+    lagrum:
+      - SprL 11 §
+    taggar: [klarsprak, sprakkrav]
+
+  - id: kom-027
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop situationen med den regel som säger vad du ska göra.
+    par:
+      - vanster: Sökanden behärskar inte svenska
+        hoger: Använd tolk och översätt vid behov (13 § FL)
+      - vanster: Ärendet blir väsentligt försenat
+        hoger: Underrätta sökanden och förklara varför (11 § FL)
+      - vanster: En granne lämnar viktiga uppgifter i telefon
+        hoger: Dokumentera snarast, med datum och vem (27 § FL)
+      - vanster: Du skriver ett beslut
+        hoger: Vårdat, enkelt och begripligt språk (11 § språklagen)
+      - vanster: Sökanden behöver hjälp att förstå vad som krävs
+        hoger: Ge hjälp i lämplig omfattning utan onödigt dröjsmål (6 § FL)
+    forklaring: >
+      Mycket av god kommunikation i en myndighet är reglerat. Paragraferna i förvaltningslagen och
+      språklagen ger stöd när det blir svårt: du behöver inte improvisera, utan kan luta dig mot
+      vad lagen faktiskt kräver.
+    lagrum:
+      - FL 6 §
+      - FL 11 §
+      - FL 13 §
+      - FL 27 §
+      - SprL 11 §
+    taggar: [fl, klarsprak, service]
+
+  - id: kom-028
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop myndighetsformuleringen med en klarspråksversion.
+    par:
+      - vanster: Ansökan inkom 2026-03-02.
+        hoger: Vi fick din ansökan den 2 mars 2026.
+      - vanster: Erforderliga handlingar ska inges.
+        hoger: Du behöver skicka in de handlingar som saknas.
+      - vanster: Nämnden har att pröva huruvida åtgärden är planenlig.
+        hoger: Nämnden ska pröva om bygget följer detaljplanen.
+      - vanster: Beslutet kan överklagas hos länsstyrelsen.
+        hoger: Om du inte är nöjd kan du överklaga beslutet till länsstyrelsen.
+    forklaring: >
+      Ord som ”inkom”, ”erforderliga”, ”inges” och ”har att” är typisk myndighetssvenska. Att
+      byta till vardagliga ord och direkt tilltal gör texten lättare utan att den blir mindre
+      korrekt (11 § språklagen).
+    lagrum:
+      - SprL 11 §
+    taggar: [klarsprak, omskrivning]
+
+  - id: kom-029
+    typ: ordning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna rubrikerna i ett bygglovsbeslut i den ordning de brukar komma.
+    poster:
+      - Beslut
+      - Avgift
+      - Skäl för beslutet
+      - Upplysningar
+      - Hur man överklagar
+      - Expediering
+    forklaring: >
+      Beslutet och avgiften kommer först eftersom det är det mottagaren vill veta. Skälen
+      motiverar beslutet (32 § FL), upplysningarna innehåller det PBL kräver, till exempel om
+      giltighetstid och startbesked (9 kap. 105 §), och avsnittet om hur man överklagar uppfyller
+      33 § FL. Expedieringen visar vem som fått beslutet.
+    lagrum:
+      - FL 32 §
+      - FL 33 §
+      - PBL 9 kap. 105 §
+    taggar: [beslutsstruktur, klarsprak]
+
+  - id: kom-030
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen i ett svårt samtal med en upprörd granne.
+    poster:
+      - Låt grannen berätta utan att avbryta.
+      - Sammanfatta vad du uppfattat och bekräfta känslan.
+      - Förklara sakligt vad nämnden har prövat och vilka regler som gäller.
+      - Tala om vilka möjligheter grannen har och vad som händer härnäst.
+      - Dokumentera det som har betydelse för ärendet.
+    forklaring: >
+      Ordningen bygger på att en person som känner sig hörd lättare tar emot fakta. Fakta och
+      möjligheter, till exempel att överklaga, kommer därefter. Dokumentationen (27 § FL) avslutar
+      samtalet och skyddar både grannen, sökanden och dig.
+    lagrum:
+      - FL 27 §
+    taggar: [svara_samtal, grannar, bemotande]
+
+  # --- Öppna frågor ------------------------------------------------------------------------
+
+  - id: kom-031
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Skriv om följande stycke i klarspråk: ”Med anledning av inkommen ansökan avseende
+      tillbyggnad å fastigheten Lärkan 4 får nämnden meddela att det åligger sökanden att senast
+      2026-04-15 inkomma med fasadritningar samt situationsplan utvisande avstånd till tomtgräns,
+      vid äventyr att ansökan kan komma att avvisas.”
+    bedomningspunkter:
+      - Direkt tilltal (du) och aktiv form.
+      - Konkret lista över vad som saknas.
+      - Tydligt datum skrivet så att det är lätt att läsa.
+      - Förklarar följden om bristerna inte avhjälps, inklusive att ärendet kan avgöras i befintligt skick (9 kap. 91 § PBL).
+      - Behåller den rättsliga innebörden och tar bort ålderdomliga ord som ”å”, ”åligger” och ”vid äventyr”.
+    modellsvar: >
+      Vi har fått din ansökan om bygglov för tillbyggnad på Lärkan 4. För att kunna pröva den
+      behöver vi följande från dig: fasadritningar, och en situationsplan som visar avståndet
+      från tillbyggnaden till tomtgränsen. Skicka in handlingarna senast den 15 april 2026. Om vi
+      inte får dem i tid kan nämnden avvisa ansökan, det vill säga inte pröva den, eller pröva den
+      med de handlingar som finns, vilket kan leda till avslag.
+    lagrum:
+      - PBL 9 kap. 91 §
+      - SprL 11 §
+    taggar: [klarsprak, omskrivning, forelaggande]
+
+  - id: kom-032
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du ska föreslå avslag på en ansökan om bygglov för ett garage som är för stort enligt
+      planen. Innan beslutet ska du kommunicera underlaget med sökanden. Beskriv hur du
+      kommunicerar för att sökanden ska förstå, kunna yttra sig och inte bli överraskad av
+      beslutet.
+    bedomningspunkter:
+      - Skickar allt underlag av betydelse och ger en bestämd tid för yttrande (9 kap. 98 § PBL).
+      - Förklarar i klartext vad bedömningen hittills är och varför, med konkreta siffror.
+      - Anger vilka alternativ sökanden har, t.ex. ändra ansökan, återkalla eller låta nämnden pröva.
+      - Erbjuder kontakt, t.ex. ett samtal, och dokumenterar det som sägs (27 § FL).
+      - Undviker att låta beslutet vara fattat innan sökanden fått yttra sig.
+    modellsvar: >
+      Jag skickar ett brev med allt underlag av betydelse, till exempel min bedömning, planens
+      bestämmelser och eventuella yttranden, och ger en bestämd tid att svara (9 kap. 98 § PBL). I
+      brevet skriver jag i klartext att garaget får en byggnadsarea på 68 kvm och att planen
+      tillåter 50 kvm för komplementbyggnader på tomten, och att jag därför kommer att föreslå
+      avslag om inget ändras. Jag förklarar att han kan ändra ansökan så att garaget ryms, återkalla
+      ansökan eller låta nämnden pröva den som den är, och att han kan överklaga ett avslag. Jag
+      erbjuder ett samtal och dokumenterar det som sägs. Formuleringen ska visa att bedömningen är
+      preliminär tills han har yttrat sig.
+    lagrum:
+      - PBL 9 kap. 98 §
+      - FL 27 §
+    taggar: [kommunicering, forvantningar, avslag]
+
+  - id: kom-033
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne ringer upprörd: grannen bredvid har fått bygglov och har redan börjat gjuta
+      grunden, fast hon har sagt att hon tänker överklaga. Hon menar att kommunen ”struntar i
+      grannarna”. Hur förklarar du läget för henne på ett begripligt och respektfullt sätt?
+    bedomningspunkter:
+      - Lyssnar och bekräftar hennes oro innan fakta.
+      - Förklarar att ett lov gäller omedelbart (9 kap. 114 § PBL) och att byggherren bygger på egen risk tills lovet fått laga kraft.
+      - Förklarar hur och när hon kan överklaga och att hon kan begära att länsstyrelsen stoppar lovet tills vidare (inhibition, 48 § FL).
+      - Undviker att ta ställning i sak och ger inga löften om utgången.
+      - Erbjuder att skicka beslutet och information skriftligt, och dokumenterar samtalet.
+    modellsvar: >
+      Jag förstår att det känns som att det redan är bestämt. Så här fungerar det sedan december
+      2025: ett bygglov gäller direkt, även innan det har fått laga kraft (9 kap. 114 § PBL), och
+      byggherren får börja när han har fått startbesked. Men han bygger på egen risk. Om du
+      överklagar och lovet upphävs kan han behöva riva det han byggt. Du kan överklaga till
+      länsstyrelsen genom att skicka ett brev till oss senast fyra veckor efter att beslutet
+      kungjordes på anslagstavlan, och du kan be länsstyrelsen att bestämma att lovet inte ska
+      gälla medan överklagandet prövas. Jag kan skicka beslutet och en beskrivning av hur man
+      överklagar till dig i dag.
+    lagrum:
+      - PBL 9 kap. 114 §
+      - PBL 13 kap. 16 §
+      - FL 48 §
+    taggar: [svara_samtal, grannar, verkstallighet]
+
+  - id: kom-034
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara skillnaden mellan service och myndighetsutövning i bygglovsarbetet. Ge exempel på
+      när de kan krocka och hur du hanterar det.
+    bedomningspunkter:
+      - "Service: hjälp, information och råd enligt 6 § FL och 12 kap. 2 § 4 PBL."
+      - "Myndighetsutövning: beslut som ensidigt bestämmer rättigheter och skyldigheter, t.ex. lov och förelägganden."
+      - Ger exempel på krock, t.ex. att sökanden vill ha hjälp att formulera ansökan eller ett muntligt löfte om utgången.
+      - Hanterar krocken genom att ge saklig information, vara tydlig med att råd inte binder nämnden och behålla objektiviteten (5 § FL).
+    modellsvar: >
+      Service är den hjälp jag ger för att någon ska kunna ta till vara sina intressen: förklara
+      regler, tala om vad en ansökan ska innehålla, berätta hur man överklagar (6 § FL, 12 kap.
+      2 § 4 PBL). Myndighetsutövning är när nämnden ensidigt bestämmer något, som att bevilja
+      eller avslå lov eller förelägga om komplettering. De kan krocka när en sökande vill att jag
+      ska säga att han kommer att få lov, eller hjälpa honom att formulera ansökan så att den går
+      igenom. Då ger jag fullständig och saklig information om vad som prövas och vilka risker jag
+      ser, men jag är tydlig med att bedömningen görs i ärendet och att ett råd inte binder
+      nämnden. Jag behandlar sökanden och grannar lika (5 § FL).
+    lagrum:
+      - FL 5 §
+      - FL 6 §
+      - PBL 12 kap. 2 §
+    taggar: [service, myndighetsutovning, objektivitet]
+
+  - id: kom-035
+    typ: oppen
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Åkerslunda kommun ska göra om sin webbsida om bygglov för villaägare. Föreslå vad sidan bör
+      innehålla och hur den bör skrivas för att minska antalet ofullständiga ansökningar och
+      onödiga samtal.
+    bedomningspunkter:
+      - Kontaktvägar och tider (7 § FL).
+      - Vad som kräver lov och vad som är bygglovsbefriat efter 2025-12-01, med enkla exempel.
+      - Vilka handlingar en ansökan ska innehålla, gärna med exempel på ritningar.
+      - Handläggningstid (tio veckor från ansökningsdagen) och vad som påverkar den.
+      - Klarspråk, struktur med rubriker och tillgänglighet för personer med funktionsnedsättning.
+    modellsvar: >
+      Sidan bör börja med de vanligaste frågorna: behöver jag bygglov, vad ska jag skicka in och
+      hur lång tid tar det? Den bör förklara de nya reglerna från den 1 december 2025 med exempel,
+      till exempel en komplementbyggnad på 25 kvm inom detaljplan och vad som gäller nära
+      tomtgränsen. En checklista med exempel på situationsplan, fasad- och planritningar minskar
+      kompletteringar. Sidan ska ange att nämnden ska besluta inom tio veckor från
+      ansökningsdagen och att en ofullständig ansökan förlänger tiden. Kontaktvägar och
+      telefontider ska stå tydligt (7 § FL). Texten skrivs i klarspråk med rubriker, korta
+      stycken och förklarade fackord, och sidan ska fungera med skärmläsare.
+    lagrum:
+      - FL 7 §
+      - SprL 11 §
+      - PBL 9 kap. 99 §
+    taggar: [information, webb, klarsprak]
+
+  - id: kom-036
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du ska skriva skälen för ett avslag till en äldre sökande som inte har svenska som
+      modersmål. Förklara hur du gör texten begriplig utan att den tappar i rättslig precision,
+      och vilka andra åtgärder du kan vidta för att han ska förstå beslutet.
+    bedomningspunkter:
+      - Skriver kort och konkret med regel och omständighet tillsammans (32 § FL).
+      - Behåller nödvändiga termer men förklarar dem.
+      - Strukturerar texten med det viktigaste först och tydliga rubriker.
+      - Överväger tolk eller översättning om det behövs för att han ska kunna ta till vara sin rätt (13 § FL).
+      - Erbjuder att förklara beslutet muntligt och tydliggör hur och när man överklagar (33 § FL).
+    modellsvar: >
+      Jag skriver skälen i korta meningar där varje mening innehåller en sak: vad planen tillåter,
+      vad han har sökt och varför det inte går ihop. Jag behåller termer som ”detaljplan” och
+      ”byggnadshöjd”, men förklarar dem första gången. Beslutet börjar med vad som har bestämts,
+      sedan skälen och till sist hur man överklagar, med datum och adress. Om han inte behärskar
+      svenska tillräckligt för att ta till vara sin rätt ska kommunen använda tolk och vid behov
+      översätta (13 § FL). Jag erbjuder också ett samtal där jag går igenom beslutet, och
+      dokumenterar samtalet.
+    lagrum:
+      - FL 13 §
+      - FL 32 §
+      - FL 33 §
+      - SprL 11 §
+    taggar: [klarsprak, tolk, avslag]

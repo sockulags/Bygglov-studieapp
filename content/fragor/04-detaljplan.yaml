@@ -1,0 +1,1069 @@
+# Frågor för modul 04-detaljplan (Detaljplan och planenlighet). Valideras med zod (pnpm content:check).
+# Filen heter som modulens id i moduler.yaml, annars stoppar content:check bygget.
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# Lagrum i 9 kap. är kontrollerade mot docs/rattslage/pbl-9-kap.txt. PBL 2, 4, 5, 10 och 13 kap.
+# är kontrollerade mot riksdagen.se 2026-11-05 (PBL ändrad t.o.m. SFS 2026:1583), se
+# docs/rattslage/pbl-2-kap.txt, pbl-4-kap.txt, pbl-5-kap.txt, pbl-10-kap.txt och pbl-13-kap.txt.
+# Äldre planer: docs/rattslage/byggnadsstadgan-1959-39-40.txt. Mätregler och praxis om liten
+# avvikelse: docs/rattslage/boverket-matt-och-planbestammelser.txt.
+# Alla exempel är fiktiva.
+modul: 04-detaljplan
+fragor:
+  # --- Detaljplanens delar och hur den läses -----------------------------------------------
+
+  - id: dp-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka delar består en detaljplan av enligt 4 kap. PBL?
+    alternativ:
+      - text: En plankarta och de bestämmelser i övrigt som behövs. En planbeskrivning ska finnas tillsammans med planen.
+        ratt: true
+      - text: En planbeskrivning, som är det juridiskt bindande dokumentet, och en illustrationskarta.
+      - text: En plankarta, en planbeskrivning och ett exploateringsavtal, som alla tre är bindande.
+      - text: Bara planbestämmelser i text. Kartan är ett frivilligt komplement.
+    forklaring: >
+      Enligt 4 kap. 30 § består detaljplanen av en plankarta och de bestämmelser som behövs. Av
+      kartan ska det framgå hur området delas upp för skilda ändamål och vilka bestämmelser som
+      gäller var. Planbeskrivningen ska finnas tillsammans med planen (31 §) och beskriva hur
+      planen ska förstås och genomföras. Den är inte en bestämmelse i sig, men den är ofta
+      avgörande när du ska tolka vad planens syfte är, t.ex. vid en liten avvikelse.
+    lagrum:
+      - PBL 4 kap. 30 §
+      - PBL 4 kap. 31 §
+    taggar: [detaljplan, plankarta, planbeskrivning]
+
+  - id: dp-002
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop beteckningen på plankartan med vad den betyder.
+    par:
+      - vanster: B
+        hoger: Kvartersmark för bostäder (användningsbestämmelse)
+      - vanster: GATA
+        hoger: Allmän plats för gatutrafik
+      - vanster: PARK
+        hoger: Allmän plats med anlagd park
+      - vanster: e₁
+        hoger: Egenskapsbestämmelse om utnyttjandegrad, t.ex. största byggnadsarea
+      - vanster: Prickad mark
+        hoger: Marken får inte förses med byggnad
+    forklaring: >
+      Användningsbestämmelser anger vad marken ska användas till: kvartersmark skrivs med
+      versal bokstav (B, C, H), allmän plats med versaler i klartext (GATA, PARK, NATUR).
+      Egenskapsbestämmelser anger hur marken får bebyggas och betecknas med gemen bokstav och
+      index, t.ex. e₁ för utnyttjandegrad och p₁ för placering. Prickmark heter numera
+      "begränsning av markens utnyttjande" men används i alla äldre planer du kommer att läsa.
+    lagrum:
+      - PBL 4 kap. 5 §
+      - PBL 4 kap. 11 §
+      - PBL 4 kap. 16 §
+      - Boverket
+    taggar: [plankarta, beteckningar, anvandning]
+
+  - id: dp-003
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      På plankartan ligger en sex meter bred zon med prickmark längs gatan. Vad innebär det för
+      en bygglovspliktig tillbyggnad av villan?
+    alternativ:
+      - text: Tillbyggnaden får inte placeras på den prickade marken. Gör den det strider den mot planen.
+        ratt: true
+      - text: Prickmarken gäller bara garage och komplementbyggnader, inte huvudbyggnaden.
+      - text: Prickmarken är en rekommendation som byggnadsnämnden kan bortse från om grannarna inte invänder.
+      - text: Prickmarken betyder att marken får bebyggas först när genomförandetiden gått ut.
+    forklaring: >
+      Prickmark är mark som inte får bebyggas, eller med Boverkets nuvarande formulering "marken
+      får inte förses med byggnad". Byggnader får varken uppföras, byggas till eller flyttas dit.
+      En lovpliktig åtgärd på prickmark är alltså planstridig och kan bara beviljas om
+      avvikelsen kan godtas enligt 9 kap. 60 eller 61 §. Syftet är ofta ett öppet gaturum eller
+      att hålla avstånd till en ledning eller en risk.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 4 kap. 16 §
+      - Boverket
+    taggar: [prickmark, planenlighet, plankarta]
+
+  - id: dp-004
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ägaren till ett enbostadshus inom detaljplan vill bygga ett förråd på 15 kvm byggnadsarea
+      och 3,0 m nockhöjd på den prickade marken mot gatan, 6 m från tomtgränsen. Det finns inga
+      andra komplementbyggnader på tomten och inga skyddsbestämmelser. Vad gäller?
+    alternativ:
+      - text: Förrådet kräver inte bygglov och får placeras på prickmarken, eftersom en sådan komplementbyggnad får strida mot detaljplanen.
+        ratt: true
+      - text: Förrådet är lovbefriat men måste ändå följa planen, så det får inte placeras på prickmarken.
+      - text: Förrådet kräver bygglov eftersom det strider mot planen, och lov kan bara ges som liten avvikelse.
+      - text: Förrådet kräver anmälan och startbesked eftersom det placeras på prickmark.
+    forklaring: >
+      Förrådet ryms i 9 kap. 4 § och placeras mer än 4,5 m från gränsen, så 34 § utlöser inte
+      lovplikt. Huvudregeln är att lovfria åtgärder ska följa planen (10 kap. 2 § 2), men
+      10 kap. 2 a § gör undantag för bl.a. nybyggnad av en komplementbyggnad till ett en- eller
+      tvåbostadshus. Den får alltså strida mot planen, även mot prickmark och utnyttjandegrad.
+      Undantaget gäller inte planbestämmelser om skyddsåtgärder mot t.ex. översvämning eller
+      ras (4 kap. 12 § 1).
+    lagrum:
+      - PBL 10 kap. 2 §
+      - PBL 10 kap. 2 a §
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 34 §
+    taggar: [prickmark, lovbefriad, komplementbyggnad, planstridig_lovfri]
+
+  - id: dp-005
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En detaljplan vid Åkerslundaån har bestämmelsen "Lägsta golvnivå för byggnad är +4,2 m
+      (skydd mot översvämning)". En villaägare vill bygga en bygglovsbefriad komplementbyggnad
+      med golvet på +3,6 m. Vad gäller?
+    alternativ:
+      - text: Bestämmelsen måste följas. Undantaget i 10 kap. 2 a § omfattar inte planbestämmelser om skyddsåtgärder mot översvämning.
+        ratt: true
+      - text: Komplementbyggnaden får strida mot alla planbestämmelser enligt 10 kap. 2 a §, så golvnivån spelar ingen roll.
+      - text: Bestämmelsen gäller bara byggnader som kräver bygglov.
+      - text: Byggnaden blir lovpliktig och nämnden kan ge lov som liten avvikelse eftersom det är en komplementbyggnad.
+    forklaring: >
+      10 kap. 2 a § låter vissa lovfria åtgärder strida mot planen, men inte mot bestämmelser om
+      skyddsåtgärder enligt 4 kap. 12 § 1, alltså åtgärder mot markförorening, olyckor,
+      översvämning och erosion. En lovfri åtgärd som bryter mot en sådan bestämmelse strider
+      därför mot 10 kap. 2 §, och det blir en tillsynsfråga. Läs alltid igenom planens
+      skyddsbestämmelser innan du säger till någon att en åtgärd "får strida mot planen".
+    lagrum:
+      - PBL 10 kap. 2 a §
+      - PBL 4 kap. 12 §
+      - PBL 10 kap. 2 §
+    taggar: [planstridig_lovfri, skyddsbestammelse, oversvamning]
+
+  - id: dp-006
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilka av följande åtgärder får enligt 10 kap. 2 a § PBL strida mot detaljplanen, förutsatt
+      att de inte kräver bygglov?
+    alternativ:
+      - text: Nybyggnad av en komplementbyggnad till ett enbostadshus.
+        ratt: true
+      - text: Tillbyggnad av ett tvåbostadshus.
+        ratt: true
+      - text: Inredning av ytterligare en bostad i ett enbostadshus.
+        ratt: true
+      - text: Uppförande av ett plank.
+        ratt: true
+      - text: Nybyggnad av en komplementbyggnad till ett flerbostadshus.
+      - text: En altan som tillsammans med övriga altaner på tomten upptar 70 kvm.
+      - text: En ny parkeringsplats för två bilar.
+    forklaring: >
+      Uppräkningen i 10 kap. 2 a § är uttömmande: komplementbyggnader och komplementbostadshus
+      till en- och tvåbostadshus, tillbyggnad av sådana hus, ytterligare en bostad i ett
+      enbostadshus, murar och plank samt altaner upp till 50 kvm sammanlagt på tomten. Allt
+      annat som är lovfritt ska följa planen (10 kap. 2 §), men en liten avvikelse som inte
+      motverkar planens syfte godtas (2 b §). Komplementbyggnader till flerbostadshus omfattas
+      alltså inte.
+    lagrum:
+      - PBL 10 kap. 2 a §
+      - PBL 10 kap. 2 b §
+    taggar: [planstridig_lovfri, lovbefriad, planenlighet]
+
+  - id: dp-007
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare har byggt en bygglovsbefriad tillbyggnad på 25 kvm på prickmark med stöd av
+      10 kap. 2 a §. När hon senare söker bygglov för en planenlig takkupa måste nämnden behandla
+      huset som planstridigt på grund av tillbyggnaden.
+    svar: false
+    forklaring: >
+      9 kap. 56 § andra stycket säger att hänsyn inte ska tas till åtgärder som enligt 10 kap.
+      2 a § får strida mot planen, när nämnden bedömer om fastigheten och byggnaden
+      överensstämmer med planen och om åtgärden strider mot den. Den lovfria tillbyggnaden
+      "smittar" alltså inte nästa lovansökan. Utan regeln skulle lovfriheten i praktiken bli en
+      fälla för nästa ansökan.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 10 kap. 2 a §
+    taggar: [planstridig_lovfri, planstridigt_utgangslage, planenlighet]
+
+  # --- Genomförandetid och planens giltighet ---------------------------------------------
+
+  - id: dp-008
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Genomförandetiden i en detaljplan får inte vara kortare än ___ år och inte längre än ___
+      år. Om planen saknar uppgift om genomförandetidens längd anses den vara ___ år.
+    svar: ["5", "15", "15"]
+    forklaring: >
+      4 kap. 21 och 23 §§ PBL. Tiden räknas från den dag beslutet att anta planen vann laga
+      kraft. Före genomförandetidens utgång får den förlängas med högst fem år i sänder, och
+      efter utgången får den förnyas med högst fem år i sänder (24 §). Kontrollera alltid
+      genomförandetiden när du läser en plan, eftersom flera regler i 9 kap. hänger på den.
+    lagrum:
+      - PBL 4 kap. 21 §
+      - PBL 4 kap. 23 §
+      - PBL 4 kap. 24 §
+    taggar: [genomforandetid, detaljplan]
+
+  - id: dp-009
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Genomförandetiden för detaljplanen för kvarteret Rönnen gick ut 2019. Planen har inte
+      ändrats. Vad gäller i dag?
+    alternativ:
+      - text: Planen gäller fortfarande, men kommunen kan ändra eller upphäva den utan att de rättigheter planen gett hindrar det.
+        ratt: true
+      - text: Planen har upphört att gälla och området prövas som om det låg utanför detaljplan.
+      - text: Planen gäller, men bygglov får inte längre ges med stöd av den.
+      - text: Kommunen måste upphäva planen inom fem år.
+    forklaring: >
+      En detaljplan gäller till dess den ändras eller upphävs (4 kap. 38 §), även när
+      genomförandetiden gått ut. Under genomförandetiden får planen inte ändras eller upphävas
+      mot en berörd fastighetsägares vilja, utom vid nya förhållanden av stor allmän vikt som inte
+      kunnat förutses (39 §). Efter genomförandetiden hindrar rättigheterna inte en ändring
+      (40 §). Utgången genomförandetid öppnar också för vissa avvikelser, t.ex. 9 kap. 60 § 3
+      och 61 §.
+    lagrum:
+      - PBL 4 kap. 38 §
+      - PBL 4 kap. 39 §
+      - PBL 4 kap. 40 §
+    taggar: [genomforandetid, detaljplan, byggratt]
+
+  # --- Förutsättningarna för bygglov inom detaljplan (9 kap. 56 §) -----------------------
+
+  - id: dp-010
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilket av följande är INTE en förutsättning för bygglov inom detaljplan enligt 9 kap. 56 § PBL?
+    alternativ:
+      - text: Åtgärden stämmer överens med kommunens översiktsplan.
+        ratt: true
+      - text: Åtgärden strider inte mot detaljplanen.
+      - text: Åtgärden behöver inte avvakta att genomförandetiden börjar löpa.
+      - text: Åtgärden uppfyller vissa krav i 2 kap. och 8 kap. som inte redan avgjorts i planen.
+    forklaring: >
+      56 § räknar upp fyra förutsättningar: fastigheten och byggnadsverket överensstämmer med
+      planen (eller ett undantag gäller), åtgärden strider inte mot planen, den behöver inte
+      vänta på att genomförandetiden börjar löpa och den uppfyller de uppräknade kraven i 2 och
+      8 kap. Översiktsplanen är inte bindande (3 kap. 2 §) och är inte en förutsättning för
+      bygglov. Lämpligheten prövades när detaljplanen antogs.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 3 kap. 2 §
+    taggar: [planenlighet, forutsattningar, oversiktsplan]
+
+  - id: dp-011
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bostadsbolag söker bygglov för ett flerbostadshus som följer detaljplanen i allt. Flera
+      grannar skriver att huset kommer att ge mer biltrafik på gatan och att de hellre ser
+      villor där. Hur ska nämnden förhålla sig till synpunkterna?
+    alternativ:
+      - text: Frågan om markens lämplighet för flerbostadshus är avgjord i detaljplanen. Synpunkterna kan inte leda till avslag, och de kan inte heller prövas vid ett överklagande.
+        ratt: true
+      - text: Nämnden ska väga grannarnas synpunkter mot sökandens intresse och kan avslå om grannarna är många.
+      - text: Nämnden ska avvakta en ny trafikutredning innan den beslutar.
+      - text: Nämnden ska avvisa ansökan eftersom grannarna motsätter sig den.
+    forklaring: >
+      Enligt 9 kap. 56 § första stycket 4 prövas kraven i 2 och 8 kap. bara om frågan inte redan
+      är avgjord genom detaljplanen. Användningen och omfattningen avgjordes när planen antogs,
+      och den planenliga åtgärden ska då beviljas om övriga krav är uppfyllda. Ett överklagande
+      kan inte heller avse en fråga som redan är avgjord genom detaljplanen (13 kap. 2 § 7).
+      Förklara det för grannarna på ett respektfullt sätt. Det är en vanlig källa till besvikelse.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 13 kap. 2 §
+    taggar: [planenlighet, grannar, avgjord_fraga]
+
+  - id: dp-012
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En detaljplan från 1985 anger bara användning (B), byggnadshöjd och utnyttjandegrad. En
+      ansökan avser en planenlig villa med en kraftigt avvikande utformning i ett område med
+      enhetlig 1980-talsbebyggelse. Kan nämnden ställa krav på utformningen?
+    alternativ:
+      - text: Ja. Kravet i 2 kap. 6 § första stycket 1 på hänsyn till stadsbilden och god helhetsverkan prövas, eftersom planen inte avgjort utformningen.
+        ratt: true
+      - text: Nej. En planenlig åtgärd ska alltid beviljas utan någon prövning av utformningen.
+      - text: Nej. Utformning prövas bara utanför detaljplan.
+      - text: Ja, men bara om grannarna har invänt mot utformningen.
+    forklaring: >
+      9 kap. 56 § första stycket 4 hänvisar bl.a. till 2 kap. 6 § första stycket 1 (stads- och
+      landskapsbilden, natur- och kulturvärden, god helhetsverkan) och 5 (avfall), tredje
+      stycket (varsamhet med särskilda värden) samt 2 kap. 8 och 9 §§. De prövas i den mån
+      planen inte redan avgjort frågan. Saknar planen utformningsbestämmelser är utformningen
+      alltså inte avgjord. Gränsen är att kraven inte får användas för att i praktiken ta bort
+      en byggrätt som planen ger.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 2 kap. 6 §
+    taggar: [planenlighet, utformning, stadsbild]
+
+  - id: dp-013
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilken bestämmelse i 2 kap. PBL, som prövas även när en åtgärd är planenlig, skyddar mot
+      att ett byggnadsverk medför fara för människors hälsa och säkerhet eller betydande
+      olägenhet på annat sätt?
+    alternativ:
+      - text: 2 kap. 9 §
+        ratt: true
+      - text: 2 kap. 2 §
+      - text: 2 kap. 4 §
+      - text: 2 kap. 7 §
+    forklaring: >
+      2 kap. 9 § förbjuder placering och utformning som kan medföra en sådan påverkan på
+      grundvattnet eller omgivningen i övrigt som innebär fara för hälsa och säkerhet eller
+      betydande olägenhet. Den ingår i prövningen inom plan enligt 9 kap. 56 § första stycket 4.
+      Ribban är hög: en granne till en planenlig byggnad har fått räkna med det planen tillåter,
+      så skuggning eller insyn från en planenlig villa blir sällan en betydande olägenhet.
+      2 kap. 2 och 4 §§ handlar om lokalisering och prövas inte inom plan.
+    lagrum:
+      - PBL 2 kap. 9 §
+      - PBL 9 kap. 56 §
+    taggar: [betydande_olagenhet, planenlighet, grannar]
+
+  # --- Avvikelser: 58–64 §§ -------------------------------------------------------------
+
+  - id: dp-014
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilket av följande är INTE en grund för att ge bygglov trots avvikelse enligt 9 kap. 60 § PBL?
+    alternativ:
+      - text: Sökanden har redan beställt ett typhus som är för stort för byggrätten.
+        ratt: true
+      - text: Avvikelsen är förenlig med planens syfte och avvikelsen är liten.
+      - text: Avvikelsen är förenlig med planens syfte och åtgärden är av begränsad omfattning och nödvändig för att området ska kunna användas ändamålsenligt.
+      - text: Åtgärden är att inreda en vind till bostad i ett bostadshus, och planens genomförandetid har gått ut.
+    forklaring: >
+      60 § har tre grunder: liten avvikelse förenlig med syftet (1), begränsad omfattning och
+      nödvändig för ändamålsenlig användning (2) och vindsinredning till bostad (3), inom plan
+      först efter genomförandetiden. Sökandens ekonomiska eller personliga skäl är ingen grund.
+      Även när en grund finns stoppar 62 § lovet om åtgärden kan antas medföra en betydande
+      miljöpåverkan eller begränsa en rättighet eller pågående verksamhet i omgivningen.
+    lagrum:
+      - PBL 9 kap. 60 §
+      - PBL 9 kap. 62 §
+    taggar: [liten_avvikelse, avvikelse]
+
+  - id: dp-015
+    typ: para_ihop
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop paragrafen i 9 kap. PBL med vad den handlar om.
+    par:
+      - vanster: 56 §
+        hoger: Förutsättningar för bygglov inom detaljplan
+      - vanster: 58 §
+        hoger: Vid annan ändring än tillbyggnad prövas inte om fastigheten och byggnaden stämmer med planen
+      - vanster: 60 §
+        hoger: Liten avvikelse, begränsad omfattning eller vindsinredning
+      - vanster: 61 §
+        hoger: Avvikelse efter genomförandetiden för angeläget gemensamt behov eller lämpligt komplement
+      - vanster: 62 §
+        hoger: Spärr vid betydande miljöpåverkan eller begränsning av rättighet eller pågående verksamhet
+      - vanster: 63 §
+        hoger: Nämnden får förklara att ett planstridigt utgångsläge godtas
+      - vanster: 64 §
+        hoger: Samlad bedömning med tidigare godtagna avvikelser
+    forklaring: >
+      Paragraferna 56–64 §§ ersatte den 1 december 2025 de tidigare 9 kap. 30–31 d §§. Logiken
+      är densamma som förut: först om utgångsläget och åtgärden stämmer med planen, sedan vilka
+      avvikelser som kan godtas, sist spärrarna och den samlade bedömningen. Lär dig dem i den
+      ordningen, så hittar du snabbt i både lagboken och äldre kurslitteratur.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 9 kap. 58 §
+      - PBL 9 kap. 60 §
+      - PBL 9 kap. 61 §
+      - PBL 9 kap. 62 §
+      - PBL 9 kap. 63 §
+      - PBL 9 kap. 64 §
+    taggar: [avvikelse, paragrafer, planenlighet]
+
+  - id: dp-016
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En detaljplan vann laga kraft 2021 med tio års genomförandetid. Den har bestämmelsen "Vind
+      får inte inredas". Ägaren till ett tvåbostadshus vill inreda vinden till en tredje bostad.
+      Vad gäller?
+    alternativ:
+      - text: Det krävs bygglov. Vindsregeln i 60 § första stycket 3 kan inte användas förrän genomförandetiden gått ut 2031, men nämnden kan pröva om avvikelsen ändå är liten.
+        ratt: true
+      - text: Det krävs bygglov, och vindsinredning till bostad ska alltid beviljas oavsett genomförandetid.
+      - text: Lov kan inte ges alls förrän planen ändrats.
+      - text: Åtgärden kräver inte lov eftersom den sker inuti byggnaden.
+    forklaring: >
+      Att inreda ytterligare en bostad kräver bygglov (9 kap. 15 § 2), och undantaget i 17 §
+      gäller bara enbostadshus. 60 § första stycket 3 tillåter att en vind inreds till bostad
+      trots att det strider mot planen, men enligt andra stycket får det inom detaljplan ske först
+      när genomförandetiden har gått ut. Under genomförandetiden återstår grunderna i 60 § 1 och
+      2, och en vindsinredning i strid med ett uttryckligt förbud blir sällan en liten avvikelse.
+    lagrum:
+      - PBL 9 kap. 60 §
+      - PBL 9 kap. 15 §
+      - PBL 9 kap. 17 §
+    taggar: [vindsinredning, genomforandetid, liten_avvikelse]
+
+  - id: dp-017
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villa i ett område med användningen B (bostäder) ska byggas om till förskola för fyra
+      avdelningar. Detaljplanen är från 1982 och genomförandetiden har gått ut. Avvikelsen är för
+      stor för att vara liten. Vilken bestämmelse kan ändå ge stöd för lov?
+    alternativ:
+      - text: 9 kap. 61 §, om avvikelsen är förenlig med planens syfte och tillgodoser ett angeläget gemensamt behov eller ett allmänt intresse, eller om förskolan är ett lämpligt komplement.
+        ratt: true
+      - text: 9 kap. 60 § första stycket 3, eftersom det är en ombyggnad.
+      - text: 9 kap. 63 §, eftersom förskolan avviker från planen.
+      - text: Ingen. En användning som inte anges i planen kan aldrig få bygglov.
+    forklaring: >
+      61 § gäller bara när genomförandetiden har gått ut. Då kan lov ges för en avvikelse som är
+      förenlig med syftet och tillgodoser ett angeläget gemensamt behov eller allmänt intresse,
+      eller för en annan användning som är ett lämpligt komplement till området och den
+      användning planen anger. En förskola i ett bostadsområde är ett typexempel. Pröva också
+      62 §: lovet får inte ges om åtgärden kan antas medföra betydande miljöpåverkan eller
+      begränsa en rättighet eller pågående verksamhet i omgivningen.
+    lagrum:
+      - PBL 9 kap. 61 §
+      - PBL 9 kap. 62 §
+    taggar: [avvikelse, genomforandetid, lampligt_komplement]
+
+  - id: dp-018
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bostadshus ska byggas med en liten avvikelse från planens placeringsbestämmelse, 40 m
+      från en befintlig snickerifabrik med tillstånd för sin verksamhet. Fabriken skriver att
+      boende så nära kan leda till krav på begränsade arbetstider. Vilken bestämmelse blir
+      avgörande?
+    alternativ:
+      - text: 9 kap. 62 §, eftersom lov enligt 60 § inte får ges om åtgärden kan antas medföra en begränsning av en pågående verksamhet i omgivningen.
+        ratt: true
+      - text: 9 kap. 64 §, eftersom avvikelsen ska bedömas samlat.
+      - text: 9 kap. 58 §, eftersom det är en annan ändring än tillbyggnad.
+      - text: Ingen. Störningar från fabriken är fabrikens problem.
+    forklaring: >
+      62 § är en spärr för avvikelser enligt 60 och 61 §§: även en liten avvikelse får inte
+      godtas om den kan antas medföra betydande miljöpåverkan eller begränsa en rättighet eller
+      pågående verksamhet i omgivningen. Här skulle den planstridiga placeringen kunna leda till
+      att fabrikens verksamhet begränsas. Spärren skyddar alltså inte bara grannar som bor, utan
+      också verksamheter.
+    lagrum:
+      - PBL 9 kap. 62 §
+      - PBL 9 kap. 60 §
+    taggar: [avvikelse, pagaende_verksamhet, sparr]
+
+  - id: dp-019
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villa byggd 1962 står delvis på mark som blev prickmark när en ny detaljplan antogs
+      1996. Planens genomförandetid gick ut 2006. Ägaren söker bygglov för en planenlig
+      tillbyggnad på husets baksida. Vad gäller för det planstridiga utgångsläget?
+    alternativ:
+      - text: Utgångsläget hindrar inte lov, eftersom genomförandetiden gick ut för minst femton år sedan (56 § första stycket 1 b).
+        ratt: true
+      - text: Lov kan inte ges förrän huset flyttats bort från prickmarken.
+      - text: Nämnden måste först pröva om prickmarksavvikelsen är liten enligt 60 §.
+      - text: Utgångsläget hindrar lov, men nämnden kan förklara att avvikelsen godtas enligt 63 § bara om den är liten.
+    forklaring: >
+      Huvudregeln i 9 kap. 56 § första stycket 1 a är att fastigheten och byggnaden ska stämma
+      med planen. Enligt 1 b räcker det att planens genomförandetid har gått ut för minst femton
+      år sedan; 2006 + 15 = 2021. Då behöver nämnden inte pröva det befintliga husets avvikelse
+      alls, bara den sökta åtgärden. Femtonårsregeln gör att gamla planstridigheter i äldre
+      områden inte låser fast fastigheter för all framtid.
+    lagrum:
+      - PBL 9 kap. 56 §
+    taggar: [planstridigt_utgangslage, femtonarsregeln, genomforandetid]
+
+  - id: dp-020
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En detaljplan antogs 2020 med genomförandetid till 2030. Ett befintligt hus från 1974 har
+      en nockhöjd som är 0,4 m högre än planen nu tillåter. Det har aldrig prövats tidigare.
+      Ägaren söker lov för ett planenligt uterum. Vad kan nämnden göra?
+    alternativ:
+      - text: I lovbeslutet förklara att avvikelsen godtas enligt 63 §, om den uppkom genom att planen antogs och t.ex. är liten och förenlig med planens syfte.
+        ratt: true
+      - text: Bevilja uterummet utan att ta ställning, eftersom huset byggdes lagligt.
+      - text: Tillämpa femtonårsregeln, eftersom huset är äldre än femton år.
+      - text: Avslå, eftersom ett planstridigt utgångsläge aldrig kan godtas under genomförandetiden.
+    forklaring: >
+      Femtonårsregeln (56 § första stycket 1 b) räknas från när genomförandetiden gick ut, inte
+      från husets ålder, så den gäller inte här. Enligt 63 § får nämnden förklara att avvikelsen
+      godtas om den uppkom genom att planen antogs och är liten och förenlig med syftet, eller
+      uppfyller någon av de andra två grunderna. Beslutet gör att avvikelsen räknas som godtagen
+      vid nästa prövning (56 § första stycket 1 c), men den ingår då i den samlade bedömningen
+      enligt 64 §.
+    lagrum:
+      - PBL 9 kap. 63 §
+      - PBL 9 kap. 56 §
+      - PBL 9 kap. 64 §
+    taggar: [planstridigt_utgangslage, avvikelse, genomforandetid]
+
+  - id: dp-021
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid en ansökan om ändrad användning av en lokal från kontor till gym prövar nämnden inte om
+      byggnaden i sig stämmer överens med detaljplanen, t.ex. om den står på prickmark.
+    svar: true
+    forklaring: >
+      9 kap. 58 § säger att 56 § första stycket 1 inte ska tillämpas när åtgärden är en annan
+      ändring av en byggnad än tillbyggnad. Vid ändrad användning, fasadändring eller ny bostad i
+      byggnaden prövas alltså bara om den sökta åtgärden strider mot planen, t.ex. om gym ryms i
+      planens användning. Byggnadens befintliga planavvikelser spelar då ingen roll.
+    lagrum:
+      - PBL 9 kap. 58 §
+      - PBL 9 kap. 56 §
+    taggar: [planstridigt_utgangslage, andrad_anvandning, planenlighet]
+
+  - id: dp-022
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      År 2023 fick en villaägare lov för en tillbyggnad som överskred byggrätten med 8 kvm, som
+      liten avvikelse. Nu söker hon lov för ett uterum som överskrider byggrätten med ytterligare
+      7 kvm. Hur ska nämnden bedöma ansökan?
+    alternativ:
+      - text: Nämnden ska göra en samlad bedömning av den nya avvikelsen och den som godtogs 2023.
+        ratt: true
+      - text: Bara de 7 nya kvadratmetrarna ska bedömas, eftersom 2023 års beslut har vunnit laga kraft.
+      - text: Lov kan inte ges, eftersom en fastighet bara får ha en liten avvikelse.
+      - text: Uterummet är lovfritt eftersom tidigare avvikelser redan godtagits.
+    forklaring: >
+      Enligt 9 kap. 64 § ska avvikelser som tidigare godtagits enligt 56 § första stycket 1 c,
+      60, 61 eller 63 § bedömas samlat med den nya. Syftet är att stoppa "salamitaktik", där en
+      stor avvikelse delas upp i flera små ansökningar. Här är frågan alltså om 15 kvm
+      sammantaget är en liten avvikelse. Leta därför alltid i arkivet efter tidigare lov på
+      fastigheten.
+    lagrum:
+      - PBL 9 kap. 64 §
+      - PBL 9 kap. 60 §
+    taggar: [samlad_bedomning, liten_avvikelse, avvikelse]
+
+  - id: dp-023
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vilka omständigheter har enligt praxis betydelse när nämnden bedömer om en överskriden
+      byggnadsarea är en liten avvikelse?
+    alternativ:
+      - text: Omgivningens skala och karaktär.
+        ratt: true
+      - text: Om överskridandet behövs av byggnadstekniska skäl eller för en bättre planlösning.
+        ratt: true
+      - text: Om det är en nybyggnad, där byggnaden lättare kan anpassas efter planen, eller en tillbyggnad.
+        ratt: true
+      - text: Om ett godkännande kan få prejudicerande effekt i området.
+        ratt: true
+      - text: Om avvikelsen understiger 10 procent, som alltid räknas som liten.
+      - text: Om sökanden redan har köpt material till byggnaden.
+    forklaring: >
+      Det finns ingen procentsats som alltid är en liten avvikelse. I MÖD 2018:4 var 10 procent
+      för mycket för ett nytt flerbostadshus, och domstolen sa uttryckligen att det inte är
+      förenligt med praxis att schablonmässigt godta 10 procent. Andra domar har godtagit runt
+      5–12 procent för tillbyggnader och balkonger när omgivningen och åtgärdens art talade för
+      det. Bedömningen görs i varje enskilt fall, med hänsyn till samtliga omständigheter.
+    lagrum:
+      - PBL 9 kap. 60 §
+      - Boverket
+    taggar: [liten_avvikelse, praxis, byggnadsarea]
+
+  # --- Höjder, utnyttjandegrad och plankartans bestämmelser ---------------------------------
+
+  - id: dp-024
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En plan från 2022 har bestämmelsen "Högsta nockhöjd är 7,0 meter". Taknocken på ett nytt
+      hus ligger 6,8 m och skorstenens topp 7,6 m över markens medelnivå invid byggnaden. Är
+      huset planenligt i fråga om höjden?
+    alternativ:
+      - text: Ja. Nockhöjden mäts till yttertakets högsta del, och skorstenar räknas inte in.
+        ratt: true
+      - text: Nej. Nockhöjden mäts till byggnadens högsta punkt, inklusive skorsten.
+      - text: Nej. Nockhöjden mäts från färdigt golv, inte från marken.
+      - text: Det går inte att avgöra utan byggnadshöjden.
+    forklaring: >
+      Enligt Boverkets föreskrifter om detaljplan är nockhöjd avståndet från markens medelnivå
+      invid byggnaden (eller ett angivet nollplan) till yttertakets högsta del. Skorstenar och
+      ventilationshuvar räknas inte. Vill kommunen begränsa även sådant använder den totalhöjd,
+      som mäts till byggnadsverkets högsta punkt. Läs därför alltid exakt vilket höjdmått planen
+      använder.
+    lagrum:
+      - Boverket
+    taggar: [nockhojd, totalhojd, hojd]
+
+  - id: dp-025
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Planen för kvarteret Linden har bestämmelsen "Högsta totalhöjd är 8,5 meter". Vilka delar
+      av ett nytt hus räknas in när du kontrollerar totalhöjden?
+    alternativ:
+      - text: Taknocken.
+        ratt: true
+      - text: Skorstenen.
+        ratt: true
+      - text: En antenn som monteras fast på taket.
+        ratt: true
+      - text: En ventilationshuv på taket.
+        ratt: true
+      - text: En flaggstång som står fristående på tomten.
+    forklaring: >
+      Totalhöjd är avståndet från markens medelnivå invid byggnadsverket, eller ett angivet
+      nollplan, till byggnadsverkets högsta punkt. Allt som sitter på byggnaden räknas alltså,
+      även skorstenar, antenner och hisschakt. Det gör totalhöjd till ett strängare mått än
+      nockhöjd, och Boverket rekommenderar det främst för master och andra anläggningar utan
+      tak. En fristående flaggstång är ett eget byggnadsverk.
+    lagrum:
+      - Boverket
+    taggar: [totalhojd, nockhojd, hojd]
+
+  - id: dp-026
+    typ: berakning
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Fastigheten Linden 4 är 850 kvm och ligger helt inom användningsområdet B. Planen säger
+      "Största byggnadsarea är 25 procent av fastighetsarean". På tomten finns ett bostadshus på
+      140 kvm byggnadsarea och ett garage på 30 kvm som byggdes med bygglov 1998. Hur stor
+      byggnadsarea får en planenlig tillbyggnad högst ha?
+    svar: 42.5
+    tolerans: 0.1
+    enhet: kvm
+    losning: >
+      Byggrätt: 0,25 × 850 = 212,5 kvm. Befintligt: 140 + 30 = 170 kvm. Kvar: 212,5 − 170 =
+      42,5 kvm.
+    forklaring: >
+      Utnyttjandegrad i procent av fastighetsarean ger olika stor byggrätt på olika stora tomter.
+      All byggnadsarea på fastigheten räknas, även garage och förråd som byggts med lov. Byggnader
+      som fått uppföras i strid med planen enligt 10 kap. 2 a § ska däremot inte räknas mot den
+      sökta åtgärden (9 kap. 56 § andra stycket), så kontrollera hur varje byggnad har kommit
+      till.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - Boverket
+    taggar: [utnyttjandegrad, byggnadsarea, berakning]
+
+  - id: dp-027
+    typ: berakning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Planen anger "Största byggnadsarea är 160 kvm per fastighet". En ansökan om nybyggnad av
+      en villa visar 172 kvm byggnadsarea. Hur många procent överskrids byggrätten?
+    svar: 7.5
+    tolerans: 0.05
+    enhet: "%"
+    losning: >
+      Överskridande: 172 − 160 = 12 kvm. Andel av byggrätten: 12 / 160 = 0,075 = 7,5 %.
+    forklaring: >
+      Räkna alltid ut avvikelsen både i absoluta tal och i procent av det planen tillåter. Siffran
+      avgör inte ensam: vid en nybyggnad är det lättare att anpassa huset efter planen, och i
+      MÖD 2018:4 underkändes 10 procent för ett nytt flerbostadshus. Skriv ut både kvadratmeter
+      och procent i beslutets motivering.
+    lagrum:
+      - PBL 9 kap. 60 §
+    taggar: [liten_avvikelse, byggnadsarea, berakning]
+
+  - id: dp-028
+    typ: berakning
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Fastigheten Hasseln 2 är 1 100 kvm. 150 kvm av fastigheten ligger inom användningsområdet
+      NATUR och resten inom B. Planen säger "Största byggnadsarea är 20 procent av
+      fastighetsarean inom användningsområdet". Hur stor är byggrätten?
+    svar: 190
+    tolerans: 0
+    enhet: kvm
+    losning: >
+      Beräkningsgrunden är bara den del av fastigheten som ligger inom användningsområdet B:
+      1 100 − 150 = 950 kvm. Byggrätt: 0,20 × 950 = 190 kvm.
+    forklaring: >
+      Boverket rekommenderar att utnyttjandegraden kopplas till användnings- eller
+      egenskapsområdet just för att undvika att mark som inte får bebyggas räknas in. Om
+      bestämmelsen bara hade sagt "procent av fastighetsarean" hade hela fastighetens 1 100 kvm
+      kunnat ligga till grund, och byggrätten hade blivit 220 kvm. Läs därför bestämmelsens
+      ordalydelse noga innan du räknar.
+    lagrum:
+      - PBL 4 kap. 11 §
+      - Boverket
+    taggar: [utnyttjandegrad, berakning, plankarta]
+
+  # --- Äldre planer och planbesked ----------------------------------------------------
+
+  - id: dp-029
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En byggnadsplan från 1966 gäller som detaljplan. Den har ingen bestämmelse om hur nära
+      tomtgräns en byggnad får placeras. Vad gäller för placeringen av en ny bygglovspliktig
+      huvudbyggnad?
+    alternativ:
+      - text: 39 § byggnadsstadgan tillämpas som planbestämmelse. Byggnaden ska placeras minst 4,5 m från gräns mot granntomt och minst på ett avstånd som motsvarar halva den tillåtna höjden.
+        ratt: true
+      - text: Det finns ingen begränsning, eftersom planen saknar placeringsbestämmelser.
+      - text: Placeringen prövas fritt enligt 2 kap. PBL som om området låg utanför plan.
+      - text: Byggnaden ska placeras minst 4,5 m från gräns enligt 9 kap. 34 §.
+    forklaring: >
+      Enligt övergångsbestämmelserna till ÄPBL, som fortfarande gäller genom punkt 5 i
+      övergångsbestämmelserna till PBL, ska 39 § byggnadsstadgan (1959:612) tillämpas som
+      bestämmelse i äldre planer om inget annat föreskrivs i planen. Byggnadsstadgan krävde
+      minst 4,5 m till gräns mot granntomt och minst halva den tillåtna största höjden.
+      9 kap. 34 § handlar om när annars lovfria åtgärder blir lovpliktiga och är något annat.
+    lagrum:
+      - PBL övergångsbestämmelser punkt 5
+      - PBL 9 kap. 34 §
+    taggar: [aldre_planer, byggnadsstadgan, placering]
+
+  - id: dp-030
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En stadsplan fastställdes 1968 och gäller i dag som detaljplan. Den innehåller ingen
+      uppgift om genomförandetid. Hur ska genomförandetiden bedömas?
+    alternativ:
+      - text: Den anses ha gått ut. För planer fastställda före 1979 ansågs genomförandetiden ha gått ut när ÄPBL trädde i kraft 1987.
+        ratt: true
+      - text: Den anses vara femton år från i dag, eftersom planen saknar uppgift.
+      - text: Den löper så länge planen gäller.
+      - text: Den gick ut den 1 maj 2011, när nuvarande PBL trädde i kraft.
+    forklaring: >
+      Enligt övergångsbestämmelserna till ÄPBL (17 kap. 4 §) fick stads- och byggnadsplaner som
+      fastställts efter utgången av 1978 en genomförandetid på fem år från den 1 juli 1987. För
+      äldre planer ska genomförandetiden anses ha gått ut. Regeln i 4 kap. 23 § PBL om femton år
+      när uppgift saknas gäller planer som antas enligt PBL. För en plan från 1968 är alltså
+      även femtonårsregeln i 9 kap. 56 § första stycket 1 b uppfylld sedan länge.
+    lagrum:
+      - PBL övergångsbestämmelser punkt 5
+      - PBL 4 kap. 23 §
+      - PBL 9 kap. 56 §
+    taggar: [aldre_planer, genomforandetid, fore_och_nu]
+
+  - id: dp-031
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      I en stadsplan från 1958 är ett kvarter betecknat "ÖII" utan någon särskild bestämmelse om
+      användning. Hur har praxis tolkat beteckningen?
+    alternativ:
+      - text: Öppet byggnadssätt i högst två våningar, och användningen är bostäder.
+        ratt: true
+      - text: Öppen användning, där alla ändamål är tillåtna i två våningar.
+      - text: Allmän plats i form av öppen yta, där byggnader inte får uppföras.
+      - text: Planen saknar användning och området ska prövas som om det låg utanför plan.
+    forklaring: >
+      Äldre planer ska tolkas efter de regler och anvisningar som gällde när de antogs. Boverket
+      pekar på praxis om att öppet byggnadssätt i två våningar, ÖII, betyder bostäder, och att
+      planbeskrivningen eller översiktsplanen kan ge stöd för tolkningen. Översätt aldrig en
+      gammal beteckning med dagens planbestämmelsekatalog, utan gå tillbaka till planens egen tid.
+    lagrum:
+      - PBL övergångsbestämmelser punkt 5
+      - Boverket
+    taggar: [aldre_planer, tolkning, anvandning]
+
+  - id: dp-032
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett företag vill bygga radhus på en tomt där detaljplanen bara tillåter friliggande villor
+      och begär planbesked. Inom vilken tid ska kommunen lämna planbesked när begäran är
+      fullständig?
+    alternativ:
+      - text: Inom fyra månader, om kommunen och den som begärt planbeskedet inte kommer överens om något annat.
+        ratt: true
+      - text: Inom tio veckor, som för bygglov.
+      - text: Inom två år.
+      - text: Det finns ingen tidsfrist.
+    forklaring: >
+      5 kap. 2–5 §§ PBL. En begäran om planbesked ska vara skriftlig och beskriva ändamålet och
+      området med en karta. Kommunen ska inom fyra månader besked om den avser att inleda
+      planläggning, i så fall med en bedömning av när planen kan vara antagen, och annars med
+      skälen för nej. Planbesked är rätt väg när avvikelsen är för stor för att prövas som liten
+      avvikelse i ett lovärende.
+    lagrum:
+      - PBL 5 kap. 2 §
+      - PBL 5 kap. 3 §
+      - PBL 5 kap. 4 §
+      - PBL 5 kap. 5 §
+    taggar: [planbesked, tidsfrist]
+
+  - id: dp-033
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ett negativt planbesked kan överklagas till länsstyrelsen.
+    svar: false
+    forklaring: >
+      Enligt 13 kap. 2 § 2 PBL får kommunala beslut inte överklagas i den del de avser planbesked
+      enligt 5 kap. 2 §. Planbeskedet är ett besked om kommunens avsikt, inte ett beslut om
+      planen. Den som får nej kan i stället ansöka om bygglov och få frågan prövad där, men
+      åtgärden måste då kunna godtas enligt reglerna om avvikelser.
+    lagrum:
+      - PBL 13 kap. 2 §
+      - PBL 5 kap. 2 §
+    taggar: [planbesked, overklagande]
+
+  - id: dp-034
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen när du prövar en bygglovsansökan inom detaljplan.
+    poster:
+      - Ta fram gällande detaljplan med eventuella ändringar och planbeskrivning, och notera genomförandetiden.
+      - Kontrollera om fastigheten och befintliga byggnader stämmer med planen (56 § första stycket 1, 58 och 63 §§).
+      - Kontrollera den sökta åtgärden mot varje planbestämmelse, t.ex. användning, placering, höjd och utnyttjandegrad.
+      - Om åtgärden avviker, pröva 60–62 §§ och gör den samlade bedömningen enligt 64 §.
+      - Underrätta grannarna om avvikelsen och kommunicera underlaget med sökanden.
+      - Fatta beslut med motivering som redovisar planenligheten och eventuella avvikelser.
+    forklaring: >
+      Ordningen följer 9 kap. 56–64 §§: först utgångsläget, sedan åtgärden, sist avvikelserna och
+      spärrarna. Underrättelse krävs vid planavvikelse (94 §) och kommunicering före beslut
+      (98 §). Vid en planenlig ansökan hoppar du över fjärde och femte steget, men prövar ändå
+      de krav i 2 och 8 kap. som 56 § första stycket 4 räknar upp.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 9 kap. 64 §
+      - PBL 9 kap. 94 §
+      - PBL 9 kap. 98 §
+    taggar: [planenlighet, handlaggning, arbetsgang]
+
+  # --- Instuderingsfrågor ---------------------------------------------------------------
+
+  - id: dp-035
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara skillnaden mellan de två första grunderna för avvikelse i 9 kap. 60 § PBL: "liten
+      avvikelse" och "begränsad omfattning och nödvändig för att området ska kunna användas på
+      ett ändamålsenligt sätt". Ge ett exempel på vardera.
+    bedomningspunkter:
+      - Båda kräver att avvikelsen är förenlig med detaljplanens eller områdesbestämmelsernas syfte.
+      - Liten avvikelse tar sikte på avvikelsens storlek, bedömd i det enskilda fallet utan schablonprocent.
+      - Den andra grunden kan omfatta större avvikelser men kräver att åtgärden är begränsad och nödvändig för ändamålsenlig användning, t.ex. ett hisstorn eller en tillgänglig entré.
+      - Ger rimliga exempel på båda.
+      - Nämner spärren i 62 § och den samlade bedömningen i 64 §.
+    modellsvar: >
+      Båda grunderna kräver att avvikelsen är förenlig med planens syfte. En liten avvikelse
+      bedöms efter sin storlek och karaktär i förhållande till planen och omgivningen, t.ex. en
+      tillbyggnad som gör att byggnadsarean överskrids med 6 kvm i ett villaområde med varierande
+      bebyggelse. Det finns ingen procentgräns; MÖD 2018:4 underkände 10 procent för ett nytt
+      flerbostadshus. Den andra grunden kan godta en större avvikelse, men bara om åtgärden är av
+      begränsad omfattning och nödvändig för att området ska kunna användas ändamålsenligt, t.ex.
+      ett hisstorn på prickmark för att göra ett äldre flerbostadshus tillgängligt eller ett
+      skärmtak över en entré i ett centrum. I båda fallen gäller spärren i 62 § och den samlade
+      bedömningen med tidigare avvikelser i 64 §.
+    lagrum:
+      - PBL 9 kap. 60 §
+      - PBL 9 kap. 62 §
+      - PBL 9 kap. 64 §
+    taggar: [liten_avvikelse, avvikelse, instudering]
+
+  - id: dp-036
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt enbostadshus på fastigheten Rönnen 3 får enligt ansökan 168 kvm byggnadsarea.
+      Planen tillåter 150 kvm. Huset är ett typhus och sökanden har inte angett något särskilt skäl
+      för storleken. Skriv skälen för ett avslag.
+    bedomningspunkter:
+      - Redovisar planbestämmelsen och avvikelsen i kvadratmeter och procent (18 kvm, 12 procent).
+      - Prövar avvikelsen mot 9 kap. 60 § och planens syfte.
+      - Förklarar varför avvikelsen inte är liten, t.ex. nybyggnad, inga byggnadstekniska skäl, risk för prejudikat.
+      - Konstaterar att den andra grunden (begränsad och nödvändig) inte är tillämplig.
+      - Redovisar att förutsättningarna i 56 § inte är uppfyllda och att lov därför inte kan ges.
+      - Skriver begripligt och bemöter sökandens synpunkter efter kommuniceringen.
+    modellsvar: >
+      Detaljplanen medger en största byggnadsarea på 150 kvm. Det sökta huset har 168 kvm, vilket
+      innebär att byggrätten överskrids med 18 kvm eller 12 procent. Åtgärden strider därför mot
+      planen (9 kap. 56 § första stycket 2 PBL). Nämnden har prövat om avvikelsen kan godtas
+      enligt 9 kap. 60 §. Planens syfte är att bevara områdets glesa villabebyggelse. Avvikelsen
+      gäller en nybyggnad, där huset kan anpassas efter byggrätten, och det har inte framkommit
+      att den större arean behövs av byggnadstekniska skäl eller för en fungerande planlösning.
+      Ett godtagande skulle också kunna få prejudicerande verkan för övriga obebyggda tomter i
+      området. Nämnden bedömer därför att avvikelsen inte är liten. Åtgärden är inte heller
+      nödvändig för att området ska kunna användas ändamålsenligt. Förutsättningarna för bygglov
+      är därmed inte uppfyllda och ansökan ska avslås.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 9 kap. 60 §
+      - FL 32 §
+    taggar: [liten_avvikelse, avslag, motivering, instudering]
+
+  - id: dp-037
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan avser en tillbyggnad som i sig följer planen, men det befintliga huset står till
+      en del på prickmark. Beskriv steg för steg hur du utreder och hanterar det planstridiga
+      utgångsläget.
+    bedomningspunkter:
+      - Utgår från kravet i 56 § första stycket 1 a att fastighet och byggnad ska stämma med planen.
+      - Kontrollerar femtonårsregeln i 56 § första stycket 1 b (genomförandetiden ute sedan minst femton år).
+      - Söker i arkivet efter tidigare lov eller fastighetsbildning där avvikelsen godtagits (56 § första stycket 1 c).
+      - Prövar annars om avvikelsen uppkom när planen antogs och kan godtas enligt 63 §, och skriver det i beslutet.
+      - Tar hänsyn till 58 § (gäller inte vid annan ändring än tillbyggnad) och 56 § andra stycket (lovfria åtgärder enligt 10 kap. 2 a §).
+      - Gör samlad bedömning enligt 64 § när avvikelser godtagits tidigare.
+    modellsvar: >
+      Jag börjar i 9 kap. 56 § första stycket 1: fastigheten och byggnaden ska stämma med planen.
+      Eftersom huset står på prickmark gör det inte det, så jag kontrollerar undantagen. Har
+      planens genomförandetid gått ut för minst femton år sedan (1 b) behöver jag inte göra mer
+      åt utgångsläget. Annars letar jag i arkivet efter ett tidigare lov eller en
+      fastighetsbildning där avvikelsen godtagits (1 c). Finns inget sådant prövar jag om
+      avvikelsen uppkom när planen antogs och om den kan godtas enligt 63 §, t.ex. för att den är
+      liten och förenlig med syftet. Då skriver jag uttryckligen i lovbeslutet att avvikelsen
+      godtas. Jag kontrollerar också att delen på prickmarken inte är en lovfri åtgärd enligt
+      10 kap. 2 a §, som inte ska räknas (56 § andra stycket). Om avvikelser godtagits tidigare
+      gör jag en samlad bedömning enligt 64 §. Går utgångsläget inte att godta kan lov inte ges
+      för tillbyggnaden, och då informerar jag sökanden innan beslut.
+    lagrum:
+      - PBL 9 kap. 56 §
+      - PBL 9 kap. 58 §
+      - PBL 9 kap. 63 §
+      - PBL 9 kap. 64 §
+    taggar: [planstridigt_utgangslage, femtonarsregeln, instudering]
+
+  - id: dp-038
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En villaägare ringer och undrar varför grannen fått bygga ett 25 kvm stort förråd mitt på
+      den prickade marken utan bygglov, när hon själv fick avslag på en tillbyggnad där för några
+      år sedan. Förklara rättsläget som du skulle göra i telefon.
+    bedomningspunkter:
+      - Förklarar att lovbefriade komplementbyggnader till en- och tvåbostadshus får strida mot detaljplanen sedan 2025-12-01 (10 kap. 2 a § PBL).
+      - Förklarar villkoren för lovfriheten (9 kap. 4 §), t.ex. högst 30 kvm, 4,0 m nockhöjd och potten 45 kvm.
+      - Nämner att placering närmare gräns än 4,5 m kräver lov om inte grannen skriftligen medgett (34–35 §§).
+      - Förklarar att en bygglovspliktig tillbyggnad prövas mot planen och att prickmark då bara kan godtas som avvikelse.
+      - Talar begripligt, utan att ta ställning mot grannen, och erbjuder att kontrollera om förrådet uppfyller villkoren.
+    modellsvar: >
+      Jag förstår att det känns orättvist. Sedan den 1 december 2025 får man bygga en
+      komplementbyggnad till ett en- eller tvåbostadshus utan bygglov, om den är högst 30 kvm,
+      har högst 4 meters nockhöjd och ryms i den sammanlagda potten på 45 kvm på tomten
+      (9 kap. 4 § PBL). En sådan byggnad får dessutom placeras i strid med detaljplanen, även på
+      prickmark (10 kap. 2 a §). Står den närmare er gräns än 4,5 meter krävs ändå bygglov,
+      om ni inte skriftligen har godkänt den. Er tillbyggnad krävde bygglov, och då måste den
+      följa planen. Prickmark kan bara godtas om avvikelsen är liten eller uppfyller någon annan
+      grund i 9 kap. 60 §. Vill ni kan jag titta på om förrådet uppfyller villkoren, och om inte
+      kan vi utreda det som ett tillsynsärende.
+    lagrum:
+      - PBL 10 kap. 2 a §
+      - PBL 9 kap. 4 §
+      - PBL 9 kap. 34 §
+      - PBL 9 kap. 35 §
+      - FL 6 §
+    taggar: [planstridig_lovfri, bemotande, prickmark, instudering]
+
+  - id: dp-039
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En exploatör vill bygga åtta radhus på en tomt där planen bara tillåter en friliggande
+      villa. Beskriv vilka vägar som finns, vad planbesked innebär och vad du skulle råda
+      exploatören till.
+    bedomningspunkter:
+      - Konstaterar att avvikelsen är för stor för 9 kap. 60 § och att lov därför inte kan ges med stöd av gällande plan.
+      - Förklarar planbesked (5 kap. 2–5 §§) med skriftlig begäran, karta och beskrivning samt beskedet inom fyra månader.
+      - Nämner att planbeskedet inte kan överklagas (13 kap. 2 §) och inte är ett löfte om att planen antas.
+      - Nämner genomförandetiden och att planen inte får ändras mot andra fastighetsägares vilja under den (4 kap. 39 §).
+      - Nämner att planarbete kostar och kan finansieras med planavgift eller avtal, och att en lovansökan under planarbetet kan förklaras vilande (9 kap. 102 §).
+    modellsvar: >
+      Åtta radhus där planen tillåter en friliggande villa är en avvikelse långt utöver vad
+      9 kap. 60 § kan godta, så en bygglovsansökan skulle avslås. Rätt väg är att begära
+      planbesked enligt 5 kap. 2 §. Begäran ska vara skriftlig, beskriva projektets ändamål,
+      karaktär och ungefärliga omfattning och ha en karta. Kommunen ska inom fyra månader svara
+      om den avser att inleda planläggning och i så fall när den bedömer att planen kan vara
+      antagen, eller annars ange skälen för nej. Planbeskedet kan inte överklagas och är inget
+      löfte om att planen antas. Jag skulle också kontrollera genomförandetiden: löper den kan
+      planen inte ändras om någon berörd fastighetsägare motsätter sig det (4 kap. 39 §). Söker
+      exploatören bygglov medan planarbetet pågår kan nämnden låta lovärendet vila (9 kap. 102 §).
+    lagrum:
+      - PBL 5 kap. 2 §
+      - PBL 5 kap. 4 §
+      - PBL 13 kap. 2 §
+      - PBL 4 kap. 39 §
+      - PBL 9 kap. 102 §
+    taggar: [planbesked, avvikelse, radgivning, instudering]

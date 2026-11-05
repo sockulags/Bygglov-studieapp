@@ -1,9 +1,10 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { PageHeader } from '@/components/layout/page-header';
 import { Card, CardContent } from '@/components/ui/card';
 import { LawRefChip } from '@/components/ui/law-ref-chip';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { loadContent, loadLookup, type StudyContent } from '@/content';
+import { takeLookupRequest, usePaletteStore } from '@/features/command-palette/palette-store';
 import { pluralQuestions } from '@/lib/format';
 import { GlossaryTab } from './glossary-tab';
 import { buildLawRegister, sectionForReference } from './law-register';
@@ -42,7 +43,7 @@ function ModulesTab({ content }: { content: StudyContent }) {
                       Modul {module.ordning}
                       {count > 0 ? ` · ${pluralQuestions(count)}` : ''}
                     </p>
-                    <h3 className="mt-1 font-semibold">{module.titel}</h3>
+                    <h2 className="mt-1 font-semibold">{module.titel}</h2>
                   </div>
                   <p className="font-serif text-[0.9375rem] leading-relaxed">
                     {module.lagrum_sammanfattning}
@@ -104,6 +105,14 @@ export function LookupPage() {
     }),
     [lookup.chapters],
   );
+
+  // A term or lagrum chosen in the command palette (Ctrl/Cmd+K).
+  const lookupRequest = usePaletteStore((s) => s.lookupRequest);
+  useEffect(() => {
+    if (!lookupRequest) return;
+    const target = takeLookupRequest();
+    if (target) nav.open(target);
+  }, [lookupRequest, nav]);
 
   return (
     <LookupNavContext.Provider value={nav}>

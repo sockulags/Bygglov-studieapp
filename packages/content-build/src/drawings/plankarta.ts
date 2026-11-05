@@ -58,14 +58,60 @@ function indexed(x: number, y: number, base: string, index: string, size: number
   );
 }
 
-function blockSymbols(
-  b: Block,
-): { text: string; sub?: string; italic?: boolean; bold?: boolean }[] {
-  const symbols: { text: string; sub?: string; italic?: boolean; bold?: boolean }[] = [
-    { text: b.anvandning, bold: true },
-  ];
-  if (b.byggnadsarea_procent !== undefined) symbols.push({ text: 'e', sub: '1', italic: true });
+interface PlanSymbol {
+  text: string;
+  sub?: string;
+  italic?: boolean;
+  bold?: boolean;
+}
+
+const ROMAN: [number, string][] = [
+  [10, 'X'],
+  [9, 'IX'],
+  [5, 'V'],
+  [4, 'IV'],
+  [1, 'I'],
+];
+
+/** 4 → "IV", as storeys are written on Swedish plan maps. */
+export function roman(value: number): string {
+  let rest = value;
+  let out = '';
+  for (const [n, s] of ROMAN) {
+    while (rest >= n) {
+      out += s;
+      rest -= n;
+    }
+  }
+  return out;
+}
+
+/** "m1" → letters with the trailing number as an index. */
+function splitDesignation(value: string): PlanSymbol {
+  const match = /^(\D+?)(\d+)$/.exec(value);
+  return match ? { text: match[1]!, sub: match[2]!, italic: true } : { text: value, italic: true };
+}
+
+/** Index of the e-provision per building-area percentage, in order of appearance (e₁, e₂ …). */
+function areaIndex(blocks: Block[]): Map<number, number> {
+  const map = new Map<number, number>();
+  for (const b of blocks) {
+    if (b.byggnadsarea_procent !== undefined && !map.has(b.byggnadsarea_procent)) {
+      map.set(b.byggnadsarea_procent, map.size + 1);
+    }
+  }
+  return map;
+}
+
+function blockSymbols(b: Block, areas: Map<number, number>): PlanSymbol[] {
+  const symbols: PlanSymbol[] = [{ text: b.anvandning, bold: true }];
+  if (b.byggnadsarea_procent !== undefined) {
+    symbols.push({ text: 'e', sub: String(areas.get(b.byggnadsarea_procent)), italic: true });
+  }
+  if (b.vaningar !== undefined) symbols.push({ text: roman(b.vaningar) });
   if (b.byggnadshojd !== undefined) symbols.push({ text: sv(b.byggnadshojd, 1) });
+  if (b.nockhojd !== undefined) symbols.push({ text: `NH ${sv(b.nockhojd, 1)}` });
+  for (const extra of b.bestammelser) symbols.push(splitDesignation(extra.beteckning));
   return symbols;
 }
 
@@ -81,6 +127,7 @@ export function renderPlankarta(p: PlankartaParams, context: DrawingContext): st
   const mapW = ow * k + 2 * margin;
   const mapH = od * k + 2 * margin;
   const parts: string[] = [];
+  const areas = areaIndex(p.kvarter);
 
   // Base map: property boundaries and numbers (grey, as on the underlying map).
   const base: string[] = [];
@@ -210,7 +257,7 @@ export function renderPlankarta(p: PlankartaParams, context: DrawingContext): st
       b.fastigheter.length > 0
         ? b.fastigheter.map((f) => f.rektangel[0] + f.rektangel[2] / 2)
         : [x + w / 2];
-    const symbols = blockSymbols(b);
+    const symbols = blockSymbols(b, areas);
     const size = TEXT.label;
     const gapMm = 1.6;
     const widths = symbols.map((s) => textWidth(s.text + (s.sub ?? ''), size, s.bold));
@@ -245,7 +292,6 @@ export function renderPlankarta(p: PlankartaParams, context: DrawingContext): st
 
   // Legend to the right of the map.
   const lx = mapW + 10;
-  const blockWithArea = p.kvarter.find((b) => b.byggnadsarea_procent !== undefined);
   const heights = [
     ...new Set(p.kvarter.flatMap((b) => (b.byggnadshojd === undefined ? [] : [b.byggnadshojd]))),
   ];
@@ -276,17 +322,43 @@ export function renderPlankarta(p: PlankartaParams, context: DrawingContext): st
       text: 'Marken får inte bebyggas (prickmark)',
     });
   }
-  if (blockWithArea) {
+  for (const [percent, index] of areas) {
     entries.push({
-      swatch: { type: 'symbol', text: 'e1', italic: true },
-      text: `Största byggnadsarea ${sv(blockWithArea.byggnadsarea_procent ?? 0, 0)} % av fastighetsarean`,
+      swatch: { type: 'symbol', text: `e${index}`, italic: true },
+      text: `Största byggnadsarea ${sv(percent, 0)} % av fastighetsarean`,
     });
+  }
+  const storeys = [
+    ...new Set(p.kvarter.flatMap((b) => (b.vaningar === undefined ? [] : [b.vaningar]))),
+  ];
+  for (const v of storeys) {
+    entries.push({ swatch: { type: 'symbol', text: roman(v) }, text: 'Högsta antal våningar' });
   }
   for (const h of heights) {
     entries.push({
       swatch: { type: 'symbol', text: sv(h, 1) },
       text: 'Högsta byggnadshöjd i meter',
     });
+  }
+  const ridges = [
+    ...new Set(p.kvarter.flatMap((b) => (b.nockhojd === undefined ? [] : [b.nockhojd]))),
+  ];
+  for (const h of ridges) {
+    entries.push({
+      swatch: { type: 'symbol', text: `NH ${sv(h, 1)}` },
+      text: 'Högsta nockhöjd i meter',
+    });
+  }
+  const seen = new Set<string>();
+  for (const b of p.kvarter) {
+    for (const extra of b.bestammelser) {
+      if (seen.has(extra.beteckning)) continue;
+      seen.add(extra.beteckning);
+      entries.push({
+        swatch: { type: 'symbol', text: extra.beteckning, italic: true },
+        text: extra.text,
+      });
+    }
   }
   entries.push({
     swatch: { type: 'line', width: LINE.hair, color: GRID },
@@ -308,11 +380,18 @@ export function renderPlankarta(p: PlankartaParams, context: DrawingContext): st
     label(lx, 8, planLines[0]!, { size: TEXT.normal, weight: 'bold' }),
     ...planLines.slice(1).map((l, i) => label(lx, 12.5 + i * 3.6, l, { size: TEXT.small })),
   ];
-  // Legend entries "e1": draw the index properly over the plain symbol text.
+  // Legend symbols like "e1" and "m1": draw the index properly over the plain symbol text.
+  const indexedSymbols = new Set([
+    ...[...areas.values()].map((i) => `e${i}`),
+    ...p.kvarter.flatMap((b) => b.bestammelser.map((x) => x.beteckning)),
+  ]);
   const legendSvg = leg.svg.replace(
-    /<text([^>]*)>e1<\/text>/,
-    (_m, attrs: string) =>
-      `<text${attrs}>e${el('tspan', { dy: TEXT.normal * 0.3, 'font-size': TEXT.normal * 0.7 }, '1')}</text>`,
+    /<text([^>]*font-style="italic"[^>]*)>([^<]+)<\/text>/g,
+    (whole, attrs: string, value: string) => {
+      const symbol = splitDesignation(value);
+      if (!indexedSymbols.has(value) || !symbol.sub) return whole;
+      return `<text${attrs}>${symbol.text}${el('tspan', { dy: TEXT.normal * 0.3, 'font-size': TEXT.normal * 0.7 }, symbol.sub)}</text>`;
+    },
   );
   const legendWidth = Math.max(
     leg.width,
@@ -332,5 +411,7 @@ export function renderPlankarta(p: PlankartaParams, context: DrawingContext): st
     defs,
     title: titleData(context, p.ritningshuvud, { ritningstyp: 'Plankarta', skala: p.skala }),
     description: `${context.titel}, ${shortProperty(context.fastighet)}`,
+    scale: p.skala,
+    origin: [X(0), Y(0)],
   });
 }

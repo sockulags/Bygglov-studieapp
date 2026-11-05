@@ -91,9 +91,9 @@ export function ProcessTab({
           <p className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">
             {moduleTitles.get(process.modul) ?? process.modul} · {process.steg.length} steg
           </p>
-          <h3 id={`process-${process.id}`} className="text-xl">
+          <h2 id={`process-${process.id}`} className="text-xl">
             {process.titel}
-          </h3>
+          </h2>
           <p className="max-w-3xl font-serif text-[0.9375rem] leading-relaxed">
             {process.beskrivning}
           </p>
@@ -228,9 +228,9 @@ function StepDialog({
 
               {step.lagrum.length > 0 && (
                 <div className="flex flex-col gap-1.5">
-                  <h4 className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">
+                  <h3 className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">
                     Lagrum
-                  </h4>
+                  </h3>
                   <div className="flex flex-wrap gap-1.5">
                     {step.lagrum.map((reference) => (
                       <LawRefChip
@@ -246,9 +246,9 @@ function StepDialog({
 
               {(step.begrepp?.length ?? 0) > 0 && (
                 <div className="flex flex-col gap-1.5">
-                  <h4 className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">
+                  <h3 className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">
                     Begrepp
-                  </h4>
+                  </h3>
                   <ul className="flex flex-wrap gap-1.5">
                     {step.begrepp?.map((id) => (
                       <li key={id}>
@@ -268,9 +268,9 @@ function StepDialog({
 
               {(out.length > 0 || linked) && (
                 <div className="flex flex-col gap-1.5">
-                  <h4 className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">
+                  <h3 className="text-xs font-semibold tracking-[0.08em] text-muted uppercase">
                     {out.length > 1 ? 'Vägar vidare' : 'Nästa steg'}
-                  </h4>
+                  </h3>
                   <ul className="flex flex-col gap-1.5">
                     {out.map((edge) => (
                       <li key={`${edge.from}-${edge.to}`}>

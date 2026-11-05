@@ -80,10 +80,76 @@ export interface DeadlineInput {
   extensionWeeks?: number;
   /** Periods the case rested under 102 § (`to` null while it still rests). */
   suspensions?: readonly Pick<Suspension, 'from' | 'to'>[];
+  /**
+   * Supervision case: no deadline until an application for a retroactive permit comes in
+   * (the first of `amendmentDates`); the ten weeks run from that day (99 § första stycket 1),
+   * or from a later change the applicant makes on their own initiative (första stycket 2).
+   */
+  supervision?: boolean;
+}
+
+const SUPERVISION_NO_DEADLINE =
+  'Ett tillsynsärende har ingen tidsfrist enligt 9 kap. 99 §. Fristen gäller ärenden om lov och förhandsbesked och börjar löpa först om en ansökan om lov i efterhand kommer in.';
+
+/** 99 § for a supervision case: only an application for a retroactive permit starts it. */
+function supervisionDeadline(input: DeadlineInput): CaseDeadline {
+  const { applicationDate } = input;
+  const extensionWeeks = input.extensionWeeks ?? 0;
+  const dates = [...(input.amendmentDates ?? [])].filter((d) => d >= applicationDate).sort();
+  const received = dates[0];
+  // A later change of the application on the applicant's own initiative restarts the ten weeks.
+  const latest = dates.length > 1 ? dates[dates.length - 1] : undefined;
+  const changed =
+    latest !== undefined && received !== undefined && latest > received ? latest : null;
+  const base = {
+    applicationDate,
+    amendmentDate: changed ?? received ?? null,
+    injunctionDate: null,
+    injunctionInTime: null,
+    extensionWeeks,
+    suspendedSince: null,
+    suspendedDays: 0,
+  };
+  if (received === undefined) {
+    return {
+      ...base,
+      startDate: null,
+      basis: 'tillsyn',
+      deadlineDate: null,
+      explanation: SUPERVISION_NO_DEADLINE,
+    };
+  }
+  const startDate = changed ?? received;
+  const deadlineDate = addDays(startDate, DEADLINE_DAYS + extensionWeeks * 7);
+  const extension =
+    extensionWeeks > 0
+      ? ` Fristen har förlängts med ${extensionWeeks} ${extensionWeeks === 1 ? 'vecka' : 'veckor'} (99 § andra stycket).`
+      : '';
+  if (changed !== null) {
+    return {
+      ...base,
+      startDate,
+      basis: 'andring_pa_sokandens_initiativ',
+      deadlineDate,
+      explanation:
+        `Ansökan om lov i efterhand kom in ${received}. Sökanden ändrade den på eget initiativ ${changed}, ` +
+        `och tioveckorsfristen räknas från den dagen (9 kap. 99 § första stycket 2) och löper ut ${deadlineDate}.` +
+        INFORM_APPLICANT +
+        extension,
+    };
+  }
+  return {
+    ...base,
+    startDate,
+    basis: 'lov_i_efterhand',
+    deadlineDate,
+    explanation: `Ansökan om lov i efterhand kom in ${received}. Tioveckorsfristen för den räknas från den dagen (9 kap. 99 § första stycket 1) och löper ut ${deadlineDate}.${extension}`,
+  };
 }
 
 /** The decision deadline under 9 kap. 99 §, paused while the case rests (102 §). */
 export function computeDeadline(input: DeadlineInput): CaseDeadline {
+  if (input.supervision) return supervisionDeadline(input);
   const { applicationDate } = input;
   const extensionWeeks = input.extensionWeeks ?? 0;
   const completionDate = input.completionDate ?? null;
@@ -224,6 +290,7 @@ export function caseDeadline(state: CaseState): CaseDeadline {
     amendmentDates: state.amendmentDates,
     extensionWeeks: state.extensionWeeks,
     suspensions: state.suspensions,
+    supervision: state.supervision,
   });
 }
 

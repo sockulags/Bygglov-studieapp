@@ -163,6 +163,12 @@ export interface CaseState {
    * the application (set by `ny_fristdag: sokandens_initiativ`, 9 kap. 99 § första stycket 2).
    */
   amendmentDates: string[];
+  /**
+   * Supervision case (nivå 4): there is no 99 § deadline until an application for a
+   * retroactive permit comes in (`ny_fristdag: ansokan_om_lov_i_efterhand`), and the ten
+   * weeks then run from that day.
+   */
+  supervision: boolean;
   /** Weeks the 99 § deadline has been extended (0 = not extended, at most 10). */
   extensionWeeks: number;
   /** Why the deadline was extended (shown in the diary), null when not extended. */
@@ -252,6 +258,8 @@ export interface DecisionCheck {
 }
 
 export type DeadlineBasis =
+  | 'tillsyn'
+  | 'lov_i_efterhand'
   | 'ansokningsdagen'
   | 'andring_pa_sokandens_initiativ'
   | 'komplettering'

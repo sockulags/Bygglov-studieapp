@@ -57,7 +57,16 @@ describe('check', () => {
     expect(tree.questionFiles.map((f) => f.file)).toEqual(
       expect.arrayContaining(['fragor/03-lovplikt.yaml', 'fragor/06-handlaggning.yaml']),
     );
-    expect(tree.cases.map((c) => c.data.id)).toEqual(['A001', 'A002', 'A003']);
+    expect(tree.cases.map((c) => c.data.id)).toEqual([
+      'A001',
+      'A002',
+      'A003',
+      'A004',
+      'A005',
+      'A006',
+    ]);
+    // Every one of the 13 modules has questions.
+    expect(new Set(tree.questionFiles.map((f) => f.file)).size).toBe(13);
   });
 
   it('reports duplicate ids across files, unknown modules and wrong file names', () => {

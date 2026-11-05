@@ -1,0 +1,944 @@
+# Frågor för modul 11-angransande. En fil per modul. Valideras med zod (pnpm content:check).
+# status: utkast tills handledaren granskat mot Lagtextens byggregler 2026-01-01.
+# rattslage: vilket rättsläge frågan är skriven mot. PBL 9 kap skrevs om 2025-12-01.
+# Källor (hämtade från riksdagen.se 2026-11-05 och sparade i docs/rattslage/):
+#   mb-7-kap.txt (MB 7 kap., ändrad t.o.m. SFS 2026:1442), mb-utdrag-8-10-19-kap.txt (MB 8, 9, 10
+#   och 19 kap.), fmh-utdrag.txt (FMH 12–14 §§), kml-2-4-kap.txt (KML, ändrad t.o.m. SFS
+#   2024:813), vagl-utdrag.txt (VägL 39 och 47 §§), lso-utdrag.txt (LSO 1–3 kap.), jb-utdrag.txt
+#   (JB 3 kap. och 14 kap. 1–4 §§), fastighetsratt-utdrag.txt (anläggningslagen 1–9 §§ och FBL
+#   7 kap. 1 §), pbl-2-kap.txt, pbl-4-kap.txt och pbl-9-kap.txt.
+# Strandskyddsreglerna i MB 7 kap. ändrades och numrerades om den 1 juli 2025 (lag 2025:512):
+# kommunens dispens finns nu i 18 c §, de särskilda skälen i 18 e–18 g §§, fri passage och
+# tomtplats i 18 i § och dispensens giltighetstid i 18 k §. Äldre litteratur har andra nummer.
+# Jordabalken (1970:994) och anläggningslagen (1973:1149) saknar kod i content/uppslag/lagar.yaml
+# och anges därför bara i frågetexterna och förklaringarna, inte i lagrum.
+# Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
+modul: 11-angransande
+fragor:
+  # --- Strandskydd ----------------------------------------------------------------------------
+
+  - id: angr-001
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka är strandskyddets två syften enligt 7 kap. 13 § miljöbalken?
+    alternativ:
+      - text: Att långsiktigt trygga allemansrättslig tillgång till strandområden och bevara goda livsvillkor för djur- och växtlivet på land och i vatten.
+        ratt: true
+      - text: Att skydda stränder mot erosion och översvämning.
+      - text: Att bevara utsikten mot vattnet för befintliga fastighetsägare.
+      - text: Att hindra all bebyggelse närmare vatten än 100 m.
+    forklaring: >
+      Båda syftena ska vägas in i varje prövning av dispens eller upphävande. En åtgärd kan alltså
+      strida mot strandskyddet även om allmänheten aldrig rör sig på platsen, om den försämrar
+      livsvillkoren för djur och växter, och tvärtom. Risk för översvämning och erosion är i
+      stället en lokaliseringsfråga enligt 2 kap. 5 § PBL.
+    lagrum: [MB 7 kap. 13 §, PBL 2 kap. 5 §]
+    taggar: [strandskydd, syfte]
+
+  - id: angr-002
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur stort är strandskyddsområdet som huvudregel enligt 7 kap. 14 § miljöbalken?
+    alternativ:
+      - text: Land- och vattenområdet intill 100 m från strandlinjen vid normalt medelvattenstånd.
+        ratt: true
+      - text: Landområdet intill 50 m från strandlinjen.
+      - text: Land- och vattenområdet intill 300 m från strandlinjen, alltid.
+      - text: Det område som kommunen anger i översiktsplanen.
+    forklaring: >
+      Strandskyddet omfattar både land och vatten, 100 m åt båda hållen från strandlinjen.
+      Länsstyrelsen får i det enskilda fallet utvidga området till högst 300 m om det behövs för
+      något av syftena, och ett sådant beslut gäller omedelbart. Strandlinjen bestäms vid normalt
+      medelvattenstånd, inte vid den aktuella vattennivån.
+    lagrum: [MB 7 kap. 14 §]
+    taggar: [strandskydd, strandskyddsomrade]
+
+  - id: angr-003
+    typ: sant_falskt
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid en liten insjö utanför Åkerslunda, vars vattenyta vid normalt medelvattenstånd är
+      0,8 hektar, gäller strandskydd om inte länsstyrelsen beslutat något annat.
+    svar: false
+    forklaring: >
+      Sedan den 1 juli 2025 gäller strandskydd inte vid insjöar som är en hektar eller mindre
+      (7 kap. 13 a §) eller vid vattendrag som är två meter breda eller smalare (13 b §).
+      Länsstyrelsen får i det enskilda fallet besluta att strandskydd ändå ska gälla, om det är av
+      särskild betydelse för något av syftena, och då högst 100 m från strandlinjen. Strandskydd
+      gäller inte heller vid sjöar och vattendrag som anlagts efter den 30 juni 1975 (13 c §).
+      Kontrollera alltid länsstyrelsens beslut innan du säger att platsen är fri.
+    lagrum: [MB 7 kap. 13 a §, MB 7 kap. 13 b §, MB 7 kap. 13 c §]
+    taggar: [strandskydd, sma_vatten]
+
+  - id: angr-004
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Strandskydd gäller inte vid insjöar vars vattenyta är ___ hektar eller mindre, och inte vid
+      sträckor av vattendrag som är ___ meter breda eller smalare, räknat vid normalt
+      medelvattenstånd.
+    svar: [["1", "en"], ["2", "två"]]
+    forklaring: >
+      Gränserna infördes den 1 juli 2025 i 7 kap. 13 a och 13 b §§ miljöbalken. I båda fallen får
+      länsstyrelsen besluta att strandskydd ska gälla, och ett sådant beslut gäller omedelbart
+      även om det överklagas. Ett vattendrag som är högst tre meter brett och ligger på samma
+      fastighet som en strandskyddsfri sträcka kan dessutom få strandskyddet upphävt enligt 18 a §.
+    lagrum: [MB 7 kap. 13 a §, MB 7 kap. 13 b §, MB 7 kap. 18 a §]
+    taggar: [strandskydd, sma_vatten]
+
+  - id: angr-005
+    typ: flersvar
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande är förbjudna inom ett strandskyddsområde enligt 7 kap. 15 § miljöbalken, om inte dispens ges?
+    alternativ:
+      - text: Att uppföra en ny byggnad.
+        ratt: true
+      - text: Att ändra en byggnads användning så att allmänheten avhålls från att beträda ett område där den annars fått färdas fritt.
+        ratt: true
+      - text: Att gräva för grunden till en planerad byggnad.
+        ratt: true
+      - text: Att vidta åtgärder som väsentligt förändrar livsvillkoren för djur- eller växtarter.
+        ratt: true
+      - text: Att bada och plocka bär.
+    forklaring: >
+      15 § innehåller fyra förbud: nya byggnader, ändringar som hindrar eller avhåller allmänheten,
+      grävnings- och förberedelsearbeten för sådana åtgärder och åtgärder som väsentligt förändrar
+      livsvillkoren för djur och växter. Att använda allemansrätten är inte förbjudet – det är just
+      det som strandskyddet ska trygga. Förbudet gäller oavsett om åtgärden kräver bygglov; en
+      bygglovsbefriad komplementbyggnad kan alltså kräva strandskyddsdispens.
+    lagrum: [MB 7 kap. 15 §]
+    taggar: [strandskydd, forbud]
+
+  - id: angr-006
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En privatperson vill bygga en gäststuga 40 m från Åkersjön på en tomt utanför detaljplan.
+      Området har inget annat områdesskydd. Vem prövar ansökan om strandskyddsdispens?
+    alternativ:
+      - text: Kommunen.
+        ratt: true
+      - text: Länsstyrelsen.
+      - text: Mark- och miljödomstolen.
+      - text: Naturvårdsverket.
+    forklaring: >
+      Kommunen prövar dispens i alla fall utom dem som länsstyrelsen prövar enligt 7 kap. 18 b §:
+      försvarsanläggningar, allmänna vägar och järnvägar, och områden som skyddas enligt andra
+      bestämmelser i 7 kap. (t.ex. naturreservat) och där skyddet beslutats av någon annan än
+      kommunen (18 c §). Kommunens beslut ska skickas till länsstyrelsen, som kan överpröva det
+      (19 kap. 3 a–3 b §§). I många kommuner prövar miljönämnden dispensen, men det kan också vara
+      byggnadsnämnden; det avgörs av kommunens reglemente.
+    lagrum: [MB 7 kap. 18 c §, MB 7 kap. 18 b §, MB 19 kap. 3 a §]
+    taggar: [strandskydd, dispens, behorighet]
+
+  - id: angr-007
+    typ: flersvar
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka av följande kan vara särskilda skäl för strandskyddsdispens enligt 7 kap. 18 e § miljöbalken?
+    alternativ:
+      - text: Området har redan tagits i anspråk på ett sätt som gör att det saknar betydelse för strandskyddets syften.
+        ratt: true
+      - text: Området är genom en väg väl avskilt från området närmast strandlinjen.
+        ratt: true
+      - text: Åtgärden behövs för en anläggning som för sin funktion måste ligga vid vattnet.
+        ratt: true
+      - text: Sökanden har ägt fastigheten i många år och vill ha sjöutsikt.
+      - text: Byggnaden är liten och syns inte från vattnet.
+    forklaring: >
+      Bara de skäl som räknas upp i lagen får beaktas (18 d §). I 18 e § finns sex skäl: redan
+      ianspråktaget, väl avskilt, måste ligga vid vattnet, utvidgning av pågående verksamhet,
+      angeläget allmänt intresse och annat mycket angeläget intresse. Därutöver finns skäl för
+      förvärvsverksamhet i områden med lågt bebyggelsetryck (18 f §) och för landsbygdsutveckling i
+      strandnära lägen (18 g §). Personliga önskemål eller att byggnaden är liten är inga särskilda
+      skäl. Även när ett skäl finns ska intresset vägas mot strandskyddsintresset.
+    lagrum: [MB 7 kap. 18 d §, MB 7 kap. 18 e §, MB 7 kap. 18 f §, MB 7 kap. 18 g §]
+    taggar: [strandskydd, dispens, sarskilda_skal]
+
+  - id: angr-008
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad säger 7 kap. 18 i § miljöbalken om fri passage och tomtplats?
+    alternativ:
+      - text: Dispensen får inte omfatta ett område som behövs för fri passage för allmänheten mellan strandlinjen och byggnaderna, och beslutet ska ange hur mycket mark som får tas i anspråk som tomt.
+        ratt: true
+      - text: Det ska alltid finnas en fri passage på minst 25 m, och tomtplatsen bestäms i bygglovet.
+      - text: Fri passage behövs bara om stranden används för bad.
+      - text: Tomtplatsen får alltid omfatta hela fastigheten.
+    forklaring: >
+      Kravet på fri passage gäller både dispens och upphävande och undantas bara om en sådan
+      användning är omöjlig med hänsyn till anläggningens funktion, t.ex. en brygga. Lagen anger
+      ingen fast bredd; den bedöms i det enskilda fallet utifrån terrängen och syftena. Att
+      tomtplatsen avgränsas i dispensbeslutet är viktigt eftersom hemfridszonen annars kan växa
+      och privatisera stranden. Före 1 juli 2025 fanns regeln i 18 f §.
+    lagrum: [MB 7 kap. 18 i §]
+    taggar: [strandskydd, fri_passage, tomtplats]
+
+  - id: angr-009
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad händer med ett beslut om strandskyddsdispens som kommunen har fattat?
+    alternativ:
+      - text: Det ska skickas till länsstyrelsen, som inom tre veckor beslutar om den ska pröva det, och som ska upphäva det om förutsättningar saknas.
+        ratt: true
+      - text: Det gäller direkt och kan bara överklagas av sökanden.
+      - text: Det ska godkännas av Naturvårdsverket innan det börjar gälla.
+      - text: Det ska kungöras i ortstidningen innan det börjar gälla.
+    forklaring: >
+      Enligt 19 kap. 3 a § ska kommunen skicka dispensbeslutet till länsstyrelsen. Länsstyrelsen
+      ska pröva beslutet om det finns skäl att anta att förutsättningar saknas eller att en
+      handläggningsbrist kan ha påverkat utgången (3 b §). Inom tre veckor från att beslutet kom
+      in ska länsstyrelsen besluta om den ska pröva det, och det beslutet får inte överklagas.
+      Saknas förutsättningar ska länsstyrelsen upphäva dispensen. Börja därför inte bygga direkt
+      på en färsk dispens.
+    lagrum: [MB 19 kap. 3 a §, MB 19 kap. 3 b §]
+    taggar: [strandskydd, dispens, overprovning]
+
+  - id: angr-010
+    typ: lucktext
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En strandskyddsdispens upphör att gälla om åtgärden inte har påbörjats inom ___ år eller inte
+      har avslutats inom ___ år från den dag dispensbeslutet vann laga kraft.
+    svar: [["2", "två"], ["5", "fem"]]
+    forklaring: >
+      Regeln finns i 7 kap. 18 k § miljöbalken. Tiderna är desamma som för ett bygglov (9 kap.
+      115 § PBL), men de räknas var för sig: dispensen och lovet kan få laga kraft vid olika
+      tidpunkter. Gör det till en vana att kontrollera båda datumen.
+    lagrum: [MB 7 kap. 18 k §, PBL 9 kap. 115 §]
+    taggar: [strandskydd, dispens, giltighetstid]
+
+  - id: angr-011
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ansökan om bygglov för ett fritidshus nära Åkersjön kommer in samtidigt som en ansökan om
+      strandskyddsdispens för samma åtgärd. Dispensärendet kommer att ta tid. Vad får
+      byggnadsnämnden göra med lovärendet?
+    alternativ:
+      - text: Besluta att lovärendet inte ska avgöras förrän frågan om dispens har avgjorts, trots tioveckorsfristen.
+        ratt: true
+      - text: Avvisa bygglovsansökan tills dispensen har getts.
+      - text: Bevilja lov direkt, eftersom strandskyddet prövas separat.
+      - text: Låta fristen löpa ut och sedan sätta ned avgiften.
+    forklaring: >
+      Enligt 9 kap. 102 § 1 PBL får nämnden trots 99 § besluta att ett lovärende inte ska avgöras
+      förrän dispensfrågan har avgjorts (vilande). Medan ärendet vilar löper inte
+      tioveckorsfristen. Nämnden ska enligt 9 kap. 92 § också upplysa sökanden om att åtgärden
+      kräver dispens. Att bevilja lov innan dispens finns är inte fel i sig, men åtgärden får ändå
+      inte utföras utan dispens, och det kan ge sökanden en falsk trygghet.
+    lagrum: [PBL 9 kap. 102 §, PBL 9 kap. 99 §, PBL 9 kap. 92 §, MB 7 kap. 15 §]
+    taggar: [strandskydd, vilande, samordning]
+
+  - id: angr-012
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Kommunen har i översiktsplanen pekat ut en sjö i Åkerslunda som område för
+      landsbygdsutveckling i strandnära lägen. En familj söker dispens för att bygga ett
+      enbostadshus. Vad får beaktas som särskilt skäl enligt 7 kap. 18 g § miljöbalken?
+    alternativ:
+      - text: Att huset ska uppföras i anslutning till ett befintligt bostadshus.
+        ratt: true
+      - text: Att familjen redan bor i kommunen.
+      - text: Att översiktsplanen är bindande och därför avgör saken.
+      - text: Att huset ska ha solceller.
+    forklaring: >
+      Inom ett område för landsbygdsutveckling i strandnära lägen får det beaktas om ett strandnära
+      läge bidrar till landsbygdens utveckling. Gäller dispensen enstaka en- eller tvåbostadshus
+      får det i stället beaktas om huset uppförs i anslutning till ett befintligt bostadshus.
+      Översiktsplanen ger vägledning om var sådana områden finns men är inte bindande (18 h §
+      andra stycket). Kraven på fri passage och tomtplats gäller ändå (18 i §).
+    lagrum: [MB 7 kap. 18 g §, MB 7 kap. 18 h §, MB 7 kap. 18 i §, PBL 3 kap.]
+    taggar: [strandskydd, lis, dispens]
+
+  # --- Miljöfarlig verksamhet och avlopp -------------------------------------------------------
+
+  - id: angr-013
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett nytt fritidshus utanför detaljplan ska få en egen avloppsanläggning som vattentoaletten
+      ska anslutas till. Vad krävs enligt förordningen om miljöfarlig verksamhet och hälsoskydd?
+    alternativ:
+      - text: Tillstånd från den kommunala nämnden.
+        ratt: true
+      - text: Anmälan till länsstyrelsen.
+      - text: Ingenting, om anläggningen byggs av en certifierad entreprenör.
+      - text: Bygglov för avloppsanläggningen.
+    forklaring: >
+      Enligt 13 § FMH krävs tillstånd för att inrätta en avloppsanordning som vattentoaletter ska
+      anslutas till, och för att ansluta en vattentoalett till en befintlig anordning. Andra
+      avloppsanordningar, t.ex. för BDT-vatten, kräver anmälan, och kommunen får föreskriva
+      tillståndsplikt i vissa områden. Avloppsvatten ska tas om hand så att olägenhet för hälsa
+      och miljö inte uppkommer (9 kap. 7 § MB). Byggnadsnämnden ska upplysa sökanden om
+      tillståndsplikten (9 kap. 92 § PBL), och möjligheten att ordna avlopp ingår i
+      lokaliseringsprövningen (2 kap. 5 § PBL).
+    lagrum: [FMH 13 §, MB 9 kap. 7 §, PBL 9 kap. 92 §, PBL 2 kap. 5 §]
+    taggar: [avlopp, miljo, upplysning]
+
+  - id: angr-014
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnadsnämnden prövar ett förhandsbesked för ett nytt enbostadshus på landsbygden. Marken är
+      tät lera och det finns enskilda vattentäkter i närheten. Varför är avloppsfrågan relevant
+      redan i lovprövningen?
+    alternativ:
+      - text: Bebyggelse ska lokaliseras till mark som är lämpad med hänsyn till bl.a. möjligheterna att ordna vattenförsörjning och avlopp.
+        ratt: true
+      - text: Byggnadsnämnden beviljar avloppstillståndet i samma beslut.
+      - text: Det är den enda fråga som prövas i ett förhandsbesked.
+      - text: Den är inte relevant; avloppet prövas bara av miljönämnden.
+    forklaring: >
+      Enligt 2 kap. 5 § PBL ska bebyggelse lokaliseras till mark som är lämpad med hänsyn till bl.a.
+      människors hälsa, jord-, berg- och vattenförhållanden och möjligheterna att ordna
+      vattenförsörjning och avlopp. Det gäller också i förhandsbesked. Avloppstillståndet prövas av
+      den kommunala nämnden enligt FMH, men om det är osannolikt att ett godtagbart avlopp kan
+      ordnas kan platsen vara olämplig. Därför är remiss till miljöenheten vanlig redan i
+      förhandsbeskedet.
+    lagrum: [PBL 2 kap. 5 §, FMH 13 §]
+    taggar: [avlopp, lokalisering, forhandsbesked]
+
+  - id: angr-015
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En bilverkstad som är anmälningspliktig miljöfarlig verksamhet vill flytta in i en tidigare
+      lagerbyggnad. När får verksamheten tidigast påbörjas enligt miljöbalken, om inget annat
+      föreskrivits eller beslutats?
+    alternativ:
+      - text: Sex veckor efter att anmälan har gjorts.
+        ratt: true
+      - text: Direkt när anmälan har skickats in.
+      - text: Tio veckor efter att anmälan har gjorts.
+      - text: När bygglovet för ändrad användning har fått laga kraft.
+    forklaring: >
+      Enligt 9 kap. 6 c § MB får en anmälningspliktig verksamhet påbörjas tidigast sex veckor efter
+      anmälan. Ändrad användning från lager till verkstad kan dessutom kräva bygglov (9 kap. 15 §
+      PBL). När en lovansökan avser en åtgärd som måste anmälas enligt föreskrifter med stöd av
+      9 kap. 6 § MB ska byggnadsnämnden underrätta miljönämnden och samordna handläggningen så att
+      besluten kan meddelas i ett sammanhang (9 kap. 93 § PBL).
+    lagrum: [MB 9 kap. 6 c §, MB 9 kap. 1 §, PBL 9 kap. 15 §, PBL 9 kap. 93 §]
+    taggar: [miljofarlig_verksamhet, samordning, andrad_anvandning]
+
+  # --- Kulturmiljölagen -----------------------------------------------------------------------
+
+  - id: angr-016
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vilka lämningar är automatiskt fornlämningar enligt 2 kap. kulturmiljölagen?
+    alternativ:
+      - text: Lämningar efter människors verksamhet under forna tider som är varaktigt övergivna och har tillkommit före 1850.
+        ratt: true
+      - text: Alla byggnader som är äldre än 100 år.
+      - text: Lämningar som länsstyrelsen har förtecknat i ett register.
+      - text: Bara gravar och runstenar.
+    forklaring: >
+      2 kap. 1 § räknar upp typer av lämningar, bl.a. gravar, resta stenar, boplatser, ruiner,
+      färdvägar och fartygslämningar, som är varaktigt övergivna. Enligt 1 a § är en lämning som
+      kan antas ha tillkommit 1850 eller senare inte automatiskt fornlämning, men länsstyrelsen får
+      förklara den för fornlämning om det finns särskilda skäl. Skyddet gäller oavsett om lämningen
+      är registrerad. Till fornlämningen hör ett fornlämningsområde (2 §).
+    lagrum: [KML 2 kap. 1 §, KML 2 kap. 1 a §, KML 2 kap. 2 §]
+    taggar: [fornlamning, kulturmiljo]
+
+  - id: angr-017
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid grävning för en villagrund i Åkerslunda hittar grävmaskinisten en samling skärvsten och
+      kol som ser ut att vara en gammal härd. Vad ska göras enligt kulturmiljölagen?
+    alternativ:
+      - text: Arbetet ska omedelbart avbrytas där fornlämningen berörs, och den som leder arbetet ska anmäla fyndet till länsstyrelsen.
+        ratt: true
+      - text: Arbetet får fortsätta, men fyndet ska fotograferas.
+      - text: Byggnadsnämnden ska kontaktas, som beslutar om arbetet får fortsätta.
+      - text: Fyndet ska grävas fram och lämnas till närmaste museum.
+    forklaring: >
+      Enligt 2 kap. 10 § andra stycket ska arbetet avbrytas till den del fornlämningen berörs och
+      anmälas till länsstyrelsen. Det är länsstyrelsen, inte byggnadsnämnden, som prövar om
+      ingrepp får göras (12 §). Den som planerar ett bygge bör redan i förväg ta reda på om
+      fornlämningar kan beröras och samråda med länsstyrelsen (10 § första stycket). För en
+      tidigare okänd fornlämning svarar företagaren inte för kostnaden för den arkeologiska
+      undersökningen (14 § andra stycket 1).
+    lagrum: [KML 2 kap. 10 §, KML 2 kap. 12 §, KML 2 kap. 14 §]
+    taggar: [fornlamning, kulturmiljo, byggskede]
+
+  - id: angr-018
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: När får länsstyrelsen ge tillstånd till ett ingrepp i en fornlämning enligt 2 kap. 12 § kulturmiljölagen?
+    alternativ:
+      - text: Endast om fornlämningen medför hinder eller olägenhet som inte står i rimligt förhållande till fornlämningens betydelse.
+        ratt: true
+      - text: Alltid om sökanden har bygglov.
+      - text: Bara om fornlämningen är yngre än 1850.
+      - text: Om kommunen har tillstyrkt ansökan.
+    forklaring: >
+      Tillståndet är en avvägning mellan fornlämningens betydelse och det hinder den innebär.
+      Länsstyrelsen får som villkor kräva arkeologisk undersökning eller särskilda åtgärder för att
+      bevara fornlämningen (13 §). Kostnaden står som huvudregel företagaren för (14 §). Ett
+      bygglov ersätter inte tillståndet, och nämnden ska upplysa sökanden om att det behövs
+      (9 kap. 92 § PBL).
+    lagrum: [KML 2 kap. 12 §, KML 2 kap. 13 §, KML 2 kap. 14 §, PBL 9 kap. 92 §]
+    taggar: [fornlamning, tillstand, kulturmiljo]
+
+  - id: angr-019
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bolag planerar ett nytt bostadsområde på 12 hektar åkermark i Åkerslunda. Det är oklart
+      om fornlämningar berörs. Vem betalar en arkeologisk utredning som länsstyrelsen beslutar om?
+    alternativ:
+      - text: Företagaren, eftersom exploateringen tar ett större markområde i anspråk.
+        ratt: true
+      - text: Staten, alltid.
+      - text: Kommunen, eftersom den antar detaljplanen.
+      - text: Ingen; utredningen görs bara om en fornlämning redan hittats.
+    forklaring: >
+      Enligt 2 kap. 11 § ska företagaren betala en arkeologisk utredning när ett planerat
+      arbetsföretag tar ett större markområde i anspråk, t.ex. mer omfattande bostadsbyggande.
+      Länsstyrelsen beslutar om utredningen och om vem som utför den. Frågan bör hanteras tidigt,
+      helst i planarbetet, så att fornlämningar kan undvikas i stället för att undersökas bort.
+    lagrum: [KML 2 kap. 11 §, KML 2 kap. 10 §]
+    taggar: [fornlamning, arkeologi, planering]
+
+  - id: angr-020
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ägaren till ett byggnadsminne vill byta takmaterial i strid mot skyddsbestämmelserna. Vilket
+      tillstånd behövs enligt kulturmiljölagen?
+    alternativ:
+      - text: Tillstånd från länsstyrelsen, som får ges om det finns särskilda skäl.
+        ratt: true
+      - text: Bara bygglov från byggnadsnämnden.
+      - text: Tillstånd från Riksantikvarieämbetet.
+      - text: Inget tillstånd; skyddsbestämmelserna är bara rådgivande.
+    forklaring: >
+      En byggnad med synnerligen högt kulturhistoriskt värde kan förklaras för byggnadsminne av
+      länsstyrelsen (3 kap. 1 §), som i skyddsbestämmelser anger hur byggnaden ska vårdas och i
+      vilka avseenden den inte får ändras (2 §). Ändringar i strid mot bestämmelserna kräver
+      länsstyrelsens tillstånd, som får förenas med villkor (14 §). Om åtgärden även kräver bygglov
+      prövar byggnadsnämnden den enligt PBL, och förvanskningsförbudet i 8 kap. 13 § PBL gäller.
+    lagrum: [KML 3 kap. 1 §, KML 3 kap. 2 §, KML 3 kap. 14 §, PBL 8 kap. 13 §]
+    taggar: [byggnadsminne, kulturmiljo, tillstand]
+
+  - id: angr-021
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Församlingen vill ändra färgsättningen i interiören i Åkerslunda kyrka, som invigdes 1872. Vad
+      krävs enligt kulturmiljölagen?
+    alternativ:
+      - text: Tillstånd från länsstyrelsen.
+        ratt: true
+      - text: Bygglov.
+      - text: Inget tillstånd, eftersom ändringen sker invändigt.
+      - text: Tillstånd från stiftet räcker.
+    forklaring: >
+      Kyrkobyggnader som är uppförda före utgången av 1939 får inte ändras på något väsentligt sätt
+      utan länsstyrelsens tillstånd, och för bl.a. ingrepp i interiören och ändring av
+      färgsättningen krävs alltid tillstånd (4 kap. 3 §). Länsstyrelsen kan besluta att samma sak
+      ska gälla yngre kyrkor med högt kulturhistoriskt värde (4 §). Sedvanligt underhåll och
+      brådskande reparationer får göras utan tillstånd (5 §). Motsvarande regler gäller
+      begravningsplatser anlagda före 1940 (13 §).
+    lagrum: [KML 4 kap. 3 §, KML 4 kap. 4 §, KML 4 kap. 5 §, KML 4 kap. 13 §]
+    taggar: [kyrkliga_kulturminnen, kulturmiljo, tillstand]
+
+  # --- Väglagen och skydd mot olyckor ---------------------------------------------------------
+
+  - id: angr-022
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ny tomt utanför Åkerslunda ska få en ny utfart mot en allmän väg. Vem prövar om utfarten
+      får anslutas?
+    alternativ:
+      - text: Väghållningsmyndigheten, enligt 39 § väglagen.
+        ratt: true
+      - text: Byggnadsnämnden i bygglovet, och ingen annan.
+      - text: Polisen.
+      - text: Lantmäterimyndigheten.
+    forklaring: >
+      En ny eller ändrad anslutning av en enskild väg eller utfart till en allmän väg kräver
+      tillstånd från väghållningsmyndigheten, för statliga vägar oftast Trafikverket. Myndigheten
+      prövar trafiksäkerhet och framkomlighet. Byggnadsnämnden prövar samtidigt kraven på utfart i
+      8 kap. 9 § och trafikmiljön i 2 kap. 6 § PBL, och ska upplysa sökanden om väglagens krav
+      (9 kap. 92 §).
+    lagrum: [VägL 39 §, PBL 8 kap. 9 §, PBL 9 kap. 92 §]
+    taggar: [vaglagen, utfart]
+
+  - id: angr-023
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Vad gäller enligt 47 § väglagen för en byggnad nära en allmän väg utanför detaljplan?
+    alternativ:
+      - text: Inom 12 m från vägområdet krävs länsstyrelsens tillstånd för byggnader, om inte åtgärden kräver bygglov; avståndet kan utökas till högst 50 m.
+        ratt: true
+      - text: Det är alltid förbjudet att bygga närmare vägen än 50 m.
+      - text: Inom 12 m krävs både bygglov och länsstyrelsens tillstånd.
+      - text: Väglagen gäller bara inom detaljplan.
+    forklaring: >
+      Det byggnadsfria avståndet är 12 m från vägområdet, och länsstyrelsen kan av
+      trafiksäkerhetsskäl utöka det till högst 50 m. Tillståndskravet gäller inte inom detaljplan
+      och inte för åtgärder som kräver bygglov – då prövas trafiksäkerheten i bygglovet, och
+      Trafikverket bör få yttra sig. För en bygglovsbefriad komplementbyggnad nära en allmän väg
+      utanför plan kan länsstyrelsens tillstånd alltså behövas.
+    lagrum: [VägL 47 §, PBL 2 kap. 6 §]
+    taggar: [vaglagen, byggnadsfritt_avstand]
+
+  - id: angr-024
+    typ: sant_falskt
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En bygglovspliktig tillbyggnad 8 m från vägområdet till en allmän väg utanför detaljplan
+      kräver både bygglov och länsstyrelsens tillstånd enligt 47 § väglagen.
+    svar: false
+    forklaring: >
+      Enligt 47 § sista stycket gäller kravet på länsstyrelsens tillstånd inte för åtgärder som
+      kräver bygglov. Det betyder inte att trafiksäkerheten är oviktig: byggnadsnämnden ska pröva
+      den enligt 2 kap. 6 § första stycket 2 och 6 PBL, och väghållaren bör få yttra sig. Kom ihåg
+      att utfarten ändå kan kräva tillstånd enligt 39 §.
+    lagrum: [VägL 47 §, VägL 39 §, PBL 2 kap. 6 §]
+    taggar: [vaglagen, samordning]
+
+  - id: angr-025
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ägare och nyttjanderättshavare till byggnader ska enligt lagen om skydd mot olyckor i skälig
+      omfattning hålla utrustning för släckning av brand och för livräddning.
+    svar: true
+    forklaring: >
+      LSO 2 kap. 2 § lägger ett löpande ansvar på ägare och nyttjanderättshavare att förebygga
+      brand och begränsa skador. Byggreglerna i PBL styr hur brandskyddet ska utformas när man
+      bygger (8 kap. 4 § PBL och 3 kap. 8 § PBF), medan LSO styr hur det sköts när byggnaden
+      används. Kommunen ansvarar för sotning och brandskyddskontroll (3 kap. 4 §), och vid farlig
+      verksamhet gäller särskilda skyldigheter (2 kap. 4 §). Räddningstjänsten är därför en
+      naturlig remissinstans i ärenden med komplicerat brandskydd.
+    lagrum: [LSO 2 kap. 2 §, LSO 2 kap. 4 §, LSO 3 kap. 4 §, PBF 3 kap. 8 §]
+    taggar: [lso, brandskydd]
+
+  # --- Fastighetsrätt och grannelag -----------------------------------------------------------
+
+  - id: angr-026
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Tre fastigheter i Åkerslunda vill ordna en gemensam väg och en gemensam avloppsanläggning med
+      stadigvarande betydelse för dem. Hur bildas en sådan gemensamhetsanläggning?
+    alternativ:
+      - text: Genom en anläggningsförrättning hos lantmäterimyndigheten enligt anläggningslagen.
+        ratt: true
+      - text: Genom ett beslut av byggnadsnämnden i bygglovet.
+      - text: Genom ett avtal som registreras hos kommunen.
+      - text: Genom ett beslut av länsstyrelsen.
+    forklaring: >
+      En gemensamhetsanläggning är en anläggning som är gemensam för flera fastigheter och har
+      stadigvarande betydelse för dem (1 § anläggningslagen). Frågan prövas vid förrättning hos
+      lantmäterimyndigheten (4 §). Varje fastighet som deltar ska ha väsentlig betydelse av
+      anläggningen (5 §), fördelarna ska överväga kostnaderna (6 §), och anläggningen får inte
+      strida mot detaljplan (9 §). För byggnadsnämnden är det en lösning på kraven på utfart och
+      avlopp i lovprövningen.
+    lagrum: [PBL 8 kap. 9 §, PBL 2 kap. 5 §]
+    taggar: [fastighetsratt, gemensamhetsanlaggning]
+
+  - id: angr-027
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En ny tomt saknar egen anslutning till väg, och utfarten måste gå över grannfastigheten. Hur
+      kan rätten att använda vägen över grannens mark säkras varaktigt?
+    alternativ:
+      - text: Genom ett servitut, antingen genom avtal (avtalsservitut) eller genom en lantmäteriförrättning (officialservitut).
+        ratt: true
+      - text: Genom att byggnadsnämnden skriver in rätten i bygglovet.
+      - text: Genom ett muntligt löfte från grannen.
+      - text: Det går inte; varje tomt måste ha egen gatuanslutning.
+    forklaring: >
+      Ett servitut ger ägaren av den härskande fastigheten rätt att använda den tjänande fastigheten
+      i visst hänseende, t.ex. för väg. Avtalsservitut regleras i 14 kap. jordabalken; servitut som
+      bildas vid fastighetsreglering ska vara av väsentlig betydelse för fastighetens ändamålsenliga
+      användning (7 kap. 1 § FBL). Servitutet följer fastigheten, till skillnad från ett personligt
+      löfte. I bygglovet prövar nämnden att det finns en lämpligt belägen utfart (8 kap. 9 § 3 PBL),
+      och ett servitut är ofta det som visar att utfarten är säkrad.
+    lagrum: [FBL 7 kap. 1 §, PBL 8 kap. 9 §]
+    taggar: [fastighetsratt, servitut, utfart]
+
+  - id: angr-028
+    typ: sant_falskt
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Byggnadsnämnden avgör tvister mellan grannar om grenar och rötter som tränger in över
+      tomtgränsen.
+    svar: false
+    forklaring: >
+      Rätten att ta bort inträngande rötter och grenar regleras i 3 kap. 2 § jordabalken och är en
+      civilrättslig fråga mellan grannarna. Tvister avgörs av allmän domstol. Byggnadsnämnden prövar
+      i lovärenden bl.a. betydande olägenhet för omgivningen (2 kap. 9 § PBL) och har tillsyn över
+      tomters skötsel (8 kap. 15 § PBL), men den är inte domare i grannelagsfrågor. Hänvisa vänligt
+      och tydligt – det är en del av serviceskyldigheten.
+    lagrum: [PBL 2 kap. 9 §, PBL 8 kap. 15 §]
+    taggar: [grannelag, civilratt, bemotande]
+
+  - id: angr-029
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Familjen Holm ska schakta för en källare nära gränsen mot grannen. Vad säger 3 kap. 3 §
+      jordabalken?
+    alternativ:
+      - text: Den som gräver ska vidta varje skyddsåtgärd som kan anses nödvändig för att förebygga skada på angränsande fastigheter.
+        ratt: true
+      - text: Grävning närmare gräns än 4,5 m är förbjuden.
+      - text: Grannen ska alltid betala skyddsåtgärderna.
+      - text: Byggnadsnämnden ska godkänna schaktningen i ett särskilt beslut.
+    forklaring: >
+      Jordabalken ställer ett civilrättsligt krav på skyddsåtgärder vid grävning. Ersättning för
+      skador regleras i 32 kap. miljöbalken. Om grannens byggnad är vårdslöst uppförd eller dåligt
+      underhållen kan grannen få bekosta särskilda skyddsåtgärder (tredje stycket). I PBL
+      motsvaras frågan av byggherrens ansvar och kravet på aktsamhet vid byggåtgärder (10 kap. 2 c
+      och 5 §§), som kan tas upp i kontrollplanen.
+    lagrum: [PBL 10 kap. 2 c §, PBL 10 kap. 5 §]
+    taggar: [grannelag, gravning, byggskede]
+
+  # --- Natura 2000, artskydd, förorenad mark och radon ----------------------------------------
+
+  - id: angr-030
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Ett bolag vill bygga en större anläggning intill ett Natura 2000-område vid Åkerslunda
+      våtmark. Vad gäller enligt 7 kap. miljöbalken?
+    alternativ:
+      - text: Tillstånd krävs om åtgärden på ett betydande sätt kan påverka miljön i Natura 2000-området, och frågan prövas i regel av länsstyrelsen.
+        ratt: true
+      - text: Natura 2000-reglerna gäller bara åtgärder inne i själva området.
+      - text: Det räcker med bygglov, eftersom byggnadsnämnden prövar naturvärdena.
+      - text: Kommunen prövar Natura 2000-tillstånd i samband med strandskyddsdispens.
+    forklaring: >
+      Enligt 7 kap. 28 a § krävs tillstånd för verksamheter och åtgärder som på ett betydande sätt
+      kan påverka miljön i ett Natura 2000-område – även om åtgärden ligger utanför området.
+      Tillstånd får bara ges om åtgärden inte skadar de livsmiljöer eller arter som ska skyddas
+      (28 b §), med snäva undantag (29 §). Länsstyrelsen prövar frågan (29 b §). Har åtgärden redan
+      miljöbedömts i en sådan prövning ska byggnadsnämnden ta hänsyn till resultatet när den
+      bedömer om åtgärden utanför plan förutsätter detaljplan (9 kap. 57 § tredje stycket PBL).
+    lagrum: [MB 7 kap. 28 a §, MB 7 kap. 28 b §, MB 7 kap. 29 b §, PBL 9 kap. 57 §]
+    taggar: [natura_2000, tillstand]
+
+  - id: angr-031
+    typ: flerval
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Vid en bygglovsprövning visar en inventering att det finns fridlysta groddjur i en damm på
+      tomten som ska fyllas igen. Vad gäller?
+    alternativ:
+      - text: Bygglovet ger ingen rätt att bryta mot artskyddet; åtgärden kan kräva dispens enligt artskyddsförordningen.
+        ratt: true
+      - text: Ett beviljat bygglov innebär att artskyddet inte behöver beaktas.
+      - text: Artskyddet gäller bara inom naturreservat.
+      - text: Byggnadsnämnden ger dispens från artskyddet i bygglovet.
+    forklaring: >
+      Förbuden att döda, skada eller störa vilda djur och förstöra deras fortplantningsområden
+      eller viloplatser finns i föreskrifter som meddelats med stöd av 8 kap. 1 och 2 §§ MB
+      (artskyddsförordningen). De gäller överallt och parallellt med PBL. Dispens prövas inte av
+      byggnadsnämnden; den prövas i regel av länsstyrelsen. Nämnden ska upplysa sökanden (9 kap.
+      92 § PBL) och kan behöva samråda med länsstyrelsen.
+    lagrum: [MB 8 kap. 1 §, MB 8 kap. 2 §, PBL 9 kap. 92 §]
+    taggar: [artskydd, samordning]
+
+  - id: angr-032
+    typ: flerval
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Detaljplanen för en före detta bensinstation i Åkerslunda anger att lov endast får ges om
+      markföroreningen har avhjälpts. Byggherren vill få bygglov nu och sanera senare. Vad kan
+      nämnden göra?
+    alternativ:
+      - text: Ge lov med villkoret att föroreningen ska vara avhjälpt innan startbesked får ges.
+        ratt: true
+      - text: Ge lov utan villkor, eftersom saneringen är en miljöfråga.
+      - text: Ingenting; lov kan aldrig ges före sanering.
+      - text: Ge startbesked direkt och lov när saneringen är klar.
+    forklaring: >
+      En detaljplan får enligt 4 kap. 14 § 4 PBL villkora lov eller startbesked av att markens
+      lämplighet säkerställts genom att en markförorening har avhjälpts. Enligt 9 kap. 83 § får lov
+      då ges med villkoret att förutsättningen i stället ska vara uppfylld för att startbesked ska
+      få ges. Startbesked får inte ges förrän villkoret är uppfyllt (10 kap. 23 § andra stycket 5).
+      Saneringen samordnas med tillsynsmyndigheten enligt miljöbalken.
+    lagrum: [PBL 4 kap. 14 §, PBL 9 kap. 83 §, PBL 10 kap. 23 §]
+    taggar: [fororenad_mark, villkor, startbesked]
+
+  - id: angr-033
+    typ: flerval
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En privatperson köpte för fem år sedan en villafastighet där det tidigare funnits en
+      kemtvätt. Hon kände inte till föroreningen. Den som drev kemtvätten finns inte längre. Är
+      hon ansvarig för avhjälpandet enligt 10 kap. miljöbalken?
+    alternativ:
+      - text: Nej, vid förvärv av en privatbostadsfastighet ansvarar bara den förvärvare som kände till föroreningen.
+        ratt: true
+      - text: Ja, fastighetsägaren ansvarar alltid när verksamhetsutövaren saknas.
+      - text: Ja, eftersom hon borde ha upptäckt föroreningen.
+      - text: Nej, eftersom ansvaret alltid ligger på kommunen.
+    forklaring: >
+      Huvudansvaret ligger på verksamhetsutövaren (10 kap. 2 §). Finns ingen som kan utföra eller
+      bekosta avhjälpandet ansvarar den som förvärvat fastigheten och kände till eller borde ha
+      upptäckt föroreningen (3 § första stycket). För en privatbostadsfastighet räcker det inte att
+      köparen borde ha upptäckt föroreningen; där ansvarar bara den som kände till den (3 § andra
+      stycket). För byggnadsnämnden är föroreningen främst en fråga om markens lämplighet (2 kap.
+      5 § PBL).
+    lagrum: [MB 10 kap. 2 §, MB 10 kap. 3 §, PBL 2 kap. 5 §]
+    taggar: [fororenad_mark, ansvar]
+
+  - id: angr-034
+    typ: flersvar
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Hur hanteras radon i mark i plan- och byggprocessen?
+    alternativ:
+      - text: Som en lokaliseringsfråga – bebyggelse ska lokaliseras till mark som är lämpad med hänsyn till människors hälsa och säkerhet.
+        ratt: true
+      - text: Som ett tekniskt egenskapskrav – byggnaden ska utföras så att den inte medför oacceptabel risk genom farliga gaser eller farlig strålning.
+        ratt: true
+      - text: Genom att byggherren redovisar radonskyddande utförande i de tekniska handlingarna inför startbeskedet.
+        ratt: true
+      - text: Genom att byggnadsnämnden mäter radonhalten innan bygglov ges.
+      - text: Radon är bara en fråga för miljönämnden och påverkar inte byggprocessen.
+    forklaring: >
+      Radon hör både till lokaliseringsprövningen (2 kap. 5 § PBL) och till de tekniska
+      egenskapskraven om hygien, hälsa och miljö (8 kap. 4 § första stycket 3 PBL och 3 kap. 9 §
+      PBF, som nämner farliga gaser och farlig strålning). Hur skyddet ska utföras och vilka
+      gränsvärden som gäller följer av Boverkets byggregler. I praktiken redovisar byggherren
+      radonskyddet i det tekniska samrådet, och det kontrolleras enligt kontrollplanen. Nämnden
+      mäter inte själv.
+    lagrum: [PBL 2 kap. 5 §, PBL 8 kap. 4 §, PBF 3 kap. 9 §, PBL 10 kap. 7 §]
+    taggar: [radon, halsa, tekniska_egenskapskrav]
+
+  # --- Samordning och övning ------------------------------------------------------------------
+
+  - id: angr-035
+    typ: para_ihop
+    svarighet: 1
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Para ihop prövningen med den myndighet som normalt gör den.
+    par:
+      - vanster: Strandskyddsdispens för ett fritidshus
+        hoger: Kommunen (MB 7 kap. 18 c §)
+      - vanster: Ingrepp i en fornlämning
+        hoger: Länsstyrelsen (KML 2 kap. 12 §)
+      - vanster: Ny utfart mot en statlig allmän väg
+        hoger: Väghållningsmyndigheten (VägL 39 §)
+      - vanster: Avlopp som en vattentoalett ska anslutas till
+        hoger: Den kommunala nämnden (FMH 13 §)
+      - vanster: Gemensamhetsanläggning för väg
+        hoger: Lantmäterimyndigheten (anläggningslagen)
+      - vanster: Tillstånd för åtgärd som kan påverka ett Natura 2000-område
+        hoger: Länsstyrelsen (MB 7 kap. 28 a och 29 b §§)
+    forklaring: >
+      Ett bygglov är sällan det enda tillstånd som behövs. Enligt 9 kap. 92 § PBL ska nämnden upplysa
+      sökanden om krav på tillstånd eller anmälan enligt annan lag. Att kunna peka på rätt
+      myndighet är god service och minskar risken att sökanden bygger med lov men utan nödvändigt
+      tillstånd. Prövningen ska dessutom samordnas med prövning enligt annan lag när det
+      lämpligen kan ske (2 kap. 11 § PBL).
+    lagrum: [PBL 9 kap. 92 §, PBL 2 kap. 11 §, MB 7 kap. 18 c §, KML 2 kap. 12 §, VägL 39 §, FMH 13 §, MB 7 kap. 29 b §]
+    taggar: [samordning, myndigheter, upplysning]
+
+  - id: angr-036
+    typ: ordning
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: Ordna stegen i ett ärende om strandskyddsdispens som kommunen beviljar.
+    poster:
+      - Ansökan om dispens kommer in till kommunen.
+      - Kommunen prövar om något särskilt skäl finns och om intresset väger tyngre än strandskyddet.
+      - Kommunen beslutar om dispens och anger fri passage och tomtplats.
+      - Beslutet skickas till länsstyrelsen.
+      - Länsstyrelsen beslutar inom tre veckor om den ska pröva beslutet.
+      - Åtgärden påbörjas inom två år efter att dispensen vunnit laga kraft.
+    forklaring: >
+      Prövningen följer 7 kap. 18 c–18 i §§ MB, länsstyrelsens kontroll följer 19 kap. 3 a–3 b §§ och
+      giltighetstiden 18 k §. Om en bygglovsansökan för samma åtgärd ligger hos nämnden kan
+      lovärendet förklaras vilande tills dispensfrågan är avgjord (9 kap. 102 § PBL).
+    lagrum: [MB 7 kap. 18 c §, MB 7 kap. 18 i §, MB 19 kap. 3 a §, MB 19 kap. 3 b §, MB 7 kap. 18 k §]
+    taggar: [strandskydd, dispens, process]
+
+  - id: angr-037
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Du handlägger en ansökan om bygglov för ett nytt fritidshus utanför detaljplan, 60 m från
+      Åkersjön och 10 m från en allmän väg. Huset ska ha vattentoalett med eget avlopp. Vilka frågor
+      enligt annan lagstiftning behöver du hålla koll på, och hur hanterar du dem i lovärendet?
+    bedomningspunkter:
+      - Strandskydd – platsen ligger inom 100 m, så dispens krävs (MB 7 kap. 15 §, 18 c §); överväger vilande enligt 9 kap. 102 § PBL.
+      - Avlopp – tillstånd krävs för avlopp med vattentoalett (FMH 13 §); avloppsmöjligheten ingår i lokaliseringsprövningen (2 kap. 5 § PBL).
+      - Väg – ny utfart kräver väghållarens tillstånd (VägL 39 §); 47 § kräver inte länsstyrelsens tillstånd eftersom åtgärden kräver bygglov, men trafiksäkerheten prövas i lovet.
+      - Kontrollerar fornlämningar, Natura 2000 och artskydd vid behov, och upplyser sökanden om alla tillstånd (9 kap. 92 § PBL).
+      - Samordnar med miljöenheten och väghållaren genom remisser och informerar sökanden om att lovet inte ersätter andra tillstånd.
+    modellsvar: >
+      Huset ligger inom strandskyddsområdet, så det krävs dispens från förbudet i 7 kap. 15 § MB,
+      som kommunen prövar enligt 18 c §. Dispens förutsätter särskilda skäl och fri passage. Jag
+      skulle överväga att förklara lovärendet vilande tills dispensfrågan är avgjord (9 kap. 102 §
+      PBL). Avlopp med vattentoalett kräver tillstånd enligt 13 § FMH, och om ett godtagbart avlopp
+      inte kan ordnas är platsen olämplig enligt 2 kap. 5 § PBL; därför remitterar jag till
+      miljöenheten. En ny utfart mot den allmänna vägen kräver väghållarens tillstånd enligt 39 §
+      väglagen. Huset ligger inom 12 m från vägområdet, men eftersom det kräver bygglov behövs inget
+      tillstånd enligt 47 §; trafiksäkerheten prövar jag i lovet och låter Trafikverket yttra sig.
+      Jag kontrollerar också länsstyrelsens underlag om fornlämningar, Natura 2000 och skyddade
+      arter. I beslutet upplyser jag om alla tillstånd som krävs (9 kap. 92 § PBL).
+    lagrum: [MB 7 kap. 15 §, MB 7 kap. 18 c §, PBL 9 kap. 102 §, FMH 13 §, VägL 39 §, VägL 47 §, PBL 9 kap. 92 §]
+    taggar: [samordning, strandskydd, utanfor_plan]
+
+  - id: angr-038
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      Förklara vad "särskilda skäl" och "fri passage" betyder vid prövning av strandskyddsdispens, och
+      varför dispensbeslutet ska ange en tomtplats.
+    bedomningspunkter:
+      - Dispens kräver ett särskilt skäl, och bara de skäl som räknas upp i 7 kap. 18 e–18 g §§ får beaktas (18 d §).
+      - Ger exempel på skäl, t.ex. redan ianspråktaget område eller område avskilt av väg, och nämner att intresset ska vägas mot strandskyddet.
+      - Fri passage – mark mellan strandlinjen och byggnaden ska lämnas fri för allmänheten och för djur- och växtliv, om det inte är omöjligt med hänsyn till anläggningens funktion (18 i §).
+      - Tomtplatsen anger hur mycket mark som får tas i anspråk som tomt, så att hemfridszonen inte växer och privatiserar stranden (18 i § tredje stycket).
+    modellsvar: >
+      Strandskyddsdispens kräver särskilda skäl, och bara skälen i 7 kap. 18 e–18 g §§ MB får
+      beaktas (18 d §), t.ex. att området redan tagits i anspråk så att det saknar betydelse för
+      syftena, att det är väl avskilt från stranden av en väg eller att anläggningen måste ligga
+      vid vattnet. Även med ett särskilt skäl ska intresset vägas mot strandskyddsintresset. Fri
+      passage betyder att ett område närmast stranden ska lämnas fritt så att allmänheten kan röra
+      sig där och djur- och växtlivet bevaras, om det inte är omöjligt på grund av anläggningens
+      funktion, som för en brygga (18 i §). Dispensbeslutet ska ange i vilken utsträckning mark
+      får tas i anspråk som tomt. Annars riskerar trädgård, staket och möbler att breda ut sig och
+      i praktiken privatisera stranden.
+    lagrum: [MB 7 kap. 18 d §, MB 7 kap. 18 e §, MB 7 kap. 18 i §]
+    taggar: [strandskydd, dispens, fri_passage]
+
+  - id: angr-039
+    typ: oppen
+    svarighet: 3
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En exploatör vill bygga bostäder på en nedlagd industritomt i Åkerslunda där marken kan vara
+      förorenad. Området saknar detaljplan för bostäder. Hur hanteras föroreningen i plan- och
+      bygglovsprocessen, och vem ansvarar för saneringen?
+    bedomningspunkter:
+      - Bostäder på en sådan plats kräver troligen detaljplan (4 kap. 2 § PBL), och marken ska vara lämpad med hänsyn till människors hälsa (2 kap. 5 § PBL).
+      - Planen kan villkora lov eller startbesked av att föroreningen avhjälpts (4 kap. 14 § 4), och lov kan ges med villkor till startbeskedet (9 kap. 83 §).
+      - Ansvaret för avhjälpande ligger främst på verksamhetsutövaren och i andra hand på förvärvaren som kände till eller borde ha upptäckt föroreningen (MB 10 kap. 2–3 §§).
+      - Samordnar med miljöbalkens tillsynsmyndighet och kräver markundersökning som underlag.
+    modellsvar: >
+      Ett nytt bostadsområde på en tidigare industritomt förutsätter i regel en detaljplan
+      (4 kap. 2 § PBL), och planen ska visa att marken är lämplig med hänsyn till människors hälsa
+      (2 kap. 5 §). Därför behövs en markundersökning tidigt. I planen kan kommunen bestämma att lov
+      eller startbesked bara får ges om föroreningen har avhjälpts (4 kap. 14 § 4), och nämnden kan
+      då ge lov med villkoret att saneringen ska vara klar före startbesked (9 kap. 83 §). Ansvaret
+      för saneringen följer miljöbalken: i första hand den som bedrivit verksamheten som förorenat
+      (10 kap. 2 §), i andra hand den som förvärvat fastigheten och kände till eller borde ha
+      upptäckt föroreningen (10 kap. 3 §). Saneringen samordnas med tillsynsmyndigheten enligt
+      miljöbalken.
+    lagrum: [PBL 2 kap. 5 §, PBL 4 kap. 2 §, PBL 4 kap. 14 §, PBL 9 kap. 83 §, MB 10 kap. 2 §, MB 10 kap. 3 §]
+    taggar: [fororenad_mark, detaljplan, ansvar]
+
+  - id: angr-040
+    typ: oppen
+    svarighet: 2
+    status: utkast
+    rattslage: "2025-12-01"
+    fraga: >
+      En granne ringer och är upprörd: grannfamiljen ska gräva för en pool nära tomtgränsen, och
+      hennes äppelträd hänger in över deras tomt. Hon vill att byggnadsnämnden "stoppar dem". Vad
+      kan nämnden göra, och vad är civilrättsliga frågor? Hur bemöter du henne?
+    bedomningspunkter:
+      - Kontrollerar om poolen kräver lov eller anmälan enligt PBL, och om nämnden har något att pröva eller utöva tillsyn över.
+      - Förklarar att grenar och rötter regleras i 3 kap. 2 § jordabalken och är en fråga mellan grannarna.
+      - Förklarar att den som gräver ska vidta skyddsåtgärder för grannfastigheten (3 kap. 3 § JB) och att skador ersätts enligt 32 kap. MB, och att tvister avgörs av domstol.
+      - Bemöter sakligt och vänligt, hänvisar till rätt instans och dokumenterar samtalet (serviceskyldighet enligt FL).
+    modellsvar: >
+      Först tar jag reda på om poolen kräver lov eller anmälan. Om den inte gör det har nämnden
+      inget ärende att pröva, men kan utöva tillsyn om något bryter mot PBL. Grenar som hänger in
+      över tomtgränsen regleras i 3 kap. 2 § jordabalken: den drabbade grannen får ta bort dem, men
+      ska låta ägaren göra det själv om det kan orsaka skada av betydelse. Den som gräver ska enligt
+      3 kap. 3 § jordabalken vidta de skyddsåtgärder som behövs för att förebygga skador på
+      grannfastigheten, och skador ersätts enligt 32 kap. miljöbalken. Det är civilrättsliga frågor
+      som grannarna får lösa själva eller i domstol. Jag förklarar detta lugnt, ger henne
+      hänvisningar och dokumenterar samtalet. Det är en del av serviceskyldigheten enligt
+      förvaltningslagen att hjälpa henne vidare även när svaret är att nämnden inte kan ingripa.
+    lagrum: [FL 6 §, PBL 2 kap. 9 §]
+    taggar: [grannelag, bemotande, civilratt]

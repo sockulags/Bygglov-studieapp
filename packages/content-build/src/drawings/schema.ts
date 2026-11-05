@@ -94,16 +94,65 @@ export const SituationsplanSchema = z
     tillbyggnad: rectangle.optional(),
     /** New outbuilding. */
     komplementbyggnad: rectangle.optional(),
+    /** Label of the new outbuilding, e.g. "Nytt miljöhus". Defaults to "Ny komplementbyggnad". */
+    komplementbyggnad_namn: text.optional(),
+    /**
+     * Label of the main building (`hus` or `nybyggnad`), e.g. "Nytt flerbostadshus". Defaults to
+     * "Befintligt bostadshus" or "Nytt bostadshus".
+     */
+    huvudbyggnad_namn: text.optional(),
     /** Other existing buildings on the plot, e.g. a garage. */
     ovriga_byggnader: z
       .array(z.strictObject({ rektangel: rectangle, namn: text.optional() }), {
         error: fieldError('ovriga_byggnader ska vara en lista med { rektangel, namn }.'),
       })
       .default([]),
+    /**
+     * Built without permit or in breach of it (supervision cases): cross-hatched, measured to
+     * the boundaries and labelled with `namn`.
+     */
+    avvikelse: z
+      .array(z.strictObject({ rektangel: rectangle, namn: text.optional() }), {
+        error: fieldError('avvikelse ska vara en lista med { rektangel, namn }.'),
+      })
+      .default([]),
+    /** What the granted permit allows, drawn as a dash-dot outline on top of the buildings. */
+    lovgivet: z
+      .array(z.strictObject({ rektangel: rectangle, namn: text.optional() }), {
+        error: fieldError('lovgivet ska vara en lista med { rektangel, namn }.'),
+      })
+      .default([]),
     prickmark: z
       .array(ZoneSchema, {
         error: fieldError('prickmark ska vara en lista, t.ex. [{ sida: soder, djup: 6 }].'),
       })
+      .default([]),
+    /** Balconies and other parts that project above ground, drawn dashed and unlabelled. */
+    balkonger: z
+      .array(rectangle, { error: fieldError('balkonger ska vara en lista med rektanglar.') })
+      .default([]),
+    /**
+     * Parking areas divided into `platser` spaces along the longer side. The first
+     * `tillgangliga` spaces (from the west or north) are wider spaces for disabled persons.
+     */
+    parkering: z
+      .array(
+        z.strictObject({
+          rektangel: rectangle,
+          platser: z
+            .number({ error: fieldError('platser ska vara ett heltal, t.ex. 9.') })
+            .int({ error: fieldError('platser ska vara ett heltal.') })
+            .min(1, { error: fieldError('platser ska vara minst 1.') })
+            .max(60, { error: fieldError('platser får vara högst 60.') }),
+          tillgangliga: z
+            .number({ error: fieldError('tillgangliga ska vara ett heltal.') })
+            .int({ error: fieldError('tillgangliga ska vara ett heltal.') })
+            .min(0, { error: fieldError('tillgangliga får inte vara negativt.') })
+            .default(0),
+          namn: text.optional(),
+        }),
+        { error: fieldError('parkering ska vara en lista med { rektangel, platser }.') },
+      )
       .default([]),
     /** Other features on the plot (terrace, septic system …), drawn thin and dashed. */
     anlaggningar: z
@@ -212,6 +261,18 @@ export const SituationsplanSchema = z
     p.ovriga_byggnader.forEach((b, i) =>
       check(b.rektangel, ['ovriga_byggnader', i, 'rektangel'], 'Byggnaden'),
     );
+    p.avvikelse.forEach((b, i) => check(b.rektangel, ['avvikelse', i, 'rektangel'], 'Avvikelsen'));
+    p.lovgivet.forEach((b, i) => check(b.rektangel, ['lovgivet', i, 'rektangel'], 'Det lovgivna'));
+    p.parkering.forEach((park, i) => {
+      check(park.rektangel, ['parkering', i, 'rektangel'], 'Parkeringen');
+      if (park.tillgangliga > park.platser) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['parkering', i, 'tillgangliga'],
+          message: 'tillgangliga kan inte vara fler än platser.',
+        });
+      }
+    });
     p.prickmark.forEach((zone, i) => {
       const max = zone.sida === 'norr' || zone.sida === 'soder' ? p.tomt_djup : p.tomt_bredd;
       if (zone.djup > max) {
@@ -231,10 +292,21 @@ export type SituationsplanInput = z.input<typeof SituationsplanSchema>;
 
 export const OPENING_TYPES = ['fonster', 'dorr', 'altandorr', 'port'] as const;
 
+export const OPENING_STATUSES = ['befintlig', 'ny', 'rivs'] as const;
+
 export const FacadeOpeningSchema = z.strictObject({
   typ: z.enum(OPENING_TYPES, {
     error: fieldError(`typ ska vara en av: ${OPENING_TYPES.join(', ')}.`),
   }),
+  /**
+   * For alterations: `ny` (new or changed opening, heavier line) or `rivs` (removed or filled
+   * in, dashed with a cross, drawn on top). `befintlig` and no status draw the opening as usual.
+   */
+  status: z
+    .enum(OPENING_STATUSES, {
+      error: fieldError(`status ska vara en av: ${OPENING_STATUSES.join(', ')}.`),
+    })
+    .optional(),
   /** Distance from the left edge of the part, in metres. */
   x: nonNegative,
   bredd: length,
@@ -246,6 +318,41 @@ export const FacadeOpeningSchema = z.strictObject({
 export type FacadeOpening = z.output<typeof FacadeOpeningSchema>;
 
 export const FACADE_VIEWS = ['gavel', 'langsida'] as const;
+
+/** A balcony seen in the facade: slab and railing. */
+export const FacadeBalconySchema = z.strictObject({
+  /** Distance from the left edge of the part, in metres. */
+  x: nonNegative,
+  bredd: length,
+  /** Height of the balcony floor above ground. */
+  underkant: nonNegative,
+  /** Railing height above the balcony floor. */
+  racke: length.default(1.1),
+  ny: z.boolean({ error: fieldError('ny ska vara true eller false.') }).optional(),
+});
+export type FacadeBalcony = z.output<typeof FacadeBalconySchema>;
+
+export const FACADE_DETAIL_TYPES = ['skylt', 'kanal'] as const;
+
+/** Signs and ventilation ducts on a facade. */
+export const FacadeDetailSchema = z.strictObject({
+  typ: z.enum(FACADE_DETAIL_TYPES, {
+    error: fieldError(`typ ska vara en av: ${FACADE_DETAIL_TYPES.join(', ')}.`),
+  }),
+  /** Distance from the left edge of the part, in metres. */
+  x: nonNegative,
+  bredd: length,
+  underkant: nonNegative,
+  hojd: length,
+  /** Text on a sign, or a label next to a duct. */
+  text: text.optional(),
+  /** A sign of free-standing letters, without a board. */
+  fristaende: z
+    .boolean({ error: fieldError('fristaende ska vara true eller false.') })
+    .default(false),
+  ny: z.boolean({ error: fieldError('ny ska vara true eller false.') }).default(false),
+});
+export type FacadeDetail = z.output<typeof FacadeDetailSchema>;
 
 export const FacadePartSchema = z
   .strictObject({
@@ -266,6 +373,11 @@ export const FacadePartSchema = z
     djup: length.optional(),
     nockhojd: length.optional(),
     takutsprang: nonNegative.default(0.4),
+    /**
+     * Flat roof (takvinkel 0) behind a parapet: the parapet's height above the roof surface.
+     * The roof surface is drawn dashed below the top of the parapet (byggnadshojd).
+     */
+    attika: length.optional(),
     /** Part of the application (drawn with a heavier line). */
     ny: z.boolean({ error: fieldError('ny ska vara true eller false.') }).default(false),
     visa_hojder: z
@@ -274,8 +386,37 @@ export const FacadePartSchema = z
     oppningar: z
       .array(FacadeOpeningSchema, { error: fieldError('oppningar ska vara en lista.') })
       .default([]),
+    balkonger: z
+      .array(FacadeBalconySchema, { error: fieldError('balkonger ska vara en lista.') })
+      .default([]),
+    detaljer: z
+      .array(FacadeDetailSchema, { error: fieldError('detaljer ska vara en lista.') })
+      .default([]),
   })
   .superRefine((part, ctx) => {
+    if (part.attika !== undefined && part.takvinkel !== 0) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['attika'],
+        message: 'attika gäller bara platta tak (takvinkel 0).',
+      });
+    }
+    if (part.attika !== undefined && part.attika >= part.byggnadshojd) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['attika'],
+        message: 'attika måste vara lägre än byggnadshojd.',
+      });
+    }
+    part.balkonger.forEach((b, i) => {
+      if (b.x + b.bredd > part.bredd + 1e-9) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['balkonger', i, 'x'],
+          message: `Balkongen slutar ${(b.x + b.bredd).toFixed(2)} m in, men delen är bara ${part.bredd} m bred.`,
+        });
+      }
+    });
     if (part.vy === 'langsida' && part.djup === undefined && part.nockhojd === undefined) {
       ctx.addIssue({
         code: 'custom',
@@ -433,6 +574,12 @@ export const PlanritningSchema = z
       .array(PlanWindowSchema, { error: fieldError('fonster ska vara en lista.') })
       .default([]),
     sektion: PlanSectionSchema.optional(),
+    /** Balconies outside the walls, outer dimensions. */
+    balkonger: z
+      .array(z.strictObject({ rektangel: rectangle, namn: text.optional() }), {
+        error: fieldError('balkonger ska vara en lista med { rektangel, namn }.'),
+      })
+      .default([]),
     norr_vinkel: number('norr_vinkel ska vara ett tal i grader.').default(0),
     ritningshuvud: titleBlock,
   })
@@ -513,6 +660,24 @@ export const BlockSchema = z.strictObject({
     .positive({ error: fieldError('byggnadsarea_procent ska vara större än 0.') })
     .max(100, { error: fieldError('byggnadsarea_procent får vara högst 100.') })
     .optional(),
+  /** Highest number of storeys, shown as a Roman numeral (IV). */
+  vaningar: z
+    .number({ error: fieldError('vaningar ska vara ett heltal, t.ex. 4.') })
+    .int({ error: fieldError('vaningar ska vara ett heltal.') })
+    .min(1, { error: fieldError('vaningar ska vara minst 1.') })
+    .max(30, { error: fieldError('vaningar får vara högst 30.') })
+    .optional(),
+  /** Highest ridge height in metres. */
+  nockhojd: length.optional(),
+  /**
+   * Other property provisions with their own designation, e.g. `{ beteckning: m1, text: … }`.
+   * A trailing number is drawn as an index (m₁).
+   */
+  bestammelser: z
+    .array(z.strictObject({ beteckning: text, text }), {
+      error: fieldError('bestammelser ska vara en lista med { beteckning, text }.'),
+    })
+    .default([]),
   /** Prickmark along each property's side, e.g. 6 m from the southern boundary. */
   prickmark: z.array(ZoneSchema, { error: fieldError('prickmark ska vara en lista.') }).default([]),
   fastigheter: z

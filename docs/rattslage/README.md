@@ -10,8 +10,31 @@ gissa paragrafnummer:
 | `pbl-9-kap.txt` | Hela 9 kap. PBL (115 §§) i gällande lydelse, från riksdagen.se |
 | `boverket-lista-pbl-andringar.txt` | Boverkets översiktliga lista över vad som ändrades |
 
-Övriga kapitel i PBL (1, 2, 4, 8, 10, 11, 12, 13 kap) hämtas vid behov från riksdagen.se.
-Förvaltningslagen (2017:900) och kommunallagen är oförändrade i de delar som är relevanta.
+Under fas 4 (hämtat 2026-11-05) har fler utdrag lagts till. Varje fil har källa, hämtdatum och
+"ändrad t.o.m." i filhuvudet. Hämta om en fil i stället för att lita på minnet när
+riksdagen.se visar en senare ändring.
+
+| Fil | Innehåll |
+| --- | --- |
+| `pbl-1-kap.txt` … `pbl-6-kap.txt`, `pbl-8-kap.txt` | PBL 1–6 och 8 kap. (definitioner, intressen, översiktsplan, detaljplan, planförfarande, genomförande av detaljplaner, krav på byggnadsverk) |
+| `pbl-10-kap.txt`, `pbl-11-kap.txt` | PBL 10 kap. (genomförandet, i lydelsen från 2026-07-01) och 11 kap. (tillsyn och sanktioner) |
+| `pbl-12-kap.txt`, `pbl-13-kap.txt`, `pbl-16-kap.txt` | PBL 12 kap. (byggnadsnämnden, avgifter), 13 kap. (överklagande) och 16 kap. (bemyndiganden) |
+| `pbf-1-kap.txt`, `pbf-3-kap.txt` | PBF 1 kap. (definitioner, byggnadshöjd, våning, sanktionsarea) och 3 kap. (krav på byggnadsverk) |
+| `pbf-5-och-8-kap.txt`, `pbf-6-kap.txt`, `pbf-7-kap.txt`, `pbf-9-kap.txt` | PBF 5 och 8 kap. (funktionskontroll, OVK, tillsyn), 6 kap. (anmälan), 7 kap. (kontrollplan, KA, byggbedömare) och 9 kap. (byggsanktionsavgifter) |
+| `fl.txt` | Hela förvaltningslagen (2017:900) |
+| `kl-utdrag.txt` | Kommunallagen: 6 kap. 28–44 §§ (jäv, delegering), 7 kap. 1–8 §§ och 13 kap. (laglighetsprövning) |
+| `tf-2-kap.txt`, `osl-utdrag.txt`, `sprl.txt` | Tryckfrihetsförordningen 2 kap., utdrag ur offentlighets- och sekretesslagen och hela språklagen |
+| `mmdl-5-kap.txt` | Lagen (2010:921) om mark- och miljödomstolar, 5 kap. |
+| `mb-3-kap.txt`, `mb-4-kap.txt`, `mb-7-kap.txt`, `mb-utdrag-8-10-19-kap.txt` | Miljöbalken 3, 4 och 7 kap. (strandskyddet numrerat om 2025-07-01) och utdrag ur 8–10 och 19 kap. |
+| `kml-2-4-kap.txt` | Kulturmiljölagen 1 kap. 1 § och 2–4 kap. |
+| `vagl-utdrag.txt`, `fmh-utdrag.txt` | Väglagen 39 och 47 §§, förordningen om miljöfarlig verksamhet och hälsoskydd 12–14 §§ |
+| `jb-utdrag.txt`, `fastighetsratt-utdrag.txt` | Jordabalken 3 kap. och 14 kap. 1–4 §§, anläggningslagen 1–9 §§ och fastighetsbildningslagen 7 kap. 1 § |
+| `lso-utdrag.txt`, `fardigstallandeskydd.txt`, `trafikbullerforordningen.txt` | Lagen om skydd mot olyckor 1–3 kap., lagen (2014:227) om färdigställandeskydd och förordningen (2015:216) om trafikbuller |
+| `byggnadsstadgan-1959-39-40.txt` | Byggnadsstadgan 39–40 §§ (upphävd 1987, behövs för äldre planer) |
+| `prisbasbelopp.txt` | Prisbasbeloppet 2026 (59 200 kr) och 2027 (59 600 kr) enligt SCB |
+| `boverket-matt-och-planbestammelser.txt`, `boverket-tillsyn-utdrag.txt` | Boverkets PBL kunskapsbanken om mätregler, planbestämmelser och liten avvikelse, och om tillsyn med sammanfattad praxis |
+
+PBF 10 kap. och övriga kapitel hämtas vid behov från riksdagen.se.
 
 ## De största förändringarna, i korthet
 
@@ -63,6 +86,23 @@ Förvaltningslagen (2017:900) och kommunallagen är oförändrade i de delar som
 - **Försvarsmakten och Myndigheten för civilt försvar** har fått underrättelse- och vetoroll i
   vissa områden (9 kap. 36, 80, 97 §§).
 - Boverkets byggregler: BBR är ersatt av nya författningar, och från 1 juli 2026 gäller enbart de nya.
+
+## Senare ändringar som innehållet följer
+
+Upptäckta när fas 4-innehållet skrevs (kontrollerade mot utdragen ovan, 2026-11-05):
+
+- **Strandskyddet i miljöbalken numrerades om 2025-07-01** (lag 2025:512). Dispensskälen står nu
+  i MB 7 kap. 18 e–18 g §§ och fri passage i 18 i §. Strandskydd gäller inte vid sjöar på högst
+  1 hektar och vattendrag på högst 2 meters bredd (13 a–13 b §§).
+- **PBL 10 kap. ändrades 2026-07-01** (lag 2026:712): avfallshanteringsplan, byggbedömare och nya
+  regler om kontrollansvarig och sakkunnig.
+- **Beslutade ändringar från 2027-01-01**: PBL 1 kap. 4 § (begreppet större byggnadsändring
+  ersätter ombyggnad), 8 kap. och 9 kap. 56, 57 och 59 §§ (lag 2026:746) och PBF 3 kap.
+  (förordning 2026:1265). Frågorna bygger på lydelsen som gäller nu och nämner de kommande
+  ändringarna bara i förklaringarna.
+- **PBL 11 kap. efter 2025-12-01**: 19 § gäller åtgärdsföreläggande, underhållsutredning finns i
+  18 § och kontrollföreläggande i 17 a §. Kommunicering och preskription av byggsanktionsavgift
+  står båda i 58 §.
 
 ## Översättningstabell, gammal numrering → ny
 
