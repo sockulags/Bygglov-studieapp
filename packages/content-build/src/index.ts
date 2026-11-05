@@ -1,10 +1,13 @@
 // @bygglov/content-build
 // CLI entry: `tsx src/index.ts check` validates content/, `tsx src/index.ts build` emits JSON,
 // `tsx src/index.ts drawings` writes generated SVG drawings into content/.
+import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { join, resolve } from 'node:path';
 import { buildContent, writeDrawings } from './build';
+import { parseLawChapterText } from './law-text';
 import { displayPath, loadContentTree } from './load';
+import { chapterSourcePath, syncChapterYaml } from './lookup';
 import { formatReport } from './report';
 
 export {
@@ -25,15 +28,27 @@ export {
   type PlannedDrawing,
 } from './load';
 export * as drawings from './drawings';
+export { normalizeLawText, parseLawChapterText, type ParsedLawSection } from './law-text';
+export {
+  chapterSourcePath,
+  compareWithSource,
+  lookupOutputs,
+  syncChapterYaml,
+  type LoadedLawChapter,
+  type LoadedLookup,
+} from './lookup';
 export { formatReport } from './report';
 
-const USAGE = `Användning: content-build <check|build|drawings> [--root <repo-rot>]
+const USAGE = `Användning: content-build <check|build|drawings|lagtext> [--root <repo-rot>]
 
   check     Validerar content/ och skriver en rapport. Avslutar med kod 1 vid fel.
   build     Validerar och skriver JSON till apps/desktop/src/content-dist/ samt kopierar
             handlingar och genererade ritningar till apps/desktop/public/content/.
   drawings  Genererar ritningarna (handlingar med parametrar och .svg-fil) in i content/,
-            så att de kan granskas och committas.`;
+            så att de kan granskas och committas.
+  lagtext   Uppdaterar lagtexten i content/uppslag/<lag>-<nr>-kap.yaml från
+            docs/rattslage/<lag>-<nr>-kap.txt. Sammanfattningarna behålls; nya
+            paragrafer får ingen sammanfattning och måste skrivas innan check går igenom.`;
 
 function parseArgs(argv: string[]): { command: string | undefined; root: string } {
   let root = fileURLToPath(new URL('../../../', import.meta.url));
@@ -54,12 +69,13 @@ function parseArgs(argv: string[]): { command: string | undefined; root: string 
 
 export function main(argv: string[]): number {
   const { command, root } = parseArgs(argv);
-  if (command !== 'check' && command !== 'build' && command !== 'drawings') {
+  if (command !== 'check' && command !== 'build' && command !== 'drawings' && command !== 'lagtext') {
     console.error(USAGE);
     return 2;
   }
 
   const contentRoot = join(root, 'content');
+  if (command === 'lagtext') return syncLawText(contentRoot);
   let tree = loadContentTree(contentRoot);
   if (command === 'drawings') {
     if (tree.errors.length > 0) {
@@ -96,6 +112,28 @@ export function main(argv: string[]): number {
       console.log(`Ritningar genererade:`);
       for (const file of result.drawings) console.log(`  ${file}`);
     }
+  }
+  return 0;
+}
+
+/** `lagtext`: refreshes the law text of every chapter file from docs/rattslage/. */
+function syncLawText(contentRoot: string): number {
+  const tree = loadContentTree(contentRoot);
+  if (tree.lookup.chapters.length === 0) {
+    console.log('Inga kapitelfiler i content/uppslag/ att uppdatera.');
+    return 0;
+  }
+  for (const { file } of tree.lookup.chapters) {
+    const target = join(contentRoot, file);
+    const source = chapterSourcePath(contentRoot, file);
+    const { source: yaml, changed, added } = syncChapterYaml(
+      readFileSync(target, 'utf8'),
+      parseLawChapterText(readFileSync(source, 'utf8')),
+    );
+    writeFileSync(target, yaml, 'utf8');
+    console.log(
+      `${file}: ${changed.length} ändrade och ${added.length} nya paragrafer.${added.length > 0 ? ` Skriv sammanfattning för ${added.map((p) => `${p} §`).join(', ')}.` : ''}`,
+    );
   }
   return 0;
 }

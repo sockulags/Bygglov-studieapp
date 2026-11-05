@@ -3,6 +3,16 @@
 import { CaseFileSchema, type CaseFile } from './cases';
 import { ContentIndexSchema, type ContentIndex } from './content-index';
 import { safeParseContent, type ParseResult } from './errors';
+import {
+  GlossaryFileSchema,
+  LawCatalogSchema,
+  LawChapterFileSchema,
+  ProcessFileSchema,
+  type GlossaryFile,
+  type LawCatalog,
+  type LawChapterFile,
+  type ProcessFile,
+} from './lookup';
 import { ModulesFileSchema, type ModulesFile } from './modules';
 import { QuestionFileSchema, type QuestionFile } from './questions';
 
@@ -12,6 +22,7 @@ export * from './questions';
 export * from './cases';
 export * from './content-index';
 export * from './errors';
+export * from './lookup';
 
 /** Validates a parsed question file (`content/fragor/<modul>.yaml`). */
 export function parseQuestionFile(input: unknown): ParseResult<QuestionFile> {
@@ -31,4 +42,24 @@ export function parseModules(input: unknown): ParseResult<ModulesFile> {
 /** Validates the generated `content-dist/index.json`. */
 export function parseContentIndex(input: unknown): ParseResult<ContentIndex> {
   return safeParseContent(ContentIndexSchema, input);
+}
+
+/** Validates `content/uppslag/begrepp.yaml`, including references between terms. */
+export function parseGlossaryFile(input: unknown): ParseResult<GlossaryFile> {
+  return safeParseContent(GlossaryFileSchema, input);
+}
+
+/** Validates `content/uppslag/processer.yaml`, including arrows and layout of each map. */
+export function parseProcessFile(input: unknown): ParseResult<ProcessFile> {
+  return safeParseContent(ProcessFileSchema, input);
+}
+
+/** Validates `content/uppslag/lagar.yaml`. */
+export function parseLawCatalog(input: unknown): ParseResult<LawCatalog> {
+  return safeParseContent(LawCatalogSchema, input);
+}
+
+/** Validates a chapter file such as `content/uppslag/pbl-9-kap.yaml`. */
+export function parseLawChapterFile(input: unknown): ParseResult<LawChapterFile> {
+  return safeParseContent(LawChapterFileSchema, input);
 }

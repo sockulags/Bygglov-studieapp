@@ -1,5 +1,7 @@
 /** Helpers shared by the SQLite and in-memory stores so both behave identically. */
 
+import type { AiContextKind, AiUsageRange, NewAiUsage } from './types';
+
 export type Clock = () => Date;
 
 export const systemClock: Clock = () => new Date();
@@ -48,4 +50,44 @@ export function applyPatch<T extends object>(current: T, patch: Partial<NoInfer<
     if (value !== undefined) next[key] = value as T[keyof T];
   }
   return next;
+}
+
+const AI_CONTEXT_KINDS: readonly AiContextKind[] = ['question', 'case', 'decision', 'general'];
+
+function tokenCount(value: number | undefined, what: string): number {
+  const n = value ?? 0;
+  if (!Number.isInteger(n) || n < 0) throw new RangeError(`${what}: invalid token count ${n}`);
+  return n;
+}
+
+/** Validated values of a usage row, with defaults applied (both stores use this). */
+export function normalizeNewAiUsage(input: NewAiUsage, now: () => string) {
+  if (!Number.isFinite(input.costSek) || input.costSek < 0) {
+    throw new RangeError(`ai usage: invalid cost ${input.costSek}`);
+  }
+  if (!AI_CONTEXT_KINDS.includes(input.contextKind)) {
+    throw new RangeError(`ai usage: unknown context kind ${String(input.contextKind)}`);
+  }
+  if (input.model.trim() === '') throw new RangeError('ai usage: model must not be empty');
+  return {
+    ts: input.ts === undefined ? now() : toIso(input.ts),
+    model: input.model,
+    inputTokens: tokenCount(input.inputTokens, 'inputTokens'),
+    outputTokens: tokenCount(input.outputTokens, 'outputTokens'),
+    cacheReadTokens: tokenCount(input.cacheReadTokens, 'cacheReadTokens'),
+    cacheWriteTokens: tokenCount(input.cacheWriteTokens, 'cacheWriteTokens'),
+    costSek: input.costSek,
+    contextKind: input.contextKind,
+  };
+}
+
+/** The range bounds as ISO strings (null when unbounded). */
+export function usageRangeBounds(range: AiUsageRange | undefined): {
+  from: string | null;
+  to: string | null;
+} {
+  return {
+    from: range?.from === undefined ? null : toIso(range.from),
+    to: range?.to === undefined ? null : toIso(range.to),
+  };
 }

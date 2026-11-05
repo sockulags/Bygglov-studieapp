@@ -43,6 +43,9 @@
  *     id, beslut_id → decision_id, text, betyg → grade, tidpunkt → created_at
  *   installning      → settings
  *     nyckel → key (PK), varde → value_json
+ *   (new in migration 3, not in docs/05) ai_usage: one row per answer from the AI tutor
+ *     id, ts, model, input_tokens, output_tokens, cache_read, cache_write, cost_sek,
+ *     context_kind ('question' | 'case' | 'decision' | 'general')
  *
  * Timestamps are ISO 8601 UTC text, simulated dates YYYY-MM-DD text, JSON as text.
  * Foreign keys are declared for documentation, but SQLite only enforces them with
@@ -174,6 +177,26 @@ export const migrations: readonly Migration[] = [
         notes TEXT NOT NULL DEFAULT '',
         reflection TEXT NOT NULL DEFAULT ''
       )`,
+    ],
+  },
+  {
+    version: 3,
+    name: 'ai_usage',
+    statements: [
+      // Token counts and cost of each tutor answer (Inställningar → Studiehjälp → Förbrukning
+      // and the daily cost cap). The API key is never stored here; it lives in the OS keyring.
+      `CREATE TABLE IF NOT EXISTS ai_usage (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        ts TEXT NOT NULL,
+        model TEXT NOT NULL,
+        input_tokens INTEGER NOT NULL DEFAULT 0 CHECK (input_tokens >= 0),
+        output_tokens INTEGER NOT NULL DEFAULT 0 CHECK (output_tokens >= 0),
+        cache_read INTEGER NOT NULL DEFAULT 0 CHECK (cache_read >= 0),
+        cache_write INTEGER NOT NULL DEFAULT 0 CHECK (cache_write >= 0),
+        cost_sek REAL NOT NULL DEFAULT 0 CHECK (cost_sek >= 0),
+        context_kind TEXT NOT NULL
+      )`,
+      `CREATE INDEX IF NOT EXISTS idx_ai_usage_ts ON ai_usage (ts)`,
     ],
   },
 ];

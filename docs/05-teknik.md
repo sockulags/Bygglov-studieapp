@@ -152,6 +152,36 @@ FSRS (via `ts-fsrs`) med standardparametrar. Varje besvarad fråga ger ett betyg
   Månadstaket sätts på nyckelns workspace i Anthropic Console. Appen visar ungefärlig
   förbrukning under Inställningar.
 
+Så blev Rust-sidan (fas 3):
+
+- **`src-tauri/crates/tutor-client`**: egen crate utan Tauri-beroende (reqwest med rustls,
+  både inbyggda och Windows rotcertifikat). Den bygger anropet till `POST /v1/messages`
+  (`anthropic-version: 2023-06-01`, `stream: true`, `output_config.effort`, aldrig
+  `temperature`/`top_p`/`top_k` eller `thinking`), sätter `cache_control: ephemeral` på
+  systemblock med `cache: true` (högst fyra, de sista vinner) och tolkar SSE-strömmen med en
+  egen parser som tål att bitarna delas var som helst. Bara `text_delta` skickas vidare;
+  tänkande ignoreras. Fel blir svenska meddelanden: 401 ogiltig nyckel, 402/kreditfel slut på
+  kredit, 429 gräns nådd (med `retry-after`), 529 överbelastat, nätverk saknas, avbruten
+  ström. 529/5xx/nätverksfel provas om två gånger (1 s, 3 s) innan någon text har visats.
+  Nätverket ligger bakom ett `Transport`-trait, så testerna (`cargo test` i crate-mappen)
+  kör inspelade svar utan nätverk.
+- **`src-tauri/src/tutor.rs`**: fem kommandon. Nyckeln ligger i Windows Credential Manager
+  (`keyring` 3, tjänst `se.bygglovstudieapp.app`, användare `anthropic-api-key`) och lämnar
+  aldrig Rust-sidan.
+
+  | Kommando                         | Returnerar                                     |
+  | -------------------------------- | ---------------------------------------------- |
+  | `tutor_has_key()`                | `boolean`                                      |
+  | `tutor_set_key({ key })`         | `void`; fel om nyckeln inte börjar med `sk-ant-` |
+  | `tutor_clear_key()`              | `void`                                         |
+  | `tutor_test_key({ model })`      | `{ ok, model, message }` (max_tokens 16)       |
+  | `tutor_ask({ request, onEvent })`| `TutorUsage`; strömmar `TutorEvent` på `onEvent` |
+
+  `TutorEvent` är `{ type: 'text', text }`, sedan exakt ett `{ type: 'done', usage,
+  stopReason }` eller `{ type: 'error', message }`. `stopReason: 'refusal'` betyder att
+  säkerhetsfiltret avböjde; webbvyn visar då ett eget meddelande. Egna kommandon och
+  kanaler kräver ingen extra capability i Tauri 2 så länge appen saknar eget ACL-manifest.
+
 ## Handledarportal (fas 3, valfri)
 
 Om export av PDF känns för klumpigt: en liten webbsida (Vercel + Supabase) där appen laddar

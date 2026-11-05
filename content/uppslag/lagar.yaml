@@ -1,0 +1,117 @@
+# Lagregistret i Uppslag: koden som står först i ett lagrum (PBL i "PBL 9 kap. 60 §"),
+# lagens namn och en länk till hela lagen. Kapitelrubrikerna är hämtade från riksdagen.se
+# 2026-11-05 (PBL och PBF ändrade t.o.m. SFS 2026:1583 respektive 2026:1722).
+# content:check varnar om ett lagrum i frågor, ärenden eller uppslag har en kod som saknas här.
+lagar:
+  - kod: PBL
+    namn: Plan- och bygglagen (2010:900)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/plan-och-bygglag-2010900_sfs-2010-900/
+    kapitel:
+      - { nr: 1, rubrik: "Lagens syfte, innehåll och tillämpning" }
+      - { nr: 2, rubrik: Allmänna och enskilda intressen }
+      - { nr: 3, rubrik: Översiktsplan }
+      - { nr: 4, rubrik: Reglering med detaljplan och områdesbestämmelser }
+      - { nr: 5, rubrik: Att ta fram detaljplaner och områdesbestämmelser }
+      - { nr: 6, rubrik: Genomförandet av detaljplaner }
+      - { nr: 7, rubrik: Regional fysisk planering }
+      - { nr: 8, rubrik: "Krav på byggnadsverk, byggprodukter, tomter och allmänna platser" }
+      - { nr: 9, rubrik: Lov och förhandsbesked }
+      - { nr: 10, rubrik: "Genomförandet av bygg-, rivnings- och markåtgärder" }
+      - { nr: 11, rubrik: "Tillsyn, tillträde, ingripanden och påföljder" }
+      - { nr: 12, rubrik: Byggnadsnämnden }
+      - { nr: 13, rubrik: Överklagande }
+      - { nr: 14, rubrik: Skadeersättning och inlösen }
+      - { nr: 15, rubrik: Domstolsprövning m.m. }
+      - { nr: 16, rubrik: Bemyndiganden }
+
+  - kod: PBF
+    namn: Plan- och byggförordningen (2011:338)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/plan-och-byggforordning-2011338_sfs-2011-338/
+    kapitel:
+      - { nr: 1, rubrik: Innehåll och tillämpning }
+      - { nr: 2, rubrik: Planer och områdesbestämmelser }
+      - { nr: 3, rubrik: Krav på byggnadsverk }
+      - { nr: 4, rubrik: Krav på byggprodukter m.m. }
+      - { nr: 5, rubrik: Funktions- och säkerhetsåtgärder }
+      - { nr: 6, rubrik: Anmälan }
+      - { nr: 7, rubrik: "Kontrollplan, byggbedömare, kontrollansvariga, sakkunniga och funktionskontrollanter" }
+      - { nr: 8, rubrik: "Tillsyn, vägledning och uppföljning" }
+      - { nr: 9, rubrik: Byggsanktionsavgifter }
+      - { nr: 10, rubrik: Bemyndiganden }
+
+  - kod: FL
+    namn: Förvaltningslagen (2017:900)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/forvaltningslag-2017900_sfs-2017-900/
+
+  - kod: KL
+    namn: Kommunallagen (2017:725)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/kommunallag-2017725_sfs-2017-725/
+
+  - kod: OSL
+    namn: Offentlighets- och sekretesslagen (2009:400)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/offentlighets-och-sekretesslag-2009400_sfs-2009-400/
+
+  - kod: TF
+    namn: Tryckfrihetsförordningen (1949:105)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/tryckfrihetsforordning-1949105_sfs-1949-105/
+
+  - kod: MB
+    namn: Miljöbalken (1998:808)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/miljobalk-1998808_sfs-1998-808/
+    kapitel:
+      - { nr: 1, rubrik: Miljöbalkens mål och tillämpningsområde }
+      - { nr: 2, rubrik: Allmänna hänsynsregler m.m. }
+      - { nr: 3, rubrik: Grundläggande bestämmelser för hushållning med mark- och vattenområden }
+      - { nr: 4, rubrik: Särskilda bestämmelser för hushållning med mark och vatten för vissa områden i landet }
+      - { nr: 5, rubrik: Miljökvalitetsnormer och miljökvalitetsförvaltning }
+      - { nr: 6, rubrik: Miljöbedömningar }
+      - { nr: 7, rubrik: Skydd av områden }
+      - { nr: 8, rubrik: Bestämmelser om skydd för biologisk mångfald }
+      - { nr: 9, rubrik: Miljöfarlig verksamhet och hälsoskydd }
+      - { nr: 11, rubrik: Vattenverksamhet }
+      - { nr: 16, rubrik: Allmänt om prövningen }
+      - { nr: 26, rubrik: Tillsyn }
+
+  - kod: VägL
+    namn: Väglagen (1971:948)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/vaglag-1971948_sfs-1971-948/
+
+  - kod: FMH
+    namn: Förordningen (1998:899) om miljöfarlig verksamhet och hälsoskydd
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/forordning-1998899-om-miljofarlig-verksamhet-och_sfs-1998-899/
+
+  - kod: KML
+    namn: Kulturmiljölagen (1988:950)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/kulturmiljolag-1988950_sfs-1988-950/
+
+  - kod: FBL
+    namn: Fastighetsbildningslagen (1970:988)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/fastighetsbildningslag-1970988_sfs-1970-988/
+
+  - kod: LSO
+    namn: Lagen (2003:778) om skydd mot olyckor
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-2003778-om-skydd-mot-olyckor_sfs-2003-778/
+
+  - kod: DelgL
+    namn: Delgivningslagen (2010:1932)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/delgivningslag-20101932_sfs-2010-1932/
+
+  - kod: KungL
+    namn: Lagen (1977:654) om kungörande i mål och ärenden hos myndighet m.m.
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/lag-1977654-om-kungorande-i-mal-och-arenden-hos_sfs-1977-654/
+
+  - kod: FPL
+    namn: Förvaltningsprocesslagen (1971:291)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/forvaltningsprocesslag-1971291_sfs-1971-291/
+
+  - kod: SprL
+    namn: Språklagen (2009:600)
+    lank: https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/spraklag-2009600_sfs-2009-600/
+
+  - kod: SS
+    namn: Svensk standard (SIS), t.ex. SS 21054:2020 om area och volym för husbyggnader
+    lank: https://www.sis.se/
+
+  - kod: Boverket
+    namn: Boverkets föreskrifter, allmänna råd och vägledning (PBL kunskapsbanken)
+    lank: https://www.boverket.se/sv/PBL-kunskapsbanken/

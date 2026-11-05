@@ -1,0 +1,126 @@
+/*
+ * Chart colours for Mina resultat. The hues come from the app's tokens (accent green,
+ * brick, plan yellow, success) plus three neighbours where six lines need more hues; each
+ * set is stepped separately for the light and the dark surface and checked with the
+ * dataviz palette validator (lightness band, chroma floor, colour-blind separation,
+ * contrast). Text never wears these colours: labels use --ink and --muted.
+ */
+.results-charts {
+  /* Categorical, one per studied module, fixed order (validated light on #ffffff). */
+  --chart-1: #007654; /* accent green */
+  --chart-2: #733ea4; /* violet */
+  --chart-3: #dd6d45; /* brick */
+  --chart-4: #1762b6; /* blue */
+  --chart-5: #dda317; /* plan yellow, below 3:1: direct labels and the table carry it */
+  --chart-6: #d4609d; /* rose */
+  /* Right/wrong (success / brick), different lightness so they part under CVD too. */
+  --chart-correct: #2b7440;
+  --chart-wrong: #e2805e;
+  /* Case status, ordinal: one hue from light to dark (ny → bedömt). */
+  --chart-status-1: #7dbaa4;
+  --chart-status-2: #499b81;
+  --chart-status-3: #0c7b60;
+  --chart-status-4: #005c45;
+  --chart-status-ink-1: #1b1f24;
+  --chart-status-ink-2: #ffffff;
+  --chart-status-ink-3: #ffffff;
+  --chart-status-ink-4: #ffffff;
+  /* Single-series bars (weak tags, checks) and their track. */
+  --chart-single: var(--accent);
+  --chart-track: var(--accent-soft);
+  --chart-grid: var(--line);
+  --chart-axis: var(--line-strong);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:where(:not([data-theme='light'])) .results-charts {
+    --chart-1: #3ba888;
+    --chart-2: #8951bf;
+    --chart-3: #c95a37;
+    --chart-4: #4687d8;
+    --chart-5: #b88c19;
+    --chart-6: #dc6499;
+    --chart-correct: #56a76a;
+    --chart-wrong: #a33e25;
+    --chart-status-1: #25624f;
+    --chart-status-2: #32856c;
+    --chart-status-3: #4ba98c;
+    --chart-status-4: #80d1b5;
+    --chart-status-ink-1: #ffffff;
+    --chart-status-ink-2: #ffffff;
+    --chart-status-ink-3: #ffffff;
+    --chart-status-ink-4: #1b1f24;
+  }
+}
+
+:root[data-theme='dark'] .results-charts {
+  --chart-1: #3ba888;
+  --chart-2: #8951bf;
+  --chart-3: #c95a37;
+  --chart-4: #4687d8;
+  --chart-5: #b88c19;
+  --chart-6: #dc6499;
+  --chart-correct: #56a76a;
+  --chart-wrong: #a33e25;
+  --chart-status-1: #25624f;
+  --chart-status-2: #32856c;
+  --chart-status-3: #4ba98c;
+  --chart-status-4: #80d1b5;
+  --chart-status-ink-1: #ffffff;
+  --chart-status-ink-2: #ffffff;
+  --chart-status-ink-3: #ffffff;
+  --chart-status-ink-4: #1b1f24;
+}
+
+/* Refetch keeps the frame: the previous render stays, dimmed. */
+.results-charts[data-refreshing='true'] .chart-frame {
+  opacity: 0.6;
+}
+
+.chart-frame {
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.chart-frame:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* Marks ease into new values when a filter changes. */
+.chart-bar,
+.chart-meter {
+  transition:
+    y var(--duration-base) var(--ease-out),
+    height var(--duration-base) var(--ease-out),
+    width var(--duration-base) var(--ease-out),
+    opacity var(--duration-fast) linear;
+}
+
+.chart-line {
+  transition: opacity var(--duration-fast) linear;
+}
+
+.chart-dim {
+  opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chart-frame,
+  .chart-bar,
+  .chart-meter,
+  .chart-line {
+    transition: none;
+  }
+}
+
+/* Windows high contrast: marks fall back to system colours, identity stays in labels. */
+@media (forced-colors: active) {
+  .results-charts svg [data-mark] {
+    fill: CanvasText;
+    stroke: CanvasText;
+  }
+  .results-charts svg [data-mark='line'] {
+    fill: none;
+  }
+}

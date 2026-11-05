@@ -580,6 +580,113 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
     });
   });
 
+  describe.skipIf(!available)('ai usage', () => {
+    it('records usage with defaults and lists it newest first', async () => {
+      const first = await store.aiUsage.recordUsage({
+        model: 'claude-opus-5-5',
+        inputTokens: 1200,
+        outputTokens: 300,
+        costSek: 0.12,
+        contextKind: 'question',
+      });
+      expect(first).toEqual({
+        id: expect.any(Number),
+        ts: '2026-03-01T08:00:00.000Z',
+        model: 'claude-opus-5-5',
+        inputTokens: 1200,
+        outputTokens: 300,
+        cacheReadTokens: 0,
+        cacheWriteTokens: 0,
+        costSek: 0.12,
+        contextKind: 'question',
+      });
+      const second = await store.aiUsage.recordUsage({
+        model: 'claude-haiku-5-5',
+        inputTokens: 40,
+        outputTokens: 20,
+        cacheReadTokens: 3000,
+        cacheWriteTokens: 0,
+        costSek: 0.001,
+        contextKind: 'case',
+        ts: '2026-03-02T10:00:00+01:00',
+      });
+      expect(second.ts).toBe('2026-03-02T09:00:00.000Z');
+      expect((await store.aiUsage.listUsage()).map((u) => u.id)).toEqual([second.id, first.id]);
+      expect(await store.aiUsage.listUsage({ limit: 1 })).toEqual([second]);
+    });
+
+    it('sums usage over a half-open range', async () => {
+      const at = (ts: string, costSek: number, cacheReadTokens = 0) =>
+        store.aiUsage.recordUsage({
+          model: 'claude-opus-5-5',
+          inputTokens: 100,
+          outputTokens: 10,
+          cacheReadTokens,
+          cacheWriteTokens: 50,
+          costSek,
+          contextKind: 'decision',
+          ts,
+        });
+      await at('2026-03-01T23:59:59.000Z', 1);
+      await at('2026-03-02T00:00:00.000Z', 0.5, 2000);
+      await at('2026-03-02T12:00:00.000Z', 0.25);
+      await at('2026-03-03T00:00:00.000Z', 2);
+
+      expect(
+        await store.aiUsage.totals({
+          from: '2026-03-02T00:00:00.000Z',
+          to: new Date('2026-03-03T00:00:00.000Z'),
+        }),
+      ).toEqual({
+        requests: 2,
+        inputTokens: 200,
+        outputTokens: 20,
+        cacheReadTokens: 2000,
+        cacheWriteTokens: 100,
+        costSek: 0.75,
+      });
+      const all = await store.aiUsage.totals();
+      expect(all.requests).toBe(4);
+      expect(all.costSek).toBeCloseTo(3.75);
+      expect((await store.aiUsage.totals({ from: '2026-03-02T12:00:00.000Z' })).requests).toBe(2);
+      expect((await store.aiUsage.totals({ to: '2026-03-02T00:00:00.000Z' })).requests).toBe(1);
+    });
+
+    it('returns zero totals without usage', async () => {
+      expect(await store.aiUsage.totals()).toEqual({
+        requests: 0,
+        inputTokens: 0,
+        outputTokens: 0,
+        cacheReadTokens: 0,
+        cacheWriteTokens: 0,
+        costSek: 0,
+      });
+    });
+
+    it('rejects invalid token counts, costs and context kinds', async () => {
+      const base = {
+        model: 'claude-opus-5-5',
+        inputTokens: 1,
+        outputTokens: 1,
+        costSek: 0,
+        contextKind: 'general' as const,
+      };
+      await expect(store.aiUsage.recordUsage({ ...base, inputTokens: -1 })).rejects.toThrow(
+        RangeError,
+      );
+      await expect(store.aiUsage.recordUsage({ ...base, outputTokens: 1.5 })).rejects.toThrow(
+        RangeError,
+      );
+      await expect(store.aiUsage.recordUsage({ ...base, costSek: Number.NaN })).rejects.toThrow(
+        RangeError,
+      );
+      await expect(
+        store.aiUsage.recordUsage({ ...base, contextKind: 'other' as 'general' }),
+      ).rejects.toThrow(RangeError);
+      expect(await store.aiUsage.listUsage()).toEqual([]);
+    });
+  });
+
   describe.skipIf(!available)('whole store', () => {
     it('lists every answer oldest first', async () => {
       for (const [questionId, at] of [
@@ -618,6 +725,13 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
       await store.cases.startCase({ caseId: 'A002', currentStepId: 'S1', simDate: '2026-03-02' });
       const d = await store.cases.submitDecision({ caseId: 'A002', decision: {} });
       await store.cases.addSupervisorFeedback({ decisionId: d.id, text: 'ok' });
+      await store.aiUsage.recordUsage({
+        model: 'claude-opus-5-5',
+        inputTokens: 1,
+        outputTokens: 1,
+        costSek: 0.01,
+        contextKind: 'case',
+      });
 
       await store.clearAll();
 
@@ -627,6 +741,7 @@ describe.each(factories)('DataStore contract: %s', (_name, available, factory) =
       expect(await store.settings.getAll()).toEqual({});
       expect(await store.cases.listCaseStatuses()).toEqual([]);
       expect(await store.cases.listDecisions('A002')).toEqual([]);
+      expect(await store.aiUsage.listUsage()).toEqual([]);
 
       await store.sessions.startSession({ mode: 'review', moduleIds: [] });
       expect(await store.sessions.listRecent()).toHaveLength(1);

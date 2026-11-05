@@ -1,45 +1,107 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowRight, ChartLine, Download, Tag } from 'lucide-react';
-import { useMemo } from 'react';
+import { ArrowDownRight, ArrowRight, ArrowUpRight, ChartLine, Download } from 'lucide-react';
+import { useMemo, useState } from 'react';
 import { EmptyState, PageHeader, SectionTitle } from '@/components/layout/page-header';
 import { Button } from '@/components/ui/button';
 import { buttonVariants } from '@/components/ui/button-variants';
 import { Card, CardContent } from '@/components/ui/card';
-import { MasteryRing, Progress } from '@/components/ui/progress';
-import { loadContent } from '@/content';
-import { useAnswerHistory } from '@/data';
 import { useSubmittedDecisions } from '@/features/cases';
 import { ExportDecisionButton } from '@/features/cases/export';
-import { usePassHistory, useStudyOverview } from '@/features/progress/hooks';
-import { overallMastery, questionIndex, tagLabel, weakTags } from '@/features/progress/progress';
+import { usePassHistory } from '@/features/progress/hooks';
 import { studyModeLabel } from '@/features/study/modes';
+import { cn } from '@/lib/cn';
 import { formatDuration, formatWhen } from '@/lib/format';
+import { DEFAULT_FILTER, inWindow, type ResultsFilter } from './aggregate';
+import { AnswersChart } from './answers-chart';
 import { CaseResults } from './case-results';
+import { useResultsData } from './hooks';
+import { MasteryChart } from './mastery-chart';
+import { ResultsFilters } from './results-filters';
+import { TagsChart } from './tags-chart';
+import './results.css';
+
+interface HeroTile {
+  label: string;
+  value: string;
+  hint: string;
+  delta?: number | null;
+}
+
+function DeltaHint({ delta }: { delta: number }) {
+  if (delta === 0) return <span>Oförändrat de senaste 4 veckorna</span>;
+  const up = delta > 0;
+  const Icon = up ? ArrowUpRight : ArrowDownRight;
+  return (
+    <span className="inline-flex items-center gap-1">
+      <Icon className={cn('size-3.5', up ? 'text-success' : 'text-brick')} aria-hidden="true" />
+      <span>
+        {up ? '+' : '−'}
+        {Math.abs(delta)} procentenheter på 4 veckor
+      </span>
+    </span>
+  );
+}
+
+function HeroRow({ tiles }: { tiles: readonly HeroTile[] }) {
+  return (
+    <section aria-label="Översikt" className="mb-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      {tiles.map((tile) => (
+        <Card key={tile.label}>
+          <CardContent className="p-5">
+            <p className="text-sm text-muted">{tile.label}</p>
+            <p className="mt-1 text-4xl font-semibold tracking-tight">{tile.value}</p>
+            <p className="mt-1 text-xs text-muted">
+              {tile.delta != null ? <DeltaHint delta={tile.delta} /> : tile.hint}
+            </p>
+          </CardContent>
+        </Card>
+      ))}
+    </section>
+  );
+}
+
+function plural(n: number, one: string, many: string): string {
+  return `${n} ${n === 1 ? one : many}`;
+}
 
 export function ResultsPage() {
-  const { overview } = useStudyOverview();
+  const [filter, setFilter] = useState<ResultsFilter>(DEFAULT_FILTER);
+  const now = new Date();
+  const data = useResultsData(filter, now);
   const { history } = usePassHistory();
-  const answers = useAnswerHistory();
-  const questions = useMemo(() => questionIndex(loadContent()), []);
-  const tags = useMemo(() => weakTags(answers.data ?? [], questions), [answers.data, questions]);
-  const modules = overview.modules.filter((m) => m.questionCount > 0);
-  const finished = history.passes.filter((p) => p.session.finishedAt !== null && p.result);
-  const totalAnswers = answers.data?.length ?? 0;
+  const finished = history.passes.filter(
+    (p) =>
+      p.session.finishedAt !== null &&
+      p.result &&
+      inWindow(p.session.finishedAt, data.days) &&
+      (filter.moduleId === null || p.session.moduleIds.includes(filter.moduleId)),
+  );
   const decisions = useSubmittedDecisions();
   const latestDecision = decisions.data?.[0] ?? null;
-  const now = new Date();
+  const studied = useMemo(() => new Set(data.modules.map((m) => m.moduleId)), [data.modules]);
+  const { hero } = data;
 
-  const stats = [
+  const tiles: HeroTile[] = [
+    {
+      label: 'Streak',
+      value: plural(hero.streak.days, 'dag', 'dagar'),
+      hint: hero.streak.studiedToday
+        ? 'Du har pluggat i dag'
+        : hero.streak.days > 0
+          ? 'Gör ett pass i dag för att hålla den'
+          : 'Dagar i rad med minst ett pass',
+    },
+    {
+      label: 'Frågor i dag',
+      value: String(hero.answeredToday),
+      hint: hero.answeredToday === 0 ? 'Inga svar än i dag' : 'Svar sedan midnatt',
+    },
+    { label: 'Besvarade totalt', value: String(hero.answeredTotal), hint: 'Alla svar, alla pass' },
     {
       label: 'Behärskning totalt',
-      value: `${overallMastery(modules)} %`,
+      value: `${hero.mastery} %`,
       hint: 'Viktat snitt över modulerna med frågor',
-    },
-    { label: 'Besvarade frågor', value: String(totalAnswers), hint: 'Alla svar, alla pass' },
-    {
-      label: 'Pass',
-      value: String(finished.length),
-      hint: `Streak ${history.streak.days} ${history.streak.days === 1 ? 'dag' : 'dagar'}`,
+      delta: hero.masteryDelta,
     },
   ];
 
@@ -47,7 +109,7 @@ export function ResultsPage() {
     <>
       <PageHeader
         title="Mina resultat"
-        description="Hur det går över tid: behärskning per modul, det du oftast missar, dina ärenden och dina senaste pass."
+        description="Hur det går över tid: behärskning per modul, hur mycket du pluggar, det du oftast missar och dina ärenden."
         actions={
           latestDecision ? (
             <ExportDecisionButton
@@ -68,93 +130,35 @@ export function ResultsPage() {
         }
       />
 
-      <section aria-label="Översikt" className="mb-10 grid gap-4 sm:grid-cols-3">
-        {stats.map((stat) => (
-          <Card key={stat.label}>
-            <CardContent className="p-5">
-              <p className="text-sm text-muted">{stat.label}</p>
-              <p className="mt-1 text-3xl font-semibold tabular-nums">{stat.value}</p>
-              <p className="text-xs text-muted">{stat.hint}</p>
-            </CardContent>
-          </Card>
-        ))}
-      </section>
+      <HeroRow tiles={tiles} />
 
-      <div className="mb-10 grid gap-6 lg:grid-cols-[3fr_2fr]">
-        <section aria-labelledby="results-mastery">
+      <ResultsFilters
+        value={filter}
+        modules={data.moduleOptions}
+        studied={studied}
+        onChange={setFilter}
+      />
+
+      <div className="results-charts" data-refreshing={data.isRefreshing ? 'true' : 'false'}>
+        <section aria-labelledby="results-study" className="mb-10">
           <SectionTitle>
-            <span id="results-mastery">Behärskning per modul</span>
+            <span id="results-study">Plugg</span>
           </SectionTitle>
-          <Card>
-            <CardContent className="flex flex-col gap-5">
-              {modules.map((module) => (
-                <div key={module.moduleId} className="flex items-center gap-4">
-                  <MasteryRing
-                    value={module.mastery}
-                    size={44}
-                    strokeWidth={4}
-                    label={`Behärskning ${module.title}: ${module.mastery} %`}
-                  />
-                  <div className="min-w-0 flex-1">
-                    <p className="truncate font-medium">
-                      {module.ordning}. {module.title}
-                    </p>
-                    <p className="text-sm text-muted">
-                      {module.seen} av {module.questionCount} frågor besvarade
-                      {module.due > 0 ? ` · ${module.due} väntar på repetition` : ''}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </CardContent>
-          </Card>
+          <div className="flex flex-col gap-4">
+            <MasteryChart
+              days={data.days}
+              series={data.series}
+              hiddenModules={data.hiddenModules}
+            />
+            <div className="grid gap-4 lg:grid-cols-2">
+              <AnswersChart buckets={data.bars.buckets} unit={data.bars.unit} />
+              <TagsChart tags={data.tags} hasAnswers={data.hasAnswers} />
+            </div>
+          </div>
         </section>
 
-        <section aria-labelledby="results-weak">
-          <SectionTitle>
-            <span id="results-weak">Svaga taggar</span>
-          </SectionTitle>
-          <Card>
-            <CardContent>
-              {tags.length === 0 ? (
-                <p className="text-sm text-muted">
-                  {totalAnswers === 0
-                    ? 'När du svarat på några frågor visas här de ämnen du oftast missar.'
-                    : 'Inga tydligt svaga områden just nu. Fortsätt så!'}
-                </p>
-              ) : (
-                <ul className="flex flex-col gap-4">
-                  {tags.map((tag) => (
-                    <li key={tag.tag}>
-                      <div className="flex items-baseline justify-between gap-3">
-                        <span className="inline-flex min-w-0 items-center gap-1.5 font-medium">
-                          <Tag className="size-3.5 shrink-0 text-muted" aria-hidden="true" />
-                          <span className="truncate">{tagLabel(tag.tag)}</span>
-                        </span>
-                        <span className="shrink-0 text-sm text-muted tabular-nums">
-                          {Math.round(tag.accuracy * 100)} % av {tag.answered}
-                        </span>
-                      </div>
-                      <Progress
-                        value={tag.accuracy * 100}
-                        tone="brick"
-                        thin
-                        className="mt-1.5"
-                        label={`Andel rätt för ${tagLabel(tag.tag)}`}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              )}
-              <p className="mt-4 text-xs text-muted">
-                Räknat på ditt senaste svar per fråga, så det du övat in slutar dra ned.
-              </p>
-            </CardContent>
-          </Card>
-        </section>
+        <CaseResults counts={data.caseCounts} checks={data.checks} />
       </div>
-
-      <CaseResults />
 
       <section aria-labelledby="results-history">
         <SectionTitle>
@@ -163,8 +167,12 @@ export function ResultsPage() {
         {finished.length === 0 ? (
           <EmptyState
             icon={<ChartLine />}
-            title="Inga pass ännu"
-            description="När du gjort ett pass visas det här med resultat och tid."
+            title={history.passes.length === 0 ? 'Inga pass ännu' : 'Inga pass i perioden'}
+            description={
+              history.passes.length === 0
+                ? 'När du gjort ett pass visas det här med resultat och tid.'
+                : 'Välj ett längre tidsintervall eller en annan modul för att se fler pass.'
+            }
             action={
               <Link to="/study" className={buttonVariants()}>
                 Börja plugga
@@ -190,7 +198,7 @@ export function ResultsPage() {
                   <span className="text-sm text-muted tabular-nums">
                     {result?.correct} av {result?.total} rätt
                   </span>
-                  <span className="w-14 text-right text-lg font-semibold tabular-nums">
+                  <span className="w-16 text-right text-lg font-semibold whitespace-nowrap tabular-nums">
                     {result?.percent} %
                   </span>
                 </li>

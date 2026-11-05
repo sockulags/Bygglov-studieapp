@@ -1,0 +1,1129 @@
+# PBL 9 kap. Lov och förhandsbesked, paragraf för paragraf.
+# sammanfattning: en egen mening per paragraf, skriven för appen (granskas av handledaren).
+# Övriga fält kommer ur docs/rattslage/pbl-9-kap.txt. Uppdatera dem med
+#   pnpm --filter @bygglov/content-build exec tsx src/index.ts lagtext
+# när källtexten har hämtats på nytt; content:check varnar om de skiljer sig åt.
+# rubrik är lagens egen rubrik över paragrafen (1-2 §§ saknar rubrik).
+
+lag: PBL
+kapitel: 9
+rubrik: Lov och förhandsbesked
+kalla: riksdagen.se, Plan- och bygglag (2010:900), sparad i docs/rattslage/pbl-9-kap.txt
+andrad_tom: SFS 2026:1583
+hamtad: 2026-11-04
+status: utkast
+rattslage: 2025-12-01
+paragrafer:
+  - paragraf: "1"
+    sammanfattning: Kapitlet innehåller reglerna om bygglov, rivningslov, marklov, förhandsbesked och
+      anmälningsplikt, och om hur sådana ärenden prövas och handläggs.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Detta kapitel innehåller bestämmelser om
+      1. bygglov för byggnader (3-18 §§),
+      2. bygglov för andra anläggningar än byggnader (19-33 §§),
+      3. bygglov nära gräns eller järnväg (34 och 35 §§),
+      4. bygglov i områden till skydd för totalförsvarets behov (36 §),
+      5. bygglov för särskilt värdefulla byggnadsverk och i särskilt värdefulla områden (37 och 38 §§),
+      6. tidsbegränsat bygglov och bygglov för ändamål av säsongskaraktär (39 och 40 §§),
+      7. förhandsbesked (41 och 42 §§),
+      8. rivningslov och marklov (43-50 §§),
+      9. åtgärder för totalförsvaret (51 §),
+      10. lov för åtgärder som inte omfattas av krav på lov (52-54 §§),
+      11. anmälningsplikt (55 §),
+      12. förutsättningar och villkor för lov och förhandsbesked (56-84 §§),
+      13. handläggningen av ärenden om lov och förhandsbesked (85-113 §§), och
+      14. när lov börjar gälla och giltighetstiden för lov (114 och 115 §§).
+  - paragraf: "2"
+    sammanfattning: Lov krävs när kapitlet säger det, och en detaljplan eller områdesbestämmelser kan
+      kräva bygglov i fler fall.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      En åtgärd kräver lov om det följer av bestämmelserna i detta kapitel.
+      Ytterligare bestämmelser om att det krävs bygglov kan finnas i en detaljplan eller i områdesbestämmelser.
+  - paragraf: "3"
+    rubrik: Bygglov för nybyggnad
+    sammanfattning: Huvudregeln är att nybyggnad kräver bygglov.
+    andrad_genom: Lag (2025:974)
+    lagtext: Det krävs bygglov för nybyggnad.
+  - paragraf: "4"
+    rubrik: Bygglov för nybyggnad
+    sammanfattning: Inom detaljplan är en komplementbyggnad eller ett komplementbostadshus lovbefriat om
+      det har högst 30 kvm byggnadsarea, högst 4,0 m taknockshöjd, är mindre än huvudbyggnaden,
+      ligger inom tomten och tillsammans med övriga högst 45 kvm.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 3 § krävs det inte bygglov för nybyggnad av en komplementbyggnad eller ett komplementbostadshus i ett område som omfattas av en detaljplan, om komplementbyggnaden eller komplementbostadshuset
+      1. får en byggnadsarea som är högst 30,0 kvadratmeter,
+      2. får en byggnadsarea som är mindre än byggnadsarean för den byggnad som komplementbyggnaden eller komplementbostadshuset ska komplettera,
+      3. får en taknockshöjd som är högst 4,0 meter,
+      4. placeras inom tomten, och
+      5. tillsammans med övriga komplementbyggnader och komplementbostadshus på tomten får en sammanlagd byggnadsarea som är högst 45,0 kvadratmeter.
+      Vid beräkning av den sammanlagda byggnadsarean ska ingå komplementbyggnader och komplementbostadshus som inte omfattas av krav på bygglov enligt denna lag eller har undantagits från krav på lov enligt äldre bestämmelser.
+  - paragraf: "5"
+    rubrik: Bygglov för nybyggnad
+    sammanfattning: Utanför detaljplan gäller samma lovbefrielse med gränserna 50 kvm byggnadsarea, 4,5
+      m taknockshöjd och högst 65 kvm sammanlagt på tomten.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 3 § krävs det inte bygglov för nybyggnad av en komplementbyggnad eller ett komplementbostadshus i ett område som inte omfattas av en detaljplan, om komplementbyggnaden eller komplementbostadshuset
+      1. får en byggnadsarea som är högst 50,0 kvadratmeter,
+      2. får en byggnadsarea som är mindre än byggnadsarean för den byggnad som komplementbyggnaden eller komplementbostadshuset ska komplettera,
+      3. får en taknockshöjd som är högst 4,5 meter,
+      4. placeras inom tomten, och
+      5. tillsammans med övriga komplementbyggnader och komplementbostadshus på tomten får en sammanlagd byggnadsarea som är högst 65,0 kvadratmeter.
+      Vid beräkning av den sammanlagda byggnadsarean ska ingå komplementbyggnader och komplementbostadshus som inte omfattas av krav på bygglov enligt denna lag eller har undantagits från krav på lov enligt äldre bestämmelser.
+  - paragraf: "6"
+    rubrik: Bygglov för nybyggnad
+    sammanfattning: En ekonomibyggnad utanför detaljplan kräver inte bygglov.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 3 § krävs det inte bygglov för en ekonomibyggnad i ett område som inte omfattas av en
+      detaljplan.
+  - paragraf: "7"
+    rubrik: Bygglov för nybyggnad
+    sammanfattning: Små byggnader för kollektivtrafiken eller på allmän plats som kommunen äger (högst
+      15 kvm och 3,0 m taknockshöjd) kräver inte bygglov.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 3 § krävs det inte bygglov om byggnaden ska användas för kollektivtrafiken eller
+      placeras inom en allmän plats där kommunen är markägare och byggnaden får en byggnadsarea som
+      är högst 15,0 kvadratmeter och en taknockshöjd som är högst 3,0 meter.
+  - paragraf: "8"
+    rubrik: Bygglov för nybyggnad
+    sammanfattning: Lovbefrielsen i 4–7 §§ gäller inte om lov ändå krävs enligt 34–37 §§, till exempel
+      nära gräns eller för en särskilt värdefull byggnad.
+    andrad_genom: Lag (2025:974)
+    lagtext: Även om bygglov inte krävs enligt 4-7 §§ kan bygglov krävas enligt någon av 34-37 §.
+  - paragraf: "9"
+    rubrik: Bygglov för tillbyggnad
+    sammanfattning: Huvudregeln är att tillbyggnad kräver bygglov.
+    andrad_genom: Lag (2025:974)
+    lagtext: Det krävs bygglov för tillbyggnad.
+  - paragraf: "10"
+    rubrik: Bygglov för tillbyggnad
+    sammanfattning: En tillbyggnad på högst 30 kvm brutto- eller öppenarea som inte går över taknocken
+      är lovbefriad, och tidigare lovbefriade tillbyggnader räknas in i de 30 kvm.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 9 § krävs det inte bygglov för en tillbyggnad av en byggnad som inte är en komplementbyggnad eller ett komplementbostadshus, om tillbyggnaden
+      1. får en bruttoarea eller öppenarea eller en kombination av dessa som är högst 30,0 kvadratmeter,
+      2. inte överstiger byggnadens taknock, och
+      3. tillsammans med andra genomförda tillbyggnader på byggnaden får en bruttoarea eller öppenarea eller en kombination av dessa som är högst 30,0 kvadratmeter.
+      Vid beräkning av area enligt första stycket 3 ska tillbyggnadens area läggas ihop med andra genomförda tillbyggnader på byggnaden som inte omfattas av krav på bygglov enligt denna lag eller har undantagits från krav på bygglov enligt äldre bestämmelser.
+  - paragraf: "11"
+    rubrik: Bygglov för tillbyggnad
+    sammanfattning: Tillbyggnad av en komplementbyggnad eller ett komplementbostadshus inom detaljplan
+      är lovbefriad om byggnaden efteråt håller sig inom gränserna i 4 § (30 kvm, 4,0 m och 45 kvm
+      sammanlagt).
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 9 § krävs det inte bygglov för tillbyggnad av en komplementbyggnad eller ett komplementbostadshus i ett område som omfattas av en detaljplan, om tillbyggnaden innebär att komplementbyggnaden eller komplementbostadshuset
+      1. får en byggnadsarea som är högst 30,0 kvadratmeter,
+      2. får en byggnadsarea som är mindre än byggnadsarean för den byggnad som komplementbyggnaden eller komplementbostadshuset ska komplettera,
+      3. får en taknockshöjd som är högst 4,0 meter,
+      4. placeras inom tomten, och
+      5. tillsammans med övriga komplementbyggnader och komplementbostadshus på tomten får en sammanlagd byggnadsarea som är högst 45,0 kvadratmeter.
+      Vid beräkning av den sammanlagda byggnadsarean ska ingå komplementbyggnader och komplementbostadshus som inte omfattas av krav på bygglov enligt denna lag eller har undantagits från krav på lov enligt äldre bestämmelser.
+  - paragraf: "12"
+    rubrik: Bygglov för tillbyggnad
+    sammanfattning: Utanför detaljplan gäller motsvarande lovbefrielse för tillbyggnad med gränserna 50
+      kvm, 4,5 m och 65 kvm sammanlagt.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 9 § krävs det inte bygglov för tillbyggnad av en komplementbyggnad eller ett komplementbostadshus i ett område som inte omfattas av en detaljplan, om tillbyggnaden innebär att komplementbyggnaden eller komplementbostadshuset
+      1. får en byggnadsarea som är högst 50,0 kvadratmeter,
+      2. får en byggnadsarea som är mindre än byggnadsarean för den byggnad som komplementbyggnaden eller komplementbostadshuset ska komplettera,
+      3. får en taknockshöjd som är högst 4,5 meter,
+      4. placeras inom tomten, och
+      5. tillsammans med övriga komplementbyggnader och komplementbostadshus på tomten får en sammanlagd byggnadsarea som är högst 65,0 kvadratmeter.
+      Vid beräkning av den sammanlagda byggnadsarean ska ingå komplementbyggnader och komplementbostadshus som inte omfattas av krav på bygglov enligt denna lag eller har undantagits från krav på lov enligt äldre bestämmelser.
+  - paragraf: "13"
+    rubrik: Bygglov för tillbyggnad
+    sammanfattning: Tillbyggnad av en ekonomibyggnad utanför detaljplan kräver inte bygglov.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 9 § krävs det inte bygglov för tillbyggnad av en ekonomibyggnad i ett område som inte
+      omfattas av en detaljplan.
+  - paragraf: "14"
+    rubrik: Bygglov för tillbyggnad
+    sammanfattning: Lovbefrielsen i 10–13 §§ gäller inte om lov ändå krävs enligt 34–37 eller 53 §.
+    andrad_genom: Lag (2025:974)
+    lagtext: Även om bygglov inte krävs enligt 10-13 §§ kan bygglov krävas enligt någon av 34-37 eller 53 §.
+  - paragraf: "15"
+    rubrik: Bygglov för annan ändring av en byggnad än tillbyggnad
+    sammanfattning: Annan ändring än tillbyggnad kräver bygglov vid väsentligt ändrad användning, när
+      ytterligare en bostad inreds och vid fasadändring mot allmän plats inom detaljplan på
+      byggnader som inte är en- eller tvåbostadshus eller komplementbyggnader.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Det krävs bygglov för annan ändring av en byggnad än en tillbyggnad, om ändringen innebär att
+      1. byggnaden helt eller delvis tas i anspråk eller inreds för ett väsentligen annat ändamål än det som byggnaden senast har använts för eller enligt senast beviljade bygglov har anpassats till utan att den avsedda användningen kommit till stånd,
+      2. det i byggnaden inreds ytterligare en bostad, eller
+      3. det i ett område som omfattas av en detaljplan görs en fasadändring på en byggnad som inte är ett en- eller tvåbostadshus, en komplementbyggnad eller ett komplementbostadshus och ändringen sker på en fasad eller på ett tak som vetter mot en allmän plats.
+  - paragraf: "16"
+    rubrik: Bygglov för annan ändring av en byggnad än tillbyggnad
+    sammanfattning: Ändrad användning kräver ändå inte lov för lokaler på sammanlagt högst 50 kvm
+      utanför detaljplan och sammanhållen bebyggelse, eller när en komplementbyggnad blir ett
+      lovbefriat komplementbostadshus.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 15 § 1 krävs det inte bygglov
+      1. om den ändrade användningen innebär att det i en byggnad i ett område som inte omfattas av en detaljplan eller ingår i en sammanhållen bebyggelse inreds en eller flera lokaler med en bruttoarea som sammanlagt inte är större än 50,0 kvadratmeter, eller
+      2. för att ändra en komplementbyggnad till ett komplementbostadshus som enligt 4 eller 5 § inte kräver lov.
+  - paragraf: "17"
+    rubrik: Bygglov för annan ändring av en byggnad än tillbyggnad
+    sammanfattning: Det krävs inte bygglov för att inreda ytterligare en bostad i ett enbostadshus,
+      eller bostäder i en ekonomibyggnad utanför detaljplan.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 15 § 2 krävs det inte bygglov för att inreda
+      1. ytterligare en bostad i ett enbostadshus som inte är ett komplementbostadshus, eller
+      2. ytterligare en eller flera bostäder i en ekonomibyggnad i ett område som inte omfattas av detaljplan.
+  - paragraf: 17 a
+    rubrik: Bygglov för annan ändring av en byggnad än tillbyggnad
+    sammanfattning: En solenergianläggning med en effekt på högst elva kilowatt kräver inte bygglov som
+      fasadändring.
+    andrad_genom: Lag (2026:406)
+    lagtext: Trots 15 § 3 krävs det inte bygglov för en fasadändring som innebär att en
+      solenergianläggning sätts upp eller väsentligen ändras, om anläggningen har en effekt om högst
+      elva kilowatt.
+  - paragraf: "18"
+    rubrik: Bygglov för annan ändring av en byggnad än tillbyggnad
+    sammanfattning: Lovbefrielsen i 15–17 a §§ gäller inte om lov ändå krävs enligt 34–37 eller 54 §.
+    andrad_genom: Lag (2026:406)
+    lagtext: Även om bygglov inte krävs enligt 15-17 a §§ kan bygglov krävas enligt någon av 34-37 eller
+      54 §.
+  - paragraf: "19"
+    rubrik: Bygglov för murar, plank och altaner
+    sammanfattning: Inom detaljplan krävs bygglov för mur, plank eller altan som blir högre än 1,8 m
+      inom 3,6 m från en byggnad, eller högre än 1,2 m längre bort.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Det krävs bygglov för att utomhus uppföra, flytta eller utöka en mur, ett plank eller en altan i ett område som omfattas av en detaljplan, om anläggningen
+      1. får en höjd över marken som överstiger 1,8 meter och placeras inom 3,6 meter från en byggnad, eller
+      2. får en höjd över marken som överstiger 1,2 meter och inte placeras inom 3,6 meter från en byggnad.
+  - paragraf: "20"
+    rubrik: Bygglov för murar, plank och altaner
+    sammanfattning: Murar och plank som är undantagna från lovplikt i en vägplan eller järnvägsplan
+      kräver inte bygglov.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 19 § krävs det inte bygglov för en mur eller ett plank som omfattas av ett undantag
+      från krav på bygglov i vägplan enligt väglagen (1971:948) eller järnvägsplan enligt lagen
+      (1995:1649) om byggande av järnväg.
+  - paragraf: "21"
+    rubrik: Bygglov för murar, plank och altaner
+    sammanfattning: Lovfria murar, plank och altaner kan ändå kräva lov nära gräns (34–35 §§) eller i
+      särskilt värdefulla miljöer (38 §).
+    andrad_genom: Lag (2025:974)
+    lagtext: Även om bygglov inte krävs enligt 19 och 20 §§ kan bygglov krävas enligt 34 och 35 §§ eller
+      38 §.
+  - paragraf: "22"
+    rubrik: Bygglov för parkeringsplatser
+    sammanfattning: En parkeringsplats kräver bygglov om parkeringen på fastigheten tar mer än 50 kvm
+      mark inom detaljplan eller mer än 100 kvm utanför.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Det krävs bygglov för att utomhus anordna eller väsentligt ändra en parkeringsplats som tillsammans med övriga parkeringsplatser på en fastighet upptar en markyta som
+      1. är större än 50,0 kvadratmeter i ett område som omfattas av en detaljplan, eller
+      2. är större än 100,0 kvadratmeter i ett område som inte omfattas av en detaljplan.
+  - paragraf: "23"
+    rubrik: Bygglov för parkeringsplatser
+    sammanfattning: Parkering som anläggs med stöd av väglagen eller på mark som planen avsatt till gata
+      eller väg kräver inte bygglov.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 22 § krävs det inte bygglov om parkeringsplatsen anläggs med stöd av väglagen
+      (1971:948) eller på mark som i en detaljplan har avsatts till gata eller väg.
+  - paragraf: "24"
+    rubrik: Bygglov för parkeringsplatser
+    sammanfattning: Lovfri parkering kan ändå kräva lov i särskilt värdefulla miljöer (38 §).
+    andrad_genom: Lag (2025:974)
+    lagtext: Även om bygglov inte krävs enligt 22 och 23 §§ kan bygglov krävas enligt 38 §.
+  - paragraf: "25"
+    rubrik: Bygglov för upplag, materialgårdar och fasta förvaringsanläggningar
+    sammanfattning: Upplag, materialgårdar och fasta förvaringsanläggningar kräver bygglov om de är
+      högre än 3 m eller tar mer än 15 kvm mark inom detaljplan respektive 50 kvm utanför.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Det krävs bygglov för att utomhus anordna, uppföra, flytta eller väsentligt ändra ett upplag, en materialgård eller en fast förvaringsanläggning som är högre än 3,0 meter över markytan eller som upptar en markyta som tillsammans med andra upplag, materialgårdar eller fasta förvaringsanläggningar på en fastighet
+      1. är större än 15,0 kvadratmeter i ett område som omfattas av en detaljplan, eller
+      2. är större än 50,0 kvadratmeter i ett område som inte omfattas av en detaljplan.
+  - paragraf: "26"
+    rubrik: Bygglov för upplag, materialgårdar och fasta förvaringsanläggningar
+    sammanfattning: Undantag gäller för upplag och materialgårdar i en väg- eller järnvägsplan och för
+      anläggningar med tillstånd enligt 9 eller 11 kap. miljöbalken.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 25 § krävs det inte bygglov om anläggningen
+      1. är ett upplag eller en materialgård som omfattas av undantag från krav på bygglov i vägplan enligt väglagen (1971:948) eller järnvägsplan enligt lagen (1995:1649) om byggande av järnväg, eller
+      2. omfattas av tillstånd enligt 9 eller 11 kap. miljöbalken.
+  - paragraf: "27"
+    rubrik: Bygglov för upplag, materialgårdar och fasta förvaringsanläggningar
+    sammanfattning: Lovfria upplag och förvaringsanläggningar kan ändå kräva lov enligt 34–35 §§ eller 38 §.
+    andrad_genom: Lag (2025:974)
+    lagtext: Även om bygglov inte krävs enligt 25 och 26 §§ kan bygglov krävas enligt 34 och 35 §§ eller
+      38 §.
+  - paragraf: "28"
+    rubrik: Bygglov för transformatorstationer, tunnlar, bergrum, master, torn, skorstenar och
+      vindkraftverk
+    sammanfattning: Transformatorstationer, vissa tunnlar och bergrum samt master, torn, skorstenar och
+      vindkraftverk som är högre än 20 m eller står närmare gränsen än sin höjd kräver bygglov.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Det krävs bygglov för att utomhus anlägga, uppföra, flytta eller väsentligt ändra
+      1. en transformatorstation,
+      2. en tunnel eller ett bergrum som inte avses användas för väg, järnväg, tunnelbana, spårväg eller gruvdrift, eller
+      3. en mast, ett torn, en skorsten eller ett vindkraftverk som är högre än 20,0 meter över markytan eller som placeras på ett avstånd från gränsen som är mindre än anläggningens höjd över marken.
+  - paragraf: "29"
+    rubrik: Bygglov för transformatorstationer, tunnlar, bergrum, master, torn, skorstenar och
+      vindkraftverk
+    sammanfattning: Undantag gäller när anläggningen har tillstånd enligt 9 eller 11 kap. miljöbalken
+      eller är en transformatorstation i en väg- eller järnvägsplan.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 28 § krävs det inte bygglov om anläggningen
+      1. omfattas av tillstånd enligt 9 eller 11 kap. miljöbalken, eller
+      2. är en transformatorstation som omfattas av undantag från krav på bygglov i vägplan enligt väglagen (1971:948) eller järnvägsplan enligt lagen (1995:1649) om byggande av järnväg.
+  - paragraf: "30"
+    rubrik: Bygglov för transformatorstationer, tunnlar, bergrum, master, torn, skorstenar och
+      vindkraftverk
+    sammanfattning: Lovfria anläggningar enligt 28–29 §§ kan ändå kräva lov i särskilt värdefulla miljöer (38 §).
+    andrad_genom: Lag (2025:974)
+    lagtext: Även om bygglov inte krävs enligt 28 och 29 §§ kan bygglov krävas enligt 38 §.
+  - paragraf: "31"
+    rubrik: Bygglov för andra anläggningar
+    sammanfattning: Bygglov krävs för skidbackar, linbanor, idrottsanläggningar över 1 500 kvm,
+      småbåtshamnar, campingplatser, nöjesparker, djurparker och begravningsplatser.
+    lagtext: |-
+      Det krävs bygglov för att utomhus anlägga, uppföra, flytta eller väsentligt ändra en
+      1. skidbacke eller skidlift,
+      2. linbana,
+      3. idrottsanläggning som tillsammans med övriga idrottsanläggningar på en fastighet upptar en markyta som är större än 1 500 kvadratmeter,
+      4. hamn för fritidsbåtar,
+      5. campingplats,
+      6. nöjespark,
+      7. djurpark, eller
+      8. begravningsplats.
+  - paragraf: "32"
+    rubrik: Bygglov för andra anläggningar
+    sammanfattning: En motorbana kräver inte bygglov som idrottsanläggning enligt 31 § 3.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 31 § 3 krävs det inte bygglov för en motorbana.
+  - paragraf: "33"
+    rubrik: Bygglov för andra anläggningar
+    sammanfattning: Lovfria anläggningar enligt 31–32 §§ kan ändå kräva lov enligt 34–35 §§ eller 38 §.
+    andrad_genom: Lag (2025:974)
+    lagtext: Även om bygglov inte krävs enligt 31 och 32 §§ kan bygglov krävas enligt 34 och 35 §§ eller
+      38 §.
+  - paragraf: "34"
+    rubrik: Bygglov nära gräns eller järnväg
+    sammanfattning: Annars lovfria åtgärder kräver bygglov närmare gränsen än 4,5 m eller närmare än 30
+      m från ett järnvägsspårs mitt.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Det krävs bygglov närmare gränsen än 4,5 meter eller inom ett område närmare än 30,0 meter från ett järnvägsspårs mitt för åtgärder som inte omfattas av krav på lov enligt andra bestämmelser i detta kapitel, om åtgärden är
+      1. nybyggnad eller tillbyggnad av en byggnad,
+      2. en sådan annan ändring av en byggnad som avses i 16 §,
+      3. att uppföra, flytta eller utöka en mur eller ett plank som är högre än 1,2 meter över marken, eller
+      4. att anlägga, uppföra, flytta eller väsentligt ändra en idrottsanläggning, ett upplag, en materialgård eller en fast förvaringsanläggning.
+  - paragraf: "35"
+    rubrik: Bygglov nära gräns eller järnväg
+    sammanfattning: Lov enligt 34 § behövs inte för ekonomibyggnader utanför plan, för vissa undantagna
+      anläggningar eller om berörda grannar skriftligen har medgett en åtgärd som inte strider mot
+      planen.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 34 § krävs det inte bygglov om
+      1. åtgärden avser en ekonomibyggnad i ett område som inte omfattas av en detaljplan,
+      2. anläggningen enligt 20 §, 25 § 2 eller 26 § inte omfattas av krav på bygglov, eller
+      3. de grannar som berörs av åtgärden skriftligen har medgett åtgärden och åtgärden
+      a) inte strider mot en detaljplan eller områdesbestämmelser, eller
+      b) är en sådan åtgärd som får strida mot en detaljplan eller områdesbestämmelser enligt 10 kap. 2 a §.
+      Vid en åtgärd intill en allmän plats eller järnväg ska grannen anses ha medgett åtgärden enligt första stycket 3, om medgivandet har lämnats av huvudmannen för den allmänna platsen eller av järnvägens infrastrukturförvaltare.
+  - paragraf: "36"
+    rubrik: Bygglov i områden till skydd för totalförsvarets behov
+    sammanfattning: I och nära riksintresseområden för totalförsvaret krävs bygglov för vissa annars
+      lovfria åtgärder, till exempel komplementbostadshus och solenergianläggningar.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Inom eller i anslutning till områden som är av riksintresse på grund av att de behövs för totalförsvarets anläggningar krävs det bygglov för
+      1. nybyggnad och tillbyggnad av komplementbostadshus och inredning av ytterligare en bostad i ett enbostadshus, om det är fråga om områden för flygplatser eller övnings- eller skjutfält,
+      2. fasadändring som innebär att en solenergianläggning sätts upp eller väsentligt ändras i ett område som omfattas av en detaljplan,
+      3. nybyggnad och tillbyggnad av ekonomibyggnad för hästhållning och ändrad användning av ekonomibyggnad till hästhållning, om det är fråga om områden för flygplatser eller övnings- eller skjutfält, och
+      4. att sätta upp eller väsentligt ändra en ljusanordning, om den avsedda användningen av anordningen kan antas påtagligt försvåra tillkomsten eller utnyttjandet av totalförsvarets anläggningar.
+  - paragraf: "37"
+    rubrik: Bygglov för särskilt värdefulla byggnader eller i särskilt värdefulla områden
+    sammanfattning: Nybyggnad, tillbyggnad, ytterligare bostad och fasadändring kräver alltid bygglov
+      för särskilt värdefulla byggnader och i områden med skyddsbestämmelser.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Det krävs bygglov för nybyggnad, tillbyggnad, inredning av ytterligare en bostad i ett enbostadshus eller fasadändring, om
+      1. åtgärden avser en byggnad som omfattas av bestämmelser om skydd för särskilda värden i en detaljplan enligt 4 kap. 16 § 3 eller i områdesbestämmelser enligt 4 kap. 42 § andra stycket,
+      2. åtgärden avser en särskilt värdefull byggnad enligt 8 kap. 13 § första stycket som inte omfattas av sådana bestämmelser som avses i 1,
+      3. åtgärden vidtas inom en tomt, en allmän plats eller ett bebyggelseområde som omfattas av bestämmelser om skydd för särskilda värden i en detaljplan enligt 4 kap. 16 § 3 eller i områdesbestämmelser enligt 4 kap. 42 § andra stycket, eller
+      4. åtgärden vidtas inom en allmän plats eller ett bebyggelseområde som är ett sådant särskilt värdefullt område som avses i 8 kap. 13 § andra stycket 3 eller 4 utan att omfattas av sådana bestämmelser som avses i 3.
+  - paragraf: "38"
+    rubrik: Bygglov för särskilt värdefulla anläggningar eller i särskilt värdefulla områden
+    sammanfattning: Motsvarande skärpning gäller för andra anläggningar, skyltar och ljusanordningar i
+      särskilt värdefulla miljöer.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Det krävs bygglov för
+      1. att utomhus flytta eller väsentligt ändra en annan anläggning än en byggnad, om anläggningen omfattas av bestämmelser om skydd för särskilda värden i en detaljplan enligt 4 kap. 16 § 3 eller i områdesbestämmelser enligt 4 kap. 42 § andra stycket, eller
+      2. en åtgärd som avses i 19-31 §§ men som enligt de bestämmelserna inte kräver bygglov på grund av anläggningens storlek eller på grund av undantag i 20, 23, 26 eller 29 §, och för att sätta upp, flytta eller väsentligt ändra en skylt eller en ljusanordning, om
+      a) åtgärden avser en särskilt värdefull anläggning enligt 8 kap. 13 § andra stycket 1 som inte omfattas av sådana bestämmelser som avses i 1, eller
+      b) åtgärden vidtas inom en allmän plats eller ett bebyggelseområde som är ett sådant särskilt värdefullt område som avses i 8 kap. 13 § andra stycket 3 eller 4 och påverkar områdets karaktär eller byggnadsverkets yttre karaktärsdrag.
+  - paragraf: "39"
+    rubrik: Tidsbegränsat bygglov
+    sammanfattning: Den som vill göra en lovpliktig åtgärd under en begränsad tid får söka tidsbegränsat bygglov.
+    andrad_genom: Lag (2025:974)
+    lagtext: Den som avser att vidta en bygglovspliktig åtgärd som endast ska pågå under en begränsad
+      tid får ansöka om ett tidsbegränsat bygglov.
+  - paragraf: "40"
+    rubrik: Bygglov för ändamål av säsongskaraktär
+    sammanfattning: Ett säsongslov får användas år efter år utan ny prövning, om åtgärden görs igen inom
+      ett år från att den senast avslutades.
+    andrad_genom: Lag (2025:974)
+    lagtext: Om ett bygglov används för ett ändamål som har en sådan säsongskaraktär att den åtgärd som
+      omfattas av bygglovet behöver upprepas under två eller flera år i följd, får åtgärden vidtas
+      igen utan ny prövning, om det sker inom ett år från det att åtgärden senast avslutades.
+  - paragraf: "41"
+    rubrik: Förhandsbesked
+    sammanfattning: Utanför detaljplan får den som planerar en lovpliktig åtgärd begära förhandsbesked
+      om åtgärden kan placeras på en viss plats.
+    andrad_genom: Lag (2025:974)
+    lagtext: Den som avser att vidta en bygglovspliktig åtgärd i ett område som inte omfattas av en
+      detaljplan får begära ett förhandsbesked i frågan om åtgärden kan lokaliseras till en viss
+      plats.
+  - paragraf: "42"
+    rubrik: Förhandsbesked
+    sammanfattning: Ett positivt förhandsbesked är bindande om bygglov söks inom två år från att
+      beskedet fick laga kraft.
+    andrad_genom: Lag (2025:974)
+    lagtext: Ett förhandsbesked som innebär att åtgärden kan lokaliseras till en viss plats är bindande
+      vid den kommande bygglovsprövningen, om ansökan om bygglov görs inom två år från den dag då
+      förhandsbeskedet fick laga kraft.
+  - paragraf: "43"
+    rubrik: Rivningslov
+    sammanfattning: Inom detaljplan krävs rivningslov för att riva byggnader, och för andra anläggningar
+      som har rivningsförbud i planen eller är särskilt värdefulla.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      I ett område som omfattas av en detaljplan krävs det rivningslov för att riva
+      1. en byggnad eller en del av en byggnad, eller
+      2. hela eller del av en sådan annan anläggning än en byggnad som
+      a) i detaljplanen omfattas av ett förbud mot rivning, eller
+      b) är en sådan särskilt värdefull anläggning som avses i 8 kap. 13 §.
+  - paragraf: "44"
+    rubrik: Rivningslov
+    sammanfattning: Utanför detaljplan krävs rivningslov bara när områdesbestämmelser kräver det eller
+      när byggnadsverket eller bebyggelseområdet är särskilt värdefullt.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      I ett område som inte omfattas av en detaljplan krävs det rivningslov för att riva
+      1. hela eller del av ett byggnadsverk som i områdesbestämmelser omfattas av ett krav på rivningslov eller ett förbud mot rivning,
+      2. hela eller del av ett sådant byggnadsverk som avses i 8 kap. 13 §, eller
+      3. hela eller del av en byggnad inom ett sådant särskilt värdefullt bebyggelseområde som avses i 8 kap. 13 §.
+  - paragraf: "45"
+    rubrik: Rivningslov
+    sammanfattning: Rivningslov behövs inte för byggnader med tidsbegränsat lov eller säsongslov, eller
+      som fick byggas utan lov och inte är särskilt värdefulla.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 43 § 1 krävs det inte rivningslov om byggnaden eller byggnadsdelen
+      1. har uppförts med stöd av ett tidsbegränsat bygglov enligt 39 § eller ett bygglov för ändamål av säsongskaraktär enligt 40 §, eller
+      2. får uppföras utan bygglov och byggnaden inte är en sådan särskilt värdefull byggnad eller ligger inom ett sådant särskilt värdefullt bebyggelseområde som avses i 8 kap. 13 §.
+  - paragraf: "46"
+    rubrik: Rivningslov
+    sammanfattning: Rivningslov behövs inte när rivningen görs för att följa ett föreläggande enligt 11 kap.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 43 eller 44 § krävs det inte rivningslov om åtgärden är nödvändig för att följa ett
+      föreläggande enligt 11 kap.
+  - paragraf: "47"
+    rubrik: Marklov
+    sammanfattning: Inom detaljplan krävs marklov för schaktning eller fyllning som ändrar höjdläget mer
+      än 0,5 m, när planen kräver marklov och för vissa åtgärder som planen reglerar.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      I ett område som omfattas av en detaljplan krävs det marklov för
+      1. schaktning eller fyllning, om åtgärden ändrar höjdläget mer än 0,5 meter och åtgärden inte innebär att markytan höjs eller sänks till den nivå som har bestämts i detaljplanen,
+      2. åtgärder som i detaljplanen omfattas av krav på marklov, eller
+      3. åtgärder som i detaljplanen regleras med stöd av 4 kap. 10 § och är
+      a) trädfällning,
+      b) skogsplantering, eller
+      c) markåtgärder som kan försämra markens genomsläpplighet.
+  - paragraf: "48"
+    rubrik: Marklov
+    sammanfattning: Utanför detaljplan krävs marklov bara i vissa skydds- och säkerhetsområden där
+      områdesbestämmelser kräver det.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      I ett område som inte omfattas av en detaljplan krävs det marklov för schaktning, fyllning, trädfällning och skogsplantering, om
+      1. åtgärden ska genomföras i ett sådant område som avses i 4 kap. 42 § första stycket 4 a, och
+      2. åtgärden i områdesbestämmelser omfattas av krav på marklov eller bestämmelser enligt 4 kap. 42 § första stycket 4 a.
+  - paragraf: "49"
+    rubrik: Marklov
+    sammanfattning: Marklov enligt 47 § 3 c behövs inte för gata, väg eller järnväg på mark som planen
+      har avsatt för det.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 47 § 3 c krävs det inte marklov för att anlägga en gata, väg eller järnväg på mark
+      som enligt detaljplanen får användas för det ändamålet.
+  - paragraf: "50"
+    rubrik: Marklov
+    sammanfattning: Marklov behövs inte när markåtgärden ingår i ett bygglov eller görs för att följa
+      ett föreläggande enligt 11 kap.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 47 och 48 §§ krävs det inte marklov om markåtgärden omfattas av ett bygglov eller är
+      nödvändig för att följa ett föreläggande enligt 11 kap.
+  - paragraf: "51"
+    rubrik: Åtgärder för totalförsvaret
+    sammanfattning: Hemliga åtgärder för totalförsvaret kräver inte lov men ska föregås av samråd med
+      länsstyrelsen.
+    andrad_genom: Lag (2025:974)
+    lagtext: Krav på bygglov, rivningslov och marklov gäller inte åtgärder med byggnadsverk eller mark
+      som är avsedda för totalförsvaret och som innefattar uppgifter för vilka sekretess gäller
+      enligt 15 kap. 2 § offentlighets- och sekretesslagen (2009:400). Sådana åtgärder ska i stället
+      föregås av samråd med länsstyrelsen som på lämpligt sätt ska underrätta kommunen om åtgärderna
+      och var de ska utföras.
+  - paragraf: "52"
+    rubrik: Lov för åtgärder som inte omfattas av krav på lov
+    sammanfattning: Man får söka lov för en åtgärd som inte kräver lov (frivilligt lov).
+    andrad_genom: Lag (2025:974)
+    lagtext: Även om en åtgärd inte omfattas av krav på bygglov, rivningslov eller marklov, får den som
+      avser att vidta åtgärden ansöka om lov för åtgärden.
+  - paragraf: "53"
+    rubrik: Lov för åtgärder som inte omfattas av krav på lov
+    sammanfattning: Den som bygger ett en- eller tvåbostadshus och samtidigt vill göra en planstridig
+      tillbyggnad enligt 10 kap. 2 a § ska söka lov för tillbyggnaden i samma ansökan.
+    andrad_genom: Lag (2025:974)
+    lagtext: Den som avser att i samband med nybyggnad av ett en- eller tvåbostadshus genomföra en sådan
+      tillbyggnad av bostadshuset som enligt 10 kap. 2 a § får strida mot en detaljplan eller
+      områdesbestämmelser, ska ansöka om lov för tillbyggnaden samtidigt som bygglovet för
+      nybyggnaden söks.
+  - paragraf: "54"
+    rubrik: Lov för åtgärder som inte omfattas av krav på lov
+    sammanfattning: Den som bygger ett enbostadshus och vill inreda en planstridig ytterligare bostad
+      enligt 10 kap. 2 a § ska söka lov för den samtidigt.
+    andrad_genom: Lag (2025:974)
+    lagtext: Den som avser att i samband med nybyggnad av ett enbostadshus inreda huset med en sådan
+      ytterligare bostad som enligt 10 kap. 2 a § får strida mot en detaljplan eller
+      områdesbestämmelser, ska ansöka om lov för att inreda den ytterligare bostaden samtidigt som
+      bygglovet för nybyggnaden söks.
+  - paragraf: "55"
+    rubrik: Anmälningsplikt
+    sammanfattning: Vilka lovfria åtgärder som kräver anmälan står i förordning (PBF 6 kap.), inte i lagen.
+    andrad_genom: Lag (2025:974)
+    lagtext: Bestämmelser om krav på anmälan av åtgärder som inte omfattas av krav på bygglov,
+      rivningslov eller marklov kan finnas i föreskrifter som har meddelats med stöd av 16 kap. 8 §.
+  - paragraf: "56"
+    rubrik: Förutsättningar för bygglov inom detaljplan
+    sammanfattning: Bygglov inom detaljplan ska ges om fastigheten och byggnaden stämmer med planen
+      (eller avvikelsen är godtagen), åtgärden inte strider mot planen, genomförandetiden har börjat
+      och kraven i 2 och 8 kap. är uppfyllda.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Bygglov ska ges för en åtgärd i ett område som omfattas av en detaljplan, om
+      1. den fastighet och det byggnadsverk som åtgärden avser
+      a) överensstämmer med detaljplanen,
+      b) avviker från detaljplanen men detaljplanens genomförandetid har gått ut för minst femton år sedan, eller
+      c) avviker från detaljplanen men avvikelsen har godtagits vid en tidigare bygglovsprövning eller fastighetsbildning enligt 3 kap. 2 § fastighetsbildningslagen (1970:988),
+      2. åtgärden inte strider mot detaljplanen,
+      3. åtgärden inte måste avvakta att genomförandetiden för detaljplanen börjar löpa, och
+      4. åtgärden uppfyller de krav som följer av 2 kap. 6 § första stycket 1 och 5 och tredje stycket, 8 och 9 §§ och 8 kap. 1 §, 2 § första stycket, 3, 6, 7 och 9-11 §§, 12 § första stycket och 13, 17 och 18 §§ och frågan inte redan är avgjord genom detaljplanen.
+      Vid bedömningen enligt första stycket 1 a och 2 ska hänsyn inte tas till åtgärder som enligt 10 kap. 2 a § får strida mot en detaljplan.
+    kommande:
+      fran: 2027-01-01
+      lagtext: |-
+        Bygglov ska ges för en åtgärd i ett område som omfattas av en detaljplan, om
+        1. den fastighet och det byggnadsverk som åtgärden avser
+        a) överensstämmer med detaljplanen,
+        b) avviker från detaljplanen men detaljplanens genomförandetid har gått ut för minst femton år sedan, eller
+        c) avviker från detaljplanen men avvikelsen har godtagits vid en tidigare bygglovsprövning eller fastighetsbildning enligt 3 kap. 2 § fastighetsbildningslagen (1970:988),
+        2. åtgärden inte strider mot detaljplanen,
+        3. åtgärden inte måste avvakta att genomförandetiden för detaljplanen börjar löpa, och
+        4. åtgärden uppfyller de krav som följer av 2 kap. 6 § första stycket 1 och 5 och tredje stycket, 8 och 9 §§ samt 8 kap. 1-2 a, 2 c, 3, 6, 7 och 9-11 §§, 12 § första stycket och 13, 17 och 18 §§ och frågan inte redan är avgjord genom detaljplanen.
+        Vid bedömningen enligt första stycket 1 a och 2 ska hänsyn inte tas till åtgärder som enligt 10 kap. 2 a § får strida mot en detaljplan.
+      andrad_genom: Lag (2026:746)
+  - paragraf: "57"
+    rubrik: Förutsättningar för bygglov utanför detaljplan
+    sammanfattning: Bygglov utanför detaljplan ska ges om åtgärden inte strider mot områdesbestämmelser,
+      inte kräver detaljplan och uppfyller kraven i 2 och 8 kap.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Bygglov ska ges för en åtgärd i ett område som inte omfattas av en detaljplan, om åtgärden
+      1. inte strider mot områdesbestämmelser,
+      2. inte förutsätter planläggning enligt 4 kap. 2 eller 3 §, och
+      3. uppfyller de krav som följer av 2 kap. och 8 kap. 1 §, 2 § första stycket, 3, 6, 7 och 9-11 §§, 12 § första stycket och 13, 17 och 18 §§ och frågan inte redan är avgjord genom områdesbestämmelser eller förhandsbesked.
+      Vid bedömningen enligt första stycket 1 ska hänsyn inte tas till åtgärder som enligt 10 kap. 2 a § får strida mot områdesbestämmelser.
+      Vid bedömningen enligt första stycket 2 om en åtgärds miljöpåverkan förutsätter planläggning, ska hänsyn tas till de omständigheter som talar för eller emot en betydande miljöpåverkan och som motsvarar de omständigheter som hänsyn ska tas till vid en undersökning av en åtgärds miljöpåverkan enligt 6 kap. miljöbalken. Om åtgärden kräver tillstånd enligt 7 kap. 28 a § miljöbalken och redan har miljöbedömts enligt 6 kap. miljöbalken, ska hänsyn tas till resultatet av den bedömningen.
+    kommande:
+      fran: 2027-01-01
+      lagtext: |-
+        Bygglov ska ges för en åtgärd i ett område som inte omfattas av en detaljplan, om åtgärden
+        1. inte strider mot områdesbestämmelser,
+        2. inte förutsätter planläggning enligt 4 kap. 2 eller 3 §, och
+        3. uppfyller de krav som följer av 2 kap. och 8 kap. 1-2 a, 2 c, 3, 6, 7 och 9-11 §§, 12 § första stycket och 13, 17 och 18 §§ och frågan inte redan är avgjord genom områdesbestämmelser eller förhandsbesked.
+        Vid bedömningen enligt första stycket 1 ska hänsyn inte tas till åtgärder som enligt 10 kap. 2 a § får strida mot områdesbestämmelser.
+        Vid bedömningen enligt första stycket 2 om en åtgärds miljöpåverkan förutsätter planläggning, ska hänsyn tas till de omständigheter som talar för eller emot en betydande miljöpåverkan och som motsvarar de omständigheter som hänsyn ska tas till vid en undersökning av en åtgärds miljöpåverkan enligt 6 kap. miljöbalken. Om åtgärden kräver tillstånd enligt 7 kap. 28 a § miljöbalken och redan har miljöbedömts enligt 6 kap. miljöbalken, ska hänsyn tas till resultatet av den bedömningen.
+      andrad_genom: Lag (2026:746)
+  - paragraf: "58"
+    rubrik: Förutsättningar för bygglov trots avvikelse från detaljplan eller områdesbestämmelser
+    sammanfattning: Vid annan ändring än tillbyggnad prövas inte om fastigheten och byggnaden stämmer
+      med planen (56 § första stycket 1).
+    andrad_genom: Lag (2025:974)
+    lagtext: Om åtgärden är en annan ändring av en byggnad än tillbyggnad, ska 56 § första stycket 1
+      inte tillämpas.
+  - paragraf: "59"
+    rubrik: Förutsättningar för bygglov trots avvikelse från detaljplan eller områdesbestämmelser
+    sammanfattning: Små tillbyggnader och små komplementbyggnader till en- eller tvåbostadshus utanför
+      detaljplan prövas utan den fulla prövningen i 57 §, men med vissa krav i 2 och 8 kap.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Bestämmelserna i 57 § första stycket ska inte tillämpas, om åtgärden
+      1. är att ett en- eller tvåbostadshus kompletteras med
+      a) en liten tillbyggnad, eller
+      b) en liten komplementbyggnad,
+      2. inte strider mot sådana områdesbestämmelser som avses i 4 kap. 42 § första stycket 3 eller 4 c, och
+      3. uppfyller de krav som följer av 2 kap. 6 § första stycket 1 och 5 och tredje stycket, 8 och 9 §§ och 8 kap. 1 §, 2 § första stycket, 3, 6, 7 och 9-11 §§, 12 § första stycket och 13, 17 och 18 §§ och frågan inte redan är avgjord genom områdesbestämmelser eller förhandsbesked.
+    kommande:
+      fran: 2027-01-01
+      lagtext: |-
+        Bestämmelserna i 57 § första stycket ska inte tillämpas, om åtgärden
+        1. är att ett en- eller tvåbostadshus kompletteras med
+        a) en liten tillbyggnad, eller
+        b) en liten komplementbyggnad,
+        2. inte strider mot sådana områdesbestämmelser som avses i 4 kap. 42 § första stycket 3 eller 4 c, och
+        3. uppfyller de krav som följer av 2 kap. 6 § första stycket 1 och 5 och tredje stycket, 8 och 9 §§ och 8 kap. 1-2 a, 2 c, 3, 6, 7 och 9-11 §§, 12 § första stycket och 13, 17 och 18 §§ och frågan inte redan är avgjord genom områdesbestämmelser eller förhandsbesked.
+      andrad_genom: Lag (2026:746)
+  - paragraf: "60"
+    rubrik: Förutsättningar för bygglov trots avvikelse från detaljplan eller områdesbestämmelser
+    sammanfattning: "Liten avvikelse: lov får ges trots avvikelse från plan eller områdesbestämmelser om
+      avvikelsen är förenlig med syftet och liten, eller begränsad och nödvändig, eller gäller
+      vindsinredning till bostad (inom plan först efter genomförandetiden)."
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 56 § första stycket 2, 57 § första stycket 1 och 59 § första stycket 2 får bygglov ges för en åtgärd som avviker från en detaljplan eller områdesbestämmelser, om
+      1. avvikelsen är förenlig med detaljplanens eller områdesbestämmelsernas syfte och avvikelsen är liten,
+      2. avvikelsen är förenlig med detaljplanens eller områdesbestämmelsernas syfte och åtgärden är av begränsad omfattning och nödvändig för att området ska kunna användas på ett ändamålsenligt sätt, eller
+      3. åtgärden är att inreda en vind till bostad i ett bostadshus.
+      Bygglov för en åtgärd som avses i första stycket 3 får i ett område som omfattas av en detaljplan ges först efter det att planens genomförandetid har gått ut.
+  - paragraf: "61"
+    rubrik: Förutsättningar för bygglov trots avvikelse från detaljplan eller områdesbestämmelser
+    sammanfattning: Efter genomförandetiden får lov ges för avvikelser som tillgodoser ett angeläget
+      gemensamt behov eller allmänt intresse, eller som är ett lämpligt komplement till planens
+      användning.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 56 § första stycket 2 får bygglov ges för en åtgärd som avviker från en detaljplan, om planens genomförandetid har gått ut och
+      1. avvikelsen är förenlig med detaljplanens syfte och åtgärden tillgodoser ett angeläget gemensamt behov eller ett allmänt intresse, eller
+      2. åtgärden innebär en sådan annan användning av mark eller vatten som utgör ett lämpligt komplement till området och den användning som har bestämts i detaljplanen.
+  - paragraf: "62"
+    rubrik: Förutsättningar för bygglov trots avvikelse från detaljplan eller områdesbestämmelser
+    sammanfattning: Avvikelser enligt 60 eller 61 § får inte godtas om åtgärden kan antas medföra
+      betydande miljöpåverkan eller begränsa en rättighet eller pågående verksamhet i omgivningen.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Bygglov enligt 60 eller 61 § får inte ges om åtgärden kan antas medföra
+      1. en betydande miljöpåverkan, eller
+      2. en begränsning av en rättighet eller pågående verksamhet i omgivningen.
+  - paragraf: "63"
+    rubrik: Förutsättningar för bygglov trots avvikelse från detaljplan eller områdesbestämmelser
+    sammanfattning: "Planstridigt utgångsläge: nämnden får godta att fastigheten eller byggnaden avviker
+      från planen om avvikelsen uppstod när planen antogs och är liten eller annars förenlig med
+      planens syfte."
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Om den fastighet eller det byggnadsverk som åtgärden avser inte överensstämmer med detaljplanen vid en prövning enligt 56 § första stycket 1 a får byggnadsnämnden i ett beslut om bygglov förklara att avvikelsen godtas, om avvikelsen uppkom genom att planen antogs och
+      1. är liten och förenlig med detaljplanens syfte,
+      2. är förenlig med detaljplanens syfte och åtgärden är av begränsad omfattning och nödvändig för att området ska kunna användas på ett ändamålsenligt sätt, eller
+      3. är förenlig med detaljplanens syfte och åtgärden tillgodoser ett angeläget gemensamt behov eller ett allmänt intresse.
+  - paragraf: "64"
+    rubrik: Förutsättningar för bygglov trots avvikelse från detaljplan eller områdesbestämmelser
+    sammanfattning: Den sökta avvikelsen ska bedömas samlat med avvikelser som har godtagits tidigare.
+    andrad_genom: Lag (2025:974)
+    lagtext: Om avvikelser tidigare har godtagits enligt 56 § första stycket 1 c, 60, 61 eller 63 § ska
+      en samlad bedömning göras av den avvikande åtgärd som söks och de som tidigare har godtagits.
+  - paragraf: "65"
+    rubrik: Förutsättningar för bygglov på kvartersmark för allmänt ändamål
+    sammanfattning: På kvartersmark för allmänt ändamål får lov ges bara om ändamålet är närmare angivet
+      i planen, med vissa undantag för tidigare användning och små avvikelser.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Bygglov för en åtgärd på mark som enligt detaljplanen utgör kvartersmark för allmänt ändamål får endast ges om ändamålet är närmare angivet i planen. Bygglov får ges även om huvudmannen inte är ett offentligt organ.
+      Trots att det allmänna ändamålet inte är närmare angivet i planen får bygglov ges om åtgärden innebär
+      1. att fastigheten och det byggnadsverk som åtgärden avser används för det allmänna ändamål som fastigheten eller byggnadsverket senast har använts för eller enligt senast beviljade bygglov har anpassats till utan att den avsedda användningen kommit till stånd, eller
+      2. en liten avvikelse från den senaste eller avsedda användningen.
+  - paragraf: "66"
+    rubrik: Förutsättningar för bygglov på kvartersmark för allmänt ändamål
+    sammanfattning: Lov enligt 65 § får inte ges om åtgärden kan antas medföra betydande miljöpåverkan
+      eller begränsa en rättighet eller verksamhet i omgivningen.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Bygglov enligt 65 § får inte ges om åtgärden kan antas medföra
+      1. en betydande miljöpåverkan, eller
+      2. en begränsning av en rättighet eller pågående verksamhet i omgivningen.
+  - paragraf: "67"
+    rubrik: Förutsättningar för bygglov på kvartersmark för allmänt ändamål
+    sammanfattning: Paragrafen är upphävd.
+    upphavd: Har upphävts genom lag (2026:712)
+  - paragraf: "68"
+    rubrik: Bygglovsprövningen när en byggbedömare används
+    sammanfattning: När en byggbedömare används för lovprövningen av viss nybyggnad prövar nämnden inte
+      utformningskraven i 8 kap. 1 § 1 och 3.
+    andrad_genom: Lag (2026:712)
+    lagtext: Om en byggbedömare används för lovprövningen av nybyggnad som omfattas av föreskrifter som
+      har meddelats med stöd av 16 kap. 9 § 2, ska bygglov ges utan prövning av om kraven i 8 kap. 1
+      § 1 och 3 är uppfyllda. Detta gäller trots det som sägs i 56 § första stycket 4, 57 § första
+      stycket 3 och 59 § 3.
+  - paragraf: "69"
+    rubrik: Bygglovsprövningen när en byggbedömare används
+    sammanfattning: Paragrafen är upphävd.
+    upphavd: Har upphävts genom lag (2026:712)
+  - paragraf: "70"
+    rubrik: Förutsättningar för tidsbegränsat bygglov
+    sammanfattning: Tidsbegränsat bygglov ska ges om sökanden begär det och planen har en bestämmelse om
+      tillfällig användning.
+    andrad_genom: Lag (2025:974)
+    lagtext: Ett tidsbegränsat bygglov ska ges om sökanden begär det och åtgärden har stöd i en
+      detaljplanebestämmelse om tillfällig användning av byggnad eller mark.
+  - paragraf: "71"
+    rubrik: Förutsättningar för tidsbegränsat bygglov
+    sammanfattning: Tidsbegränsat bygglov får ges om platsen kan återställas och åtgärden uppfyller
+      någon men inte alla förutsättningar för permanent lov, eller är bostäder som uppfyller någon
+      förutsättning.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Ett tidsbegränsat bygglov får ges om sökanden begär det, platsen kan återställas och
+      1. åtgärden är nybyggnad för bostadsändamål eller tillhörande åtgärd och uppfyller någon förutsättning enligt 56-66 §§, eller
+      2. åtgärden avses pågå under en begränsad tid och uppfyller någon eller några men inte alla förutsättningar enligt 56-66 §§.
+  - paragraf: 71 a
+    rubrik: Förutsättningar för tidsbegränsat bygglov
+    sammanfattning: Tidsbegränsat bygglov får ges för kriminalvårdsanstalter och häkten om platsen
+      tekniskt kan återställas och någon förutsättning för lov är uppfylld (tillfällig regel).
+    andrad_genom: Lag (2026:504)
+    upphor: 2036-07-01
+    lagtext: |-
+      Ett tidsbegränsat bygglov för en åtgärd som avser en kriminalvårdsanstalt eller ett häkte får ges om sökanden begär det och
+      1. det är tekniskt möjligt att återställa platsen eller byggnadsverket, och
+      2. åtgärden uppfyller någon förutsättning enligt 56-66 §§.
+  - paragraf: "72"
+    rubrik: Förutsättningar för tidsbegränsat bygglov
+    sammanfattning: Tidsbegränsat bygglov ges för högst tio år och kan förlängas med fem år i taget, men
+      totalt mer än 15 år bara för säsongsändamål.
+    andrad_genom: Lag (2025:974)
+    lagtext: Ett tidsbegränsat bygglov får ges för högst tio år. Tiden kan på sökandens begäran
+      förlängas med högst fem år i taget. Den sammanlagda tiden får överstiga femton år endast om
+      åtgärden är en sådan som avses i 71 § 2 och bygglovet ska användas för ett sådant ändamål av
+      säsongskaraktär som avses i 40 §.
+  - paragraf: 72 a
+    rubrik: Förutsättningar för tidsbegränsat bygglov
+    sammanfattning: För kriminalvårdsanstalter och häkten får den sammanlagda tiden för tidsbegränsat
+      lov vara högst tjugo år (tillfällig regel).
+    andrad_genom: Lag (2026:504)
+    upphor: 2036-07-01
+    lagtext: Trots 72 § tredje meningen får den sammanlagda tiden för ett tidsbegränsat bygglov uppgå
+      till högst tjugo år, om lovet avser en kriminalvårdsanstalt eller ett häkte.
+  - paragraf: "73"
+    rubrik: Återställande efter tidsbegränsat bygglov
+    sammanfattning: Platsen ska återställas innan tiden för ett tidsbegränsat lov har gått ut, om inte
+      ett permanent lov har getts.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Innan tiden för ett tidsbegränsat bygglov har gått ut ska den plats eller det byggnadsverk som lovet avser återställas. Om tiden har förlängts ska platsen eller byggnadsverket i stället återställas innan den nya tiden har gått ut.
+      Bestämmelserna om bygglov, rivningslov, marklov och anmälan i denna lag eller föreskrifter som har meddelats med stöd av lagen gäller inte för åtgärder som vidtas för att återställa en plats eller ett byggnadsverk enligt första stycket.
+      Trots första stycket behöver platsen eller byggnadsverket inte återställas om byggnadsnämnden har gett bygglov som inte är tidsbegränsat för åtgärden.
+  - paragraf: "74"
+    rubrik: Förutsättningar för förhandsbesked
+    sammanfattning: Positivt förhandsbesked får ges om åtgärden inte strider mot områdesbestämmelser,
+      inte kräver detaljplan och uppfyller lokaliseringskraven i 2 kap.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Ett förhandsbesked som innebär att en åtgärd kan lokaliseras till en viss plats får ges om åtgärden
+      1. inte strider mot områdesbestämmelser,
+      2. inte förutsätter planläggning enligt 4 kap. 2 eller 3 §, och
+      3. uppfyller de krav på lokalisering som följer av 2 kap. i de delar som inte har prövats i områdesbestämmelser.
+      Vid bedömningen enligt första stycket 2 om en åtgärds miljöpåverkan förutsätter planläggning, ska hänsyn tas till de omständigheter som talar för eller emot en betydande miljöpåverkan och som motsvarar de omständigheter som hänsyn ska tas till vid en undersökning av en åtgärds miljöpåverkan enligt 6 kap. miljöbalken. Om åtgärden kräver tillstånd enligt 7 kap. 28 a § miljöbalken och redan har miljöbedömts enligt 6 kap. miljöbalken, ska hänsyn tas till resultatet av den bedömningen.
+  - paragraf: "75"
+    rubrik: Förutsättningar för rivningslov
+    sammanfattning: Rivningslov ska ges om byggnadsverket inte har rivningsförbud i plan eller områdesbestämmelser.
+    andrad_genom: Lag (2025:974)
+    lagtext: Rivningslov ska ges för en åtgärd som avser ett byggnadsverk eller en del av ett
+      byggnadsverk som inte omfattas av rivningsförbud i en detaljplan eller områdesbestämmelser.
+  - paragraf: "76"
+    rubrik: Förutsättningar för rivningslov
+    sammanfattning: Rivningslov får inte ges om byggnadsverket bör bevaras för sitt historiska,
+      kulturhistoriska, miljömässiga eller konstnärliga värde.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 75 § får rivningslov inte ges om byggnadsverket bör bevaras på grund av
+      byggnadsverkets eller bebyggelsens historiska, kulturhistoriska, miljömässiga eller
+      konstnärliga värde.
+  - paragraf: "77"
+    rubrik: Förutsättningar för marklov
+    sammanfattning: Marklov ska ges om åtgärden inte strider mot plan, inte försvårar bebyggelse eller
+      vissa anläggningar, inte stör omgivningen och uppfyller kraven i 2 och 8 kap.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Marklov ska ges för en åtgärd som
+      1. inte strider mot en detaljplan eller områdesbestämmelser,
+      2. inte förhindrar eller försvårar det berörda områdets användning för bebyggelse,
+      3. inte medför olägenheter för användningen av sådana anläggningar som avses i 4 kap. 42 § första stycket 4 a,
+      4. inte medför störningar eller betydande olägenheter för omgivningen, och
+      5. uppfyller de krav som
+      a) om ansökan avser en åtgärd i ett område som omfattas av en detaljplan, följer av 2 kap. 6 § tredje stycket och 8 kap. 9-12 §§ och frågan inte redan är avgjord genom detaljplanen, eller
+      b) om ansökan avser en åtgärd i ett område som inte omfattas av en detaljplan, följer av 2 kap. och 8 kap. 9-12 §§ och frågan inte redan är avgjord genom områdesbestämmelser.
+  - paragraf: "78"
+    rubrik: Förutsättningar för marklov
+    sammanfattning: Marklov får ges trots en liten avvikelse som är förenlig med planens eller
+      områdesbestämmelsernas syfte.
+    andrad_genom: Lag (2025:974)
+    lagtext: Trots 77 § 1 får marklov ges om avvikelsen från detaljplanen eller områdesbestämmelserna är
+      liten och förenlig med syftet med detaljplanen eller områdesbestämmelserna.
+  - paragraf: "79"
+    rubrik: Prövning av åtgärd som inte omfattas av krav på lov
+    sammanfattning: Ett frivilligt lov ska ges om åtgärden uppfyller kraven på lokalisering, placering
+      och utformning.
+    andrad_genom: Lag (2025:974)
+    lagtext: Vid prövning av en ansökan enligt 52-54 §§ ska lov ges om åtgärden uppfyller de krav på
+      lokalisering, placering och utformning som finns på åtgärden i denna lag eller i föreskrifter
+      som har meddelats med stöd av lagen.
+  - paragraf: "80"
+    rubrik: Krav på medgivande från Försvarsmakten eller Myndigheten för civilt försvar
+    sammanfattning: Om nämnden ska underrätta Försvarsmakten eller Myndigheten för civilt försvar får
+      lov eller positivt förhandsbesked bara ges om myndigheten medger det.
+    andrad_genom: Lag (2025:1079)
+    lagtext: För att lov eller positivt förhandsbesked ska kunna ges för en åtgärd i en ansökan som
+      byggnadsnämnden ska underrätta Försvarsmakten eller Myndigheten för civilt försvar om enligt
+      97 § krävs det ett medgivande från den myndighet som ska ha underrättats.
+  - paragraf: "81"
+    rubrik: Villkorade lov
+    sammanfattning: Lov får ges med villkor att en ny detaljplan eller nya områdesbestämmelser får laga
+      kraft, och åtgärden får då inte påbörjas innan dess.
+    andrad_genom: Lag (2025:974)
+    lagtext: Om ett beslut att anta, ändra eller upphäva en detaljplan eller områdesbestämmelser inte
+      har fått laga kraft, får ett bygglov, rivningslov eller marklov för en åtgärd inom det område
+      som detaljplanen eller områdesbestämmelserna omfattar ges med villkoret att planbeslutet får
+      laga kraft. Beslutet om lov ska i så fall innehålla en upplysning om att åtgärden inte får
+      påbörjas innan planbeslutet har fått laga kraft.
+  - paragraf: "82"
+    rubrik: Villkorade lov
+    sammanfattning: Nämnden får bestämma att byggandet inte får börja förrän ersättning för gator och
+      allmänna platser är betald eller säkerhet ställd.
+    andrad_genom: Lag (2025:974)
+    lagtext: I ett beslut om bygglov får byggnadsnämnden bestämma att byggnadsarbeten inte får påbörjas
+      förrän fastighetsägaren har betalat ersättning för gator eller andra allmänna platser eller
+      har ställt säkerhet för ersättningen.
+  - paragraf: "83"
+    rubrik: Villkorade lov
+    sammanfattning: Ett planvillkor enligt 4 kap. 14 § får i stället kopplas till startbeskedet.
+    andrad_genom: Lag (2025:974)
+    lagtext: Om kommunen i en detaljplan med stöd av 4 kap. 14 § har bestämt att lov endast får ges om
+      en viss förutsättning är uppfylld, får ett lov ges med villkoret att förutsättningen i stället
+      ska vara uppfylld för att startbesked ska få ges.
+  - paragraf: "84"
+    rubrik: Villkorade lov
+    sammanfattning: Vid lov i efterhand får nämnden kräva ändringar i det som redan är utfört och
+      bestämma när de ska vara gjorda.
+    andrad_genom: Lag (2025:974)
+    lagtext: I ett bygglov eller marklov för en åtgärd som redan har utförts, får byggnadsnämnden
+      bestämma om skyldighet att vidta de ändringar i det utförda som behövs. I beslutet ska nämnden
+      i så fall ange den tid inom vilken ändringarna ska vara utförda.
+  - paragraf: "85"
+    rubrik: Prövningsmyndighet
+    sammanfattning: Byggnadsnämnden prövar ansökningar om lov och förhandsbesked.
+    andrad_genom: Lag (2025:974)
+    lagtext: Byggnadsnämnden prövar ansökningar om lov och förhandsbesked.
+  - paragraf: "86"
+    rubrik: Ansökans innehåll
+    sammanfattning: Ansökan ska vara skriftlig och innehålla bland annat fastighetsbeteckning,
+      byggherrens uppgifter, kontrollansvarig, tidpunkt för start och de ritningar och beskrivningar
+      som behövs.
+    andrad_genom: Lag (2026:712)
+    lagtext: |-
+      En ansökan om lov eller förhandsbesked ska vara skriftlig och innehålla
+      1. fastighetens beteckning,
+      2. byggherrens person- eller organisationsnummer, namn och adress,
+      3. uppgift om vem, inklusive person- eller organisationsnummer och adress, som
+      a) används som byggbedömare för lovprövningen eller är avsedd att användas som byggbedömare för kontroll vid genomförandet, eller
+      b) föreslås som kontrollansvarig, om det behövs en kontrollansvarig enligt 10 kap. 9 och 10 §§,
+      4. uppgift om vem som certifierat de byggbedömare och kontrollansvariga som avses i 3,
+      5. den tidpunkt då byggnads-, rivnings- eller markarbetena är avsedda att påbörjas,
+      6. ett intyg från den byggbedömare som används vid lovprövningen om att kraven i 8 kap. 1 § 1 och 3 är uppfyllda, om sökanden önskar att bygglov med stöd av 68 § ska ges utan att de kraven ska prövas av byggnadsnämnden,
+      7. de ritningar, beskrivningar och andra uppgifter som behövs för prövningen, och
+      8. de handlingar som krävs för beslut om startbesked enligt 10 kap., om sökanden vill ge byggnadsnämnden förutsättningar att besluta om lov och startbesked samtidigt.
+      En ansökan om bygglov ska också innehålla en kopia av ett beslut om skyddsrum enligt 3 kap. 1 § första stycket lagen (2026:440) om skyddsrum och skyddade utrymmen, om en underrättelse krävs enligt 3 kap. 2 § samma lag.
+  - paragraf: "87"
+    rubrik: Ansökans innehåll
+    sammanfattning: Paragrafen är upphävd.
+    upphavd: Har upphävts genom lag (2026:712)
+  - paragraf: "88"
+    rubrik: Ansökans innehåll
+    sammanfattning: För vissa åtgärder utanför plan som kan ge betydande miljöpåverkan ska ansökan också
+      innehålla miljöuppgifter och en bedömning av miljöpåverkan.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      En ansökan om bygglov eller förhandsbesked för en åtgärd som avses i 4 kap. 2 § första stycket 3 a och som ska vidtas i ett område som inte omfattas av en detaljplan ska, utöver det som sägs i 86 §, innehålla
+      1. uppgifter om
+      a) byggnadsverkets utformning och omfattning,
+      b) rivningsarbeten, om sådana kan förutses,
+      c) miljöns känslighet i de områden som kan antas bli påverkade,
+      d) vad i miljön som kan antas bli betydligt påverkat,
+      e) de betydande miljöeffekter som åtgärden kan antas medföra i sig eller till följd av yttre händelser, i den utsträckning sådana uppgifter finns tillgängliga, och
+      f) åtgärder som planeras för att förebygga, hindra, motverka eller avhjälpa negativa miljöeffekter, i den utsträckning sådana uppgifter finns tillgängliga, och
+      2. en bedömning av om den åtgärd som ansökan avser kan antas medföra en betydande miljöpåverkan.
+      Om ansökan avser en åtgärd som, enligt föreskrifter som regeringen har meddelat i anslutning till denna lag, inte ska antas medföra en betydande miljöpåverkan, gäller första stycket endast om det finns behov av att pröva åtgärdens miljöpåverkan tillsammans med miljöpåverkan från åtgärder som sedan tidigare är beslutade eller genomförda.
+  - paragraf: "89"
+    rubrik: Ansökans innehåll
+    sammanfattning: Miljöuppgifterna ska vara så utförliga att nämnden kan bedöma om åtgärden kan antas
+      medföra betydande miljöpåverkan.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Uppgifterna enligt 88 § ska ha den omfattning och detaljeringsgrad som behövs för att byggnadsnämnden ska kunna ta ställning till om åtgärden kan antas medföra en betydande miljöpåverkan utifrån de omständigheter som hänsyn ska tas till vid en undersökning av en åtgärds miljöpåverkan enligt 6 kap. miljöbalken.
+      Om ansökan avser en åtgärd som kräver tillstånd enligt 7 kap. 28 a § miljöbalken och åtgärden redan har miljöbedömts enligt 6 kap. miljöbalken, ska ansökan utformas med hänsyn till resultatet av den bedömningen.
+  - paragraf: "90"
+    rubrik: Ansökans innehåll
+    sammanfattning: Handlingarna i ansökan ska vara lämpliga för arkivering om nämnden begär det.
+    andrad_genom: Lag (2025:974)
+    lagtext: De handlingar som lämnas in i ansökan om lov eller förhandsbesked ska vara lämpliga för
+      arkivering, om byggnadsnämnden begär det.
+  - paragraf: "91"
+    rubrik: Ansökans innehåll
+    sammanfattning: Är ansökan ofullständig får nämnden förelägga sökanden att komplettera inom en viss
+      tid, och följs inte föreläggandet får ansökan avvisas eller avgöras i befintligt skick.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Om en ansökan är ofullständig, får byggnadsnämnden förelägga sökanden att avhjälpa bristerna inom en viss tid. Föreläggandet ska innehålla en upplysning om att ansökan kan komma att avvisas eller att ärendet kan komma att avgöras i befintligt skick om föreläggandet inte följs.
+      Om föreläggandet inte följs, får byggnadsnämnden avvisa ansökan eller avgöra ärendet i befintligt skick.
+  - paragraf: "92"
+    rubrik: Upplysning om andra krav på tillstånd eller anmälan
+    sammanfattning: Nämnden ska upplysa sökanden om åtgärden också kräver tillstånd eller anmälan enligt annan lag.
+    andrad_genom: Lag (2025:974)
+    lagtext: Om byggnadsnämnden finner att en åtgärd som avses med en ansökan också omfattas av krav på
+      tillstånd eller anmälan enligt annan lag eller författning, ska nämnden upplysa sökanden om
+      detta.
+  - paragraf: "93"
+    rubrik: Samordning med ärende hos miljönämnden
+    sammanfattning: Kräver åtgärden också anmälan till miljönämnden ska nämnderna samordna yttranden och beslut.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Om en ansökan avser en åtgärd som måste anmälas till kommunen enligt föreskrifter som har meddelats med stöd av 9 kap. 6 § miljöbalken, ska byggnadsnämnden underrätta miljönämnden om sitt ärende. Byggnadsnämnden och miljönämnden ska samordna handläggningen av ärendena så att
+      1. berörda myndigheter, organisationer och enskilda parter ges tillfälle att i ett sammanhang yttra sig i båda ärendena, och
+      2. beslut i båda ärendena meddelas i ett sammanhang.
+      Om det finns särskilda skäl, får nämnderna besluta att det inte ska ske någon samordning enligt första stycket. Innan de fattar ett sådant beslut ska de ge varandra och de berörda parterna tillfälle att yttra sig.
+  - paragraf: "94"
+    rubrik: Underrättelser för att ge tillfälle för yttranden
+    sammanfattning: Grannar ska underrättas och få yttra sig när ansökan avviker från plan eller
+      områdesbestämmelser, och utanför plan där det saknas områdesbestämmelser (utom vid små
+      kompletteringar enligt 59 § 1).
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Byggnadsnämnden ska underrätta enligt det som framgår av 95-97 §§, om en ansökan om lov eller förhandsbesked avser
+      1. en åtgärd som avviker från en detaljplan eller områdesbestämmelser, eller
+      2. en åtgärd som
+      a) ska utföras i ett område som inte omfattas av en detaljplan,
+      b) inte är reglerad i områdesbestämmelser, och
+      c) inte endast kompletterar ett en- eller tvåbostadshus med en sådan tillbyggnad eller komplementbyggnad som avses i 59 § 1.
+      Underrättelse behöver inte ske om det är uppenbart att lov inte kan ges, eller att ansökan saknar betydelse för ägaren eller innehavaren av den särskilda rätten som avses i 96 § första stycket 1.
+      Om ansökan ändras efter underrättelsen behöver en ny underrättelse endast ske om ändringen strider mot detaljplanen eller områdesbestämmelserna. De som har haft synpunkter på den ursprungliga ansökan ska dock alltid ges tillfälle att yttra sig.
+  - paragraf: "95"
+    rubrik: Underrättelser för att ge tillfälle för yttranden
+    sammanfattning: Underrättelsen ska berätta vad ansökan gäller, var den finns och hur, till vem och
+      när synpunkter kan lämnas.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Underrättelse ska ske med ett meddelande som innehåller information om
+      1. ansökans huvudsakliga innehåll,
+      2. var ansökan hålls tillgänglig, och
+      3. på vilket sätt, till vem och inom vilken tid synpunkter på ansökan kan lämnas.
+  - paragraf: "96"
+    rubrik: Underrättelser för att ge tillfälle för yttranden
+    sammanfattning: Underrättelsen skickas till ägare och innehavare av särskild rätt till fastigheter
+      som gränsar till platsen (även över väg eller gata) och kungörs på kommunens anslagstavla.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Meddelandet ska
+      1. skickas till ägaren eller innehavaren av en särskild rätt till en tomt eller fastighet som gränsar till den tomt eller fastighet som åtgärden i ansökan avser, eller som skiljs åt från denna endast av en väg eller gata, och
+      2. kungöras genom att det anslås på kommunens anslagstavla.
+      Kungörandet ska ske enligt lagen (1977:654) om kungörande i mål och ärenden hos myndighet m.m.
+  - paragraf: "97"
+    rubrik: Underrättelser för att ge tillfälle för yttranden
+    sammanfattning: I eller nära riksintressen för totalförsvaret ska även Försvarsmakten eller
+      Myndigheten för civilt försvar underrättas.
+    andrad_genom: Lag (2025:1079)
+    lagtext: |-
+      Byggnadsnämnden ska i de fall som avses i 94 §, genom ett meddelande enligt 95 §, även underrätta Försvarsmakten eller Myndigheten för civilt försvar, inom deras respektive ansvarsområden, om åtgärden i ansökan om lov eller förhandsbesked
+      1. ska vidtas inom eller i anslutning till ett område som är av riksintresse på grund av att det behövs för totalförsvarets anläggningar, och
+      2. omfattas av krav på bygglov enligt bestämmelser som avses i 2 § andra stycket eller enligt det som följer av 3-7, 9-13, 15-17, 22, 23, 25, 26, 28, 29, 31, 32, 36, 39 och 40 §§ eller krav på marklov enligt det som följer av 47-50 §§.
+      En sådan underrättelse krävs inte om Försvarsmakten eller Myndigheten för civilt försvar för viss åtgärd inom ett särskilt område har beslutat detta och underrättat kommunen om beslutet.
+  - paragraf: "98"
+    rubrik: Underrättelser för att ge tillfälle för yttranden
+    sammanfattning: Före beslut ska sökanden och fastighetsägaren få ta del av allt underlag av
+      betydelse och yttra sig inom en bestämd tid (kommunicering).
+    andrad_genom: Lag (2025:974)
+    lagtext: Innan byggnadsnämnden beslutar om lov eller förhandsbesked ska nämnden, om det inte är
+      uppenbart obehövligt, underrätta sökanden och fastighetsägaren om allt underlag av betydelse
+      för beslutet och ge dem tillfälle att inom en bestämd tid yttra sig över underlaget.
+  - paragraf: "99"
+    rubrik: Tidsfrister för handläggningen
+    sammanfattning: Nämnden ska besluta inom tio veckor från ansökningsdagen eller en senare startdag
+      enligt punkterna 2–4, och fristen får förlängas en gång med högst tio veckor.
+    andrad_genom: Lag (2026:406)
+    lagtext: |-
+      Byggnadsnämnden ska handlägga ärenden om lov och förhandsbesked skyndsamt och besluta i ärendet inom tio veckor från
+      1. den dag ansökan kom in till nämnden (ansökningsdagen),
+      2. den dag efter ansökningsdagen då ytterligare underlag eller en ändring av ansökan kom in till nämnden från sökanden på sökandens initiativ,
+      3. den dag efter ansökningsdagen då besked enligt 80 § kom in från Försvarsmakten eller Myndigheten för civilt försvar, eller
+      4. den dag då sökanden avhjälpt en brist i ansökan, om nämnden inom tre veckor från den dag som anges i 1 eller 2 har förelagt sökanden enligt 91 § första stycket att avhjälpa bristen.
+      Om det är nödvändigt på grund av handläggningen eller utredningen i ärendet, får tioveckorsfristen i första stycket förlängas en gång med högst tio veckor. Om ärendet gäller lov eller förhandsbesked enligt 15 § 3 för installation av en solenergianläggning, får tioveckorsfristen bara förlängas med högst två veckor.
+  - paragraf: 99 a
+    rubrik: Tidsfrister för handläggningen
+    sammanfattning: Lov för en värmepump (under 50 megawatt) som fasadändring ska avgöras inom fyra
+      veckor, utan möjlighet till förlängning.
+    andrad_genom: Lag (2026:406)
+    lagtext: Trots 99 § första stycket ska byggnadsnämnden besluta i ett ärende inom fyra veckor om
+      ärendet avser lov eller förhandsbesked enligt 15 § 3 för installation av en värmepump, med en
+      installerad effekt som understiger 50 megawatt. Tidsfristen får inte förlängas.
+  - paragraf: "100"
+    rubrik: Tidsfrister för handläggningen
+    sammanfattning: Nämnden ska skriftligen informera sökanden om tidsfristen, avgiftsreduktionen och
+      överklagande, och om fristen börjar en annan dag eller förlängs.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Byggnadsnämnden ska
+      1. när en ansökan om lov eller förhandsbesked har kommit in, skriftligen informera sökanden om
+      a) vilka tidsfrister som gäller för nämndens beslut i ärendet,
+      b) att den avgift som nämnden får ta ut reduceras om tidsfristen för beslut överskrids, och
+      c) möjligheterna att överklaga nämndens beslut,
+      2. om tidsfristen för beslut till följd av 99 § första stycket 2, 3 eller 4 börjar löpa vid en annan tidpunkt än ansökningsdagen, skriftligen informera sökanden om den ändrade tidpunkten, och
+      3. om tidsfristen förlängs enligt 99 § andra stycket, innan den ursprungliga tidsfristen gått ut skriftligen informera sökanden om förlängningen och skälen för den.
+  - paragraf: "101"
+    rubrik: Tidsfrister för handläggningen
+    sammanfattning: Vid ett återförvisat ärende räknas tidsfristen från dagen när beslutet om
+      återförvisning fick laga kraft.
+    andrad_genom: Lag (2026:406)
+    lagtext: Om ett ärende har återförvisats till byggnadsnämnden för förnyad handläggning, ska
+      bestämmelserna om tidsfrister och information i 99-100 §§ tillämpas. Det som sägs där om
+      ansökningsdagen ska då i stället gälla den dag beslutet om återförvisning fick laga kraft.
+  - paragraf: "102"
+    rubrik: Tidsfrister för handläggningen
+    sammanfattning: Nämnden får låta ett ärende vänta på beslut om strandskyddsdispens, expropriation
+      eller pågående planarbete (planarbete högst två år).
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Trots 99 § får byggnadsnämnden besluta att ett ärende om lov eller förhandsbesked inte ska avgöras förrän
+      1. frågan om dispens från strandskydd har avgjorts, om ärendet om lov eller förhandsbesked avser en byggnad eller ett markområde som också omfattas av en ansökan om dispens från strandskydd,
+      2. frågan om expropriation har avgjorts, om ärendet om lov eller förhandsbesked avser en byggnad eller ett markområde som också omfattas av en ansökan om expropriationstillstånd, eller
+      3. frågan om planarbete har avslutats, om ärendet om lov eller förhandsbesked avser en byggnad eller ett markområde som också omfattas av ett påbörjat arbete för att anta, ändra eller upphäva en detaljplan eller områdesbestämmelser.
+      Om kommunen inte har avslutat planarbetet enligt första stycket 3 inom två år från det att ansökan om lov eller förhandsbesked kom in till byggnadsnämnden, ska dock ärendet om lov eller förhandsbesked avgöras utan dröjsmål.
+  - paragraf: "103"
+    rubrik: Tidsfrister för handläggningen
+    sammanfattning: Har lov vägrats på grund av ett expropriationstillstånd som sedan upphört, får en ny
+      ansökan avslås på samma grund först tio år efter det första tillståndet.
+    andrad_genom: Lag (2025:974)
+    lagtext: Om ett bygglov för en åtgärd tidigare har vägrats på grund av att ett tillstånd till
+      expropriation har getts och det tillståndet har upphört att gälla, får en ny ansökan om
+      bygglov till åtgärden inte avslås på grund av ett nytt expropriationstillstånd förrän tio år
+      har förflutit från den dag då det första expropriationstillståndet gavs.
+  - paragraf: "104"
+    rubrik: Innehåll i beslut
+    sammanfattning: Ett positivt förhandsbesked ska upplysa om tvåårsgränsen och om att åtgärden inte
+      får påbörjas, och innehålla de villkor som behövs.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Ett positivt förhandsbesked ska innehålla
+      1. en upplysning om att förhandsbeskedet endast gäller om bygglov för åtgärden söks inom två år efter det att beslutet om förhandsbesked fick laga kraft,
+      2. en upplysning om att förhandsbeskedet inte innebär att åtgärden får påbörjas, och
+      3. de villkor som behövs för att förhandsbeskedet ska vara förenligt med de förutsättningar som gäller för den kommande bygglovsprövningen.
+  - paragraf: "105"
+    rubrik: Innehåll i beslut
+    sammanfattning: Ett beslut om lov ska bland annat upplysa om giltighetstid, kontrollansvarig, att
+      startbesked krävs och att en åtgärd som påbörjas före laga kraft kan behöva återställas.
+    andrad_genom: Lag (2026:712)
+    lagtext: |-
+      Ett beslut om bygglov, rivningslov eller marklov ska innehålla
+      1. en upplysning om vilken giltighetstid lovet har,
+      2. en upplysning om vem som har använts som byggbedömare för lovprövningen och vem som är avsedd att användas som byggbedömare för kontroll vid genomförandet,
+      3. en upplysning om det ska finnas någon som är kontrollansvarig och i så fall vem eller vilka som är kontrollansvariga,
+      4. en upplysning om att åtgärden inte får påbörjas förrän lovet har börjat gälla enligt 114 § och byggnadsnämnden har gett ett startbesked enligt 10 kap.,
+      5. en upplysning om att en åtgärd som påbörjas innan beslutet fått laga kraft kan behöva återställas om beslutet ändras vid en överprövning, och
+      6. de villkor och upplysningar som följer av 73, 81, 82, 83, 84 eller 92 § eller behövs i övrigt.
+      Om ett bygglov avser nybyggnad eller tillbyggnad av en bostadsbyggnad i ett område som inte omfattas av en detaljplan ska beslutet, om det inte kan anses obehövligt med hänsyn till bullersituationen, även innehålla beräknade värden för omgivningsbuller vid bostadsbyggnadens fasad och vid en uteplats om en sådan ska anordnas i anslutning till byggnaden.
+  - paragraf: "106"
+    rubrik: Innehåll i beslut
+    sammanfattning: Har nämnden bedömt miljöpåverkan för en åtgärd utanför plan ska bedömningen och
+      skälen redovisas i beslutet.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Om ett bygglov eller förhandsbesked avser en sådan åtgärd utanför detaljplan som anges i 4 kap. 2 § första stycket 3 a och som ska föregås av en bedömning i frågan om huruvida åtgärden kan antas medföra en betydande miljöpåverkan, ska byggnadsnämnden i beslutet redovisa sin bedömning i den frågan och de omständigheter som lagts till grund för bedömningen.
+      Bestämmelser om omständigheter som det ska tas hänsyn till vid bedömningen av om en åtgärd kan antas medföra en betydande miljöpåverkan finns i föreskrifter meddelade i anslutning till 6 kap. miljöbalken.
+  - paragraf: "107"
+    rubrik: Innehåll i beslut
+    sammanfattning: Nämnden ska i avgiftsbeslutet redovisa hur avgiften har bestämts.
+    andrad_genom: Lag (2025:974)
+    lagtext: Om byggnadsnämnden tar ut en avgift för handläggningen av ett ärende om lov eller
+      förhandsbesked, ska nämnden i sitt beslut om avgift redovisa hur avgiften har bestämts.
+  - paragraf: "108"
+    rubrik: Expediering och kungörelse av beslut
+    sammanfattning: Beslutet ska delges sökanden, fastighetsägaren och grannar vars synpunkter inte
+      tillgodosetts, tillsammans med besked om hur man överklagar.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Ett beslut om lov eller förhandsbesked ska, tillsammans med en uppgift om vad den som vill överklaga beslutet måste göra, delges
+      1. sökanden och fastighetsägaren, och
+      2. dem som avses i 96 § första stycket 1 och som har lämnat synpunkter i ärendet som inte har blivit tillgodosedda.
+      Om delgivning är uppenbart obehövligt ska beslutet i stället skickas till dem som avses i första stycket.
+      Delgivning med sökanden får inte ske enligt någon av bestämmelserna i 34-38 eller 47-51 §§ delgivningslagen (2010:1932).
+  - paragraf: "109"
+    rubrik: Expediering och kungörelse av beslut
+    sammanfattning: Beslut om att ge lov eller positivt förhandsbesked kungörs på kommunens anslagstavla.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Ett beslut om att ge lov eller positivt förhandsbesked ska kungöras genom ett meddelande om beslutet på kommunens anslagstavla.
+      I meddelandet ska beslutets huvudsakliga innehåll och var beslutet hålls tillgängligt anges.
+      Kungörandet ska ske enligt lagen (1977:654) om kungörande i mål och ärenden hos myndighet m.m.
+  - paragraf: "110"
+    rubrik: Expediering och kungörelse av beslut
+    sammanfattning: Meddelandet om kungörelsen ska senast samma dag skickas till grannar och till andra
+      som haft synpunkter som inte tillgodosetts.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Det meddelande som kungörs enligt 109 § ska senast den dag då kungörandet sker skickas till
+      1. dem som avses i 96 § första stycket 1, om det inte är uppenbart att beslutet saknar betydelse för mottagaren, och
+      2. dem som har lämnat synpunkter i ärendet som inte har blivit tillgodosedda, om antalet inte är så stort att ett utskick skulle innebära större kostnader och besvär än vad som är försvarligt med hänsyn till ändamålet med meddelandet.
+      Meddelanden enligt första stycket ska inte skickas till dem som ska delges eller få beslutet skickat till sig enligt 108 §.
+  - paragraf: "111"
+    rubrik: Expediering och kungörelse av beslut
+    sammanfattning: Omfattas beslutet av länsstyrelsens överprövning ska nämnden genast skicka det till
+      länsstyrelsen.
+    andrad_genom: Lag (2025:974)
+    lagtext: Om byggnadsnämndens beslut omfattas av ett beslut enligt 11 kap. 12 § om att länsstyrelsen
+      ska pröva beslutet, ska byggnadsnämnden genast skicka beslutet till länsstyrelsen.
+  - paragraf: "112"
+    rubrik: Expediering och kungörelse av beslut
+    sammanfattning: Beslut i ärenden där Försvarsmakten eller Myndigheten för civilt försvar
+      underrättats ska genast skickas till den myndigheten.
+    andrad_genom: Lag (2025:1079)
+    lagtext: Om byggnadsnämndens beslut om lov eller förhandsbesked avser ett sådant ärende som avses i
+      97 §, ska byggnadsnämnden genast skicka beslutet till Försvarsmakten eller Myndigheten för
+      civilt försvar.
+  - paragraf: "113"
+    rubrik: Underrättelse till samfällighet
+    sammanfattning: Underrättelser till en samfällighet sker på det sätt som står i 5 kap. 33 §.
+    andrad_genom: Lag (2025:974)
+    lagtext: En underrättelse enligt 94, 96, 98, 108 eller 110 § till en samfällighet ska ske på det
+      sätt som följer av 5 kap. 33 §.
+  - paragraf: "114"
+    rubrik: När lov börjar gälla
+    sammanfattning: Lov gäller omedelbart, men nämnden ska skjuta upp verkan till laga kraft vid risk
+      för skador som inte kan återställas på natur- eller kulturvärden eller totalförsvarets
+      intressen.
+    andrad_genom: Lag (2025:974)
+    lagtext: |-
+      Ett beslut om att ge bygglov, rivningslov eller marklov gäller omedelbart, även om det inte har fått laga kraft.
+      Byggnadsnämnden ska bestämma att beslutet ska gälla först när det har fått laga kraft, om det finns risk för att genomförandet av den åtgärd som lovet avser medför skador som inte kan återställas på
+      1. natur- eller kulturvärden, eller
+      2. totalförsvarets intressen inom eller i anslutning till områden som är av riksintresse för totalförsvarets anläggningar.
+  - paragraf: "115"
+    rubrik: Giltighetstiden för lov
+    sammanfattning: Ett lov upphör att gälla om åtgärden inte har påbörjats inom två år och avslutats
+      inom fem år från att beslutet fick laga kraft.
+    andrad_genom: Lag (2025:974)
+    lagtext: Om inte annat följer av 39 eller 40 §, upphör ett beslut om bygglov, rivningslov eller
+      marklov att gälla, om den åtgärd som lovet avser inte har påbörjats inom två år och avslutats
+      inom fem år från den dag då beslutet fick laga kraft.

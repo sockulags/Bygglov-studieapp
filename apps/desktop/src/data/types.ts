@@ -294,6 +294,69 @@ export interface CasesRepository {
   listSupervisorFeedback(decisionId: number): Promise<SupervisorFeedback[]>;
 }
 
+/* -------------------------------------------------------- ai_usage (studiehjälp) */
+
+/** What the tutor was asked about: a quiz question, a case in progress, a submitted decision. */
+export type AiContextKind = 'question' | 'case' | 'decision' | 'general';
+
+/** One answer from the AI tutor and what it cost (Inställningar → Studiehjälp → Förbrukning). */
+export interface AiUsage {
+  id: number;
+  /** When the answer finished, ISO 8601 UTC. */
+  ts: string;
+  /** Model id that answered, e.g. "claude-opus-5-5". */
+  model: string;
+  /** Uncached input tokens. */
+  inputTokens: number;
+  outputTokens: number;
+  /** Input tokens read from the prompt cache. */
+  cacheReadTokens: number;
+  /** Input tokens written to the prompt cache. */
+  cacheWriteTokens: number;
+  /** Cost in SEK at the exchange rate in force when the answer came. */
+  costSek: number;
+  contextKind: AiContextKind;
+}
+
+export interface NewAiUsage {
+  model: string;
+  inputTokens: number;
+  outputTokens: number;
+  /** Defaults to 0. */
+  cacheReadTokens?: number;
+  /** Defaults to 0. */
+  cacheWriteTokens?: number;
+  costSek: number;
+  contextKind: AiContextKind;
+  /** Defaults to now. */
+  ts?: string;
+}
+
+/** Sums over a range of usage rows. */
+export interface AiUsageTotals {
+  /** Number of answers (rows). */
+  requests: number;
+  inputTokens: number;
+  outputTokens: number;
+  cacheReadTokens: number;
+  cacheWriteTokens: number;
+  costSek: number;
+}
+
+/** Half-open range `from <= ts < to`; a missing bound is unbounded. */
+export interface AiUsageRange {
+  from?: string | Date;
+  to?: string | Date;
+}
+
+export interface AiUsageRepository {
+  /** Token counts must be non-negative integers and the cost a non-negative number. */
+  recordUsage(input: NewAiUsage): Promise<AiUsage>;
+  /** Newest first. */
+  listUsage(options?: { limit?: number }): Promise<AiUsage[]>;
+  totals(range?: AiUsageRange): Promise<AiUsageTotals>;
+}
+
 /* ------------------------------------------------------------------------- store */
 
 export interface DataStore {
@@ -304,8 +367,10 @@ export interface DataStore {
   readonly sessions: SessionsRepository;
   readonly settings: SettingsRepository;
   readonly cases: CasesRepository;
+  /** AI tutor usage and cost (migration 3). */
+  readonly aiUsage: AiUsageRepository;
   /**
-   * Removes all study data (answers, reviews, sessions, cases, settings). The schema and
+   * Removes all study data (answers, reviews, sessions, cases, settings, AI usage). The schema and
    * migration history stay. Used by Inställningar → Återställ and before an import.
    */
   clearAll(): Promise<void>;

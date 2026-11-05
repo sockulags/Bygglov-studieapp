@@ -4,15 +4,20 @@ import {
   assertLimit,
   DEFAULT_RECENT_SESSIONS,
   fromJson,
+  normalizeNewAiUsage,
   optionalIso,
   systemClock,
   toIso,
   toJson,
+  usageRangeBounds,
   type Clock,
 } from './shared';
 import {
   ConflictError,
   NotFoundError,
+  type AiContextKind,
+  type AiUsage,
+  type AiUsageRepository,
   type Answer,
   type AnswersRepository,
   type CaseEvent,
@@ -203,6 +208,31 @@ const mapFeedback = (r: FeedbackRow): SupervisorFeedback => ({
   text: r.text,
   grade: r.grade,
   createdAt: r.created_at,
+});
+
+interface AiUsageRow {
+  id: number;
+  ts: string;
+  model: string;
+  input_tokens: number;
+  output_tokens: number;
+  cache_read: number;
+  cache_write: number;
+  cost_sek: number;
+  context_kind: string;
+}
+
+const mapAiUsage = (r: AiUsageRow): AiUsage => ({
+  id: Number(r.id),
+  ts: r.ts,
+  model: r.model,
+  inputTokens: Number(r.input_tokens),
+  outputTokens: Number(r.output_tokens),
+  cacheReadTokens: Number(r.cache_read),
+  cacheWriteTokens: Number(r.cache_write),
+  costSek: Number(r.cost_sek),
+  // Written only through this module after validation, so the cast is safe.
+  contextKind: r.context_kind as AiContextKind,
 });
 
 /** `$start, $start+1, ...` placeholders for an IN (...) list. */
@@ -680,6 +710,73 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
     },
   };
 
+  /* --------------------------------------------------------------- ai usage */
+
+  const aiUsage: AiUsageRepository = {
+    async recordUsage(input) {
+      const values = normalizeNewAiUsage(input, nowIso);
+      const id = await insertId(
+        `INSERT INTO ai_usage (ts, model, input_tokens, output_tokens, cache_read, cache_write, cost_sek, context_kind)
+         VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+        [
+          values.ts,
+          values.model,
+          values.inputTokens,
+          values.outputTokens,
+          values.cacheReadTokens,
+          values.cacheWriteTokens,
+          values.costSek,
+          values.contextKind,
+        ],
+      );
+      const row = await one<AiUsageRow>('SELECT * FROM ai_usage WHERE id = $1', [id]);
+      if (!row) throw new NotFoundError(`Förbrukning ${id}`);
+      return mapAiUsage(row);
+    },
+
+    async listUsage(options) {
+      const limit = assertLimit(options?.limit);
+      const rows =
+        limit === undefined
+          ? await driver.select<AiUsageRow>('SELECT * FROM ai_usage ORDER BY ts DESC, id DESC')
+          : await driver.select<AiUsageRow>(
+              'SELECT * FROM ai_usage ORDER BY ts DESC, id DESC LIMIT $1',
+              [limit],
+            );
+      return rows.map(mapAiUsage);
+    },
+
+    async totals(range) {
+      const { from, to } = usageRangeBounds(range);
+      const row = await one<{
+        requests: number;
+        input_tokens: number | null;
+        output_tokens: number | null;
+        cache_read: number | null;
+        cache_write: number | null;
+        cost_sek: number | null;
+      }>(
+        `SELECT COUNT(*) AS requests,
+                SUM(input_tokens) AS input_tokens,
+                SUM(output_tokens) AS output_tokens,
+                SUM(cache_read) AS cache_read,
+                SUM(cache_write) AS cache_write,
+                SUM(cost_sek) AS cost_sek
+           FROM ai_usage
+          WHERE ($1 IS NULL OR ts >= $2) AND ($3 IS NULL OR ts < $4)`,
+        [from, from, to, to],
+      );
+      return {
+        requests: Number(row?.requests ?? 0),
+        inputTokens: Number(row?.input_tokens ?? 0),
+        outputTokens: Number(row?.output_tokens ?? 0),
+        cacheReadTokens: Number(row?.cache_read ?? 0),
+        cacheWriteTokens: Number(row?.cache_write ?? 0),
+        costSek: Number(row?.cost_sek ?? 0),
+      };
+    },
+  };
+
   /** Tables cleared by `clearAll`, dependants first (foreign keys are not enforced, see db.ts). */
   const DATA_TABLES = [
     'supervisor_feedback',
@@ -692,11 +789,12 @@ export function createSqlDataStore(driver: SqlDriver, clock: Clock = systemClock
     'reviews',
     'sessions',
     'settings',
+    'ai_usage',
   ] as const;
 
   async function clearAll(): Promise<void> {
     for (const table of DATA_TABLES) await driver.execute(`DELETE FROM ${table}`, []);
   }
 
-  return { kind: 'sqlite', answers, reviews, sessions, settings, cases, clearAll };
+  return { kind: 'sqlite', answers, reviews, sessions, settings, cases, aiUsage, clearAll };
 }

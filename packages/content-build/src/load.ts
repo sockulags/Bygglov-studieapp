@@ -22,6 +22,7 @@ import {
   renderDrawing,
   type DrawingKind,
 } from './drawings';
+import { loadLookup, type LoadedLookup } from './lookup';
 
 /** A problem tied to a file. `path` locates it inside the file, if known. */
 export interface Finding extends ContentIssue {
@@ -100,6 +101,8 @@ export interface ContentTree {
   modules: ModulesFile | null;
   questionFiles: LoadedQuestionFile[];
   cases: LoadedCase[];
+  /** Uppslag: glossary, process maps, law catalogue and chapter summaries. */
+  lookup: LoadedLookup;
   errors: Finding[];
   warnings: Finding[];
   /** Number of files that were read. */
@@ -360,11 +363,23 @@ export function loadContentTree(contentRoot: string): ContentTree {
     cases.push({ dir, data, drawings });
   }
 
+  const lookup = loadLookup({
+    contentRoot,
+    moduleIds: modules ? moduleIds : null,
+    readYaml,
+    validate,
+    error,
+    warn,
+    questionFiles,
+    cases,
+  });
+
   return {
     root: contentRoot,
     modules,
     questionFiles,
     cases,
+    lookup,
     errors,
     warnings,
     fileCount,

@@ -1,0 +1,1649 @@
+# Ordlistan i Uppslag. Ett begrepp per post; appen sorterar efter term.
+# definition: 1–3 meningar på vanlig svenska. lagrum: bara paragrafer som slagits upp
+# (9 kap. PBL ur docs/rattslage/pbl-9-kap.txt, övrigt på riksdagen.se 2026-11-05).
+# relaterade: id på andra begrepp i den här filen. modul: id ur moduler.yaml.
+# Allt har status utkast tills handledaren granskat det mot Lagtextens byggregler 2026-01-01.
+begrepp:
+  - id: allman-handling
+    term: Allmän handling
+    definition: >-
+      En handling som har kommit in till eller upprättats hos en myndighet och som förvaras
+      där. Alla har rätt att ta del av allmänna handlingar, om de inte omfattas av sekretess.
+      En bygglovsansökan blir allmän handling när den kommer in till nämnden.
+    lagrum: [TF 2 kap., OSL 5 kap. 1 §]
+    relaterade: [diarieforing, sekretess]
+    modul: 01-forvaltningsratt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: allman-plats
+    term: Allmän plats
+    definition: >-
+      En gata, väg, park, torg eller annat område som enligt detaljplanen är avsett för ett
+      gemensamt behov. Motsatsen är kvartersmark.
+    lagrum: [PBL 1 kap. 4 §, PBL 4 kap. 7 §]
+    relaterade: [kvartersmark, detaljplan]
+    modul: 02-pbl-systemet
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: allmanna-intressen
+    term: Allmänna och enskilda intressen
+    definition: >-
+      Vid all prövning enligt PBL ska både allmänna intressen (t.ex. stadsbild, natur- och
+      kulturvärden, trafiksäkerhet) och enskilda intressen (t.ex. grannars ljus och utsikt)
+      vägas in. Kapitel 2 i PBL räknar upp vad som ska beaktas.
+    lagrum: [PBL 2 kap. 1 §, PBL 2 kap. 6 §, PBL 2 kap. 9 §]
+    relaterade: [betydande-olagenhet, stads-och-landskapsbild, lokaliseringsprovning]
+    modul: 02-pbl-systemet
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: anmalningsplikt
+    term: Anmälningsplikt
+    definition: >-
+      Vissa åtgärder som inte kräver lov ska ändå anmälas till byggnadsnämnden, t.ex. rivning
+      av en byggnad på mer än 50 kvm, ändring av bärande konstruktion och installation av
+      eldstad, ventilation eller VA. Anmälningsplikten står i PBF 6 kap.; själva
+      komplementbyggnaden eller tillbyggnaden behöver inte längre anmälas.
+    lagrum: [PBL 9 kap. 55 §, PBF 6 kap. 1 §, PBF 6 kap. 5 §]
+    relaterade: [startbesked, lovplikt, tekniskt-samrad]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: ansokningsdagen
+    term: Ansökningsdagen
+    definition: >-
+      Den dag ansökan kom in till nämnden. Tioveckorsfristen räknas som huvudregel från den
+      dagen, även om ansökan inte är komplett.
+    lagrum: [PBL 9 kap. 99 §, FL 22 §]
+    relaterade: [handlaggningstid, forelaggande-om-komplettering, mottagningsbevis]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: arbetsplatsbesok
+    term: Arbetsplatsbesök
+    definition: >-
+      Nämndens besök på byggarbetsplatsen under arbetet. Det ska göras minst en gång när det
+      har hållits tekniskt samråd, om det inte är obehövligt, och alltid vid stora eller
+      komplicerade projekt.
+    lagrum: [PBL 10 kap. 27 §, PBL 10 kap. 28 §]
+    relaterade: [tekniskt-samrad, startbesked, slutsamrad]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: avgiftsreduktion
+    term: Avgiftsreduktion
+    definition: >-
+      Om nämnden inte beslutar inom tidsfristen ska lovavgiften sättas ned med en femtedel för
+      varje påbörjad vecka som fristen överskrids. Ingen reduktion sker om ärendet vilar enligt
+      9 kap. 102 §.
+    lagrum: [PBL 12 kap. 8 a §, PBL 9 kap. 99 §, PBL 9 kap. 100 §]
+    relaterade: [handlaggningstid, taxa, vilande-arende]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: avskrivning
+    term: Avskrivning
+    definition: >-
+      Ärendet avslutas utan att prövas i sak, oftast för att sökanden har återkallat ansökan.
+      Beslutet är formellt och innehåller ingen bedömning av om åtgärden är lämplig.
+    relaterade: [avvisning, avslag]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: avslag
+    term: Avslag
+    definition: >-
+      Nämnden prövar ansökan i sak och kommer fram till att förutsättningarna för lov inte är
+      uppfyllda. Ett avslag ska motiveras och kommuniceras innan beslut, och sökanden kan
+      överklaga.
+    lagrum: [PBL 9 kap. 56 §, PBL 9 kap. 57 §, FL 32 §]
+    relaterade: [avvisning, avskrivning, motiveringsskyldighet, kommunicering]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: avvisning
+    term: Avvisning
+    definition: >-
+      Ansökan eller överklagandet tas inte upp till prövning, t.ex. när ett föreläggande om
+      komplettering inte följts eller när ett överklagande kommit in för sent. Nämnden kan
+      vid ofullständig ansökan i stället välja att avgöra ärendet i befintligt skick.
+    lagrum: [PBL 9 kap. 91 §, FL 20 §, FL 45 §]
+    relaterade: [avslag, avskrivning, forelaggande-om-komplettering, rattidsprovning]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: betydande-olagenhet
+    term: Betydande olägenhet
+    definition: >-
+      En påverkan på omgivningen som går utöver vad grannar normalt får tåla, t.ex. kraftig
+      skuggning, insyn eller störningar. Byggnadsverk får inte placeras eller utformas så att
+      de medför betydande olägenhet.
+    lagrum: [PBL 2 kap. 9 §]
+    relaterade: [allmanna-intressen, sakagare]
+    modul: 02-pbl-systemet
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: bruttoarea
+    term: Bruttoarea
+    synonymer: [BTA]
+    definition: >-
+      Summan av våningsplanens area mätt till ytterväggarnas utsida. Mäts enligt
+      SS 21054:2020 och används bland annat för gränsen 30 kvm för lovbefriad tillbyggnad.
+    lagrum: [SS 21054:2020, PBL 9 kap. 10 §]
+    relaterade: [byggnadsarea, oppenarea, lovbefriad-tillbyggnad]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggbedomare
+    term: Byggbedömare
+    definition: >-
+      En certifierad sakkunnig som byggherren kan anlita för att pröva vissa krav eller
+      kontrollera genomförandet. När en byggbedömare används prövar nämnden inte de kraven
+      själv.
+    lagrum: [PBL 9 kap. 68 §, PBL 10 kap. 13 §]
+    relaterade: [kontrollansvarig, startbesked, slutbesked]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggherre
+    term: Byggherre
+    definition: >-
+      Den som för egen räkning utför eller låter utföra bygg-, rivnings- eller markarbeten.
+      Byggherren ansvarar för att åtgärden uppfyller kraven i PBL.
+    lagrum: [PBL 1 kap. 4 §, PBL 10 kap. 5 §]
+    relaterade: [kontrollansvarig, kontrollplan]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggnad
+    term: Byggnad
+    definition: >-
+      En varaktig konstruktion med tak eller tak och väggar, som står varaktigt på mark eller i
+      vatten och är gjord så att människor kan uppehålla sig i den.
+    lagrum: [PBL 1 kap. 4 §]
+    relaterade: [nybyggnad, komplementbyggnad]
+    modul: 02-pbl-systemet
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggnadsarea
+    term: Byggnadsarea
+    synonymer: [BYA]
+    definition: >-
+      Den area som byggnaden upptar på marken. Hur utskjutande delar som takutsprång och
+      skärmtak räknas styrs av SS 21054:2020 och av planbestämmelsernas definition.
+      Gränserna för lovbefriade komplementbyggnader anges i byggnadsarea.
+    lagrum: [SS 21054:2020, PBL 9 kap. 4 §, PBL 9 kap. 5 §]
+    relaterade: [bruttoarea, oppenarea, komplementbyggnad, byggratt]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggnadshojd
+    term: Byggnadshöjd
+    definition: >-
+      Höjden från markens medelnivå invid byggnaden upp till där fasadplanet skärs av ett plan
+      som lutar 45 grader inåt och nuddar taket. Ligger byggnaden närmare än sex meter från
+      allmän plats räknas från den allmänna platsens medelnivå.
+    lagrum: [PBF 1 kap. 3 §]
+    relaterade: [nockhojd, totalhojd, markens-medelniva, vaning]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggnadsnamnd
+    term: Byggnadsnämnd
+    definition: >-
+      Den eller de nämnder i kommunen som fullgör uppgifterna enligt PBL, bland annat prövar
+      lov och förhandsbesked och utövar tillsyn. Handläggaren fattar ofta beslut på delegation
+      från nämnden.
+    lagrum: [PBL 1 kap. 4 §, PBL 12 kap. 1 §, PBL 9 kap. 85 §]
+    relaterade: [delegation, tillsyn]
+    modul: 02-pbl-systemet
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggratt
+    term: Byggrätt
+    definition: >-
+      Den bebyggelse som detaljplanen tillåter på en fastighet, t.ex. största byggnadsarea,
+      högsta höjd och antal våningar. Under genomförandetiden får planen inte ändras mot en
+      berörd fastighetsägares vilja, så byggrätten är skyddad.
+    lagrum: [PBL 4 kap. 11 §, PBL 4 kap. 39 §]
+    relaterade: [genomforandetid, detaljplan, byggnadsarea, prickmark]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggsanktionsavgift
+    term: Byggsanktionsavgift
+    definition: >-
+      En avgift som tillsynsmyndigheten ska ta ut när någon bryter mot reglerna, t.ex. bygger
+      utan lov eller startbesked. Den tas ut även utan uppsåt eller oaktsamhet, kan sättas ned
+      till hälften eller en fjärdedel och tas inte ut om rättelse sker innan frågan tas upp
+      på nämndens sammanträde. Beloppen står i PBF 9 kap.
+    lagrum: [PBL 11 kap. 51 §, PBL 11 kap. 53 a §, PBL 11 kap. 54 §, PBF 9 kap.]
+    relaterade: [tillsyn, olovligt-byggande, preskription-tillsyn, rattelseforelaggande]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: delegation
+    term: Delegation
+    definition: >-
+      Nämnden låter en tjänsteperson eller ett utskott fatta beslut i nämndens ställe. Ärenden
+      av principiell betydelse, vissa vitesförelägganden och byggsanktionsavgifter får inte
+      delegeras till tjänstepersoner.
+    lagrum: [PBL 12 kap. 6 §, KL 6 kap. 37 §]
+    relaterade: [byggnadsnamnd]
+    modul: 01-forvaltningsratt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: delgivning
+    term: Delgivning
+    definition: >-
+      Ett sätt att skicka en handling så att det går att visa att mottagaren har fått den.
+      Lovbeslut delges sökanden, fastighetsägaren och grannar med synpunkter som inte
+      tillgodosetts; överklagandetiden räknas från delgivningen.
+    lagrum: [DelgL 2 §, PBL 9 kap. 108 §]
+    relaterade: [kungorelse, overklagandetid, laga-kraft]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: detaljplan
+    term: Detaljplan
+    definition: >-
+      Kommunens juridiskt bindande plan för hur mark och vatten får användas och bebyggas i ett
+      område. Den består av plankarta med bestämmelser och en planbeskrivning.
+    lagrum: [PBL 4 kap. 2 §, PBL 4 kap. 5 §]
+    relaterade: [planbestammelse, genomforandetid, omradesbestammelser, oversiktsplan]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: diarieforing
+    term: Diarieföring
+    definition: >-
+      Registrering av allmänna handlingar så snart de kommit in eller upprättats, med datum,
+      diarienummer, avsändare och kort beskrivning. Diariet visar ärendets gång.
+    lagrum: [OSL 5 kap. 1 §]
+    relaterade: [allman-handling, ansokningsdagen]
+    modul: 01-forvaltningsratt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: dispens
+    term: Dispens
+    definition: >-
+      Ett beslut att i ett enskilt fall göra undantag från ett förbud, t.ex. strandskyddet.
+      Kommunen ger de flesta strandskyddsdispenser; det krävs särskilda skäl och dispensen
+      måste vara förenlig med strandskyddets syfte.
+    lagrum: [MB 7 kap. 18 c §, MB 7 kap. 18 d §, MB 7 kap. 26 §]
+    relaterade: [strandskydd, vilande-arende]
+    modul: 11-angransande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: ekonomibyggnad
+    term: Ekonomibyggnad
+    definition: >-
+      En byggnad som behövs för jordbruk, skogsbruk, vattenbruk, fiske eller renskötsel, t.ex.
+      en ladugård. Utanför detaljplan krävs inte bygglov för ekonomibyggnader.
+    lagrum: [PBL 1 kap. 4 §, PBL 9 kap. 6 §, PBL 9 kap. 13 §]
+    relaterade: [komplementbyggnad, lovplikt]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: en-och-tvabostadshus
+    term: En- och tvåbostadshus
+    synonymer: [villa, småhus, enbostadshus]
+    definition: >-
+      Ett bostadshus med en eller två bostäder, t.ex. en villa eller ett parhus. Många
+      lovbefrielser gäller bara sådana hus och deras komplementbyggnader.
+    lagrum: [PBL 9 kap. 15 §, PBL 9 kap. 17 §]
+    relaterade: [komplementbyggnad, komplementbostadshus, ytterligare-bostad]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: expediering
+    term: Expediering
+    definition: >-
+      Att skicka ut beslutet till dem som ska ha det: delgivning till sökanden och
+      fastighetsägaren, meddelande till grannar och kungörelse på anslagstavlan.
+    lagrum: [PBL 9 kap. 108 §, PBL 9 kap. 109 §, PBL 9 kap. 110 §]
+    relaterade: [delgivning, kungorelse]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: fasadandring
+    term: Fasadändring
+    definition: >-
+      En ändring som gör att byggnaden byter kulör, fasadbeklädnad eller taktäckningsmaterial
+      eller att dess yttre karaktärsdrag påverkas på annat sätt. Bygglov krävs bara i vissa
+      fall, t.ex. inom detaljplan mot allmän plats på byggnader som inte är en- eller
+      tvåbostadshus.
+    lagrum: [PBL 1 kap. 4 §, PBL 9 kap. 15 §, PBL 9 kap. 17 a §]
+    relaterade: [lovplikt, solenergianlaggning, sarskilt-vardefull-byggnad]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: forhandsbesked
+    term: Förhandsbesked
+    definition: >-
+      Besked om en åtgärd kan placeras på en viss plats, innan man söker bygglov. Kan bara
+      begäras utanför detaljplan och prövar bara lokaliseringen. Ett positivt besked är
+      bindande om bygglov söks inom två år från laga kraft.
+    lagrum: [PBL 9 kap. 41 §, PBL 9 kap. 42 §, PBL 9 kap. 74 §, PBL 9 kap. 104 §]
+    relaterade: [lokaliseringsprovning, sammanhallen-bebyggelse, villkorsbesked]
+    modul: 05-utanfor-plan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: forelaggande-om-komplettering
+    term: Föreläggande om komplettering
+    definition: >-
+      Nämndens skriftliga begäran att sökanden inom viss tid ska komplettera en ofullständig
+      ansökan. Föreläggandet ska upplysa om att ansökan annars kan avvisas eller avgöras i
+      befintligt skick. Ges det inom tre veckor räknas tidsfristen från dagen bristen
+      avhjälptes.
+    lagrum: [PBL 9 kap. 91 §, PBL 9 kap. 99 §]
+    relaterade: [fullstandighetsgranskning, avvisning, handlaggningstid]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: forvanskningsforbud
+    term: Förvanskningsförbud
+    definition: >-
+      En byggnad som är särskilt värdefull från historisk, kulturhistorisk, miljömässig eller
+      konstnärlig synpunkt får inte förvanskas. Förbudet gäller alltid, även om det inte står
+      i detaljplanen.
+    lagrum: [PBL 8 kap. 13 §]
+    relaterade: [varsamhetskrav, sarskilt-vardefull-byggnad, skyddsbestammelse]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: friggebod-attefallshus
+    term: Friggebod och attefallshus
+    synonymer: [friggebod, attefallshus, attefallstillbyggnad]
+    definition: >-
+      Äldre begrepp som inte finns i lagen sedan 1 december 2025. I stället gäller
+      bygglovsbefriade komplementbyggnader, komplementbostadshus och tillbyggnader med en
+      sammanlagd pott per tomt.
+    lagrum: [PBL 9 kap. 4 §, PBL 9 kap. 10 §]
+    relaterade: [komplementbyggnad, komplementbostadshus, lovbefriad-tillbyggnad]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: frivilligt-lov
+    term: Frivilligt lov
+    definition: >-
+      Lov som söks för en åtgärd som inte kräver lov, t.ex. för att få saken prövad och slippa
+      osäkerhet. Lovet ska ges om åtgärden uppfyller kraven på lokalisering, placering och
+      utformning.
+    lagrum: [PBL 9 kap. 52 §, PBL 9 kap. 79 §, PBL 10 kap. 3 §]
+    relaterade: [lovplikt, startbesked]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: fullstandighetsgranskning
+    term: Fullständighetsgranskning
+    definition: >-
+      Handläggarens första kontroll av att ansökan innehåller det som behövs för prövningen,
+      t.ex. ritningar och uppgift om kontrollansvarig. Brister åtgärdas med ett föreläggande
+      om komplettering, helst inom tre veckor.
+    lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 91 §]
+    relaterade: [forelaggande-om-komplettering, ansokningsdagen]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: genomforandetid
+    term: Genomförandetid
+    definition: >-
+      Den tid, 5–15 år, som detaljplanen anger för att genomföra planen. Under tiden har
+      fastighetsägarna en skyddad byggrätt. Efter tiden blir vissa avvikelser lättare att
+      godta.
+    lagrum: [PBL 1 kap. 4 §, PBL 4 kap. 21 §, PBL 4 kap. 39 §]
+    relaterade: [byggratt, detaljplan, liten-avvikelse, planstridigt-utgangslage]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: giltighetstid
+    term: Giltighetstid
+    definition: >-
+      Ett lov upphör att gälla om åtgärden inte har påbörjats inom två år och avslutats inom
+      fem år från att beslutet fick laga kraft. Beslutet ska upplysa om giltighetstiden.
+    lagrum: [PBL 9 kap. 115 §, PBL 9 kap. 105 §]
+    relaterade: [laga-kraft, startbesked]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: grannemedgivande
+    term: Grannemedgivande
+    definition: >-
+      Ett skriftligt medgivande från berörda grannar. Annars lovfria åtgärder närmare gränsen
+      än 4,5 m slipper bygglov om grannarna skriftligen medgett åtgärden och den inte strider
+      mot planen.
+    lagrum: [PBL 9 kap. 35 §]
+    relaterade: [narhet-till-grans, raggranne, sakagare]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: handlaggningstid
+    term: Handläggningstid
+    synonymer: [tidsfrist, tioveckorsfristen]
+    definition: >-
+      Nämnden ska besluta inom tio veckor från ansökningsdagen, eller från en senare dag i de
+      fall som räknas upp i 9 kap. 99 §. Fristen får förlängas en gång med högst tio veckor
+      och sökanden ska få skriftlig information om det.
+    lagrum: [PBL 9 kap. 99 §, PBL 9 kap. 100 §, PBL 9 kap. 99 a §]
+    relaterade: [ansokningsdagen, avgiftsreduktion, forelaggande-om-komplettering, vilande-arende]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: huvudbyggnad
+    term: Huvudbyggnad
+    definition: >-
+      Den byggnad på tomten som en komplementbyggnad kompletterar, oftast bostadshuset. En
+      lovbefriad komplementbyggnad måste ha mindre byggnadsarea än huvudbyggnaden.
+    lagrum: [PBL 9 kap. 4 §]
+    relaterade: [komplementbyggnad, byggnadsarea]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: ingripandebesked
+    term: Ingripandebesked
+    definition: >-
+      Ett skriftligt besked från nämnden, på begäran, om det finns något på en byggnad som
+      motiverar ett tillsynsingripande. Används ofta vid fastighetsköp. Beskedet kan inte
+      överklagas.
+    lagrum: [PBL 11 kap. 7 §, PBL 13 kap. 2 §]
+    relaterade: [tillsyn]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: interimistiskt-slutbesked
+    term: Interimistiskt slutbesked
+    definition: >-
+      Ett tillfälligt slutbesked när en brist som inte är försumbar återstår eller en kontroll
+      måste göras senare. Nämnden anger vad som gäller för att ta byggnaden i bruk och prövar
+      slutbeskedet slutligt när bristen är åtgärdad.
+    lagrum: [PBL 10 kap. 36 §]
+    relaterade: [slutbesked, anvandningsforbud]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: jav
+    term: Jäv
+    definition: >-
+      En omständighet som gör att den som handlägger eller beslutar inte kan anses opartisk,
+      t.ex. att en närstående är part. Den som är jävig får inte delta och ska själv anmäla
+      omständigheten.
+    lagrum: [FL 16 §, FL 17 §, FL 18 §, KL 6 kap. 28 §]
+    modul: 01-forvaltningsratt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: klagoratt
+    term: Klagorätt
+    definition: >-
+      Rätten att överklaga ett beslut. Den som beslutet angår får överklaga om det har gått
+      henne eller honom emot, typiskt sökanden och berörda grannar. Att någon har fått en
+      underrättelse ger inte i sig rätt att överklaga.
+    lagrum: [FL 42 §, PBL 13 kap. 8 §, PBL 13 kap. 9 §]
+    relaterade: [overklagande, sakagare]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: kommunicering
+    term: Kommunicering
+    definition: >-
+      Innan nämnden beslutar ska sökanden och fastighetsägaren få ta del av allt underlag av
+      betydelse och yttra sig inom en bestämd tid, om det inte är uppenbart obehövligt.
+      Görs särskilt innan ett avslag.
+    lagrum: [PBL 9 kap. 98 §, FL 25 §]
+    relaterade: [avslag, remiss, underrattelse-grannar]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: komplementbostadshus
+    term: Komplementbostadshus
+    definition: >-
+      En fristående byggnad som kompletterar ett en- eller tvåbostadshus och är inredd med en
+      självständig bostad. Inom detaljplan lovbefriat upp till 30 kvm byggnadsarea, utanför
+      upp till 50 kvm, inom den gemensamma potten för tomten.
+    lagrum: [PBL 1 kap. 4 §, PBL 9 kap. 4 §, PBL 9 kap. 5 §]
+    relaterade: [komplementbyggnad, friggebod-attefallshus, en-och-tvabostadshus]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: komplementbyggnad
+    term: Komplementbyggnad
+    definition: >-
+      En fristående byggnad som kompletterar en annan byggnad och inte har en självständig
+      bostad, t.ex. garage, förråd eller gäststuga. Inom detaljplan lovbefriad upp till 30 kvm
+      byggnadsarea och 4,0 m taknockshöjd, högst 45 kvm sammanlagt på tomten.
+    lagrum: [PBL 1 kap. 4 §, PBL 9 kap. 4 §, PBL 9 kap. 5 §]
+    relaterade: [komplementbostadshus, huvudbyggnad, byggnadsarea, narhet-till-grans]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: kontrollansvarig
+    term: Kontrollansvarig
+    synonymer: [KA]
+    definition: >-
+      En certifierad person som hjälper byggherren att se till att kontrollplanen följs och
+      kraven uppfylls. Behövs inte för små ändringar av en- och tvåbostadshus om nämnden inte
+      beslutar annat.
+    lagrum: [PBL 10 kap. 9 §, PBL 10 kap. 10 §, PBL 10 kap. 11 §]
+    relaterade: [kontrollplan, tekniskt-samrad, byggherre, byggbedomare]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: kontrollplan
+    term: Kontrollplan
+    definition: >-
+      Byggherrens plan för vilka kontroller som ska göras, av vem och hur, vilka anmälningar
+      som ska göras till nämnden och vilka arbetsplatsbesök som bör ske. Nämnden fastställer
+      den i startbeskedet; för enklare åtgärder kan den slopas.
+    lagrum: [PBL 10 kap. 6 §, PBL 10 kap. 6 a §, PBL 10 kap. 7 §]
+    relaterade: [kontrollansvarig, startbesked]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: korsmark
+    term: Korsmark
+    definition: >-
+      Mark i detaljplanen där bara komplementbyggnader får placeras. Den visas med korsade
+      linjer eller ringar på plankartan; kontrollera planens egen teckenförklaring.
+    lagrum: [PBL 4 kap. 11 §, Boverket]
+    relaterade: [prickmark, komplementbyggnad, planbestammelse]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: kungorelse
+    term: Kungörelse
+    definition: >-
+      Ett offentligt tillkännagivande på kommunens anslagstavla. Beslut om lov och positivt
+      förhandsbesked kungörs där, och underrättelser till grannar kungörs också. Sedan 1
+      december 2025 används inte Post- och Inrikes Tidningar.
+    lagrum: [PBL 9 kap. 96 §, PBL 9 kap. 109 §, KungL 1 §]
+    relaterade: [delgivning, overklagandetid, expediering]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: kvartersmark
+    term: Kvartersmark
+    definition: >-
+      Mark i detaljplanen som inte är allmän plats eller vattenområde, t.ex. tomter för
+      bostäder eller verksamheter.
+    lagrum: [PBL 1 kap. 4 §, PBL 9 kap. 65 §]
+    relaterade: [allman-plats, tomt]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: kallare
+    term: Källare
+    definition: >-
+      Ett utrymme under byggnadens bottenvåning. En källare räknas som våning bara om golvet i
+      våningen ovanför ligger mer än 1,5 m över markens medelnivå invid byggnaden.
+    lagrum: [PBF 1 kap. 4 §]
+    relaterade: [vaning, vind, markens-medelniva]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: laga-kraft
+    term: Laga kraft
+    definition: >-
+      Ett beslut har fått laga kraft när det inte längre kan överklagas, för att tiden har gått
+      ut eller för att högsta instansen har avgjort saken. Lovets giltighetstid räknas från
+      laga kraft.
+    lagrum: [FL 44 §, PBL 13 kap. 16 §, PBL 9 kap. 115 §]
+    relaterade: [overklagandetid, verkstallbarhet, giltighetstid]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: legalitetsprincipen
+    term: Legalitetsprincipen
+    definition: >-
+      En myndighet får bara vidta åtgärder som har stöd i rättsordningen. Nämnden kan alltså
+      inte ställa krav som saknar stöd i lag eller plan.
+    lagrum: [FL 5 §]
+    modul: 01-forvaltningsratt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: liten-avvikelse
+    term: Liten avvikelse
+    definition: >-
+      Lov får ges trots en avvikelse från plan eller områdesbestämmelser om avvikelsen är
+      förenlig med syftet och liten, eller begränsad och nödvändig för ändamålsenlig
+      användning. Avvikelser får inte ge betydande miljöpåverkan och tidigare avvikelser ska
+      vägas in samlat.
+    lagrum: [PBL 9 kap. 60 §, PBL 9 kap. 62 §, PBL 9 kap. 64 §]
+    relaterade: [planstridigt-utgangslage, underrattelse-grannar, detaljplan, genomforandetid]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: lokaliseringsprovning
+    term: Lokaliseringsprövning
+    definition: >-
+      Prövningen av om en plats är lämplig för det som ska byggas, med hänsyn till bland annat
+      landskapsbild, natur- och kulturvärden, hälsa och tillgång till vatten och avlopp. Görs
+      utanför detaljplan, i bygglov eller förhandsbesked.
+    lagrum: [PBL 9 kap. 57 §, PBL 9 kap. 74 §, PBL 2 kap. 2 §]
+    relaterade: [forhandsbesked, sammanhallen-bebyggelse, planlaggningskrav]
+    modul: 05-utanfor-plan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: lovbefriad-tillbyggnad
+    term: Lovbefriad tillbyggnad
+    definition: >-
+      En tillbyggnad på högst 30 kvm brutto- eller öppenarea som inte går över taknocken.
+      Tidigare lovbefriade tillbyggnader på byggnaden räknas in. Nära gräns kan lov ändå
+      krävas.
+    lagrum: [PBL 9 kap. 10 §, PBL 9 kap. 14 §, PBL 9 kap. 34 §]
+    relaterade: [tillbyggnad, bruttoarea, oppenarea, friggebod-attefallshus]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: lovforelaggande
+    term: Lovföreläggande
+    definition: >-
+      Har någon byggt utan lov ska nämnden förelägga ägaren att söka lov inom viss tid, om det
+      är sannolikt att lov kan ges.
+    lagrum: [PBL 11 kap. 17 §]
+    relaterade: [olovligt-byggande, rattelseforelaggande, tillsyn]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: lovplikt
+    term: Lovplikt
+    definition: >-
+      Kravet på bygglov, rivningslov eller marklov. Kapitel 9 i PBL anger vad som kräver lov
+      och vad som är undantaget; en detaljplan eller områdesbestämmelser kan kräva lov i fler
+      fall.
+    lagrum: [PBL 9 kap. 2 §, PBL 9 kap. 3 §, PBL 9 kap. 9 §]
+    relaterade: [anmalningsplikt, frivilligt-lov, rivningslov, marklov]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: markens-medelniva
+    term: Markens medelnivå
+    definition: >-
+      Genomsnittet av markens nivå runt byggnaden. Utgångspunkt när byggnadshöjd, nockhöjd och
+      källare bedöms.
+    lagrum: [PBF 1 kap. 3 §, PBF 1 kap. 4 §]
+    relaterade: [byggnadshojd, nockhojd, kallare]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: marklov
+    term: Marklov
+    definition: >-
+      Lov för att ändra marken, t.ex. schaktning eller fyllning som ändrar höjdläget mer än
+      0,5 m inom detaljplan. Utanför plan krävs marklov bara om områdesbestämmelser säger det.
+    lagrum: [PBL 9 kap. 47 §, PBL 9 kap. 48 §, PBL 9 kap. 77 §]
+    relaterade: [lovplikt, rivningslov]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: motiveringsskyldighet
+    term: Motiveringsskyldighet
+    definition: >-
+      Ett beslut som påverkar någon ska innehålla en klargörande motivering med vilka regler
+      som tillämpats och vilka omständigheter som varit avgörande.
+    lagrum: [FL 32 §]
+    relaterade: [avslag]
+    modul: 01-forvaltningsratt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: mottagningsbevis
+    term: Mottagningsbevis
+    definition: >-
+      Nämndens skriftliga besked till sökanden när ansökan kommit in, med tidsfristen,
+      reglerna om avgiftsreduktion och möjligheten att överklaga.
+    lagrum: [PBL 9 kap. 100 §]
+    relaterade: [ansokningsdagen, handlaggningstid, avgiftsreduktion]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: mur-och-plank
+    term: Mur och plank
+    definition: >-
+      Inom detaljplan krävs bygglov för mur, plank eller altan som blir högre än 1,8 m inom
+      3,6 m från en byggnad, eller högre än 1,2 m längre ut. Nära gräns gäller 4,5-metersregeln
+      för murar och plank över 1,2 m.
+    lagrum: [PBL 9 kap. 19 §, PBL 9 kap. 34 §]
+    relaterade: [narhet-till-grans, grannemedgivande]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: nockhojd
+    term: Nockhöjd
+    synonymer: [taknockshöjd]
+    definition: >-
+      Höjden från markens medelnivå invid byggnaden till taknockens översta del. Gränsen för
+      lovbefriade komplementbyggnader är 4,0 m inom detaljplan och 4,5 m utanför.
+    lagrum: [PBL 9 kap. 4 §, PBL 9 kap. 5 §, Boverket]
+    relaterade: [byggnadshojd, totalhojd, markens-medelniva]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: nybyggnad
+    term: Nybyggnad
+    definition: >-
+      Uppförande av en ny byggnad eller flyttning av en byggnad till en ny plats. Nybyggnad
+      kräver bygglov om inte ett undantag gäller.
+    lagrum: [PBL 1 kap. 4 §, PBL 9 kap. 3 §]
+    relaterade: [tillbyggnad, byggnad, lovplikt]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: nybyggnadskarta
+    term: Nybyggnadskarta
+    definition: >-
+      En karta över fastigheten och dess omgivning som underlag för bygglov inom sammanhållen
+      bebyggelse. Nämnden ska tillhandahålla den om sökanden begär det.
+    lagrum: [PBL 12 kap. 4 §]
+    relaterade: [situationsplan]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: narhet-till-grans
+    term: Närhet till gräns
+    synonymer: ["4,5-metersregeln", "4,5 meter"]
+    definition: >-
+      Annars lovfria åtgärder kräver bygglov närmare gränsen än 4,5 m eller närmare än 30 m
+      från ett järnvägsspårs mitt, om inte berörda grannar skriftligen har medgett åtgärden.
+    lagrum: [PBL 9 kap. 34 §, PBL 9 kap. 35 §]
+    relaterade: [grannemedgivande, komplementbyggnad, lovbefriad-tillbyggnad]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: olovligt-byggande
+    term: Olovligt byggande
+    definition: >-
+      En åtgärd som har gjorts utan lov eller startbesked eller i strid mot ett lov. Nämnden
+      ska utreda och kan förelägga om lov eller rättelse och ska ta ut byggsanktionsavgift.
+    lagrum: [PBL 11 kap. 5 §, PBL 11 kap. 17 §, PBL 11 kap. 20 §, PBL 11 kap. 51 §]
+    relaterade: [lovforelaggande, rattelseforelaggande, byggsanktionsavgift, tillsyn]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: ombyggnad
+    term: Ombyggnad
+    definition: >-
+      En ändring som gör att hela byggnaden eller en betydande och avgränsbar del av den
+      påtagligt förnyas. Vid ombyggnad gäller kraven på byggnader i större omfattning än vid
+      andra ändringar.
+    lagrum: [PBL 1 kap. 4 §, PBL 8 kap. 2 §]
+    relaterade: [andring-av-byggnad, tillbyggnad]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: omgivningsbuller
+    term: Omgivningsbuller
+    definition: >-
+      Buller från flygplatser, industri, spårtrafik och vägar. Bostäder ska placeras och
+      utformas så att olägenheter av buller förebyggs, och bygglov för bostäder utanför plan
+      ska ange beräknade bullervärden.
+    lagrum: [PBL 1 kap. 4 §, PBL 2 kap. 6 a §, PBL 9 kap. 105 §]
+    relaterade: [allmanna-intressen, tekniska-egenskapskrav]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: omradesbestammelser
+    term: Områdesbestämmelser
+    definition: >-
+      Kommunens bestämmelser för ett begränsat område utan detaljplan, t.ex. om
+      fritidshusstorlek eller skydd av kulturmiljö. De kan också kräva lov i fler fall.
+    lagrum: [PBL 4 kap. 41 §, PBL 4 kap. 42 §]
+    relaterade: [detaljplan, oversiktsplan, liten-avvikelse]
+    modul: 05-utanfor-plan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: oppenarea
+    term: Öppenarea
+    synonymer: [OPA]
+    definition: >-
+      Area av en byggnadsdel som inte är helt omsluten av väggar, t.ex. en öppen veranda med
+      tak. Mäts enligt SS 21054:2020 och räknas in i de 30 kvm för lovbefriad tillbyggnad.
+    lagrum: [SS 21054:2020, PBL 9 kap. 10 §]
+    relaterade: [bruttoarea, byggnadsarea, lovbefriad-tillbyggnad]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: oversiktsplan
+    term: Översiktsplan
+    definition: >-
+      Kommunens plan för hela kommunen som visar inriktningen för mark- och vattenanvändningen.
+      Den är vägledande men inte bindande.
+    lagrum: [PBL 3 kap.]
+    relaterade: [detaljplan, omradesbestammelser]
+    modul: 02-pbl-systemet
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: overklagande
+    term: Överklagande
+    definition: >-
+      Begäran att en högre instans ska ändra ett beslut. Byggnadsnämndens beslut i lovärenden
+      överklagas till länsstyrelsen och därefter till mark- och miljödomstolen. Överklagandet
+      lämnas till nämnden, som prövar om det kommit in i tid.
+    lagrum: [PBL 13 kap. 3 §, PBL 13 kap. 6 §, FL 43 §]
+    relaterade: [overklagandetid, klagoratt, rattidsprovning, overlamnande]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: overklagandetid
+    term: Överklagandetid
+    definition: >-
+      Ett överklagande ska ha kommit in inom tre veckor från att den som överklagar fick del av
+      beslutet. För den som inte ska delges ett lovbeslut räknas tiden från en vecka efter
+      kungörelsen på anslagstavlan.
+    lagrum: [FL 44 §, PBL 13 kap. 16 §]
+    relaterade: [delgivning, kungorelse, laga-kraft, rattidsprovning]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: overlamnande
+    term: Överlämnande
+    definition: >-
+      När ett överklagande kommit in i rätt tid ska nämnden skyndsamt skicka det och övriga
+      handlingar till överinstansen, normalt länsstyrelsen.
+    lagrum: [FL 46 §]
+    relaterade: [overklagande, rattidsprovning, omprovning]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: omprovning
+    term: Omprövning av beslut
+    definition: >-
+      Nämnden får ändra ett eget beslut som är felaktigt, men ett gynnande beslut får bara
+      ändras till nackdel i vissa fall. Är beslutet uppenbart felaktigt och kan ändras snabbt
+      och enkelt ska det ändras, även efter ett överklagande så länge handlingarna inte
+      skickats vidare.
+    lagrum: [FL 37 §, FL 38 §, FL 39 §]
+    relaterade: [overlamnande, overklagande]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: partsinsyn
+    term: Partsinsyn
+    definition: >-
+      Den som är part har rätt att ta del av allt material som tillförts ärendet, med de
+      begränsningar som följer av sekretess.
+    lagrum: [FL 10 §]
+    relaterade: [kommunicering, sekretess]
+    modul: 01-forvaltningsratt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: planbesked
+    term: Planbesked
+    definition: >-
+      Kommunens besked om den tänker inleda arbete med en ny eller ändrad detaljplan. Ska ges
+      inom fyra månader och kan inte överklagas.
+    lagrum: [PBL 5 kap. 2 §, PBL 5 kap. 4 §, PBL 13 kap. 2 §]
+    relaterade: [detaljplan]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: planbestammelse
+    term: Planbestämmelse
+    definition: >-
+      En bindande regel i detaljplanen, t.ex. om användning, största byggnadsarea, högsta
+      nockhöjd, prickmark eller utformning. Bygglov prövas mot planbestämmelserna.
+    lagrum: [PBL 4 kap. 5 §, PBL 4 kap. 11 §, PBL 4 kap. 16 §]
+    relaterade: [detaljplan, prickmark, korsmark, byggratt]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: planlaggningskrav
+    term: Krav på detaljplan
+    synonymer: [planläggningskrav]
+    definition: >-
+      Vissa åtgärder, t.ex. ny sammanhållen bebyggelse eller byggnader med betydande
+      påverkan, kräver att kommunen först gör en detaljplan. Då kan bygglov inte ges utanför
+      plan.
+    lagrum: [PBL 4 kap. 2 §, PBL 4 kap. 3 §, PBL 9 kap. 57 §]
+    relaterade: [detaljplan, lokaliseringsprovning, sammanhallen-bebyggelse]
+    modul: 05-utanfor-plan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: planstridigt-utgangslage
+    term: Planstridigt utgångsläge
+    definition: >-
+      När fastigheten eller byggnaden redan avviker från planen innan den nya åtgärden. Lov kan
+      ändå ges om avvikelsen har godtagits tidigare, om genomförandetiden gått ut för minst 15
+      år sedan, eller om nämnden godtar avvikelsen enligt 63 §.
+    lagrum: [PBL 9 kap. 56 §, PBL 9 kap. 63 §, PBL 9 kap. 64 §]
+    relaterade: [liten-avvikelse, genomforandetid, detaljplan]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: preskription-tillsyn
+    term: Preskription (tillsyn)
+    synonymer: [tioårsregeln]
+    definition: >-
+      Ett rättelseföreläggande får inte beslutas om det gått mer än tio år från överträdelsen,
+      utom när en bostad olovligen tagits i anspråk för annat ändamål. Byggsanktionsavgift får
+      inte beslutas om den ansvarige inte fått yttra sig inom fem år.
+    lagrum: [PBL 11 kap. 20 §, PBL 11 kap. 58 §]
+    relaterade: [rattelseforelaggande, byggsanktionsavgift, tillsyn]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: prickmark
+    term: Prickmark
+    definition: >-
+      Mark i detaljplanen som inte får förses med byggnad, markerad med prickar på
+      plankartan. Även lovbefriade byggnader kan strida mot prickmarken, men vissa åtgärder får
+      ändå göras enligt 10 kap. 2 a §.
+    lagrum: [PBL 4 kap. 11 §, PBL 10 kap. 2 a §, Boverket]
+    relaterade: [korsmark, planbestammelse, byggratt]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: raggranne
+    term: Rågranne
+    definition: >-
+      Ägare till en fastighet som har gemensam gräns med den fastighet ansökan gäller. Vid
+      underrättelse räknas även fastigheter som bara skiljs åt av en väg eller gata.
+    lagrum: [PBL 9 kap. 96 §]
+    relaterade: [sakagare, underrattelse-grannar, grannemedgivande]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: rattelseforelaggande
+    term: Rättelseföreläggande
+    definition: >-
+      Nämndens beslut att ägaren inom viss tid ska rätta till något som gjorts i strid mot
+      reglerna, t.ex. riva en olovlig byggnad. Får inte beslutas efter tio år från
+      överträdelsen och kan förenas med vite.
+    lagrum: [PBL 11 kap. 20 §, PBL 11 kap. 37 §]
+    relaterade: [lovforelaggande, vite, preskription-tillsyn, olovligt-byggande]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: rattidsprovning
+    term: Rättidsprövning
+    definition: >-
+      Nämnden prövar om ett överklagande har kommit in i rätt tid. Har det kommit in för sent
+      avvisas det, utom när nämnden inte gett korrekt besked om hur man överklagar eller
+      överklagandet kom in i tid till överinstansen.
+    lagrum: [FL 45 §]
+    relaterade: [overklagandetid, avvisning, overlamnande]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: remiss
+    term: Remiss
+    definition: >-
+      Nämnden begär ett yttrande från en annan myndighet, förvaltning eller enskild, t.ex.
+      trafikverket eller miljöförvaltningen. Det ska framgå vad yttrandet gäller och när det
+      senast ska komma in.
+    lagrum: [FL 26 §]
+    relaterade: [kommunicering]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: riksintresse
+    term: Riksintresse
+    definition: >-
+      Ett område som är av nationell betydelse, t.ex. för naturvård, kulturmiljö, friluftsliv
+      eller totalförsvaret. Det ska skyddas mot åtgärder som påtagligt kan skada värdena och
+      ska vägas in i bygglovsprövningen.
+    lagrum: [MB 3 kap. 6 §, MB 4 kap., PBL 2 kap. 2 §, PBL 9 kap. 97 §]
+    relaterade: [allmanna-intressen, strandskydd]
+    modul: 11-angransande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: rivningslov
+    term: Rivningslov
+    definition: >-
+      Lov för att riva en byggnad eller del av en byggnad inom detaljplan. Utanför plan krävs
+      rivningslov bara när områdesbestämmelser kräver det eller byggnaden är särskilt
+      värdefull. Rivning av större byggnader utan lovplikt ska anmälas.
+    lagrum: [PBL 9 kap. 43 §, PBL 9 kap. 44 §, PBL 9 kap. 75 §, PBL 9 kap. 76 §]
+    relaterade: [lovplikt, anmalningsplikt, sarskilt-vardefull-byggnad]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: sakagare
+    term: Sakägare
+    definition: >-
+      Den vars rätt kan påverkas av ett beslut, typiskt ägare och innehavare av särskild rätt
+      till grannfastigheterna. I lovärenden underrättas de vid avvikelse eller prövning utanför
+      plan och får överklaga om beslutet går dem emot.
+    lagrum: [PBL 9 kap. 96 §, FL 42 §]
+    relaterade: [raggranne, sarskild-ratt, klagoratt, underrattelse-grannar]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: sammanhallen-bebyggelse
+    term: Sammanhållen bebyggelse
+    definition: >-
+      Bebyggelse på tomter som gränsar till varandra eller bara skiljs åt av en väg, gata
+      eller parkmark. Begreppet avgör bland annat var vissa lovbefrielser och krav gäller
+      utanför detaljplan.
+    lagrum: [PBL 1 kap. 4 §, PBL 9 kap. 16 §]
+    relaterade: [lokaliseringsprovning, forhandsbesked, nybyggnadskarta]
+    modul: 05-utanfor-plan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: sarskild-ratt
+    term: Särskild rätt
+    definition: >-
+      En rätt till en fastighet som inte är ägande, t.ex. arrende, servitut eller tomträtt.
+      Innehavare av särskild rätt till en grannfastighet ska underrättas i lovärenden;
+      hyresgäster och bostadsrättshavare nämns inte längre i 9 kap. 96 §.
+    lagrum: [PBL 9 kap. 96 §]
+    relaterade: [sakagare, underrattelse-grannar]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: sarskilt-vardefull-byggnad
+    term: Särskilt värdefull byggnad
+    definition: >-
+      En byggnad som är särskilt värdefull från historisk, kulturhistorisk, miljömässig eller
+      konstnärlig synpunkt. Den får inte förvanskas, och nybyggnad, tillbyggnad, ytterligare
+      bostad och fasadändring kräver alltid bygglov.
+    lagrum: [PBL 8 kap. 13 §, PBL 9 kap. 37 §]
+    relaterade: [forvanskningsforbud, varsamhetskrav, skyddsbestammelse]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: sasongslov
+    term: Säsongslov
+    definition: >-
+      Ett bygglov för ett ändamål som återkommer varje säsong, t.ex. en uteservering. Åtgärden
+      får göras igen utan ny prövning om det sker inom ett år från att den senast avslutades.
+    lagrum: [PBL 9 kap. 40 §, PBL 9 kap. 72 §]
+    relaterade: [tidsbegransat-lov]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: sekretess
+    term: Sekretess
+    definition: >-
+      Förbud att lämna ut vissa uppgifter, t.ex. om enskildas personliga förhållanden. Det mesta
+      i ett bygglovsärende är offentligt, men exempelvis vissa uppgifter om skyddsrum eller
+      totalförsvaret kan omfattas av sekretess.
+    lagrum: [OSL 5 kap. 1 §, TF 2 kap.]
+    relaterade: [allman-handling, partsinsyn]
+    modul: 01-forvaltningsratt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: serviceskyldighet
+    term: Serviceskyldighet
+    definition: >-
+      Myndigheten ska göra kontakterna smidiga och enkla och ge den enskilde den hjälp som
+      behövs för att hon eller han ska kunna ta till vara sina intressen, utan onödigt
+      dröjsmål.
+    lagrum: [FL 6 §, FL 20 §, PBL 12 kap. 2 §]
+    relaterade: [klarsprak]
+    modul: 01-forvaltningsratt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: situationsplan
+    term: Situationsplan
+    definition: >-
+      En ritning ovanifrån som visar tomten med befintliga och nya byggnader, mått till gräns,
+      utfarter och höjder. Görs ofta på en nybyggnadskarta.
+    lagrum: [PBL 9 kap. 86 §]
+    relaterade: [nybyggnadskarta, narhet-till-grans]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: skyddsbestammelse
+    term: Skyddsbestämmelse
+    synonymer: [q-bestämmelse, rivningsförbud]
+    definition: >-
+      En planbestämmelse som skyddar särskilt värdefulla byggnader eller miljöer, ofta med
+      beteckningen q, eller som förbjuder rivning. Den preciserar förvanskningsförbudet för
+      just den byggnaden.
+    lagrum: [PBL 4 kap. 16 §, PBL 9 kap. 37 §]
+    relaterade: [forvanskningsforbud, sarskilt-vardefull-byggnad, varsamhetskrav]
+    modul: 04-detaljplan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: slutbesked
+    term: Slutbesked
+    definition: >-
+      Nämndens skriftliga beslut att åtgärden är slutförd och att byggnaden får tas i bruk.
+      Ges när byggherren visat att kraven i lov, kontrollplan och startbesked är uppfyllda.
+    lagrum: [PBL 10 kap. 4 §, PBL 10 kap. 34 §, PBL 10 kap. 35 §]
+    relaterade: [interimistiskt-slutbesked, slutsamrad, startbesked, anvandningsforbud]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: slutsamrad
+    term: Slutsamråd
+    definition: >-
+      Ett möte mellan nämnden, byggherren och kontrollansvarig när arbetet är klart, där man
+      går igenom genomförandet och underlaget för slutbesked.
+    lagrum: [PBL 10 kap. 30 §, PBL 10 kap. 32 §]
+    relaterade: [slutbesked, tekniskt-samrad]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: sokande
+    term: Sökande
+    synonymer: [byggherre]
+    definition: >-
+      Den som har lämnat in ansökan och är part i lovärendet. Sökanden ska få mottagningsbevis,
+      kommuniceras före beslut och delges beslutet.
+    lagrum: [PBL 9 kap. 98 §, PBL 9 kap. 100 §, PBL 9 kap. 108 §]
+    relaterade: [kommunicering, mottagningsbevis]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: solenergianlaggning
+    term: Solenergianläggning
+    synonymer: [solceller, solpaneler]
+    definition: >-
+      Solceller och solfångare på en byggnad. En anläggning på högst elva kilowatt kräver inte
+      bygglov som fasadändring, men lov kan krävas i särskilt värdefulla miljöer och nära
+      totalförsvarets områden.
+    lagrum: [PBL 9 kap. 17 a §, PBL 9 kap. 36 §, PBL 9 kap. 99 §]
+    relaterade: [fasadandring]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: startbesked
+    term: Startbesked
+    definition: >-
+      Nämndens skriftliga besked att en lov- eller anmälningspliktig åtgärd får påbörjas. Ges
+      efter prövning av kontrollplanen och det som kommit fram vid tekniskt samråd. Ett lov
+      räcker alltså inte för att få börja bygga.
+    lagrum: [PBL 10 kap. 3 §, PBL 10 kap. 23 §, PBL 10 kap. 24 §, PBL 9 kap. 105 §]
+    relaterade: [tekniskt-samrad, kontrollplan, slutbesked, byggsanktionsavgift]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: stads-och-landskapsbild
+    term: Stads- och landskapsbild
+    definition: >-
+      Hur bebyggelse och landskap upplevs som helhet. Byggnader ska placeras och utformas
+      lämpligt med hänsyn till stads- och landskapsbilden och natur- och kulturvärdena på
+      platsen.
+    lagrum: [PBL 2 kap. 6 §]
+    relaterade: [allmanna-intressen, utformningskrav]
+    modul: 02-pbl-systemet
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: strandskydd
+    term: Strandskydd
+    definition: >-
+      Skydd för allemansrättslig tillgång till stränder och för djur- och växtlivet. Gäller
+      normalt 100 m från strandlinjen vid hav, sjöar och vattendrag, men inte vid sjöar på högst
+      en hektar eller vattendrag på högst två meters bredd. Nya byggnader är förbjudna utan
+      dispens.
+    lagrum: [MB 7 kap. 13 §, MB 7 kap. 13 a §, MB 7 kap. 14 §, MB 7 kap. 15 §]
+    relaterade: [dispens, vilande-arende, riksintresse]
+    modul: 11-angransande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: taxa
+    term: Taxa
+    definition: >-
+      Kommunfullmäktiges beslut om hur byggnadsnämndens avgifter beräknas. Avgiften får inte
+      vara högre än kommunens genomsnittliga kostnad och ska redovisas i beslutet.
+    lagrum: [PBL 12 kap. 8 §, PBL 12 kap. 10 §, PBL 9 kap. 107 §]
+    relaterade: [avgiftsreduktion]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: tekniska-egenskapskrav
+    term: Tekniska egenskapskrav
+    definition: >-
+      Kraven på byggnadsverkets egenskaper, t.ex. bärförmåga, brandskydd, hygien och hälsa,
+      säkerhet vid användning, bullerskydd, energihushållning och tillgänglighet. De preciseras
+      i Boverkets föreskrifter och kontrolleras i startbesked och slutbesked.
+    lagrum: [PBL 8 kap. 4 §, PBF 3 kap.]
+    relaterade: [utformningskrav, tillganglighet, startbesked]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: tekniskt-samrad
+    term: Tekniskt samråd
+    definition: >-
+      Ett möte efter lov eller anmälan där nämnden, byggherren och kontrollansvarig går igenom
+      hur arbetet ska planeras, kontrolleras och genomföras. Det krävs bland annat när en
+      kontrollansvarig behövs.
+    lagrum: [PBL 10 kap. 14 §, PBL 10 kap. 19 §]
+    relaterade: [kontrollansvarig, kontrollplan, startbesked, arbetsplatsbesok]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: tidsbegransat-lov
+    term: Tidsbegränsat bygglov
+    definition: >-
+      Bygglov för en åtgärd som bara ska pågå en tid. Ges för högst tio år och kan förlängas
+      med fem år i taget. Platsen ska återställas när tiden gått ut.
+    lagrum: [PBL 9 kap. 39 §, PBL 9 kap. 71 §, PBL 9 kap. 72 §, PBL 9 kap. 73 §]
+    relaterade: [sasongslov]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: tillbyggnad
+    term: Tillbyggnad
+    definition: >-
+      En ändring av en byggnad som ökar dess volym, t.ex. en ny del, en inglasad altan eller en
+      påbyggnad. Tillbyggnad kräver bygglov om den inte är lovbefriad.
+    lagrum: [PBL 1 kap. 4 §, PBL 9 kap. 9 §]
+    relaterade: [lovbefriad-tillbyggnad, nybyggnad, andring-av-byggnad]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: tillganglighet
+    term: Tillgänglighet
+    definition: >-
+      Byggnader ska vara tillgängliga och användbara för personer med nedsatt rörelse- eller
+      orienteringsförmåga. Det är både ett utformningskrav och ett tekniskt egenskapskrav.
+    lagrum: [PBL 8 kap. 1 §, PBL 8 kap. 4 §]
+    relaterade: [utformningskrav, tekniska-egenskapskrav]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: tillsyn
+    term: Tillsyn
+    definition: >-
+      Nämndens kontroll av att PBL och beslut följs. Så snart det finns anledning att anta att
+      någon brutit mot reglerna ska nämnden pröva om den ska ingripa eller ta ut en påföljd.
+    lagrum: [PBL 11 kap. 3 §, PBL 11 kap. 5 §]
+    relaterade: [olovligt-byggande, lovforelaggande, rattelseforelaggande, byggsanktionsavgift]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: tomt
+    term: Tomt
+    definition: >-
+      Det område som omfattar mark för en eller flera byggnader och marken närmast som behövs
+      för att byggnaderna ska kunna användas. Tomten är inte alltid samma sak som fastigheten.
+    lagrum: [PBL 1 kap. 4 §, PBL 8 kap. 9 §]
+    relaterade: [kvartersmark, komplementbyggnad]
+    modul: 02-pbl-systemet
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: totalhojd
+    term: Totalhöjd
+    definition: >-
+      Byggnadens högsta punkt mätt från markens medelnivå, normalt med uppstickande delar som
+      skorstenar och ventilationshuvar. Används som planbestämmelse; kontrollera planens egen
+      definition.
+    lagrum: [Boverket]
+    relaterade: [nockhojd, byggnadshojd]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: underhall
+    term: Underhåll
+    definition: >-
+      Åtgärder för att behålla eller återställa en byggnads konstruktion, funktion,
+      användningssätt, utseende eller kulturhistoriska värde. Byggnader ska hållas i vårdat
+      skick och underhållas.
+    lagrum: [PBL 1 kap. 4 §, PBL 8 kap. 14 §]
+    relaterade: [andring-av-byggnad, varsamhetskrav]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: underrattelse-grannar
+    term: Underrättelse till grannar
+    synonymer: [grannehörande]
+    definition: >-
+      Vid avvikelse från plan eller områdesbestämmelser och vid prövning utanför plan ska
+      grannarna få ett meddelande om ansökan och tillfälle att yttra sig. Meddelandet kungörs
+      också på kommunens anslagstavla.
+    lagrum: [PBL 9 kap. 94 §, PBL 9 kap. 95 §, PBL 9 kap. 96 §]
+    relaterade: [sakagare, raggranne, sarskild-ratt, liten-avvikelse, kommunicering]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: utformningskrav
+    term: Utformningskrav
+    definition: >-
+      En byggnad ska vara lämplig för sitt ändamål, ha en god form-, färg- och materialverkan
+      och vara tillgänglig och användbar.
+    lagrum: [PBL 8 kap. 1 §]
+    relaterade: [tekniska-egenskapskrav, tillganglighet, stads-och-landskapsbild]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: utstakning
+    term: Utstakning
+    definition: >-
+      Att markera ut en ny byggnad eller tillbyggnad på marken och dess höjdläge innan bygget
+      börjar. Behovet bestäms i startbeskedet; grannen kallas om läget beror på gränsen.
+    lagrum: [PBL 10 kap. 26 §, PBL 10 kap. 24 §]
+    relaterade: [startbesked]
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: anvandningsforbud
+    term: Användningsförbud
+    definition: >-
+      Nämndens förbud att använda hela eller delar av ett byggnadsverk, t.ex. när det har
+      säkerhetsbrister eller tagits i bruk utan att förutsättningarna för slutbesked finns.
+    lagrum: [PBL 11 kap. 33 §]
+    relaterade: [slutbesked, interimistiskt-slutbesked, tillsyn]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: andrad-anvandning
+    term: Ändrad användning
+    definition: >-
+      Att en byggnad helt eller delvis används för ett väsentligen annat ändamål än tidigare,
+      t.ex. kontor till bostad. Kräver bygglov, med undantag för små lokaler utanför plan och
+      för en komplementbyggnad som blir lovbefriat komplementbostadshus.
+    lagrum: [PBL 9 kap. 15 §, PBL 9 kap. 16 §]
+    relaterade: [andring-av-byggnad, lovplikt, ytterligare-bostad]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: andring-av-byggnad
+    term: Ändring av en byggnad
+    definition: >-
+      Åtgärder som ändrar byggnadens konstruktion, funktion, användningssätt, utseende eller
+      kulturhistoriska värde. Tillbyggnad och ombyggnad är särskilda sorters ändring.
+    lagrum: [PBL 1 kap. 4 §, PBL 8 kap. 17 §]
+    relaterade: [tillbyggnad, ombyggnad, andrad-anvandning, varsamhetskrav]
+    modul: 02-pbl-systemet
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: varsamhetskrav
+    term: Varsamhetskrav
+    definition: >-
+      Ändring och flyttning av en byggnad ska göras varsamt, med hänsyn till byggnadens
+      karaktärsdrag och dess tekniska, historiska, kulturhistoriska, miljömässiga och
+      konstnärliga värden. Gäller alla byggnader.
+    lagrum: [PBL 8 kap. 17 §]
+    relaterade: [forvanskningsforbud, sarskilt-vardefull-byggnad, andring-av-byggnad]
+    modul: 07-krav-byggnadsverk
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: vasentlig-andring
+    term: Väsentlig ändring
+    definition: >-
+      Uttryck i PBL och PBF för en ändring som är så stor att den kräver lov eller anmälan,
+      t.ex. att väsentligt ändra en parkeringsplats eller en eldstad. Bedöms från fall till
+      fall utifrån hur mycket som påverkas.
+    lagrum: [PBL 9 kap. 22 §, PBL 9 kap. 28 §, PBF 6 kap. 1 §]
+    relaterade: [andrad-anvandning, anmalningsplikt]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: verkstallbarhet
+    term: Verkställbarhet
+    definition: >-
+      När ett beslut får genomföras. Ett lov gäller omedelbart, även innan det fått laga
+      kraft, men en åtgärd som påbörjas tidigare kan behöva återställas om lovet ändras. Vid
+      risk för oåterkalleliga skador ska nämnden besluta att lovet gäller först vid laga
+      kraft.
+    lagrum: [PBL 9 kap. 114 §, PBL 9 kap. 105 §, FL 35 §]
+    relaterade: [laga-kraft, startbesked]
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: vilande-arende
+    term: Vilande ärende
+    definition: >-
+      Nämnden får besluta att ett lovärende inte ska avgöras förrän frågan om
+      strandskyddsdispens, expropriation eller pågående planarbete är avgjord. Tidsfristen och
+      avgiftsreduktionen påverkas inte under tiden.
+    lagrum: [PBL 9 kap. 102 §, PBL 12 kap. 8 a §]
+    relaterade: [dispens, handlaggningstid, avgiftsreduktion]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: villkorat-lov
+    term: Villkorat lov
+    definition: >-
+      Lov som ges med villkor, t.ex. att en ny detaljplan ska få laga kraft innan åtgärden
+      påbörjas, eller att gatukostnader ska vara betalda. Ett planvillkor kan i stället kopplas
+      till startbeskedet.
+    lagrum: [PBL 9 kap. 81 §, PBL 9 kap. 82 §, PBL 9 kap. 83 §]
+    relaterade: [startbesked, detaljplan]
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: villkorsbesked
+    term: Villkorsbesked (borttaget)
+    definition: >-
+      Ett besked om vilka tekniska villkor som skulle gälla för en åtgärd. Möjligheten togs
+      bort när 9 kap. PBL skrevs om den 1 december 2025.
+    lagrum: [PBL 9 kap.]
+    relaterade: [forhandsbesked]
+    modul: 05-utanfor-plan
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: vind
+    term: Vind
+    definition: >-
+      Utrymmet under taket. En vind räknas som våning bara om ett bostadsrum eller en
+      arbetslokal kan inredas där och byggnadshöjden är mer än 0,7 m högre än
+      vindsbjälklagets översida.
+    lagrum: [PBF 1 kap. 4 §, PBL 9 kap. 60 §]
+    relaterade: [vaning, kallare, byggnadshojd]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: vite
+    term: Vite
+    definition: >-
+      Ett belopp som den som fått ett föreläggande eller förbud måste betala om hen inte följer
+      det. Vitet döms ut av mark- och miljödomstolen och får inte förvandlas till fängelse.
+    lagrum: [PBL 11 kap. 37 §]
+    relaterade: [rattelseforelaggande, tillsyn]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: vaning
+    term: Våning
+    definition: >-
+      Ett utrymme i en byggnad som avgränsas av ytterväggarna åt sidorna, av tak eller
+      bjälklag uppåt och av golv nedåt. Vind och källare räknas som våning bara under vissa
+      förutsättningar.
+    lagrum: [PBF 1 kap. 4 §]
+    relaterade: [vind, kallare, byggnadshojd]
+    modul: 08-ritning-berakning
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: atgardsforelaggande
+    term: Åtgärdsföreläggande
+    definition: >-
+      Nämndens föreläggande till t.ex. en byggherre eller ägare som låter bli att göra något hen
+      är skyldig till, som att underhålla en byggnad eller avhjälpa ett enkelt avhjälpt hinder.
+    lagrum: [PBL 11 kap. 19 §]
+    relaterade: [rattelseforelaggande, tillsyn, vite]
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: klarsprak
+    term: Klarspråk
+    definition: >-
+      Språket i offentlig verksamhet ska vara vårdat, enkelt och begripligt. Beslut och
+      skrivelser ska gå att förstå för den som inte är jurist.
+    lagrum: [SprL 11 §]
+    relaterade: [serviceskyldighet, motiveringsskyldighet]
+    modul: 13-kommunikation
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: ytterligare-bostad
+    term: Ytterligare bostad
+    definition: >-
+      Att inreda en till bostad i en befintlig byggnad kräver som huvudregel bygglov, men inte
+      i ett enbostadshus som inte är ett komplementbostadshus. Nära totalförsvarets områden kan
+      lov ändå krävas.
+    lagrum: [PBL 9 kap. 15 §, PBL 9 kap. 17 §, PBL 9 kap. 36 §]
+    relaterade: [en-och-tvabostadshus, andrad-anvandning, komplementbostadshus]
+    modul: 03-lovplikt
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: fornlamning
+    term: Fornlämning
+    definition: >-
+      Lämningar efter människors verksamhet under forna tider, t.ex. gravar och boplatser.
+      De är skyddade enligt kulturmiljölagen, och ingrepp kräver länsstyrelsens tillstånd.
+    lagrum: [KML 2 kap. 1 §]
+    relaterade: [byggnadsminne, riksintresse]
+    modul: 11-angransande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggnadsminne
+    term: Byggnadsminne
+    definition: >-
+      En byggnad med synnerligen högt kulturhistoriskt värde som länsstyrelsen har förklarat
+      som byggnadsminne. Ändringar kräver tillstånd enligt kulturmiljölagen, utöver PBL.
+    lagrum: [KML 3 kap. 1 §]
+    relaterade: [fornlamning, sarskilt-vardefull-byggnad]
+    modul: 11-angransande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: byggnadsfritt-avstand
+    term: Byggnadsfritt avstånd från väg
+    definition: >-
+      Inom tolv meter från vägområdet för en allmän väg får byggnader inte uppföras utan
+      länsstyrelsens tillstånd om de kan påverka trafiksäkerheten. Avståndet kan ökas till
+      högst 50 m.
+    lagrum: [VägL 47 §]
+    relaterade: [allmanna-intressen]
+    modul: 11-angransande
+    status: utkast
+    rattslage: "2025-12-01"
+
+  - id: enskilt-avlopp
+    term: Enskilt avlopp
+    definition: >-
+      En egen avloppsanläggning utanför det kommunala nätet. Det krävs tillstånd från
+      kommunens miljönämnd för att inrätta en avloppsanordning som vattentoaletter ska
+      anslutas till.
+    lagrum: [FMH 13 §]
+    relaterade: [lokaliseringsprovning, anmalningsplikt]
+    modul: 11-angransande
+    status: utkast
+    rattslage: "2025-12-01"

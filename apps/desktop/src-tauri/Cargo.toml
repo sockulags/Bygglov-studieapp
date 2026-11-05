@@ -8,6 +8,9 @@ repository = "https://github.com/sockulags/Bygglov-studieapp"
 edition = "2021"
 rust-version = "1.77.2"
 
+[workspace]
+members = ["crates/tutor-client"]
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [lib]
@@ -28,6 +31,12 @@ tauri-plugin-opener = "2.7.2"
 tauri-plugin-http = "2.8.3"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+# Study assistant: the Messages API client (no Tauri dependency, tested on its own) and the
+# OS credential store for the API key. windows-native = Windows Credential Manager (the
+# shipped target); apple-native/linux-native only make other platforms store the key for
+# real instead of keyring's in-memory mock.
+tutor-client = { path = "crates/tutor-client" }
+keyring = { version = "3.6.3", features = ["windows-native", "apple-native", "linux-native"] }
 
 [target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
 tauri-plugin-updater = "2.14.1"

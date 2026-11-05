@@ -16,6 +16,12 @@ export {
   getQuestions,
   type StudyContent,
 } from './assemble';
+export {
+  assembleLookup,
+  EMPTY_LOOKUP,
+  loadLookup,
+  type LookupContent,
+} from './lookup';
 export type {
   CaseDocument,
   CaseEvent,
@@ -23,6 +29,12 @@ export type {
   CaseStep,
   ContentIndex,
   Module,
+  GlossaryTerm,
+  Law,
+  LawChapterFile,
+  LawSection,
+  Process,
+  ProcessStep,
   Question,
   QuestionType,
 } from '@bygglov/content-schema';

@@ -2,6 +2,7 @@ import { cpSync, existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } fr
 import { dirname, join } from 'node:path';
 import type { ContentIndex } from '@bygglov/content-schema';
 import type { ContentTree } from './load';
+import { lookupOutputs } from './lookup';
 
 export interface BuildTargets {
   /** JSON output, e.g. `apps/desktop/src/content-dist`. */
@@ -81,6 +82,7 @@ export function buildContent(tree: ContentTree, targets: BuildTargets): BuildRes
   });
   for (const { data } of tree.questionFiles) emit(`fragor/${data.modul}.json`, data);
   for (const { data } of tree.cases) emit(`arenden/${data.id}.json`, data);
+  for (const [relativePath, value] of lookupOutputs(tree)) emit(relativePath, value);
   emit('index.json', buildIndex(tree));
 
   const copiedDirs: string[] = [];

@@ -1,0 +1,502 @@
+# Processkartor i Uppslag. Varje process är en lista med steg i läsordning.
+# - Utan nasta leder ett steg till nästa steg i listan (sista steget, eller slut: true, avslutar).
+# - fraga gör steget till en förgrening; då behövs minst två vägar i nasta, var och en med etikett.
+# - spar är kolumnen i kartan: 0 huvudflödet, 1 och 2 sidospår. Raden räknas fram av appen.
+# - begrepp: id ur begrepp.yaml. se_process: en annan process som tar vid.
+# Lagrum i 9 kap. ur docs/rattslage/pbl-9-kap.txt, övrigt kontrollerat på riksdagen.se 2026-11-05.
+processer:
+  - id: bygglov-inom-plan
+    titel: Bygglov inom detaljplan
+    beskrivning: >-
+      Från ansökan till lov med laga kraft för en lovpliktig åtgärd inom detaljplan, med
+      komplettering, liten avvikelse och grannehörande.
+    modul: 06-handlaggning
+    status: utkast
+    rattslage: "2025-12-01"
+    steg:
+      - id: ansokan
+        titel: Ansökan kommer in
+        beskrivning: >-
+          Ansökan registreras i diariet samma dag. Den dagen är ansökningsdagen och tidsfristen
+          börjar löpa, även om ansökan inte är komplett. Sökanden får ett mottagningsbevis med
+          tidsfristen, reglerna om avgiftsreduktion och hur man överklagar.
+        lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 100 §, FL 22 §, OSL 5 kap. 1 §]
+        frist: Tio veckor börjar räknas från ansökningsdagen
+        begrepp: [ansokningsdagen, mottagningsbevis, diarieforing]
+
+      - id: fullstandighet
+        titel: Fullständighetsgranskning
+        beskrivning: >-
+          Handläggaren kontrollerar att ansökan har allt som behövs för prövningen: ritningar,
+          beskrivningar, fastighetsbeteckning och uppgift om kontrollansvarig när en sådan
+          behövs.
+        lagrum: [PBL 9 kap. 86 §, PBL 9 kap. 91 §]
+        frist: Föreläggande inom tre veckor gör att fristen räknas från kompletteringen
+        fraga: Är ansökan komplett?
+        nasta:
+          - { till: provning, etikett: Ja }
+          - { till: komplettering, etikett: Nej }
+        begrepp: [fullstandighetsgranskning]
+
+      - id: komplettering
+        titel: Föreläggande om komplettering
+        beskrivning: >-
+          Nämnden förelägger sökanden att komplettera inom en viss tid. Föreläggandet ska upplysa
+          om att ansökan annars kan avvisas eller avgöras i befintligt skick. Ges föreläggandet
+          inom tre veckor räknas tioveckorsfristen från dagen då bristen avhjälptes.
+        lagrum: [PBL 9 kap. 91 §, PBL 9 kap. 99 §, PBL 9 kap. 100 §]
+        frist: Svarstiden bestäms i föreläggandet
+        spar: 1
+        fraga: Kompletterat i tid?
+        nasta:
+          - { till: provning, etikett: Ja }
+          - { till: avvisning, etikett: Nej }
+        begrepp: [forelaggande-om-komplettering, handlaggningstid]
+
+      - id: avvisning
+        titel: Avvisa eller avgör i befintligt skick
+        beskrivning: >-
+          Följs inte föreläggandet får nämnden avvisa ansökan. Den får i stället avgöra ärendet
+          med det underlag som finns, vilket oftast leder till avslag.
+        lagrum: [PBL 9 kap. 91 §]
+        spar: 2
+        slut: true
+        begrepp: [avvisning, avslag]
+
+      - id: provning
+        titel: Prövning mot detaljplanen
+        beskrivning: >-
+          Stämmer fastigheten och åtgärden med planen, har genomförandetiden börjat och uppfylls
+          kraven i 2 och 8 kap.? Vid behov skickas ansökan på remiss, t.ex. till miljö- eller
+          trafikförvaltningen.
+        lagrum: [PBL 9 kap. 56 §, PBL 9 kap. 92 §, FL 26 §]
+        fraga: Följer åtgärden planen?
+        nasta:
+          - { till: kommunicering, etikett: Ja }
+          - { till: avvikelse, etikett: Nej }
+        begrepp: [detaljplan, planbestammelse, remiss]
+
+      - id: avvikelse
+        titel: Bedöm avvikelsen
+        beskrivning: >-
+          Är avvikelsen liten och förenlig med planens syfte, eller begränsad och nödvändig?
+          Väg in tidigare godtagna avvikelser och kontrollera att åtgärden inte ger betydande
+          miljöpåverkan eller begränsar pågående verksamhet i omgivningen.
+        lagrum: [PBL 9 kap. 60 §, PBL 9 kap. 62 §, PBL 9 kap. 63 §, PBL 9 kap. 64 §]
+        spar: 1
+        fraga: Kan avvikelsen godtas?
+        nasta:
+          - { till: grannar, etikett: Ja }
+          - { till: kommunicering, etikett: Nej }
+        begrepp: [liten-avvikelse, planstridigt-utgangslage]
+
+      - id: grannar
+        titel: Underrättelse till grannar
+        beskrivning: >-
+          Ägare och innehavare av särskild rätt till angränsande fastigheter får ett meddelande
+          om ansökan och kan lämna synpunkter. Meddelandet kungörs också på kommunens
+          anslagstavla.
+        lagrum: [PBL 9 kap. 94 §, PBL 9 kap. 95 §, PBL 9 kap. 96 §]
+        frist: Svarstiden anges i underrättelsen
+        spar: 1
+        begrepp: [underrattelse-grannar, sakagare, raggranne, sarskild-ratt]
+
+      - id: kommunicering
+        titel: Kommunicering med sökanden
+        beskrivning: >-
+          Sökanden och fastighetsägaren får ta del av allt underlag av betydelse, t.ex.
+          grannarnas yttranden eller tjänsteutlåtandet inför ett avslag, och yttra sig inom en
+          bestämd tid.
+        lagrum: [PBL 9 kap. 98 §, FL 25 §]
+        begrepp: [kommunicering]
+
+      - id: beslut
+        titel: Beslut om lov eller avslag
+        beskrivning: >-
+          Beslutet motiveras, innehåller de upplysningar som krävs (giltighetstid,
+          kontrollansvarig, att startbesked krävs) och redovisar avgiften. Överskrids fristen
+          sätts avgiften ned med en femtedel per påbörjad vecka.
+        lagrum: [PBL 9 kap. 99 §, PBL 9 kap. 105 §, PBL 9 kap. 107 §, PBL 12 kap. 8 a §, FL 32 §]
+        frist: Inom tio veckor; kan förlängas en gång med högst tio veckor
+        begrepp: [handlaggningstid, avgiftsreduktion, motiveringsskyldighet, avslag]
+
+      - id: expediering
+        titel: Delgivning och kungörelse
+        beskrivning: >-
+          Beslutet delges sökanden, fastighetsägaren och grannar vars synpunkter inte
+          tillgodosetts, tillsammans med besked om hur man överklagar. Beslut om lov kungörs på
+          kommunens anslagstavla och meddelande skickas till övriga grannar.
+        lagrum: [PBL 9 kap. 108 §, PBL 9 kap. 109 §, PBL 9 kap. 110 §]
+        begrepp: [delgivning, kungorelse, expediering]
+
+      - id: lovet-galler
+        titel: Lovet gäller omedelbart
+        beskrivning: >-
+          Ett lov gäller direkt, även innan det fått laga kraft, men arbetet får inte påbörjas
+          förrän nämnden gett startbesked. Den som börjar före laga kraft riskerar att behöva
+          återställa om lovet ändras.
+        lagrum: [PBL 9 kap. 114 §, PBL 9 kap. 105 §]
+        se_process: startbesked-slutbesked
+        begrepp: [verkstallbarhet, startbesked]
+
+      - id: laga-kraft
+        titel: Laga kraft och giltighetstid
+        beskrivning: >-
+          Överklagas inte beslutet får det laga kraft när överklagandetiden gått ut. Åtgärden ska
+          påbörjas inom två år och avslutas inom fem år från laga kraft.
+        lagrum: [FL 44 §, PBL 13 kap. 16 §, PBL 9 kap. 115 §]
+        frist: Tre veckor från delgivning; för övriga från en vecka efter kungörelsen
+        fraga: Överklagas beslutet?
+        nasta:
+          - { till: klar, etikett: Nej }
+          - { till: overklagat, etikett: Ja }
+        begrepp: [laga-kraft, overklagandetid, giltighetstid]
+
+      - id: klar
+        titel: Lovet står fast
+        beskrivning: >-
+          Lovet har fått laga kraft. Byggherren fortsätter mot tekniskt samråd och startbesked.
+        lagrum: [PBL 9 kap. 115 §]
+        slut: true
+        se_process: startbesked-slutbesked
+
+      - id: overklagat
+        titel: Överklagandet prövas
+        beskrivning: >-
+          Nämnden prövar om överklagandet kommit in i tid och skickar det sedan till
+          länsstyrelsen. Se processen för överklagande.
+        lagrum: [FL 45 §, FL 46 §, PBL 13 kap. 3 §]
+        spar: 1
+        slut: true
+        se_process: overklagande
+
+  - id: startbesked-slutbesked
+    titel: Startbesked och slutbesked
+    beskrivning: >-
+      Vad som händer efter lov eller anmälan: tekniskt samråd, startbesked, byggskedet och
+      slutbesked innan byggnaden får tas i bruk.
+    modul: 09-genomforande
+    status: utkast
+    rattslage: "2025-12-01"
+    steg:
+      - id: lov-eller-anmalan
+        titel: Lov eller anmälan finns
+        beskrivning: >-
+          Startbesked krävs för lov- och anmälningspliktiga åtgärder. En anmälan handläggs som en
+          ansökan men med fyra veckors tidsfrist, som får förlängas en gång med högst fyra
+          veckor.
+        lagrum: [PBL 10 kap. 3 §, PBF 6 kap. 1 §, PBF 6 kap. 5 §]
+        frist: "Anmälan: fyra veckor (förlängning högst fyra veckor)"
+        begrepp: [anmalningsplikt, startbesked]
+
+      - id: behov-samrad
+        titel: Behövs tekniskt samråd?
+        beskrivning: >-
+          Tekniskt samråd krävs när det behövs en kontrollansvarig, när byggherren begär det och
+          annars om det inte är uppenbart obehövligt. Behövs det inte ger nämnden startbesked
+          direkt eller begär in de handlingar som saknas.
+        lagrum: [PBL 10 kap. 14 §, PBL 10 kap. 22 §]
+        fraga: Behövs tekniskt samråd?
+        nasta:
+          - { till: tekniskt-samrad, etikett: Ja }
+          - { till: startbesked, etikett: Nej }
+        begrepp: [tekniskt-samrad, kontrollansvarig]
+
+      - id: tekniskt-samrad
+        titel: Tekniskt samråd
+        beskrivning: >-
+          Nämnden, byggherren och kontrollansvarig går igenom arbetets planering, kontrollplanen
+          och vilka handlingar som behövs för startbesked. Byggherren lämnar förslag till
+          kontrollplan och tekniska handlingar före mötet.
+        lagrum: [PBL 10 kap. 14 §, PBL 10 kap. 18 §, PBL 10 kap. 19 §]
+        frist: Handlingarna senast fem arbetsdagar före samrådet
+        spar: 1
+        begrepp: [tekniskt-samrad, kontrollplan, kontrollansvarig]
+
+      - id: startbesked
+        titel: Startbesked
+        beskrivning: >-
+          Nämnden fastställer kontrollplanen, bestämmer villkor och vilka handlingar som ska in
+          inför slutbesked. Startbeskedet gäller omedelbart. Den som börjar utan startbesked får
+          betala byggsanktionsavgift.
+        lagrum: [PBL 10 kap. 23 §, PBL 10 kap. 24 §, PBL 10 kap. 24 a §, PBL 11 kap. 51 §]
+        begrepp: [startbesked, kontrollplan, utstakning]
+
+      - id: bygget
+        titel: Byggskedet
+        beskrivning: >-
+          Byggherren ansvarar för att kraven uppfylls och att kontrollplanen följs. Nämnden gör
+          arbetsplatsbesök när det har varit tekniskt samråd och kan förbjuda fortsatt arbete om
+          kontrollplanen inte följs.
+        lagrum: [PBL 10 kap. 5 §, PBL 10 kap. 27 §, PBL 11 kap. 32 §]
+        begrepp: [byggherre, arbetsplatsbesok]
+
+      - id: slutsamrad
+        titel: Slutsamråd
+        beskrivning: >-
+          När arbetet är klart kallar nämnden till slutsamråd om det har varit tekniskt samråd,
+          om det inte är uppenbart obehövligt. Där går man igenom kontrollerna och underlaget för
+          slutbesked.
+        lagrum: [PBL 10 kap. 30 §]
+        begrepp: [slutsamrad]
+
+      - id: provning-slutbesked
+        titel: Prövning av slutbesked
+        beskrivning: >-
+          Nämnden prövar skyndsamt om byggherren visat att kraven i lovet, kontrollplanen och
+          startbeskedet är uppfyllda. Försumbara brister hindrar inte slutbesked men antecknas.
+        lagrum: [PBL 10 kap. 34 §, PBL 10 kap. 35 §, PBL 10 kap. 37 §]
+        fraga: Är kraven uppfyllda?
+        nasta:
+          - { till: slutbesked, etikett: Ja }
+          - { till: interimistiskt, etikett: Brist kvar }
+          - { till: inget-slutbesked, etikett: Nej }
+        begrepp: [slutbesked]
+
+      - id: slutbesked
+        titel: Slutbesked, byggnaden får tas i bruk
+        beskrivning: >-
+          Åtgärden anses slutförd och byggnaden får användas. Slutbeskedet gäller omedelbart.
+        lagrum: [PBL 10 kap. 4 §, PBL 10 kap. 34 §, PBL 10 kap. 39 §]
+        slut: true
+        begrepp: [slutbesked]
+
+      - id: interimistiskt
+        titel: Interimistiskt slutbesked
+        beskrivning: >-
+          En brist som inte är försumbar återstår eller en kontroll måste göras senare. Nämnden
+          anger vad som gäller för att ta byggnaden i bruk och prövar slutbesked igen när bristen
+          är avhjälpt.
+        lagrum: [PBL 10 kap. 36 §]
+        spar: 1
+        nasta:
+          - { till: provning-slutbesked, etikett: Bristen avhjälpt }
+        begrepp: [interimistiskt-slutbesked]
+
+      - id: inget-slutbesked
+        titel: Inget slutbesked
+        beskrivning: >-
+          Byggnaden får inte tas i bruk. Nämnden kan förbjuda användning och utreder om den ska
+          ingripa enligt 11 kap.
+        lagrum: [PBL 10 kap. 34 §, PBL 11 kap. 33 §]
+        spar: 2
+        slut: true
+        se_process: tillsyn
+        begrepp: [anvandningsforbud, tillsyn]
+
+  - id: tillsyn
+    titel: Tillsyn vid olovligt byggande
+    beskrivning: >-
+      Hur nämnden hanterar en byggnad eller åtgärd som kan ha utförts utan lov eller i strid mot
+      reglerna, från misstanke till föreläggande, avgift och uppföljning.
+    modul: 10-tillsyn
+    status: utkast
+    rattslage: "2025-12-01"
+    steg:
+      - id: misstanke
+        titel: Misstanke om överträdelse
+        beskrivning: >-
+          Ett klagomål, ett flygfoto eller ett eget iakttagande. Så snart det finns anledning att
+          anta att reglerna inte följts ska nämnden pröva om den ska ingripa.
+        lagrum: [PBL 11 kap. 5 §]
+        begrepp: [tillsyn, olovligt-byggande]
+
+      - id: utredning
+        titel: Utredning och platsbesök
+        beskrivning: >-
+          Handläggaren tar reda på vad som har gjorts, när och av vem. Nämnden har rätt till
+          tillträde till fastigheten för att utföra sina uppgifter.
+        lagrum: [PBL 11 kap. 8 §, FL 23 §]
+        begrepp: [olovligt-byggande]
+
+      - id: kommunicering
+        titel: Kommunicering med ägaren
+        beskrivning: >-
+          Ägaren och den som kan bli avgiftsskyldig får ta del av utredningen och yttra sig innan
+          nämnden beslutar.
+        lagrum: [FL 25 §, PBL 11 kap. 58 §]
+        frist: Byggsanktionsavgift kräver att den ansvarige fått yttra sig inom fem år
+        begrepp: [kommunicering, preskription-tillsyn]
+
+      - id: bedomning
+        titel: Kan lov ges i efterhand?
+        beskrivning: >-
+          Är det sannolikt att lov kan ges ska nämnden först förelägga ägaren att söka lov. Annars
+          kan nämnden besluta om rättelse.
+        lagrum: [PBL 11 kap. 17 §, PBL 11 kap. 20 §]
+        fraga: Är lov sannolikt?
+        nasta:
+          - { till: lovforelaggande, etikett: Ja }
+          - { till: rattelse, etikett: Nej }
+
+      - id: lovforelaggande
+        titel: Lovföreläggande
+        beskrivning: >-
+          Ägaren föreläggs att inom viss tid söka lov. Följs inte föreläggandet får nämnden låta
+          ta fram ritningar och beskrivningar på ägarens bekostnad och pröva lov ändå.
+        lagrum: [PBL 11 kap. 17 §, PBL 11 kap. 27 §]
+        spar: 1
+        begrepp: [lovforelaggande]
+
+      - id: lov-i-efterhand
+        titel: Lov prövas i efterhand
+        beskrivning: >-
+          Ansökan prövas som vanligt. I ett lov för en åtgärd som redan utförts får nämnden kräva
+          ändringar i det som byggts och bestämma när de ska vara gjorda.
+        lagrum: [PBL 9 kap. 84 §]
+        spar: 1
+        fraga: Ges lov?
+        nasta:
+          - { till: avgift, etikett: Ja }
+          - { till: rattelse, etikett: Nej }
+        se_process: bygglov-inom-plan
+
+      - id: rattelse
+        titel: Rättelseföreläggande
+        beskrivning: >-
+          Ägaren föreläggs att inom viss tid rätta till det olovliga, t.ex. riva eller återställa.
+          Föreläggandet kan förenas med vite och med förbud mot att göra om åtgärden.
+        lagrum: [PBL 11 kap. 20 §, PBL 11 kap. 32 a §, PBL 11 kap. 37 §]
+        frist: Inte senare än tio år efter överträdelsen
+        begrepp: [rattelseforelaggande, vite, preskription-tillsyn]
+
+      - id: avgift
+        titel: Byggsanktionsavgift
+        beskrivning: >-
+          Avgiften ska tas ut även om överträdelsen inte var avsiktlig, men inte om rättelse
+          skett innan frågan tagits upp på nämndens sammanträde. Den kan sättas ned till hälften
+          eller en fjärdedel. Beloppen står i PBF 9 kap.
+        lagrum: [PBL 11 kap. 51 §, PBL 11 kap. 53 a §, PBL 11 kap. 54 §, PBF 9 kap.]
+        begrepp: [byggsanktionsavgift]
+
+      - id: uppfoljning
+        titel: Uppföljning av besluten
+        beskrivning: >-
+          Nämnden kontrollerar att ägaren följer föreläggandet. Avgiften ska betalas inom två
+          månader från att beslutet delgetts, om nämnden inte bestämt en senare dag.
+        lagrum: [PBL 11 kap. 61 §]
+        fraga: Har ägaren följt beslutet?
+        nasta:
+          - { till: avslutat, etikett: Ja }
+          - { till: verkstallighet, etikett: Nej }
+
+      - id: avslutat
+        titel: Tillsynsärendet avslutas
+        beskrivning: Ärendet avslutas och beslutet arkiveras med ärendet.
+        slut: true
+
+      - id: verkstallighet
+        titel: Vite eller genomförande
+        beskrivning: >-
+          Nämnden ansöker hos mark- och miljödomstolen om att vitet döms ut, eller beslutar att
+          åtgärden ska genomföras på ägarens bekostnad.
+        lagrum: [PBL 11 kap. 37 §, PBL 11 kap. 27 §]
+        spar: 1
+        slut: true
+        begrepp: [vite]
+
+  - id: overklagande
+    titel: Överklagande av lovbeslut
+    beskrivning: >-
+      Vad som händer när någon överklagar ett beslut om lov: rättidsprövning, omprövning,
+      överlämnande och prövningen i länsstyrelsen och mark- och miljödomstolen.
+    modul: 12-overklagande
+    status: utkast
+    rattslage: "2025-12-01"
+    steg:
+      - id: beslut-meddelas
+        titel: Beslutet delges och kungörs
+        beskrivning: >-
+          Sökanden, fastighetsägaren och grannar med synpunkter som inte tillgodosetts delges
+          beslutet med besked om hur man överklagar. Beslut om lov kungörs på anslagstavlan.
+        lagrum: [PBL 9 kap. 108 §, PBL 9 kap. 109 §, FL 33 §]
+        begrepp: [delgivning, kungorelse]
+
+      - id: overklagande-in
+        titel: Överklagandet kommer in till nämnden
+        beskrivning: >-
+          Överklagandet ska vara skriftligt, ange vilket beslut det gäller och vilken ändring som
+          begärs, och lämnas till nämnden även om det riktas till länsstyrelsen.
+        lagrum: [FL 43 §, FL 44 §, PBL 13 kap. 16 §]
+        frist: Tre veckor från delgivning; för övriga från en vecka efter kungörelsen
+        begrepp: [overklagande, overklagandetid, klagoratt]
+
+      - id: rattid
+        titel: Rättidsprövning
+        beskrivning: >-
+          Nämnden prövar om överklagandet kom in i tid. Ett för sent överklagande avvisas, utom
+          när nämnden lämnat fel besked om hur man överklagar eller överklagandet kom in i tid
+          till länsstyrelsen.
+        lagrum: [FL 45 §]
+        fraga: Kom det in i tid?
+        nasta:
+          - { till: omprovning, etikett: Ja }
+          - { till: avvisas, etikett: Nej }
+        begrepp: [rattidsprovning]
+
+      - id: avvisas
+        titel: Överklagandet avvisas
+        beskrivning: >-
+          Beslutet att avvisa kan i sin tur överklagas. Annars står det ursprungliga beslutet
+          fast.
+        lagrum: [FL 45 §]
+        spar: 1
+        slut: true
+        begrepp: [avvisning]
+
+      - id: omprovning
+        titel: Omprövning
+        beskrivning: >-
+          Är beslutet uppenbart felaktigt och kan ändras snabbt och enkelt utan nackdel för någon
+          enskild part ska nämnden ändra det innan handlingarna skickas vidare.
+        lagrum: [FL 38 §, FL 39 §]
+        fraga: Uppenbart fel?
+        nasta:
+          - { till: overlamnande, etikett: Nej }
+          - { till: andras, etikett: Ja }
+        begrepp: [omprovning]
+
+      - id: andras
+        titel: Nämnden ändrar beslutet
+        beskrivning: >-
+          Det nya beslutet skickas med till länsstyrelsen och överklagandet anses omfatta det nya
+          beslutet.
+        lagrum: [FL 38 §, FL 46 §]
+        spar: 1
+
+      - id: overlamnande
+        titel: Överlämnande till länsstyrelsen
+        beskrivning: >-
+          Nämnden skickar skyndsamt överklagandet och handlingarna i ärendet till länsstyrelsen.
+        lagrum: [FL 46 §, PBL 13 kap. 3 §]
+        frist: Skyndsamt
+        begrepp: [overlamnande]
+
+      - id: lansstyrelsen
+        titel: Länsstyrelsen prövar
+        beskrivning: >-
+          Länsstyrelsen kan bestämma att beslutet tills vidare inte ska gälla (inhibition) och
+          avgör sedan om beslutet står fast, ändras eller upphävs.
+        lagrum: [PBL 13 kap. 3 §, FL 48 §]
+        fraga: Överklagas länsstyrelsens beslut?
+        nasta:
+          - { till: laga-kraft, etikett: Nej }
+          - { till: domstol, etikett: Ja }
+        begrepp: [overklagande]
+
+      - id: domstol
+        titel: Mark- och miljödomstolen prövar
+        beskrivning: >-
+          Länsstyrelsens beslut överklagas till mark- och miljödomstolen och därefter, med
+          prövningstillstånd, till Mark- och miljööverdomstolen.
+        lagrum: [PBL 13 kap. 6 §]
+        spar: 1
+
+      - id: laga-kraft
+        titel: Beslutet får laga kraft
+        beskrivning: >-
+          När ingen längre kan överklaga står beslutet fast. Lovets giltighetstid räknas från
+          laga kraft.
+        lagrum: [PBL 9 kap. 115 §]
+        slut: true
+        begrepp: [laga-kraft, giltighetstid]

@@ -4,15 +4,19 @@ import {
   cloneJson,
   DEFAULT_RECENT_SESSIONS,
   fromJson,
+  normalizeNewAiUsage,
   optionalIso,
   systemClock,
   toIso,
   toJson,
+  usageRangeBounds,
   type Clock,
 } from './shared';
 import {
   ConflictError,
   NotFoundError,
+  type AiUsage,
+  type AiUsageRepository,
   type Answer,
   type AnswersRepository,
   type CaseEvent,
@@ -52,7 +56,15 @@ function take<T>(rows: T[], limit: number | undefined): T[] {
  */
 export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
   const nowIso = () => clock().toISOString();
-  const ids = { answer: 0, session: 0, step: 0, event: 0, decision: 0, feedback: 0 };
+  const ids = {
+    answer: 0,
+    session: 0,
+    step: 0,
+    event: 0,
+    decision: 0,
+    feedback: 0,
+    usage: 0,
+  };
 
   const answerRows: Answer[] = [];
   const reviewRows = new Map<string, ReviewState>();
@@ -63,6 +75,7 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
   const eventRows: CaseEvent[] = [];
   const decisionRows = new Map<number, Decision>();
   const feedbackRows: SupervisorFeedback[] = [];
+  const usageRows: AiUsage[] = [];
 
   /* ---------------------------------------------------------------- answers */
 
@@ -410,6 +423,43 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
     },
   };
 
+  /* --------------------------------------------------------------- ai usage */
+
+  const aiUsage: AiUsageRepository = {
+    async recordUsage(input) {
+      const row: AiUsage = { id: ++ids.usage, ...normalizeNewAiUsage(input, nowIso) };
+      usageRows.push(row);
+      return cloneJson(row);
+    },
+
+    async listUsage(options) {
+      const rows = [...usageRows].sort(byKeyThenId<AiUsage>((u) => u.ts)).reverse();
+      return cloneJson(take(rows, assertLimit(options?.limit)));
+    },
+
+    async totals(range) {
+      const { from, to } = usageRangeBounds(range);
+      const totals = {
+        requests: 0,
+        inputTokens: 0,
+        outputTokens: 0,
+        cacheReadTokens: 0,
+        cacheWriteTokens: 0,
+        costSek: 0,
+      };
+      for (const u of usageRows) {
+        if ((from !== null && u.ts < from) || (to !== null && u.ts >= to)) continue;
+        totals.requests += 1;
+        totals.inputTokens += u.inputTokens;
+        totals.outputTokens += u.outputTokens;
+        totals.cacheReadTokens += u.cacheReadTokens;
+        totals.cacheWriteTokens += u.cacheWriteTokens;
+        totals.costSek += u.costSek;
+      }
+      return totals;
+    },
+  };
+
   async function clearAll(): Promise<void> {
     answerRows.length = 0;
     reviewRows.clear();
@@ -420,9 +470,10 @@ export function createMemoryDataStore(clock: Clock = systemClock): DataStore {
     eventRows.length = 0;
     decisionRows.clear();
     feedbackRows.length = 0;
+    usageRows.length = 0;
   }
 
-  return { kind: 'memory', answers, reviews, sessions, settings, cases, clearAll };
+  return { kind: 'memory', answers, reviews, sessions, settings, cases, aiUsage, clearAll };
 }
 
 function removeWhere<T>(rows: T[], predicate: (row: T) => boolean): void {

@@ -1,17 +1,8 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
-import {
-  Eye,
-  EyeOff,
-  KeyRound,
-  Monitor,
-  Moon,
-  RefreshCw,
-  Sun,
-  type LucideIcon,
-} from 'lucide-react';
-import { useId, useState } from 'react';
+import { Monitor, Moon, RefreshCw, Sun, type LucideIcon } from 'lucide-react';
 import { PageHeader } from '@/components/layout/page-header';
 import { Button } from '@/components/ui/button';
+import { TutorSettingsSection } from '@/features/tutor/settings-section';
 import { checkForUpdatesManually } from '@/features/updates';
 import { getAppVersion, isTauri, runtimeLabel, type UpdateCheckResult } from '@/lib/tauri';
 import { DataSection } from './data-section';
@@ -183,63 +174,6 @@ function UpdatesSection() {
   );
 }
 
-function StudyHelpSection() {
-  const inputId = useId();
-  const hintId = useId();
-  const [apiKey, setApiKey] = useState('');
-  const [visible, setVisible] = useState(false);
-
-  return (
-    <SettingsSection
-      id="settings-assistant"
-      title="Studiehjälp"
-      description="AI-stöd som förklarar svar djupare och ger en första återkoppling på beslutsutkast. Kräver en API-nyckel från Anthropic."
-    >
-      <div className="flex flex-col gap-3 px-6 py-5">
-        <label htmlFor={inputId} className="font-medium">
-          API-nyckel
-        </label>
-        <div className="flex flex-wrap gap-2">
-          <div className="relative min-w-0 flex-1">
-            <KeyRound
-              className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted"
-              aria-hidden="true"
-            />
-            <input
-              id={inputId}
-              type={visible ? 'text' : 'password'}
-              value={apiKey}
-              onChange={(event) => setApiKey(event.target.value)}
-              placeholder="sk-ant-…"
-              autoComplete="off"
-              spellCheck={false}
-              aria-describedby={hintId}
-              className="h-10 w-full rounded-md border border-line-strong bg-paper pr-11 pl-9 font-mono text-sm placeholder:text-muted focus-visible:border-accent"
-            />
-            <button
-              type="button"
-              onClick={() => setVisible((v) => !v)}
-              aria-label={visible ? 'Dölj nyckeln' : 'Visa nyckeln'}
-              aria-pressed={visible}
-              className="absolute top-1/2 right-1 inline-flex size-8 -translate-y-1/2 items-center justify-center rounded-sm text-muted hover:bg-accent-soft hover:text-ink"
-            >
-              {visible ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
-            </button>
-          </div>
-          <Button disabled title="Studiehjälpen är inte aktiverad i den här versionen">
-            Spara nyckel
-          </Button>
-        </div>
-        <p id={hintId} className="text-sm text-muted">
-          Studiehjälpen kommer i en senare version. Då sparas nyckeln i Windows
-          Autentiseringshanteraren, aldrig i klartext på disken. Fram till dess sparas ingenting av
-          det du skriver här.
-        </p>
-      </div>
-    </SettingsSection>
-  );
-}
-
 export function SettingsPage() {
   return (
     <>
@@ -250,7 +184,7 @@ export function SettingsPage() {
       <div className="flex flex-col gap-10">
         <AppearanceSection />
         <UpdatesSection />
-        <StudyHelpSection />
+        <TutorSettingsSection />
         <DataSection />
       </div>
     </>

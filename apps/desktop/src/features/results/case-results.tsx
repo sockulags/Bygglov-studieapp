@@ -5,8 +5,6 @@ import { buttonVariants } from '@/components/ui/button-variants';
 import { Card, CardContent } from '@/components/ui/card';
 import { loadContent } from '@/content';
 import {
-  CASE_LIST_STATUS_LABELS,
-  useCaseSummaries,
   useSubmittedDecisions,
   type CaseListStatus,
   type DecisionWithFeedback,
@@ -14,17 +12,9 @@ import {
 import { markCaseReviewed } from '@/features/cases/case-store';
 import { propertyName } from '@/features/cases/case-model';
 import { ExportDecisionButton, SupervisorFeedbackPanel } from '@/features/cases/export';
-import { cn } from '@/lib/cn';
 import { formatWhen } from '@/lib/format';
-
-const STATUS_ORDER: CaseListStatus[] = ['ny', 'pagar', 'inlamnat', 'bedomt'];
-
-const STATUS_HINT: Record<CaseListStatus, string> = {
-  ny: 'Inte påbörjade',
-  pagar: 'Under handläggning',
-  inlamnat: 'Beslut fattat, väntar på handledaren',
-  bedomt: 'Handledaren har bedömt beslutet',
-};
+import type { DecisionChecks } from './aggregate';
+import { CaseStatusChart, DecisionChecksChart } from './case-charts';
 
 function DecisionCard({ item, now }: { item: DecisionWithFeedback; now: Date }) {
   const { caseFile, decision } = item;
@@ -68,15 +58,20 @@ function DecisionCard({ item, now }: { item: DecisionWithFeedback; now: Date }) 
   );
 }
 
-/** Mina resultat → Ärenden: cases per status and the submitted decisions with feedback. */
-export function CaseResults() {
+/**
+ * Mina resultat → Ärenden: cases per status, the checks passed per submitted decision and
+ * the submitted decisions with export and supervisor feedback.
+ */
+export function CaseResults({
+  counts,
+  checks,
+}: {
+  counts: readonly { status: CaseListStatus; count: number }[];
+  checks: readonly DecisionChecks[];
+}) {
   const { cases } = loadContent();
-  const { summaries } = useCaseSummaries(cases);
   const decisions = useSubmittedDecisions(cases);
   const now = new Date();
-  const counts = Object.fromEntries(
-    STATUS_ORDER.map((status) => [status, summaries.filter((s) => s.status === status).length]),
-  ) as Record<CaseListStatus, number>;
   const items = decisions.data ?? [];
 
   return (
@@ -84,31 +79,10 @@ export function CaseResults() {
       <SectionTitle>
         <span id="results-cases">Ärenden</span>
       </SectionTitle>
-      <div className="mb-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {STATUS_ORDER.map((status) => (
-          <Card key={status}>
-            <CardContent className="p-4">
-              <p
-                className={cn(
-                  'text-sm font-medium',
-                  status === 'bedomt'
-                    ? 'text-success'
-                    : status === 'inlamnat'
-                      ? 'text-brick'
-                      : status === 'pagar'
-                        ? 'text-accent'
-                        : 'text-muted',
-                )}
-              >
-                {CASE_LIST_STATUS_LABELS[status]}
-              </p>
-              <p className="mt-1 text-2xl font-semibold tabular-nums">{counts[status]}</p>
-              <p className="text-xs text-muted">{STATUS_HINT[status]}</p>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="mb-4 grid gap-4 lg:grid-cols-2">
+        <CaseStatusChart counts={counts} />
+        <DecisionChecksChart rows={checks} now={now} />
       </div>
-
       {decisions.isLoading ? (
         <p className="text-sm text-muted" role="status">
           Läser in besluten …

@@ -1,0 +1,114 @@
+/*
+ * The tutor's side panel (Sheet) and the Markdown of its answers. Colours come from the
+ * design tokens (styles/tokens.css), so light and dark themes both work.
+ */
+
+.tutor-sheet[data-state='open'] {
+  animation: tutor-slide-in var(--duration-base) var(--ease-out);
+}
+.tutor-sheet[data-state='closed'] {
+  animation: tutor-slide-out var(--duration-fast) ease-in;
+}
+
+@keyframes tutor-slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes tutor-slide-out {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.tutor-markdown {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.tutor-markdown > :first-child {
+  margin-top: 0;
+}
+.tutor-markdown > :last-child {
+  margin-bottom: 0;
+}
+.tutor-markdown p,
+.tutor-markdown ul,
+.tutor-markdown ol,
+.tutor-markdown blockquote,
+.tutor-markdown pre,
+.tutor-markdown table {
+  margin: 0.6em 0;
+}
+.tutor-markdown ul,
+.tutor-markdown ol {
+  padding-left: 1.25em;
+}
+.tutor-markdown ul {
+  list-style: disc;
+}
+.tutor-markdown ol {
+  list-style: decimal;
+}
+.tutor-markdown li + li {
+  margin-top: 0.25em;
+}
+.tutor-markdown h1,
+.tutor-markdown h2,
+.tutor-markdown h3,
+.tutor-markdown h4 {
+  margin: 0.9em 0 0.4em;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.tutor-markdown strong {
+  font-weight: 600;
+}
+.tutor-markdown blockquote {
+  border-left: 3px solid var(--line-strong);
+  padding-left: 0.75em;
+  color: var(--muted);
+}
+.tutor-markdown code {
+  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
+  font-size: 0.875em;
+  background: var(--bg);
+  border-radius: var(--radius-sm);
+  padding: 0.1em 0.3em;
+}
+.tutor-markdown table {
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.tutor-markdown th,
+.tutor-markdown td {
+  border: 1px solid var(--line);
+  padding: 0.25em 0.5em;
+  text-align: left;
+}
+.tutor-markdown a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Blinking caret while the answer streams. */
+.tutor-caret {
+  display: inline-block;
+  width: 0.5em;
+  height: 1em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  animation: tutor-blink 1s steps(2, start) infinite;
+}
+@keyframes tutor-blink {
+  to {
+    visibility: hidden;
+  }
+}

@@ -16,6 +16,7 @@ import {
 const sqliteAvailable = await isNodeSqliteAvailable();
 
 const EXPECTED_TABLES = [
+  'ai_usage',
   'answers',
   'case_events',
   'case_state',
@@ -97,6 +98,7 @@ describe.skipIf(!sqliteAvailable)('runMigrations on SQLite', () => {
     expect(await driver.select('SELECT version, name, applied_at FROM schema_migrations')).toEqual([
       { version: 1, name: 'initial', applied_at: '2026-03-01T00:00:00.000Z' },
       { version: 2, name: 'case_state', applied_at: '2026-03-01T00:00:00.000Z' },
+      { version: 3, name: 'ai_usage', applied_at: '2026-03-01T00:00:00.000Z' },
     ]);
     driver.close();
   });
@@ -194,9 +196,34 @@ describe.skipIf(!sqliteAvailable)('runMigrations on SQLite', () => {
       "INSERT INTO case_status (case_id, status, sim_date, started_at) VALUES ('A2', 'in_progress', '2026-03-02', 'x')",
     );
     const result = await runMigrations(driver);
-    expect(result.applied).toEqual([2]);
+    expect(result.applied).toEqual([2, 3]);
     expect(tables(driver)).toContain('case_state');
     expect(await driver.select('SELECT case_id FROM case_status')).toEqual([{ case_id: 'A2' }]);
+    driver.close();
+  });
+  it('adds ai_usage to a database created by version 2 and enforces its constraints', async () => {
+    const driver = await freshDriver();
+    await runMigrations(driver, migrations.slice(0, 2));
+    await driver.execute("INSERT INTO settings (key, value_json) VALUES ('tema', '\"dark\"')");
+    const result = await runMigrations(driver);
+    expect(result.applied).toEqual([3]);
+    expect(tables(driver)).toContain('ai_usage');
+    expect(await driver.select('SELECT value_json FROM settings')).toEqual([
+      { value_json: '"dark"' },
+    ]);
+    await driver.execute(
+      "INSERT INTO ai_usage (ts, model, input_tokens, output_tokens, cost_sek, context_kind) VALUES ('x', 'm', 10, 5, 0.01, 'case')",
+    );
+    await expect(
+      driver.execute(
+        "INSERT INTO ai_usage (ts, model, input_tokens, cost_sek, context_kind) VALUES ('x', 'm', -1, 0, 'case')",
+      ),
+    ).rejects.toThrow(/CHECK/);
+    await expect(
+      driver.execute(
+        "INSERT INTO ai_usage (ts, model, cost_sek, context_kind) VALUES ('x', 'm', -0.5, 'case')",
+      ),
+    ).rejects.toThrow(/CHECK/);
     driver.close();
   });
 });

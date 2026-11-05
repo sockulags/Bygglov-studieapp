@@ -23,6 +23,17 @@ function section(title: string, findings: readonly Finding[]): string[] {
 
 const plural = (count: number, one: string, many: string) => `${count} ${count === 1 ? one : many}`;
 
+function lookupLine(tree: ContentTree): string {
+  const { glossary, processes, laws, chapters } = tree.lookup;
+  const sections = chapters.reduce((sum, c) => sum + c.data.paragrafer.length, 0);
+  return (
+    `  Uppslag: ${plural(glossary?.begrepp.length ?? 0, 'begrepp', 'begrepp')}, ` +
+    `${plural(processes?.processer.length ?? 0, 'processkarta', 'processkartor')}, ` +
+    `${plural(laws?.lagar.length ?? 0, 'lag', 'lagar')} i lagregistret och ` +
+    `${plural(sections, 'paragraf', 'paragrafer')} med sammanfattning.`
+  );
+}
+
 /** Human-readable report for the terminal, in Swedish. */
 export function formatReport(tree: ContentTree): string {
   const questionCount = tree.questionFiles.reduce((sum, f) => sum + f.data.fragor.length, 0);
@@ -30,13 +41,18 @@ export function formatReport(tree: ContentTree): string {
     tree.questionFiles.reduce(
       (sum, f) => sum + f.data.fragor.filter((q) => q.status === 'utkast').length,
       0,
-    ) + tree.cases.filter((c) => c.data.status === 'utkast').length;
+    ) +
+    tree.cases.filter((c) => c.data.status === 'utkast').length +
+    (tree.lookup.glossary?.begrepp.filter((t) => t.status === 'utkast').length ?? 0) +
+    (tree.lookup.processes?.processer.filter((p) => p.status === 'utkast').length ?? 0) +
+    tree.lookup.chapters.filter((c) => c.data.status === 'utkast').length;
 
   const lines = [
     'Innehållskontroll',
     `  ${plural(tree.fileCount, 'fil lästes', 'filer lästes')}: ${plural(tree.modules?.moduler.length ?? 0, 'modul', 'moduler')}, ` +
       `${plural(questionCount, 'fråga', 'frågor')} i ${plural(tree.questionFiles.length, 'fil', 'filer')}, ` +
       `${plural(tree.cases.length, 'ärende', 'ärenden')}.`,
+    lookupLine(tree),
     `  ${plural(drafts, 'post', 'poster')} har status utkast och väntar på granskning mot Lagtextens byggregler.`,
     '',
     ...section(`Fel (${tree.errors.length}):`, tree.errors),
