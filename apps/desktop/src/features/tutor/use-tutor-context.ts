@@ -1,7 +1,6 @@
 import { useQueries } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import type { CaseFile, Question } from '@bygglov/content-schema';
-import { caseDocumentUrl } from '@/content';
 import {
   currentStep,
   renderCaseTexts,
@@ -12,8 +11,8 @@ import {
   type GradeResult,
   type QuizAnswer,
 } from '@/engine';
-import { documentFormat } from '@/features/cases/documents/use-document-text';
-import { parseFrontMatter, type ParsedDocument } from '@/features/cases/documents/front-matter';
+import { documentFormat, fetchCaseText } from '@/features/cases/documents/use-document-text';
+import type { ParsedDocument } from '@/features/cases/documents/front-matter';
 import { buildCaseContext, buildQuestionContext } from './context';
 import type { TutorContext } from './types';
 
@@ -34,18 +33,6 @@ export interface CaseTutorSource {
   notes: string;
   /** Unsaved drafts per step; a decision draft is passed to the tutor for first feedback. */
   drafts?: Readonly<Record<string, { text: string } | { decision: DecisionDraft }>>;
-}
-
-/**
- * Same query key and data shape as `useCaseText` in features/cases, so documents she has
- * already opened come from the cache.
- */
-async function fetchCaseText(caseId: string, file: string): Promise<ParsedDocument> {
-  const response = await fetch(caseDocumentUrl(caseId, file));
-  const type = response.headers.get('content-type') ?? '';
-  if (!response.ok || type.includes('text/html'))
-    throw new Error(`Filen ${file} finns inte i appen.`);
-  return parseFrontMatter(await response.text());
 }
 
 function documentText(parsed: ParsedDocument): string {

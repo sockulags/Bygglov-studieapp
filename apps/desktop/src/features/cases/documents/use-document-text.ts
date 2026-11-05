@@ -26,19 +26,29 @@ export class MissingDocumentError extends Error {
   }
 }
 
-async function fetchText(caseId: string, file: string): Promise<ParsedDocument> {
+/** True for an HTML page: what Vite's dev server answers for a path that does not exist. */
+export function isHtmlPage(text: string): boolean {
+  return /^\s*(<!doctype html|<html[\s>])/i.test(text);
+}
+
+/**
+ * Fetches a Markdown document of a case. A missing file is recognised by its body, not by
+ * the content type: the Tauri app serves `.md` as `text/html` (unknown extensions fall back
+ * to HTML), while Vite's dev server answers unknown paths with index.html.
+ */
+export async function fetchCaseText(caseId: string, file: string): Promise<ParsedDocument> {
   const response = await fetch(caseDocumentUrl(caseId, file));
-  // Vite's dev server answers unknown paths with index.html.
-  const type = response.headers.get('content-type') ?? '';
-  if (!response.ok || type.includes('text/html')) throw new MissingDocumentError(file);
-  return parseFrontMatter(await response.text());
+  if (!response.ok) throw new MissingDocumentError(file);
+  const text = await response.text();
+  if (isHtmlPage(text)) throw new MissingDocumentError(file);
+  return parseFrontMatter(text);
 }
 
 /** A Markdown document of a case, split into front matter and body. Cached per file. */
 export function useCaseText(caseId: string, file: string | null) {
   return useQuery({
     queryKey: ['case-document', caseId, file],
-    queryFn: () => fetchText(caseId, file ?? ''),
+    queryFn: () => fetchCaseText(caseId, file ?? ''),
     enabled: file !== null && documentFormat(file) === 'markdown',
     staleTime: Infinity,
     retry: false,
