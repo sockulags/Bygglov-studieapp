@@ -11,6 +11,10 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
+Inget ännu.
+
+## [0.5.0] - 2026-11-05
+
 ### Nytt
 
 - 96 nya frågor, så att det nu finns 622. Varje modul har fått mellan fyra och åtta nya, med fler
@@ -179,7 +183,8 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 - Appen uppdaterar sig själv. När en ny version finns visas en ruta överst, och efter
   uppdateringen ser du vad som är nytt.
 
-[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.4.0...master
+[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.5.0...master
+[0.5.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.5.0
 [0.4.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.4.0
 [0.3.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.3.0
 [0.2.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.2.0

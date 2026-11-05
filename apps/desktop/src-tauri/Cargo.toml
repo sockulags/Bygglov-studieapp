@@ -1,6 +1,6 @@
 [package]
 name = "bygglov-studieapp"
-version = "0.4.0"
+version = "0.5.0"
 description = "Studieapp för blivande bygglovshandläggare"
 authors = ["Bygglov-studieapp"]
 license = "MIT"
