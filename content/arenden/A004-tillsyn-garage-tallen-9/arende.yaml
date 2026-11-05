@@ -14,7 +14,9 @@
 #   (b) Ibruktagande utan slutbesked, PBF 9 kap. 18 § första stycket 2:
 #       0,05 pbb + 0,001 pbb × sanktionsarea. Förbudet i 10 kap. 4 § PBL gäller bara de delar
 #       som omfattas av startbeskedet (40 kvm, garaget enligt lovet), så sanktionsarean är
-#       40 − 15 = 25 kvm (9 kap. 18 § andra stycket) → 0,075 pbb = 4 440 kr.
+#       40 − 15 = 25 kvm (1 kap. 7 § och 9 kap. 18 § andra stycket) → 0,075 pbb = 4 440 kr.
+#       Avdraget på 15 kvm står inte i 18 §, så det är en tolkning som handledaren ska pröva
+#       (docs/07-roadmap.md). Utan avdrag blir det 40 kvm och 5 328 kr.
 #   Summa före rättelse 31 376 kr. Efter att förrådsdelen rivits före sammanträdet (E3,
 #   11 kap. 54 § PBL) är byggnaden 40 kvm: (a) 0,25 + 0,005 × 25 = 0,375 pbb = 22 200 kr,
 #   (b) oförändrad 4 440 kr (ibruktagandet har redan skett och kan inte rättas i efterhand).
@@ -256,8 +258,10 @@ steg:
       halvering enligt 9 kap. 3 a § blir det inte, eftersom de avvikande delarna saknade lov.
       Förbudet mot att ta i bruk utan slutbesked gäller bara de delar som omfattas av ett
       startbesked (10 kap. 4 § PBL, MÖD 2016:15), alltså garaget enligt lovet om 40 kvm.
-      Sanktionsarean blir 40 − 15 = 25 kvm (PBF 9 kap. 18 § andra stycket): 0,05 + 0,025 =
-      0,075 × 59 200 = 4 440 kr. Summa 31 376 kr. Prisbasbeloppet är det som gäller det år
+      När bara en del tas i bruk räknas den delens area (PBF 9 kap. 18 § andra stycket). Här dras
+      15 kvm av enligt 1 kap. 7 §, vilket är en tolkning eftersom 18 § inte nämner avdraget:
+      40 − 15 = 25 kvm, och 0,05 + 0,025 = 0,075 × 59 200 = 4 440 kr. Summa 31 376 kr.
+      Prisbasbeloppet är det som gäller det år
       nämnden beslutar (PBF 9 kap. 1 §), inte det år garaget byggdes.
     lagrum: [PBL 11 kap. 51 §, PBF 9 kap. 1 §, PBF 9 kap. 3 a §, PBF 9 kap. 6 §, PBF 9 kap. 18 §, PBF 1 kap. 7 §, PBL 10 kap. 4 §]
 

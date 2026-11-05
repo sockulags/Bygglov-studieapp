@@ -136,7 +136,8 @@ Kvar till 1.0:
 - [ ] **Handledarens granskning.** Handledaren går igenom de 622 frågorna, de nio ärendena och
   ordlistan mot *Lagtextens byggregler 2026-01-01* och sätter `status: granskad`. Börja med det
   agenterna själva flaggade: avgiftsberäkningen i A004 (sanktionsarea för den avvikande delen,
-  ibruktagande och rättelse), måtten enligt SS 21054:2020 i modul 8 (`lagrum_osaker`), praxis om
+  ibruktagande och rättelse, särskilt om 15 kvm ska dras av från den area som tas i bruk enligt
+  PBF 9 kap. 18 § andra stycket), måtten enligt SS 21054:2020 i modul 8 (`lagrum_osaker`), praxis om
   sakägare och liten avvikelse och bemötandefrågorna i modul 13. Från fas 4b: carportens area
   i rit-045 och rit-047, cykelparkeringen i krav-044, gränsträdet och ersättningsträdet i A008,
   kvarnmiljön och villkoren i förhandsbeskedet i A009 och skorstensfejarens förhandsbedömning i

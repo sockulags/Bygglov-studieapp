@@ -105,7 +105,10 @@ PBF 10 kap. och övriga kapitel hämtas vid behov från riksdagen.se.
 - **Rivningslov** krävs nu även utanför plan för särskilt värdefulla byggnader (9 kap. 44 §).
 - **Försvarsmakten och Myndigheten för civilt försvar** har fått underrättelse- och vetoroll i
   vissa områden (9 kap. 36, 80, 97 §§).
-- Boverkets byggregler: BBR är ersatt av nya författningar, och från 1 juli 2026 gäller enbart de nya.
+- Boverkets byggregler: de flesta krav finns sedan 2025 i nya föreskrifter (BFS 2024:4 och
+  2024:6–2024:13). BBR finns kvar som BBR 31 (BFS 2024:14) med avsnitt 1, 2 och 9
+  (energihushållning). Äldre regler får tillämpas om ansökan eller anmälan kom in före
+  1 juli 2026, men då alla tillsammans.
 
 ## Senare ändringar som innehållet följer
 

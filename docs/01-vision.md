@@ -20,7 +20,7 @@ motivering och lagstöd, och hantera det som händer efter beslutet.
 1. **Verklighetstroget framför gamifierat.** Handlingar ser ut som handlingar. Beslut skrivs som
    beslut. Progression och streaks finns, men diskret och vuxet.
 2. **Lagrum överallt.** Varje facit, varje förklaring, varje case-händelse pekar på kapitel och
-   paragraf (PBL, PBF, BBR, FL m.fl.). Det är så studenten kommer bli bedömd i verkligheten.
+   paragraf (PBL, PBF, Boverkets föreskrifter, FL m.fl.). Det är så studenten kommer bli bedömd i verkligheten.
 3. **Handledaren är facit, appen är träningspartner.** Appen ger omedelbar återkoppling där det finns ett
    entydigt rätt svar. För ärenden, där bedömning krävs, ger appen struktur, checklistor och en
    första återkoppling, men den verkliga värderingen gör handledaren.

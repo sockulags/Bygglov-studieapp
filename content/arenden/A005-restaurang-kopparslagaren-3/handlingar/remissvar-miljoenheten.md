@@ -24,8 +24,8 @@ och kolfilter i köksfläkten.
 Fläktar och aggregat ska placeras och ljuddämpas så att ljudnivån i närmaste bostadsrum inte
 blir störande, och så att buller från aggregat på gården inte stör boende i Kopparslagaren 3,
 4 och 7 nattetid. Hur detta ska klaras redovisas lämpligen till det tekniska samrådet.
-Ljudisoleringen mellan lokalen och lägenheterna ovanför ska uppfylla Boverkets byggregler för
-lokaler med restaurangverksamhet under bostäder.
+Ljudisoleringen mellan lokalen och lägenheterna ovanför ska uppfylla kraven för ljudisolering
+från lokaler till bostäder i Boverkets föreskrifter om skydd mot buller (BFS 2024:10).
 
 Störningar från själva verksamheten, till exempel musik, gäster på kvällstid eller varuleveranser,
 är frågor för miljöenhetens tillsyn enligt miljöbalken och inte för bygglovet.

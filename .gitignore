@@ -28,3 +28,6 @@ pnpm-debug.log*
 .keys/
 *.key
 *.key.pub
+
+# Kurslitteratur (upphovsrättsskyddad), aldrig i git
+/E-BOK Boverkets byggregler.pdf

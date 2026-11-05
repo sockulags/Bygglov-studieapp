@@ -717,8 +717,8 @@ begrepp:
   - id: markens-medelniva
     term: Markens medelnivå
     definition: >-
-      Genomsnittet av markens nivå runt byggnaden. Utgångspunkt när byggnadshöjd, nockhöjd och
-      källare bedöms.
+      Genomsnittet av markens nivå runt byggnaden. Utgångspunkt när byggnadshöjd och källare
+      bedöms, och för nockhöjd enligt Boverkets föreskrifter om detaljplan.
     lagrum: [PBF 1 kap. 3 §, PBF 1 kap. 4 §]
     relaterade: [byggnadshojd, nockhojd, kallare]
     modul: 08-ritning-berakning

@@ -11,7 +11,14 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
-Inget ännu.
+### Rättat
+
+- Frågorna om Boverkets byggregler stämmer nu med reglerna: de flesta krav finns i nya
+  föreskrifter, BBR finns kvar för bland annat energihushållning, och äldre regler får
+  användas samlat om ansökan kom in före 1 juli 2026.
+- Rättade förklaringar om allmänna råd, mindre avvikelse och rumsstorlekar.
+- I ärendet på Kopparslagaren 3 är resonemanget om tillgänglighet och varsamhet rättat.
+- I ärendet på Tallen 9 står det nu att avdraget på 15 kvm vid ibruktagande är en tolkning.
 
 ## [0.6.1] - 2026-11-05
 

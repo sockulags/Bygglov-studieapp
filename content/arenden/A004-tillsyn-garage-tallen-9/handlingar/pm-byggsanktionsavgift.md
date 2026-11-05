@@ -24,7 +24,8 @@ Avgiften får aldrig överstiga 50 prisbasbelopp (11 kap. 52 § PBL, 9 kap. 1 §
 ## 2. Sanktionsarea
 
 Sanktionsarean är bruttoarean eller öppenarean, eller en kombination av dem, **minskad med
-15 m²** (1 kap. 7 § PBF). Blir resultatet noll eller negativt tas bara grundbeloppet ut.
+15 m²** (1 kap. 7 § PBF). Paragrafen säger inget om fallet att resultatet blir noll eller
+negativt. Vi räknar då tillägget som noll, så att bara grundbeloppet tas ut.
 
 ## 3. Belopp för komplementbyggnader (t.ex. garage)
 
@@ -50,7 +51,8 @@ den delen (9 kap. 18 och 19 §§ andra stycket).
 ## 5. Halvering, nedsättning och befrielse
 
 - **Halvering:** avgiften för påbörjande före startbesked är hälften om byggherren **hade
-  bygglov** för åtgärden eller delen när den påbörjades (9 kap. 3 a § PBF).
+  bygglov** för åtgärden eller delen, eller hade fullgjort skyldigheten att anmäla den, när
+  den påbörjades (9 kap. 3 a § PBF).
 - **Nedsättning** till hälften eller en fjärdedel om avgiften inte står i rimlig proportion
   till överträdelsen (11 kap. 53 a § PBL).
 - **Ingen avgift** om det vore oskäligt på grund av sjukdom, oförutsebara omständigheter eller

@@ -95,7 +95,7 @@ av något bygglov.
 *Ibruktagande utan slutbesked.* Garaget har tagits i bruk utan slutbesked i strid med 10 kap.
 4 § PBL. Förbudet gäller de delar som omfattas av startbeskedet, alltså garaget om 40 m²
 enligt lovet. Sanktionsarean är 40 − 15 = 25 m² och avgiften (0,05 + 0,001 × 25) × 59 200 =
-0,075 × 59 200 = **4 440 kronor** (9 kap. 18 § PBF). Att garaget har tömts är inte en
+0,075 × 59 200 = **4 440 kronor** (9 kap. 18 § och 1 kap. 7 § PBF). Att garaget har tömts är inte en
 rättelse, eftersom användningen redan har ägt rum och inte kan göras ogjord.
 
 Sammanlagt blir avgiften 22 200 + 4 440 = **26 640 kronor**.

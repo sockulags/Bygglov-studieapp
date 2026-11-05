@@ -94,7 +94,7 @@ Globalt: `Cmd/Ctrl+K` öppnar sök över frågor, ärenden, begrepp och lagrum.
 
 ### Uppslag
 
-- Lagrumsregister (PBL, PBF, FL, BBR-kapitel) med korta egna sammanfattningar och länk till
+- Lagrumsregister (PBL, PBF, FL, Boverkets föreskrifter) med korta egna sammanfattningar och länk till
   riksdagen.se / Boverket.
 - Begreppsordlista med sök.
 - Processkartor (bygglov, anmälan, tillsyn, överklagande) som klickbara SVG-diagram.

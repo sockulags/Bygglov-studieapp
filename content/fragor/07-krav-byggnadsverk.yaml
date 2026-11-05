@@ -8,8 +8,10 @@
 #   (förordning 2015:216) och lso-utdrag.txt.
 # Frågorna följer lydelsen som gäller i dag. Där en ändring redan är beslutad (lag 2026:746 och
 # förordning 2026:1265, i kraft 2027-01-01) säger förklaringen det.
-# Boverkets byggregler: BBR är ersatt av nya föreskrifter, och från 1 juli 2026 gäller bara de
-# nya. Frågorna hänvisar därför till "Boverkets byggregler" allmänt, aldrig till BBR-avsnitt.
+# Boverkets byggregler: de flesta krav finns sedan 2025 i nya föreskrifter (BFS 2024:4 och
+# 2024:6–2024:13). BBR finns kvar som BBR 31 (BFS 2024:14) med avsnitt 1, 2 och 9. Äldre regler
+# får tillämpas samlat om ansökan eller anmälan kom in före 2026-07-01. Gamla BBR-avsnitt
+# används inte.
 # Alla personer, fastigheter och ärenden är fiktiva (Åkerslunda kommun).
 modul: 07-krav-byggnadsverk
 fragor:
@@ -113,18 +115,20 @@ fragor:
     rattslage: "2025-12-01"
     fraga: Vad gäller för Boverkets byggregler i dag?
     alternativ:
-      - text: BBR har ersatts av nya föreskrifter, och från den 1 juli 2026 gäller bara de nya.
+      - text: De flesta krav finns nu i nya föreskrifter, och BBR finns kvar för bland annat energihushållning.
         ratt: true
       - text: BBR gäller parallellt med de nya föreskrifterna till 2030, och byggherren väljer fritt.
       - text: Varje kommun beslutar själv vilken version av byggreglerna som gäller i kommunen.
-      - text: BBR gäller fortfarande, men avsnittsnumren har ändrats.
+      - text: BBR gäller i sin helhet, och bara avsnittsnumren har ändrats.
     forklaring: >
       PBL och PBF säger vad som ska uppnås (8 kap. 4 § PBL och 3 kap. PBF). Hur kraven uppfylls
       preciseras i Boverkets föreskrifter, som meddelas med stöd av bemyndigandet i 16 kap. 2 §.
-      Boverkets byggregler (BBR) har ersatts av nya föreskrifter, och från den 1 juli 2026 gäller
-      enbart de nya. I äldre kurslitteratur och gamla beslut ser du fortfarande hänvisningar till
-      BBR-avsnitt, men skriv själv "Boverkets byggregler" och kontrollera vilka regler som gäller
-      för det aktuella ärendet.
+      Sedan 2025 finns de flesta kraven i nya föreskrifter (BFS 2024:4 och 2024:6–2024:13), en för
+      varje område, till exempel brand, buller och tillgänglighet. BBR finns kvar som BBR 31
+      (BFS 2024:14) för bland annat energihushållning. Äldre regler får tillämpas om ansökan eller
+      anmälan kom in före den 1 juli 2026, men då alla tillsammans. I äldre kurslitteratur och
+      gamla beslut ser du hänvisningar till gamla BBR-avsnitt, så kontrollera alltid vilka regler
+      som gäller för det aktuella ärendet.
     lagrum: [PBL 16 kap. 2 §, PBL 8 kap. 4 §, PBF 3 kap.]
     taggar: [boverkets_byggregler, rattslage]
 
@@ -590,7 +594,8 @@ fragor:
       Kravet preciserar lämplighetskravet i 8 kap. 1 § 1 PBL (och motsvarande tekniska krav i 3 kap.
       17 § PBF). Bostäderna ska också ha inredning och utrustning för matlagning och hygien.
       "Avskiljbara" betyder att utrymmena ska gå att skilja av, inte att de måste vara egna rum.
-      Detaljerna om rumsstorlekar och planlösning finns i Boverkets byggregler.
+      Boverkets föreskrifter om bostäders lämplighet (BFS 2024:11) ställer funktionskrav utifrån
+      bland annat bostadens storlek och antalet boende, inte fasta rumsstorlekar.
     lagrum: [PBF 3 kap. 1 §, PBF 3 kap. 17 §, PBL 8 kap. 1 §]
     taggar: [bostadsutformning, lamplighet]
 
@@ -681,10 +686,11 @@ fragor:
       - vanster: Förberedelse för höghastighetsnät
         hoger: Bredbandsanslutning
     forklaring: >
-      Varje krav i 8 kap. 4 § preciseras i en paragraf i 3 kap. PBF, t.ex. brand i 8 §, hygien och
+      De flesta krav i 8 kap. 4 § preciseras i en paragraf i 3 kap. PBF, t.ex. brand i 8 §, hygien och
       hälsa i 9 §, säkerhet vid användning i 10 §, energi i 14 §, bredband i 20 a § och hållbar
       mobilitet i 20 b §. Boverkets byggregler anger sedan hur kraven uppfylls. Fukt och
-      ventilation hör till hygien, hälsa och miljö (3 kap. 9 § 6 PBF).
+      ventilation hör till hygien, hälsa och miljö: fukt står i 3 kap. 9 § 6 PBF, och både fukt
+      och ventilation preciseras i BFS 2024:8.
     lagrum: [PBL 8 kap. 4 §, PBF 3 kap. 8 §, PBF 3 kap. 9 §, PBF 3 kap. 10 §, PBF 3 kap. 20 b §]
     taggar: [tekniska_egenskapskrav, begrepp]
 
@@ -924,8 +930,11 @@ fragor:
       men bara för uppförande eller ändring av en byggnad i experimentsyfte, när det finns
       särskilda skäl och dispensen inte medför oacceptabel risk för människors hälsa eller
       säkerhet. Byggnadsnämnden har ingen sådan befogenhet. Liten avvikelse (9 kap. 60 §) gäller
-      detaljplanen, inte byggreglerna. Att byggherren väljer en annan lösning än de allmänna
-      råden är däremot vanligt; då ska byggherren visa att föreskrifterna ändå uppfylls.
+      detaljplanen, inte byggreglerna. Från de flesta av Boverkets föreskrifter får däremot en
+      mindre avvikelse göras i enskilda fall, om det finns särskilda skäl, byggnaden ändå kan
+      antas bli tekniskt tillfredsställande och det inte finns någon avsevärd olägenhet. Skälen
+      ska dokumenteras. Där det finns allmänna råd kan byggherren också välja en annan lösning
+      och visa att föreskrifterna ändå uppfylls.
     lagrum:
       - PBL 8 kap. 26 §
       - PBF 3 kap. 24 §

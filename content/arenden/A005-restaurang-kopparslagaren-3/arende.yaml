@@ -557,7 +557,7 @@ steg:
       - Bedömer att den ursprungliga ansökan med sammanslaget skyltfönster och borttagen portal hade förvanskat byggnaden, och att revidering A inte gör det
       - Prövar varsamhetskravet (8 kap. 17 §) för skylten och kanalen, fristående bokstäver inom bottenvåningen, kanal på gårdsfasaden i fasadens kulör
       - Konstaterar att entrén till en lokal dit allmänheten har tillträde ska vara tillgänglig och användbar, och att den invändiga rampen och den automatiska dörröppnaren löser det utan att portalen ändras
-      - Påpekar att avsteg från tillgänglighetskraven bara får göras om det är uppenbart oskäligt (8 kap. 7 §), så varsamheten ensam motiverar inte en otillgänglig entré
+      - Påpekar att varsamhet kan vara skäl att anpassa tillgänglighetskraven (8 kap. 7 § PBL, 3 kap. 23 § PBF), men att ingen anpassning behövs här eftersom båda kraven går att uppfylla
     modellsvar: >
       Kopparslagaren 3 pekas i kulturmiljöprogrammet ut som en särskilt värdefull byggnad i en
       värdefull stadsmiljö. Detaljplanen saknar skyddsbestämmelser, men förbudet mot
@@ -570,11 +570,12 @@ steg:
       uppfyller ändringen varsamhetskravet i 8 kap. 17 §. Skylten med fristående bokstäver
       inom bottenvåningen och kanalen på gårdsfasaden, målad i fasadens kulör, är också
       varsamma. Restaurangen är en lokal dit allmänheten har tillträde, och entrén ska vara
-      tillgänglig och användbar (8 kap. 1 § 3 och 4 § första stycket 8). Avsteg kan bara göras
-      om det är uppenbart oskäligt att uppfylla kraven (8 kap. 7 §). Här tas nivåskillnaden på
-      0,35 meter upp med en invändig ramp och dörren får automatisk öppnare, så både
-      tillgängligheten och portalen klaras.
-    lagrum: [PBL 8 kap. 13 §, PBL 8 kap. 17 §, PBL 8 kap. 1 §, PBL 8 kap. 2 §, PBL 8 kap. 4 §, PBL 8 kap. 7 §, PBL 9 kap. 56 §]
+      tillgänglig och användbar (8 kap. 1 § 3 och 4 § första stycket 8). Kraven får anpassas med
+      hänsyn till varsamhet och förvanskning, och vid ombyggnad därutöver bara om det är uppenbart
+      oskäligt att uppfylla dem (8 kap. 7 § PBL och 3 kap. 23 § PBF). Här behövs ingen anpassning:
+      nivåskillnaden på 0,35 meter tas upp med en invändig ramp och dörren får automatisk
+      öppnare, så både tillgängligheten och portalen klaras.
+    lagrum: [PBL 8 kap. 13 §, PBL 8 kap. 17 §, PBL 8 kap. 1 §, PBL 8 kap. 2 §, PBL 8 kap. 4 §, PBL 8 kap. 7 §, PBF 3 kap. 23 §, PBL 9 kap. 56 §]
     tid_framat_dagar: 4
 
   - id: S6
