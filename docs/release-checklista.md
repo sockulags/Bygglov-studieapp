@@ -5,7 +5,8 @@
 > utvecklaren för att läggas in som secret och i lösenordshanteraren. Det som återstår är steg 3
 > (en enda secret, `TAURI_SIGNING_PRIVATE_KEY`) och sedan första taggen. Workflowet
 > `Bygg-kontroll (Windows)` kan köras när som helst från fliken Actions för att testa bygget utan
-> att publicera något; det ger en installer som artefakt.
+> att publicera något; det ger två installers som artefakter, en för 64-bitars (x64) och en för
+> 32-bitars (x86) Windows. Release-flödet bygger än så länge bara x64.
 >
 > **Släppa utan att pusha en tagg:** fliken Actions → *Release* → *Run workflow* på `master`.
 > Workflowet taggar då själv `v<version i package.json>` på senaste commiten och publicerar.
