@@ -11,6 +11,10 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
+Inget ännu.
+
+## [0.7.1] - 2026-11-17
+
 ### Nytt
 
 - Appen finns nu även för äldre datorer med 32-bitars Windows 10. Välj filen som slutar på
@@ -245,7 +249,8 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 - Appen uppdaterar sig själv. När en ny version finns visas en ruta överst, och efter
   uppdateringen ser du vad som är nytt.
 
-[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.7.0...master
+[Oförsläppt]: https://github.com/sockulags/Bygglov-studieapp/compare/v0.7.1...master
+[0.7.1]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.7.1
 [0.7.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.7.0
 [0.6.1]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.6.1
 [0.6.0]: https://github.com/sockulags/Bygglov-studieapp/releases/tag/v0.6.0
