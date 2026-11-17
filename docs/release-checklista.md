@@ -5,7 +5,8 @@
 > utvecklaren för att läggas in som secret och i lösenordshanteraren. Det som återstår är steg 3
 > (en enda secret, `TAURI_SIGNING_PRIVATE_KEY`) och sedan första taggen. Workflowet
 > `Bygg-kontroll (Windows)` kan köras när som helst från fliken Actions för att testa bygget utan
-> att publicera något; det ger en installer som artefakt.
+> att publicera något; det ger två installers som artefakter, en för 64-bitars (x64) och en för
+> 32-bitars (x86) Windows. Release-flödet bygger och publicerar båda.
 >
 > **Släppa utan att pusha en tagg:** fliken Actions → *Release* → *Run workflow* på `master`.
 > Workflowet taggar då själv `v<version i package.json>` på senaste commiten och publicerar.
@@ -146,8 +147,9 @@ Taggen måste vara `v` + exakt versionen i `package.json`, annars stoppar workfl
 
 ### 5. Vänta på GitHub Actions
 
-- [ ] Fliken **Actions** → workflowet **Release** för taggen `v0.2.0`. Det tar 10–20 minuter
-      (Rust-kompileringen på Windows-runnern).
+- [ ] Fliken **Actions** → workflowet **Release** för taggen `v0.2.0`. Det tar 20–40 minuter:
+      först kontrolleras versionen och testerna körs, sedan byggs x64 och därefter x86
+      (Rust-kompileringen på Windows-runnern, en arkitektur i taget).
 - [ ] Blir det rött: läs loggen, rätta, och se *Om releasen misslyckas* nedan.
 
 ### 6. Kontrollera releasen
@@ -160,11 +162,13 @@ På **<https://github.com/sockulags/Bygglov-studieapp/releases>**:
 - [ ] Under **Assets** finns:
   - `Bygglov-studieapp_0.2.0_x64-setup.exe`
   - `Bygglov-studieapp_0.2.0_x64-setup.exe.sig`
+  - `Bygglov-studieapp_0.2.0_x86-setup.exe`
+  - `Bygglov-studieapp_0.2.0_x86-setup.exe.sig`
   - `latest.json`
 - [ ] Öppna <https://github.com/sockulags/Bygglov-studieapp/releases/latest/download/latest.json>.
       Den ska visa `"version": "0.2.0"`, era release notes under `"notes"` och under
       `"platforms"` en post `windows-x86_64` med `signature` och en `url` som slutar på
-      `_x64-setup.exe`.
+      `_x64-setup.exe`, och en post `windows-i686` vars `url` slutar på `_x86-setup.exe`.
 - [ ] Prova på en dator med den förra versionen installerad: starta appen, vänta några
       sekunder, klicka **Uppdatera nu**. Appen ska starta om i den nya versionen och visa
       *Vad är nytt*.
@@ -193,6 +197,11 @@ På **<https://github.com/sockulags/Bygglov-studieapp/releases>**:
   git push origin v0.2.0
   ```
 
+- **x64 publicerades men x86-bygget blev rött:** releasen finns och x64-användarna får
+  uppdateringen. Rätta inte genom att flytta taggen. Öppna körningen i Actions och välj
+  **Re-run failed jobs**: x86-installern läggs då till i samma release och i `latest.json`.
+  (*Re-run all jobs* fungerar inte, eftersom taggen redan är släppt.) Krävs en kodändring,
+  släpp en ny patchversion i stället.
 - **En release skapades men är trasig:** ta bort releasen på GitHub och taggen enligt ovan,
   rätta och släpp igen. Har studenten hunnit uppdatera till en trasig version går det inte att
   backa via uppdateraren; släpp i stället en ny patchversion (`0.2.1`) med rättelsen.

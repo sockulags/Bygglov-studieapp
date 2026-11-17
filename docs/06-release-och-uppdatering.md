@@ -12,7 +12,7 @@ släppt något, trycker en knapp, och appen startar om uppdaterad.
  GitHub Actions: release.yml
    · pnpm install, content:check, test
    · tauri-action bygger
-       - Windows: .exe (NSIS), x64
+       - Windows: .exe (NSIS), x64 och x86 (32-bitars Windows 10), en i taget
        - (macOS kan läggas till senare om behov uppstår)
    · signerar uppdateringspaketen med vår minisign-nyckel
    · skapar GitHub Release med artefakter + latest.json
@@ -75,7 +75,7 @@ och uppdateraren hanterar den smidigast.
 Skriv `docs/installera.md` med skärmbilder när första releasen finns:
 
 1. Gå till release-sidan (eller få länken av utvecklaren).
-2. Ladda ner `Bygglov-studieapp_x.y.z_x64-setup.exe`.
+2. Ladda ner `Bygglov-studieapp_x.y.z_x64-setup.exe` (eller `_x86-setup.exe` på 32-bitars Windows).
 3. Klicka "Mer info" och sedan "Kör ändå" i SmartScreen-rutan (bild i guiden).
 4. Klart. Appen sköter resten.
 

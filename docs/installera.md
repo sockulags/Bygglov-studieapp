@@ -29,6 +29,10 @@ som slutar på **`_x64-setup.exe`**, till exempel
 
 `Bygglov-studieapp_0.1.0_x64-setup.exe`
 
+Har datorn **32-bitars Windows** tar du i stället filen som slutar på **`_x86-setup.exe`**. Vilket
+du har står under *Inställningar → System → Om*, vid *Systemtyp*. Står det *64-bitars
+operativsystem* tar du `_x64`. Appen kräver Windows 10 eller 11.
+
 Ladda **inte** ner filerna som slutar på `.sig` eller `latest.json`. De används bara av appens
 uppdaterare.
 

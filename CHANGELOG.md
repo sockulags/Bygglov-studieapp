@@ -11,7 +11,10 @@ Formatet följer [Keep a Changelog](https://keepachangelog.com/sv/1.1.0/) och ve
 
 ## [Oförsläppt]
 
-Inget ännu.
+### Nytt
+
+- Appen finns nu även för äldre datorer med 32-bitars Windows 10. Välj filen som slutar på
+  `_x86-setup.exe` när du installerar. Den uppdaterar sig själv precis som 64-bitarsversionen.
 
 ## [0.7.0] - 2026-11-05
 
