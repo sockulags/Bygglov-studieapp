@@ -1,6 +1,13 @@
-# Builds the Windows installer and publishes a GitHub Release when a tag v* is pushed.
-# The release is published (not a draft), so releases/latest/download/latest.json,
-# which the in-app updater polls, points at it immediately. See docs/release-checklista.md.
+# Builds the Windows installers (64-bit x64 and 32-bit x86) and publishes a GitHub Release
+# when a tag v* is pushed. The release is published (not a draft), so
+# releases/latest/download/latest.json, which the in-app updater polls, points at it
+# immediately. See docs/release-checklista.md.
+#
+# Two jobs: "prepare" checks the version, creates the tag on a manual start, runs the tests
+# and extracts the release notes, once. "build" then builds each architecture with
+# tauri-action. The architectures run one after the other (max-parallel: 1): the first
+# creates the release, the second adds its installer to it and merges its entry into
+# latest.json. Running them at the same time could make one overwrite the other's latest.json.
 name: Release
 
 on:
@@ -18,10 +25,13 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  release:
-    name: Bygg och publicera (Windows)
-    runs-on: windows-latest
-    timeout-minutes: 60
+  prepare:
+    name: Kontrollera version, tagga och testa
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      tag: ${{ steps.tag.outputs.tag }}
+      notes: ${{ steps.notes.outputs.body }}
     defaults:
       run:
         shell: bash
@@ -34,14 +44,6 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-
-      - name: Installera Rust
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Cacha Rust-bygget
-        uses: Swatinem/rust-cache@v2
-        with:
-          workspaces: apps/desktop/src-tauri -> target
 
       - name: Installera beroenden
         run: pnpm install --frozen-lockfile
@@ -125,6 +127,53 @@ jobs:
             echo "__RELEASE_NOTES_EOF__"
           } >> "$GITHUB_OUTPUT"
 
+  build:
+    name: Bygg och publicera (Windows ${{ matrix.arch }})
+    needs: prepare
+    runs-on: windows-latest
+    timeout-minutes: 60
+    strategy:
+      # One at a time, x64 first: see the comment at the top of this file.
+      max-parallel: 1
+      matrix:
+        include:
+          - arch: x64
+            target: x86_64-pc-windows-msvc
+          - arch: x86
+            target: i686-pc-windows-msvc
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          # On a manual start the tag was created by "prepare" at this same commit.
+          ref: ${{ github.sha }}
+
+      - uses: pnpm/action-setup@v6
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Installera Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+
+      - name: Cacha Rust-bygget
+        uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/desktop/src-tauri -> target
+          key: ${{ matrix.target }}
+
+      - name: Installera beroenden
+        run: pnpm install --frozen-lockfile
+
+      - name: Bygg innehållet
+        run: pnpm content:build
+
       - name: Förbered signeringsnyckeln
         env:
           KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
@@ -146,10 +195,10 @@ jobs:
         with:
           projectPath: apps/desktop
           tauriScript: pnpm tauri
-          args: --bundles nsis
-          tagName: ${{ steps.tag.outputs.tag }}
+          args: --target ${{ matrix.target }} --bundles nsis
+          tagName: ${{ needs.prepare.outputs.tag }}
           releaseName: Bygglov-studieapp v__VERSION__
-          releaseBody: ${{ steps.notes.outputs.body }}
+          releaseBody: ${{ needs.prepare.outputs.notes }}
           releaseDraft: false
           prerelease: false
           uploadUpdaterJson: true
